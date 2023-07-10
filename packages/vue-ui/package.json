@@ -12,5 +12,8 @@
     "tsconfig": "*",
     "typescript": "~4.5.5",
     "vue": "^3.2.13"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }
