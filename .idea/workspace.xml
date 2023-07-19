@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9b31cad9-4361-4260-a129-4e8ea0f6c366" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/apps/back-office/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/apps/back-office/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/back-office/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/jest.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/lint-staged.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/back-office/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/back-office/postcss.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/android-chrome-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/android-chrome-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/android-chrome-maskable-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/android-chrome-maskable-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/apple-touch-icon-120x120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/apple-touch-icon-152x152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/apple-touch-icon-180x180.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/apple-touch-icon-60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/apple-touch-icon-76x76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/favicon-16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/msapplication-icon-144x144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/mstile-150x150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/img/icons/safari-pinned-tab.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/back-office/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/assets/tailwind.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/back-office/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/back-office/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/registerServiceWorker.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/router/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/shims-vue.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/views/AboutView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/views/HomeView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/src/views/__tests__/HomeView.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/back-office/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/back-office/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/back-office/vue.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/babel.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/jest.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/lint-staged.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/postcss.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/android-chrome-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/android-chrome-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/android-chrome-maskable-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/android-chrome-maskable-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/apple-touch-icon-120x120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/apple-touch-icon-152x152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/apple-touch-icon-180x180.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/apple-touch-icon-60x60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/apple-touch-icon-76x76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/favicon-16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/msapplication-icon-144x144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/mstile-150x150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/img/icons/safari-pinned-tab.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/assets/tailwind.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/registerServiceWorker.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/router/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/shims-vue.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/views/AboutView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/views/HomeView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/src/views/__tests__/HomeView.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/portal/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/portal/vue.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2SntgDc6MzS6mMCM86nPG9F3yma" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b31cad9-4361-4260-a129-4e8ea0f6c366" name="Changes" comment="" />
+      <created>1689794289365</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689794289365</updated>
+      <workItem from="1689794293753" duration="12000" />
+    </task>
+    <servers />
+  </component>
+</project>
