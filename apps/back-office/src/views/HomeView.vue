@@ -1,18 +1,19 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <hello-world msg="Welcome to Your Vue.js + TypeScript App" />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+<script setup lang="ts">
+import HelloWorld from "@/components/HelloWorld.vue";
+import { computed } from "vue";
 
-export default defineComponent({
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
+// Props
+const props = defineProps({ initialWidth: { type: Number, default: 0 } });
+
+// Computed
+const calculateWidth = computed(() => {
+  return props.initialWidth + 10;
 });
 </script>
