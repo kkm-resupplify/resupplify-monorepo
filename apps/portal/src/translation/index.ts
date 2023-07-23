@@ -7,8 +7,10 @@ import pl from '@/translation/langs/pl.json'
 const userLang = localStorage.getItem('marketify-lang')
 
 export const i18n = createI18n({
+  allowComposition: true,
   locale: userLang!,
   fallbackLocale: 'en',
+  legacy: false,
   messages: {
     en: en,
     pl: pl
