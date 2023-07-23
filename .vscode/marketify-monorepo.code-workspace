@@ -1,0 +1,24 @@
+{
+  "folders": [
+    // { "name": "marketify-monorepo", "path": "../" },
+
+    {
+      "name": "portal",
+      "path": "../apps/portal"
+    },
+    {
+      "name": "back-office",
+      "path": "../apps/back-office"
+    },
+    {
+      "name": "shared",
+      "path": "../packages/shared"
+    }
+  ],
+  "settings": {
+    "vitest.commandLine": "npx vitest",
+    "vitest.enable": true,
+    "vitest.showFailMessages": true,
+    "testing.automaticallyOpenPeekView": "never"
+  }
+}

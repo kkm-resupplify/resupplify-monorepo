@@ -8,7 +8,9 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@sharedAtoms': fileURLToPath(new URL('./atoms', import.meta.url))
+      '@': fileURLToPath(new URL('./', import.meta.url)),
+      '@sharedAtoms': fileURLToPath(new URL('./atoms', import.meta.url)),
+      '@sharedTranslations': fileURLToPath(new URL('./translations', import.meta.url))
     }
   }
 })

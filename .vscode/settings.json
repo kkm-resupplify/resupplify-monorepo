@@ -1,2 +1,7 @@
 {
+  "vitest.showFailMessages": true,
+  "vitest.commandLine": "npx vitest",
+  "vitest.enable": true,
+  "jest.showCoverageOnLoad": false,
+  "jest.autoRevealOutput": "off"
 }
