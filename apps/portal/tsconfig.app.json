@@ -12,7 +12,8 @@
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@sharedAtoms": ["../../packages/shared/atoms/*"]
     }
   }
 }
