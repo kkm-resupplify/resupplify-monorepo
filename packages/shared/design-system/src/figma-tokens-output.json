@@ -2,6 +2,10 @@
   "global": {
     "colors": {
       "blue": {
+        "100": {
+          "value": "#1e90fa",
+          "type": "color"
+        },
         "300": {
           "value": "#1D76FB",
           "type": "color"
