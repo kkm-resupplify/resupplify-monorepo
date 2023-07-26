@@ -7,5 +7,6 @@
   --figma-colors-blue-100: #1e90fa;
   --figma-colors-blue-300: #1D76FB;
   --figma-colors-blue-500: #002E73;
+  --figma-colors-blue-900: #001c45;
   --figma-gradients-blue-primary-1: linear-gradient(90deg, #002E73 0%, #002E73 0.52%, #1D76FB 100%);
 }
