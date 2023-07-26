@@ -1,0 +1,30 @@
+{
+  "global": {
+    "colors": {
+      "blue": {
+        "300": {
+          "value": "#1D76FB",
+          "type": "color"
+        },
+        "500": {
+          "value": "#002E73",
+          "type": "color"
+        }
+      }
+    },
+    "gradients": {
+      "blue": {
+        "primary-1": {
+          "value": "linear-gradient(90deg, #002E73 0%, #002E73 0.52%, #1D76FB 100%)",
+          "type": "color"
+        }
+      }
+    }
+  },
+  "$themes": [],
+  "$metadata": {
+    "tokenSetOrder": [
+      "global"
+    ]
+  }
+}
