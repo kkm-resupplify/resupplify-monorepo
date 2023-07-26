@@ -8,7 +8,8 @@
     "paths": {
       "@/*": ["./"],
       "@sharedAtoms/*": ["./atoms/*"],
-      "@sharedTranslations/*": ["./translations/*"]
+      "@sharedTranslations/*": ["./translations/*"],
+      "@sharedTokens/*": ["./design-system/tokens/*"]
     }
   }
 }
