@@ -1,0 +1,32 @@
+{
+  "tokenSetOrder": {
+    "0": {
+      "value": "global",
+      "type": "other"
+    }
+  },
+  "colors": {
+    "blue": {
+      "100": {
+        "value": "#1e90fa",
+        "type": "color"
+      },
+      "300": {
+        "value": "#1D76FB",
+        "type": "color"
+      },
+      "500": {
+        "value": "#002E73",
+        "type": "color"
+      }
+    }
+  },
+  "gradients": {
+    "blue": {
+      "primary-1": {
+        "value": "linear-gradient(90deg, #002E73 0%, #002E73 0.52%, #1D76FB 100%)",
+        "type": "color"
+      }
+    }
+  }
+}
