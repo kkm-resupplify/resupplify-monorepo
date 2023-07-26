@@ -22,7 +22,7 @@ jobs:
         run: npx token-transformer packages/shared/design-system/src/figma-tokens-output.json packages/shared/design-system/src/sd-input.json --resolveReferences false
 
       - name: Run style-dictionary
-        run: npx style-dictionary build --config sd.config.cjs
+        run: npx style-dictionary build --config ./sd.config.cjs
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
