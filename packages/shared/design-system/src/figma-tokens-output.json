@@ -153,25 +153,21 @@
   },
   "button": {
     "border": {
-      "width": {
-        "xsm": {
-          "value": "{border.width.xsm}",
-          "type": "borderWidth"
-        }
+      "xsm": {
+        "value": "{border.xsm}",
+        "type": "borderWidth"
       },
-      "r": {
-        "sm": {
-          "value": "{border.radius.sm}",
-          "type": "borderRadius"
-        },
-        "md": {
-          "value": "{border.radius.md}",
-          "type": "borderRadius"
-        },
-        "lg": {
-          "value": "{border.radius.lg}",
-          "type": "borderRadius"
-        }
+      "sm": {
+        "value": "{border.radius.sm}",
+        "type": "borderRadius"
+      },
+      "md": {
+        "value": "{border.radius.md}",
+        "type": "borderRadius"
+      },
+      "lg": {
+        "value": "{border.radius.lg}",
+        "type": "borderRadius"
       }
     },
     "gradient": {
@@ -187,11 +183,9 @@
       }
     },
     "font": {
-      "size": {
-        "nm": {
-          "value": "{font.size.nm}",
-          "type": "fontSizes"
-        }
+      "nm": {
+        "value": "{font.nm}",
+        "type": "fontSizes"
       }
     },
     "boxshadow": {
