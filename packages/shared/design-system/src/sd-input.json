@@ -25,10 +25,6 @@
     "lg": {
       "value": "{border-radius.30}",
       "type": "borderRadius"
-    },
-    "transparent": {
-      "value": "[object Object]",
-      "type": "border"
     }
   },
   "gradient": {
@@ -71,26 +67,56 @@
   },
   "boxshadow": {
     "primary": {
-      "value": {
-        "color": "#00000040",
-        "type": "dropShadow",
-        "x": 0,
-        "y": 4,
-        "blur": 4,
-        "spread": 0
+      "color": {
+        "value": "#00000040",
+        "type": "color"
       },
-      "type": "boxShadow"
+      "type": {
+        "value": "dropShadow",
+        "type": "type"
+      },
+      "x": {
+        "value": 0,
+        "type": "x"
+      },
+      "y": {
+        "value": 4,
+        "type": "y"
+      },
+      "blur": {
+        "value": 4,
+        "type": "blur"
+      },
+      "spread": {
+        "value": 0,
+        "type": "spread"
+      }
     },
     "primary-1": {
-      "value": {
-        "color": "#00000040",
-        "type": "dropShadow",
-        "x": 0,
-        "y": 4,
-        "blur": 4,
-        "spread": 0
+      "color": {
+        "value": "#00000040",
+        "type": "color"
       },
-      "type": "boxShadow"
+      "type": {
+        "value": "dropShadow",
+        "type": "type"
+      },
+      "x": {
+        "value": 0,
+        "type": "x"
+      },
+      "y": {
+        "value": 4,
+        "type": "y"
+      },
+      "blur": {
+        "value": 4,
+        "type": "blur"
+      },
+      "spread": {
+        "value": 0,
+        "type": "spread"
+      }
     }
   },
   "padding": {
@@ -137,10 +163,6 @@
         "value": "#000a1a",
         "type": "color"
       }
-    },
-    "transparent": {
-      "value": "rgba(0,0,0,0)",
-      "type": "color"
     },
     "white": {
       "value": "#fff",

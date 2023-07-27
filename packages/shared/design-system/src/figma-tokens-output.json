@@ -23,10 +23,6 @@
           "type": "color"
         }
       },
-      "transparent": {
-        "value": "rgba(0,0,0,0)",
-        "type": "color"
-      },
       "white": {
         "value": "#fff",
         "type": "color"
@@ -137,15 +133,6 @@
           "spread": "0"
         },
         "type": "boxShadow"
-      }
-    },
-    "border": {
-      "transparent": {
-        "value": {
-          "color": "{colors.transparent}",
-          "width": "0"
-        },
-        "type": "border"
       }
     }
   },
