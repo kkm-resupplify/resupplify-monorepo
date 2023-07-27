@@ -48,89 +48,89 @@
     },
     "border-radius": {
       "10": {
-        "value": "4",
+        "value": "4px",
         "type": "borderRadius"
       },
       "20": {
-        "value": "8",
+        "value": "8px",
         "type": "borderRadius"
       },
       "30": {
-        "value": "12",
+        "value": "12px",
         "type": "borderRadius"
       }
     },
     "border-width": {
       "10": {
-        "value": "1",
+        "value": "1px",
         "type": "borderWidth"
       },
       "20": {
-        "value": "2",
+        "value": "2px",
         "type": "borderWidth"
       },
       "40": {
-        "value": "4",
+        "value": "4px",
         "type": "borderWidth"
       },
       "50": {
-        "value": "8",
+        "value": "8px",
         "type": "borderWidth"
       }
     },
     "font-size": {
       "10": {
-        "value": "8",
+        "value": "8px",
         "type": "fontSizes"
       },
       "20": {
-        "value": "10",
+        "value": "10px",
         "type": "fontSizes"
       },
       "30": {
-        "value": "12",
+        "value": "12px",
         "type": "fontSizes"
       },
       "40": {
-        "value": "14",
+        "value": "14px",
         "type": "fontSizes"
       },
       "50": {
-        "value": "16",
+        "value": "16px",
         "type": "fontSizes"
       }
     },
     "spacing": {
       "10": {
-        "value": "2",
+        "value": "2px",
         "type": "spacing"
       },
       "20": {
-        "value": "4",
+        "value": "4px",
         "type": "spacing"
       },
       "30": {
-        "value": "8",
+        "value": "8px",
         "type": "spacing"
       },
       "40": {
-        "value": "12",
+        "value": "12px",
         "type": "spacing"
       },
       "50": {
-        "value": "16",
+        "value": "16px",
         "type": "spacing"
       }
     },
     "boxshadow": {
       "primary-1": {
         "value": {
-          "color": "#00000040",
-          "type": "dropShadow",
           "x": "0",
-          "y": "4",
+          "y": "4px",
           "blur": "4",
-          "spread": "0"
+          "spread": "0",
+          "color": "#00000040",
+          "type": "dropShadow"
         },
         "type": "boxShadow"
       }
