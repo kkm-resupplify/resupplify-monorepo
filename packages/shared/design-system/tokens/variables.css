@@ -3,8 +3,6 @@
  */
 
 :root {
-  --figma-token-set-order-0: global;
-  --figma-token-set-order-1: button;
   --figma-border-xsm: 1px;
   --figma-border-sm: 4px;
   --figma-border-md: 8px;
@@ -55,4 +53,6 @@
   --figma-spacing-30: 8px;
   --figma-spacing-40: 12px;
   --figma-spacing-50: 16px;
+  --figma-token-set-order-0: global;
+  --figma-token-set-order-1: button;
 }
