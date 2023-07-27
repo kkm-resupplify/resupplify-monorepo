@@ -1,0 +1,10 @@
+@mixin size($font-size: 14px, $padding) {
+  padding: $padding;
+  font-size: $font-size;
+}
+
+@mixin color($bg-color, $border-color: $bg-color, $text-color: primary) {
+  color: var(--#{$text-color});
+  background-color: var(--#{bg-color});
+  border: 1px solid var(--#{$border-color});
+}

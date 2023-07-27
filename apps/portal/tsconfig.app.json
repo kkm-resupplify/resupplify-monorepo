@@ -13,7 +13,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@sharedAtoms": ["../../packages/shared/atoms/*"]
+      "@sharedAtoms/*": ["../../packages/shared/atoms/*"]
     }
   }
 }
