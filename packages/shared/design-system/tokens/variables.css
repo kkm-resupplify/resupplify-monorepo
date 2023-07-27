@@ -4,8 +4,47 @@
 
 :root {
   --figma-token-set-order-0: global;
+  --figma-token-set-order-1: button;
+  --figma-border-xsm: 1;
+  --figma-border-sm: 4;
+  --figma-border-md: 8;
+  --figma-border-lg: 12;
+  --figma-border-transparent: [object Object];
+  --figma-gradient-blue-primary: linear-gradient(90deg, #002E73 0%, #002E73 0.52%, #1D76FB 100%);
+  --figma-gradient-blue-grayed-out: linear-gradient(90deg, #003d98 0%, #3f8cff 70%);;
+  --figma-font-size-10: 8;
+  --figma-font-size-20: 10;
+  --figma-font-size-30: 12;
+  --figma-font-size-40: 14;
+  --figma-font-size-50: 16;
+  --figma-font-size-nm: 12;
+  --figma-boxshadow-primary: [object Object];
+  --figma-boxshadow-primary-1: [object Object];
+  --figma-padding-t: 2;
+  --figma-padding-xsm: 4;
+  --figma-padding-sm: 8;
+  --figma-padding-md: 12;
+  --figma-padding-lg: 16;
   --figma-colors-blue-100: #1e90fa;
   --figma-colors-blue-300: #1D76FB;
   --figma-colors-blue-500: #002E73;
+  --figma-colors-blue-900: #001c45;
+  --figma-colors-blue-1000: #000a1a;
+  --figma-colors-transparent: rgba(0,0,0,0);
+  --figma-colors-white: #fff;
   --figma-gradients-blue-primary-1: linear-gradient(90deg, #002E73 0%, #002E73 0.52%, #1D76FB 100%);
+  --figma-gradients-blue-grayed-out: linear-gradient(90deg, #003d98 0%, #3f8cff 70%);;
+  --figma-fonts-poppins: Poppins;
+  --figma-border-radius-10: 4;
+  --figma-border-radius-20: 8;
+  --figma-border-radius-30: 12;
+  --figma-border-width-10: 1;
+  --figma-border-width-20: 2;
+  --figma-border-width-40: 4;
+  --figma-border-width-50: 8;
+  --figma-spacing-10: 2;
+  --figma-spacing-20: 4;
+  --figma-spacing-30: 8;
+  --figma-spacing-40: 12;
+  --figma-spacing-50: 16;
 }
