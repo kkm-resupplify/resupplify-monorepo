@@ -25,10 +25,6 @@
     "lg": {
       "value": "{border-radius.30}",
       "type": "borderRadius"
-    },
-    "transparent": {
-      "value": "[object Object]",
-      "type": "border"
     }
   },
   "gradient": {
@@ -167,10 +163,6 @@
         "value": "#000a1a",
         "type": "color"
       }
-    },
-    "transparent": {
-      "value": "rgba(0,0,0,0)",
-      "type": "color"
     },
     "white": {
       "value": "#fff",
