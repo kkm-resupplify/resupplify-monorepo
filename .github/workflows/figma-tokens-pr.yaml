@@ -19,7 +19,7 @@ jobs:
         run: npm install
 
       - name: Run token-transformer
-        run: npx token-transformer packages/shared/design-system/src/figma-tokens-output.json packages/shared/design-system/src/sd-input.json --resolveReferences false --expandShadow true --expandTypography true
+        run: npx token-transformer packages/shared/design-system/src/figma-tokens-output.json packages/shared/design-system/src/sd-input.json --resolveReferences false --expandShadow true --expandTypography true --preserveUnit "px" "em" "rem"
 
       - name: Run style-dictionary
         run: npx style-dictionary build --config ./sd.config.cjs
