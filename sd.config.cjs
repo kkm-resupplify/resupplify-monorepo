@@ -9,7 +9,7 @@ module.exports = {
     scss: {
       transformGroup: 'scss',
       buildPath: 'packages/shared/design-system/tokens/',
-      prefix: 'figma',
+      // prefix: 'figma',
       files: [
         {
           destination: 'variables.scss',

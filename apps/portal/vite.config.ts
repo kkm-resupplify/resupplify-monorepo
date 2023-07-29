@@ -9,6 +9,13 @@ export default defineConfig({
   server: {
     port: 8080
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "../../packages/shared/design-system/tokens/variables.scss";`
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
