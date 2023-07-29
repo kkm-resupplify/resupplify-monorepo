@@ -14,8 +14,4 @@ app.use(i18n as any)
 app.use(router)
 app.use(pinia)
 
-// app.config.globalProperties.$t = useI18n()
-// app.config.globalProperties.$d = useI18n()
-// app.config.globalProperties.$n = useI18n()
-
 app.mount('#app')
