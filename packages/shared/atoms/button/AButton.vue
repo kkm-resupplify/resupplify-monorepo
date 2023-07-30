@@ -1,11 +1,20 @@
 <template>
   <div>
-    <button class="a-button">{{ text }}</button>
+    <button :class="generateClasses">{{ text }}</button>
   </div>
 </template>
 
 <script setup lang="ts">
+// Vue
 import { computed } from 'vue'
+
+// Enums
+import AButtonSizeEnum from '@sharedEnums/button/AButtonSizeEnum'
+import AButtonColorEnum from '@sharedEnums/button/AButtonColorEnum'
+
+// Composables
+import { useAtomClassComposable } from '@sharedComposables/atom/useAtomClassComposable'
+const { generateClassNames } = useAtomClassComposable()
 
 const props = defineProps({
   text: {
@@ -14,11 +23,17 @@ const props = defineProps({
   },
   size: {
     type: String,
-    default: 'medium'
+    default: 'medium',
+    validator(value: String) {
+      return AButtonSizeEnum.hasValue(value)
+    }
   },
-  bgColor: {
+  color: {
     type: String,
-    default: 'primary-blue-500'
+    default: 'gradient-primary',
+    validator(value: String) {
+      return AButtonColorEnum.hasValue(value)
+    }
   },
   textColor: {
     type: String,
@@ -26,23 +41,54 @@ const props = defineProps({
   }
 })
 
-const styles = computed(() => {
-  return `${props.size} ${props.bgColor} ${props.textColor}`
+const baseClass = 'a-button'
+
+const generateClasses = computed(() => {
+  return generateClassNames(baseClass, [props.size, props.color])
 })
 </script>
 
 <style lang="scss" scoped>
+@mixin button-padding($padding-x, $padding-y: 0) {
+  padding: $padding-y $padding-x;
+}
+
+@mixin gradient($gradient) {
+  background: $gradient;
+}
+
 .a-button {
   display: inline-flex;
   align-items: flex-start;
 
   color: #fff;
 
-  background: var(
-    --gradient-primary,
-    linear-gradient(90deg, #002e73 0%, #002e73 0.52%, #1d76fb 100%)
-  );
+  border: 0;
   border-radius: 4px;
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
+
+  // Size
+  &--small {
+    @include button-padding($padding-sm);
+  }
+
+  &--medium {
+    @include button-padding($padding-md);
+  }
+
+  &--large {
+    @include button-padding($padding-lg, $padding-t);
+  }
+
+  // Background color
+  &--gradient {
+    &-primary {
+      @include gradient($gradient-blue-primary);
+
+      &:hover {
+        @include gradient($gradient-blue-grayed-out);
+      }
+    }
+  }
 }
 </style>
