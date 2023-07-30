@@ -44,7 +44,7 @@ const props = defineProps({
 const baseClass = 'a-button'
 
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.size, props.color])
+  return generateClassNames(baseClass, [props.size, props.color, `text-${props.textColor}`])
 })
 </script>
 
@@ -89,6 +89,16 @@ const generateClasses = computed(() => {
         @include gradient($gradient-blue-grayed-out);
       }
     }
+  }
+
+  &--text {
+    &-white {
+      color: $colors-white;
+    }
+
+    // &-primary {
+    //   color: $colors-primary;
+    // }
   }
 }
 </style>
