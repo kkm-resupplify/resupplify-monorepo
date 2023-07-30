@@ -19,7 +19,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '@sharedAtoms': fileURLToPath(new URL('../../packages/shared/atoms', import.meta.url))
+      '@sharedAtoms': fileURLToPath(new URL('../../packages/shared/atoms', import.meta.url)),
+      '@sharedEnums': fileURLToPath(new URL('../../packages/shared/enums', import.meta.url)),
+      '@sharedComposables': fileURLToPath(
+        new URL('../../packages/shared/composables', import.meta.url)
+      )
     }
   }
 })

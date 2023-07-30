@@ -21,7 +21,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@sharedAtoms/*": ["../../packages/shared/atoms/*"]
+      "@sharedAtoms/*": ["../../packages/shared/atoms/*"],
+      "@sharedComposables/*": ["../../packages/shared/composables/*"],
+      "@sharedEnums/*": ["../../packages/shared/enums/*"]
     }
   }
 }
