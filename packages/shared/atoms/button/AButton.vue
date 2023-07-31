@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :class="generateClasses">{{ text }}</button>
+    <button :class="generateClasses" data-test="button">{{ text }}</button>
   </div>
 </template>
 
