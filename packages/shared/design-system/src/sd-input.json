@@ -1,14 +1,4 @@
 {
-  "tokenSetOrder": {
-    "0": {
-      "value": "global",
-      "type": "other"
-    },
-    "1": {
-      "value": "button",
-      "type": "other"
-    }
-  },
   "border": {
     "xsm": {
       "value": "{border-width.10}",
@@ -239,6 +229,16 @@
     "50": {
       "value": "16px",
       "type": "spacing"
+    }
+  },
+  "tokenSetOrder": {
+    "0": {
+      "value": "global",
+      "type": "other"
+    },
+    "1": {
+      "value": "button",
+      "type": "other"
     }
   }
 }
