@@ -7,7 +7,6 @@
     "src/**/*.json",
     "../../packages/shared/**/*.vue",
     "../../packages/shared/**/*.json",
-    "../../packages/shared/**/*.ts",
     "../../packages/shared/shims-vue.d.ts"
   ],
   "exclude": [
