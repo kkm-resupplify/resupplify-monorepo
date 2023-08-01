@@ -1,13 +1,11 @@
 <template>
-  <div>Halo halo</div>
-  {{ $t('global.welcome') }}
-  {{ userStore.email }}
+  <div>
+    <a-button text="Sample" size="small" />
+    <a-button text="Sample" size="medium" />
+    <a-button text="Sample" size="large" />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from '@/stores/user/useUserStore'
-
-const userStore = useUserStore()
+import AButton from '@sharedAtoms/button/AButton.vue'
 </script>
-
-<style scoped></style>

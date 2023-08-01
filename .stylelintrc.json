@@ -1,24 +1,18 @@
 {
   "plugins": ["stylelint-order"],
   "extends": [
+    "stylelint-config-clean-order",
     "stylelint-config-standard-scss",
-    "stylelint-config-standard-vue/scss",
-    "stylelint-config-clean-order"
+    "stylelint-config-standard-vue/scss"
   ],
   "rules": {
+    "selector-id-pattern": "^[a-z][a-zA-Z0-9]+$",
     "selector-class-pattern": null,
     "scss/no-global-function-names": null,
     "custom-property-pattern": null,
     "no-descending-specificity": null,
     "scss/operator-no-newline-after": null,
     "at-rule-empty-line-before": null,
-    "selector-id-pattern": "^[a-z][a-zA-Z0-9]+$",
-    "selector-pseudo-element-no-unknown": [
-      true,
-      {
-        "ignorePseudoElements": ["v-deep"]
-      }
-    ],
     "selector-pseudo-class-no-unknown": [
       true,
       {

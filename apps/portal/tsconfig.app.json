@@ -1,19 +1,28 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "exclude": [
+    "src/**/__tests__/*",
+    "../../packages/shared/**/__tests__/*",
+    "../back-office/**/__tests__/*"
+  ],
   "include": [
     "env.d.ts",
     "src/**/*",
     "src/**/*.vue",
     "src/**/*.json",
-    "./../../packages/shared/shims-vue.d.ts"
+    "../../packages/shared/**/*.vue",
+    "../../packages/shared/**/*.json",
+    "../../packages/shared/shims-vue.d.ts"
   ],
-  "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
+    "rootDir": "../../",
     "composite": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@sharedAtoms": ["../../packages/shared/atoms/*"]
+      "@sharedAtoms/*": ["../../packages/shared/atoms/*"],
+      "@sharedComposables/*": ["../../packages/shared/composables/*"],
+      "@sharedEnums/*": ["../../packages/shared/enums/*"]
     }
   }
 }

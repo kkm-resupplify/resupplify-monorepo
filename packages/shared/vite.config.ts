@@ -5,12 +5,21 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/design-system/tokens/variables.scss";`
+      }
+    }
+  },
   plugins: [vue()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./', import.meta.url)),
       '@sharedAtoms': fileURLToPath(new URL('./atoms', import.meta.url)),
-      '@sharedTranslations': fileURLToPath(new URL('./translations', import.meta.url))
+      '@sharedEnums': fileURLToPath(new URL('./enums', import.meta.url)),
+      '@sharedTranslations': fileURLToPath(new URL('./translations', import.meta.url)),
+      '@sharedComposables': fileURLToPath(new URL('./composables', import.meta.url))
     }
   }
 })
