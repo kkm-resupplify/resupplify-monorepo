@@ -1,8 +1,8 @@
 <template>
   <div>
-    <a-button text="Sample" size="small" />
-    <a-button text="Sample" size="medium" />
-    <a-button text="Sample" size="large" />
+    <a-button :text="$t('global.welcome')" size="small" />
+    <a-button :text="$t('global.goodbye')" size="medium" />
+    <a-button :text="$t('payments.payNow')" size="large" />
   </div>
 </template>
 

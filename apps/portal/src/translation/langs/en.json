@@ -1,5 +1,9 @@
 {
   "global": {
-    "welcome": "Welcome"
+    "welcome": "Welcome",
+    "goodbye": "Goodbye"
+  },
+  "payments": {
+    "payNow": "Pay now"
   }
 }
