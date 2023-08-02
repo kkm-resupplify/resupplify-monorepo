@@ -7,8 +7,9 @@
   --figma-border-sm: 4px;
   --figma-border-md: 8px;
   --figma-border-lg: 12px;
-  --figma-gradient-blue-primary: linear-gradient(90deg, #002E73 0%, #002E73 0.52%, #1D76FB 100%);
-  --figma-gradient-blue-grayed-out: linear-gradient(90deg, #003d98 0%, #3f8cff 70%);;
+  --figma-gradient-primary-grayed-out: linear-gradient(90deg, #003d98 0%, #3f8cff 70%);;
+  --figma-gradient-primary-default: linear-gradient(90deg, #002E73 0%, #002E73 0.52%, #1D76FB 100%);
+  --figma-gradient-primary-hover: linear-gradient(90deg, #002E7350 0%, #002E7350 0.52%, #1D76FB50 100%);
   --figma-font-size-10: 8px;
   --figma-font-size-20: 10px;
   --figma-font-size-30: 12px;
@@ -34,12 +35,14 @@
   --figma-padding-lg: 16px;
   --figma-colors-blue-100: #1e90fa;
   --figma-colors-blue-300: #1D76FB;
+  --figma-colors-blue-400: #1e58fa;
   --figma-colors-blue-500: #002E73;
   --figma-colors-blue-900: #001c45;
   --figma-colors-blue-1000: #000a1a;
   --figma-colors-white: #fff;
   --figma-gradients-blue-primary-1: linear-gradient(90deg, #002E73 0%, #002E73 0.52%, #1D76FB 100%);
   --figma-gradients-blue-grayed-out: linear-gradient(90deg, #003d98 0%, #3f8cff 70%);;
+  --figma-gradients-blue-alpha-30: linear-gradient(90deg, #002E7350 0%, #002E7350 0.52%, #1D76FB50 100%);
   --figma-fonts-poppins: Poppins;
   --figma-border-radius-10: 4px;
   --figma-border-radius-20: 8px;
