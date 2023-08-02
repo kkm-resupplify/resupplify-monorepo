@@ -60,6 +60,10 @@
       "value": "16px",
       "type": "fontSizes"
     },
+    "60": {
+      "value": "18px",
+      "type": "fontSizes"
+    },
     "nm": {
       "value": "{font-size.30}",
       "type": "fontSizes"
