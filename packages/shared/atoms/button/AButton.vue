@@ -83,10 +83,10 @@ const generateClasses = computed(() => {
   // Background color
   &--gradient {
     &-primary {
-      @include gradient($gradient-blue-primary);
+      @include gradient($gradients-blue-primary-1);
 
       &:hover {
-        @include gradient($gradient-blue-grayed-out);
+        @include gradient($gradients-blue-grayed-out);
       }
     }
   }
