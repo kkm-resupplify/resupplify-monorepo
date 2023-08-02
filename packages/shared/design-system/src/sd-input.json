@@ -18,13 +18,23 @@
     }
   },
   "gradient": {
-    "blue": {
-      "primary": {
-        "value": "{gradients.blue.primary-1}",
-        "type": "color"
-      },
+    "primary": {
       "grayed-out": {
         "value": "{gradients.blue.grayed-out}",
+        "type": "color"
+      },
+      "default": {
+        "value": "{gradients.blue.primary-1}",
+        "type": "color",
+        "hover": {
+          "hover": {
+            "value": "{gradients.blue.alpha.30}",
+            "type": "color"
+          }
+        }
+      },
+      "hover": {
+        "value": "{gradients.blue.alpha.30}",
         "type": "color"
       }
     }
@@ -141,6 +151,10 @@
         "value": "#1D76FB",
         "type": "color"
       },
+      "400": {
+        "value": "#1e58fa",
+        "type": "color"
+      },
       "500": {
         "value": "#002E73",
         "type": "color"
@@ -168,6 +182,12 @@
       "grayed-out": {
         "value": "linear-gradient(90deg, #003d98 0%, #3f8cff 70%);",
         "type": "color"
+      },
+      "alpha": {
+        "30": {
+          "value": "linear-gradient(90deg, #002E7350 0%, #002E7350 0.52%, #1D76FB50 100%)",
+          "type": "color"
+        }
       }
     }
   },
