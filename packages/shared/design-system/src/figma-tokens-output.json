@@ -108,6 +108,10 @@
       "50": {
         "value": "16px",
         "type": "fontSizes"
+      },
+      "60": {
+        "value": "18px",
+        "type": "fontSizes"
       }
     },
     "spacing": {
