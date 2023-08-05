@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <button :class="generateClasses" data-test="button">{{ text }}</button>
-  </div>
+  <button :class="generateClasses" data-test="button">{{ text }}</button>
 </template>
 
 <script setup lang="ts">
@@ -35,6 +33,9 @@ const props = defineProps({
       return AButtonColorEnum.hasValue(value)
     }
   },
+  outlined: {
+    type: Boolean
+  },
   textColor: {
     type: String,
     default: 'white'
@@ -44,7 +45,13 @@ const props = defineProps({
 const baseClass = 'a-button'
 
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.size, props.color, `text-${props.textColor}`])
+  return props.outlined
+    ? generateClassNames(baseClass, [
+        props.size,
+        `outlined-${props.color}`,
+        `text-${props.textColor}`
+      ])
+    : generateClassNames(baseClass, [props.size, props.color, `text-${props.textColor}`])
 })
 </script>
 
@@ -57,9 +64,41 @@ const generateClasses = computed(() => {
   background: $gradient;
 }
 
+@mixin outlined-gradient($gradient, $gradient-hover, $border-radius: 4px, $border-width: 2px) {
+  position: relative;
+  background: $gradient;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background: $gradient border-box;
+    border: $border-width solid transparent;
+    border-radius: $border-radius;
+
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+
+    mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  &:hover {
+    background: $gradient-hover;
+
+    -webkit-text-fill-color: white;
+  }
+}
+
 .a-button {
   display: inline-flex;
   align-items: flex-start;
+
+  box-sizing: border-box;
 
   color: #fff;
 
@@ -69,36 +108,43 @@ const generateClasses = computed(() => {
 
   // Size
   &--small {
-    @include button-padding($padding-sm);
+    @include button-padding($button-padding-sm);
   }
 
   &--medium {
-    @include button-padding($padding-md);
+    @include button-padding($button-padding-md);
   }
 
   &--large {
-    @include button-padding($padding-lg, $padding-t);
+    @include button-padding($button-padding-lg, $button-padding-t);
+  }
+
+  &--x-large {
+    @include button-padding($button-padding-x-lg, $button-padding-sm);
+  }
+
+  // Outlined variant
+  &--outlined {
+    &-gradient-primary {
+      @include outlined-gradient($button-gradient-primary-default, $button-gradient-primary-hover);
+    }
   }
 
   // Background color
   &--gradient {
     &-primary {
-      @include gradient($gradients-blue-primary-1);
+      @include gradient($button-gradient-primary-default);
 
       &:hover {
-        @include gradient($gradients-blue-grayed-out);
+        @include gradient($button-gradient-primary-hover);
       }
     }
   }
 
   &--text {
     &-white {
-      color: $colors-white;
+      color: $global-colors-white;
     }
-
-    // &-primary {
-    //   color: $colors-primary;
-    // }
   }
 }
 </style>
