@@ -23,6 +23,9 @@ jobs:
 
       - name: Run style-dictionary
         run: npx style-dictionary build --config ./sd.config.cjs
+      
+      - name: Run stylelint-fix
+        run: npx stylelint --fix packages/shared/design-system/tokens/variables.scss
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
