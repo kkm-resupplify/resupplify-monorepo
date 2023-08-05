@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <button :class="generateClasses" data-test="button">{{ text }}</button>
-  </div>
+  <button :class="generateClasses" data-test="button">{{ text }}</button>
 </template>
 
 <script setup lang="ts">
@@ -68,7 +66,7 @@ const generateClasses = computed(() => {
 
 @mixin outlined-gradient($gradient, $gradient-hover, $border-radius: 4px, $border-width: 2px) {
   position: relative;
-  background: linear-gradient(90deg, #002e73 0%, #002e73 0.52%, #1d76fb 100%);
+  background: $gradient;
   background-clip: text;
 
   -webkit-text-fill-color: transparent;
@@ -79,7 +77,7 @@ const generateClasses = computed(() => {
     position: absolute;
     inset: 0;
 
-    background: $button-gradient-primary-default border-box;
+    background: $gradient border-box;
     border: $border-width solid transparent;
     border-radius: $border-radius;
 
@@ -87,10 +85,6 @@ const generateClasses = computed(() => {
 
     mask-composite: destination-out;
     mask-composite: exclude;
-
-    // &:hover {
-    //   mask: #fff;
-    // }
   }
 
   &:hover {
@@ -151,10 +145,6 @@ const generateClasses = computed(() => {
     &-white {
       color: $global-colors-white;
     }
-
-    // &-primary {
-    //   color: $colors-primary;
-    // }
   }
 }
 </style>
