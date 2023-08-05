@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <a-button text="Sample" size="small" />
-    <a-button text="Sample" size="medium" />
-    <a-button text="Sample" size="large" />
-  </div>
+  <div>Home view</div>
 </template>
 
-<script setup lang="ts">
-import AButton from '@sharedAtoms/button/AButton.vue'
-</script>
+<script setup lang="ts"></script>
