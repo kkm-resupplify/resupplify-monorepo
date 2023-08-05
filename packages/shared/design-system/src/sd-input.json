@@ -99,24 +99,6 @@
     },
     "type": "border"
   },
-  "border": {
-    "sm": {
-      "value": "{border-radius.10}",
-      "type": "borderRadius"
-    },
-    "md": {
-      "value": "{border-radius.20}",
-      "type": "borderRadius"
-    },
-    "lg": {
-      "value": "{border-radius.30}",
-      "type": "borderRadius"
-    },
-    "xsm": {
-      "value": "{border-width.10}",
-      "type": "borderWidth"
-    }
-  },
   "border-sm-hover": {
     "value": {
       "color": "{gradients.blue.primary-1}",
@@ -185,6 +167,24 @@
     "x-lg": {
       "value": "{font-size.100}",
       "type": "fontSizes"
+    }
+  },
+  "border": {
+    "xsm": {
+      "value": "{border-width.10}",
+      "type": "borderWidth"
+    },
+    "sm": {
+      "value": "{border-radius.10}",
+      "type": "borderRadius"
+    },
+    "md": {
+      "value": "{border-radius.20}",
+      "type": "borderRadius"
+    },
+    "lg": {
+      "value": "{border-radius.30}",
+      "type": "borderRadius"
     }
   },
   "gradient": {
@@ -400,6 +400,16 @@
     }
   },
   "text": {
+    "sm": {
+      "fontSize": {
+        "value": "{font-size.20}",
+        "type": "fontSizes"
+      },
+      "fontWeight": {
+        "value": "{font-weight.40}",
+        "type": "fontWeights"
+      }
+    },
     "normal": {
       "fontSize": {
         "value": "{font-size.30}",
