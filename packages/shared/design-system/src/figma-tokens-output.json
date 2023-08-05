@@ -387,7 +387,7 @@
           "type": "color",
           "hover": {
             "hover": {
-              "value": "{gradients.blue.alpha.30}",
+              "value": "{global-gradients.blue.alpha.30}",
               "type": "color"
             }
           }
