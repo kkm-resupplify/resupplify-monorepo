@@ -30,7 +30,7 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: Example
-          author_email: example@gmail.com
+          author_name: Monty Python
+          author_email: monty.python@camelot.com
           message: 'chore: style-dictionary output'
           add: '.'
