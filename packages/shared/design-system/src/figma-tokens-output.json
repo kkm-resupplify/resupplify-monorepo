@@ -234,6 +234,13 @@
       }
     },
     "text": {
+      "sm": {
+        "value": {
+          "fontSize": "{font-size.20}",
+          "fontWeight": "{font-weight.40}"
+        },
+        "type": "typography"
+      },
       "normal": {
         "value": {
           "fontSize": "{font-size.30}",
@@ -472,20 +479,6 @@
         "style": "solid"
       },
       "type": "border"
-    },
-    "border": {
-      "sm": {
-        "value": "{border-radius.10}",
-        "type": "borderRadius"
-      },
-      "md": {
-        "value": "{border-radius.20}",
-        "type": "borderRadius"
-      },
-      "lg": {
-        "value": "{border-radius.30}",
-        "type": "borderRadius"
-      }
     },
     "border-sm-hover": {
       "value": {
