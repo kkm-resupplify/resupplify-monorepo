@@ -225,6 +225,20 @@
     "white": {
       "value": "#fff",
       "type": "color"
+    },
+    "text": {
+      "primary": {
+        "value": "#1a1a1a",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "#575757",
+        "type": "color"
+      },
+      "white": {
+        "value": "{global-colors.white}",
+        "type": "color"
+      }
     }
   },
   "global-gradients": {
