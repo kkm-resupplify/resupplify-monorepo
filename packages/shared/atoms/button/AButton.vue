@@ -45,13 +45,9 @@ const props = defineProps({
 const baseClass = 'a-button'
 
 const generateClasses = computed(() => {
-  return props.outlined
-    ? generateClassNames(baseClass, [
-        props.size,
-        `outlined-${props.color}`,
-        `text-${props.textColor}`
-      ])
-    : generateClassNames(baseClass, [props.size, props.color, `text-${props.textColor}`])
+  const colorClass = props.outlined ? `outlined-${props.color}` : props.color
+
+  return generateClassNames(baseClass, [props.size, colorClass, `text-${props.textColor}`])
 })
 </script>
 
