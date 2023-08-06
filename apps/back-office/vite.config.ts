@@ -12,7 +12,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "../../packages/shared/design-system/tokens/variables.scss";`
+        additionalData: `@import "../../packages/shared/design-system/tokens/variables.scss"; @import "../../packages/shared/design-system/screen-breakpoints.scss";`
       }
     }
   },
