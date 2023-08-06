@@ -4,7 +4,7 @@
   </router-link>
 </template>
 
-<script setup langs="ts">
+<script setup lang="ts">
 // Vue
 import { computed } from 'vue'
 
