@@ -48,8 +48,16 @@
     }
   },
   "text-input-font-size": {
-    "normal": {
+    "nm": {
       "value": "{global-font-size.30}",
+      "type": "fontSizes"
+    },
+    "md": {
+      "value": "{global-font-size.40}",
+      "type": "fontSizes"
+    },
+    "lg": {
+      "value": "{global-font-size.50}",
       "type": "fontSizes"
     }
   },
@@ -81,6 +89,12 @@
         "value": "solid",
         "type": "strokeStyle"
       }
+    }
+  },
+  "text-input-text-color": {
+    "secondary": {
+      "value": "{global-colors.text.secondary}",
+      "type": "color"
     }
   },
   "button-border": {
@@ -407,6 +421,32 @@
       },
       "color": {
         "value": "#00000040",
+        "type": "color"
+      },
+      "type": {
+        "value": "dropShadow",
+        "type": "type"
+      }
+    },
+    "primary-2": {
+      "x": {
+        "value": 0,
+        "type": "x"
+      },
+      "y": {
+        "value": "5px",
+        "type": "y"
+      },
+      "blur": {
+        "value": "20px",
+        "type": "blur"
+      },
+      "spread": {
+        "value": 0,
+        "type": "spread"
+      },
+      "color": {
+        "value": "#00000070",
         "type": "color"
       },
       "type": {
