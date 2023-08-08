@@ -9,8 +9,8 @@
 import { computed } from 'vue'
 
 // Composables
-import { useAtomClassComposable } from '@sharedComposables/atom/useAtomClassComposable'
-const { generateClassNames } = useAtomClassComposable()
+import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+const { generateClassNames } = useClassComposable()
 
 const props = defineProps({
   link: {
