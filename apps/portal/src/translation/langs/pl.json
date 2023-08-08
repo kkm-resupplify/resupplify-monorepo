@@ -10,5 +10,9 @@
     "home": "Strona główna",
     "browse": "Przeglądaj",
     "resources": "Zasoby"
+  },
+  "signing": {
+    "login": "Zaloguj się",
+    "signup": "Zarejestruj się"
   }
 }

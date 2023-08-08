@@ -64,28 +64,22 @@ const generateClasses = computed(() => {
   position: relative;
   background: $gradient;
   background-clip: text;
-
   -webkit-text-fill-color: transparent;
 
   &::before {
     content: '';
-
     position: absolute;
     inset: 0;
-
     background: $gradient border-box;
     border: $border-width solid transparent;
     border-radius: $border-radius;
-
     mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-
     mask-composite: destination-out;
     mask-composite: exclude;
   }
 
   &:hover {
     background: $gradient-hover;
-
     -webkit-text-fill-color: white;
   }
 }
@@ -93,11 +87,8 @@ const generateClasses = computed(() => {
 .a-button {
   display: inline-flex;
   align-items: flex-start;
-
   box-sizing: border-box;
-
   color: #fff;
-
   border: 0;
   border-radius: 4px;
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);

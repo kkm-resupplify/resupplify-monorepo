@@ -10,5 +10,9 @@
     "home": "Home",
     "browse": "Browse",
     "resources": "Resources"
+  },
+  "signing": {
+    "login": "Log in",
+    "signup": "Sign up"
   }
 }
