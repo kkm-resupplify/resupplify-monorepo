@@ -5,5 +5,10 @@
   },
   "payments": {
     "payNow": "Pay now"
+  },
+  "pages": {
+    "home": "Home",
+    "browse": "Browse",
+    "resources": "Resources"
   }
 }
