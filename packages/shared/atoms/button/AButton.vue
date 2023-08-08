@@ -11,8 +11,8 @@ import AButtonSizeEnum from '@sharedEnums/button/AButtonSizeEnum'
 import AButtonColorEnum from '@sharedEnums/button/AButtonColorEnum'
 
 // Composables
-import { useAtomClassComposable } from '@sharedComposables/atom/useAtomClassComposable'
-const { generateClassNames } = useAtomClassComposable()
+import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+const { generateClassNames } = useClassComposable()
 
 const props = defineProps({
   text: {
