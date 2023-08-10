@@ -22,8 +22,8 @@ const { t } = useI18n()
 import AButton from '@sharedAtoms/button/AButton.vue'
 
 const buttonLinkList = ref([
-  { link: '/login', text: t('signing.login') },
-  { link: '/register', text: t('signing.signup'), outlined: true }
+  { link: '/login', text: t('auth.login') },
+  { link: '/register', text: t('auth.signup'), outlined: true }
 ])
 </script>
 
@@ -31,7 +31,7 @@ const buttonLinkList = ref([
 .navigation-bar-auth-section {
   display: flex;
   flex: 1 0 0;
-  gap: 24px;
+  gap: $global-spacing-90;
   align-items: center;
   align-self: stretch;
   justify-content: flex-end;

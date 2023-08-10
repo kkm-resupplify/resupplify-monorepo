@@ -31,7 +31,7 @@ const linkList = ref([
 <style scoped lang="scss">
 .navigation-bar-main-section {
   display: flex;
-  gap: 16px;
+  gap: $global-spacing-50;
   align-items: center;
   align-self: stretch;
 }
