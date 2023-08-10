@@ -7,6 +7,7 @@
 </template>
 
 <script setup lang="ts">
+// Components
 import NavigationBarMainSection from '@/components/navigation/sections/NavigationBarMainSection.vue'
 import NavigationBarAuthSection from './sections/NavigationBarAuthSection.vue'
 </script>
