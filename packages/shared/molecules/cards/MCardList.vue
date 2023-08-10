@@ -1,6 +1,6 @@
 <template>
   <div :class="generateClasses">
-    <a-card v-for="(card, idx) in cards" :key="idx" />
+    <component :is="cardComponent" v-for="(card, idx) in cards" :key="idx" />
   </div>
 </template>
 
@@ -8,14 +8,15 @@
 // Vue
 import { computed } from 'vue'
 
-// Components
-import ACard from '@sharedAtoms/card/ACard.vue'
-
 // Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const { generateClassNames } = useClassComposable()
 
 const props = defineProps({
+  cardComponent: {
+    type: Object,
+    required: true
+  },
   cards: {
     type: Array<object>,
     default: []

@@ -1,7 +1,10 @@
 <template>
-  <div>Card</div>
+  <a-card></a-card>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// Components
+import ACard from '@sharedAtoms/card/ACard.vue'
+</script>
 
 <style scoped lang="scss"></style>
