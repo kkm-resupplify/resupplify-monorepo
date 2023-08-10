@@ -53,10 +53,12 @@ const generateClasses = computed(() => {
 @mixin color($textColor, $hoverColor) {
   color: $textColor;
   text-decoration: none;
+
   background: linear-gradient(to right, #fff0 0 0, #fff0 0 0), $hoverColor;
   background-repeat: no-repeat;
   background-position: 100% 100%, 0 100%;
   background-size: 100% 0.1em, 0 0.1em;
+
   transition: background-size 350ms;
 
   &:hover,
@@ -65,9 +67,11 @@ const generateClasses = computed(() => {
 
     :deep(.a-link__text) {
       color: rgb(255 255 255 / 0%);
+
       background: $hoverColor;
       background-clip: text;
       background-size: 200% 100%;
+
       transition: all 200ms linear;
     }
   }
