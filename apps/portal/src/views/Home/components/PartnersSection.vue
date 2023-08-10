@@ -20,7 +20,9 @@ const companies = {}
 .partners-section {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   gap: $global-spacing-30;
+  align-self: stretch;
 
   padding: $global-spacing-30 $global-spacing-40;
 
