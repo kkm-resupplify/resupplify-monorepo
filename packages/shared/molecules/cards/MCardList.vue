@@ -11,6 +11,7 @@ import { computed } from 'vue'
 // Components
 import ACard from '@sharedAtoms/card/ACard.vue'
 
+// Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const { generateClassNames } = useClassComposable()
 
