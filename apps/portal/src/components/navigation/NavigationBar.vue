@@ -17,7 +17,9 @@ import NavigationBarAuthSection from './sections/NavigationBarAuthSection.vue'
   gap: 16px;
   align-items: flex-start;
   align-self: stretch;
+
   padding: 8px 12px;
+
   background-color: $global-colors-white;
 }
 </style>
