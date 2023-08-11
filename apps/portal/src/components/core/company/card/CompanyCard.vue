@@ -70,10 +70,11 @@ const isHovering = ref(false)
 }
 
 .slide-fade-leave-active {
-  transition: all 0.15s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.12s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
-.slide-fade-enter-from .slide-fade-leave-to {
+.slide-fade-enter-from,
+.slide-fade-leave-to {
   transform: translateY(20px);
   opacity: 0;
 }
