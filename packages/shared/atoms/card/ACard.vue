@@ -37,13 +37,13 @@ const isHovering = ref(false)
   width: 300px;
   height: 210px;
 
-  background-color: white;
+  background-color: $global-colors-white;
   border-radius: $global-border-radius-10;
   box-shadow: 4px 4px 4px 0 rgb(0 0 0 / 25%);
 
   &:hover {
     .a-card__body {
-      height: 90px;
+      max-height: 150px;
     }
   }
 
@@ -71,11 +71,20 @@ const isHovering = ref(false)
     flex-direction: column;
 
     width: 100%;
-    height: 24px;
+    max-height: 24px;
 
-    background-color: white;
+    background-color: $global-colors-white;
 
-    transition: all 0.15s;
+    transition: all 0.15s ease-in-out;
+  }
+
+  &__title {
+    font-size: $global-font-size-50;
+    font-weight: $global-font-weight-50;
+  }
+
+  &__content {
+    display: flex;
   }
 }
 </style>
