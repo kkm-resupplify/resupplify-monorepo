@@ -1,14 +1,13 @@
 <template>
-  <div class="a-card" @mouseenter="isHovering = true" @mouseleave="isHovering = false">
+  <div class="a-card">
     <div class="a-card__header">
       <img :src="props.headerImage" />
     </div>
-
-    <div :class="{ 'a-card__body': true, 'a-card__body--hovered': isHovering }">
-      <div class="a-card__body a-card__body--title">
+    <div class="a-card__body">
+      <div class="a-card__title">
         <slot name="title" />
       </div>
-      <div class="a-card__body a-card__body--content">
+      <div class="a-card__content">
         <slot name="content" />
       </div>
     </div>
@@ -33,60 +32,50 @@ const isHovering = ref(false)
 .a-card {
   position: relative;
 
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
 
   width: 300px;
   height: 210px;
 
+  background-color: white;
   border-radius: $global-border-radius-10;
   box-shadow: 4px 4px 4px 0 rgb(0 0 0 / 25%);
 
+  &:hover {
+    .a-card__body {
+      height: 90px;
+    }
+  }
+
   &__header {
     display: flex;
-    flex-direction: column;
-    // flex-grow: 1;
+    align-items: center;
     justify-content: center;
-    height: 186px;
+
+    height: 100%;
+
     background: $global-gradients-blue-primary-1;
-    border-radius: $global-border-radius-10;
 
     img {
-      object-fit: scale-down;
+      max-width: 100%;
+      height: auto;
     }
   }
 
   &__body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-20;
-    // position: absolute;
-    // height: fit-content;
 
-    background: $global-colors-white;
-    border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
-
-    // max-height: 120px;
-    transition: all 0.15s ease-out;
-    overflow: hidden;
+    width: 100%;
     height: 24px;
 
-    &--title {
-      display: flex;
-      min-height: 24px;
-    }
+    background-color: white;
 
-    // &--content {
-    //   display: flex;
-    // }
-    &--hovered {
-      overflow: hidden;
-      // position: absolute;
-      height: 100px;
-      // height: fit-content;
-      bottom: 0;
-      left: 0;
-    }
+    transition: all 0.15s;
   }
 }
 </style>
