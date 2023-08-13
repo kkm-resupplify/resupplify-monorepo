@@ -7,19 +7,18 @@
 
         <div class="company-card-content__stats">
           <div class="company-card-content__stat-item">
-            <span class="material-icons-outlined company-card-content__icon">category</span>
-
+            <a-icon icon="category" size="x-large" variant="outlined" />
             <span>{{ numberFormatter(company.companyStats.productsListed) }}</span>
           </div>
 
           <div class="company-card-content__stat-item company-card-content__icon">
-            <span class="material-icons-outlined">groups</span>
+            <a-icon icon="groups" size="x-large" variant="outlined" />
 
             <span>{{ numberFormatter(company.companyStats.uniqueClients) }}</span>
           </div>
 
           <div class="company-card-content__stat-item company-card-content__icon">
-            <span class="material-icons-outlined">local_shipping</span>
+            <a-icon icon="local_shipping" size="x-large" variant="outlined" />
 
             <span>{{ numberFormatter(company.companyStats.ordersFullfilled) }}</span>
           </div>
@@ -35,6 +34,7 @@ import { useShortNumberFormatComposable } from '@sharedComposables/numeric/useSh
 
 // Components
 import ACard from '@sharedAtoms/card/ACard.vue'
+import AIcon from '@sharedAtoms/icon/AIcon.vue'
 
 const props = defineProps({
   company: {
@@ -81,10 +81,6 @@ const numberFormatter = useShortNumberFormatComposable()
     gap: $global-spacing-20;
     align-items: center;
     padding: $global-spacing-10;
-  }
-
-  &__icon {
-    color: $global-colors-blue-500;
   }
 }
 </style>
