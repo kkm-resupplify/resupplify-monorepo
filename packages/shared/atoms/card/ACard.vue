@@ -15,17 +15,12 @@
 </template>
 
 <script setup lang="ts">
-// Vue
-import { ref } from 'vue'
-
 const props = defineProps({
   headerImage: {
     type: String,
     default: 'https://www.qualia.com/images/branding/qualia_logo_medium.png'
   }
 })
-
-const isHovering = ref(false)
 </script>
 
 <style scoped lang="scss">
@@ -72,6 +67,7 @@ const isHovering = ref(false)
 
     width: 100%;
     max-height: 24px;
+    padding: $global-spacing-20;
 
     background-color: $global-colors-white;
 
@@ -79,12 +75,15 @@ const isHovering = ref(false)
   }
 
   &__title {
-    font-size: $global-font-size-50;
-    font-weight: $global-font-weight-50;
+    font-size: $global-title-medium-font-size;
+    font-weight: $global-title-medium-font-weight;
   }
 
   &__content {
     display: flex;
+    font-size: $global-text-normal-font-size;
+    font-weight: $global-text-normal-font-weight;
+    line-height: 20px;
   }
 }
 </style>
