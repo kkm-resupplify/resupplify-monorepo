@@ -33,20 +33,20 @@ const baseClass = 'a-icon'
 const { generateClassNames } = useClassComposable()
 
 const generateClasses = computed(() => {
-  const variantName = `material-icons-${props.variant || 'material-icons'}`
+  const variantName = props.variant != '' ? ` material-icons-${props.variant}` : ' material-icons'
 
-  return generateClassNames(baseClass, [variantName])
+  return generateClassNames(baseClass, [props.color, props.size]) + variantName
 })
 </script>
 
 <style scoped lang="scss">
 @mixin size($size, $padding: 0) {
-  width: $size;
-  height: $size;
   padding: $padding;
+  font-size: $size;
 }
 
 .a-icon {
+  // Size
   &--small {
     @include size($icon-size-sm);
   }
@@ -65,6 +65,19 @@ const generateClasses = computed(() => {
 
   &--x-large {
     @include size($icon-size-x-lg);
+  }
+
+  // Colors
+  &--blue-primary {
+    color: $global-colors-blue-500;
+  }
+
+  &--black {
+    color: #000;
+  }
+
+  &--white {
+    color: $global-colors-white;
   }
 }
 </style>
