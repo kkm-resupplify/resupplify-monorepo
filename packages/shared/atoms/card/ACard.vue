@@ -47,7 +47,7 @@ const props = defineProps({
     align-items: center;
     justify-content: center;
 
-    height: 100%;
+    height: 98%;
 
     background: $global-gradients-blue-primary-1;
 
