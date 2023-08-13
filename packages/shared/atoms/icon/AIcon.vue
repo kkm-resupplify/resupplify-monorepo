@@ -1,5 +1,5 @@
 <template>
-  <div :class="generateClasses"></div>
+  <span :class="generateClasses">{{ icon }}</span>
 </template>
 
 <script setup lang="ts">
@@ -27,6 +27,7 @@ const props = defineProps({
     default: ''
   }
 })
+
 const baseClass = 'a-icon'
 
 const { generateClassNames } = useClassComposable()
