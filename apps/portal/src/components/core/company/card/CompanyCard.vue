@@ -65,7 +65,7 @@ const numberFormatter = useShortNumberFormatComposable()
   align-self: stretch;
 
   max-height: 84px;
-  padding: $global-spacing-20;
+  padding: 0 $global-spacing-20 $global-spacing-20 $global-spacing-20;
 
   background-color: $global-colors-white;
   border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
