@@ -1,5 +1,5 @@
 <template>
-  <span :class="generateClasses">{{ icon }}</span>
+  <span :class="generateClasses" :alt="`${icon} icon`">{{ icon }}</span>
 </template>
 
 <script setup lang="ts">
