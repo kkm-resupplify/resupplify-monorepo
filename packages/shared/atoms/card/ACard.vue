@@ -67,7 +67,6 @@ const props = defineProps({
 
     width: 100%;
     max-height: 24px;
-    padding: $global-spacing-20;
 
     background-color: $global-colors-white;
 
@@ -75,6 +74,7 @@ const props = defineProps({
   }
 
   &__title {
+    padding: 0 $global-spacing-20;
     font-size: $global-title-medium-font-size;
     font-weight: $global-title-medium-font-weight;
   }
