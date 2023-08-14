@@ -1,27 +1,27 @@
 <template>
   <a-card>
-    <template #title>{{ company.companyName }}</template>
+    <template #title>{{ data.companyName }}</template>
     <template #content>
       <div class="company-card-content">
-        <div class="company-card-content__description">{{ company.shortDescription }}</div>
+        <div class="company-card-content__description">{{ data.shortDescription }}</div>
 
         <div class="company-card-content__stats">
           <div class="company-card-content__stat-item">
             <a-icon icon="category" size="x-large" variant="outlined" />
 
-            <span>{{ numberFormatter(company.companyStats.productsListed) }}</span>
+            <span>{{ numberFormatter(data.companyStats.productsListed) }}</span>
           </div>
 
           <div class="company-card-content__stat-item">
             <a-icon icon="groups" size="x-large" variant="outlined" />
 
-            <span>{{ numberFormatter(company.companyStats.uniqueClients) }}</span>
+            <span>{{ numberFormatter(data.companyStats.uniqueClients) }}</span>
           </div>
 
           <div class="company-card-content__stat-item">
             <a-icon icon="local_shipping" size="x-large" variant="outlined" />
 
-            <span>{{ numberFormatter(company.companyStats.ordersFullfilled) }}</span>
+            <span>{{ numberFormatter(data.companyStats.ordersFullfilled) }}</span>
           </div>
         </div>
       </div>
@@ -38,18 +38,9 @@ import ACard from '@sharedAtoms/card/ACard.vue'
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 
 const props = defineProps({
-  company: {
+  data: {
     type: Object,
-    default: () => ({
-      companyName: 'KKM Marketify',
-      shortDescription:
-        'Company specializes in this and that. We offer products of the highest quality in this industry.',
-      companyStats: {
-        productsListed: 1339,
-        uniqueClients: 237,
-        ordersFullfilled: 27932
-      }
-    })
+    required: true
   }
 })
 

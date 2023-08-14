@@ -1,19 +1,18 @@
 <template>
   <div class="company-card-list">
-    <m-card-list :cardComponent="CompanyCard" :cards="[{}, {}]" />
+    <m-card-list :cardComponent="CompanyCard" :cards="companies" />
   </div>
 </template>
 
 <script setup lang="ts">
+// Components
 import MCardList from '@sharedMolecules/cards/MCardList.vue'
 import CompanyCard from '@/components/core/company/card/CompanyCard.vue'
 
 const props = defineProps({
   companies: {
-    type: Object,
+    type: Array<object>,
     required: true
   }
 })
 </script>
-
-<!-- <style scoped lang="scss"></style> -->
