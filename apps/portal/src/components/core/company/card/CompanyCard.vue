@@ -80,7 +80,6 @@ const numberFormatter = useShortNumberFormatComposable()
     align-self: stretch;
 
     line-height: 28px;
-
     text-align: justify;
     text-overflow: ellipsis;
   }
