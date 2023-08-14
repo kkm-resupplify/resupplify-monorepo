@@ -1,6 +1,6 @@
 <template>
   <div class="company-card-list">
-    <m-card-list :cardComponent="CompanyCard" :cards="companies" />
+    <m-card-list :cardComponent="CompanyCard" :cards-data="companies" />
   </div>
 </template>
 

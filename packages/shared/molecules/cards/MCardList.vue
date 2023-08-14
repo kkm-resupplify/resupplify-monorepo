@@ -1,6 +1,6 @@
 <template>
   <div :class="generateClasses">
-    <component :is="cardComponent" v-for="(card, idx) in cards" :key="idx" :data="card" />
+    <component :is="cardComponent" v-for="(card, idx) in cardsData" :key="idx" :data="card" />
   </div>
 </template>
 
@@ -16,7 +16,7 @@ const props = defineProps({
     type: Object,
     required: true
   },
-  cards: {
+  cardsData: {
     type: Array<object>,
     default: []
   },

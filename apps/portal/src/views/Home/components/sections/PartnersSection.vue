@@ -1,8 +1,8 @@
 <template>
   <div class="partners-section">
     <a-header
-      :title="$t('company.partners.ourPartners')"
-      :subtitle="$t('company.partners.companiesThatChoseUs')"
+      :title="$t('company.promotion.ourPartners')"
+      :subtitle="$t('company.promotion.companiesThatChoseUs')"
     />
     <company-card-list :companies="companies" />
   </div>
@@ -13,7 +13,18 @@
 import AHeader from '@sharedAtoms/header/AHeader.vue'
 import CompanyCardList from '@/components/core/company/card/CompanyCardList.vue'
 
-const companies = {}
+const companies = [
+  {
+    companyName: 'KKM Marketify',
+    shortDescription:
+      'Company specializes in this and that. We offer products of the highest quality in this industry.',
+    companyStats: {
+      productsListed: 1339,
+      uniqueClients: 237,
+      ordersFullfilled: 27932
+    }
+  }
+]
 </script>
 
 <style scoped lang="scss">
