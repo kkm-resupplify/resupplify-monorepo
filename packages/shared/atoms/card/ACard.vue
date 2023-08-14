@@ -1,6 +1,6 @@
 <template>
   <div class="a-card">
-    <div class="a-card__header">
+    <div :class="headerClasses">
       <img :src="props.headerImage" />
     </div>
     <div class="a-card__body">
@@ -15,11 +15,27 @@
 </template>
 
 <script setup lang="ts">
+// Vue
+import { computed } from 'vue'
+
+// Composables
+import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+
 const props = defineProps({
   headerImage: {
     type: String,
     default: 'https://www.qualia.com/images/branding/qualia_logo_medium.png'
+  },
+  backgroundVariant: {
+    type: String,
+    default: 'primary'
   }
+})
+
+const { generateClassNames } = useClassComposable()
+
+const headerClasses = computed(() => {
+  return generateClassNames('a-card__header', [`bg-${props.backgroundVariant}`])
 })
 </script>
 
@@ -46,14 +62,19 @@ const props = defineProps({
     display: flex;
     align-items: center;
     justify-content: center;
-
     height: 98%;
-
-    background: $global-gradients-blue-primary-1;
 
     img {
       max-width: 100%;
       height: auto;
+    }
+
+    &--bg-primary {
+      background: $global-gradients-blue-primary-1;
+    }
+
+    &--bg-secondary {
+      background: $global-gradients-blue-grayed-out;
     }
   }
 
