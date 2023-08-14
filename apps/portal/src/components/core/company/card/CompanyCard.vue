@@ -8,16 +8,17 @@
         <div class="company-card-content__stats">
           <div class="company-card-content__stat-item">
             <a-icon icon="category" size="x-large" variant="outlined" />
+
             <span>{{ numberFormatter(company.companyStats.productsListed) }}</span>
           </div>
 
-          <div class="company-card-content__stat-item company-card-content__icon">
+          <div class="company-card-content__stat-item">
             <a-icon icon="groups" size="x-large" variant="outlined" />
 
             <span>{{ numberFormatter(company.companyStats.uniqueClients) }}</span>
           </div>
 
-          <div class="company-card-content__stat-item company-card-content__icon">
+          <div class="company-card-content__stat-item">
             <a-icon icon="local_shipping" size="x-large" variant="outlined" />
 
             <span>{{ numberFormatter(company.companyStats.ordersFullfilled) }}</span>
@@ -41,7 +42,8 @@ const props = defineProps({
     type: Object,
     default: () => ({
       companyName: 'KKM Marketify',
-      shortDescription: 'Company specializes in this and that...',
+      shortDescription:
+        'Company specializes in this and that. We offer products of the highest quality in this industry.',
       companyStats: {
         productsListed: 1339,
         uniqueClients: 237,
@@ -57,23 +59,36 @@ const numberFormatter = useShortNumberFormatComposable()
 <style scoped lang="scss">
 .company-card-content {
   display: flex;
-  flex-direction: column;
+  flex: 1 0 0;
+  gap: $global-spacing-30;
+  align-items: flex-start;
+  align-self: stretch;
+
+  max-height: 84px;
+  padding: $global-spacing-20;
+
   background-color: $global-colors-white;
   border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
 
-  &__header {
+  &__description {
+    overflow: hidden;
     display: flex;
-    flex: 1;
-  }
-
-  &__body {
-    display: flex;
+    flex: 1 0 0;
     flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+    align-self: stretch;
+
+    line-height: 28px;
+
+    text-align: justify;
+    text-overflow: ellipsis;
   }
 
   &__stats {
     display: flex;
     flex-direction: column;
+    align-self: stretch;
   }
 
   &__stat-item {
