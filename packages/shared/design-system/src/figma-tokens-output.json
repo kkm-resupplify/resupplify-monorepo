@@ -203,6 +203,17 @@
           "type": "dropShadow"
         },
         "type": "boxShadow"
+      },
+      "primary-2": {
+        "value": {
+          "x": "0",
+          "y": "5px",
+          "blur": "20px",
+          "spread": "0",
+          "color": "#00000070",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow"
       }
     },
     "global-size": {
@@ -487,8 +498,16 @@
       }
     },
     "text-input-font-size": {
-      "normal": {
+      "nm": {
         "value": "{global-font-size.30}",
+        "type": "fontSizes"
+      },
+      "md": {
+        "value": "{global-font-size.40}",
+        "type": "fontSizes"
+      },
+      "lg": {
+        "value": "{global-font-size.50}",
         "type": "fontSizes"
       }
     },
@@ -508,6 +527,12 @@
           "style": "solid"
         },
         "type": "border"
+      }
+    },
+    "text-input-text-color": {
+      "secondary": {
+        "value": "{global-colors.text.secondary}",
+        "type": "color"
       }
     }
   },

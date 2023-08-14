@@ -3,7 +3,26 @@
     "welcome": "Welcome",
     "goodbye": "Goodbye"
   },
+
   "payments": {
     "payNow": "Pay now"
+  },
+
+  "pages": {
+    "home": "Home",
+    "browse": "Browse",
+    "resources": "Resources"
+  },
+
+  "auth": {
+    "login": "Log in",
+    "signup": "Sign up"
+  },
+
+  "company": {
+    "partners": {
+      "ourPartners": "Our partners",
+      "companiesThatChoseUs": "Companies and businesses that chose us"
+    }
   }
 }

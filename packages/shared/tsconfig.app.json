@@ -8,6 +8,7 @@
     "paths": {
       "@/*": ["./"],
       "@sharedAtoms/*": ["./atoms/*"],
+      "@sharedMolecules/*": ["./molecules/*"],
       "@sharedEnums/*": ["./enums/*"],
       "@sharedTranslations/*": ["./translations/*"],
       "@sharedComposables/*": ["./composables/*"],
