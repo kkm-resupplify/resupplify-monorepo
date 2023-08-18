@@ -13,9 +13,16 @@
     "browse": "Przeglądaj",
     "resources": "Zasoby"
   },
-  
+
   "auth": {
     "login": "Zaloguj się",
     "signup": "Zarejestruj się"
+  },
+
+  "company": {
+    "partners": {
+      "ourPartners": "Nasi partnerzy",
+      "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"
+    }
   }
 }

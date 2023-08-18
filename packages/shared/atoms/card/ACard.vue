@@ -4,7 +4,12 @@
       <img :src="props.headerImage" />
     </div>
     <div class="a-card__body">
-      <slot name="body" />
+      <div class="a-card__title">
+        <slot name="title" />
+      </div>
+      <div class="a-card__content">
+        <slot name="content" />
+      </div>
     </div>
   </div>
 </template>
@@ -20,46 +25,65 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .a-card {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  align-items: flex-start;
+  position: relative;
+
+  overflow: hidden;
 
   width: 300px;
   height: 210px;
 
+  background-color: $global-colors-white;
   border-radius: $global-border-radius-10;
   box-shadow: 4px 4px 4px 0 rgb(0 0 0 / 25%);
 
+  &:hover {
+    .a-card__body {
+      max-height: 150px;
+    }
+  }
+
   &__header {
     display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    align-self: stretch;
+    align-items: center;
     justify-content: center;
 
-    height: 120px;
+    height: 98%;
 
     background: $global-gradients-blue-primary-1;
-    border-radius: $global-border-radius-10 $global-border-radius-10 0 0;
 
     img {
-      object-fit: scale-down;
-      border-radius: $global-border-radius-10 $global-border-radius-10 0 0;
+      max-width: 100%;
+      height: auto;
     }
   }
 
   &__body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
     display: flex;
-    flex: 1 0 0;
     flex-direction: column;
-    gap: $global-spacing-20;
-    align-self: stretch;
 
-    padding: $global-spacing-20;
+    width: 100%;
+    max-height: 24px;
 
-    background: $global-colors-white;
-    border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
+    background-color: $global-colors-white;
+
+    transition: all 0.15s ease-in-out;
+  }
+
+  &__title {
+    padding: 0 $global-spacing-20;
+    font-size: $global-title-medium-font-size;
+    font-weight: $global-title-medium-font-weight;
+  }
+
+  &__content {
+    display: flex;
+    font-size: $global-text-normal-font-size;
+    font-weight: $global-text-normal-font-weight;
+    line-height: 20px;
   }
 }
 </style>
