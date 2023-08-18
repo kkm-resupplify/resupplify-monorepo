@@ -236,10 +236,6 @@
         "type": "color"
       }
     },
-    "white": {
-      "value": "#fff",
-      "type": "color"
-    },
     "text": {
       "primary": {
         "value": "#1a1a1a",
@@ -253,6 +249,10 @@
         "value": "{global-colors.white}",
         "type": "color"
       }
+    },
+    "white": {
+      "value": "#fff",
+      "type": "color"
     }
   },
   "global-gradients": {
@@ -356,6 +356,22 @@
     },
     "100": {
       "value": "32px",
+      "type": "fontSizes"
+    },
+    "110": {
+      "value": "36px",
+      "type": "fontSizes"
+    },
+    "120": {
+      "value": "40px",
+      "type": "fontSizes"
+    },
+    "130": {
+      "value": "48px",
+      "type": "fontSizes"
+    },
+    "140": {
+      "value": "64px",
       "type": "fontSizes"
     }
   },
