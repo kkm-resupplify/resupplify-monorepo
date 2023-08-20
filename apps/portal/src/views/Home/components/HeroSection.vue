@@ -3,7 +3,14 @@
     <div class="hero-section--wrapper">
       <div class="hero-section--image"></div>
       <header class="hero-section--header">
-        <Carousel :wrap-around="true" :autoplay="3000" :style="{ width: carouselWidth + 'px' }">
+        <Carousel
+          :wrap-around="true"
+          :autoplay="3000"
+          :mouse-drag="false"
+          :touch-drag="false"
+          :items-to-show="1"
+          class="hero-section--carousel"
+        >
           <Slide v-for="headerText in headerTextList" :key="headerText">
             <div class="hero-section--slide-items">
               <h1 class="hero-section--carousel-heading">{{ headerText }}</h1>
@@ -17,33 +24,23 @@
 </template>
 
 <script setup lang="ts">
-import ALine from '@sharedAtoms/line/ALine.vue'
-import { ref, onMounted } from 'vue'
+//Vue
+import { ref } from 'vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 
+// i18n
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
+//Components
+import ALine from '@sharedAtoms/line/ALine.vue'
+
 const headerTextList = ref([
-  'Expand your client base',
-  'Diversify and grow clientele',
-  'Explore new client connections'
+  t('slogans.expandYourClientBase'),
+  t('slogans.diversifyAndGrowClientele'),
+  t('slogans.increaseYourMarketShare')
 ])
-
-let carouselWidth = ref(0)
-
-onMounted(() => {
-  // Calculate the width based on the content inside the slides
-  const slideItems = document.querySelectorAll('.hero-section--slide-items')
-  let maxWidth = 0
-
-  slideItems.forEach((item) => {
-    const width = item.offsetWidth
-    if (width > maxWidth) {
-      maxWidth = width
-    }
-  })
-
-  carouselWidth.value = maxWidth
-})
 </script>
 
 <style scoped lang="scss">
@@ -53,13 +50,13 @@ onMounted(() => {
   align-items: flex-start;
   align-self: stretch;
 
-  padding: $global-spacing-30 $global-spacing-40;
+  padding: $global-spacing-30 15%;
 
   background: $global-gradients-blue-primary-1;
 
   &--wrapper {
-    display: flex;
-    flex: 1 0 0;
+    display: grid;
+    grid-template-columns: 400px 1fr;
     gap: $global-spacing-30;
     align-items: center;
     justify-content: center;
@@ -71,21 +68,14 @@ onMounted(() => {
     background: linear-gradient(90deg, #003d98 0%, #3f8cff 70%);
   }
 
-  &--header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    align-self: stretch;
-    justify-content: center;
+  &--carousel {
+    max-width: 1000px;
   }
 
   &--carousel-heading {
     margin: 0;
-    
-    font-family: $global-fonts-poppins;
 
-    // problem with pull request in figma tokens so i temporarily added static value
-    font-size: 64px;
+    font-size: $global-font-size-140;
     font-weight: $global-font-weight-30;
     font-style: normal;
     line-height: normal;

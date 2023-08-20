@@ -24,5 +24,11 @@
       "ourPartners": "Our partners",
       "companiesThatChoseUs": "Companies and businesses that chose us"
     }
+  },
+
+  "slogans": {
+    "expandYourClientBase": "Expand Your client base",
+    "diversifyAndGrowClientele": "Diversify and grow clientele",
+    "increaseYourMarketShare": "Increase Your market share"
   }
 }

@@ -24,5 +24,11 @@
       "ourPartners": "Nasi partnerzy",
       "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"
     }
+  },
+
+  "slogans": {
+    "expandYourClientBase": "Poszerz swoją bazę klientów",
+    "diversifyAndGrowClientele": "Dywersyfikuj i rozwijaj klientelę",
+    "increaseYourMarketShare": "Zwiększ swój udział w rynku"
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <navigation-bar />
-  <div>Hero</div>
+  <hero-section />
   <partners-section />
   <div>Bestseller</div>
 </template>
@@ -9,4 +9,5 @@
 // Components
 import NavigationBar from '@/components/navigation/NavigationBar.vue'
 import PartnersSection from './components/sections/PartnersSection.vue'
+import HeroSection from './components/HeroSection.vue'
 </script>
