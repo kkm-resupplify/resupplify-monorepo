@@ -3,10 +3,12 @@
     <div :class="headerClasses">
       <img :src="props.headerImage" />
     </div>
-    <div class="a-card__body">
+
+    <div :class="bodyClasses">
       <div class="a-card__title">
         <slot name="title" />
       </div>
+
       <div class="a-card__content">
         <slot name="content" />
       </div>
@@ -29,6 +31,9 @@ const props = defineProps({
   backgroundVariant: {
     type: String,
     default: 'primary'
+  },
+  keepExtended: {
+    type: Boolean
   }
 })
 
@@ -37,9 +42,15 @@ const { generateClassNames } = useClassComposable()
 const headerClasses = computed(() => {
   return generateClassNames('a-card__header', [`bg-${props.backgroundVariant}`])
 })
+
+const bodyClasses = computed(() => {
+  return props.keepExtended ? 'a-card__body a-card__body--extended' : 'a-card__body'
+})
 </script>
 
 <style scoped lang="scss">
+$body-max-height: 150px;
+
 .a-card {
   position: relative;
 
@@ -54,7 +65,7 @@ const headerClasses = computed(() => {
 
   &:hover {
     .a-card__body {
-      max-height: 150px;
+      max-height: $body-max-height;
     }
   }
 
@@ -92,6 +103,10 @@ const headerClasses = computed(() => {
     background-color: $global-colors-white;
 
     transition: all 0.15s ease-in-out;
+
+    &--extended {
+      max-height: $body-max-height;
+    }
   }
 
   &__title {

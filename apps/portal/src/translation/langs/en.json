@@ -30,6 +30,10 @@
     "promotion": {
       "bestsellers": "Bestsellers",
       "topSellingProducts": "Our top-selling products"
+    },
+
+    "unit": {
+      "pricePerUnit": "per {unit}"
     }
   }
 }
