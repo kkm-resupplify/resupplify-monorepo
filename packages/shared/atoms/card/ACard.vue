@@ -4,6 +4,10 @@
       <img :src="props.headerImage" />
     </div>
 
+    <div class="a-card__overlay a-card__overlay--right">
+      <slot name="overlay-right" />
+    </div>
+
     <div :class="bodyClasses">
       <div class="a-card__title">
         <slot name="title" />
@@ -60,12 +64,17 @@ $body-max-height: 150px;
   height: 210px;
 
   background-color: $global-colors-white;
-  border-radius: $global-border-radius-10;
+  border-radius: $global-border-radius-20;
   box-shadow: 4px 4px 4px 0 rgb(0 0 0 / 25%);
 
   &:hover {
     .a-card__body {
       max-height: $body-max-height;
+    }
+
+    .a-card__overlay--right {
+      display: flex;
+      max-height: 50px;
     }
   }
 
@@ -91,6 +100,7 @@ $body-max-height: 150px;
 
   &__body {
     position: absolute;
+    z-index: 2;
     bottom: 0;
     left: 0;
 
@@ -120,6 +130,25 @@ $body-max-height: 150px;
     font-size: $global-text-normal-font-size;
     font-weight: $global-text-normal-font-weight;
     line-height: 20px;
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 1;
+
+    &--right {
+      top: 0;
+      right: $global-spacing-30;
+
+      overflow: hidden;
+
+      max-height: 0;
+
+      background: $global-gradients-blue-primary-1;
+      border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
+
+      transition: all 0.15s ease-in-out;
+    }
   }
 }
 </style>
