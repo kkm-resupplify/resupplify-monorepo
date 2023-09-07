@@ -5,7 +5,11 @@
     </template>
 
     <template #overlay-right>
-      <div class="product-card__ribbon" v-if="showRibbon">elo</div>
+      <div class="product-card__ribbon" v-if="showRibbon">
+        <a-icon icon="beenhere" color="white" size="large" variant="outlined" />
+        <a-icon icon="bookmark_added" color="white" size="large" variant="outlined" />
+        <a-icon icon="shopping_card" color="white" size="large" variant="outlined" />
+      </div>
     </template>
 
     <template #content>
@@ -62,7 +66,9 @@ const showRibbon = ref(isUserLoggedIn)
 .product-card {
   &__ribbon {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: $global-spacing-20;
+    padding: $global-spacing-20;
   }
 
   &__title {
@@ -83,7 +89,7 @@ const showRibbon = ref(isUserLoggedIn)
   }
 
   &__content-company {
-    font-size: 12px;
+    font-size: $global-font-size-30;
   }
 
   &__content-price {

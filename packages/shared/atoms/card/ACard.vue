@@ -74,7 +74,7 @@ $body-max-height: 150px;
 
     .a-card__overlay--right {
       display: flex;
-      max-height: 50px;
+      max-height: 120px;
     }
   }
 
@@ -112,7 +112,7 @@ $body-max-height: 150px;
 
     background-color: $global-colors-white;
 
-    transition: all 0.15s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     &--extended {
       max-height: $body-max-height;
@@ -147,7 +147,7 @@ $body-max-height: 150px;
       background: $global-gradients-blue-primary-1;
       border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
 
-      transition: all 0.15s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
   }
 }
