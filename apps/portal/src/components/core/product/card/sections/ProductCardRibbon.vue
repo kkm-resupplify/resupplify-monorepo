@@ -12,6 +12,7 @@
 // Components
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 
+// Props
 defineProps({
   showRibbon: Boolean
 })
