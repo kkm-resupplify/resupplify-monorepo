@@ -1,44 +1,25 @@
 <template>
-  <a-card>
-    <template #title>{{ company.companyName }}</template>
+  <a-card class="company-card">
+    <template #title>{{ data.companyName }}</template>
+
     <template #content>
       <div class="company-card-content">
-        <div class="company-card-content__description">{{ company.shortDescription }}</div>
+        <span class="company-card-content__description">{{ data.shortDescription }}</span>
 
-        <div class="company-card-content__stats">
-          <div class="company-card-content__stat-item">
-            <a-icon icon="category" size="x-large" variant="outlined" />
-
-            <span>{{ numberFormatter(company.companyStats.productsListed) }}</span>
-          </div>
-
-          <div class="company-card-content__stat-item">
-            <a-icon icon="groups" size="x-large" variant="outlined" />
-
-            <span>{{ numberFormatter(company.companyStats.uniqueClients) }}</span>
-          </div>
-
-          <div class="company-card-content__stat-item">
-            <a-icon icon="local_shipping" size="x-large" variant="outlined" />
-
-            <span>{{ numberFormatter(company.companyStats.ordersFullfilled) }}</span>
-          </div>
-        </div>
+        <company-card-stats :company-stats="data.companyStats" />
       </div>
     </template>
   </a-card>
 </template>
 
 <script setup lang="ts">
-// Composables
-import { useShortNumberFormatComposable } from '@sharedComposables/numeric/useShortNumberFormatComposable'
-
 // Components
 import ACard from '@sharedAtoms/card/ACard.vue'
-import AIcon from '@sharedAtoms/icon/AIcon.vue'
+import CompanyCardStats from '@/components/core/company/card/sections/CompanyCardStats.vue'
 
-const props = defineProps({
-  company: {
+// Props
+defineProps({
+  data: {
     type: Object,
     default: () => ({
       companyName: 'KKM Marketify',
@@ -52,8 +33,6 @@ const props = defineProps({
     })
   }
 })
-
-const numberFormatter = useShortNumberFormatComposable()
 </script>
 
 <style scoped lang="scss">
@@ -82,19 +61,6 @@ const numberFormatter = useShortNumberFormatComposable()
     line-height: 28px;
     text-align: justify;
     text-overflow: ellipsis;
-  }
-
-  &__stats {
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-  }
-
-  &__stat-item {
-    display: flex;
-    gap: $global-spacing-20;
-    align-items: center;
-    padding: $global-spacing-10;
   }
 }
 </style>

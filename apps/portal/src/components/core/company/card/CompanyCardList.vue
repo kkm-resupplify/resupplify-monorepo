@@ -8,7 +8,8 @@
 import MCardList from '@sharedMolecules/cards/MCardList.vue'
 import CompanyCard from '@/components/core/company/card/CompanyCard.vue'
 
-const props = defineProps({
+// Props
+defineProps({
   companies: {
     type: Object,
     required: true
