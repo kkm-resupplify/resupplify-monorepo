@@ -8,6 +8,9 @@ import AButton from '@sharedAtoms/button/AButton.vue';
 </template>
 
 <script setup lang="ts">
+// Components
+import AIcon from '@sharedAtoms/icon/AIcon.vue'
+
 // Composables
 import { useShortNumberFormatComposable } from '@sharedComposables/numeric/useShortNumberFormatComposable'
 
