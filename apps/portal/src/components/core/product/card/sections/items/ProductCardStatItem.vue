@@ -19,7 +19,11 @@ defineProps({
     type: String,
     required: true
   },
-  value: Number
+
+  value: {
+    type: Number,
+    required: true
+  }
 })
 
 // Inits
