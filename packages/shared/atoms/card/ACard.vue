@@ -54,12 +54,11 @@ const props = defineProps({
   }
 })
 
-// Composable
+// Inits
 const slots = useSlots()
 
 const { generateClassNames } = useClassComposable()
 
-// Refs
 const overlayTopRef = ref<HTMLElement | null>(null)
 
 const titleRef = ref<HTMLElement | null>(null)

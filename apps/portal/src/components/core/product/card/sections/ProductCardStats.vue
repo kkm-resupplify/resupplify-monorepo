@@ -12,6 +12,7 @@
 // Components
 import ProductCardStatItem from '@/components/core/product/card/sections/items/ProductCardStatItem.vue'
 
+// Props
 defineProps({
   stats: {
     type: Object,

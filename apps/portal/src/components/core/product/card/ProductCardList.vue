@@ -9,7 +9,8 @@
 import MCardList from '@sharedMolecules/cards/MCardList.vue'
 import ProductCard from '@/components/core/product/card/ProductCard.vue'
 
-const props = defineProps({
+// Props
+defineProps({
   products: {
     type: Array<object>,
     required: true

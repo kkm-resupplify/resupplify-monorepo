@@ -13,6 +13,7 @@ import { useShortNumberFormatComposable } from '@sharedComposables/numeric/useSh
 // Components
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 
+// Props
 defineProps({
   icon: {
     type: String,
@@ -21,6 +22,7 @@ defineProps({
   value: Number
 })
 
+// Inits
 const numberFormatter = useShortNumberFormatComposable()
 </script>
 

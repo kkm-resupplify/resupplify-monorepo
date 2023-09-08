@@ -56,6 +56,7 @@ const props = defineProps({
   }
 })
 
+// Inits
 const { t } = useI18n()
 
 const unitText = ref(t('product.unit.pricePerUnit', { unit: props.data.unit.name }))
