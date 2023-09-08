@@ -7,9 +7,15 @@
     <template #overlay-right>
       <div class="product-card__ribbon" v-if="showRibbon">
         <a-icon icon="beenhere" color="white" size="large" variant="outlined" />
+
         <a-icon icon="bookmark_added" color="white" size="large" variant="outlined" />
-        <a-icon icon="shopping_card" color="white" size="large" variant="outlined" />
+
+        <a-icon icon="shopping_basket" color="white" size="large" variant="outlined" />
       </div>
+    </template>
+
+    <template #overlay-top>
+      <product-card-stats :stats="data.stats" />
     </template>
 
     <template #content>
@@ -17,13 +23,14 @@
         <div class="product-card__content-company" v-text="data.company" />
 
         <div class="product-card__content-price">
-          <div class="product-card__content-price product-card__content-price--value">
+          <span class="product-card__content-price product-card__content-price--value">
             {{ data.price.total }} {{ data.price.currencyCode }}
-          </div>
+          </span>
 
-          <div class="product-card__content-price product-card__content-price--unit">
-            {{ unitText }}
-          </div>
+          <span
+            class="product-card__content-price product-card__content-price--unit"
+            v-text="unitText"
+          />
         </div>
       </div>
     </template>
@@ -37,12 +44,10 @@ import { ref } from 'vue'
 // i18n
 import { useI18n } from 'vue-i18n'
 
-// Composables
-import { useShortNumberFormatComposable } from '@sharedComposables/numeric/useShortNumberFormatComposable'
-
 // Components
 import ACard from '@sharedAtoms/card/ACard.vue'
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
+import ProductCardStats from '@/components/core/product/card/sections/ProductCardStats.vue'
 
 const props = defineProps({
   data: {
@@ -53,11 +58,9 @@ const props = defineProps({
 
 const { t } = useI18n()
 
-const numberFormatter = useShortNumberFormatComposable()
-
 const unitText = ref(t('product.unit.pricePerUnit', { unit: props.data.unit.name }))
 
-//TODO: isUserLoggedIn
+// TODO: isUserLoggedIn
 const isUserLoggedIn = true
 const showRibbon = ref(isUserLoggedIn)
 </script>

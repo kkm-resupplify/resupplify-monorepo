@@ -9,12 +9,22 @@
     </div>
 
     <div :class="bodyClasses">
-      <div class="a-card__title">
-        <slot name="title" />
+      <div
+        v-if="slots['overlay-top']"
+        class="a-card__overlay a-card__overlay--top"
+        ref="overlayTopRef"
+      >
+        <slot name="overlay-top" />
       </div>
 
-      <div class="a-card__content">
-        <slot name="content" />
+      <div class="a-card__main">
+        <div class="a-card__main-title" ref="titleRef">
+          <slot name="title" />
+        </div>
+
+        <div class="a-card__main-content">
+          <slot name="content" />
+        </div>
       </div>
     </div>
   </div>
@@ -22,7 +32,7 @@
 
 <script setup lang="ts">
 // Vue
-import { computed } from 'vue'
+import { computed, ref, useSlots } from 'vue'
 
 // Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
@@ -41,6 +51,8 @@ const props = defineProps({
   }
 })
 
+const slots = useSlots()
+
 const { generateClassNames } = useClassComposable()
 
 const headerClasses = computed(() => {
@@ -49,6 +61,16 @@ const headerClasses = computed(() => {
 
 const bodyClasses = computed(() => {
   return props.keepExtended ? 'a-card__body a-card__body--extended' : 'a-card__body'
+})
+
+const overlayTopRef = ref<HTMLElement | null>(null)
+const titleRef = ref<HTMLElement | null>(null)
+
+const headerDisplayHeight = computed(() => {
+  const overlayEl = overlayTopRef.value
+  const titleEl = titleRef.value
+
+  return `${(overlayEl ? overlayEl.clientHeight : 0) + (titleEl ? titleEl.clientHeight : 0) + 2}px`
 })
 </script>
 
@@ -63,7 +85,6 @@ $body-max-height: 150px;
   width: 300px;
   height: 210px;
 
-  background-color: $global-colors-white;
   border-radius: $global-border-radius-20;
   box-shadow: 4px 4px 4px 0 rgb(0 0 0 / 25%);
 
@@ -72,9 +93,15 @@ $body-max-height: 150px;
       max-height: $body-max-height;
     }
 
-    .a-card__overlay--right {
-      display: flex;
-      max-height: 120px;
+    .a-card__overlay {
+      &--right {
+        display: flex;
+        max-height: 120px;
+      }
+
+      &--top {
+        opacity: 1;
+      }
     }
   }
 
@@ -108,9 +135,7 @@ $body-max-height: 150px;
     flex-direction: column;
 
     width: 100%;
-    max-height: 24px;
-
-    background-color: $global-colors-white;
+    max-height: v-bind(headerDisplayHeight);
 
     transition: all 0.3s ease-in-out;
 
@@ -119,13 +144,17 @@ $body-max-height: 150px;
     }
   }
 
-  &__title {
+  &__main {
+    background-color: $global-colors-white;
+  }
+
+  &__main-title {
     padding: 0 $global-spacing-20;
     font-size: $global-title-medium-font-size;
     font-weight: $global-title-medium-font-weight;
   }
 
-  &__content {
+  &__main-content {
     display: flex;
     font-size: $global-text-normal-font-size;
     font-weight: $global-text-normal-font-weight;
@@ -146,6 +175,17 @@ $body-max-height: 150px;
 
       background: $global-gradients-blue-primary-1;
       border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
+
+      transition: all 0.3s ease-in-out;
+    }
+
+    &--top {
+      position: relative;
+      bottom: 0;
+      left: 0;
+
+      opacity: 0;
+      backdrop-filter: blur(4px);
 
       transition: all 0.3s ease-in-out;
     }
