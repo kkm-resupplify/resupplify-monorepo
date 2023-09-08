@@ -33,7 +33,7 @@
     },
 
     "unit": {
-      "pricePerUnit": "za {UNIT}"
+      "pricePerUnit": "za {unit}"
     }
   }
 }
