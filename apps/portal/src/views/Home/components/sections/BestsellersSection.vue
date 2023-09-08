@@ -4,6 +4,7 @@
       :title="$t('product.promotion.bestsellers')"
       :subtitle="$t('product.promotion.topSellingProducts')"
     />
+
     <product-card-list :products="products" />
   </div>
 </template>
@@ -13,6 +14,7 @@
 import AHeader from '@sharedAtoms/header/AHeader.vue'
 import ProductCardList from '@/components/core/product/card/ProductCardList.vue'
 
+// Mock data
 const products = [
   {
     productName: 'El Produkto',

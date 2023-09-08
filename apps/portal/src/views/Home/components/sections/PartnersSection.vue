@@ -13,6 +13,7 @@
 import AHeader from '@sharedAtoms/header/AHeader.vue'
 import CompanyCardList from '@/components/core/company/card/CompanyCardList.vue'
 
+// Mock data
 const companies = [
   {
     companyName: 'KKM Marketify',
