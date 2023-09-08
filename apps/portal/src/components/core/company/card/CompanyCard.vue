@@ -21,16 +21,7 @@ import CompanyCardStats from '@/components/core/company/card/sections/CompanyCar
 defineProps({
   data: {
     type: Object,
-    default: () => ({
-      companyName: 'KKM Marketify',
-      shortDescription:
-        'Company specializes in this and that. We offer products of the highest quality in this industry.',
-      companyStats: {
-        productsListed: 1339,
-        uniqueClients: 237,
-        ordersFullfilled: 27932
-      }
-    })
+    required: true
   }
 })
 </script>
