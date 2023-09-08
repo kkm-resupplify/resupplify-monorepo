@@ -5,13 +5,7 @@
     </template>
 
     <template #overlay-right>
-      <div class="product-card__ribbon" v-if="showRibbon">
-        <a-icon icon="beenhere" color="white" size="large" variant="outlined" />
-
-        <a-icon icon="bookmark_added" color="white" size="large" variant="outlined" />
-
-        <a-icon icon="shopping_basket" color="white" size="large" variant="outlined" />
-      </div>
+      <product-card-ribbon :show-ribbon="showRibbon" />
     </template>
 
     <template #overlay-top>
@@ -46,8 +40,8 @@ import { useI18n } from 'vue-i18n'
 
 // Components
 import ACard from '@sharedAtoms/card/ACard.vue'
-import AIcon from '@sharedAtoms/icon/AIcon.vue'
 import ProductCardStats from '@/components/core/product/card/sections/ProductCardStats.vue'
+import ProductCardRibbon from '@/components/core/product/card/sections/ProductCardRibbon.vue'
 
 const props = defineProps({
   data: {
@@ -68,13 +62,6 @@ const showRibbon = ref(isUserLoggedIn)
 
 <style scoped lang="scss">
 .product-card {
-  &__ribbon {
-    display: flex;
-    flex-direction: column;
-    gap: $global-spacing-20;
-    padding: $global-spacing-20;
-  }
-
   &__title {
     font-size: $global-title-medium-font-size;
     font-weight: $global-title-medium-font-weight;
