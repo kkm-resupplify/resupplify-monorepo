@@ -37,24 +37,34 @@ import { computed, ref, useSlots } from 'vue'
 // Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
+// Props
 const props = defineProps({
   headerImage: {
     type: String,
     default: 'https://www.qualia.com/images/branding/qualia_logo_medium.png'
   },
+
   backgroundVariant: {
     type: String,
     default: 'primary'
   },
+
   keepExtended: {
     type: Boolean
   }
 })
 
+// Composable
 const slots = useSlots()
 
 const { generateClassNames } = useClassComposable()
 
+// Refs
+const overlayTopRef = ref<HTMLElement | null>(null)
+
+const titleRef = ref<HTMLElement | null>(null)
+
+// Computed
 const headerClasses = computed(() => {
   return generateClassNames('a-card__header', [`bg-${props.backgroundVariant}`])
 })
@@ -63,14 +73,11 @@ const bodyClasses = computed(() => {
   return props.keepExtended ? 'a-card__body a-card__body--extended' : 'a-card__body'
 })
 
-const overlayTopRef = ref<HTMLElement | null>(null)
-const titleRef = ref<HTMLElement | null>(null)
-
-const headerDisplayHeight = computed(() => {
+const previewHeight = computed(() => {
   const overlayEl = overlayTopRef.value
   const titleEl = titleRef.value
 
-  return `${(overlayEl ? overlayEl.clientHeight : 0) + (titleEl ? titleEl.clientHeight : 0) + 2}px`
+  return `${(overlayEl ? overlayEl.clientHeight : 0) + (titleEl ? titleEl.clientHeight : 0) + 4}px`
 })
 </script>
 
@@ -135,7 +142,7 @@ $body-max-height: 150px;
     flex-direction: column;
 
     width: 100%;
-    max-height: v-bind(headerDisplayHeight);
+    max-height: v-bind(previewHeight);
 
     transition: all 0.3s ease-in-out;
 
