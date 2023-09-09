@@ -1,40 +1,46 @@
 <template>
-  <section class="hero-section">
-    <div class="hero-section--wrapper">
-      <div class="hero-section--image"></div>
-      <header class="hero-section--header">
+  <div class="hero-section">
+    <div class="hero-section__wrapper">
+      <div class="hero-section__image" />
+
+      <div class="hero-section__header">
         <Carousel
           :wrap-around="true"
           :autoplay="3000"
           :mouse-drag="false"
           :touch-drag="false"
           :items-to-show="1"
-          class="hero-section--carousel"
+          class="hero-section__carousel"
         >
           <Slide v-for="headerText in headerTextList" :key="headerText">
-            <div class="hero-section--slide-items">
-              <h1 class="hero-section--carousel-heading">{{ headerText }}</h1>
+            <div class="hero-section__slide-items">
+              <h1 class="hero-section__carousel-heading" v-text="headerText" />
+
               <a-line />
             </div>
           </Slide>
         </Carousel>
-      </header>
+      </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
 //Vue
 import { ref } from 'vue'
+
+// Styles
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide } from 'vue3-carousel'
 
 // i18n
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
 
 //Components
 import ALine from '@sharedAtoms/line/ALine.vue'
+import { Carousel, Slide } from 'vue3-carousel'
+
+// Inits
+const { t } = useI18n()
 
 const headerTextList = ref([
   t('slogans.expandYourClientBase'),
@@ -54,7 +60,7 @@ const headerTextList = ref([
 
   background: $global-gradients-blue-primary-1;
 
-  &--wrapper {
+  &__wrapper {
     display: grid;
     grid-template-columns: 400px 1fr;
     gap: $global-spacing-30;
@@ -62,17 +68,17 @@ const headerTextList = ref([
     justify-content: center;
   }
 
-  &--image {
+  &__image {
     width: 400px;
     height: 300px;
     background: linear-gradient(90deg, #003d98 0%, #3f8cff 70%);
   }
 
-  &--carousel {
+  &__carousel {
     max-width: 1000px;
   }
 
-  &--carousel-heading {
+  &__carousel-heading {
     margin: 0;
 
     font-size: $global-font-size-140;
@@ -82,7 +88,7 @@ const headerTextList = ref([
     color: $global-colors-text-white;
   }
 
-  &--slide-items {
+  &__slide-items {
     display: flex;
     flex-direction: column;
     text-align: left;
