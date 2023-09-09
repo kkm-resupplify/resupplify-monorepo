@@ -4,6 +4,7 @@ import { createPinia } from 'pinia'
 import { router } from './routes/index'
 import { i18n } from './translation/index'
 import './assets/main.scss'
+import 'material-icons/iconfont/material-icons.css'
 
 const app = createApp(App)
 

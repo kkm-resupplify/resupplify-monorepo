@@ -6,6 +6,8 @@
     "src/**/*.vue",
     "src/**/*.json",
     "../../packages/shared/**/*.vue",
+    "../../packages/shared/composables/**/*.ts",
+    "../../packages/shared/enums/**/*.ts",
     "../../packages/shared/**/*.json",
     "../../packages/shared/shims-vue.d.ts"
   ],

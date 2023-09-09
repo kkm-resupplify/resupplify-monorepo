@@ -12,6 +12,8 @@
     "src/**/*.json",
     "../../packages/shared/**/*.vue",
     "../../packages/shared/**/*.json",
+    "../../packages/shared/composables/**/*.ts",
+    "../../packages/shared/enums/**/*.ts",
     "../../packages/shared/shims-vue.d.ts"
   ],
   "compilerOptions": {
