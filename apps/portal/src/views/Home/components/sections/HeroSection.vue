@@ -1,26 +1,23 @@
 <template>
   <div class="hero-section">
-    <div class="hero-section__wrapper">
-      <div class="hero-section__image" />
+    <div class="hero-section__image" />
 
-      <div class="hero-section__header">
-        <carousel
-          class="hero-section__carousel"
-          :wrap-around="true"
-          :autoplay="3000"
-          :mouse-drag="false"
-          :touch-drag="false"
-          :items-to-show="1"
-        >
-          <slide v-for="headerText in headerTextList" :key="headerText">
-            <div class="hero-section__slide-items">
-              <h1 class="hero-section__carousel-heading" v-text="headerText" />
+    <div class="hero-section__carousel">
+      <carousel
+        :wrap-around="true"
+        :autoplay="3000"
+        :mouse-drag="false"
+        :touch-drag="false"
+        :items-to-show="1"
+      >
+        <slide v-for="headerText in headerTextList" :key="headerText">
+          <div class="hero-section__slide-item">
+            <span class="hero-section__slide-text" v-text="headerText" />
 
-              <a-line />
-            </div>
-          </slide>
-        </carousel>
-      </div>
+            <a-line variant="triangle" />
+          </div>
+        </slide>
+      </carousel>
     </div>
   </div>
 </template>
@@ -52,43 +49,30 @@ const headerTextList = ref([
 <style scoped lang="scss">
 .hero-section {
   display: flex;
-  gap: $global-spacing-30;
-  align-items: flex-start;
-  align-self: stretch;
+  align-items: center;
+  justify-content: center;
 
-  padding: $global-spacing-30 15%;
+  padding: $global-spacing-30;
 
   background: $global-gradients-blue-primary-1;
-
-  &__wrapper {
-    display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: $global-spacing-30;
-    align-items: center;
-    justify-content: center;
-  }
 
   &__image {
     width: 400px;
     height: 300px;
-    background: linear-gradient(90deg, #003d98 0%, #3f8cff 70%);
+    background: $global-gradients-blue-grayed-out;
   }
 
   &__carousel {
     max-width: 1000px;
   }
 
-  &__carousel-heading {
-    margin: 0;
-
+  &__slide-text {
     font-size: $global-font-size-140;
     font-weight: $global-font-weight-30;
-    font-style: normal;
-    line-height: normal;
     color: $global-colors-text-white;
   }
 
-  &__slide-items {
+  &__slide-item {
     display: flex;
     flex-direction: column;
     text-align: left;
