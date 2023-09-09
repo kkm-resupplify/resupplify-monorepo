@@ -9,5 +9,5 @@
 // Components
 import NavigationBar from '@/components/navigation/NavigationBar.vue'
 import PartnersSection from './components/sections/PartnersSection.vue'
-import HeroSection from './components/HeroSection.vue'
+import HeroSection from './components/sections/HeroSection.vue'
 </script>

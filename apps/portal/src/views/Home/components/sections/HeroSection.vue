@@ -4,22 +4,22 @@
       <div class="hero-section__image" />
 
       <div class="hero-section__header">
-        <Carousel
+        <carousel
+          class="hero-section__carousel"
           :wrap-around="true"
           :autoplay="3000"
           :mouse-drag="false"
           :touch-drag="false"
           :items-to-show="1"
-          class="hero-section__carousel"
         >
-          <Slide v-for="headerText in headerTextList" :key="headerText">
+          <slide v-for="headerText in headerTextList" :key="headerText">
             <div class="hero-section__slide-items">
               <h1 class="hero-section__carousel-heading" v-text="headerText" />
 
               <a-line />
             </div>
-          </Slide>
-        </Carousel>
+          </slide>
+        </carousel>
       </div>
     </div>
   </div>
