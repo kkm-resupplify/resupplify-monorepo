@@ -1,6 +1,6 @@
 <template>
   <div :class="generateClasses">
-    <component :is="cardComponent" v-for="(card, idx) in cards" :key="idx" />
+    <component :is="cardComponent" v-for="(card, idx) in cardsData" :key="idx" :data="card" />
   </div>
 </template>
 
@@ -10,14 +10,13 @@ import { computed } from 'vue'
 
 // Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-const { generateClassNames } = useClassComposable()
 
 const props = defineProps({
   cardComponent: {
     type: Object,
     required: true
   },
-  cards: {
+  cardsData: {
     type: Array<object>,
     default: []
   },
@@ -32,6 +31,8 @@ const props = defineProps({
 })
 
 const baseClass = 'm-card-list'
+
+const { generateClassNames } = useClassComposable()
 
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [props.orientation, `gap-${props.gap}`])

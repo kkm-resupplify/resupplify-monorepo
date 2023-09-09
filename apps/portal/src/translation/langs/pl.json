@@ -20,9 +20,20 @@
   },
 
   "company": {
-    "partners": {
+    "promotion": {
       "ourPartners": "Nasi partnerzy",
       "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"
+    }
+  },
+
+  "product": {
+    "promotion": {
+      "bestsellers": "Bestsellery",
+      "topSellingProducts": "Nasze najlepiej sprzedające się produkty"
+    },
+
+    "unit": {
+      "pricePerUnit": "za {unit}"
     }
   },
 
