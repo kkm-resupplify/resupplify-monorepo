@@ -11,7 +11,7 @@
     <div :class="bodyClasses">
       <div
         v-if="slots['overlay-top']"
-        class="a-card__overlay a-card__overlay--top"
+        class="a-card__overlay a-card__overlay--middle"
         ref="overlayTopRef"
       >
         <slot name="overlay-top" />
@@ -105,7 +105,7 @@ $body-max-height: 150px;
         max-height: 120px;
       }
 
-      &--top {
+      &--middle {
         opacity: 1;
       }
     }
@@ -123,11 +123,11 @@ $body-max-height: 150px;
     }
 
     &--bg-primary {
-      background: $global-gradients-blue-primary-1;
+      background: var(--background-primary-gradient);
     }
 
     &--bg-secondary {
-      background: $global-gradients-blue-grayed-out;
+      background: var(--background-secondary-gradient);
     }
   }
 
@@ -143,6 +143,8 @@ $body-max-height: 150px;
     width: 100%;
     max-height: v-bind(previewHeight);
 
+    color: var(--font-primary);
+
     transition: all 0.3s ease-in-out;
 
     &--extended {
@@ -151,7 +153,7 @@ $body-max-height: 150px;
   }
 
   &__main {
-    background-color: $global-colors-grey-100;
+    background-color: var(--background-secondary-1);
   }
 
   &__main-title {
@@ -179,13 +181,13 @@ $body-max-height: 150px;
 
       max-height: 0;
 
-      background: $global-gradients-blue-primary-1;
+      background: var(--background-primary-gradient);
       border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
 
       transition: all 0.3s ease-in-out;
     }
 
-    &--top {
+    &--middle {
       position: relative;
       bottom: 0;
       left: 0;

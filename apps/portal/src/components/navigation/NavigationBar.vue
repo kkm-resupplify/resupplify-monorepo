@@ -21,6 +21,6 @@ import NavigationBarAuthSection from './sections/NavigationBarAuthSection.vue'
 
   padding: 8px 12px;
 
-  background-color: $global-colors-grey-100;
+  background-color: var(--background-primary);
 }
 </style>

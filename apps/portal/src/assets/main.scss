@@ -12,4 +12,9 @@
 
 * {
   font-family: Poppins, sans-serif;
+  transition: background-color 0.2s;
+}
+
+html {
+  background: var(--background-primary);
 }

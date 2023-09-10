@@ -29,6 +29,9 @@ const numberFormatter = useShortNumberFormatComposable()
   display: flex;
   gap: $global-spacing-20;
   align-items: center;
+
   padding: $global-spacing-10;
+
+  color: var(--font-primary);
 }
 </style>
