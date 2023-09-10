@@ -28,6 +28,10 @@
         }
       },
       "black": {
+        "400": {
+          "value": "#282828",
+          "type": "color"
+        },
         "500": {
           "value": "#1a1a1a",
           "type": "color"
@@ -56,6 +60,10 @@
       "grey": {
         "100": {
           "value": "#fff",
+          "type": "color"
+        },
+        "150": {
+          "value": "#f5f5f5",
           "type": "color"
         },
         "200": {
@@ -445,20 +453,24 @@
             }
           },
           "secondary": {
-            "10": {
-              "value": "{global-colors.grey.200}",
+            "1": {
+              "value": "{global-colors.grey.150}",
               "type": "color"
             },
-            "20": {
+            "2": {
               "value": "{global-colors.grey.300}",
               "type": "color"
             },
-            "30": {
+            "3": {
               "value": "{global-colors.grey.400}",
               "type": "color"
             },
-            "40": {
+            "4": {
               "value": "{global-colors.grey.500}",
+              "type": "color"
+            },
+            "5": {
+              "value": "{global-colors.grey.600}",
               "type": "color"
             },
             "gradient": {
@@ -487,19 +499,23 @@
             }
           },
           "secondary": {
-            "10": {
+            "1": {
               "value": "{global-colors.black.500}",
               "type": "color"
             },
-            "20": {
+            "2": {
+              "value": "{global-colors.black.600}",
+              "type": "color"
+            },
+            "3": {
               "value": "{global-colors.black.700}",
               "type": "color"
             },
-            "30": {
+            "4": {
               "value": "{global-colors.black.800}",
               "type": "color"
             },
-            "40": {
+            "5": {
               "value": "{global-colors.black.900}",
               "type": "color"
             },
@@ -511,7 +527,7 @@
         },
         "text": {
           "primary": {
-            "value": "{global-colors.grey.600}",
+            "value": "#ffffffde",
             "type": "color"
           }
         }
