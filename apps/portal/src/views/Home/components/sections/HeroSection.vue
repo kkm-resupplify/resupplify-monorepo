@@ -69,7 +69,7 @@ const headerTextList = ref([
   &__slide-text {
     font-size: $global-font-size-140;
     font-weight: $global-font-weight-30;
-    color: $global-colors-text-white;
+    color: $global-colors-grey-100;
   }
 
   &__slide-item {

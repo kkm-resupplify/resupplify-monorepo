@@ -151,7 +151,7 @@ $body-max-height: 150px;
   }
 
   &__main {
-    background-color: $global-colors-white;
+    background-color: $global-colors-grey-100;
   }
 
   &__main-title {

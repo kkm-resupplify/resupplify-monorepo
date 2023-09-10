@@ -37,7 +37,7 @@ defineProps({
   max-height: 84px;
   padding: 0 $global-spacing-20 $global-spacing-20 $global-spacing-20;
 
-  background-color: $global-colors-white;
+  background-color: $global-colors-grey-100;
   border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
 
   &__description {
