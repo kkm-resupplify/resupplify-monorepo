@@ -235,6 +235,10 @@
         "value": "#282828",
         "type": "color"
       },
+      "450": {
+        "value": "#1c1c1c",
+        "type": "color"
+      },
       "500": {
         "value": "#1a1a1a",
         "type": "color"
@@ -756,7 +760,7 @@
       "background": {
         "primary": {
           "default": {
-            "value": "{global-colors.black.600}",
+            "value": "{global-colors.black.450}",
             "type": "color"
           },
           "gradient": {
@@ -766,7 +770,7 @@
         },
         "secondary": {
           "1": {
-            "value": "{global-colors.black.500}",
+            "value": "{global-colors.black.400}",
             "type": "color"
           },
           "2": {
