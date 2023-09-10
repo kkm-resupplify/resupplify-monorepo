@@ -30,6 +30,7 @@
   "dependencies": {
     "@coreui/vue": "^4.10.0",
     "pinia-plugin-persist": "^1.0.0",
+    "pinia-plugin-persistedstate": "^3.2.0",
     "style-dictionary": "^3.8.0",
     "token-transformer": "^0.0.33",
     "vue-horizontal": "^1.0.2",

@@ -1,9 +1,10 @@
-[data-theme='dark'] {
-  --mainBackground: #000;
-  --mainFontColor: #fff;
-}
-
 [data-theme='light'] {
   --mainBackground: #fff;
   --mainFontColor: #000;
+}
+
+[data-theme='dark'] {
+  --mainBackground: #000;
+  --mainFontColor: #{$global-colors-white};
+  --mainGradient: #{$global-gradients-blue-primary-1};
 }
