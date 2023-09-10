@@ -143,7 +143,7 @@ const generateClasses = computed(() => {
 
   &--text {
     &-white {
-      color: $global-colors-white;
+      color: $global-colors-grey-100;
     }
   }
 }
