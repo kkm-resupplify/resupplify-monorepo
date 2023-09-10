@@ -11,8 +11,8 @@ import AButtonSizeEnum from '@sharedEnums/button/AButtonSizeEnum'
 import AButtonColorEnum from '@sharedEnums/button/AButtonColorEnum'
 
 // Composables
-import { useAtomClassComposable } from '@sharedComposables/atom/useAtomClassComposable'
-const { generateClassNames } = useAtomClassComposable()
+import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+const { generateClassNames } = useClassComposable()
 
 const props = defineProps({
   text: {
@@ -45,13 +45,9 @@ const props = defineProps({
 const baseClass = 'a-button'
 
 const generateClasses = computed(() => {
-  return props.outlined
-    ? generateClassNames(baseClass, [
-        props.size,
-        `outlined-${props.color}`,
-        `text-${props.textColor}`
-      ])
-    : generateClassNames(baseClass, [props.size, props.color, `text-${props.textColor}`])
+  const colorClass = props.outlined ? `outlined-${props.color}` : props.color
+
+  return generateClassNames(baseClass, [props.size, colorClass, `text-${props.textColor}`])
 })
 </script>
 

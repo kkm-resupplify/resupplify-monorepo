@@ -17,6 +17,7 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./', import.meta.url)),
       '@sharedAtoms': fileURLToPath(new URL('./atoms', import.meta.url)),
+      '@sharedMolecules': fileURLToPath(new URL('./molecules', import.meta.url)),
       '@sharedEnums': fileURLToPath(new URL('./enums', import.meta.url)),
       '@sharedTranslations': fileURLToPath(new URL('./translations', import.meta.url)),
       '@sharedComposables': fileURLToPath(new URL('./composables', import.meta.url))

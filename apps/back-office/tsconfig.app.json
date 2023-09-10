@@ -6,6 +6,8 @@
     "src/**/*.vue",
     "src/**/*.json",
     "../../packages/shared/**/*.vue",
+    "../../packages/shared/composables/**/*.ts",
+    "../../packages/shared/enums/**/*.ts",
     "../../packages/shared/**/*.json",
     "../../packages/shared/shims-vue.d.ts"
   ],
@@ -21,8 +23,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@sharedAtoms/*": ["../../packages/shared/atoms/*"],
-      "@sharedComposables/*": ["../../packages/shared/composables/*"],
-      "@sharedEnums/*": ["../../packages/shared/enums/*"]
+      "@sharedMolecules/*": ["../../packages/shared/molecules/*"],
+      "@sharedEnums/*": ["../../packages/shared/enums/*"],
+      "@sharedComposables/*": ["../../packages/shared/composables/*"]
     }
   }
 }

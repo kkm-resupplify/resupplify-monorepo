@@ -1,3 +1,6 @@
+// Screen breakpoints
+@import '../../../../packages/shared/design-system/screen-breakpoints';
+
 // Design tokens
 @import '../../../../packages/shared/design-system/tokens/variables';
 
@@ -6,8 +9,4 @@
 
 * {
   font-family: Poppins, sans-serif;
-}
-
-html {
-  background-color: #0c0c0c;
 }

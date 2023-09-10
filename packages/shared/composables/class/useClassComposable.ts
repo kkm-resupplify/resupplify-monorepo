@@ -6,7 +6,7 @@ function assignClassName(baseClass: String, propData: any): String {
   return propData ? assignPrefix(baseClass, propData.newName ?? propData) : ''
 }
 
-export function useAtomClassComposable() {
+export function useClassComposable() {
   return {
     generateClassNames(baseClassName: String, propsData: any) {
       const classesArray = [baseClassName]
