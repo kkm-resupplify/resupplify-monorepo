@@ -49,6 +49,6 @@ const products = [
 
   padding: $global-spacing-30 $global-spacing-40;
 
-  background-color: $global-colors-grey-100;
+  background-color: var(--mainBackground);
 }
 </style>

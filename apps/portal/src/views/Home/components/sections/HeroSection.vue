@@ -54,12 +54,12 @@ const headerTextList = ref([
 
   padding: $global-spacing-30;
 
-  background: $global-gradients-blue-primary-1;
+  background: var(--background-primary-gradient);
 
   &__image {
     width: 400px;
     height: 300px;
-    background: $global-gradients-blue-grayed-out;
+    background: var(--background-secondary-gradient);
   }
 
   &__carousel {

@@ -7,6 +7,14 @@
 // Fonts
 @import 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Radio+Canada:wght@300&family=Saira:wght@100&display=swap';
 
+// Themes
+@import './themes';
+
 * {
   font-family: Poppins, sans-serif;
+  transition: background-color 0.2s;
+}
+
+html {
+  background: var(--background-primary);
 }

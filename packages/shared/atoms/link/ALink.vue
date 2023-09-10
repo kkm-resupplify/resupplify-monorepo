@@ -101,7 +101,7 @@ const generateClasses = computed(() => {
 
   // Text color
   &--text-primary {
-    @include color($global-colors-grey-100, $global-gradients-blue-primary-1);
+    @include color(var(--font-primary), var(--background-primary-gradient));
   }
 }
 </style>

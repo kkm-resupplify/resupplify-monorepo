@@ -37,6 +37,8 @@ const generateClasses = computed(() => {
   gap: $global-spacing-20;
   align-items: flex-start;
 
+  color: var(--font-primary);
+
   &__title {
     display: flex;
     font-size: $global-title-large-font-size;
