@@ -664,12 +664,6 @@
         },
         "type": "border"
       }
-    },
-    "text-input-text-color": {
-      "secondary": {
-        "value": "{global-colors.black.secondary}",
-        "type": "color"
-      }
     }
   },
   "icon": {
