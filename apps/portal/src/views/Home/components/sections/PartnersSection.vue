@@ -4,6 +4,7 @@
       :title="$t('company.promotion.ourPartners')"
       :subtitle="$t('company.promotion.companiesThatChoseUs')"
     />
+
     <company-card-list :companies="companies" />
   </div>
 </template>

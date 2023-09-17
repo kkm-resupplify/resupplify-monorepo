@@ -59,7 +59,7 @@ const imageUrl = computed(() => `url(${imageUrlList[0]})`)
   justify-content: center;
 
   height: 27vh;
-  padding: $global-spacing-30;
+  padding: $global-spacing-30 $global-spacing-40;
 
   background: var(--background-primary-gradient);
 
