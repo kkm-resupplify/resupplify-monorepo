@@ -1,7 +1,9 @@
 <template>
   <nav class="navigation-bar">
     <div>img</div>
+
     <navigation-bar-main-section />
+
     <navigation-bar-auth-section />
   </nav>
 </template>
