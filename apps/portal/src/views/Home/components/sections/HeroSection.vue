@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-//Vue
-import { ref } from 'vue'
+// Vue
+import { reactive, computed } from 'vue'
 
 // Styles
 import 'vue3-carousel/dist/carousel.css'
@@ -32,34 +32,45 @@ import 'vue3-carousel/dist/carousel.css'
 // i18n
 import { useI18n } from 'vue-i18n'
 
-//Components
+// Components
 import ALine from '@sharedAtoms/line/ALine.vue'
 import { Carousel, Slide } from 'vue3-carousel'
 
 // Inits
 const { t } = useI18n()
 
-const headerTextList = ref([
+const headerTextList = reactive([
   t('slogans.expandYourClientBase'),
   t('slogans.diversifyAndGrowClientele'),
   t('slogans.increaseYourMarketShare')
 ])
+
+const imageUrlList = reactive(['src/assets/images/hero_1.jpg'])
+
+// Computed
+const imageUrl = computed(() => `url(${imageUrlList[0]})`)
 </script>
 
 <style scoped lang="scss">
 .hero-section {
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
 
-  padding: $global-spacing-30;
+  height: 27vh;
+  padding: $global-spacing-30 $global-spacing-40;
 
   background: var(--background-primary-gradient);
 
   &__image {
-    width: 400px;
-    height: 300px;
-    background: var(--background-secondary-gradient);
+    width: 30%;
+    height: 100%;
+
+    background-image: v-bind(imageUrl);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
   &__carousel {

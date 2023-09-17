@@ -4,6 +4,7 @@
       :title="$t('company.promotion.ourPartners')"
       :subtitle="$t('company.promotion.companiesThatChoseUs')"
     />
+
     <company-card-list :companies="companies" />
   </div>
 </template>
@@ -38,6 +39,7 @@ const companies = [
 
   padding: $global-spacing-30 $global-spacing-40;
 
-  background-color: var(--background-primary);
+  background-color: var(--background-secondary-1);
+  border-radius: $global-border-radius-20;
 }
 </style>

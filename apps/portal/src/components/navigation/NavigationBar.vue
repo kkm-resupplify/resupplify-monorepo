@@ -1,7 +1,9 @@
 <template>
   <nav class="navigation-bar">
     <div>img</div>
+
     <navigation-bar-main-section />
+
     <navigation-bar-auth-section />
   </nav>
 </template>
@@ -15,9 +17,9 @@ import NavigationBarAuthSection from './sections/NavigationBarAuthSection.vue'
 <style scoped lang="scss">
 .navigation-bar {
   display: flex;
+  flex: 1;
   gap: 16px;
   align-items: flex-start;
-  align-self: stretch;
 
   padding: 8px 12px;
 
