@@ -26,7 +26,8 @@ export default defineConfig({
       '@sharedEnums': fileURLToPath(new URL('../../packages/shared/enums', import.meta.url)),
       '@sharedComposables': fileURLToPath(
         new URL('../../packages/shared/composables', import.meta.url)
-      )
+      ),
+      '@sharedStores': fileURLToPath(new URL('../../packages/shared/stores', import.meta.url))
     }
   }
 })

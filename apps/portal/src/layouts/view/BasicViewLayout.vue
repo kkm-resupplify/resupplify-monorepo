@@ -1,7 +1,10 @@
 <template>
   <div class="basic-view-layout">
+    <a-general-notification />
+
     <div class="basic-view-layout__header">
       <navigation-bar />
+      <a-button text="notify" @click="testNotification" />
     </div>
 
     <div class="basic-view-layout__hero">
@@ -21,6 +24,17 @@
 <script setup lang="ts">
 // Components
 import NavigationBar from '@/components/navigation/NavigationBar.vue'
+import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
+import AButton from '@sharedAtoms/button/AButton.vue'
+
+// Stores
+import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
+
+const generalNotificationStore = useGeneralNotificationStore()
+
+const testNotification = () => {
+  generalNotificationStore.displayNotification('Siema test', 3000)
+}
 </script>
 
 <style scoped lang="scss">
