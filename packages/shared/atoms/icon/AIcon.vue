@@ -79,5 +79,9 @@ const generateClasses = computed(() => {
   &--white {
     color: $global-colors-grey-100;
   }
+
+  &--app-theme {
+    color: var(--font-primary);
+  }
 }
 </style>

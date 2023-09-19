@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
+import { v4 as uuidv4 } from 'uuid'
 
 interface Notification {
+  uuid: string
   text: string
   duration: number
 }
@@ -8,6 +10,7 @@ interface Notification {
 interface GeneralNotificationStore {
   notificationQueue: Notification[]
   currentNotification: Notification | null
+  wasClosed: boolean
 }
 
 export const useGeneralNotificationStore = defineStore({
@@ -15,16 +18,19 @@ export const useGeneralNotificationStore = defineStore({
 
   state: (): GeneralNotificationStore => ({
     notificationQueue: [],
-    currentNotification: null
+    currentNotification: null,
+    wasClosed: false
   }),
 
   getters: {
     getNotifications: (state) => state.notificationQueue,
-    getCurrentNotification: (state) => state.currentNotification
+    getCurrentNotification: (state) => state.currentNotification,
+    getCurrentNotificationUuid: (state) => state.currentNotification?.uuid ?? 'ph'
   },
 
   actions: {
     addNotification(notification: Notification): void {
+      notification.uuid = uuidv4()
       this.notificationQueue.push(notification)
     },
 
@@ -32,11 +38,11 @@ export const useGeneralNotificationStore = defineStore({
       this.notificationQueue = []
     },
 
-    setCurrentNotification(notification: Notification) {
+    setCurrentNotification(notification: Notification): void {
       this.currentNotification = notification
     },
 
-    displayNextNotification() {
+    displayNextNotification(): void {
       if (!this.currentNotification) {
         const notification = this.notificationQueue.shift()
 
@@ -44,17 +50,22 @@ export const useGeneralNotificationStore = defineStore({
           this.setCurrentNotification(notification)
 
           setTimeout(() => {
-            this.closeCurrentNotification()
-          }, notification.duration)
+            if (this.wasClosed) {
+              this.wasClosed = false
+            } else {
+              this.currentNotification = null
+            }
+          }, notification.duration + 100)
         }
       }
     },
 
-    closeCurrentNotification() {
+    closeCurrentNotification(): void {
       this.currentNotification = null
+      this.wasClosed = true
     },
 
-    closeAllNotifications() {
+    closeAllNotifications(): void {
       this.notificationQueue = []
     }
   }
