@@ -1,40 +1,61 @@
 import { defineStore } from 'pinia'
 
+interface Notification {
+  text: string
+  duration: number
+}
+
 interface GeneralNotificationStore {
-  notifications: Array<string>
+  notificationQueue: Notification[]
+  currentNotification: Notification | null
 }
 
 export const useGeneralNotificationStore = defineStore({
   id: 'generalNotification',
 
   state: (): GeneralNotificationStore => ({
-    notifications: []
+    notificationQueue: [],
+    currentNotification: null
   }),
 
   getters: {
-    getNotifications: (state) => state.notifications,
-    getTopNotification: (state) => state.notifications[0]
+    getNotifications: (state) => state.notificationQueue,
+    getCurrentNotification: (state) => state.currentNotification
   },
 
   actions: {
-    addNotification(notification: string): void {
-      this.notifications.push(notification)
+    addNotification(notification: Notification): void {
+      this.notificationQueue.push(notification)
     },
 
     clearNotifications(): void {
-      this.notifications = []
+      this.notificationQueue = []
     },
 
-    displayNotification(notification: string, timeMs: number) {
-      this.addNotification(`${notification}${this.notifications.length}`)
-
-      setTimeout(() => {
-        this.closeTopNotification()
-      }, timeMs * this.notifications.length)
+    setCurrentNotification(notification: Notification) {
+      this.currentNotification = notification
     },
 
-    closeTopNotification() {
-      this.notifications.splice(0, 1)
+    displayNextNotification() {
+      if (!this.currentNotification) {
+        const notification = this.notificationQueue.shift()
+
+        if (notification) {
+          this.setCurrentNotification(notification)
+
+          setTimeout(() => {
+            this.closeCurrentNotification()
+          }, notification.duration)
+        }
+      }
+    },
+
+    closeCurrentNotification() {
+      this.currentNotification = null
+    },
+
+    closeAllNotifications() {
+      this.notificationQueue = []
     }
   }
 })

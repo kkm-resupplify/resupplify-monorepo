@@ -30,10 +30,13 @@ import AButton from '@sharedAtoms/button/AButton.vue'
 // Stores
 import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
 
+// Inits
 const generalNotificationStore = useGeneralNotificationStore()
 
+// Methods
 const testNotification = () => {
-  generalNotificationStore.displayNotification('Siema test', 3000)
+  const notification = { text: 'Notification test', duration: 3000 }
+  generalNotificationStore.addNotification(notification)
 }
 </script>
 

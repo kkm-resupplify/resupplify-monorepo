@@ -1,6 +1,6 @@
 <template>
-  <div v-if="showNotification" :class="generateClasses">
-    {{ generalNotificationStore.getTopNotification }}
+  <div v-if="!!generalNotificationStore.getCurrentNotification" :class="generateClasses">
+    {{ generalNotificationStore.getCurrentNotification.text }}
   </div>
 </template>
 
@@ -26,8 +26,9 @@ const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
 
-const showNotification = computed(() => {
-  return generalNotificationStore.getNotifications.length > 0
+// Subscribtions
+generalNotificationStore.$subscribe(() => {
+  generalNotificationStore.displayNextNotification()
 })
 </script>
 
