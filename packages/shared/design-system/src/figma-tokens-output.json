@@ -611,7 +611,7 @@
               "value": "{global-colors.blue.100}",
               "type": "color"
             },
-            "default-copy": {
+            "gradient": {
               "value": "{global-gradients.blue.secondary-2}",
               "type": "color"
             }
@@ -621,7 +621,7 @@
               "value": "{global-colors.red.90}",
               "type": "color"
             },
-            "default-copy": {
+            "gradient": {
               "value": "{global-gradients.red.primary}",
               "type": "color"
             }
@@ -697,7 +697,7 @@
               "value": "{global-colors.blue.300}",
               "type": "color"
             },
-            "default-copy": {
+            "gradient": {
               "value": "{global-gradients.blue.secondary-2}",
               "type": "color"
             }
@@ -707,7 +707,7 @@
               "value": "{global-colors.red.200}",
               "type": "color"
             },
-            "default-copy": {
+            "gradient": {
               "value": "{global-gradients.red.primary}",
               "type": "color"
             }
