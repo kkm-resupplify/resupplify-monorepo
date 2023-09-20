@@ -6,7 +6,9 @@
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
+// Background-color has to be set here, else flickering will occur when page is loaded / refreshed
 .main-view {
   flex: 1;
+  background-color: var(--background-primary);
 }
 </style>

@@ -4,6 +4,7 @@
 // Design tokens
 @import '../../../../packages/shared/design-system/tokens/variables';
 
+
 // Fonts
 @import 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Radio+Canada:wght@300&family=Saira:wght@100&display=swap';
 
@@ -19,12 +20,9 @@
 html,
 body {
   overflow-x: hidden;
-
   height: 100vh;
   margin: 0;
   padding: 0;
-
-  background-color: var(--background-primary);
 }
 
 body {

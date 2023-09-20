@@ -11,6 +11,7 @@ interface GeneralNotificationStore {
   notificationQueue: Notification[]
   currentNotification: Notification | null
   wasClosed: boolean
+  currentTimeout: any
 }
 
 export const useGeneralNotificationStore = defineStore({
@@ -19,13 +20,14 @@ export const useGeneralNotificationStore = defineStore({
   state: (): GeneralNotificationStore => ({
     notificationQueue: [],
     currentNotification: null,
-    wasClosed: false
+    wasClosed: false,
+    currentTimeout: null
   }),
 
   getters: {
     getNotifications: (state) => state.notificationQueue,
     getCurrentNotification: (state) => state.currentNotification,
-    getCurrentNotificationUuid: (state) => state.currentNotification?.uuid ?? 'ph'
+    getCurrentNotificationUuid: (state) => state.currentNotification?.uuid ?? 'none'
   },
 
   actions: {
@@ -49,24 +51,22 @@ export const useGeneralNotificationStore = defineStore({
         if (notification) {
           this.setCurrentNotification(notification)
 
-          setTimeout(() => {
-            if (this.wasClosed) {
-              this.wasClosed = false
-            } else {
-              this.currentNotification = null
-            }
+          this.currentTimeout = setTimeout(() => {
+            this.currentNotification = null
           }, notification.duration + 100)
         }
       }
     },
 
     closeCurrentNotification(): void {
+      clearTimeout(this.currentTimeout)
       this.currentNotification = null
       this.wasClosed = true
     },
 
     closeAllNotifications(): void {
       this.notificationQueue = []
+      this.closeCurrentNotification()
     }
   }
 })

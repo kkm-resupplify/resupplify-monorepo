@@ -1,22 +1,22 @@
 <template>
   <transition name="bounce">
     <div v-if="!!currentNotification" :class="generateClasses">
-      <div class="a-general-notification__body">
-        <div class="a-general-notification__text">
-          {{ currentNotification.text }}
+      <div class="a-general-notification__wrapper">
+        <div class="a-general-notification__body">
+          <span class="a-general-notification__text" v-text="currentNotification.text" />
+
+          <div class="a-general-notification__dismiss">
+            <a-icon
+              size="medium"
+              icon="close"
+              color="app-theme"
+              @click="generalNotificationStore.closeCurrentNotification()"
+            />
+          </div>
         </div>
 
-        <div class="a-general-notification__dismiss">
-          <a-icon
-            size="medium"
-            icon="close"
-            color="app-theme"
-            @click="generalNotificationStore.closeCurrentNotification()"
-          />
-        </div>
+        <span class="a-general-notification__indicator" />
       </div>
-
-      <span class="a-general-notification__indicator" />
     </div>
   </transition>
 </template>
@@ -68,34 +68,43 @@ generalNotificationStore.$subscribe(() => {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/mixins/animated-border';
+
 .a-general-notification {
+  @include animated-border(var(--background-success-gradient));
+
   position: fixed;
   z-index: 9999;
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
 
-  display: flex;
-  flex-direction: column;
-  gap: $global-spacing-20;
-
   box-sizing: border-box;
   width: 350px;
-  padding: $global-spacing-30;
+  padding: $global-spacing-10;
 
-  background-color: var(--background-secondary-1);
-  border: 2px solid var(--background-secondary-2);
   border-radius: $global-border-radius-10;
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-10;
+
+    padding: $global-spacing-20 $global-spacing-30;
+
+    background-color: var(--background-secondary-1);
+  }
+
   &__body {
     display: flex;
-    gap: $global-spacing-40;
     justify-content: space-between;
   }
 
   &__text {
     align-self: flex-start;
+
+    padding: $global-spacing-20;
 
     font-size: $global-font-size-40;
     line-height: 1;
@@ -113,6 +122,7 @@ generalNotificationStore.$subscribe(() => {
   &__indicator {
     width: 100%;
     height: 4px;
+    margin-bottom: $global-spacing-20;
 
     background: var(--background-secondary-2);
     border-radius: $global-border-radius-20;
@@ -127,7 +137,7 @@ generalNotificationStore.$subscribe(() => {
       width: 100%;
       height: 4px;
 
-      background: var(--background-primary-gradient);
+      background: var(--background-success-gradient);
       border-radius: $global-border-radius-20;
 
       animation: shrink-width v-bind(animationDuration) linear forwards;
