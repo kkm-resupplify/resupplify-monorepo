@@ -648,11 +648,11 @@
           },
           "secondary": {
             "1": {
-              "value": "{global-colors.black.300}",
+              "value": "{global-colors.black.400}",
               "type": "color"
             },
             "2": {
-              "value": "{global-colors.black.400}",
+              "value": "{global-colors.black.300}",
               "type": "color"
             },
             "3": {
