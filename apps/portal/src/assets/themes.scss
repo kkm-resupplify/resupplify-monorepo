@@ -6,10 +6,10 @@
   --background-secondary-3: #{$themes-light-background-secondary-3};
   --background-secondary-4: #{$themes-light-background-secondary-4};
   --background-secondary-gradient-1: #{$themes-light-background-secondary-gradient};
-  --background-success: #{$themes-light-background-success-default};
-  --background-success-gradient: #{$themes-light-background-success-gradient};
   --background-info: #{$themes-light-background-info-default};
   --background-info-gradient: #{$themes-light-background-info-gradient};
+  --background-success: #{$themes-light-background-success-default};
+  --background-success-gradient: #{$themes-light-background-success-gradient};
   --background-warning: #{$themes-light-background-warning-default};
   --background-warning-gradient: #{$themes-light-background-warning-gradient};
   --background-danger: #{$themes-light-background-danger-default};
@@ -25,7 +25,13 @@
   --background-secondary-3: #{$themes-dark-background-secondary-3};
   --background-secondary-4: #{$themes-dark-background-secondary-4};
   --background-secondary-gradient-1: #{$themes-dark-background-secondary-gradient};
+  --background-info: #{$themes-dark-background-info-default};
+  --background-info-gradient: #{$themes-dark-background-info-gradient};
   --background-success: #{$themes-dark-background-success-default};
   --background-success-gradient: #{$themes-dark-background-success-gradient};
+  --background-warning: #{$themes-dark-background-warning-default};
+  --background-warning-gradient: #{$themes-dark-background-warning-gradient};
+  --background-danger: #{$themes-dark-background-danger-default};
+  --background-danger-gradient: #{$themes-dark-background-danger-gradient};
   --font-primary: #ffffffde;
 }
