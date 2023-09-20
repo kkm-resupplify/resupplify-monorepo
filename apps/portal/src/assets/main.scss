@@ -19,9 +19,12 @@
 html,
 body {
   overflow-x: hidden;
+
   height: 100vh;
   margin: 0;
   padding: 0;
+
+  background-color: var(--background-primary);
 }
 
 body {

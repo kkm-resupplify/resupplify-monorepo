@@ -8,6 +8,5 @@
 <style lang="scss" scoped>
 .main-view {
   flex: 1;
-  background-color: var(--background-primary);
 }
 </style>

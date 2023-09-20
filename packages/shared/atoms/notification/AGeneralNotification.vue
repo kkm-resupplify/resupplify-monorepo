@@ -83,8 +83,8 @@ generalNotificationStore.$subscribe(() => {
   width: 350px;
   padding: $global-spacing-30;
 
-  background-color: var(--background-primary);
-  border: 2px solid var(--background-secondary-1);
+  background-color: var(--background-secondary-1);
+  border: 2px solid var(--background-secondary-2);
   border-radius: $global-border-radius-10;
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 
@@ -114,7 +114,7 @@ generalNotificationStore.$subscribe(() => {
     width: 100%;
     height: 4px;
 
-    background: var(--background-secondary-1);
+    background: var(--background-secondary-2);
     border-radius: $global-border-radius-20;
     box-shadow: 1px 1px 1px rgb(0 0 0 / 15%);
 
