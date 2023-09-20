@@ -818,7 +818,7 @@
       "background": {
         "primary": {
           "default": {
-            "value": "{global-colors.grey.100}",
+            "value": "{global-colors.grey.150}",
             "type": "color"
           },
           "gradient": {
@@ -828,7 +828,7 @@
         },
         "secondary": {
           "1": {
-            "value": "{global-colors.grey.150}",
+            "value": "{global-colors.grey.100}",
             "type": "color"
           },
           "2": {
