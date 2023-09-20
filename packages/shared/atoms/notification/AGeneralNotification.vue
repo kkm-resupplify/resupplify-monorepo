@@ -22,6 +22,9 @@
 </template>
 
 <script setup lang="ts">
+// TODO:
+// variants: success, danger, info
+
 // Vue
 import { computed } from 'vue'
 

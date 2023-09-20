@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 
 interface Notification {
-  uuid: string
+  uuid?: string
   text: string
   duration: number
 }

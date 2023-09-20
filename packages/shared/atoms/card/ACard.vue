@@ -127,7 +127,7 @@ $body-max-height: 150px;
     }
 
     &--bg-secondary {
-      background: var(--background-secondary-gradient);
+      background: var(--background-secondary-gradient-1);
     }
   }
 
