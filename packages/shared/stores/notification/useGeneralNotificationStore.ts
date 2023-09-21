@@ -1,16 +1,14 @@
 import { defineStore } from 'pinia'
-import { v4 as uuidv4 } from 'uuid'
 
 interface Notification {
-  uuid?: string
   text: string
   duration: number
+  variant?: string
 }
 
 interface GeneralNotificationStore {
   notificationQueue: Notification[]
   currentNotification: Notification | null
-  wasClosed: boolean
   currentTimeout: any
 }
 
@@ -20,19 +18,18 @@ export const useGeneralNotificationStore = defineStore({
   state: (): GeneralNotificationStore => ({
     notificationQueue: [],
     currentNotification: null,
-    wasClosed: false,
     currentTimeout: null
   }),
 
   getters: {
     getNotifications: (state) => state.notificationQueue,
-    getCurrentNotification: (state) => state.currentNotification,
-    getCurrentNotificationUuid: (state) => state.currentNotification?.uuid ?? 'none'
+    getCurrentNotification: (state) => state.currentNotification
   },
 
   actions: {
     addNotification(notification: Notification): void {
-      notification.uuid = uuidv4()
+      if (!notification.variant) notification.variant = 'default'
+
       this.notificationQueue.push(notification)
     },
 
@@ -61,7 +58,6 @@ export const useGeneralNotificationStore = defineStore({
     closeCurrentNotification(): void {
       clearTimeout(this.currentTimeout)
       this.currentNotification = null
-      this.wasClosed = true
     },
 
     closeAllNotifications(): void {

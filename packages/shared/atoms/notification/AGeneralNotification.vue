@@ -1,16 +1,16 @@
 <template>
   <transition name="bounce">
-    <div v-if="!!currentNotification" :class="generateClasses">
+    <div v-if="!!getCurrentNotification" :class="generateClasses">
       <div class="a-general-notification__wrapper">
         <div class="a-general-notification__body">
-          <span class="a-general-notification__text" v-text="currentNotification.text" />
+          <span class="a-general-notification__text" v-text="getCurrentNotification?.text" />
 
           <div class="a-general-notification__dismiss">
             <a-icon
               size="medium"
               icon="close"
               color="app-theme"
-              @click="generalNotificationStore.closeCurrentNotification()"
+              @click="generalNotificationStore.closeCurrentNotification"
             />
           </div>
         </div>
@@ -29,6 +29,7 @@
 import { computed } from 'vue'
 
 // Stores
+import { storeToRefs } from 'pinia'
 import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
 
 // Composables
@@ -42,23 +43,23 @@ const baseClass = 'a-general-notification'
 
 const { generateClassNames } = useClassComposable()
 
+// Destruct
 const generalNotificationStore = useGeneralNotificationStore()
+const { getCurrentNotification } = storeToRefs(generalNotificationStore)
 
 // Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [])
-})
-
-const currentNotification = computed(() => {
-  return generalNotificationStore.getCurrentNotification
+  return generateClassNames(baseClass, [notificationVariant.value])
 })
 
 const animationDuration = computed(() => {
-  if (currentNotification.value?.duration) {
-    return `${currentNotification.value?.duration / 1000}s`
-  }
+  return getCurrentNotification.value?.duration
+    ? `${getCurrentNotification.value?.duration / 1000}s`
+    : '3s'
+})
 
-  return 0
+const notificationVariant = computed(() => {
+  return getCurrentNotification.value?.variant
 })
 
 // Subscriptions
@@ -71,7 +72,17 @@ generalNotificationStore.$subscribe(() => {
 @import '../../styles/mixins/animated-border';
 
 .a-general-notification {
-  @include animated-border(var(--background-success-gradient));
+  $self: &;
+
+  @mixin notification-accent($gradient) {
+    @include animated-border($gradient);
+
+    #{$self}__indicator::before {
+      background: $gradient;
+    }
+  }
+
+  @include notification-accent(var(--background-info-gradient));
 
   position: fixed;
   z-index: 9999;
@@ -137,11 +148,22 @@ generalNotificationStore.$subscribe(() => {
       width: 100%;
       height: 4px;
 
-      background: var(--background-success-gradient);
       border-radius: $global-border-radius-20;
 
       animation: shrink-width v-bind(animationDuration) linear forwards;
     }
+  }
+
+  &--success {
+    @include notification-accent(var(--background-success-gradient));
+  }
+
+  &--warning {
+    @include notification-accent(var(--background-warning-gradient));
+  }
+
+  &--danger {
+    @include notification-accent(var(--background-danger-gradient));
   }
 }
 
