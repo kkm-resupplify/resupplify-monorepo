@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
 
 interface Notification {
-  text: string
+  title: string
+  text?: string
   duration: number
   variant?: string
 }

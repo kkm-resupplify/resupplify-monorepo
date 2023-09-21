@@ -2,17 +2,23 @@
   <transition name="bounce">
     <div v-if="!!getCurrentNotification" :class="generateClasses">
       <div class="a-general-notification__wrapper">
-        <div class="a-general-notification__body">
-          <span class="a-general-notification__text" v-text="getCurrentNotification?.text" />
+        <div class="a-general-notification__header">
+          <div class="a-general-notification__title">
+            <span v-text="getCurrentNotification?.title" />
+          </div>
 
           <div class="a-general-notification__dismiss">
             <a-icon
-              size="medium"
+              size="large"
               icon="close"
               color="app-theme"
               @click="generalNotificationStore.closeCurrentNotification"
             />
           </div>
+        </div>
+
+        <div class="a-general-notification__body" v-if="getCurrentNotification?.text">
+          <span class="a-general-notification__text" v-text="getCurrentNotification.text" />
         </div>
 
         <span class="a-general-notification__indicator" />
@@ -91,7 +97,7 @@ generalNotificationStore.$subscribe(() => {
   transform: translateX(-50%);
 
   box-sizing: border-box;
-  width: 350px;
+  width: 400px;
   padding: $global-spacing-10;
 
   border-radius: $global-border-radius-10;
@@ -107,27 +113,37 @@ generalNotificationStore.$subscribe(() => {
     background-color: var(--background-secondary-1);
   }
 
-  &__body {
+  &__header {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
   }
 
-  &__text {
-    align-self: flex-start;
-
-    padding: $global-spacing-20;
-
-    font-size: $global-font-size-40;
-    line-height: 1;
-    text-justify: justify;
-    word-wrap: break-word;
+  &__title {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
   }
 
   &__dismiss {
     cursor: pointer;
     display: flex;
     align-items: center;
+  }
+
+  &__body {
+    display: flex;
+  }
+
+  &__text {
+    display: flex;
     align-self: flex-start;
+
+    padding: $global-spacing-30 0;
+
+    font-size: $global-font-size-40;
+    text-justify: justify;
+    word-wrap: break-word;
   }
 
   &__indicator {
@@ -150,7 +166,7 @@ generalNotificationStore.$subscribe(() => {
 
       border-radius: $global-border-radius-20;
 
-      animation: shrink-width v-bind(animationDuration) linear forwards;
+      animation: shrink-width v-bind(animationDuration) cubic-bezier(0.3, 0.3, 0.3, 0.3) forwards;
     }
   }
 
