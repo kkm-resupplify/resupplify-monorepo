@@ -12,7 +12,8 @@
       "@sharedEnums/*": ["./enums/*"],
       "@sharedTranslations/*": ["./translations/*"],
       "@sharedComposables/*": ["./composables/*"],
-      "@sharedTokens/*": ["./design-system/tokens/*"]
+      "@sharedTokens/*": ["./design-system/tokens/*"],
+      "@sharedStores/*": ["./stores/*"]
     }
   }
 }

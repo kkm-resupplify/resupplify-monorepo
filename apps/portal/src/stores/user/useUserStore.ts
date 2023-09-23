@@ -9,11 +9,13 @@ export const useUserStore = defineStore('useUserStore', {
       theme: ''
     }
   },
+
   getters: {
     getEmail: (state) => state.email,
     getToken: (state) => state.token,
     getTheme: (state) => state.theme
   },
+
   actions: {
     setEmail(token: string) {
       this.email = token

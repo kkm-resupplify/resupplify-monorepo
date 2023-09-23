@@ -3,5 +3,10 @@
   "vitest.commandLine": "npx vitest",
   "vitest.enable": true,
   "jest.showCoverageOnLoad": false,
-  "jest.autoRevealOutput": "off"
+  "jest.autoRevealOutput": "off",
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.formatOnSaveMode": "file",
+  "files.autoSave": "onFocusChange"
 }
