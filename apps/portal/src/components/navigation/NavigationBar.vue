@@ -24,7 +24,7 @@ import NavigationBarAuthSection from './sections/NavigationBarAuthSection.vue'
   margin: $global-spacing-20 $global-spacing-40;
   padding: $global-spacing-30 $global-spacing-40;
 
-  background-color: var(--background-secondary-1);
+  background-color: var(--secondary-1);
   border-radius: 4px;
 }
 </style>

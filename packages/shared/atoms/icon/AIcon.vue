@@ -16,7 +16,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'blue-primary'
+    default: 'font-primary'
   },
   size: {
     type: String,
@@ -32,25 +32,36 @@ const props = defineProps({
   }
 })
 
+// Variables
 const baseClass = 'a-icon'
 
+// Composables
 const { generateClassNames } = useClassComposable()
 
+// Computed
 const generateClasses = computed(() => {
   return (
-    generateClassNames(baseClass, [props.color, props.size]) +
+    generateClassNames(baseClass, [props.color, props.size, 'gradient']) +
     ` material-${props.library}-${props.variant}`
   )
+})
+
+const iconColor = computed(() => {
+  return `var(--${props.color})`
 })
 </script>
 
 <style scoped lang="scss">
+@import '../../styles/mixins/animated-border';
+
 @mixin size($size, $padding: 0) {
   padding: $padding;
   font-size: $size;
 }
 
 .a-icon {
+  color: v-bind(iconColor);
+
   // Size
   &--small {
     @include size($icon-size-sm);
@@ -72,21 +83,22 @@ const generateClasses = computed(() => {
     @include size($icon-size-x-lg);
   }
 
-  // Colors
-  &--blue-primary {
-    color: $global-colors-blue-500;
+  &--xx-large {
+    @include size($icon-size-xx-lg);
   }
 
-  &--black {
-    color: $global-colors-black-1000;
-  }
+  // Color variants
+  &--gradient {
+    @include move-background-animation;
 
-  &--white {
-    color: $global-colors-grey-100;
-  }
+    color: rgb(255 255 255 / 0%);
+    text-decoration: none;
 
-  &--app-theme {
-    color: var(--font-primary);
+    background: linear-gradient(to right, #fff0 0 0, #fff0 0 0), v-bind(iconColor);
+    background-repeat: no-repeat;
+    background-position: 100% 100%, 0 100%;
+    background-clip: text;
+    background-size: 200% 100%;
   }
 }
 </style>

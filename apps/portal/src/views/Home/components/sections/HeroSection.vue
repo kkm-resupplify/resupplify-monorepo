@@ -62,7 +62,7 @@ const imageUrl = computed(() => `url(${imageUrlList[0]})`)
   margin: 0 $global-spacing-40;
   padding: $global-spacing-30 $global-spacing-40;
 
-  background: var(--background-primary-gradient);
+  background: var(--primary-gradient);
   border-radius: $global-border-radius-20;
 
   &__image {

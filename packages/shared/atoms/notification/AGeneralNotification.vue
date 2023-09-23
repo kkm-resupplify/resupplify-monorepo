@@ -9,9 +9,8 @@
 
           <div class="a-general-notification__dismiss">
             <a-icon
-              size="large"
+              size="x-large"
               icon="close"
-              color="app-theme"
               @click="generalNotificationStore.closeCurrentNotification"
             />
           </div>
@@ -19,6 +18,16 @@
 
         <div v-if="getCurrentNotification?.text" class="a-general-notification__body">
           <span class="a-general-notification__text" v-text="getCurrentNotification.text" />
+
+          <div class="a-general-notification__body-decorators">
+            <a-icon
+              v-if="!!notificationIcon"
+              class="a-general-notification__body-decorators-icon"
+              :icon="notificationIcon"
+              :color="iconColor"
+              size="xx-large"
+            />
+          </div>
         </div>
 
         <span class="a-general-notification__indicator" />
@@ -28,9 +37,6 @@
 </template>
 
 <script setup lang="ts">
-// TODO:
-// add icon support
-
 // Imports
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
@@ -67,6 +73,10 @@ const notificationIcon = computed(() => {
   return getCurrentNotification.value?.icon
 })
 
+const iconColor = computed(() => {
+  return `${notificationVariant.value}-gradient`
+})
+
 // Subscriptions
 generalNotificationStore.$subscribe(() => {
   generalNotificationStore.displayNextNotification()
@@ -87,11 +97,11 @@ generalNotificationStore.$subscribe(() => {
     }
   }
 
-  @include respond-to('sm-and-up') {
-    width: 380px;
+  @include respond-to('md-and-up') {
+    width: 480px;
   }
 
-  @include notification-accent(var(--background-info-gradient));
+  @include notification-accent(var(--info-gradient));
 
   position: fixed;
   z-index: 9999;
@@ -115,7 +125,7 @@ generalNotificationStore.$subscribe(() => {
 
     padding: $global-spacing-20 $global-spacing-30;
 
-    background-color: var(--background-secondary-1);
+    background-color: var(--secondary-1);
   }
 
   &__header {
@@ -142,18 +152,26 @@ generalNotificationStore.$subscribe(() => {
 
   &__body {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__text {
     display: flex;
-    align-self: flex-start;
+    align-self: center;
 
     padding: $global-spacing-10 0;
 
     font-size: $global-font-size-40;
     text-align: center;
-    text-justify: justify;
     word-wrap: break-word;
+  }
+
+  &__body-decorators {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: $global-spacing-10;
   }
 
   &__indicator {
@@ -161,7 +179,7 @@ generalNotificationStore.$subscribe(() => {
     height: 4px;
     margin-bottom: $global-spacing-20;
 
-    background: var(--background-secondary-2);
+    background: var(--secondary-2);
     border-radius: $global-border-radius-20;
     box-shadow: 1px 1px 1px rgb(0 0 0 / 15%);
 
@@ -181,15 +199,15 @@ generalNotificationStore.$subscribe(() => {
   }
 
   &--success {
-    @include notification-accent(var(--background-success-gradient));
+    @include notification-accent(var(--success-gradient));
   }
 
   &--warning {
-    @include notification-accent(var(--background-warning-gradient));
+    @include notification-accent(var(--warning-gradient));
   }
 
   &--danger {
-    @include notification-accent(var(--background-danger-gradient));
+    @include notification-accent(var(--danger-gradient));
   }
 }
 

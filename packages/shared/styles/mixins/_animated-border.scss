@@ -4,6 +4,8 @@
   border-radius: var(--border-width);
 
   &::after {
+    @include move-background-animation;
+
     content: '';
 
     position: fixed;
@@ -18,8 +20,6 @@
     background-position: 0 50%;
     background-size: 300% 300%;
     border-radius: calc(2 * var(--border-width));
-
-    animation: move-gradient 2s alternate infinite;
   }
 }
 
@@ -27,4 +27,8 @@
   50% {
     background-position: 100% 50%;
   }
+}
+
+@mixin move-background-animation() {
+  animation: move-gradient 2s alternate infinite;
 }
