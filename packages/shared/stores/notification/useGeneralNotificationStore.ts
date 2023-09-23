@@ -1,4 +1,7 @@
 import { defineStore } from 'pinia'
+// TODO:
+// - send notification w/ variant
+// - smart body overwrite
 
 interface Notification {
   title: string

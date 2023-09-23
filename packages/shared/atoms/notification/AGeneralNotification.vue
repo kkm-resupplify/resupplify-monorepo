@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <div class="a-general-notification__body" v-if="getCurrentNotification?.text">
+        <div v-if="getCurrentNotification?.text" class="a-general-notification__body">
           <span class="a-general-notification__text" v-text="getCurrentNotification.text" />
         </div>
 
