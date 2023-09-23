@@ -5,7 +5,7 @@ import { defineStore } from 'pinia'
 
 interface Notification {
   title: string
-  duration: number
+  duration?: number
   text?: string
   variant?: string
   icon?: string
@@ -32,10 +32,14 @@ export const useGeneralNotificationStore = defineStore({
   },
 
   actions: {
-    addNotification(notification: Notification): void {
-      if (!notification.variant) notification.variant = 'default'
-
-      this.notificationQueue.push(notification)
+    sendNotification({ title, duration, text, variant, icon }: Notification = {}): void {
+      this.notificationQueue.push({
+        title,
+        duration: duration ?? 3000,
+        text,
+        variant: variant ?? 'info',
+        icon
+      })
     },
 
     clearNotifications(): void {

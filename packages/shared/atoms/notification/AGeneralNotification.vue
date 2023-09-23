@@ -16,8 +16,12 @@
           </div>
         </div>
 
-        <div v-if="getCurrentNotification?.text" class="a-general-notification__body">
-          <span class="a-general-notification__text" v-text="getCurrentNotification.text" />
+        <div class="a-general-notification__body">
+          <span
+            v-if="getCurrentNotification?.text"
+            class="a-general-notification__text"
+            v-text="getCurrentNotification.text"
+          />
 
           <div class="a-general-notification__body-decorators">
             <a-icon

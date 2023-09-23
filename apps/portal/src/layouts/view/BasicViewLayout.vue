@@ -4,7 +4,6 @@
 
     <div class="basic-view-layout__header">
       <navigation-bar />
-      <a-button text="notify" @click="testNotification" />
     </div>
 
     <div class="basic-view-layout__hero">
@@ -25,25 +24,6 @@
 // Components
 import NavigationBar from '@/components/navigation/NavigationBar.vue'
 import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
-import AButton from '@sharedAtoms/button/AButton.vue'
-
-// Stores
-import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
-
-// Inits
-const generalNotificationStore = useGeneralNotificationStore()
-
-// Methods
-const testNotification = () => {
-  const notification = {
-    title: 'Login successful',
-    text: 'It is a long established fact that a reader will be distracted.',
-    duration: 3000,
-    variant: 'info',
-    icon: 'task_alt'
-  }
-  generalNotificationStore.addNotification(notification)
-}
 </script>
 
 <style scoped lang="scss">
