@@ -6,6 +6,7 @@ import { i18n } from './translation/index'
 import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
 import './assets/main.scss'
 import 'material-icons/iconfont/material-icons.css'
+import 'material-symbols'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 const app = createApp(App)

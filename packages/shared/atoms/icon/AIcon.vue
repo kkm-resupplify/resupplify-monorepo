@@ -22,9 +22,13 @@ const props = defineProps({
     type: String,
     default: 'normal'
   },
+  library: {
+    type: String,
+    default: 'symbols'
+  },
   variant: {
     type: String,
-    default: ''
+    default: 'outlined'
   }
 })
 
@@ -33,9 +37,10 @@ const baseClass = 'a-icon'
 const { generateClassNames } = useClassComposable()
 
 const generateClasses = computed(() => {
-  const variantName = props.variant != '' ? ` material-icons-${props.variant}` : ' material-icons'
-
-  return generateClassNames(baseClass, [props.color, props.size]) + variantName
+  return (
+    generateClassNames(baseClass, [props.color, props.size]) +
+    ` material-${props.library}-${props.variant}`
+  )
 })
 </script>
 

@@ -1,7 +1,7 @@
 import AButton from '@sharedAtoms/button/AButton.vue';
 <template>
   <div class="company-card-stat-item">
-    <a-icon :icon="icon" size="x-large" variant="outlined" />
+    <a-icon :icon="icon" size="x-large" outlined />
 
     {{ numberFormatter(value) }}
   </div>

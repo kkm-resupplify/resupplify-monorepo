@@ -63,6 +63,10 @@ const notificationVariant = computed(() => {
   return getCurrentNotification.value?.variant
 })
 
+const notificationIcon = computed(() => {
+  return getCurrentNotification.value?.icon
+})
+
 // Subscriptions
 generalNotificationStore.$subscribe(() => {
   generalNotificationStore.displayNextNotification()

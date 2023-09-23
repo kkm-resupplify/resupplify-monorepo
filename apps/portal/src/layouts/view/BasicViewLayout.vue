@@ -39,7 +39,8 @@ const testNotification = () => {
     title: 'Login successful',
     text: 'It is a long established fact that a reader will be distracted.',
     duration: 3000,
-    variant: 'warning'
+    variant: 'warning',
+    icon: 'task-alt'
   }
   generalNotificationStore.addNotification(notification)
 }

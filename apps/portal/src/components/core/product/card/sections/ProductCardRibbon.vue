@@ -1,10 +1,10 @@
 <template>
   <div class="product-card-ribbon" v-if="showRibbon">
-    <a-icon icon="beenhere" color="white" size="large" variant="outlined" />
+    <a-icon icon="beenhere" color="white" size="large" />
 
-    <a-icon icon="bookmark_added" color="white" size="large" variant="outlined" />
+    <a-icon icon="bookmark_added" color="white" size="large" />
 
-    <a-icon icon="shopping_basket" color="white" size="large" variant="outlined" />
+    <a-icon icon="shopping_basket" color="white" size="large" />
   </div>
 </template>
 

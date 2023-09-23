@@ -5,9 +5,10 @@ import { defineStore } from 'pinia'
 
 interface Notification {
   title: string
-  text?: string
   duration: number
+  text?: string
   variant?: string
+  icon?: string
 }
 
 interface GeneralNotificationStore {
