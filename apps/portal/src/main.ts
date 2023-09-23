@@ -5,8 +5,8 @@ import { router } from './routes/index'
 import { i18n } from './translation/index'
 import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
 import './assets/main.scss'
-import 'material-icons/iconfont/material-icons.css'
-import 'material-symbols'
+// import 'material-icons/iconfont/material-icons.css'
+import 'material-symbols/outlined.css'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 const app = createApp(App)
