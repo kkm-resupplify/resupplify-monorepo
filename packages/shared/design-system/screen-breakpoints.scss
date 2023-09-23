@@ -1,5 +1,21 @@
 $screen-breakpoints: (
   'sm-and-up': 'min-width: 480px',
   'md-and-up': 'min-width: 768px',
-  'lg-and-up': 'min-width: 1200px'
+  'lg-and-up': 'min-width: 1200px',
+
+  'sm-and-down': 'max-width: 480px',
+  'md-and-down': 'max-width: 768px',
+  'lg-and-down': 'max-width: 1200px',
+
+  'xs-only': 'max-width: 400px'
 );
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($screen-breakpoints, $breakpoint) {
+    @media (#{map-get($screen-breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. Visit design-system/screen-breakpoint.scss";
+  }
+}

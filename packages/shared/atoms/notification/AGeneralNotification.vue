@@ -29,27 +29,22 @@
 
 <script setup lang="ts">
 // TODO:
-// variants: success, danger, info
+// add icon support
 
-// Vue
+// Imports
 import { computed } from 'vue'
-
-// Stores
 import { storeToRefs } from 'pinia'
 import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
-
-// Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-
-// Components
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 
-// Inits
+// Variables
 const baseClass = 'a-general-notification'
 
+// Composable
 const { generateClassNames } = useClassComposable()
 
-// Destruct
+// Store
 const generalNotificationStore = useGeneralNotificationStore()
 const { getCurrentNotification } = storeToRefs(generalNotificationStore)
 
@@ -88,6 +83,10 @@ generalNotificationStore.$subscribe(() => {
     }
   }
 
+  @include respond-to('sm-and-up') {
+    width: 380px;
+  }
+
   @include notification-accent(var(--background-info-gradient));
 
   position: fixed;
@@ -97,11 +96,13 @@ generalNotificationStore.$subscribe(() => {
   transform: translateX(-50%);
 
   box-sizing: border-box;
-  width: 400px;
+  width: 300px;
   padding: $global-spacing-10;
 
   border-radius: $global-border-radius-10;
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+
+  transition: width 0.5s ease-in-out;
 
   &__wrapper {
     display: flex;
@@ -119,14 +120,18 @@ generalNotificationStore.$subscribe(() => {
   }
 
   &__title {
-    display: flex;
+    display: inline-flex;
     flex: 1;
     justify-content: center;
+
+    min-width: 100%;
+
     text-align: center;
   }
 
   &__dismiss {
     cursor: pointer;
+    transform: translateX(-100%);
     display: flex;
     align-items: center;
   }
@@ -139,9 +144,10 @@ generalNotificationStore.$subscribe(() => {
     display: flex;
     align-self: flex-start;
 
-    padding: $global-spacing-30 0;
+    padding: $global-spacing-10 0;
 
     font-size: $global-font-size-40;
+    text-align: center;
     text-justify: justify;
     word-wrap: break-word;
   }
