@@ -1,7 +1,8 @@
 {
   "global": {
     "welcome": "Witaj",
-    "goodbye": "Dowidzenia"
+    "goodbye": "Dowidzenia",
+    "errorOccured": "Wystąpił błąd"
   },
 
   "payments": {
@@ -16,7 +17,11 @@
 
   "auth": {
     "login": "Zaloguj się",
-    "signup": "Zarejestruj się"
+    "signup": "Zarejestruj się",
+
+    "notification": {
+      "loginSuccess": "Logowanie zakończone powodzeniem"
+    }
   },
 
   "company": {

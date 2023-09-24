@@ -8,7 +8,7 @@ const userLang = localStorage.getItem('marketify-lang')
 
 export const i18n = createI18n({
   allowComposition: true,
-  locale: userLang!,
+  locale: userLang ?? 'en',
   fallbackLocale: 'en',
   legacy: false,
   messages: {

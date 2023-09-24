@@ -5,15 +5,13 @@ export const useUserStore = defineStore('useUserStore', {
   state: () => {
     return {
       email: 'user@email.com',
-      token: '',
-      theme: ''
+      token: ''
     }
   },
 
   getters: {
     getEmail: (state) => state.email,
-    getToken: (state) => state.token,
-    getTheme: (state) => state.theme
+    getToken: (state) => state.token
   },
 
   actions: {
@@ -31,14 +29,6 @@ export const useUserStore = defineStore('useUserStore', {
 
     clearToken() {
       this.token = ''
-    },
-
-    setTheme(theme: string) {
-      this.theme = theme
-    },
-
-    clearTheme() {
-      this.theme = ''
     }
   }
 })

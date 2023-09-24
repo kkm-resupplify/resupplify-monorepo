@@ -1,8 +1,16 @@
 import { defineStore } from 'pinia'
+import BaseEnum from '@sharedEnums/BaseEnum'
+
+class NotificationVariantEnum extends BaseEnum {
+  static INFO = 'info'
+  static SUCCESS = 'success'
+  static WARNING = 'warning'
+  static DANGER = 'danger'
+}
 
 interface Notification {
   title: string
-  duration: number
+  duration?: number
   text?: string
   variant?: string
   icon?: string
@@ -29,12 +37,44 @@ export const useGeneralNotificationStore = defineStore({
   },
 
   actions: {
+    sendSuccessNotification({
+      title = '',
+      text = ''
+    }: {
+      title?: string
+      text?: string
+    } = {}): void {
+      this.notificationQueue.push({
+        title,
+        duration: 3000,
+        text,
+        variant: NotificationVariantEnum.SUCCESS,
+        icon: 'check_circle'
+      })
+    },
+
+    sendFailNotification({
+      title = '',
+      text = ''
+    }: {
+      title?: string
+      text?: string
+    } = {}): void {
+      this.notificationQueue.push({
+        title,
+        duration: 3000,
+        text,
+        variant: NotificationVariantEnum.DANGER,
+        icon: 'cancel'
+      })
+    },
+
     sendNotification({ title, duration, text, variant, icon }: Notification): void {
       this.notificationQueue.push({
         title,
-        duration: duration ?? 3000,
+        duration: duration,
         text,
-        variant: variant ?? 'info',
+        variant: variant ?? NotificationVariantEnum.INFO,
         icon
       })
     },
@@ -54,9 +94,12 @@ export const useGeneralNotificationStore = defineStore({
         if (notification) {
           this.setCurrentNotification(notification)
 
-          this.currentTimeout = setTimeout(() => {
-            this.currentNotification = null
-          }, notification.duration + 100)
+          this.currentTimeout = setTimeout(
+            () => {
+              this.currentNotification = null
+            },
+            notification.duration ? notification.duration + 100 : 3100
+          )
         }
       }
     },
