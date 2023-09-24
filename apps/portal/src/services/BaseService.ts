@@ -43,16 +43,6 @@ export default class BaseService {
     return endpoint
   }
 
-  async fetch({ config = {}, suffix = '', prefix = '', notificationText = '' } = {}) {
-    try {
-      const response = await axiosInstance.get(this.getEndpoint())
-
-      return response
-    } catch (error) {
-      return this.handleErrors(error)
-    }
-  }
-
   async get({
     id = '',
     config = {},
@@ -70,6 +60,105 @@ export default class BaseService {
   } = {}) {
     try {
       const response = await axiosInstance.get(this.getEndpoint({ id, suffix, prefix }), config)
+
+      const generalNotification = useGeneralNotificationStore()
+
+      if (notificationTitle || notificationText) {
+        generalNotification.sendSuccessNotification({
+          title: t(notificationTitle),
+          text: t(notificationText)
+        })
+      }
+
+      return response
+    } catch (error) {
+      return this.handleErrors(error)
+    }
+  }
+
+  async post({
+    id = '',
+    data = {},
+    suffix = '',
+    prefix = '',
+    notificationTitle = '',
+    notificationText = ''
+  }: {
+    id?: string | number
+    config?: any
+    suffix?: string
+    prefix?: string
+    notificationTitle?: string
+    notificationText?: string
+  } = {}) {
+    try {
+      const response = await axiosInstance.post(this.getEndpoint({ id, suffix, prefix }), data)
+
+      const generalNotification = useGeneralNotificationStore()
+
+      if (notificationTitle || notificationText) {
+        generalNotification.sendSuccessNotification({
+          title: t(notificationTitle),
+          text: t(notificationText)
+        })
+      }
+
+      return response
+    } catch (error) {
+      return this.handleErrors(error)
+    }
+  }
+
+  async put({
+    id = '',
+    data = {},
+    suffix = '',
+    prefix = '',
+    notificationTitle = '',
+    notificationText = ''
+  }: {
+    id?: string | number
+    config?: any
+    suffix?: string
+    prefix?: string
+    notificationTitle?: string
+    notificationText?: string
+  } = {}) {
+    try {
+      const response = await axiosInstance.put(this.getEndpoint({ id, suffix, prefix }), data)
+
+      const generalNotification = useGeneralNotificationStore()
+
+      if (notificationTitle || notificationText) {
+        generalNotification.sendSuccessNotification({
+          title: t(notificationTitle),
+          text: t(notificationText)
+        })
+      }
+
+      return response
+    } catch (error) {
+      return this.handleErrors(error)
+    }
+  }
+
+  async delete({
+    id = '',
+    config = {},
+    suffix = '',
+    prefix = '',
+    notificationTitle = '',
+    notificationText = ''
+  }: {
+    id?: string | number
+    config?: any
+    suffix?: string
+    prefix?: string
+    notificationTitle?: string
+    notificationText?: string
+  } = {}) {
+    try {
+      const response = await axiosInstance.delete(this.getEndpoint({ id, suffix, prefix }), config)
 
       const generalNotification = useGeneralNotificationStore()
 
