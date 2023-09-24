@@ -1,24 +1,23 @@
 import type { AxiosError } from 'axios'
 import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
+import { i18n } from '@/translation/index'
+const { t } = i18n.global
 
 class HttpErrorHandler {
   handleErrorCode401(error: AxiosError): void {
-    console.log(error)
-
     this.displayPopupNotification(error)
   }
 
   handleErrorCode404(error: AxiosError): void {
-    console.log(error)
-
     this.displayPopupNotification(error)
   }
 
   displayPopupNotification(error: AxiosError): void {
     const generalNotificationStore = useGeneralNotificationStore()
-    const notification = { title: 'Error', variant: 'danger', text: error.message, icon: 'error' }
 
-    generalNotificationStore.sendNotification(notification)
+    const notification = { title: t('global.errorOccured'), text: error.message, icon: 'error' }
+
+    generalNotificationStore.sendFailNotification(notification)
   }
 }
 

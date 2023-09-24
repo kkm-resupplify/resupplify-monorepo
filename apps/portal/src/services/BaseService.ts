@@ -2,12 +2,16 @@ import HttpErrorHandler from './HttpErrorHandler'
 import { axiosInstance } from './apiConfig'
 import type { AxiosError } from 'axios'
 import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
+import { i18n } from '@/translation/index'
 
 interface Endpoint {
   id?: number | string
   prefix?: string
   suffix?: string
 }
+
+const { t } = i18n.global
+
 export default class BaseService {
   endpointBase: string
 
@@ -70,7 +74,10 @@ export default class BaseService {
       const generalNotification = useGeneralNotificationStore()
 
       if (notificationTitle || notificationText) {
-        generalNotification.sendNotification({ title: notificationTitle, text: notificationText })
+        generalNotification.sendSuccessNotification({
+          title: t(notificationTitle),
+          text: t(notificationText)
+        })
       }
 
       return response

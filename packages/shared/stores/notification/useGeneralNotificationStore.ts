@@ -1,4 +1,12 @@
 import { defineStore } from 'pinia'
+import BaseEnum from '@sharedEnums/BaseEnum'
+
+class NotificationVariantEnum extends BaseEnum {
+  static INFO = 'info'
+  static SUCCESS = 'success'
+  static WARNING = 'warning'
+  static DANGER = 'danger'
+}
 
 interface Notification {
   title: string
@@ -29,12 +37,44 @@ export const useGeneralNotificationStore = defineStore({
   },
 
   actions: {
+    sendSuccessNotification({
+      title = '',
+      text = ''
+    }: {
+      title?: string
+      text?: string
+    } = {}): void {
+      this.notificationQueue.push({
+        title,
+        duration: 3000,
+        text,
+        variant: NotificationVariantEnum.SUCCESS,
+        icon: 'check_circle'
+      })
+    },
+
+    sendFailNotification({
+      title = '',
+      text = ''
+    }: {
+      title?: string
+      text?: string
+    } = {}): void {
+      this.notificationQueue.push({
+        title,
+        duration: 3000,
+        text,
+        variant: NotificationVariantEnum.DANGER,
+        icon: 'cancel'
+      })
+    },
+
     sendNotification({ title, duration, text, variant, icon }: Notification): void {
       this.notificationQueue.push({
         title,
         duration: duration,
         text,
-        variant: variant ?? 'info',
+        variant: variant ?? NotificationVariantEnum.INFO,
         icon
       })
     },

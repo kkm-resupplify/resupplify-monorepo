@@ -10,8 +10,7 @@ class AuthService extends BaseService {
   }
 
   async test() {
-    const id = 5
-    const response = await this.get({ id, prefix: 'elo', suffix: 'melo' })
+    const response = await this.get({ notificationTitle: 'auth.notification.loginSuccess', id: 5 })
 
     console.log(response)
   }

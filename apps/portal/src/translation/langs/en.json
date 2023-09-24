@@ -1,7 +1,9 @@
 {
   "global": {
     "welcome": "Welcome",
-    "goodbye": "Goodbye"
+    "goodbye": "Goodbye",
+    "actionSuccess": "Action completed successfully",
+    "errorOccured": "An error occured"
   },
 
   "payments": {
@@ -16,7 +18,11 @@
 
   "auth": {
     "login": "Log in",
-    "signup": "Sign up"
+    "signup": "Sign up",
+
+    "notification": {
+      "loginSuccess": "Login successful"
+    }
   },
 
   "company": {
