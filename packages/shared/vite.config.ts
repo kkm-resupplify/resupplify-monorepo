@@ -20,7 +20,8 @@ export default defineConfig({
       '@sharedMolecules': fileURLToPath(new URL('./molecules', import.meta.url)),
       '@sharedEnums': fileURLToPath(new URL('./enums', import.meta.url)),
       '@sharedTranslations': fileURLToPath(new URL('./translations', import.meta.url)),
-      '@sharedComposables': fileURLToPath(new URL('./composables', import.meta.url))
+      '@sharedComposables': fileURLToPath(new URL('./composables', import.meta.url)),
+      '@sharedStores': fileURLToPath(new URL('./stores', import.meta.url))
     }
   }
 })

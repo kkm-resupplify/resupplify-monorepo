@@ -1,0 +1,34 @@
+@mixin animated-border($gradient) {
+  --border-width: 1px;
+
+  border-radius: var(--border-width);
+
+  &::after {
+    @include move-background-animation;
+
+    content: '';
+
+    position: fixed;
+    z-index: -1;
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+
+    background: $gradient;
+    background-position: 0 50%;
+    background-size: 300% 300%;
+    border-radius: calc(2 * var(--border-width));
+  }
+}
+
+@keyframes move-gradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@mixin move-background-animation() {
+  animation: move-gradient 2s alternate infinite;
+}

@@ -11,14 +11,14 @@
     <div :class="bodyClasses">
       <div
         v-if="slots['overlay-top']"
-        class="a-card__overlay a-card__overlay--middle"
         ref="overlayTopRef"
+        class="a-card__overlay a-card__overlay--middle"
       >
         <slot name="overlay-top" />
       </div>
 
       <div class="a-card__main">
-        <div class="a-card__main-title" ref="titleRef">
+        <div ref="titleRef" class="a-card__main-title">
           <slot name="title" />
         </div>
 
@@ -123,11 +123,11 @@ $body-max-height: 150px;
     }
 
     &--bg-primary {
-      background: var(--background-primary-gradient);
+      background: var(--primary-gradient);
     }
 
     &--bg-secondary {
-      background: var(--background-secondary-gradient);
+      background: var(--secondary-gradient-1);
     }
   }
 
@@ -153,7 +153,7 @@ $body-max-height: 150px;
   }
 
   &__main {
-    background-color: var(--background-secondary-1);
+    background-color: var(--secondary-1);
   }
 
   &__main-title {
@@ -181,7 +181,7 @@ $body-max-height: 150px;
 
       max-height: 0;
 
-      background: var(--background-primary-gradient);
+      background: var(--primary-gradient);
       border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
 
       transition: all 0.3s ease-in-out;

@@ -1,6 +1,9 @@
 // Screen breakpoints
 @import '../../../../packages/shared/design-system/screen-breakpoints';
 
+// Icons
+@import 'material-icons/iconfont/material-icons.css';
+
 // Design tokens
 @import '../../../../packages/shared/design-system/tokens/variables';
 
@@ -12,6 +15,7 @@
 
 * {
   font-family: Poppins, sans-serif;
+  color: var(--font-primary);
   transition: background-color 0.2s;
 }
 

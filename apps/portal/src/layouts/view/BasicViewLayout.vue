@@ -1,5 +1,7 @@
 <template>
   <div class="basic-view-layout">
+    <a-general-notification />
+
     <div class="basic-view-layout__header">
       <navigation-bar />
     </div>
@@ -21,6 +23,7 @@
 <script setup lang="ts">
 // Components
 import NavigationBar from '@/components/navigation/NavigationBar.vue'
+import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
 </script>
 
 <style scoped lang="scss">

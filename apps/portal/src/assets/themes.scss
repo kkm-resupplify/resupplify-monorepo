@@ -1,21 +1,37 @@
 [data-theme='light'] {
-  --background-primary: #{$themes-light-background-primary-default};
-  --background-primary-gradient: #{$themes-light-background-primary-gradient};
-  --background-secondary-1: #{$themes-light-background-secondary-1};
-  --background-secondary-2: #{$themes-light-background-secondary-2};
-  --background-secondary-3: #{$themes-light-background-secondary-3};
-  --background-secondary-4: #{$themes-light-background-secondary-4};
-  --background-secondary-gradient: #{$themes-light-background-secondary-gradient};
+  --primary: #{$themes-light-background-primary-default};
+  --primary-gradient: #{$themes-light-background-primary-gradient};
+  --secondary-1: #{$themes-light-background-secondary-1};
+  --secondary-2: #{$themes-light-background-secondary-2};
+  --secondary-3: #{$themes-light-background-secondary-3};
+  --secondary-4: #{$themes-light-background-secondary-4};
+  --secondary-gradient-1: #{$themes-light-background-secondary-gradient};
+  --info: #{$themes-light-background-info-default};
+  --info-gradient: #{$themes-light-background-info-gradient};
+  --success: #{$themes-light-background-success-default};
+  --success-gradient: #{$themes-light-background-success-gradient};
+  --warning: #{$themes-light-background-warning-default};
+  --warning-gradient: #{$themes-light-background-warning-gradient};
+  --danger: #{$themes-light-background-danger-default};
+  --danger-gradient: #{$themes-light-background-danger-gradient};
   --font-primary: #{$themes-light-text-primary};
 }
 
 [data-theme='dark'] {
-  --background-primary: #{$themes-dark-background-primary-default};
-  --background-primary-gradient: #{$themes-dark-background-primary-gradient};
-  --background-secondary-1: #{$themes-dark-background-secondary-1};
-  --background-secondary-2: #{$themes-dark-background-secondary-2};
-  --background-secondary-3: #{$themes-dark-background-secondary-3};
-  --background-secondary-4: #{$themes-dark-background-secondary-4};
-  --background-secondary-gradient: #{$themes-dark-background-secondary-gradient};
+  --primary: #{$themes-dark-background-primary-default};
+  --primary-gradient: #{$themes-dark-background-primary-gradient};
+  --secondary-1: #{$themes-dark-background-secondary-1};
+  --secondary-2: #{$themes-dark-background-secondary-2};
+  --secondary-3: #{$themes-dark-background-secondary-3};
+  --secondary-4: #{$themes-dark-background-secondary-4};
+  --secondary-gradient-1: #{$themes-dark-background-secondary-gradient};
+  --info: #{$themes-dark-background-info-default};
+  --info-gradient: #{$themes-dark-background-info-gradient};
+  --success: #{$themes-dark-background-success-default};
+  --success-gradient: #{$themes-dark-background-success-gradient};
+  --warning: #{$themes-dark-background-warning-default};
+  --warning-gradient: #{$themes-dark-background-warning-gradient};
+  --danger: #{$themes-dark-background-danger-default};
+  --danger-gradient: #{$themes-dark-background-danger-gradient};
   --font-primary: #ffffffde;
 }
