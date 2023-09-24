@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 
-// TODO: theme, token
 export const useUserStore = defineStore('useUserStore', {
   state: () => {
     return {
