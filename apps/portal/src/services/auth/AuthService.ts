@@ -1,4 +1,7 @@
 import BaseService from '../BaseService'
+import { i18n } from '@/translation/index'
+
+const { t } = i18n.global
 
 interface AuthRequest {
   email: string
@@ -13,7 +16,9 @@ class AuthService extends BaseService {
   async register({ email, password, passwordConfirmation }: AuthRequest) {
     const response = await this.post({
       data: { email, password, passwordConfirmation },
-      suffix: AuthService.REGISTER_SUFFIX
+      suffix: AuthService.REGISTER_SUFFIX,
+      notificationTitle: t('auth.notification.registerSuccessTitle'),
+      notificationText: t('auth.notification.registerSuccessText')
     })
 
     return response
@@ -22,7 +27,9 @@ class AuthService extends BaseService {
   async login({ email, password }: AuthRequest): Promise<Object> {
     const response = await this.post({
       data: { email, password },
-      suffix: AuthService.LOGIN_SUFFIX
+      suffix: AuthService.LOGIN_SUFFIX,
+      notificationTitle: t('auth.notification.loginSuccessTitle'),
+      notificationText: t('auth.notification.loginSuccessText')
     })
 
     return response
@@ -30,7 +37,9 @@ class AuthService extends BaseService {
 
   async logout() {
     const response = await this.get({
-      suffix: AuthService.LOGOUT_SUFFIX
+      suffix: AuthService.LOGOUT_SUFFIX,
+      notificationTitle: t('auth.notification.logoutSuccessTitle'),
+      notificationText: t('auth.notification.logoutSuccessText')
     })
 
     return response

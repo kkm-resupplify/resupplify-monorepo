@@ -13,8 +13,8 @@ import AuthService from '@/services/auth/AuthService'
 
 // Methods
 const testApi = () => {
-  const email = 'Test'
-  const password = 'Password'
+  const email = 'email@gmail.com'
+  const password = 'password'
 
   const response = AuthService.login({ email, password })
 }

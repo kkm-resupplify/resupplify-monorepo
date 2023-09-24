@@ -21,7 +21,12 @@
     "signup": "Sign up",
 
     "notification": {
-      "loginSuccess": "Login successful"
+      "loginSuccessTitle": "Logged in successfully",
+      "loginSuccessText": "Welcome back!",
+      "logoutSuccessTitle": "Logged out successfully",
+      "logoutSuccessText": "See you soon.",
+      "registerSuccessTitle": "Registered successfully",
+      "registerSuccessText": "We will now ask you to register a new company or join already existing one."
     }
   },
 

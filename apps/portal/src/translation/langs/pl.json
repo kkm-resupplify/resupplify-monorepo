@@ -20,7 +20,12 @@
     "signup": "Zarejestruj się",
 
     "notification": {
-      "loginSuccess": "Logowanie zakończone powodzeniem"
+      "loginSuccessTitle": "Zalogowano",
+      "loginSuccessText": "Witaj z powrotem!",
+      "logoutSuccessTitle": "Wylogowano pomyślnie",
+      "logoutSuccessText": "Do zobaczenia w krótce.",
+      "registerSuccessTitle": "Zarejestrowano pomyślnie",
+      "registerSuccessText": "Poprosimy Cię teraz o założenie lub dołączenie do istniejącej do firmy."
     }
   },
 
