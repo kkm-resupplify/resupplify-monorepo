@@ -8,19 +8,18 @@ export const useUserThemeStore = defineStore({
   id: 'userTheme',
 
   state: (): UserThemeState => ({
-    theme: localStorage.getItem('user-theme') || 'light'
+    theme: 'light'
   }),
 
   actions: {
     initializeTheme() {
-      const savedTheme = localStorage.getItem('user-theme') || 'light'
+      const savedTheme = this.theme ?? 'light'
 
       this.setUserTheme(savedTheme)
     },
 
     setUserTheme(theme: string) {
       this.theme = theme
-      localStorage.setItem('user-theme', theme)
       document.documentElement.dataset.theme = theme
     },
 
