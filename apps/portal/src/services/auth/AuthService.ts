@@ -1,19 +1,40 @@
 import BaseService from '../BaseService'
 
+interface AuthRequest {
+  email: string
+  password: string
+  passwordConfirmation?: string
+}
 class AuthService extends BaseService {
-  constructor() {
-    super('test')
+  static REGISTER_SUFFIX = 'register'
+  static LOGIN_SUFFIX = 'login'
+  static LOGOUT_SUFFIX = 'logout'
+
+  async register({ email, password, passwordConfirmation }: AuthRequest) {
+    const response = await this.post({
+      data: { email, password, passwordConfirmation },
+      suffix: AuthService.REGISTER_SUFFIX
+    })
+
+    return response
   }
 
-  async login() {
-    const data = { email: 'test@test.com', password: 'test_pswd' }
+  async login({ email, password }: AuthRequest): Promise<Object> {
+    const response = await this.post({
+      data: { email, password },
+      suffix: AuthService.LOGIN_SUFFIX
+    })
+
+    return response
   }
 
-  async test() {
-    const response = await this.get({ notificationTitle: 'auth.notification.loginSuccess', id: 5 })
+  async logout() {
+    const response = await this.get({
+      suffix: AuthService.LOGOUT_SUFFIX
+    })
 
-    console.log(response)
+    return response
   }
 }
 
-export default new AuthService()
+export default new AuthService('')

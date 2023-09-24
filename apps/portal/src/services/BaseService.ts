@@ -10,15 +10,27 @@ interface Endpoint {
   suffix?: string
 }
 
+interface RequestConfig {
+  id?: string | number
+  data?: object
+  config?: object
+  suffix?: string
+  prefix?: string
+  notificationTitle?: string
+  notificationText?: string
+}
+
 const { t } = i18n.global
 
 export default class BaseService {
   endpointBase: string
 
   constructor(endpointBase: string) {
-    if (!endpointBase) throw new Error('Endpoint base url needs to specified.')
-
-    this.endpointBase = endpointBase
+    if (!endpointBase) {
+      this.endpointBase = ''
+    } else {
+      this.endpointBase = endpointBase
+    }
   }
 
   handleErrors(error: any): { success: boolean } | AxiosError {
@@ -33,7 +45,7 @@ export default class BaseService {
     return { ...error, success: true }
   }
 
-  getEndpoint({ id = '', prefix = '', suffix = '' }: Endpoint = {}) {
+  getEndpoint({ id, prefix, suffix }: Endpoint = {}) {
     let endpoint = this.endpointBase
 
     if (prefix) endpoint = `${prefix}/${endpoint}`
@@ -50,14 +62,7 @@ export default class BaseService {
     prefix = '',
     notificationTitle = '',
     notificationText = ''
-  }: {
-    id?: string | number
-    config?: any
-    suffix?: string
-    prefix?: string
-    notificationTitle?: string
-    notificationText?: string
-  } = {}) {
+  }: RequestConfig) {
     try {
       const response = await axiosInstance.get(this.getEndpoint({ id, suffix, prefix }), config)
 
@@ -83,14 +88,7 @@ export default class BaseService {
     prefix = '',
     notificationTitle = '',
     notificationText = ''
-  }: {
-    id?: string | number
-    config?: any
-    suffix?: string
-    prefix?: string
-    notificationTitle?: string
-    notificationText?: string
-  } = {}) {
+  }: RequestConfig) {
     try {
       const response = await axiosInstance.post(this.getEndpoint({ id, suffix, prefix }), data)
 
@@ -116,14 +114,7 @@ export default class BaseService {
     prefix = '',
     notificationTitle = '',
     notificationText = ''
-  }: {
-    id?: string | number
-    config?: any
-    suffix?: string
-    prefix?: string
-    notificationTitle?: string
-    notificationText?: string
-  } = {}) {
+  }: RequestConfig) {
     try {
       const response = await axiosInstance.put(this.getEndpoint({ id, suffix, prefix }), data)
 
@@ -149,14 +140,7 @@ export default class BaseService {
     prefix = '',
     notificationTitle = '',
     notificationText = ''
-  }: {
-    id?: string | number
-    config?: any
-    suffix?: string
-    prefix?: string
-    notificationTitle?: string
-    notificationText?: string
-  } = {}) {
+  }: RequestConfig) {
     try {
       const response = await axiosInstance.delete(this.getEndpoint({ id, suffix, prefix }), config)
 
