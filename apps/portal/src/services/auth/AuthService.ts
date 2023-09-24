@@ -35,12 +35,6 @@ class AuthService extends BaseService {
 
     return response
   }
-
-  async test() {
-    const response = await this.get({ notificationTitle: 'auth.notification.loginSuccess', id: 5 })
-
-    console.log(response)
-  }
 }
 
 export default new AuthService('')
