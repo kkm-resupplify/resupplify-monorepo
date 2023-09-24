@@ -1,4 +1,5 @@
 import type { AxiosError } from 'axios'
+import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
 
 class HttpErrorHandler {
   handleErrorCode401(error: AxiosError): void {
@@ -7,8 +8,17 @@ class HttpErrorHandler {
     this.displayPopupNotification(error)
   }
 
+  handleErrorCode404(error: AxiosError): void {
+    console.log(error)
+
+    this.displayPopupNotification(error)
+  }
+
   displayPopupNotification(error: AxiosError): void {
-    console.log(error.message)
+    const generalNotificationStore = useGeneralNotificationStore()
+    const notification = { title: 'Error', variant: 'danger', text: error.message, icon: 'error' }
+
+    generalNotificationStore.sendNotification(notification)
   }
 }
 

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 interface Notification {
   title: string
-  duration: number
+  duration?: number
   text?: string
   variant?: string
   icon?: string
@@ -32,7 +32,7 @@ export const useGeneralNotificationStore = defineStore({
     sendNotification({ title, duration, text, variant, icon }: Notification): void {
       this.notificationQueue.push({
         title,
-        duration: duration ?? 3000,
+        duration: duration,
         text,
         variant: variant ?? 'info',
         icon
@@ -54,9 +54,12 @@ export const useGeneralNotificationStore = defineStore({
         if (notification) {
           this.setCurrentNotification(notification)
 
-          this.currentTimeout = setTimeout(() => {
-            this.currentNotification = null
-          }, notification.duration + 100)
+          this.currentTimeout = setTimeout(
+            () => {
+              this.currentNotification = null
+            },
+            notification.duration ? notification.duration + 100 : 3100
+          )
         }
       }
     },

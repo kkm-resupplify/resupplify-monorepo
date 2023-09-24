@@ -1,16 +1,7 @@
-// Axios
 import axios from 'axios'
 import type { AxiosRequestConfig } from 'axios'
-
-// i18n
-import { useI18n } from 'vue-i18n'
-const i18nLocale = useI18n()
-
-// Stores
+import { i18n } from '@/translation/index'
 import { useUserStore } from '@/stores/user/useUserStore'
-
-// Inits
-const userStore = useUserStore()
 
 // Axios setup
 const axiosConfig = {
@@ -23,7 +14,7 @@ const axiosConfig = {
 
 const requestInterceptorConfig = (req: AxiosRequestConfig<any>) => {
   if (req.headers) {
-    req.headers['X-Language'] = i18nLocale.locale.value
+    req.headers['X-Language'] = i18n.global.locale.value
     req.headers['Authorization'] = getAuthorizationHeader()
   }
 
@@ -35,10 +26,11 @@ axiosInstance.interceptors.request.use(requestInterceptorConfig)
 
 // Utility functions
 function getBaseUrl() {
-  return import.meta.env.base_URL
+  return import.meta.env.VITE_API_URL
 }
 
 function getAuthorizationHeader() {
+  const userStore = useUserStore()
   const token = userStore.getToken
 
   return `Authorization ${token}`

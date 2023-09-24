@@ -1,16 +1,23 @@
 import HttpErrorHandler from './HttpErrorHandler'
+import { axiosInstance } from './apiConfig'
 import type { AxiosError } from 'axios'
+import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
 
+interface Endpoint {
+  id?: number | string
+  prefix?: string
+  suffix?: string
+}
 export default class BaseService {
-  endpointBase: String
+  endpointBase: string
 
-  constructor(endpointBase: String) {
+  constructor(endpointBase: string) {
     if (!endpointBase) throw new Error('Endpoint base url needs to specified.')
 
     this.endpointBase = endpointBase
   }
 
-  handleErrors(error: AxiosError): { success: boolean } | AxiosError {
+  handleErrors(error: any): { success: boolean } | AxiosError {
     if (!error.response) return { success: false }
 
     const httpCode: number = error.response.status
@@ -20,5 +27,55 @@ export default class BaseService {
     HttpErrorHandler[key](error)
 
     return { ...error, success: true }
+  }
+
+  getEndpoint({ id = '', prefix = '', suffix = '' }: Endpoint = {}) {
+    let endpoint = this.endpointBase
+
+    if (prefix) endpoint = `${prefix}/${endpoint}`
+    if (id) endpoint += `/${id}`
+    if (suffix) endpoint += `/${suffix}`
+
+    return endpoint
+  }
+
+  async fetch({ config = {}, suffix = '', prefix = '', notificationText = '' } = {}) {
+    try {
+      const response = await axiosInstance.get(this.getEndpoint())
+
+      return response
+    } catch (error) {
+      return this.handleErrors(error)
+    }
+  }
+
+  async get({
+    id = '',
+    config = {},
+    suffix = '',
+    prefix = '',
+    notificationTitle = '',
+    notificationText = ''
+  }: {
+    id?: string | number
+    config?: any
+    suffix?: string
+    prefix?: string
+    notificationTitle?: string
+    notificationText?: string
+  } = {}) {
+    try {
+      const response = await axiosInstance.get(this.getEndpoint({ id, suffix, prefix }), config)
+
+      const generalNotification = useGeneralNotificationStore()
+
+      if (notificationTitle || notificationText) {
+        generalNotification.sendNotification({ title: notificationTitle, text: notificationText })
+      }
+
+      return response
+    } catch (error) {
+      return this.handleErrors(error)
+    }
   }
 }
