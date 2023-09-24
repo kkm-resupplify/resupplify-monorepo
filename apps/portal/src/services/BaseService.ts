@@ -16,9 +16,11 @@ export default class BaseService {
   endpointBase: string
 
   constructor(endpointBase: string) {
-    if (!endpointBase) throw new Error('Endpoint base url needs to specified.')
-
-    this.endpointBase = endpointBase
+    if (!endpointBase) {
+      this.endpointBase = ''
+    } else {
+      this.endpointBase = endpointBase
+    }
   }
 
   handleErrors(error: any): { success: boolean } | AxiosError {
@@ -33,7 +35,7 @@ export default class BaseService {
     return { ...error, success: true }
   }
 
-  getEndpoint({ id = '', prefix = '', suffix = '' }: Endpoint = {}) {
+  getEndpoint({ id, prefix, suffix }: Endpoint = {}) {
     let endpoint = this.endpointBase
 
     if (prefix) endpoint = `${prefix}/${endpoint}`

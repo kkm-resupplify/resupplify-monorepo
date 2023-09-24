@@ -5,8 +5,34 @@ class AuthService extends BaseService {
   static LOGIN_SUFFIX = 'login'
   static LOGOUT_SUFFIX = 'logout'
 
-  async login() {
-    const data = { email: 'test@test.com', password: 'test_pswd' }
+  async register({
+    email,
+    password,
+    confirmPassword
+  }: { email: string; password: string; confirmPassword: string } = {}) {
+    const response = await this.post({
+      data: { email, password, confirmPassword },
+      suffix: AuthService.REGISTER_SUFFIX
+    })
+
+    return response
+  }
+
+  async login({ email, password }: { email: string; password: string } = {}) {
+    const response = await this.post({
+      data: { email, password },
+      suffix: AuthService.LOGIN_SUFFIX
+    })
+
+    return response
+  }
+
+  async logout() {
+    const response = await this.get({
+      suffix: AuthService.LOGOUT_SUFFIX
+    })
+
+    return response
   }
 
   async test() {
