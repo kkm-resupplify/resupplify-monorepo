@@ -1,24 +1,25 @@
 import BaseService from '../BaseService'
 
+interface AuthRequest {
+  email: string
+  password: string
+  passwordConfirmation?: string
+}
 class AuthService extends BaseService {
   static REGISTER_SUFFIX = 'register'
   static LOGIN_SUFFIX = 'login'
   static LOGOUT_SUFFIX = 'logout'
 
-  async register({
-    email,
-    password,
-    confirmPassword
-  }: { email: string; password: string; confirmPassword: string } = {}) {
+  async register({ email, password, passwordConfirmation }: AuthRequest) {
     const response = await this.post({
-      data: { email, password, confirmPassword },
+      data: { email, password, passwordConfirmation },
       suffix: AuthService.REGISTER_SUFFIX
     })
 
     return response
   }
 
-  async login({ email, password }: { email: string; password: string } = {}) {
+  async login({ email, password }: AuthRequest): Promise<Object> {
     const response = await this.post({
       data: { email, password },
       suffix: AuthService.LOGIN_SUFFIX
@@ -42,4 +43,4 @@ class AuthService extends BaseService {
   }
 }
 
-export default new AuthService()
+export default new AuthService('')

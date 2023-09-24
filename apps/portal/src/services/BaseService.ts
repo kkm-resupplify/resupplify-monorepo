@@ -87,6 +87,7 @@ export default class BaseService {
     notificationText = ''
   }: {
     id?: string | number
+    data?: object
     config?: any
     suffix?: string
     prefix?: string
@@ -120,6 +121,7 @@ export default class BaseService {
     notificationText = ''
   }: {
     id?: string | number
+    data?: object
     config?: any
     suffix?: string
     prefix?: string
@@ -153,7 +155,7 @@ export default class BaseService {
     notificationText = ''
   }: {
     id?: string | number
-    config?: any
+    config?: object
     suffix?: string
     prefix?: string
     notificationTitle?: string
