@@ -1,9 +1,9 @@
 import BaseService from '../BaseService'
 
 class AuthService extends BaseService {
-  constructor() {
-    super('test')
-  }
+  static REGISTER_SUFFIX = 'register'
+  static LOGIN_SUFFIX = 'login'
+  static LOGOUT_SUFFIX = 'logout'
 
   async login() {
     const data = { email: 'test@test.com', password: 'test_pswd' }
