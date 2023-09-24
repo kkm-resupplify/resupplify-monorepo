@@ -8,7 +8,27 @@ class HttpErrorHandler {
     this.displayPopupNotification(error)
   }
 
+  handleErrorCode403(error: AxiosError): void {
+    this.displayPopupNotification(error)
+  }
+
   handleErrorCode404(error: AxiosError): void {
+    this.displayPopupNotification(error)
+  }
+
+  handleErrorCode422(error: AxiosError): void {
+    this.displayPopupNotification(error)
+  }
+
+  handleErrorCode429(error: AxiosError): void {
+    this.displayPopupNotification(error)
+  }
+
+  handleErrorCode500(error: AxiosError): void {
+    this.displayPopupNotification(error)
+  }
+
+  handleErrorCode503(error: AxiosError): void {
     this.displayPopupNotification(error)
   }
 
