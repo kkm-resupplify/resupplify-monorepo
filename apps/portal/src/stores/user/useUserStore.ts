@@ -1,12 +1,15 @@
 import { defineStore } from 'pinia'
+interface UserStoreData {
+  email: string
+  token: string
+}
+export const useUserStore = defineStore({
+  id: 'userStore',
 
-export const useUserStore = defineStore('useUserStore', {
-  state: () => {
-    return {
-      email: 'user@email.com',
-      token: ''
-    }
-  },
+  state: (): UserStoreData => ({
+    email: '',
+    token: ''
+  }),
 
   getters: {
     getEmail: (state) => state.email,
@@ -14,6 +17,20 @@ export const useUserStore = defineStore('useUserStore', {
   },
 
   actions: {
+    isLoggedIn() {
+      return !!this.token
+    },
+
+    setUser({ email, token }: { email: string; token: string }) {
+      this.setEmail(email)
+      this.setToken(token)
+    },
+
+    clearUser() {
+      this.clearEmail()
+      this.clearToken()
+    },
+
     setEmail(token: string) {
       this.email = token
     },
@@ -29,5 +46,7 @@ export const useUserStore = defineStore('useUserStore', {
     clearToken() {
       this.token = ''
     }
-  }
+  },
+
+  persist: true
 })

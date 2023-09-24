@@ -2,6 +2,8 @@
   <basic-view-layout class="test-view">
     <template #body>
       <a-button text="testApi" @click="testApi" />
+
+      <a-button text="test2" @click="testHeaders" />
     </template>
   </basic-view-layout>
 </template>
@@ -17,6 +19,10 @@ const testApi = () => {
   const password = 'password'
 
   const response = AuthService.login({ email, password })
+}
+
+const testHeaders = () => {
+  const response = AuthService.get({ id: 1 })
 }
 </script>
 

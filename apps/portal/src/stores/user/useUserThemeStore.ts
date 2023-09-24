@@ -13,9 +13,7 @@ export const useUserThemeStore = defineStore({
 
   actions: {
     initializeTheme() {
-      const savedTheme = this.theme ?? 'light'
-
-      this.setUserTheme(savedTheme)
+      document.documentElement.dataset.theme = this.theme
     },
 
     setUserTheme(theme: string) {

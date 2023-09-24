@@ -1,6 +1,6 @@
 import HttpErrorHandler from './HttpErrorHandler'
 import { axiosInstance } from './apiConfig'
-import type { AxiosError } from 'axios'
+import type { AxiosError, AxiosResponse } from 'axios'
 import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
 import { i18n } from '@/translation/index'
 
@@ -33,7 +33,7 @@ export default class BaseService {
     }
   }
 
-  handleErrors(error: any): { success: boolean } | AxiosError {
+  handleErrors(error: any) {
     if (!error.response) return { success: false }
 
     const httpCode: number = error.response.status
@@ -62,7 +62,7 @@ export default class BaseService {
     prefix = '',
     notificationTitle = '',
     notificationText = ''
-  }: RequestConfig) {
+  }: RequestConfig): Promise<any> {
     try {
       const response = await axiosInstance.get(this.getEndpoint({ id, suffix, prefix }), config)
 

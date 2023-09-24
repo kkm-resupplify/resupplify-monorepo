@@ -4,14 +4,19 @@
 
     <navigation-bar-main-section />
 
-    <navigation-bar-auth-section />
+    <navigation-bar-auth-section v-if="!userStore.isLoggedIn" />
+
+    <div v-else style="display: flex; flex: 1; justify-content: flex-end">User nav bar</div>
   </nav>
 </template>
 
 <script setup lang="ts">
-// Components
 import NavigationBarMainSection from '@/components/navigation/sections/NavigationBarMainSection.vue'
 import NavigationBarAuthSection from './sections/NavigationBarAuthSection.vue'
+import { useUserStore } from '@/stores/user/useUserStore'
+
+// Variables
+const userStore = useUserStore()
 </script>
 
 <style scoped lang="scss">
