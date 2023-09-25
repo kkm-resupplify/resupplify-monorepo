@@ -92,7 +92,7 @@ $body-max-height: 150px;
   height: 210px;
 
   border-radius: $global-border-radius-20;
-  box-shadow: 4px 4px 4px 0 rgb(0 0 0 / 25%);
+  box-shadow: 0 8px 18px 0 rgb(0 0 0 / 10%);
 
   &:hover {
     .a-card__body {

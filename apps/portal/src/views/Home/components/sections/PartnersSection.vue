@@ -39,7 +39,6 @@ const companies = [
 
   padding: $global-spacing-30 $global-spacing-40;
 
-  background-color: var(--secondary-1);
   border-radius: $global-border-radius-20;
 }
 </style>

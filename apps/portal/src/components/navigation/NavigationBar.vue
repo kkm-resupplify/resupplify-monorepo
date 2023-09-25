@@ -29,7 +29,6 @@ const userStore = useUserStore()
   margin: $global-spacing-20 $global-spacing-40;
   padding: $global-spacing-30 $global-spacing-40;
 
-  background-color: var(--secondary-1);
   border-radius: 4px;
 }
 </style>
