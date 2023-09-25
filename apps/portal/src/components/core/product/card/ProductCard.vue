@@ -39,7 +39,6 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 // Components
-import ACard from '@sharedAtoms/card/ACard.vue'
 import ProductCardStats from '@/components/core/product/card/sections/ProductCardStats.vue'
 import ProductCardRibbon from '@/components/core/product/card/sections/ProductCardRibbon.vue'
 

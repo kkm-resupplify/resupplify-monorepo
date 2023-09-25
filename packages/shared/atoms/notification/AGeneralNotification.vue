@@ -46,7 +46,6 @@ import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-import AIcon from '@sharedAtoms/icon/AIcon.vue'
 
 // Variables
 const baseClass = 'a-general-notification'

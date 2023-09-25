@@ -10,8 +10,6 @@
 </template>
 
 <script setup lang="ts">
-// Components
-import AHeader from '@sharedAtoms/header/AHeader.vue'
 import ProductCardList from '@/components/core/product/card/ProductCardList.vue'
 
 // Mock data

@@ -8,6 +8,7 @@ import './assets/main.scss'
 import 'material-icons/iconfont/material-icons.css'
 import 'material-symbols/outlined.css'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import registerGlobalComponentsPlugin from './plugins/components/registerGlobalComponentsPlugin'
 
 const app = createApp(App)
 
@@ -20,5 +21,7 @@ app.use(pinia)
 
 const userThemeStore = useUserThemeStore()
 userThemeStore.initializeTheme()
+
+app.use(registerGlobalComponentsPlugin)
 
 app.mount('#app')
