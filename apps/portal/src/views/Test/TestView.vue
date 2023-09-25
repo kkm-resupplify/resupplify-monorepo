@@ -10,7 +10,6 @@
 
 <script setup lang="ts">
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
-import AButton from '@sharedAtoms/button/AButton.vue'
 import AuthService from '@/services/auth/AuthService'
 
 // Methods

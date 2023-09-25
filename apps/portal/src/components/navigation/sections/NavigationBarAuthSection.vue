@@ -22,9 +22,6 @@ import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
-// Components
-import AButton from '@sharedAtoms/button/AButton.vue'
-
 // Inits
 const userThemeStore = useUserThemeStore()
 

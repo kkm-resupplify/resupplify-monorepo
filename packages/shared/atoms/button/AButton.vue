@@ -3,16 +3,10 @@
 </template>
 
 <script setup lang="ts">
-// Vue
-import { computed } from 'vue'
-
-// Enums
+import { computed, ref } from 'vue'
 import AButtonSizeEnum from '@sharedEnums/button/AButtonSizeEnum'
 import AButtonColorEnum from '@sharedEnums/button/AButtonColorEnum'
-
-// Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-const { generateClassNames } = useClassComposable()
 
 const props = defineProps({
   text: {
@@ -42,8 +36,13 @@ const props = defineProps({
   }
 })
 
+// Variables
 const baseClass = 'a-button'
 
+// Composables
+const { generateClassNames } = useClassComposable()
+
+// Computed
 const generateClasses = computed(() => {
   const colorClass = props.outlined ? `outlined-${props.color}` : props.color
 

@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
 // Components
-import ACard from '@sharedAtoms/card/ACard.vue'
 import CompanyCardStats from '@/components/core/company/card/sections/CompanyCardStats.vue'
 
 // Props
