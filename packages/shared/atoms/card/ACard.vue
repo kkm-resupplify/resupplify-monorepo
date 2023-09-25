@@ -115,7 +115,7 @@ $body-max-height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 98%;
+    height: 95%;
 
     img {
       max-width: 100%;
