@@ -6,7 +6,10 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  headerText: String
+  headerText: {
+    type: String,
+    default: 'Welcome back'
+  }
 })
 </script>
 
@@ -17,10 +20,12 @@ const props = defineProps({
   align-items: flex-start;
   align-self: stretch;
   justify-content: center;
+
   height: 298px;
 
   &--text {
     align-self: stretch;
+
     font-family: Syne, sans-serif;
     font-size: 64px;
     font-weight: 400;

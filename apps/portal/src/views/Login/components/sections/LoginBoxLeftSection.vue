@@ -16,8 +16,10 @@ import LoginHeader from '../LoginHeader.vue'
   gap: $global-spacing-20;
   align-items: center;
   align-self: stretch;
+
   width: 386px;
   padding: 0 $global-spacing-70;
+
   background: var(
     --global-gradients-blue-primary,
     linear-gradient(90deg, #002e73 0%, #002e73 0.52%, #1d76fb 100%)
