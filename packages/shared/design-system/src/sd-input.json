@@ -91,6 +91,12 @@
       }
     }
   },
+  "text-input-font-weight": {
+    "regular": {
+      "value": "{global-font-weight.40}",
+      "type": "fontWeights"
+    }
+  },
   "button-border": {
     "xsm": {
       "value": "{global-border-width.10}",
