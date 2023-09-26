@@ -1,13 +1,13 @@
 <template>
   <div class="login-header">
-    <h2 class="login-header--text">{{ headerText }}</h2>
+    <h2 class="login-header--text">{{ props.headerText }}</h2>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  headerText: string
-}>()
+const props = defineProps({
+  headerText: String
+})
 </script>
 
 <style scoped lang="scss">
@@ -21,7 +21,7 @@ defineProps<{
 
   &--text {
     align-self: stretch;
-    font-family: Syne;
+    font-family: Syne, sans-serif;
     font-size: 64px;
     font-weight: 400;
     font-style: normal;

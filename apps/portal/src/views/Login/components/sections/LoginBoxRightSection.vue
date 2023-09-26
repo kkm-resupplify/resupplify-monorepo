@@ -1,13 +1,5 @@
-<template>
-  <div>
-    <!-- Your template code goes here -->
-  </div>
-</template>
+<template></template>
 
-<script setup lang="ts">
-// Your script code goes here
-</script>
+<script setup lang="ts"></script>
 
-<style scoped>
-/* Your component-specific styles go here */
-</style>
+<style scoped lang="scss"></style>
