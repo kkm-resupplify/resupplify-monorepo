@@ -874,6 +874,28 @@
         "value": "{global-font-weight.40}",
         "type": "fontWeights"
       }
+    },
+    "text-input-gradient": {
+      "gray": {
+        "value": "{global-gradients.gray.primary}",
+        "type": "color"
+      },
+      "blue": {
+        "value": "{global-gradients.blue.primary}",
+        "type": "color"
+      }
+    },
+    "text-input-border-width": {
+      "sm": {
+        "value": "{global-border-width.20}",
+        "type": "borderWidth"
+      }
+    },
+    "text-input-border-radius": {
+      "sm": {
+        "value": "{global-border-radius.10}",
+        "type": "borderRadius"
+      }
     }
   },
   "icon": {
