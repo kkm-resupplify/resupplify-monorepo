@@ -868,6 +868,12 @@
         },
         "type": "border"
       }
+    },
+    "text-input-font-weight": {
+      "regular": {
+        "value": "{global-font-weight.40}",
+        "type": "fontWeights"
+      }
     }
   },
   "icon": {
