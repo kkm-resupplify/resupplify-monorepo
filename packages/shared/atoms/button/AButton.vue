@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import AButtonSizeEnum from '@sharedEnums/button/AButtonSizeEnum'
 import AButtonColorEnum from '@sharedEnums/button/AButtonColorEnum'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
@@ -16,14 +16,14 @@ const props = defineProps({
   size: {
     type: String,
     default: 'medium',
-    validator(value: String) {
+    validator(value: string) {
       return AButtonSizeEnum.hasValue(value)
     }
   },
   color: {
     type: String,
     default: 'gradient-primary',
-    validator(value: String) {
+    validator(value: string) {
       return AButtonColorEnum.hasValue(value)
     }
   },

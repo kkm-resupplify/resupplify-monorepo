@@ -9,6 +9,7 @@ import 'material-icons/iconfont/material-icons.css'
 import 'material-symbols/outlined.css'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import registerGlobalComponentsPlugin from './plugins/components/registerGlobalComponentsPlugin'
+import globalValidatorsPlugin from './plugins/vee-validate/veeValidatePlugin'
 
 const app = createApp(App)
 
@@ -23,5 +24,5 @@ const userThemeStore = useUserThemeStore()
 userThemeStore.initializeTheme()
 
 app.use(registerGlobalComponentsPlugin)
-
+app.use(globalValidatorsPlugin)
 app.mount('#app')

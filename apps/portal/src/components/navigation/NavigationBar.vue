@@ -4,9 +4,9 @@
 
     <navigation-bar-main-section />
 
-    <navigation-bar-auth-section v-if="!userStore.isLoggedIn" />
+    <navigation-bar-auth-section />
 
-    <div v-else style="display: flex; flex: 1; justify-content: flex-end">User nav bar</div>
+    <!-- <div v-else style="display: flex; flex: 1; justify-content: flex-end">User nav bar</div> -->
   </nav>
 </template>
 
