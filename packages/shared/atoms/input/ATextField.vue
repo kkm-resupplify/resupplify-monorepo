@@ -73,13 +73,13 @@ const borderColor = computed(() => {
 
   @supports (mix-blend-mode: darken) {
     position: relative;
-    mix-blend-mode: lighten;
+    mix-blend-mode: normal;
 
     &__label {
       position: absolute;
       left: 3em;
       transform: translateY(-45%);
-      background: var(--primary);
+      background-color: var(--primary);
     }
   }
 
@@ -94,7 +94,7 @@ const borderColor = computed(() => {
     line-height: 1;
     color: var(--font-primary);
 
-    background-image: linear-gradient(#000, #000), v-bind(borderColor);
+    background-image: linear-gradient(var(--primary), var(--primary)), v-bind(borderColor);
     background-clip: padding-box, border-box;
     background-origin: border-box;
     background-size: 200% 100%;
