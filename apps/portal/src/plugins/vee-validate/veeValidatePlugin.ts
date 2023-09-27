@@ -6,8 +6,8 @@ import * as AllRules from '@vee-validate/rules'
 
 export default {
   install: () => {
-    Object.keys(AllRules).forEach((rule) => {
-      defineRule(rule, AllRules[rule])
+    Object.keys(AllRules as { [key: string]: any }).forEach((rule: string) => {
+      defineRule(rule, (AllRules as { [key: string]: any })[rule])
     })
 
     configure({
