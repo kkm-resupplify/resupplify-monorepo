@@ -47,21 +47,20 @@ const emailText = ref('')
 .a-text-input {
   display: inline-flex;
   flex-direction: column;
-  flex-shrink: 0;
   gap: $text-input-padding-sm;
   align-items: flex-start;
 
+  max-width: 312px;
   height: 64px;
 
   &--input {
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
     gap: $text-input-padding-sm;
     align-items: flex-start;
     justify-content: center;
 
-    width: 312px;
+    width: 100%;
     height: 40px;
     padding: $text-input-padding-t;
 

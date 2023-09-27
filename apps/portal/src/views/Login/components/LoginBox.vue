@@ -1,28 +1,35 @@
 <template>
   <div class="login-box">
-    <login-box-left-section />
-    <login-box-right-section />
+    <login-box-welcome-section />
+    <login-box-form-section />
   </div>
 </template>
 
 <script setup lang="ts">
-import LoginBoxLeftSection from './sections/LoginBoxLeftSection.vue'
-import LoginBoxRightSection from './sections/LoginBoxRightSection.vue'
+import LoginBoxWelcomeSection from './sections/LoginBoxWelcomeSection.vue'
+import LoginBoxFormSection from './sections/LoginBoxFormSection.vue'
 </script>
 
 <style scoped lang="scss">
+$boxshadow-primary-2: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
+  #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
+
 .login-box {
   display: flex;
+  flex-direction: column;
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  width: 852px;
-  height: 644px;
 
-  border-radius: 4px;
+  max-width: 952px;
+  min-height: 644px;
+
   background: var(--bg-primary, #fff);
+  border-radius: $global-border-radius-10;
+  box-shadow: $boxshadow-primary-2;
 
-  /* global-boxshadow/primary-2 */
-  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.44);
+  @media (#{map-get($screen-breakpoints, 'md-and-up')}) {
+    flex-direction: row;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="login-box-right-section">
+  <div class="login-box-form-section">
     <a-text-input
       v-for="field in formFields"
       :id="field.id"
@@ -9,10 +9,10 @@
       :placeholder="field.placeholder"
     />
     <a-button text="Log in" size="x-large" />
-    <a-link link="/password/reset" text="Forgot password?" size="xl"/>
-    <div class="login-box-right-section--sign-up">
+    <a-link link="/password/reset" text="Forgot password?" size="xl" />
+    <div class="login-box-form-section--sign-up">
       <p>Don't have an account?</p>
-      <a-link link="/register" text="Sign up" size="xl"/>
+      <a-link link="/register" text="Sign up" size="xl" />
     </div>
   </div>
 </template>
@@ -47,19 +47,25 @@ const formFields = [
 </script>
 
 <style scoped lang="scss">
-.login-box-right-section {
+.login-box-form-section {
   display: flex;
-  padding: 0 76px;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: $global-spacing-100;
-  flex: 1 0 0;
-  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+
+  padding-bottom: $global-spacing-70;
+  padding-inline: $global-spacing-100;
+
   &--sign-up {
     display: flex;
-    align-items: center;
     gap: $global-spacing-20;
+    align-items: center;
+  }
+
+  @media (#{map-get($screen-breakpoints, 'md-and-up')}) {
+    flex: 1 0 0;
+    align-self: stretch;
   }
 }
 </style>
