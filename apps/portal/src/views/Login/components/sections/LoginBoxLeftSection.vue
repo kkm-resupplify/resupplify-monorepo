@@ -24,6 +24,6 @@ import LoginHeader from '../LoginHeader.vue'
     --global-gradients-blue-primary,
     linear-gradient(90deg, #002e73 0%, #002e73 0.52%, #1d76fb 100%)
   );
-  border-radius: $global-border-radius-20;
+  border-radius: $global-border-radius-20 0 0 $global-border-radius-20;
 }
 </style>

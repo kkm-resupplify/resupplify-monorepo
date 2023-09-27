@@ -18,5 +18,11 @@ import LoginBoxRightSection from './sections/LoginBoxRightSection.vue'
   justify-content: space-between;
   width: 852px;
   height: 644px;
+
+  border-radius: 4px;
+  background: var(--bg-primary, #fff);
+
+  /* global-boxshadow/primary-2 */
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.44);
 }
 </style>

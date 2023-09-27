@@ -1,12 +1,12 @@
-import { ref } from 'vue';
 <template>
   <div class="a-text-input">
-    <label :for="props.inputId" class="a-text-input--label">{{ props.inputLabel }}</label>
+    <label :for="props.id" class="a-text-input--label">{{ props.label }}</label>
     <div class="a-text-input--input-wrapper">
       <input
-        :id="props.inputId"
-        :type="props.inputType"
-        :name="props.inputName"
+        :id="props.id"
+        :type="props.type"
+        :name="props.name"
+        :label="props.label"
         :placeholder="props.placeholder"
         class="a-text-input--input"
       />
@@ -18,29 +18,25 @@ import { ref } from 'vue';
 <script setup lang="ts">
 import { ref } from 'vue'
 const props = defineProps({
-  placeholder: {
+  id: {
     type: String,
-    default: 'Enter email'
+    default: 'email'
   },
-  inputValue: {
+  type: {
     type: String,
-    default: ref('')
+    default: 'email'
   },
-  inputLabel: {
+  name: {
+    type: String,
+    default: 'email'
+  },
+  label: {
     type: String,
     default: 'Email'
   },
-  inputType: {
+  placeholder: {
     type: String,
-    default: 'email'
-  },
-  inputName: {
-    type: String,
-    default: 'email'
-  },
-  inputId: {
-    type: String,
-    default: 'email'
+    default: 'Enter email'
   }
 })
 
