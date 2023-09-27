@@ -13,7 +13,7 @@ import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const { generateClassNames } = useClassComposable()
 
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     required: true

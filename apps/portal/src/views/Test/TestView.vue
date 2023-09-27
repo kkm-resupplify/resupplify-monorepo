@@ -5,7 +5,9 @@
 
       <a-button text="test2" @click="testHeaders" />
 
-      <input name="username" />
+      <div style="width: 300px">
+        <a-text-field label="Password" placeholder="Password" />
+      </div>
     </template>
   </basic-view-layout>
 </template>
@@ -13,7 +15,6 @@
 <script setup lang="ts">
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import AuthService from '@/services/auth/AuthService'
-import { useField } from 'vee-validate'
 
 // Methods
 const testApi = () => {
@@ -26,8 +27,6 @@ const testApi = () => {
 const testHeaders = () => {
   const response = AuthService.get({ id: 1 })
 }
-
-const { username } = useField('username')
 </script>
 
 <style lang="scss" scoped>
