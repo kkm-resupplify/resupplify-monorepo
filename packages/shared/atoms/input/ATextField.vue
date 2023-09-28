@@ -2,12 +2,12 @@
   <div :class="generateClasses">
     <label v-if="label" class="a-text-field__label" v-text="label" />
 
-    <input class="a-text-field__input" :placeholder="placeholder" />
+    <input class="a-text-field__input" :type="inputType" :placeholder="placeholder" />
   </div>
 </template>
 
 <script setup lang="ts">
-//TODO:
+// TODO:
 // gradient change on field validation
 import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
@@ -59,7 +59,7 @@ const borderColor = computed(() => {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: $global-spacing-30;
+  height: fit-content;
 
   &--medium {
     #{$self}__label {
@@ -67,7 +67,7 @@ const borderColor = computed(() => {
     }
 
     #{$self}__input {
-      @include size($global-spacing-30 $global-spacing-40, $text-input-font-size-md);
+      @include size($global-spacing-30 $global-spacing-70, $text-input-font-size-md);
     }
   }
 
@@ -76,10 +76,8 @@ const borderColor = computed(() => {
     mix-blend-mode: normal;
 
     &__label {
-      position: absolute;
-      left: 3em;
-      transform: translateY(-45%);
-      background-color: var(--primary);
+      position: relative;
+      left: $global-spacing-70;
     }
   }
 
