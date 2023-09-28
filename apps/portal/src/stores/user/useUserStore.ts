@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 import { i18n } from '@/translation/index'
+import { setLocale } from '@vee-validate/i18n'
+
 interface UserStoreData {
   email: string
   token: string
@@ -59,6 +61,7 @@ export const useUserStore = defineStore({
 
     initializeLocale() {
       i18n.global.locale.value = this.language
+      setLocale(this.language)
     }
   },
 

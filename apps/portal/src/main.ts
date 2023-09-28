@@ -20,6 +20,7 @@ pinia.use(piniaPluginPersistedstate)
 app.use(router)
 app.use(pinia)
 app.use(i18n as any)
+app.use(veeValidatePlugin)
 
 const userThemeStore = useUserThemeStore()
 userThemeStore.initializeTheme()
@@ -29,5 +30,4 @@ const userStore = useUserStore()
 userStore.initializeLocale()
 
 app.use(registerGlobalComponentsPlugin)
-app.use(veeValidatePlugin)
 app.mount('#app')
