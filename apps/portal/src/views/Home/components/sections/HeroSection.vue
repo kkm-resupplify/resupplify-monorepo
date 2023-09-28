@@ -23,32 +23,24 @@
 </template>
 
 <script setup lang="ts">
-// Vue
 import { reactive, computed } from 'vue'
-
-// Styles
+import { useI18n } from 'vue-i18n'
+import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
-// i18n
-import { useI18n } from 'vue-i18n'
-
-// Components
-import ALine from '@sharedAtoms/line/ALine.vue'
-import { Carousel, Slide } from 'vue3-carousel'
-
-// Inits
+// Variables
 const { t } = useI18n()
 
-const headerTextList = reactive([
+// Computed
+const headerTextList = computed(() => [
   t('slogans.expandYourClientBase'),
   t('slogans.diversifyAndGrowClientele'),
   t('slogans.increaseYourMarketShare')
 ])
 
-const imageUrlList = reactive(['src/assets/images/hero_1.jpg'])
-
-// Computed
 const imageUrl = computed(() => `url(${imageUrlList[0]})`)
+
+const imageUrlList = reactive(['src/assets/images/hero_1.jpg'])
 </script>
 
 <style scoped lang="scss">

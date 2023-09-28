@@ -20,6 +20,10 @@
     "signup": "Zarejestruj się",
 
     "form": {
+      "emailAddress": "Adres email",
+      "password": "Hasło",
+      "confirmPassword": "Potwierdź hasło",
+
       "emailAddressPlaceholder": "Wprowadź swój adres e-mail",
       "passwordPlaceholder": "Wprowadź swoje hasło",
       "confirmPasswordPlaceholder": "Potwierdź swoje hasło"

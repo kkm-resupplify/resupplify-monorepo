@@ -1,19 +1,23 @@
 import { defineStore } from 'pinia'
+import { i18n } from '@/translation/index'
 interface UserStoreData {
   email: string
   token: string
+  language: 'en-US' | 'pl-PL'
 }
 export const useUserStore = defineStore({
   id: 'userStore',
 
   state: (): UserStoreData => ({
     email: '',
-    token: ''
+    token: '',
+    language: 'en-US'
   }),
 
   getters: {
     getEmail: (state) => state.email,
-    getToken: (state) => state.token
+    getToken: (state) => state.token,
+    getLanguage: (state) => state.language
   },
 
   actions: {
@@ -45,6 +49,16 @@ export const useUserStore = defineStore({
 
     clearToken() {
       this.token = ''
+    },
+
+    setLanguage(language: 'en-US' | 'pl-PL') {
+      this.language = language
+
+      this.initializeLocale()
+    },
+
+    initializeLocale() {
+      i18n.global.locale.value = this.language
     }
   },
 
