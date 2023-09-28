@@ -1,24 +1,35 @@
 <template>
   <div class="register-left-section">
-    <div class="register-left-section__form">
+    <v-form class="register-left-section__form" @submit="handleFormSubmit">
       <a-text-field
+        name="email"
         input-type="email"
         :label="$t('auth.form.emailAddress')"
         :placeholder="$t('auth.form.emailAddressPlaceholder')"
+        autocomplete="username"
+        rules="required"
       />
 
       <a-text-field
-        input-type="email"
+        name="password"
+        input-type="password"
         :label="$t('auth.form.password')"
         :placeholder="$t('auth.form.passwordPlaceholder')"
+        autocomplete="new-password"
       />
 
       <a-text-field
-        input-type="email"
+        name="passwordConfirm"
+        input-type="password"
         :label="$t('auth.form.confirmPassword')"
         :placeholder="$t('auth.form.confirmPasswordPlaceholder')"
+        autocomplete="new-password"
       />
-    </div>
+
+      <v-error-message name="email" />
+
+      <a-button text="Register" type="submit" />
+    </v-form>
 
     <div class="register-left-section__footer">
       <div class="register-left-section__footer-tos"></div>
@@ -28,7 +39,12 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// Methods
+const handleFormSubmit = (v: any) => {
+  console.log(v)
+}
+</script>
 
 <style lang="scss" scoped>
 .register-left-section {

@@ -2,7 +2,14 @@
   <div :class="generateClasses">
     <label v-if="label" class="a-text-field__label" v-text="label" />
 
-    <input class="a-text-field__input" :type="inputType" :placeholder="placeholder" />
+    <v-field
+      :name="name"
+      class="a-text-field__input"
+      :type="inputType"
+      :placeholder="placeholder"
+      :autocomplete="autocomplete"
+      :rules="rules"
+    />
   </div>
 </template>
 
@@ -14,6 +21,7 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Props
 const props = defineProps({
+  name: String,
   value: String,
   label: String,
   placeholder: {
@@ -28,7 +36,11 @@ const props = defineProps({
   borderGradient: {
     type: String,
     default: 'info'
-  }
+  },
+  rules: {
+    type: String
+  },
+  autocomplete: String
 })
 
 // Variables
