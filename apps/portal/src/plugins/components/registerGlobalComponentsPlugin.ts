@@ -19,17 +19,24 @@ const molecules = [MCardList]
 import { Field, Form, ErrorMessage } from 'vee-validate'
 
 const veeValidateComponents = [Field, Form, ErrorMessage]
+
 // Plugin declaration
 export default {
   install: (app: any) => {
     installComponents(app, atoms)
     installComponents(app, molecules)
-    installComponents(app, veeValidateComponents)
+    installVeeValidateComponents(app, veeValidateComponents)
   }
 }
 
 const installComponents = (app: any, componentList: any) => {
   for (const newComponent of componentList) {
-    app.component(newComponent.__name, newComponent)
+    app.component(newComponent.__name ?? newComponent.name, newComponent)
+  }
+}
+
+const installVeeValidateComponents = (app: any, componentList: any) => {
+  for (const newComponent of componentList) {
+    app.component(`V${newComponent.name}`, newComponent)
   }
 }
