@@ -1,9 +1,9 @@
 <template>
-  <button :class="generateClasses" data-test="button">{{ text }}</button>
+  <button :class="generateClasses" :type="buttonType" data-test="button">{{ text }}</button>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, type PropType } from 'vue'
 import AButtonSizeEnum from '@sharedEnums/button/AButtonSizeEnum'
 import AButtonColorEnum from '@sharedEnums/button/AButtonColorEnum'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
@@ -33,6 +33,10 @@ const props = defineProps({
   textColor: {
     type: String,
     default: 'white'
+  },
+  buttonType: {
+    type: String as PropType<'button' | 'submit' | 'reset' | undefined>,
+    default: 'button'
   }
 })
 
