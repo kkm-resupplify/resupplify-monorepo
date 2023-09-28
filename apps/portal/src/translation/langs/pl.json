@@ -19,6 +19,12 @@
     "login": "Zaloguj się",
     "signup": "Zarejestruj się",
 
+    "form": {
+      "emailAddressPlaceholder": "Wprowadź swój adres e-mail",
+      "passwordPlaceholder": "Wprowadź swoje hasło",
+      "confirmPasswordPlaceholder": "Potwierdź swoje hasło"
+    },
+
     "notification": {
       "loginSuccessTitle": "Zalogowano",
       "loginSuccessText": "Witaj z powrotem!",

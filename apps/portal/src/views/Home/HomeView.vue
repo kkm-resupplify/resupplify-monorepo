@@ -1,5 +1,5 @@
 <template>
-  <basic-view-layout>
+  <basic-view-layout class="home-view">
     <template #hero>
       <hero-section />
     </template>
