@@ -21,9 +21,7 @@
 </template>
 
 <script setup lang="ts">
-// Components
 import NavigationBar from '@/components/navigation/NavigationBar.vue'
-import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
 </script>
 
 <style scoped lang="scss">

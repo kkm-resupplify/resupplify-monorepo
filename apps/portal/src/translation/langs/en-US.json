@@ -20,6 +20,16 @@
     "login": "Log in",
     "signup": "Sign up",
 
+    "form": {
+      "emailAddress": "Email address",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+
+      "emailAddressPlaceholder": "Enter your email address",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPasswordPlaceholder": "Confirm your password"
+    },
+
     "notification": {
       "loginSuccessTitle": "Logged in successfully",
       "loginSuccessText": "Welcome back!",

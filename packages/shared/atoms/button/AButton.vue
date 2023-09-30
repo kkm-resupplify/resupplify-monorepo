@@ -1,18 +1,12 @@
 <template>
-  <button :class="generateClasses" data-test="button">{{ text }}</button>
+  <button :class="generateClasses" :type="buttonType" data-test="button">{{ text }}</button>
 </template>
 
 <script setup lang="ts">
-// Vue
-import { computed } from 'vue'
-
-// Enums
+import { computed, type PropType } from 'vue'
 import AButtonSizeEnum from '@sharedEnums/button/AButtonSizeEnum'
 import AButtonColorEnum from '@sharedEnums/button/AButtonColorEnum'
-
-// Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-const { generateClassNames } = useClassComposable()
 
 const props = defineProps({
   text: {
@@ -22,14 +16,14 @@ const props = defineProps({
   size: {
     type: String,
     default: 'medium',
-    validator(value: String) {
+    validator(value: string) {
       return AButtonSizeEnum.hasValue(value)
     }
   },
   color: {
     type: String,
     default: 'gradient-primary',
-    validator(value: String) {
+    validator(value: string) {
       return AButtonColorEnum.hasValue(value)
     }
   },
@@ -39,11 +33,20 @@ const props = defineProps({
   textColor: {
     type: String,
     default: 'white'
+  },
+  buttonType: {
+    type: String as PropType<'button' | 'submit' | 'reset' | undefined>,
+    default: 'button'
   }
 })
 
+// Variables
 const baseClass = 'a-button'
 
+// Composables
+const { generateClassNames } = useClassComposable()
+
+// Computed
 const generateClasses = computed(() => {
   const colorClass = props.outlined ? `outlined-${props.color}` : props.color
 

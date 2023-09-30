@@ -16,6 +16,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vee-validate/i18n": "^4.11.7",
+    "@vee-validate/rules": "^4.11.7",
     "material-icons": "^1.13.9",
     "material-symbols": "^0.13.0",
     "pinia": "^2.1.3",

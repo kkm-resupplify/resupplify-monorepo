@@ -11,17 +11,15 @@
 </template>
 
 <script setup lang="ts">
-// Vue
-import { ref } from 'vue'
-
-// i18n
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
-
-// Components
 import ALink from '@sharedAtoms/link/ALink.vue'
 
-const linkList = ref([
+// Variables
+const { t } = useI18n()
+
+// Computed
+const linkList = computed(() => [
   { link: '/', text: t('pages.home') },
   { link: '/browse', text: t('pages.browse') },
   { link: '/resources', text: t('pages.resources') }
