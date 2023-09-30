@@ -6,14 +6,14 @@ import ALine from '@sharedAtoms/line/ALine.vue'
 import AHeader from '@sharedAtoms/header/AHeader.vue'
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
-import ATextField from '@sharedAtoms/input/ATextField.vue'
 
-const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotification, ATextField]
+const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotification]
 
 // Molecules
 import MCardList from '@sharedMolecules/cards/MCardList.vue'
+import MTextField from '@sharedMolecules/input/MTextField.vue'
 
-const molecules = [MCardList]
+const molecules = [MCardList, MTextField]
 
 // Vee-validate
 import { Field, Form, ErrorMessage } from 'vee-validate'

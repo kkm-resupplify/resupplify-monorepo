@@ -10,18 +10,19 @@
       :autocomplete="autocomplete"
       :rules="rules"
     />
+
+    <v-error-message :name="name" />
   </div>
 </template>
 
 <script setup lang="ts">
-// TODO:
-// gradient change on field validation
 import { computed } from 'vue'
+import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Props
 const props = defineProps({
-  name: String,
+  name: { type: String, required: true },
   value: String,
   label: String,
   placeholder: {
@@ -40,7 +41,19 @@ const props = defineProps({
   rules: {
     type: String
   },
-  autocomplete: String
+  validColor: {
+    type: String,
+    default: 'success'
+  },
+  invalidColor: {
+    type: String,
+    default: 'danger'
+  },
+  autocomplete: String,
+  showErrors: {
+    type: Boolean,
+    default: true
+  }
 })
 
 // Variables
@@ -54,8 +67,15 @@ const generateClasses = computed(() => {
   return generateClassNames(baseClass, [props.size])
 })
 
+const { meta } = useField(() => props.name)
+
 const borderColor = computed(() => {
-  return `var(--${props.borderGradient}-gradient)`
+  const { valid, touched } = meta
+
+  if (!touched) return `var(--${props.borderGradient}-gradient)`
+
+  if (valid) return `var(--${props.validColor}-gradient)`
+  else return `var(--${props.invalidColor}-gradient)`
 })
 </script>
 

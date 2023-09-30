@@ -1,16 +1,16 @@
 <template>
   <div class="register-left-section">
     <v-form class="register-left-section__form" @submit="handleFormSubmit">
-      <a-text-field
+      <m-text-field
         name="email"
         input-type="email"
         :label="$t('auth.form.emailAddress')"
         :placeholder="$t('auth.form.emailAddressPlaceholder')"
         autocomplete="username"
-        rules="required"
+        rules="required|email"
       />
 
-      <a-text-field
+      <m-text-field
         name="password"
         input-type="password"
         :label="$t('auth.form.password')"
@@ -18,15 +18,13 @@
         autocomplete="new-password"
       />
 
-      <a-text-field
+      <m-text-field
         name="passwordConfirm"
         input-type="password"
         :label="$t('auth.form.confirmPassword')"
         :placeholder="$t('auth.form.confirmPasswordPlaceholder')"
         autocomplete="new-password"
       />
-
-      <v-error-message name="email" />
 
       <a-button text="Register" type="submit" />
     </v-form>
