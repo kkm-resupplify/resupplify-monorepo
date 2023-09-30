@@ -11,27 +11,20 @@ import LoginHeader from '../LoginHeader.vue'
 <style scoped lang="scss">
 .login-box-welcome-section {
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
-  gap: $global-spacing-20;
-  align-items: center;
+  padding-inline: $global-spacing-40;
   align-self: stretch;
-
   margin-bottom: $global-spacing-70;
-  padding-inline: $global-spacing-70;
-
-  text-align: center;
-
-  background: var(
-    --global-gradients-blue-primary,
-    linear-gradient(90deg, #002e73 0%, #002e73 0.52%, #1d76fb 100%)
-  );
+  background: var(--primary-gradient);
   border-radius: $global-border-radius-20 $global-border-radius-20 0 0;
 
   @media (#{map-get($screen-breakpoints, 'md-and-up')}) {
-    max-width: 386px;
+    width: 50%;
     margin-bottom: 0;
     text-align: left;
     border-radius: $global-border-radius-20 0 0 $global-border-radius-20;
+    padding-left: $global-spacing-70;
   }
 }
 </style>

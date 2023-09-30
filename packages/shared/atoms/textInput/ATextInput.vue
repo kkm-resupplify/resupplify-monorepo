@@ -10,13 +10,11 @@
         :placeholder="props.placeholder"
         class="a-text-input--input"
       />
-      {{ emailText }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 const props = defineProps({
   id: {
     type: String,
@@ -40,7 +38,7 @@ const props = defineProps({
   }
 })
 
-const emailText = ref('')
+
 </script>
 
 <style scoped lang="scss">
