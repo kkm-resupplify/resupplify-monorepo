@@ -1,24 +1,28 @@
 <template>
   <div :class="generateClasses">
-    <label v-if="label" class="a-text-field__label" v-text="label" />
+    <label v-if="label" class="a-text-field__label" :for="name" v-text="label" />
 
-    <v-field
+    <input
+      :id="name"
       :name="name"
+      :value="inputValue"
       class="a-text-field__input"
       :type="inputType"
       :placeholder="placeholder"
       :autocomplete="autocomplete"
       :rules="rules"
+      @blur="handleBlur"
+      @input="handleChange"
     />
 
-    <v-error-message v-slot="{ message }" as="div" :name="name">
-      <p v-text="message"></p>
-    </v-error-message>
+    <div class="a-text-field__errors">
+      <span v-for="(error, idx) in errors" :key="idx" v-text="error" />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, toRef } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
@@ -66,7 +70,16 @@ const props = defineProps({
 
 // Variables
 const baseClass = 'a-text-field'
-const { meta } = useField(() => props.name)
+const name = toRef(props, 'name')
+const {
+  value: inputValue,
+  errors,
+  handleBlur,
+  handleChange,
+  meta
+} = useField(name, props.rules, {
+  initialValue: props.value
+})
 
 // Composables
 const { generateClassNames } = useClassComposable()
@@ -77,6 +90,7 @@ const generateClasses = computed(() => {
 })
 
 const borderColor = computed(() => {
+  console.log(meta)
   const { valid, touched } = meta
 
   if (!touched || !props.validate) return `var(--${props.borderGradient}-gradient)`
@@ -84,6 +98,8 @@ const borderColor = computed(() => {
   if (valid) return `var(--${props.validColor}-gradient)`
   else return `var(--${props.invalidColor}-gradient)`
 })
+
+// Methods
 </script>
 
 <style lang="scss" scoped>
