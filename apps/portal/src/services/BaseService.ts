@@ -1,6 +1,5 @@
 import HttpErrorHandler from './HttpErrorHandler'
 import { axiosInstance } from './apiConfig'
-import type { AxiosError, AxiosResponse } from 'axios'
 import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
 import { i18n } from '@/translation/index'
 

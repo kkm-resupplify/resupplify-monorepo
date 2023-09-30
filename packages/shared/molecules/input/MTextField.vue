@@ -11,7 +11,9 @@
       :rules="rules"
     />
 
-    <v-error-message :name="name" />
+    <v-error-message v-slot="{ message }" as="div" :name="name">
+      <p v-text="message"></p>
+    </v-error-message>
   </div>
 </template>
 
@@ -50,7 +52,13 @@ const props = defineProps({
     default: 'danger'
   },
   autocomplete: String,
+
   showErrors: {
+    type: Boolean,
+    default: true
+  },
+
+  validate: {
     type: Boolean,
     default: true
   }
@@ -58,6 +66,7 @@ const props = defineProps({
 
 // Variables
 const baseClass = 'a-text-field'
+const { meta } = useField(() => props.name)
 
 // Composables
 const { generateClassNames } = useClassComposable()
@@ -67,12 +76,10 @@ const generateClasses = computed(() => {
   return generateClassNames(baseClass, [props.size])
 })
 
-const { meta } = useField(() => props.name)
-
 const borderColor = computed(() => {
   const { valid, touched } = meta
 
-  if (!touched) return `var(--${props.borderGradient}-gradient)`
+  if (!touched || !props.validate) return `var(--${props.borderGradient}-gradient)`
 
   if (valid) return `var(--${props.validColor}-gradient)`
   else return `var(--${props.invalidColor}-gradient)`

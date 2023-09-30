@@ -26,7 +26,6 @@ const userThemeStore = useUserThemeStore()
 userThemeStore.initializeTheme()
 
 const userStore = useUserStore()
-
 userStore.initializeLocale()
 
 app.use(registerGlobalComponentsPlugin)

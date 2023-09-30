@@ -7,6 +7,7 @@ interface UserStoreData {
   token: string
   language: 'en-US' | 'pl-PL'
 }
+
 export const useUserStore = defineStore({
   id: 'userStore',
 

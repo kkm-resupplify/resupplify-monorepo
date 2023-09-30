@@ -16,14 +16,16 @@
         :label="$t('auth.form.password')"
         :placeholder="$t('auth.form.passwordPlaceholder')"
         autocomplete="new-password"
+        rules="required|min:8|max:32"
       />
 
       <m-text-field
-        name="passwordConfirm"
+        name="passwordConfirmation"
         input-type="password"
         :label="$t('auth.form.confirmPassword')"
         :placeholder="$t('auth.form.confirmPasswordPlaceholder')"
         autocomplete="new-password"
+        rules="required|confirmed:@password"
       />
 
       <a-button text="Register" type="submit" />
