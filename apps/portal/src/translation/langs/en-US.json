@@ -19,6 +19,10 @@
   "auth": {
     "login": "Log in",
     "signup": "Sign up",
+    "registerAgreement": "By signing up you agree to the {tos} and {privacyPolicy}",
+    "tos": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "alreadyRegistered": "Already have an account? {login}",
 
     "form": {
       "emailAddress": "Email address",

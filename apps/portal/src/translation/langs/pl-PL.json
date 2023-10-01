@@ -18,6 +18,10 @@
   "auth": {
     "login": "Zaloguj się",
     "signup": "Zarejestruj się",
+    "registerAgreement": "Rejestrując się akceptujesz {tos} oraz {privacyPolicy}",
+    "tos": "Warunki świadczenia usługi",
+    "privacyPolicy": "Politykę prywatności",
+    "alreadyRegistered": "Masz już konto? {login}",
 
     "form": {
       "emailAddress": "Adres email",

@@ -1,6 +1,6 @@
 <template>
-  <div class="register-left-section">
-    <v-form class="register-left-section__form" @submit="handleFormSubmit">
+  <div class="register-right-section">
+    <v-form class="register-right-section__form" @submit="handleFormSubmit">
       <m-text-field
         name="email"
         input-type="email"
@@ -28,18 +28,20 @@
         rules="required|confirmed:@password"
       />
 
-      <a-button text="Register" type="submit" />
+      <a-button
+        class="register-right-section__form-submit"
+        text="Register"
+        type="submit"
+        size="x-large"
+      />
     </v-form>
 
-    <div class="register-left-section__footer">
-      <div class="register-left-section__footer-tos"></div>
-
-      <div class="register-left-section__footer-login"></div>
-    </div>
+    <register-right-section-footer />
   </div>
 </template>
 
 <script setup lang="ts">
+import RegisterRightSectionFooter from './items/RegisterRightSectionFooter.vue'
 // Methods
 const handleFormSubmit = (v: any) => {
   console.log(v)
@@ -47,8 +49,9 @@ const handleFormSubmit = (v: any) => {
 </script>
 
 <style lang="scss" scoped>
-.register-left-section {
+.register-right-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -65,6 +68,10 @@ const handleFormSubmit = (v: any) => {
     align-items: center;
 
     width: 80%;
+  }
+
+  &__form-submit {
+    margin: $global-spacing-40 0;
   }
 }
 </style>

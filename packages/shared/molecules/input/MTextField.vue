@@ -11,13 +11,12 @@
       :placeholder="placeholder"
       :autocomplete="autocomplete"
       :rules="rules"
+      :disabled="disabled"
       @blur="handleBlur"
       @input="handleChange"
     />
 
-    <div class="a-text-field__errors">
-      <span v-for="(error, idx) in errors" :key="idx" v-text="error" />
-    </div>
+    <a-input-error-list :errors="errors" />
   </div>
 </template>
 
@@ -28,9 +27,11 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Props
 const props = defineProps({
-  name: { type: String, required: true },
+  autocomplete: String,
   value: String,
   label: String,
+  disabled: Boolean,
+  name: { type: String, required: true },
   placeholder: {
     type: String,
     default: ''
@@ -55,13 +56,10 @@ const props = defineProps({
     type: String,
     default: 'danger'
   },
-  autocomplete: String,
-
   showErrors: {
     type: Boolean,
     default: true
   },
-
   validate: {
     type: Boolean,
     default: true
@@ -90,12 +88,10 @@ const generateClasses = computed(() => {
 })
 
 const borderColor = computed(() => {
-  console.log(meta)
   const { valid, touched } = meta
 
   if (!touched || !props.validate) return `var(--${props.borderGradient}-gradient)`
-
-  if (valid) return `var(--${props.validColor}-gradient)`
+  else if (valid) return `var(--${props.validColor}-gradient)`
   else return `var(--${props.invalidColor}-gradient)`
 })
 
@@ -150,7 +146,7 @@ const borderColor = computed(() => {
     background-image: linear-gradient(var(--primary), var(--primary)), v-bind(borderColor);
     background-clip: padding-box, border-box;
     background-origin: border-box;
-    background-size: 200% 100%;
+    background-size: 200% 150%;
     border: 0.25em solid transparent;
     border-radius: 24px;
     outline: none;

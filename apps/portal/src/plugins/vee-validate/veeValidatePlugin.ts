@@ -14,7 +14,11 @@ export default {
       generateMessage: localize({
         'en-US': en,
         'pl-PL': pl
-      })
+      }),
+      validateOnBlur: true, // controls if `blur` events should trigger validation with `handleChange` handler
+      validateOnChange: true, // controls if `change` events should trigger validation with `handleChange` handler
+      validateOnInput: true, // controls if `input` events should trigger validation with `handleChange` handler
+      validateOnModelUpdate: true // controls if `update:modelValue` events should trigger validation with `handleChange` handler
     })
   }
 }
