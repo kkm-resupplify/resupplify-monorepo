@@ -41,6 +41,11 @@
       "logoutSuccessText": "See you soon.",
       "registerSuccessTitle": "Registered successfully",
       "registerSuccessText": "We will now ask you to register a new company or join already existing one."
+    },
+
+    "slogan": {
+      "createAccount": "Create your account",
+      "connectAndGrow": "Reach new customers and expand opportunities"
     }
   },
 

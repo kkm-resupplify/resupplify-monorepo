@@ -40,6 +40,11 @@
       "logoutSuccessText": "Do zobaczenia w krótce.",
       "registerSuccessTitle": "Zarejestrowano pomyślnie",
       "registerSuccessText": "Poprosimy Cię teraz o założenie lub dołączenie do istniejącej do firmy."
+    },
+
+    "slogan": {
+      "createAccount": "Załóż swoje konto",
+      "connectAndGrow": "Docieraj do nowych klientów i rozwijaj swoje możliwości"
     }
   },
 
