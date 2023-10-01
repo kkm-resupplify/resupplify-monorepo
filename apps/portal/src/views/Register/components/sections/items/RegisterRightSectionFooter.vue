@@ -2,7 +2,7 @@
   <div class="register-left-section-footer">
     <i18n-t class="register-left-section-footer__login" keypath="auth.alreadyRegistered" tag="span">
       <template #login>
-        <a-link to="login" :text="$t('auth.login')" text-color="info" size="medium" /> <br />
+        <a-link link="login" :text="$t('auth.login')" text-color="info" size="medium" /> <br />
       </template>
     </i18n-t>
 
@@ -12,11 +12,13 @@
       tag="span"
     >
       <template #tos>
-        <a-link to="tos" :text="$t('auth.tos')" text-color="info" /> <br />
+        <a-link link="tos" :text="$t('auth.tos')" text-color="info" />
+
+        <br />
       </template>
 
       <template #privacyPolicy>
-        <a-link to="privacy-policy" text-color="info" :text="$t('auth.privacyPolicy')" />
+        <a-link link="privacy-policy" text-color="info" :text="$t('auth.privacyPolicy')" />
       </template>
     </i18n-t>
   </div>

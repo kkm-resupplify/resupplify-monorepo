@@ -12,8 +12,7 @@
       :autocomplete="autocomplete"
       :rules="rules"
       :disabled="disabled"
-      @blur="handleBlur"
-      @input="handleChange"
+      v-on="validationListeners"
     />
 
     <a-input-error-list :errors="errors" />
@@ -21,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, toRef } from 'vue'
+import { computed, toRef, ref } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
@@ -73,10 +72,12 @@ const {
   value: inputValue,
   errors,
   handleBlur,
+  errorMessage,
   handleChange,
   meta
 } = useField(name, props.rules, {
-  initialValue: props.value
+  initialValue: props.value,
+  validateOnValueUpdate: false
 })
 
 // Composables
@@ -88,14 +89,30 @@ const generateClasses = computed(() => {
 })
 
 const borderColor = computed(() => {
-  const { valid, touched } = meta
+  if (!props.validate) return `var(--${props.borderGradient}-gradient)`
 
-  if (!touched || !props.validate) return `var(--${props.borderGradient}-gradient)`
-  else if (valid) return `var(--${props.validColor}-gradient)`
+  const { valid, touched, dirty } = meta
+  console.log(valid, touched, dirty)
+  if (!touched || !dirty) return `var(--${props.borderGradient}-gradient)`
+  if (valid) return `var(--${props.validColor}-gradient)`
   else return `var(--${props.invalidColor}-gradient)`
 })
 
-// Methods
+const validationListeners = computed(() => {
+  if (!errorMessage.value) {
+    return {
+      blur: handleBlur,
+      change: handleChange,
+      input: (e: any) => handleChange(e, false)
+    }
+  }
+
+  return {
+    blur: handleBlur,
+    change: handleChange,
+    input: handleChange
+  }
+})
 </script>
 
 <style lang="scss" scoped>
