@@ -42,9 +42,11 @@
 
 <script setup lang="ts">
 import RegisterRightSectionFooter from './items/RegisterRightSectionFooter.vue'
+import AuthService from '@/services/auth/AuthService'
+
 // Methods
 const handleFormSubmit = (v: any) => {
-  console.log(v)
+  AuthService.register({ ...v })
 }
 </script>
 

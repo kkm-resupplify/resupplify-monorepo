@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, toRef, ref } from 'vue'
+import { computed, toRef } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
@@ -92,7 +92,6 @@ const borderColor = computed(() => {
   if (!props.validate) return `var(--${props.borderGradient}-gradient)`
 
   const { valid, touched, dirty } = meta
-  console.log(valid, touched, dirty)
 
   if (!valid && touched) return `var(--${props.invalidColor}-gradient)`
   if ((dirty || touched) && valid) return `var(--${props.validColor}-gradient)`
