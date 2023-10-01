@@ -93,9 +93,11 @@ const borderColor = computed(() => {
 
   const { valid, touched, dirty } = meta
   console.log(valid, touched, dirty)
-  if (!touched || !dirty) return `var(--${props.borderGradient}-gradient)`
-  if (valid) return `var(--${props.validColor}-gradient)`
-  else return `var(--${props.invalidColor}-gradient)`
+
+  if (!valid && touched) return `var(--${props.invalidColor}-gradient)`
+  if ((dirty || touched) && valid) return `var(--${props.validColor}-gradient)`
+
+  return `var(--${props.borderGradient}-gradient)`
 })
 
 const validationListeners = computed(() => {
