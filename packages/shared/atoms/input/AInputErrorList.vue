@@ -1,29 +1,54 @@
 <template>
   <div class="a-input-error-list">
-    <div v-for="(error, idx) in errors" :key="idx" class="a-input-error-list__item">
-      <a-icon class="a-input-error-list__item-icon" color="danger" icon="close" size="medium" />
+    <TransitionGroup
+      :duration="10"
+      tag="div"
+      :css="false"
+      @before-enter="onBeforeEnter"
+      @enter="onEnter"
+      @leave="onLeave"
+    >
+      <div v-for="(error, idx) in errors" :key="idx" class="a-input-error-list__item">
+        <a-icon class="a-input-error-list__item-icon" color="danger" icon="close" size="medium" />
 
-      <span class="a-input-error-list__item-text" v-text="error" />
-    </div>
+        <span class="a-input-error-list__item-text" v-text="error" />
+      </div>
+    </TransitionGroup>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-const props = defineProps({
+import gsap from 'gsap'
+
+// Props
+defineProps({
   errors: {
     type: Array,
     default: () => []
   }
 })
 
-const opacity = computed(() => {
-  return props.errors.length > 0 ? 1 : 0
-})
+function onBeforeEnter(el: any) {
+  el.style.opacity = 0
+  el.style.height = 0
+}
 
-const minHeight = computed(() => {
-  return props.errors.length > 0 ? `30px` : 0
-})
+function onEnter(el: any, done: any) {
+  gsap.to(el, {
+    opacity: 1,
+    height: '30px',
+    duration: 0.15,
+    onComplete: done
+  })
+}
+
+function onLeave(el: any, done: any) {
+  gsap.to(el, {
+    height: 0,
+    duration: 0.15,
+    onComplete: done
+  })
+}
 </script>
 
 <style scoped lang="scss">
@@ -33,15 +58,10 @@ const minHeight = computed(() => {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-10;
-
-  min-height: v-bind(minHeight);
-  padding: $global-spacing-10 $global-spacing-80;
-
-  opacity: v-bind(opacity);
-
-  transition: all 0.3s ease-in-out;
+  padding: $global-spacing-20 $global-spacing-80;
 
   &__item {
+    overflow: hidden;
     display: flex;
     gap: $global-spacing-10;
     align-items: center;
