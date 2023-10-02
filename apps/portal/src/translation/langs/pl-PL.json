@@ -18,6 +18,20 @@
   "auth": {
     "login": "Zaloguj się",
     "signup": "Zarejestruj się",
+    "registerAgreement": "Rejestrując się akceptujesz {tos} oraz {privacyPolicy}",
+    "tos": "Warunki świadczenia usługi",
+    "privacyPolicy": "Politykę prywatności",
+    "alreadyRegistered": "Masz już konto? {login}",
+
+    "form": {
+      "emailAddress": "Adres email",
+      "password": "Hasło",
+      "confirmPassword": "Potwierdź hasło",
+
+      "emailAddressPlaceholder": "Wprowadź swój adres e-mail",
+      "passwordPlaceholder": "Wprowadź swoje hasło",
+      "confirmPasswordPlaceholder": "Potwierdź swoje hasło"
+    },
 
     "notification": {
       "loginSuccessTitle": "Zalogowano",
@@ -26,6 +40,11 @@
       "logoutSuccessText": "Do zobaczenia w krótce.",
       "registerSuccessTitle": "Zarejestrowano pomyślnie",
       "registerSuccessText": "Poprosimy Cię teraz o założenie lub dołączenie do istniejącej do firmy."
+    },
+
+    "slogan": {
+      "createAccount": "Załóż swoje konto",
+      "connectAndGrow": "Docieraj do nowych klientów i rozwijaj swoje możliwości"
     }
   },
 

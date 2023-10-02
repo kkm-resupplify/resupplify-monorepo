@@ -19,6 +19,20 @@
   "auth": {
     "login": "Log in",
     "signup": "Sign up",
+    "registerAgreement": "By signing up you agree to the {tos} and {privacyPolicy}",
+    "tos": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "alreadyRegistered": "Already have an account? {login}",
+
+    "form": {
+      "emailAddress": "Email address",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+
+      "emailAddressPlaceholder": "Enter your email address",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPasswordPlaceholder": "Confirm your password"
+    },
 
     "notification": {
       "loginSuccessTitle": "Logged in successfully",
@@ -27,6 +41,11 @@
       "logoutSuccessText": "See you soon.",
       "registerSuccessTitle": "Registered successfully",
       "registerSuccessText": "We will now ask you to register a new company or join already existing one."
+    },
+
+    "slogan": {
+      "createAccount": "Create your account",
+      "connectAndGrow": "Reach new customers and expand opportunities"
     }
   },
 

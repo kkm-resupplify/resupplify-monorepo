@@ -4,10 +4,6 @@
       <a-button text="testApi" @click="testApi" />
 
       <a-button text="test2" @click="testHeaders" />
-
-      <div style="width: 300px">
-        <a-text-field label="Password" placeholder="Password" />
-      </div>
     </template>
   </basic-view-layout>
 </template>

@@ -12,8 +12,8 @@ export default {
 
     configure({
       generateMessage: localize({
-        en,
-        pl
+        'en-US': en,
+        'pl-PL': pl
       })
     })
   }
