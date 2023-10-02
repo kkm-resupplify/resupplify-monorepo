@@ -45,9 +45,6 @@
 </template>
 
 <script setup lang="ts">
-// TODO
-// disabled computed on passwordConfirmation
-
 import RegisterRightSectionFooter from './items/RegisterRightSectionFooter.vue'
 import AuthService from '@/services/auth/AuthService'
 import { useRouter } from 'vue-router'

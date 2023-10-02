@@ -117,6 +117,8 @@ const generateClasses = computed(() => {
 })
 
 const borderColor = computed(() => {
+  if (props.disabled) return ''
+
   if (!props.validate) return `var(--${props.borderGradient}-gradient)`
 
   const { valid, touched, dirty } = meta
@@ -153,14 +155,10 @@ const appendIcon = computed(() => {
 
 // Methods
 const handleAppendIconClick = () => {
-  if (props.inputType == 'password') {
-    appendIconState.value = !appendIconState.value
-  }
-  if (inputType.value == 'password') {
-    inputType.value = 'text'
-  } else {
-    inputType.value = 'password'
-  }
+  appendIconState.value = !appendIconState.value
+
+  if (inputType.value == 'password') inputType.value = 'text'
+  else inputType.value = 'password'
 }
 </script>
 
