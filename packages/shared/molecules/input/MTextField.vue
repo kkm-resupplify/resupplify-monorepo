@@ -239,11 +239,11 @@ const handleAppendIconClick = () => {
     border-radius: 24px;
     outline: none;
 
-    transition: background-image 0.3s ease-out;
+    transition: background 0.25s ease-out;
 
     &:hover,
     &:focus {
-      background-position: 100% 0;
+      background-position: 90% 0;
     }
   }
 }
