@@ -50,6 +50,7 @@
 
 import RegisterRightSectionFooter from './items/RegisterRightSectionFooter.vue'
 import AuthService from '@/services/auth/AuthService'
+import { useRouter } from 'vue-router'
 
 // Interfaces
 interface RegisterFormData {
@@ -58,9 +59,15 @@ interface RegisterFormData {
   passwrodConfirmation: string
 }
 
+// Variables
+const router = useRouter()
+
 // Methods
-const handleFormSubmit = (formData: RegisterFormData) => {
-  AuthService.register(formData)
+const handleFormSubmit = async (formData: RegisterFormData) => {
+  const response = await AuthService.register(formData)
+  const { status } = response
+
+  if (status == 200) router.push('/')
 }
 </script>
 
