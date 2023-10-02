@@ -16,7 +16,7 @@ class AuthService extends BaseService {
 
   async register({ email, password, passwordConfirmation }: AuthRequest): Promise<Object> {
     const response = await this.post({
-      data: { email, password, passwordConfirmation },
+      data: { email, password, password_confirmation: passwordConfirmation },
       suffix: AuthService.REGISTER_SUFFIX,
       notificationTitle: t('auth.notification.registerSuccessTitle'),
       notificationText: t('auth.notification.registerSuccessText')
@@ -24,6 +24,7 @@ class AuthService extends BaseService {
 
     const { data } = response
     const { token, user } = data
+
     const userStore = useUserStore()
     userStore.setUser({ email: user.email, token })
 

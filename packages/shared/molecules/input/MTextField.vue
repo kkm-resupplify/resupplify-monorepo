@@ -1,26 +1,36 @@
 <template>
   <div :class="generateClasses">
-    <label v-if="label" class="a-text-field__label" :for="name" v-text="label" />
+    <label v-if="label" class="m-text-field__label" :for="name" v-text="label" />
 
-    <input
-      :id="name"
-      :name="name"
-      :value="inputValue"
-      class="a-text-field__input"
-      :type="inputType"
-      :placeholder="placeholder"
-      :autocomplete="autocomplete"
-      :rules="rules"
-      :disabled="disabled"
-      v-on="validationListeners"
-    />
+    <div class="m-text-field__input-group">
+      <input
+        :id="name"
+        :name="name"
+        :value="inputValue"
+        class="m-text-field__input"
+        :type="inputType"
+        :placeholder="placeholder"
+        :autocomplete="autocomplete"
+        :rules="rules"
+        :disabled="disabled"
+        v-on="validationListeners"
+      />
+
+      <a-icon
+        v-if="showAppendIcon"
+        class="m-text-field__input-append"
+        :icon="appendIcon"
+        size="medium"
+        @click="handleAppendIconClick"
+      />
+    </div>
 
     <a-input-error-list :errors="errors" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, toRef } from 'vue'
+import { computed, toRef, ref } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
@@ -35,7 +45,10 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  inputType: String,
+  inputType: {
+    type: String,
+    default: 'text'
+  },
   size: {
     type: String,
     default: 'medium'
@@ -62,12 +75,26 @@ const props = defineProps({
   validate: {
     type: Boolean,
     default: true
-  }
+  },
+
+  appendIconCallbackOn: {
+    type: Function,
+    default: () => {}
+  },
+  appendIconCallbackOff: {
+    type: Function,
+    default: () => {}
+  },
+  appendIconOn: String,
+  appendIconOff: String
 })
 
 // Variables
-const baseClass = 'a-text-field'
+const baseClass = 'm-text-field'
+
 const name = toRef(props, 'name')
+const inputType = toRef(props.inputType)
+
 const {
   value: inputValue,
   errors,
@@ -80,6 +107,7 @@ const {
   validateOnValueUpdate: false
 })
 
+const appendIconState = ref(false)
 // Composables
 const { generateClassNames } = useClassComposable()
 
@@ -114,6 +142,26 @@ const validationListeners = computed(() => {
     input: handleChange
   }
 })
+
+const showAppendIcon = computed(() => {
+  return props.appendIconOn && props.appendIconOff
+})
+
+const appendIcon = computed(() => {
+  return appendIconState.value ? props.appendIconOn : props.appendIconOff
+})
+
+// Methods
+const handleAppendIconClick = () => {
+  if (props.inputType == 'password') {
+    appendIconState.value = !appendIconState.value
+  }
+  if (inputType.value == 'password') {
+    inputType.value = 'text'
+  } else {
+    inputType.value = 'password'
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -122,7 +170,7 @@ const validationListeners = computed(() => {
   font-size: $font-size;
 }
 
-.a-text-field {
+.m-text-field {
   $self: &;
 
   display: flex;
@@ -136,7 +184,10 @@ const validationListeners = computed(() => {
     }
 
     #{$self}__input {
-      @include size($global-spacing-30 $global-spacing-70, $text-input-font-size-md);
+      @include size(
+        $global-spacing-30 32px $global-spacing-30 $global-spacing-70,
+        $text-input-font-size-md
+      );
     }
   }
 
@@ -157,7 +208,26 @@ const validationListeners = computed(() => {
     letter-spacing: 0.1em;
   }
 
+  &__input-group {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  &__input-append {
+    cursor: pointer;
+    user-select: none;
+
+    position: absolute;
+    left: 100%;
+    transform: translateX(-200%);
+
+    display: flex;
+  }
+
   &__input {
+    width: 100%;
+
     line-height: 1;
     color: var(--font-primary);
 
@@ -169,7 +239,7 @@ const validationListeners = computed(() => {
     border-radius: 24px;
     outline: none;
 
-    transition: background-position 0.3s ease-out;
+    transition: background-image 0.3s ease-out;
 
     &:hover,
     &:focus {

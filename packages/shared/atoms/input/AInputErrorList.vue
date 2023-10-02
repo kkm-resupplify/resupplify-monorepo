@@ -9,11 +9,20 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 const props = defineProps({
   errors: {
     type: Array,
     default: () => []
   }
+})
+
+const opacity = computed(() => {
+  return props.errors.length > 0 ? 1 : 0
+})
+
+const minHeight = computed(() => {
+  return props.errors.length > 0 ? `30px` : 0
 })
 </script>
 
@@ -24,7 +33,13 @@ const props = defineProps({
   display: flex;
   flex-direction: column;
   gap: $global-spacing-10;
-  padding: $global-spacing-20 $global-spacing-80;
+
+  min-height: v-bind(minHeight);
+  padding: $global-spacing-10 $global-spacing-80;
+
+  opacity: v-bind(opacity);
+
+  transition: all 0.3s ease-in-out;
 
   &__item {
     display: flex;

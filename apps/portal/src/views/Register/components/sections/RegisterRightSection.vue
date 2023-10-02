@@ -17,6 +17,8 @@
         :placeholder="$t('auth.form.passwordPlaceholder')"
         autocomplete="new-password"
         rules="required|min:8|max:32"
+        append-icon-on="visibility"
+        append-icon-off="visibility_off"
       />
 
       <m-text-field
@@ -26,6 +28,8 @@
         :placeholder="$t('auth.form.confirmPasswordPlaceholder')"
         autocomplete="new-password"
         rules="required|confirmed:@password"
+        append-icon-on="visibility"
+        append-icon-off="visibility_off"
       />
 
       <a-button
@@ -41,12 +45,22 @@
 </template>
 
 <script setup lang="ts">
+// TODO
+// disabled computed on passwordConfirmation
+
 import RegisterRightSectionFooter from './items/RegisterRightSectionFooter.vue'
 import AuthService from '@/services/auth/AuthService'
 
+// Interfaces
+interface RegisterFormData {
+  email: string
+  password: string
+  passwrodConfirmation: string
+}
+
 // Methods
-const handleFormSubmit = (v: any) => {
-  AuthService.register({ ...v })
+const handleFormSubmit = (formData: RegisterFormData) => {
+  AuthService.register(formData)
 }
 </script>
 
@@ -73,7 +87,7 @@ const handleFormSubmit = (v: any) => {
   }
 
   &__form-submit {
-    margin: $global-spacing-40 0;
+    margin-bottom: $global-spacing-40;
   }
 }
 </style>
