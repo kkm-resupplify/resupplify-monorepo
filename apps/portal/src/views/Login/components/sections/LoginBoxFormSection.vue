@@ -17,6 +17,8 @@
         :placeholder="$t('auth.form.passwordPlaceholder')"
         autocomplete="new-password"
         rules="required|min:8|max:32"
+        append-icon-on="visibility"
+        append-icon-off="visibility_off"
       />
 
       <m-text-field
@@ -26,6 +28,8 @@
         :placeholder="$t('auth.form.confirmPasswordPlaceholder')"
         autocomplete="new-password"
         rules="required|confirmed:@password"
+        append-icon-on="visibility"
+        append-icon-off="visibility_off"
       />
 
       <a-button text="Log in" size="x-large" type="submit" />
