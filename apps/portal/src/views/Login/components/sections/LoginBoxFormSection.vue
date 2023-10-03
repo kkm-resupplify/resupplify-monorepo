@@ -41,8 +41,25 @@
 </template>
 
 <script setup lang="ts">
-const handleFormSubmit = (v: any) => {
-  console.log(v)
+import AuthService from '@/services/auth/AuthService'
+import { useRouter } from 'vue-router'
+
+// Interfaces
+interface LoginFormData {
+  email: string
+  password: string
+  passwordConfirmation: string
+}
+
+// Variables
+const router = useRouter()
+
+// Methods
+const handleFormSubmit = async (formData: LoginFormData) => {
+  const response = await AuthService.login(formData)
+  const { status } = response
+
+  if (status == 200) router.push('/')
 }
 </script>
 
