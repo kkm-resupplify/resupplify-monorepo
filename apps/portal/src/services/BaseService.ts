@@ -73,8 +73,9 @@ export default class BaseService {
           text: t(notificationText)
         })
       }
+      const { data, status } = response
 
-      return response
+      return { data: data.data, status }
     } catch (error) {
       return this.handleErrors(error)
     }
@@ -100,7 +101,9 @@ export default class BaseService {
         })
       }
 
-      return response
+      const { status } = response
+
+      return { data: response.data.data, status }
     } catch (error) {
       return this.handleErrors(error)
     }
@@ -126,7 +129,9 @@ export default class BaseService {
         })
       }
 
-      return response
+      const { status } = response
+
+      return { data: response.data.data, status }
     } catch (error) {
       return this.handleErrors(error)
     }
@@ -152,7 +157,9 @@ export default class BaseService {
         })
       }
 
-      return response
+      const { data, status } = response
+
+      return { data: data.data, status }
     } catch (error) {
       return this.handleErrors(error)
     }

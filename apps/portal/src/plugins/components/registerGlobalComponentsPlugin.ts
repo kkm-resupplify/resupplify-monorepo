@@ -6,8 +6,9 @@ import ALine from '@sharedAtoms/line/ALine.vue'
 import AHeader from '@sharedAtoms/header/AHeader.vue'
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
+import AInputErrorList from '@sharedAtoms/input/AInputErrorList.vue'
 
-const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotification]
+const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotification, AInputErrorList]
 
 // Molecules
 import MCardList from '@sharedMolecules/cards/MCardList.vue'

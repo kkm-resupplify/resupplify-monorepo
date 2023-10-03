@@ -1,41 +1,54 @@
 <template>
   <div :class="generateClasses">
-    <label v-if="label" class="a-text-field__label" :for="name" v-text="label" />
+    <label v-if="label" class="m-text-field__label" :for="name" v-text="label" />
 
-    <input
-      :id="name"
-      :name="name"
-      :value="inputValue"
-      class="a-text-field__input"
-      :type="inputType"
-      :placeholder="placeholder"
-      :autocomplete="autocomplete"
-      :rules="rules"
-      @blur="handleBlur"
-      @input="handleChange"
-    />
+    <div class="m-text-field__input-group">
+      <input
+        :id="name"
+        :name="name"
+        :value="inputValue"
+        class="m-text-field__input"
+        :type="inputType"
+        :placeholder="placeholder"
+        :autocomplete="autocomplete"
+        :rules="rules"
+        :disabled="disabled"
+        v-on="validationListeners"
+      />
 
-    <div class="a-text-field__errors">
-      <span v-for="(error, idx) in errors" :key="idx" v-text="error" />
+      <a-icon
+        v-if="showAppendIcon"
+        class="m-text-field__input-append"
+        :icon="appendIcon"
+        size="medium"
+        @click="handleAppendIconClick"
+      />
     </div>
+
+    <a-input-error-list :errors="errors" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, toRef } from 'vue'
+import { computed, toRef, ref } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Props
 const props = defineProps({
-  name: { type: String, required: true },
+  autocomplete: String,
   value: String,
   label: String,
+  disabled: Boolean,
+  name: { type: String, required: true },
   placeholder: {
     type: String,
     default: ''
   },
-  inputType: String,
+  inputType: {
+    type: String,
+    default: 'text'
+  },
   size: {
     type: String,
     default: 'medium'
@@ -55,32 +68,46 @@ const props = defineProps({
     type: String,
     default: 'danger'
   },
-  autocomplete: String,
-
   showErrors: {
     type: Boolean,
     default: true
   },
-
   validate: {
     type: Boolean,
     default: true
-  }
+  },
+
+  appendIconCallbackOn: {
+    type: Function,
+    default: () => {}
+  },
+  appendIconCallbackOff: {
+    type: Function,
+    default: () => {}
+  },
+  appendIconOn: String,
+  appendIconOff: String
 })
 
 // Variables
-const baseClass = 'a-text-field'
+const baseClass = 'm-text-field'
+
 const name = toRef(props, 'name')
+const inputType = toRef(props.inputType)
+
 const {
   value: inputValue,
   errors,
   handleBlur,
+  errorMessage,
   handleChange,
   meta
 } = useField(name, props.rules, {
-  initialValue: props.value
+  initialValue: props.value,
+  validateOnValueUpdate: false
 })
 
+const appendIconState = ref(false)
 // Composables
 const { generateClassNames } = useClassComposable()
 
@@ -90,16 +117,49 @@ const generateClasses = computed(() => {
 })
 
 const borderColor = computed(() => {
-  console.log(meta)
-  const { valid, touched } = meta
+  if (props.disabled) return ''
 
-  if (!touched || !props.validate) return `var(--${props.borderGradient}-gradient)`
+  if (!props.validate) return `var(--${props.borderGradient}-gradient)`
 
-  if (valid) return `var(--${props.validColor}-gradient)`
-  else return `var(--${props.invalidColor}-gradient)`
+  const { valid, touched, dirty } = meta
+
+  if (!valid && touched) return `var(--${props.invalidColor}-gradient)`
+  if ((dirty || touched) && valid) return `var(--${props.validColor}-gradient)`
+
+  return `var(--${props.borderGradient}-gradient)`
+})
+
+const validationListeners = computed(() => {
+  if (!errorMessage.value) {
+    return {
+      blur: handleBlur,
+      change: handleChange,
+      input: (e: any) => handleChange(e, false)
+    }
+  }
+
+  return {
+    blur: handleBlur,
+    change: handleChange,
+    input: handleChange
+  }
+})
+
+const showAppendIcon = computed(() => {
+  return props.appendIconOn && props.appendIconOff
+})
+
+const appendIcon = computed(() => {
+  return appendIconState.value ? props.appendIconOn : props.appendIconOff
 })
 
 // Methods
+const handleAppendIconClick = () => {
+  appendIconState.value = !appendIconState.value
+
+  if (inputType.value == 'password') inputType.value = 'text'
+  else inputType.value = 'password'
+}
 </script>
 
 <style lang="scss" scoped>
@@ -108,7 +168,7 @@ const borderColor = computed(() => {
   font-size: $font-size;
 }
 
-.a-text-field {
+.m-text-field {
   $self: &;
 
   display: flex;
@@ -122,7 +182,10 @@ const borderColor = computed(() => {
     }
 
     #{$self}__input {
-      @include size($global-spacing-30 $global-spacing-70, $text-input-font-size-md);
+      @include size(
+        $global-spacing-30 32px $global-spacing-30 $global-spacing-70,
+        $text-input-font-size-md
+      );
     }
   }
 
@@ -143,23 +206,42 @@ const borderColor = computed(() => {
     letter-spacing: 0.1em;
   }
 
+  &__input-group {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  &__input-append {
+    cursor: pointer;
+    user-select: none;
+
+    position: absolute;
+    left: 100%;
+    transform: translateX(-200%);
+
+    display: flex;
+  }
+
   &__input {
+    width: 100%;
+
     line-height: 1;
     color: var(--font-primary);
 
     background-image: linear-gradient(var(--primary), var(--primary)), v-bind(borderColor);
     background-clip: padding-box, border-box;
     background-origin: border-box;
-    background-size: 200% 100%;
+    background-size: 200% 150%;
     border: 0.25em solid transparent;
     border-radius: 24px;
     outline: none;
 
-    transition: background-position 0.3s ease-out;
+    transition: background 0.25s ease-out;
 
     &:hover,
     &:focus {
-      background-position: 100% 0;
+      background-position: 90% 0;
     }
   }
 }

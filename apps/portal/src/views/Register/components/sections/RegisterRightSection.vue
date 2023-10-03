@@ -1,6 +1,6 @@
 <template>
-  <div class="register-left-section">
-    <v-form class="register-left-section__form" @submit="handleFormSubmit">
+  <div class="register-right-section">
+    <v-form class="register-right-section__form" @submit="handleFormSubmit">
       <m-text-field
         name="email"
         input-type="email"
@@ -17,6 +17,8 @@
         :placeholder="$t('auth.form.passwordPlaceholder')"
         autocomplete="new-password"
         rules="required|min:8|max:32"
+        append-icon-on="visibility"
+        append-icon-off="visibility_off"
       />
 
       <m-text-field
@@ -26,29 +28,50 @@
         :placeholder="$t('auth.form.confirmPasswordPlaceholder')"
         autocomplete="new-password"
         rules="required|confirmed:@password"
+        append-icon-on="visibility"
+        append-icon-off="visibility_off"
       />
 
-      <a-button text="Register" type="submit" />
+      <a-button
+        class="register-right-section__form-submit"
+        text="Register"
+        type="submit"
+        size="x-large"
+      />
     </v-form>
 
-    <div class="register-left-section__footer">
-      <div class="register-left-section__footer-tos"></div>
-
-      <div class="register-left-section__footer-login"></div>
-    </div>
+    <register-right-section-footer />
   </div>
 </template>
 
 <script setup lang="ts">
+import RegisterRightSectionFooter from './items/RegisterRightSectionFooter.vue'
+import AuthService from '@/services/auth/AuthService'
+import { useRouter } from 'vue-router'
+
+// Interfaces
+interface RegisterFormData {
+  email: string
+  password: string
+  passwrodConfirmation: string
+}
+
+// Variables
+const router = useRouter()
+
 // Methods
-const handleFormSubmit = (v: any) => {
-  console.log(v)
+const handleFormSubmit = async (formData: RegisterFormData) => {
+  const response = await AuthService.register(formData)
+  const { status } = response
+
+  if (status == 200) router.push('/')
 }
 </script>
 
 <style lang="scss" scoped>
-.register-left-section {
+.register-right-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -65,6 +88,10 @@ const handleFormSubmit = (v: any) => {
     align-items: center;
 
     width: 80%;
+  }
+
+  &__form-submit {
+    margin-bottom: $global-spacing-40;
   }
 }
 </style>
