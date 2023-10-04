@@ -8,6 +8,7 @@
         :placeholder="$t('auth.form.emailAddressPlaceholder')"
         autocomplete="username"
         rules="required|email"
+        class="login-box-form-section__text-field"
       />
 
       <m-text-field
@@ -19,6 +20,7 @@
         rules="required|min:8|max:32"
         append-icon-on="visibility"
         append-icon-off="visibility_off"
+        class="login-box-form-section__text-field"
       />
 
       <m-text-field
@@ -30,6 +32,7 @@
         rules="required|confirmed:@password"
         append-icon-on="visibility"
         append-icon-off="visibility_off"
+        class="login-box-form-section__text-field"
       />
 
       <a-button text="Log in" size="x-large" type="submit" />
@@ -73,6 +76,10 @@ const handleFormSubmit = async (formData: LoginFormData) => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  &__text-field {
+    max-width: 292px;
+  }
 
   &__form {
     display: flex;
