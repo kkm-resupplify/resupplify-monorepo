@@ -44,6 +44,7 @@
     },
 
     "slogan": {
+      "welcome": "Welcome back",
       "createAccount": "Create your account",
       "connectAndGrow": "Reach new customers and expand opportunities"
     }
