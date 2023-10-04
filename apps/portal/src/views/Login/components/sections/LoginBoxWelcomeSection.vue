@@ -59,7 +59,7 @@
     text-align: center;
   }
 
-  @media (#{map-get($screen-breakpoints, 'md-and-up')}) {
+  @include respond-to('md-and-up') {
     width: 50%;
     margin-bottom: 0;
     padding-left: $global-spacing-70;
