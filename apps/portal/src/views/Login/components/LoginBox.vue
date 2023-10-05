@@ -11,13 +11,16 @@ import LoginBoxFormSection from './sections/LoginBoxFormSection.vue'
 </script>
 
 <style scoped lang="scss">
-$boxshadow-primary-2: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
-  #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
+@mixin boxshadow-primary-2 {
+  box-shadow: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
+    #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
+}
 
 .login-box {
   @include respond-to('md-and-up') {
     flex-direction: row;
   }
+  @include boxshadow-primary-2;
 
   display: flex;
   flex-direction: column;
@@ -30,6 +33,5 @@ $boxshadow-primary-2: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-prima
   min-height: 644px;
 
   border-radius: $global-border-radius-10;
-  box-shadow: $boxshadow-primary-2;
 }
 </style>

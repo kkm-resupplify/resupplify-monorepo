@@ -17,7 +17,7 @@
         :label="$t('auth.form.password')"
         :placeholder="$t('auth.form.passwordPlaceholder')"
         autocomplete="new-password"
-        rules="required|min:8|max:32"
+        rules="required"
         append-icon-on="visibility"
         append-icon-off="visibility_off"
         class="login-box-form-section__text-field"
