@@ -22,6 +22,8 @@
     "tos": "Warunki świadczenia usługi",
     "privacyPolicy": "Politykę prywatności",
     "alreadyRegistered": "Masz już konto? {login}",
+    "forgotPassword": "Nie pamiętasz hasła?",
+    "newUser": "Nie posiadasz konta? {signup}",
 
     "form": {
       "emailAddress": "Adres email",

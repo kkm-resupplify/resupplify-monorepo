@@ -37,18 +37,13 @@
 
       <a-button text="Log in" size="x-large" type="submit" />
     </v-form>
-    <div class="login-box-form-section__footer">
-      <a-link link="/password/reset" text="Forgot password?" size="xl" />
-      <div class="login-box-form-section__footer--sign-up">
-        <p>Don't have an account?</p>
-        <a-link link="/register" text="Sign up" size="xl" />
-      </div>
-    </div>
+    <login-box-form-section-footer />
   </div>
 </template>
 
 <script setup lang="ts">
 import AuthService from '@/services/auth/AuthService'
+import LoginBoxFormSectionFooter from '../items/LoginBoxFormSectionFooter.vue'
 import { useRouter } from 'vue-router'
 
 // Interfaces
@@ -76,6 +71,7 @@ const handleFormSubmit = async (formData: LoginFormData) => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: $global-spacing-100;
 
   &__text-field {
     max-width: 292px;

@@ -23,6 +23,8 @@
     "tos": "Terms of Service",
     "privacyPolicy": "Privacy Policy",
     "alreadyRegistered": "Already have an account? {login}",
+    "forgotPassword": "Forgot password?",
+    "newUser": "Don't have an account? {signup}",
 
     "form": {
       "emailAddress": "Email address",
