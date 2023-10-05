@@ -10,6 +10,20 @@
 
 <style lang="scss" scoped>
 .login-box-welcome-section {
+  @include respond-to('md-and-up') {
+    width: 50%;
+    margin-bottom: 0;
+    padding-left: $global-spacing-70;
+
+    text-align: left;
+
+    border-radius: $global-border-radius-20 0 0 $global-border-radius-20;
+
+    .login-box-welcome-section__top {
+      text-align: left;
+    }
+  }
+
   display: flex;
   flex-direction: column;
   align-self: stretch;
@@ -57,20 +71,6 @@
     height: 298px;
 
     text-align: center;
-  }
-
-  @include respond-to('md-and-up') {
-    width: 50%;
-    margin-bottom: 0;
-    padding-left: $global-spacing-70;
-
-    text-align: left;
-
-    border-radius: $global-border-radius-20 0 0 $global-border-radius-20;
-
-    .login-box-welcome-section__top {
-      text-align: left;
-    }
   }
 }
 

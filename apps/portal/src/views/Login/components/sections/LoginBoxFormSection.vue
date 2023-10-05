@@ -67,11 +67,16 @@ const handleFormSubmit = async (formData: LoginFormData) => {
 
 <style scoped lang="scss">
 .login-box-form-section {
+  @include respond-to('md-and-up') {
+    flex: 1 0 0;
+    align-self: stretch;
+  }
+
   display: flex;
   flex-direction: column;
+  gap: $global-spacing-100;
   align-items: center;
   justify-content: center;
-  gap: $global-spacing-100;
 
   &__text-field {
     max-width: 292px;
@@ -96,11 +101,6 @@ const handleFormSubmit = async (formData: LoginFormData) => {
       gap: $global-spacing-30;
       align-items: center;
     }
-  }
-
-  @media (#{map-get($screen-breakpoints, 'md-and-up')}) {
-    flex: 1 0 0;
-    align-self: stretch;
   }
 }
 </style>

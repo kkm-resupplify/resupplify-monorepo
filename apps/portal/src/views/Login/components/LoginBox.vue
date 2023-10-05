@@ -15,20 +15,21 @@ $boxshadow-primary-2: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-prima
   #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
 
 .login-box {
+  @include respond-to('md-and-up') {
+    flex-direction: row;
+  }
+
   display: flex;
-  align-self: center;
   flex-direction: column;
   flex-shrink: 0;
   align-items: center;
+  align-self: center;
   justify-content: space-between;
+
   max-width: 952px;
   min-height: 644px;
 
   border-radius: $global-border-radius-10;
   box-shadow: $boxshadow-primary-2;
-
-  @media (#{map-get($screen-breakpoints, 'md-and-up')}) {
-    flex-direction: row;
-  }
 }
 </style>

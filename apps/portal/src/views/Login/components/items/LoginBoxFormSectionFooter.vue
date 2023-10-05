@@ -24,7 +24,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   margin-bottom: $global-spacing-100;
+
   text-align: center;
 
   &__forgot-password {
