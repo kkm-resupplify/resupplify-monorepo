@@ -22,7 +22,6 @@ import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { useI18n } from 'vue-i18n'
 import MAuthUser from '@sharedMolecules/navbar/MAuthUser.vue'
-
 // Variables
 const { t } = useI18n()
 const userThemeStore = useUserThemeStore()
