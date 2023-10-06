@@ -1,5 +1,5 @@
 <template>
-  <div class="m-auth-user-options">
+  <div class="m-auth-user-menu">
     <a-link link="/user/id" :text="$t('auth.user.account')" size="medium" />
     <a-link link="/user/id/settings" :text="$t('auth.user.settings')" size="medium" />
     <a-link link="/user/id/companies" :text="$t('auth.user.companies')" size="medium" />
@@ -8,7 +8,7 @@
 </template>
 <script setup lang="ts"></script>
 <style lang="scss" scoped>
-.m-auth-user-options {
+.m-auth-user-menu {
   display: flex;
   flex-direction: column;
 }
