@@ -48,6 +48,13 @@
       "welcome": "Witaj ponownie",
       "createAccount": "Załóż swoje konto",
       "connectAndGrow": "Docieraj do nowych klientów i rozwijaj swoje możliwości"
+    },
+
+    "user": {
+      "account": "Moje konto",
+      "settings": "Ustawienia",
+      "companies": "Firmy",
+      "logout": "Wyloguj się"
     }
   },
 
