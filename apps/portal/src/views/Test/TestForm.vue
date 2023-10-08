@@ -22,8 +22,6 @@
       />
 
       <div class="m-stepper__footer">
-        <a-button text="Back" @click="handlePreviousStep" />
-
         <a-button text="Next step" @click="handleNextStep" />
       </div>
     </v-form>
@@ -36,10 +34,5 @@ const emits = defineEmits(['next-step', 'previous-step'])
 const handleNextStep = () => {
   console.log('testform next')
   emits('next-step')
-}
-
-const handlePreviousStep = () => {
-  console.log('testform prev')
-  emits('previous-step')
 }
 </script>

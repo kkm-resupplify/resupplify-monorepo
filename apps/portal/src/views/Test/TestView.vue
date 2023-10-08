@@ -17,7 +17,12 @@ const steps = [
     component: TestForm
   },
   {
-    stepInfo: { title: 'Title2', subtitle: 'Subtitle2', description: 'Lorem ipsum 2' },
+    stepInfo: {
+      title: 'Title2',
+      subtitle: 'Subtitle2',
+      description: 'Lorem ipsum 2',
+      icon: 'check'
+    },
     component: TestFormTwo
   }
 ]

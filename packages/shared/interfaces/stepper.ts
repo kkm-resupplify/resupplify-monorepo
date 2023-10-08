@@ -4,6 +4,7 @@ export interface StepInfo {
   title: string
   subtitle: string
   description: string
+  icon?: string
 }
 
 export interface Step {

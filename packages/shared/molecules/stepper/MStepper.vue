@@ -1,11 +1,10 @@
 <template>
   <div :class="generateClasses">
     <div class="m-stepper__step-list">
-      <m-stepper-step-list :step-list-item="stepListItems" />
+      <m-stepper-step-list :step-list-items="stepListItems" :current-step="currentStep" />
     </div>
 
     <div class="m-stepper__content">
-      {{ currentStep }}
       <div class="m-stepper__header">
         <span v-text="steps[currentStep].stepInfo.title" />
       </div>
@@ -22,6 +21,9 @@
 </template>
 
 <script setup lang="ts">
+// TODO:
+// Add general title
+
 import { computed, type PropType, ref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MStepperStepList from './items/MStepperStepList.vue'
@@ -75,10 +77,13 @@ defineExpose({
 <style lang="scss" scoped>
 .m-stepper {
   display: flex;
+  gap: $global-spacing-30;
+  align-self: center;
 
-  &__footer {
-    display: flex;
-    gap: 12px;
-  }
+  padding: $global-spacing-30 $global-spacing-40;
+
+  background-color: var(--secondary-1);
+  border-radius: $global-border-radius-20;
+  min-height: 600px;
 }
 </style>
