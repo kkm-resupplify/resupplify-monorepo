@@ -1,12 +1,12 @@
 <template>
   <basic-view-layout>
     <template #body>
-      <user-details-form />
+      <user-details-box />
     </template>
   </basic-view-layout>
 </template>
 
 <script setup lang="ts">
-import UserDetailsForm from './components/UserDetailsForm.vue'
+import UserDetailsBox from './components/UserDetailsBox.vue'
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 </script>
