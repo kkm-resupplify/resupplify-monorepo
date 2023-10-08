@@ -1,16 +1,18 @@
 <template>
   <div :class="generateClasses">
-    <div ref="content" class="m-stepper-step-list-item__content">
-      <span class="m-stepper-step-list-item__title" v-text="stepItem.title" />
+    <div class="m-stepper-step-list-item__wrapper">
+      <div ref="content" class="m-stepper-step-list-item__content">
+        <span class="m-stepper-step-list-item__title" v-text="stepItem.title" />
 
-      <span class="m-stepper-step-list-item__subtitle" v-text="stepItem.subtitle" />
+        <span class="m-stepper-step-list-item__subtitle" v-text="stepItem.subtitle" />
+      </div>
+
+      <div class="m-stepper-step-list-item__indicator">
+        <a-icon v-if="showIcon" :icon="stepItem.icon" size="xx-large" :color="props.itemStatus" />
+      </div>
     </div>
 
-    <div class="m-stepper-step-list-item__indicator">
-      <a-icon v-if="showIcon" :icon="stepItem.icon" size="xx-large" />
-
-      <div class="m-stepper-step-list-item__indicator-line" />
-    </div>
+    <div class="m-stepper-step-list-item__indicator-line" />
   </div>
 </template>
 
@@ -54,14 +56,24 @@ const indicatorSize = computed(() => {
 const indicatorColor = computed(() => {
   return `var(--${props.itemStatus})`
 })
+
+const indicatorLineOffset = computed(() => {
+  return `calc(${indicatorSize.value} / 2 * -1)`
+})
 </script>
 
 <style lang="scss" scoped>
 .m-stepper-step-list-item {
   display: flex;
-  gap: $global-spacing-60;
-  align-items: center;
+  flex-direction: column;
   justify-content: flex-end;
+
+  &__wrapper {
+    display: flex;
+    gap: $global-spacing-60;
+    align-items: center;
+    justify-content: flex-end;
+  }
 
   &__content {
     display: flex;
@@ -90,12 +102,12 @@ const indicatorColor = computed(() => {
   }
 
   &__indicator-line {
-    position: absolute;
-    z-index: 1;
-    transform: translateY(calc(150% - 2px));
+    transform: translateX(v-bind(indicatorLineOffset));
+
+    align-self: flex-end;
 
     width: 2px;
-    height: $global-spacing-90;
+    height: 40px;
 
     background-color: v-bind(indicatorColor);
   }

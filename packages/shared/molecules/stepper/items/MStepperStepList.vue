@@ -6,6 +6,7 @@
       :step-item="stepItem"
       :item-status="itemState(idx)"
     />
+    <div class="test" />
   </div>
 </template>
 
@@ -59,7 +60,7 @@ const itemState = (idx: number): string => {
 .m-stepper-step-list {
   display: flex;
   flex-direction: column;
-  gap: $global-spacing-90;
+  // gap: $global-spacing-90;
   min-width: 200px;
 }
 </style>
