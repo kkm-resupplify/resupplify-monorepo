@@ -14,6 +14,8 @@
   --warning-gradient: #{$themes-light-background-warning-gradient};
   --danger: #{$themes-light-background-danger-default};
   --danger-gradient: #{$themes-light-background-danger-gradient};
+  --disabled: #{$themes-light-background-disabled-default};
+  --disabled-gradient: #{$themes-light-background-disabled-gradient};
   --font-primary: #{$themes-light-text-primary};
 }
 
@@ -33,5 +35,7 @@
   --warning-gradient: #{$themes-dark-background-warning-gradient};
   --danger: #{$themes-dark-background-danger-default};
   --danger-gradient: #{$themes-dark-background-danger-gradient};
+  --disabled: #{$themes-dark-background-disabled-default};
+  --disabled-gradient: #{$themes-dark-background-disabled-gradient};
   --font-primary: #ffffffde;
 }
