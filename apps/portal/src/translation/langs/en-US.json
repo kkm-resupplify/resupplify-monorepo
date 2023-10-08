@@ -49,6 +49,17 @@
       "welcome": "Welcome back",
       "createAccount": "Create your account",
       "connectAndGrow": "Reach new customers and expand opportunities"
+    },
+
+    "userDetails": {
+      "welcome": "Enter your company details",
+      "companyName": "Company name",
+      "companySlug": "Custom URL identifier",
+      "companyDescription": "Company description",
+
+      "companyNamePlaceholder": "Enter your company name",
+      "companySlugPlaceholder": "Enter your custom URL identifier",
+      "companyDescriptionPlaceholder": "Enter description of your company"
     }
   },
 

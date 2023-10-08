@@ -48,6 +48,17 @@
       "welcome": "Witaj ponownie",
       "createAccount": "Załóż swoje konto",
       "connectAndGrow": "Docieraj do nowych klientów i rozwijaj swoje możliwości"
+    },
+
+    "userDetails": {
+      "welcome": "Wprowadź dane o swojej firmie",
+      "companyName": "Nazwa firmy",
+      "companySlug": "Własny identyfikator adresu URL",
+      "companyDescription": "Company description",
+
+      "companyNamePlaceholder": "Wprowadź nazwę firmy",
+      "companySlugPlaceholder": "Wprowadź swój własny identyfikator adresu URL",
+      "companyDescriptionPlaceholder": "Enter description of your company"
     }
   },
 
