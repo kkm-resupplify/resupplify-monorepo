@@ -8,6 +8,8 @@
 
     <div class="m-stepper-step-list-item__indicator">
       <a-icon v-if="showIcon" :icon="stepItem.icon" size="xx-large" />
+
+      <div class="m-stepper-step-list-item__indicator-line" />
     </div>
   </div>
 </template>
@@ -73,13 +75,29 @@ const indicatorColor = computed(() => {
   }
 
   &__indicator {
+    position: relative;
+    z-index: 22;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: v-bind(indicatorSize);
     height: v-bind(indicatorSize);
-    border-radius: 50%;
+
     border: 2px solid v-bind(indicatorColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 50%;
+  }
+
+  &__indicator-line {
+    position: absolute;
+    z-index: 1;
+    transform: translateY(calc(150% - 2px));
+
+    width: 2px;
+    height: $global-spacing-90;
+
+    background-color: v-bind(indicatorColor);
   }
 }
 </style>
