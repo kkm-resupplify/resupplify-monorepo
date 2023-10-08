@@ -625,6 +625,16 @@
               "value": "{global-gradients.red.primary}",
               "type": "color"
             }
+          },
+          "disabled": {
+            "default": {
+              "value": "{global-colors.grey.500}",
+              "type": "color"
+            },
+            "gradient": {
+              "value": "{global-gradients.gray.primary}",
+              "type": "color"
+            }
           }
         },
         "text": {
@@ -709,6 +719,16 @@
             },
             "gradient": {
               "value": "{global-gradients.red.primary}",
+              "type": "color"
+            }
+          },
+          "disabled": {
+            "default": {
+              "value": "{global-colors.grey.300}",
+              "type": "color"
+            },
+            "gradient": {
+              "value": "{global-gradients.gray.primary}",
               "type": "color"
             }
           }
