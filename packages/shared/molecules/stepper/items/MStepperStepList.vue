@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="m-stepper-step-list__items">
+    <div :class="listItemsClasses">
       <m-stepper-step-list-item
         v-for="(stepItem, idx) in stepListItems"
         ref="stepListItem"
@@ -68,6 +68,12 @@ const controllerIcon = computed(() => {
   return isShown.value ? 'chevron_left' : 'chevron_right'
 })
 
+const listItemsClasses = computed(() => {
+  return isShown.value
+    ? 'm-stepper-step-list__items'
+    : 'm-stepper-step-list__items m-stepper-step-list__items--hidden'
+})
+
 // Methods
 const itemState = (idx: number): ItemState => {
   let status = StepListItemColorStatus.FUTURE
@@ -93,7 +99,12 @@ const toggleListVisibility = () => {
   &__items {
     display: flex;
     flex-direction: column;
+    width: 200px;
     transition: all 0.3s;
+
+    &--hidden {
+      width: 50px;
+    }
   }
 
   &__controller {

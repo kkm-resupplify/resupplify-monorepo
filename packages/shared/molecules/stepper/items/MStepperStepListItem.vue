@@ -89,17 +89,22 @@ const showIndicatorLine = computed(() => {
   }
 
   &__content {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: $global-spacing-10;
 
+    max-width: 140px;
+
     text-align: right;
+    white-space: nowrap;
 
     transition: all 0.3s;
   }
 
   &__subtitle {
     font-size: $global-text-normal-font-size;
+    text-overflow: ellipsis;
   }
 
   &__indicator {
@@ -112,8 +117,8 @@ const showIndicatorLine = computed(() => {
     align-items: center;
     justify-content: center;
 
-    width: v-bind(indicatorSize);
-    height: v-bind(indicatorSize);
+    min-width: v-bind(indicatorSize);
+    min-height: v-bind(indicatorSize);
 
     border: 2px solid v-bind(indicatorColor);
     border-radius: 50%;
@@ -131,18 +136,5 @@ const showIndicatorLine = computed(() => {
 
     background-color: v-bind(indicatorColor);
   }
-}
-
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(-20px);
 }
 </style>
