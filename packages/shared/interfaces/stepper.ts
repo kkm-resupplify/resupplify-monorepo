@@ -11,3 +11,8 @@ export interface Step {
   stepInfo: StepInfo
   component: Component
 }
+
+export interface ItemState {
+  status: string
+  isLast: boolean
+}

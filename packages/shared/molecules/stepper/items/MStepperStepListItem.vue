@@ -8,25 +8,25 @@
       </div>
 
       <div class="m-stepper-step-list-item__indicator">
-        <a-icon v-if="showIcon" :icon="stepItem.icon" size="xx-large" :color="props.itemStatus" />
+        <a-icon v-if="showIcon" :icon="stepItem.icon" size="xx-large" :color="iconColor" />
       </div>
     </div>
 
-    <div class="m-stepper-step-list-item__indicator-line" />
+    <div v-if="showIndicatorLine" class="m-stepper-step-list-item__indicator-line" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-import { type StepInfo } from '@sharedInterfaces/stepper'
+import type { ItemState, StepInfo } from '@sharedInterfaces/stepper'
 
 const props = defineProps({
   stepItem: {
     type: Object as () => StepInfo,
     required: true
   },
-  itemStatus: String
+  itemState: Object as () => ItemState
 })
 
 // Variables
@@ -54,11 +54,19 @@ const indicatorSize = computed(() => {
 })
 
 const indicatorColor = computed(() => {
-  return `var(--${props.itemStatus})`
+  return `var(--${props.itemState?.status})`
 })
 
 const indicatorLineOffset = computed(() => {
   return `calc(${indicatorSize.value} / 2 * -1)`
+})
+
+const iconColor = computed(() => {
+  return props.itemState?.status ?? 'disabled '
+})
+
+const showIndicatorLine = computed(() => {
+  return !props.itemState?.isLast
 })
 </script>
 

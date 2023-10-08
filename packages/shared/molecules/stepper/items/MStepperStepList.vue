@@ -4,9 +4,8 @@
       v-for="(stepItem, idx) in stepListItems"
       :key="idx"
       :step-item="stepItem"
-      :item-status="itemState(idx)"
+      :item-state="itemState(idx)"
     />
-    <div class="test" />
   </div>
 </template>
 
@@ -14,7 +13,7 @@
 import BaseEnum from '@sharedEnums/BaseEnum'
 import { computed, type PropType } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-import { type StepInfo } from '@sharedInterfaces/stepper'
+import type { ItemState, StepInfo } from '@sharedInterfaces/stepper'
 import MStepperStepListItem from './MStepperStepListItem.vue'
 
 class StepListItemColorStatus extends BaseEnum {
@@ -25,7 +24,8 @@ class StepListItemColorStatus extends BaseEnum {
 
 const props = defineProps({
   stepListItems: {
-    type: Array as PropType<StepInfo[]>
+    type: Array as PropType<StepInfo[]>,
+    required: true
   },
   currentStep: {
     type: Number,
@@ -45,14 +45,15 @@ const generateClasses = computed(() => {
 })
 
 // Methods
-const isItemActive = (idx: number): boolean => {
-  return idx === props.currentStep
-}
 
-const itemState = (idx: number): string => {
-  if (props.currentStep > idx) return StepListItemColorStatus.PAST
-  if (props.currentStep === idx) return StepListItemColorStatus.CURRENT
-  else return StepListItemColorStatus.FUTURE
+const itemState = (idx: number): ItemState => {
+  let status = StepListItemColorStatus.FUTURE
+  let isLast = idx === props.stepListItems?.length - 1
+
+  if (props.currentStep > idx) status = StepListItemColorStatus.PAST
+  if (props.currentStep === idx) status = StepListItemColorStatus.CURRENT
+
+  return { status, isLast }
 }
 </script>
 
@@ -60,7 +61,6 @@ const itemState = (idx: number): string => {
 .m-stepper-step-list {
   display: flex;
   flex-direction: column;
-  // gap: $global-spacing-90;
   min-width: 200px;
 }
 </style>
