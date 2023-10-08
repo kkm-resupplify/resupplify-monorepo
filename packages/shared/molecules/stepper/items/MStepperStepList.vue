@@ -4,23 +4,31 @@
       v-for="(stepItem, idx) in stepListItems"
       :key="idx"
       :step-item="stepItem"
-      :is-active="isItemActive(idx)"
+      :item-status="itemState(idx)"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+import BaseEnum from '@sharedEnums/BaseEnum'
 import { computed, type PropType } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import { type StepInfo } from '@sharedInterfaces/stepper'
 import MStepperStepListItem from './MStepperStepListItem.vue'
+
+class StepListItemColorStatus extends BaseEnum {
+  static PAST = 'success'
+  static CURRENT = 'info'
+  static FUTURE = 'disabled'
+}
 
 const props = defineProps({
   stepListItems: {
     type: Array as PropType<StepInfo[]>
   },
   currentStep: {
-    type: Number
+    type: Number,
+    default: 0
   }
 })
 
@@ -38,6 +46,12 @@ const generateClasses = computed(() => {
 // Methods
 const isItemActive = (idx: number): boolean => {
   return idx === props.currentStep
+}
+
+const itemState = (idx: number): string => {
+  if (props.currentStep > idx) return StepListItemColorStatus.PAST
+  if (props.currentStep === idx) return StepListItemColorStatus.CURRENT
+  else return StepListItemColorStatus.FUTURE
 }
 </script>
 

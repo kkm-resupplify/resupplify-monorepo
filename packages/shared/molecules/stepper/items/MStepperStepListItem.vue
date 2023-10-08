@@ -22,7 +22,7 @@ const props = defineProps({
     type: Object as () => StepInfo,
     required: true
   },
-  isActive: Boolean
+  itemStatus: String
 })
 
 // Variables
@@ -50,7 +50,7 @@ const indicatorSize = computed(() => {
 })
 
 const indicatorColor = computed(() => {
-  return props.isActive ? 'var(--info)' : 'var(--disabled)'
+  return `var(--${props.itemStatus})`
 })
 </script>
 
