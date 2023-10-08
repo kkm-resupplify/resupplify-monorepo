@@ -51,14 +51,15 @@
     },
 
     "userDetails": {
-      "welcome": "Wprowadź dane o swojej firmie",
-      "companyName": "Nazwa firmy",
-      "companySlug": "Własny identyfikator adresu URL",
-      "companyDescription": "Company description",
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "phoneNumber": "Numer telefonu",
+      "birthDate": "Data urodzenia",
+      "sex": "Płeć",
 
-      "companyNamePlaceholder": "Wprowadź nazwę firmy",
-      "companySlugPlaceholder": "Wprowadź swój własny identyfikator adresu URL",
-      "companyDescriptionPlaceholder": "Enter description of your company"
+      "firstNamePlaceholder": "Podaj swoje imię",
+      "lastNamePlaceholder": "Podaj swoje nazwisko",
+      "phoneNumberPlaceholder": "Podaj swój numer telefonu"
     }
   },
 

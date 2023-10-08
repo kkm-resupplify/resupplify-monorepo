@@ -52,14 +52,15 @@
     },
 
     "userDetails": {
-      "welcome": "Enter your company details",
-      "companyName": "Company name",
-      "companySlug": "Custom URL identifier",
-      "companyDescription": "Company description",
-
-      "companyNamePlaceholder": "Enter your company name",
-      "companySlugPlaceholder": "Enter your custom URL identifier",
-      "companyDescriptionPlaceholder": "Enter description of your company"
+      "firstName": "First Name",
+      "lastName": "Second Name",
+      "phoneNumber": "Phone Number",
+      "birthDate": "Birth Date",
+      "sex": "Sex",
+      
+      "firstNamePlaceholder": "Enter your first name",
+      "lastNamePlaceholder": "Enter your last name",
+      "phoneNumberPlaceholder": "Enter your phone number"
     }
   },
 
