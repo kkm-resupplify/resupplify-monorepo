@@ -64,7 +64,7 @@
     gap: $global-spacing-100;
     align-items: center;
     justify-content: center;
-    
+
     &--buttons {
       display: flex;
       gap: $global-spacing-100;
