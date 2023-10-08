@@ -13,22 +13,34 @@ import TestFormTwo from './TestFormTwo.vue'
 
 const steps = [
   {
-    stepInfo: { title: 'Title1', subtitle: 'Subtitle1', description: 'Lorem ipsum 1' },
+    stepInfo: {
+      title: 'Title1',
+      subtitle: 'Subtitle1',
+      description: 'Lorem ipsum 1 dolor sit amet omega lul'
+    },
     component: TestForm
   },
   {
-    stepInfo: { title: 'Title2', subtitle: 'Subtitle2', description: 'Lorem ipsum 2' },
+    stepInfo: {
+      title: 'Title2',
+      subtitle: 'Subtitle2',
+      description: 'Lorem ipsum 1 dolor sit amet omega lul'
+    },
     component: TestForm
   },
   {
-    stepInfo: { title: 'Title3', subtitle: 'Subtitle2', description: 'Lorem ipsum 3' },
+    stepInfo: {
+      title: 'Title3',
+      subtitle: 'Subtitle2',
+      description: 'Lorem ipsum 1 dolor sit amet omega lul'
+    },
     component: TestForm
   },
   {
     stepInfo: {
       title: 'Title4',
       subtitle: 'Subtitle4',
-      description: 'Lorem ipsum 4',
+      description: 'Lorem ipsum 1 dolor sit amet omega lul',
       icon: 'check'
     },
     component: TestFormTwo

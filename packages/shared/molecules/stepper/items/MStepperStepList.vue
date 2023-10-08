@@ -5,6 +5,7 @@
       :key="idx"
       :step-item="stepItem"
       :item-state="itemState(idx)"
+      @click="emits('go-to-step', idx)"
     />
   </div>
 </template>
@@ -21,6 +22,8 @@ class StepListItemColorStatus extends BaseEnum {
   static CURRENT = 'info'
   static FUTURE = 'disabled'
 }
+
+const emits = defineEmits(['go-to-step'])
 
 const props = defineProps({
   stepListItems: {
@@ -52,7 +55,7 @@ const itemState = (idx: number): ItemState => {
   if (props.currentStep > idx) status = StepListItemColorStatus.PAST
   if (props.currentStep === idx) status = StepListItemColorStatus.CURRENT
 
-  return { status, isLast }
+  return { index: idx, status, isLast }
 }
 </script>
 

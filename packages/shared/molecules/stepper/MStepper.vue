@@ -1,12 +1,21 @@
 <template>
   <div :class="generateClasses">
     <div class="m-stepper__step-list">
-      <m-stepper-step-list :step-list-items="stepListItems" :current-step="currentStep" />
+      <m-stepper-step-list
+        :step-list-items="stepListItems"
+        :current-step="currentStep"
+        @go-to-step="handleGoToStep"
+      />
     </div>
 
     <div class="m-stepper__content">
       <div class="m-stepper__header">
-        <span v-text="steps[currentStep].stepInfo.title" />
+        <span class="m-stepper__header-title" v-text="steps[currentStep].stepInfo.title" />
+
+        <span
+          class="m-stepper__header-description"
+          v-text="steps[currentStep].stepInfo.description"
+        />
       </div>
 
       <div class="m-stepper__body">
@@ -38,6 +47,8 @@ const props = defineProps({
 
 // Variables
 const baseClass = 'm-stepper'
+const currentStep = ref(0)
+const validatedStep = ref(0)
 
 // Composables
 const { generateClassNames } = useClassComposable()
@@ -51,15 +62,20 @@ const stepListItems = computed(() => {
   return props.steps.map((step) => step.stepInfo)
 })
 
-const currentStep = ref(0)
-
 // Methods
 const handleNextStep = () => {
-  if (currentStep.value + 1 < props.steps.length) currentStep.value++
+  if (currentStep.value + 1 < props.steps.length) {
+    currentStep.value++
+    validatedStep.value++
+  }
 }
 
 const handlePreviousStep = () => {
   if (currentStep.value - 1 >= 0) currentStep.value--
+}
+
+const handleGoToStep = (idx: number) => {
+  if (idx >= 0 && idx < props.steps.length && idx <= validatedStep.value) currentStep.value = idx
 }
 
 defineExpose({
@@ -71,7 +87,7 @@ defineExpose({
 <style lang="scss" scoped>
 .m-stepper {
   display: flex;
-  gap: $global-spacing-40;
+  gap: $global-spacing-80;
   align-self: center;
 
   padding: $global-spacing-30 $global-spacing-40;
@@ -81,12 +97,25 @@ defineExpose({
 
   &__header {
     display: flex;
+    flex-direction: column;
+    font-size: $global-text-normal-font-size;
+  }
+
+  &__header-title {
+    font-size: $global-title-large-font-size;
+    font-weight: $global-title-normal-font-weight;
+  }
+
+  &__header-description {
+    max-width: 400px;
+    font-size: $global-text-medium-font-size;
   }
 
   &__content {
     display: flex;
-    flex-direction: column;
     flex: 1;
+    flex-direction: column;
+    gap: $global-spacing-80;
   }
 
   &__body {

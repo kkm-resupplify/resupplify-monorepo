@@ -82,6 +82,8 @@ const showIndicatorLine = computed(() => {
   justify-content: flex-end;
 
   &__wrapper {
+    cursor: pointer;
+
     display: flex;
     gap: $global-spacing-60;
     align-items: center;

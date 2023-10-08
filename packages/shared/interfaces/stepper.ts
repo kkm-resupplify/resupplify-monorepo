@@ -13,6 +13,7 @@ export interface Step {
 }
 
 export interface ItemState {
+  index: number
   status: string
   isLast: boolean
 }
