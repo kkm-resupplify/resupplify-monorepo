@@ -71,7 +71,7 @@ defineExpose({
 <style lang="scss" scoped>
 .m-stepper {
   display: flex;
-  gap: $global-spacing-30;
+  gap: $global-spacing-40;
   align-self: center;
 
   min-height: 600px;

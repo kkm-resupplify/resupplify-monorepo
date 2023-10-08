@@ -71,6 +71,11 @@ const showIndicatorLine = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+@mixin indicator-color {
+  transition: border ease-in-out 0.3s;
+  transition: background-color ease-in-out 0.3s;
+}
+
 .m-stepper-step-list-item {
   display: flex;
   flex-direction: column;
@@ -95,6 +100,8 @@ const showIndicatorLine = computed(() => {
   }
 
   &__indicator {
+    @include indicator-color;
+
     position: relative;
     z-index: 22;
 
@@ -110,12 +117,14 @@ const showIndicatorLine = computed(() => {
   }
 
   &__indicator-line {
+    @include indicator-color;
+
     transform: translateX(v-bind(indicatorLineOffset));
 
     align-self: flex-end;
 
     width: 2px;
-    height: 40px;
+    height: 36px;
 
     background-color: v-bind(indicatorColor);
   }
