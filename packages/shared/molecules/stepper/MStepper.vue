@@ -5,13 +5,18 @@
     </div>
 
     <div class="m-stepper__content">
-      <div class="m-stepper__header"></div>
-
-      <div class="m-stepper__body">
-        <component :is="steps[currentStep].component" />
+      {{ currentStep }}
+      <div class="m-stepper__header">
+        <span v-text="steps[currentStep].stepInfo.title" />
       </div>
 
-      <div class="m-stepper__footer"></div>
+      <div class="m-stepper__body">
+        <component
+          :is="steps[currentStep].component"
+          @next-step="handleNextStep"
+          @previous-step="handlePreviousStep"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -43,11 +48,37 @@ const generateClasses = computed(() => {
 const stepListItems = computed(() => {
   return props.steps.map((step) => step.stepInfo)
 })
+
 const currentStep = ref(0)
+
+// Methods
+const handleNextStep = () => {
+  if (currentStep.value + 1 < props.steps.length) {
+    console.log('handleNextStep mstepper')
+    currentStep.value++
+  }
+}
+
+const handlePreviousStep = () => {
+  if (currentStep.value - 1 >= 0) {
+    console.log('handlePreviousStep mstepper')
+    currentStep.value--
+  }
+}
+
+defineExpose({
+  handlePreviousStep,
+  handleNextStep
+})
 </script>
 
 <style lang="scss" scoped>
 .m-stepper {
   display: flex;
+
+  &__footer {
+    display: flex;
+    gap: 12px;
+  }
 }
 </style>
