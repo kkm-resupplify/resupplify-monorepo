@@ -45,7 +45,6 @@ const generateClasses = computed(() => {
 })
 
 // Methods
-
 const itemState = (idx: number): ItemState => {
   let status = StepListItemColorStatus.FUTURE
   let isLast = idx === props.stepListItems?.length - 1

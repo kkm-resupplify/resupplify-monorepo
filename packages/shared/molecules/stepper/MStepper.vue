@@ -74,10 +74,24 @@ defineExpose({
   gap: $global-spacing-40;
   align-self: center;
 
-  min-height: 600px;
   padding: $global-spacing-30 $global-spacing-40;
 
   background-color: var(--secondary-1);
   border-radius: $global-border-radius-20;
+
+  &__header {
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+  }
 }
 </style>

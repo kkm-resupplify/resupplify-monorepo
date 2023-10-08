@@ -1,7 +1,7 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <m-stepper ref="stepper" :steps="steps" />
+      <m-stepper ref="stepper" :steps="steps" style="min-height: 600px" />
     </template>
   </basic-view-layout>
 </template>
