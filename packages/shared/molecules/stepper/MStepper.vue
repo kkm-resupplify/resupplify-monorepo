@@ -55,17 +55,11 @@ const currentStep = ref(0)
 
 // Methods
 const handleNextStep = () => {
-  if (currentStep.value + 1 < props.steps.length) {
-    console.log('handleNextStep mstepper')
-    currentStep.value++
-  }
+  if (currentStep.value + 1 < props.steps.length) currentStep.value++
 }
 
 const handlePreviousStep = () => {
-  if (currentStep.value - 1 >= 0) {
-    console.log('handlePreviousStep mstepper')
-    currentStep.value--
-  }
+  if (currentStep.value - 1 >= 0) currentStep.value--
 }
 
 defineExpose({
@@ -80,10 +74,10 @@ defineExpose({
   gap: $global-spacing-30;
   align-self: center;
 
+  min-height: 600px;
   padding: $global-spacing-30 $global-spacing-40;
 
   background-color: var(--secondary-1);
   border-radius: $global-border-radius-20;
-  min-height: 600px;
 }
 </style>

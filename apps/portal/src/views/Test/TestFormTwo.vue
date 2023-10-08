@@ -23,12 +23,10 @@
 const emits = defineEmits(['next-step', 'previous-step'])
 
 const handleNextStep = () => {
-  console.log('testform2 next')
   emits('next-step')
 }
 
 const handlePreviousStep = () => {
-  console.log('testform2 prev')
   emits('previous-step')
 }
 </script>
