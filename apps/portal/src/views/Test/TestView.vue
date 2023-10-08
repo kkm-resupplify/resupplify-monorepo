@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
-import { ref } from 'vue'
+import TestFormTwo from './TestFormTwo.vue'
 
 const steps = [
   {
@@ -18,7 +18,7 @@ const steps = [
   },
   {
     stepInfo: { title: 'Title2', subtitle: 'Subtitle2', description: 'Lorem ipsum 2' },
-    component: TestForm
+    component: TestFormTwo
   }
 ]
 </script>
