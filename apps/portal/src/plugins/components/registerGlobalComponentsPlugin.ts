@@ -13,8 +13,9 @@ const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotificatio
 // Molecules
 import MCardList from '@sharedMolecules/cards/MCardList.vue'
 import MTextField from '@sharedMolecules/input/MTextField.vue'
+import MStepper from '@sharedMolecules/stepper/MStepper.vue'
 
-const molecules = [MCardList, MTextField]
+const molecules = [MCardList, MTextField, MStepper]
 
 // Vee-validate
 import { Field, Form, ErrorMessage } from 'vee-validate'
