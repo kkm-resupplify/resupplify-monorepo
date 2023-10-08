@@ -1,7 +1,7 @@
 <template>
   <div :class="generateClasses">
     <div class="m-stepper-step-list-item__wrapper">
-      <div ref="content" class="m-stepper-step-list-item__content">
+      <div v-if="!itemState?.hideContent" ref="content" class="m-stepper-step-list-item__content">
         <span class="m-stepper-step-list-item__title" v-text="stepItem.title" />
 
         <span class="m-stepper-step-list-item__subtitle" v-text="stepItem.subtitle" />
@@ -35,7 +35,7 @@ const baseClass = 'm-stepper-step-list-item'
 // Composables
 const { generateClassNames } = useClassComposable()
 
-// Ref
+// Refs
 const content = ref<HTMLElement | null>(null)
 
 // Computed
@@ -48,9 +48,7 @@ const showIcon = computed(() => {
 })
 
 const indicatorSize = computed(() => {
-  const contentEl = content.value
-
-  return contentEl ? `${contentEl.clientHeight}px` : '32px'
+  return '45px'
 })
 
 const indicatorColor = computed(() => {
@@ -85,7 +83,7 @@ const showIndicatorLine = computed(() => {
     cursor: pointer;
 
     display: flex;
-    gap: $global-spacing-60;
+    gap: $global-spacing-100;
     align-items: center;
     justify-content: flex-end;
   }
@@ -94,7 +92,10 @@ const showIndicatorLine = computed(() => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-10;
+
     text-align: right;
+
+    transition: all 0.3s;
   }
 
   &__subtitle {
@@ -130,5 +131,18 @@ const showIndicatorLine = computed(() => {
 
     background-color: v-bind(indicatorColor);
   }
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(-20px);
 }
 </style>

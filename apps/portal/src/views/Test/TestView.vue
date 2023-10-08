@@ -15,7 +15,7 @@ const steps = [
   {
     stepInfo: {
       title: 'Title1',
-      subtitle: 'Subtitle1',
+      subtitle: 'Immaculate content',
       description: 'Lorem ipsum 1 dolor sit amet omega lul'
     },
     component: TestForm

@@ -16,4 +16,5 @@ export interface ItemState {
   index: number
   status: string
   isLast: boolean
+  hideContent?: boolean
 }
