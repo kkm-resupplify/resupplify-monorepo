@@ -28,6 +28,7 @@
       "@sharedMolecules/*": ["../../packages/shared/molecules/*"],
       "@sharedEnums/*": ["../../packages/shared/enums/*"],
       "@sharedComposables/*": ["../../packages/shared/composables/*"],
+      "@sharedInterfaces/*": ["../../packages/shared/interfaces/*"],
       "@sharedStores/*": ["../../packages/shared/stores/*"]
     }
   }
