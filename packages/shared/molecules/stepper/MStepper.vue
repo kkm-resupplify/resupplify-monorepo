@@ -1,12 +1,20 @@
 <template>
   <div :class="generateClasses">
     <div class="m-stepper__h">Elo melo 3-2-1-0</div>
+
     <div class="m-stepper__b">
       <m-stepper-step-list
         class="m-stepper__step-list"
         :step-list-items="stepListItems"
         :current-step="currentStep"
         @go-to-step="handleGoToStep"
+      />
+
+      <m-stepper-content
+        :steps="steps"
+        :current-step="currentStep"
+        @previous-step="handlePreviousStep"
+        @next-step="handleNextStep"
       />
     </div>
   </div>
@@ -20,6 +28,7 @@ import { computed, type PropType, ref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MStepperStepList from './items/MStepperStepList.vue'
 import { type Step } from '@sharedInterfaces/stepper'
+import MStepperContent from './items/MStepperContent.vue'
 
 const props = defineProps({
   steps: {
@@ -87,34 +96,6 @@ defineExpose({
     display: flex;
     flex: 1;
     gap: $global-spacing-80;
-  }
-
-  &__header {
-    display: flex;
-    flex-direction: column;
-    font-size: $global-text-normal-font-size;
-  }
-
-  &__header-title {
-    font-size: $global-title-large-font-size;
-    font-weight: $global-title-normal-font-weight;
-  }
-
-  &__header-description {
-    max-width: 400px;
-    font-size: $global-text-medium-font-size;
-  }
-
-  &__content {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: $global-spacing-80;
-  }
-
-  &__body {
-    display: flex;
-    flex: 1;
   }
 }
 </style>
