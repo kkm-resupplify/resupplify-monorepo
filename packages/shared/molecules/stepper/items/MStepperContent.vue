@@ -20,17 +20,16 @@
 </template>
 
 <script setup lang="ts">
-import { type PropType, toRef } from 'vue'
+import { type PropType } from 'vue'
 import { type Step } from '@sharedInterfaces/stepper'
 
 const emits = defineEmits(['next-step', 'previous-step'])
 
-const props = defineProps({
+defineProps({
   steps: {
     type: Array as PropType<Step[]>,
     required: true
   },
-
   currentStep: {
     type: Number,
     required: true
@@ -38,8 +37,6 @@ const props = defineProps({
 })
 
 // Variables
-const currentStep = toRef(props.currentStep)
-
 const handlePreviousStep = () => {
   emits('previous-step')
 }
@@ -53,6 +50,7 @@ const handleNextStep = () => {
 .m-stepper-content {
   display: flex;
   flex-direction: column;
+  gap: $global-spacing-30;
   flex: 1;
 
   &__header {

@@ -1,8 +1,12 @@
 <template>
   <div :class="generateClasses">
-    <div class="m-stepper__h">Elo melo 3-2-1-0</div>
+    <div class="m-stepper__header">
+      <span class="m-stepper__header-title" v-text="title" />
 
-    <div class="m-stepper__b">
+      <span class="m-stepper__header-description" v-text="description" />
+    </div>
+
+    <div class="m-stepper__body">
       <m-stepper-step-list
         class="m-stepper__step-list"
         :step-list-items="stepListItems"
@@ -34,7 +38,12 @@ const props = defineProps({
   steps: {
     type: Array as PropType<Step[]>,
     required: true
-  }
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  description: String
 })
 
 // Variables
@@ -88,11 +97,22 @@ defineExpose({
   background-color: var(--secondary-1);
   border-radius: $global-border-radius-20;
 
-  &__h {
+  &__header {
     display: flex;
+    flex-direction: column;
+    gap: $global-spacing-10;
   }
 
-  &__b {
+  &__header-title {
+    font-size: $global-title-large-font-size;
+    font-weight: $global-title-large-font-weight;
+  }
+
+  &__header-description {
+    font-size: $global-text-medium-font-size;
+  }
+
+  &__body {
     display: flex;
     flex: 1;
     gap: $global-spacing-80;
