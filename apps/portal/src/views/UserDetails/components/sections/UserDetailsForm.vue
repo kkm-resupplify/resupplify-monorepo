@@ -2,7 +2,7 @@
   <div class="user-details-form">
     <v-form class="user-details-form__form" @submit="handleFormSubmit">
       <m-text-field
-        name="first-name"
+        name="firstName"
         input-type="text"
         :label="$t('auth.userDetails.firstName')"
         :placeholder="$t('auth.userDetails.firstNamePlaceholder')"
@@ -10,7 +10,7 @@
         class="login-box-form-section__text-field"
       />
       <m-text-field
-        name="last-name"
+        name="lastName"
         input-type="text"
         :label="$t('auth.userDetails.lastName')"
         :placeholder="$t('auth.userDetails.lastNamePlaceholder')"
@@ -18,7 +18,7 @@
         class="login-box-form-section__text-field"
       />
       <m-text-field
-        name="phone-number"
+        name="phoneNumber"
         input-type="tel"
         :label="$t('auth.userDetails.phoneNumber')"
         :placeholder="$t('auth.userDetails.phoneNumberPlaceholder')"
@@ -26,14 +26,13 @@
         class="login-box-form-section__text-field"
       />
       <m-text-field
-        name="birth-date"
+        name="birthDate"
         input-type="date"
         :label="$t('auth.userDetails.birthDate')"
-        :placeholder="$t('auth.userDetails.birthDatePlaceholder')"
         rules="required"
         class="login-box-form-section__text-field"
       />
-      <a-button text="$t('global.save')" size="x-large" type="submit" />
+      <a-button :text="$t('global.save')" size="x-large" type="submit" />
     </v-form>
   </div>
 </template>
