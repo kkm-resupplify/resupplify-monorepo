@@ -2,7 +2,6 @@
   <basic-view-layout class="test-view">
     <template #body>
       <m-stepper
-        ref="stepper"
         :steps="steps"
         style="min-height: 600px"
         title="Company registration"

@@ -9,6 +9,7 @@
     "../../packages/shared/composables/**/*.ts",
     "../../packages/shared/stores/**/*.ts",
     "../../packages/shared/enums/**/*.ts",
+    "../../packages/shared/interfaces/**/*.ts",
     "../../packages/shared/**/*.json",
     "../../packages/shared/shims-vue.d.ts"
   ],
