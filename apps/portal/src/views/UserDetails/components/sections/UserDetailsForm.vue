@@ -6,6 +6,7 @@
         input-type="text"
         :label="$t('auth.userDetails.firstName')"
         :placeholder="$t('auth.userDetails.firstNamePlaceholder')"
+        autocomplete="given-name"
         rules="required"
         class="login-box-form-section__text-field"
       />
@@ -14,6 +15,7 @@
         input-type="text"
         :label="$t('auth.userDetails.lastName')"
         :placeholder="$t('auth.userDetails.lastNamePlaceholder')"
+        autocomplete="family-name"
         rules="required"
         class="login-box-form-section__text-field"
       />
@@ -22,6 +24,7 @@
         input-type="tel"
         :label="$t('auth.userDetails.phoneNumber')"
         :placeholder="$t('auth.userDetails.phoneNumberPlaceholder')"
+        autocomplete="tel"
         :rules="{ regex: /^(?:\+48)?[1-9]\d{8}$/ }"
         class="login-box-form-section__text-field"
       />
@@ -29,6 +32,7 @@
         name="birthDate"
         input-type="date"
         :label="$t('auth.userDetails.birthDate')"
+        autocomplete="bday"
         rules="required"
         class="login-box-form-section__text-field"
       />
