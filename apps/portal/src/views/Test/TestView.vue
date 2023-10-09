@@ -1,28 +1,56 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <a-button text="testApi" @click="testApi" />
-
-      <a-button text="test2" @click="testHeaders" />
+      <m-stepper
+        :steps="steps"
+        style="min-height: 600px"
+        title="Company registration"
+        description="Please provide information about your company."
+      />
     </template>
   </basic-view-layout>
 </template>
 
 <script setup lang="ts">
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
-import AuthService from '@/services/auth/AuthService'
+import TestForm from './TestForm.vue'
+import TestFormTwo from './TestFormTwo.vue'
 
-// Methods
-const testApi = () => {
-  const email = 'email@gmail.com'
-  const password = 'password'
-
-  const response = AuthService.login({ email, password })
-}
-
-const testHeaders = () => {
-  const response = AuthService.get({ id: 1 })
-}
+const steps = [
+  {
+    stepInfo: {
+      title: 'Title1',
+      subtitle: 'Immaculate content',
+      description: 'Lorem ipsum 1 dolor sit amet omega lul'
+    },
+    component: TestForm
+  },
+  {
+    stepInfo: {
+      title: 'Title2',
+      subtitle: 'Subtitle2',
+      description: 'Lorem ipsum 1 dolor sit amet omega lul'
+    },
+    component: TestForm
+  },
+  {
+    stepInfo: {
+      title: 'Title3',
+      subtitle: 'Subtitle2',
+      description: 'Lorem ipsum 1 dolor sit amet omega lul'
+    },
+    component: TestForm
+  },
+  {
+    stepInfo: {
+      title: 'Title4',
+      subtitle: 'Subtitle4',
+      description: 'Lorem ipsum 1 dolor sit amet omega lul',
+      icon: 'check'
+    },
+    component: TestFormTwo
+  }
+]
 </script>
 
 <style lang="scss" scoped>

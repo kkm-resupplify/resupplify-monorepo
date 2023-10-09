@@ -27,6 +27,9 @@ export default defineConfig({
       '@sharedComposables': fileURLToPath(
         new URL('../../packages/shared/composables', import.meta.url)
       ),
+      '@sharedInterfaces': fileURLToPath(
+        new URL('../../packages/shared/interfaces', import.meta.url)
+      ),
       '@sharedStores': fileURLToPath(new URL('../../packages/shared/stores', import.meta.url))
     }
   }
