@@ -1,30 +1,13 @@
 <template>
   <div :class="generateClasses">
-    <div class="m-stepper__step-list">
+    <div class="m-stepper__h">Elo melo 3-2-1-0</div>
+    <div class="m-stepper__b">
       <m-stepper-step-list
+        class="m-stepper__step-list"
         :step-list-items="stepListItems"
         :current-step="currentStep"
         @go-to-step="handleGoToStep"
       />
-    </div>
-
-    <div class="m-stepper__content">
-      <div class="m-stepper__header">
-        <span class="m-stepper__header-title" v-text="steps[currentStep].stepInfo.title" />
-
-        <span
-          class="m-stepper__header-description"
-          v-text="steps[currentStep].stepInfo.description"
-        />
-      </div>
-
-      <div class="m-stepper__body">
-        <component
-          :is="steps[currentStep].component"
-          @next-step="handleNextStep"
-          @previous-step="handlePreviousStep"
-        />
-      </div>
     </div>
   </div>
 </template>
@@ -87,6 +70,7 @@ defineExpose({
 <style lang="scss" scoped>
 .m-stepper {
   display: flex;
+  flex-direction: column;
   gap: $global-spacing-80;
   align-self: center;
 
@@ -94,6 +78,16 @@ defineExpose({
 
   background-color: var(--secondary-1);
   border-radius: $global-border-radius-20;
+
+  &__h {
+    display: flex;
+  }
+
+  &__b {
+    display: flex;
+    flex: 1;
+    gap: $global-spacing-80;
+  }
 
   &__header {
     display: flex;
