@@ -3,7 +3,9 @@
     "welcome": "Welcome",
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
-    "errorOccured": "An error occured"
+    "errorOccured": "An error occured",
+    "submit": "Submit",
+    "save": "Save"
   },
 
   "payments": {

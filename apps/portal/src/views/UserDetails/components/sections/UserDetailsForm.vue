@@ -1,6 +1,6 @@
 <template>
   <div class="user-details-form">
-    <v-form class="user-details-form__form">
+    <v-form class="user-details-form__form" @submit="handleFormSubmit">
       <m-text-field
         name="first-name"
         input-type="text"
@@ -33,14 +33,23 @@
         rules="required"
         class="login-box-form-section__text-field"
       />
-      <div class="user-details-form__form--buttons">
-        <a-button text="Previous" size="x-large" type="submit" outlined />
-        <a-button text="Next" size="x-large" type="submit" />
-      </div>
+      <a-button text="$t('global.save')" size="x-large" type="submit" />
     </v-form>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import UserDetailsService from '@/services/user/UserDetailsService'
+interface UserDetailsFormData {
+  firstName: string
+  lastName: string
+  phoneNumber: string
+  birthDate: string
+}
+
+const handleFormSubmit = async (formData: UserDetailsFormData) => {
+  await UserDetailsService.add(formData)
+}
+</script>
 <style scoped lang="scss">
 .user-details-form {
   @include respond-to('md-and-up') {
