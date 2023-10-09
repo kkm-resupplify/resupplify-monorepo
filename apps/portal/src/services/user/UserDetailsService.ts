@@ -1,6 +1,18 @@
 import BaseService from '../BaseService'
 
-interface UserDetailsRequest {
+class UserDetailsDTO {
+  fullName: string
+  phoneNumber: string
+  birthDate: string
+
+  constructor({ firstName, lastName, phoneNumber, birthDate }: UserDetails) {
+    this.fullName = `${firstName} ${lastName}`
+    this.phoneNumber = phoneNumber
+    this.birthDate = birthDate
+  }
+}
+
+interface UserDetails {
   firstName: string
   lastName: string
   phoneNumber: string
@@ -10,8 +22,9 @@ interface UserDetailsRequest {
 class UserDetailsService extends BaseService {
   static ADD_SUFFIX = 'register'
 
-  async add({ firstName, lastName, phoneNumber, birthDate }: UserDetailsRequest) {
-    console.log(firstName, lastName, phoneNumber, birthDate)
+  async saveUserDetails(userDetailsData: UserDetails) {
+    const userDetails = new UserDetailsDTO(userDetailsData)
+    console.log(userDetails)
   }
 }
 
