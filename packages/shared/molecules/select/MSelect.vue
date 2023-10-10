@@ -1,10 +1,10 @@
 <template>
   <div :class="generateClasses">
-    <label for="sex" v-html="$t('userDetails.sex')" class="m-select__label"></label>
-    <select id="sex" name="sex" class="m-select__select">
-      <option value="male" v-html="$t('userDetails.gender.male')" class="m-select__option"></option>
-      <option value="female" v-html="$t('userDetails.gender.female')" class="m-select__option"></option>
-      <option value="female" v-html="$t('userDetails.gender.preferNot')" class="m-select__option"></option>
+    <label for="sex" class="m-select__label">{ props.label }</label>
+    <select id="sex" :name="props.name" class="m-select__select">
+      <option :value="$t('userDetails.gender.male')" class="m-select__option"></option>
+      <option :value="$t('userDetails.gender.female')" class="m-select__option"></option>
+      <option :value="$t('userDetails.gender.preferNot')" class="m-select__option"></option>
     </select>
   </div>
 </template>
@@ -24,6 +24,11 @@ const { generateClassNames } = useClassComposable()
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
+
+const props = defineProps({
+  name: String,
+  label: String
+})
 </script>
 
 <style lang="scss" scoped>
@@ -34,7 +39,8 @@ const generateClasses = computed(() => {
 
   gap: $global-spacing-10;
 
-  &__select, &__option {
+  &__select,
+  &__option {
     color: black;
   }
 }
