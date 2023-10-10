@@ -73,5 +73,14 @@
     "expandYourClientBase": "Poszerz swoją bazę klientów",
     "diversifyAndGrowClientele": "Dywersyfikuj i rozwijaj klientelę",
     "increaseYourMarketShare": "Zwiększ swój udział w rynku"
+  },
+
+  "userDetails": {
+    "sex": "Płeć",
+    "gender": {
+      "male": "Mężczyzna",
+      "female": "Kobieta",
+      "preferNot": "Wolę nie mówić"
+    }
   }
 }
