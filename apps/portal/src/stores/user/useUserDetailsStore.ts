@@ -5,6 +5,7 @@ interface UserStoreDetailsData {
   lastName: string
   phoneNumber: string
   birthDate: string
+  sex: string
 }
 
 export const useUserStoreDetails = defineStore({
@@ -14,7 +15,8 @@ export const useUserStoreDetails = defineStore({
     firstName: '',
     lastName: '',
     phoneNumber: '',
-    birthDate: ''
+    birthDate: '',
+    sex: ''
   }),
 
   getters: {
@@ -22,11 +24,12 @@ export const useUserStoreDetails = defineStore({
   },
 
   actions: {
-    setUserDetails({ firstName, lastName, phoneNumber, birthDate }: UserStoreDetailsData) {
+    setUserDetails({ firstName, lastName, phoneNumber, birthDate, sex }: UserStoreDetailsData) {
       this.firstName = firstName
       this.lastName = lastName
       this.phoneNumber = phoneNumber
       this.birthDate = birthDate
+      this.sex = sex
     }
   },
 

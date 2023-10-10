@@ -36,6 +36,7 @@
         rules="required"
         class="login-box-form-section__text-field"
       />
+      <m-select name="sex" :label="$t('userDetails.sex')" />
       <a-button :text="$t('global.save')" size="x-large" type="submit" />
     </v-form>
   </div>
@@ -50,7 +51,7 @@ interface UserDetailsFormData {
 }
 
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  await UserDetailsService.add(formData)
+  await UserDetailsService.saveUserDetails(formData)
 }
 </script>
 <style scoped lang="scss">
