@@ -29,8 +29,10 @@ const generateClasses = computed(() => {
 <style lang="scss" scoped>
 .m-select {
   display: flex;
+  flex-direction: column;
+  max-width: 144px;
 
-  gap: $global-spacing-40;
+  gap: $global-spacing-10;
 
   &__select, &__option {
     color: black;
