@@ -36,20 +36,34 @@
         rules="required"
         class="login-box-form-section__text-field"
       />
-      <m-select name="sex" :label="$t('userDetails.sex')" />
+      <m-select name="sex" :label="$t('userDetails.sex')" :values="genderOptions" />
       <a-button :text="$t('global.save')" size="x-large" type="submit" />
     </v-form>
   </div>
 </template>
 <script setup lang="ts">
 import UserDetailsService from '@/services/user/UserDetailsService'
+import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+
+//Interfaces
 interface UserDetailsFormData {
   firstName: string
   lastName: string
   phoneNumber: string
   birthDate: string
+  sex: string
 }
 
+//Variables
+const { t } = useI18n()
+const genderOptions = ref([
+  t('userDetails.gender.male'),
+  t('userDetails.gender.female'),
+  t('userDetails.gender.preferNot')
+])
+
+//Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
   await UserDetailsService.saveUserDetails(formData)
 }

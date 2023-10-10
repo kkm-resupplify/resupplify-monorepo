@@ -5,12 +5,10 @@
       id="sex"
       :name="name"
       class="m-select__select"
-      :disabled="disalbed"
+      :disabled="disabled"
       v-on="validationListeners"
     >
-      <option :value="$t('userDetails.gender.male')" class="m-select__option"></option>
-      <option :value="$t('userDetails.gender.female')" class="m-select__option"></option>
-      <option :value="$t('userDetails.gender.preferNot')" class="m-select__option"></option>
+      <option v-for="value in values" :value="value"></option>
     </select>
   </div>
 </template>
@@ -40,6 +38,7 @@ const props = defineProps({
   value: String,
   label: String,
   disabled: Boolean
+  values: Array<String>
 })
 
 // Refs
