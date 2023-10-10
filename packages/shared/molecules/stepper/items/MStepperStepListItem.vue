@@ -118,7 +118,9 @@ const showIndicatorLine = computed(() => {
     justify-content: center;
 
     min-width: v-bind(indicatorSize);
+    max-width: v-bind(indicatorSize);
     min-height: v-bind(indicatorSize);
+    max-height: v-bind(indicatorSize);
 
     border: 2px solid v-bind(indicatorColor);
     border-radius: 50%;
