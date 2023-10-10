@@ -52,6 +52,30 @@
   },
 
   "company": {
+    "register": {
+      "title": "Rejestracja firmy",
+      "description": "Proszę podać informacje o Twojej firmie",
+
+      "steps": {
+        "general": {
+          "title": "Ogólne",
+          "subtitle": "Ogólne informacje",
+          "description": "Ogólne informacje o firmie, którą chcesz zarejestrować."
+        }
+      },
+
+      "form": {
+        "companyNameLabel": "Nazwa",
+        "companyNamePlaceholder": "Wprowadź nazwę firmy",
+        "companyCountryLabel": "Kraj",
+        "companyCountryPlaceholder": "Wybierz kraj",
+        "companyDescriptionLabel": "Opis",
+        "companyDescriptionPlaceholder": "Wprowadź opis firmy",
+        "companyShortDescriptionLabel": "Krótki opis",
+        "companyShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
+      }
+    },
+
     "promotion": {
       "ourPartners": "Nasi partnerzy",
       "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"

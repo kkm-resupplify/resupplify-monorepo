@@ -9,19 +9,45 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 import RegisterCompanyGeneralStep from './steps/RegisterCompanyGeneralStep.vue'
 
-const steps = [
+// Interface
+interface RegisterCompanyStep {
+  step: string
+  icon: string
+}
+
+// DTO
+class RegisterCompanyStepDTO {
+  title: string
+  subtitle: string
+  description: string
+  icon: string
+
+  constructor({ step, icon }: RegisterCompanyStep) {
+    this.title = this.getTranslation(step, 'title')
+    this.subtitle = this.getTranslation(step, 'subtitle')
+    this.description = this.getTranslation(step, 'description')
+    this.icon = icon
+  }
+
+  getTranslation(step: string, key: string) {
+    return t(`company.register.steps.${step}.${key}`)
+  }
+}
+// Variables
+const { t } = useI18n()
+
+// Computed
+const steps = computed(() => [
   {
-    stepInfo: {
-      title: 'Title1',
-      subtitle: 'Immaculate content',
-      description: 'Lorem ipsum 1 dolor sit amet omega lul',
-      icon: 'apartment'
-    },
+    stepInfo: new RegisterCompanyStepDTO({ step: 'general', icon: 'apartment' }),
     component: RegisterCompanyGeneralStep
   }
-]
+])
 </script>
 
 <style lang="scss" scoped>
