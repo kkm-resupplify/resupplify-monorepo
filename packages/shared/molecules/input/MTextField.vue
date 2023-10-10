@@ -108,6 +108,7 @@ const {
 })
 
 const appendIconState = ref(false)
+
 // Composables
 const { generateClassNames } = useClassComposable()
 
