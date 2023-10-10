@@ -2,6 +2,7 @@
   <basic-view-layout>
     <template #body>
       <login-box />
+      <m-select />
     </template>
   </basic-view-layout>
 </template>
