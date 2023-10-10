@@ -8,6 +8,7 @@
         :placeholder="$t('auth.form.emailAddressPlaceholder')"
         autocomplete="username"
         rules="required|email"
+        variant="rounded"
       />
 
       <m-text-field
@@ -19,6 +20,7 @@
         rules="required|min:8|max:32"
         append-icon-on="visibility"
         append-icon-off="visibility_off"
+        variant="rounded"
       />
 
       <m-text-field
@@ -30,6 +32,7 @@
         rules="required|confirmed:@password"
         append-icon-on="visibility"
         append-icon-off="visibility_off"
+        variant="rounded"
       />
 
       <a-button
