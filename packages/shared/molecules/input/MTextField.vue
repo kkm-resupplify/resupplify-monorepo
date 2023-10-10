@@ -76,7 +76,10 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
-
+  variant: {
+    type: String,
+    default: 'sharp'
+  },
   appendIconCallbackOn: {
     type: Function,
     default: () => {}
@@ -114,7 +117,7 @@ const { generateClassNames } = useClassComposable()
 
 // Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.size])
+  return generateClassNames(baseClass, [props.size, props.variant])
 })
 
 const borderColor = computed(() => {
@@ -169,6 +172,11 @@ const handleAppendIconClick = () => {
   font-size: $font-size;
 }
 
+@mixin border($border-width, $border-radius) {
+  border: $border-width solid transparent;
+  border-radius: $border-radius;
+}
+
 .m-text-field {
   $self: &;
 
@@ -187,6 +195,18 @@ const handleAppendIconClick = () => {
         $global-spacing-30 32px $global-spacing-30 $global-spacing-70,
         $text-input-font-size-md
       );
+    }
+  }
+
+  &--sharp {
+    #{$self}__input {
+      @include border(2px, $global-border-radius-10);
+    }
+  }
+
+  &--rounded {
+    #{$self}__input {
+      @include border(0.25em, 24px);
     }
   }
 
@@ -234,8 +254,6 @@ const handleAppendIconClick = () => {
     background-clip: padding-box, border-box;
     background-origin: border-box;
     background-size: 200% 150%;
-    border: 0.25em solid transparent;
-    border-radius: 24px;
     outline: none;
 
     transition: background 0.25s ease-out;
