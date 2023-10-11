@@ -46,7 +46,19 @@ const steps = computed(() => [
   {
     stepInfo: new RegisterCompanyStepDTO({ step: 'general', icon: 'apartment' }),
     component: RegisterCompanyGeneralStep
-  }
+  },
+  {
+    stepInfo: new RegisterCompanyStepDTO({ step: 'general', icon: 'apartment' }),
+    component: RegisterCompanyGeneralStep
+  },
+  {
+    stepInfo: new RegisterCompanyStepDTO({ step: 'general', icon: 'apartment' }),
+    component: RegisterCompanyGeneralStep
+  },
+  {
+    stepInfo: new RegisterCompanyStepDTO({ step: 'general', icon: 'apartment' }),
+    component: RegisterCompanyGeneralStep
+  },
 ])
 </script>
 
