@@ -7,8 +7,6 @@
         title="Company registration"
         description="Please provide information about your company."
       />
-
-      <m-text-area />
     </template>
   </basic-view-layout>
 </template>

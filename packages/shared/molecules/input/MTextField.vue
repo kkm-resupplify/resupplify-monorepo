@@ -164,6 +164,8 @@ const handleAppendIconClick = () => {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/mixins/input-gradient';
+
 @mixin size($padding, $font-size) {
   padding: $padding;
   font-size: $font-size;
@@ -201,7 +203,6 @@ const handleAppendIconClick = () => {
   }
 
   &__label {
-    cursor: pointer;
     color: var(--font-primary);
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -225,25 +226,11 @@ const handleAppendIconClick = () => {
   }
 
   &__input {
-    width: 100%;
+    @include input-gradient(v-bind(borderColor));
 
+    width: 100%;
     line-height: 1;
     color: var(--font-primary);
-
-    background-image: linear-gradient(var(--primary), var(--primary)), v-bind(borderColor);
-    background-clip: padding-box, border-box;
-    background-origin: border-box;
-    background-size: 200% 150%;
-    border: 0.25em solid transparent;
-    border-radius: 24px;
-    outline: none;
-
-    transition: background 0.25s ease-out;
-
-    &:hover,
-    &:focus {
-      background-position: 90% 0;
-    }
   }
 }
 </style>

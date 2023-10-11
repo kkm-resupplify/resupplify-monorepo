@@ -1,13 +1,24 @@
 <template>
   <div :class="generateClasses">
-    <textarea :name="name" :placeholder="placeholder" :value="value" />
+    <label v-if="label" class="m-text-area__label" :for="name" v-text="label" />
+
+    <textarea
+      class="m-text-area__input"
+      :name="name"
+      :placeholder="placeholder"
+      :value="inputValue"
+      :spellcheck="spellcheck"
+      :disabled="disabled"
+      :rules="rules"
+      v-on="validationListeners"
+    />
 
     <a-input-error-list :errors="errors" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, toRef, ref } from 'vue'
+import { computed, toRef } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
@@ -20,7 +31,8 @@ const props = defineProps({
     default: ''
   },
   rules: String,
-  validate: Boolean,
+  validate: { type: Boolean, default: true },
+  disabled: Boolean,
   borderGradient: {
     type: String,
     default: 'info'
@@ -32,7 +44,9 @@ const props = defineProps({
   invalidColor: {
     type: String,
     default: 'danger'
-  }
+  },
+  spellcheck: Boolean,
+  size: { type: String, default: 'medium' }
 })
 
 // Variables
@@ -45,7 +59,20 @@ const { generateClassNames } = useClassComposable()
 
 // Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [])
+  return generateClassNames(baseClass, [props.size])
+})
+
+const borderColor = computed(() => {
+  if (props.disabled) return ''
+
+  if (!props.validate) return `var(--${props.borderGradient}-gradient)`
+
+  const { valid, touched, dirty } = meta
+
+  if (!valid && touched) return `var(--${props.invalidColor}-gradient)`
+  if ((dirty || touched) && valid) return `var(--${props.validColor}-gradient)`
+
+  return `var(--${props.borderGradient}-gradient)`
 })
 
 const {
@@ -77,4 +104,46 @@ const validationListeners = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '../../styles/mixins/input-gradient';
+
+@mixin size($font-size, $padding: 0) {
+  padding: $padding;
+  font-size: $font-size;
+}
+
+.m-text-area {
+  $self: &;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &--medium {
+    #{$self}__label {
+      @include size($global-font-size-20, 0 $global-spacing-20);
+
+      position: relative;
+      left: $global-spacing-50;
+    }
+
+    #{$self}__input {
+      @include size($text-input-font-size-md, $global-spacing-30);
+    }
+  }
+
+  &__label {
+    color: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  &__input {
+    @include input-gradient(v-bind(borderColor));
+
+    width: 100%;
+    line-height: 1;
+    color: var(--font-primary);
+  }
+}
+</style>

@@ -21,6 +21,8 @@
           append-icon-on="visibility"
           append-icon-off="visibility_off"
         />
+
+        <m-text-area name="description" label="Description" rules="required|min:8|max:32" />
       </v-form>
     </template>
 
