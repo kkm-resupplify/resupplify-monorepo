@@ -1,0 +1,23 @@
+@mixin custom-scrollbar($color: var(--secondary-1)) {
+  * {
+    scrollbar-color: $color;
+    scrollbar-width: auto;
+  }
+
+  *::-webkit-scrollbar {
+    width: $global-size-200;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--secondary-2);
+    border-radius: $global-border-radius-30;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border: none;
+    border-radius: $global-border-radius-30;
+  }
+
+  
+}

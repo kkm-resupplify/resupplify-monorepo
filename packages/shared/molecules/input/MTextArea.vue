@@ -106,6 +106,7 @@ const validationListeners = computed(() => {
 
 <style lang="scss" scoped>
 @import '../../styles/mixins/input-gradient';
+@import '../../styles/mixins/custom-scrollbar';
 
 @mixin size($font-size, $padding: 0) {
   padding: $padding;
@@ -141,9 +142,14 @@ const validationListeners = computed(() => {
   &__input {
     @include input-gradient(v-bind(borderColor));
 
+    resize: vertical;
     width: 100%;
     line-height: 1;
     color: var(--font-primary);
+
+    &::-webkit-resizer {
+      background-color: var(--primary);
+    }
   }
 }
 </style>
