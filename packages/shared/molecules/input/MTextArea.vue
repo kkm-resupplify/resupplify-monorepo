@@ -46,13 +46,17 @@ const props = defineProps({
     default: 'danger'
   },
   spellcheck: Boolean,
-  size: { type: String, default: 'medium' }
+  size: { type: String, default: 'medium' },
+  minHeight: { type: String, default: '100px' },
+  width: { type: String, default: '100%' }
 })
 
 // Variables
 const baseClass = 'm-text-area'
 
 const name = toRef(props, 'name')
+const minHeight = toRef(props, 'minHeight')
+const width = toRef(props, 'width')
 
 // Composables
 const { generateClassNames } = useClassComposable()
@@ -106,7 +110,6 @@ const validationListeners = computed(() => {
 
 <style lang="scss" scoped>
 @import '../../styles/mixins/input-gradient';
-@import '../../styles/mixins/custom-scrollbar';
 
 @mixin size($font-size, $padding: 0) {
   padding: $padding;
@@ -118,7 +121,8 @@ const validationListeners = computed(() => {
 
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: v-bind(width);
+  height: fit-content;
 
   &--medium {
     #{$self}__label {
@@ -143,7 +147,10 @@ const validationListeners = computed(() => {
     @include input-gradient(v-bind(borderColor));
 
     resize: vertical;
-    width: 100%;
+
+    max-width: 100%;
+    min-height: v-bind(minHeight);
+
     line-height: 1;
     color: var(--font-primary);
 
