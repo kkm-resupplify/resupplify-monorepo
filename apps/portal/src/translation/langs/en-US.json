@@ -3,7 +3,9 @@
     "welcome": "Welcome",
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
-    "errorOccured": "An error occured"
+    "errorOccured": "An error occured",
+    "next": "Next",
+    "back": "Back"
   },
 
   "payments": {
@@ -70,7 +72,7 @@
         },
         "contactInfo": {
           "title": "Contact",
-          "subtitle": "Contact details",
+          "subtitle": "Contact information",
           "description": "This step focuses on the means of contact, including the communication preferences."
         }
       },

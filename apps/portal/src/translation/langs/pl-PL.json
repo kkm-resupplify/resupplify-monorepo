@@ -2,7 +2,9 @@
   "global": {
     "welcome": "Witaj",
     "goodbye": "Dowidzenia",
-    "errorOccured": "Wystąpił błąd"
+    "errorOccured": "Wystąpił błąd",
+    "next": "Dalej",
+    "back": "Wstecz"
   },
 
   "payments": {
