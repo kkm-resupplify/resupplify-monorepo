@@ -1,7 +1,13 @@
 <template>
   <div :class="generateClasses">
-    <label for="sex" class="m-select__label">{ props.label }</label>
-    <select id="sex" :name="props.name" class="m-select__select">
+    <label for="sex" class="m-select__label">{{ props.label }}</label>
+    <select
+      id="sex"
+      :name="name"
+      class="m-select__select"
+      :disabled="disabled"
+      v-on="validationListeners"
+    >
       <option :value="$t('userDetails.gender.male')" class="m-select__option"></option>
       <option :value="$t('userDetails.gender.female')" class="m-select__option"></option>
       <option :value="$t('userDetails.gender.preferNot')" class="m-select__option"></option>
@@ -10,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, toRef } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
@@ -26,8 +32,41 @@ const generateClasses = computed(() => {
 })
 
 const props = defineProps({
-  name: String,
-  label: String
+  name: {
+    type: String,
+    required: true
+  },
+  rules: String,
+  value: String,
+  label: String,
+  disabled: Boolean
+})
+
+const name = toRef(props, 'name')
+const {
+  value: inputValue,
+  errors,
+  handleBlur,
+  errorMessage,
+  handleChange,
+  meta
+} = useField(name, props.rules, {
+  initialValue: props.value,
+  validateOnValueUpdate: false
+})
+const validationListeners = computed(() => {
+  if (!errorMessage.value) {
+    return {
+      blur: handleBlur,
+      change: handleChange,
+      input: (e: any) => handleChange(e, false)
+    }
+  }
+  return {
+    blur: handleBlur,
+    change: handleChange,
+    input: handleChange
+  }
 })
 </script>
 
@@ -41,7 +80,7 @@ const props = defineProps({
 
   &__select,
   &__option {
-    color: black;
+    color: black !important;
   }
 }
 </style>
