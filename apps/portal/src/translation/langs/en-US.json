@@ -61,7 +61,17 @@
         "general": {
           "title": "General",
           "subtitle": "General information",
-          "description": "General information about the company you wish to register."
+          "description": "This step gathers fundamental information about the company."
+        },
+        "details": {
+          "title": "Details",
+          "subtitle": "Company details",
+          "description": "Company details, including Tax Identification Number (TIN), address etc."
+        },
+        "contactInfo": {
+          "title": "Contact",
+          "subtitle": "Contact details",
+          "description": "This step focuses on the means of contact, including the communication preferences."
         }
       },
 

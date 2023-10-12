@@ -1,5 +1,5 @@
 <template>
-  <div v-if="errors.length" class="a-input-error-list">
+  <div v-show="errors.length" class="a-input-error-list">
     <TransitionGroup
       :duration="10"
       tag="div"

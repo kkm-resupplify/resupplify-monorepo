@@ -1,7 +1,7 @@
 <template>
-  <m-stepper-step-content class="register-company-general-step">
+  <m-stepper-step-content class="register-company-contact-info-step">
     <template #body>
-      <v-form class="register-company-general-step__body">
+      <v-form class="register-company-contact-info-step__body">
         <m-text-field
           name="name"
           rules="required|min:3"
@@ -39,7 +39,7 @@
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
-.register-company-general-step {
+.register-company-contact-info-step {
   &__body {
     display: flex;
     flex-direction: column;

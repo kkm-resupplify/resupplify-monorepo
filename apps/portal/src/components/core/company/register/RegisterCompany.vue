@@ -11,8 +11,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-
 import RegisterCompanyGeneralStep from './steps/RegisterCompanyGeneralStep.vue'
+import RegisterCompanyDetailsStep from './steps/RegisterCompanyDetailsStep.vue'
+import RegisterCompanyContactInfoStep from './steps/RegisterCompanyContactInfoStep.vue'
 
 // Interface
 interface RegisterCompanyStep {
@@ -48,17 +49,13 @@ const steps = computed(() => [
     component: RegisterCompanyGeneralStep
   },
   {
-    stepInfo: new RegisterCompanyStepDTO({ step: 'general', icon: 'apartment' }),
-    component: RegisterCompanyGeneralStep
+    stepInfo: new RegisterCompanyStepDTO({ step: 'details', icon: 'info_i' }),
+    component: RegisterCompanyDetailsStep
   },
   {
-    stepInfo: new RegisterCompanyStepDTO({ step: 'general', icon: 'apartment' }),
-    component: RegisterCompanyGeneralStep
-  },
-  {
-    stepInfo: new RegisterCompanyStepDTO({ step: 'general', icon: 'apartment' }),
-    component: RegisterCompanyGeneralStep
-  },
+    stepInfo: new RegisterCompanyStepDTO({ step: 'contactInfo', icon: 'alternate_email' }),
+    component: RegisterCompanyContactInfoStep
+  }
 ])
 </script>
 

@@ -60,7 +60,17 @@
         "general": {
           "title": "Ogólne",
           "subtitle": "Ogólne informacje",
-          "description": "Ogólne informacje o firmie, którą chcesz zarejestrować."
+          "description": "Ten etap zbiera podstawowe informacje o firmie."
+        },
+        "details": {
+          "title": "Szczegóły",
+          "subtitle": "Szczegóły firmy",
+          "description": "Szczegóły firmy, w tym numer identyfikacji podatkowej (NIP), adres, itp."
+        },
+        "contactInfo": {
+          "title": "Kontakt",
+          "subtitle": "Dane kontaktowe",
+          "description": "Ten krok skupia się na środkach kontaktu, w tym preferencje komunikacyjne."
         }
       },
 
