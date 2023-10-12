@@ -81,6 +81,7 @@
       "male": "Mężczyzna",
       "female": "Kobieta",
       "preferNot": "Wolę nie mówić"
-    }
+    },
+    "placeholder": "Wybierz płeć"
   }
 }

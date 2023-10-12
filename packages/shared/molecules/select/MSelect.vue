@@ -7,7 +7,9 @@
       class="m-select__select"
       :disabled="disabled"
       v-on="validationListeners"
+      :rules="rules"
     >
+      <option value="" disabled selected hidden>{{ props.placeholder }}</option>
       <option v-for="value in props.options" :value="value" class="m-select__option">
         {{ value }}
       </option>
@@ -41,6 +43,7 @@ const props = defineProps({
   label: String,
   disabled: Boolean,
   options: Array<String>,
+  placeholder: String,
   size: {
     type: String,
     default: 'medium'
@@ -85,10 +88,10 @@ const borderColor = computed(() => {
 
   if (!props.validate) return `var(--${props.borderGradient}-gradient)`
 
-  const { valid, touched, dirty } = meta
+  const { dirty, touched } = meta
 
-  if (!valid && touched) return `var(--${props.invalidColor}-gradient)`
-  if ((dirty || touched) && valid) return `var(--${props.validColor}-gradient)`
+  if (!dirty && touched) return `var(--${props.invalidColor}-gradient)`
+  if (dirty) return `var(--${props.validColor}-gradient)`
 
   return `var(--${props.borderGradient}-gradient)`
 })
@@ -157,6 +160,10 @@ const validationListeners = computed(() => {
     background-size: 200% 150%;
     border: 0.25em solid transparent;
     border-radius: 24px;
+    background-color: var(--primary);
+    &:focus {
+      outline: none;
+    }
   }
 }
 </style>
