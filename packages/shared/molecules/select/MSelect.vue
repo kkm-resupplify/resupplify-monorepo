@@ -8,9 +8,7 @@
       :disabled="disabled"
       v-on="validationListeners"
     >
-      <option :value="$t('userDetails.gender.male')" class="m-select__option"></option>
-      <option :value="$t('userDetails.gender.female')" class="m-select__option"></option>
-      <option :value="$t('userDetails.gender.preferNot')" class="m-select__option"></option>
+      <option v-for="value in props.options" :value="value" class="m-select__option"></option>
     </select>
   </div>
 </template>
@@ -39,7 +37,8 @@ const props = defineProps({
   rules: String,
   value: String,
   label: String,
-  disabled: Boolean
+  disabled: Boolean,
+  options: Array<String>
 })
 
 const name = toRef(props, 'name')
