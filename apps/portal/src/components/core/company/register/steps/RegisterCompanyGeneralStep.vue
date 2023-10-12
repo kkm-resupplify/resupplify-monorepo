@@ -1,7 +1,7 @@
 <template>
   <m-stepper-step-content class="register-company-general-step">
     <template #body>
-      <v-form class="register-company-general-step__body">
+      <v-form ref="form" class="register-company-general-step__body">
         <m-text-field
           name="name"
           rules="required|min:3"
@@ -43,15 +43,22 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
 const emits = defineEmits(['next-step', 'previous-step', 'general-step-data'])
+
+const form = ref(null)
+
 // Variables
 const registerCompanyStore = useRegisterCompanyStore()
 
 // Methods
-const handleNextStep = () => {
-  emits('next-step')
+const handleNextStep = async () => {
+  const { valid } = await form.value.validate()
+  form.value.setTouched({ name: true, countryId: true, shortDescription: true, description: true })
+
+  if (valid) emits('next-step')
 }
 
 const handlePreviousStep = () => {

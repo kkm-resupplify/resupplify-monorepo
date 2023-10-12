@@ -9,8 +9,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 import RegisterCompanyGeneralStep from './steps/RegisterCompanyGeneralStep.vue'
 import RegisterCompanyDetailsStep from './steps/RegisterCompanyDetailsStep.vue'
 import RegisterCompanyContactInfoStep from './steps/RegisterCompanyContactInfoStep.vue'
@@ -41,6 +42,7 @@ class RegisterCompanyStepDTO {
 }
 // Variables
 const { t } = useI18n()
+const registerCompanyStore = useRegisterCompanyStore()
 
 // Computed
 const steps = computed(() => [
@@ -57,6 +59,10 @@ const steps = computed(() => [
     component: RegisterCompanyContactInfoStep
   }
 ])
+
+onUnmounted(() => {
+  registerCompanyStore.$reset()
+})
 </script>
 
 <style lang="scss" scoped>
