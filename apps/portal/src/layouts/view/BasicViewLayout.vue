@@ -25,9 +25,14 @@ import NavigationBar from '@/components/navigation/NavigationBar.vue'
 </script>
 
 <style scoped lang="scss">
+@import '../../styles/mixins/custom-scrollbar';
+
 .basic-view-layout {
+  @include custom-scrollbar;
+
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   &__header {
     display: flex;
