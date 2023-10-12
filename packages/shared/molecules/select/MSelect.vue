@@ -44,6 +44,26 @@ const props = defineProps({
   size: {
     type: String,
     default: 'medium'
+  },
+  borderGradient: {
+    type: String,
+    default: 'info'
+  },
+  validColor: {
+    type: String,
+    default: 'success'
+  },
+  invalidColor: {
+    type: String,
+    default: 'danger'
+  },
+  showErrors: {
+    type: Boolean,
+    default: true
+  },
+  validate: {
+    type: Boolean,
+    default: true
   }
 })
 
@@ -59,6 +79,20 @@ const {
   initialValue: props.value,
   validateOnValueUpdate: false
 })
+
+const borderColor = computed(() => {
+  if (props.disabled) return ''
+
+  if (!props.validate) return `var(--${props.borderGradient}-gradient)`
+
+  const { valid, touched, dirty } = meta
+
+  if (!valid && touched) return `var(--${props.invalidColor}-gradient)`
+  if ((dirty || touched) && valid) return `var(--${props.validColor}-gradient)`
+
+  return `var(--${props.borderGradient}-gradient)`
+})
+
 const validationListeners = computed(() => {
   if (!errorMessage.value) {
     return {
@@ -89,6 +123,10 @@ const validationListeners = computed(() => {
   gap: $global-spacing-10;
 
   &--medium {
+    #{$self}__label {
+      @include size(0 $global-spacing-20, $global-font-size-20);
+    }
+
     #{$self}__select {
       @include size(
         $global-spacing-30 32px $global-spacing-30 $global-spacing-70,
@@ -97,9 +135,28 @@ const validationListeners = computed(() => {
     }
   }
 
+  @supports (mix-blend-mode: darken) {
+    position: relative;
+    mix-blend-mode: normal;
+
+    &__label {
+      position: relative;
+      left: $global-spacing-70;
+    }
+  }
+
   &__select,
   &__option {
-    color: black !important;
+    color: var(--font-primary);
+  }
+
+  &__select {
+    background-image: linear-gradient(var(--primary), var(--primary)), v-bind(borderColor);
+    background-clip: padding-box, border-box;
+    background-origin: border-box;
+    background-size: 200% 150%;
+    border: 0.25em solid transparent;
+    border-radius: 24px;
   }
 }
 </style>
