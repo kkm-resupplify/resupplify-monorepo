@@ -76,7 +76,6 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
-
   appendIconCallbackOn: {
     type: Function,
     default: () => {}
@@ -86,13 +85,15 @@ const props = defineProps({
     default: () => {}
   },
   appendIconOn: String,
-  appendIconOff: String
+  appendIconOff: String,
+  width: { type: String, default: '100%' }
 })
 
 // Variables
 const baseClass = 'm-text-field'
 
 const name = toRef(props, 'name')
+const width = toRef(props, 'width')
 const inputType = toRef(props.inputType)
 
 const {
@@ -176,7 +177,7 @@ const handleAppendIconClick = () => {
 
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: v-bind(width);
   height: fit-content;
 
   &--medium {
