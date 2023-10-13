@@ -1,19 +1,28 @@
 <template>
   <div :class="generateClasses">
     <label for="sex" class="m-select__label">{{ props.label }}</label>
-    <select
-      id="sex"
-      :name="name"
-      class="m-select__select"
-      :disabled="disabled"
-      v-on="validationListeners"
-      :rules="rules"
-    >
-      <option value="" disabled selected hidden>{{ props.placeholder }}</option>
-      <option v-for="value in props.options" :value="value" class="m-select__option">
-        {{ value }}
-      </option>
-    </select>
+    <div class="m-select__select-wrapper">
+      <select
+        id="sex"
+        :name="name"
+        class="m-select__select"
+        :disabled="disabled"
+        :rules="rules"
+        v-on="validationListeners"
+      >
+        <option value="" disabled selected hidden>{{ props.placeholder }}</option>
+        <option
+          v-for="(value, index) in props.options"
+          :key="index"
+          :value="value"
+          class="m-select__option"
+        >
+          {{ value }}
+        </option>
+      </select>
+      <span class="m-select__arrow"></span>
+    </div>
+    <a-input-error-list :errors="errors" />
   </div>
 </template>
 
@@ -117,12 +126,12 @@ const validationListeners = computed(() => {
   padding: $padding;
   font-size: $font-size;
 }
+
 .m-select {
   $self: &;
 
   display: flex;
   flex-direction: column;
-
   gap: $global-spacing-10;
 
   &--medium {
@@ -153,17 +162,49 @@ const validationListeners = computed(() => {
     color: var(--font-primary);
   }
 
+  &__select-wrapper {
+    position: relative;
+  }
+
   &__select {
+    width: 100%;
+    appearance: none;
+    background-color: var(--primary);
     background-image: linear-gradient(var(--primary), var(--primary)), v-bind(borderColor);
     background-clip: padding-box, border-box;
     background-origin: border-box;
     background-size: 200% 150%;
     border: 0.25em solid transparent;
     border-radius: 24px;
-    background-color: var(--primary);
+
     &:focus {
       outline: none;
     }
+  }
+
+  &__arrow {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    right: $global-spacing-40;
+    display: block;
+    width: $global-spacing-100;
+    height: 100%;
+  }
+
+  &__arrow::before,
+  &__arrow::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
+  &__arrow::before {
+    transform: translateY(-50%);
+    border-top: $global-spacing-30 solid var(--font-primary);
+    border-right: $global-spacing-30 solid transparent;
+    border-left: $global-spacing-30 solid transparent;
   }
 }
 </style>
