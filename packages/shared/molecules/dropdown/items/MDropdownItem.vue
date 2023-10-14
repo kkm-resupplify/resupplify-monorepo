@@ -50,5 +50,10 @@ const generateClasses = computed(() => {
   display: flex;
   gap: $global-spacing-20;
   align-items: center;
+  border-radius: $global-border-radius-10;
+
+  &:hover {
+    background-color: var(--secondary-2);
+  }
 }
 </style>

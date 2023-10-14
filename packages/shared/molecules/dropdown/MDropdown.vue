@@ -3,7 +3,7 @@
     <m-text-field
       class="m-dropdown__input"
       :name="name"
-      :value="optionsFilter"
+      :value="inputText"
       :placeholder="placeholder"
       :rules="rules"
       :disabled="disabled"
@@ -12,12 +12,18 @@
       :append-icon-on="appendIcon"
       autocomplete="off"
       @input-change="handleFilterChange"
-      @click="handleClick"
+      @click="handleInputClick"
     />
 
-    <div v-if="showOptions" class="m-dropdown__content">
-      <template v-for="(option, idx) in filteredOptions" :key="idx">
-        <m-dropdown-item :text="option.text" :icon-prepend="option.iconPrepend" />
+    <div class="m-dropdown__content">
+      <template v-if="showOptions">
+        <m-dropdown-item
+          v-for="(option, idx) in filteredOptions"
+          :key="idx"
+          :text="option.text"
+          :icon-prepend="option.iconPrepend"
+          @mousedown="handleSelectOption(option)"
+        />
       </template>
 
       <span v-if="!filteredOptions.length" v-text="$t('global.noResults')" />
@@ -56,6 +62,7 @@ const props = defineProps({
 const baseClass = 'm-dropdown'
 const optionsFilter = ref('')
 const showOptions = ref(false)
+const selectedOption = ref<MDropdownItemData | null>(null)
 
 // Composable
 const { generateClassNames } = useClassComposable()
@@ -78,13 +85,26 @@ const filteredOptions = computed(() => {
 const appendIcon = computed(() => {
   return showOptions.value ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
 })
+
+const inputText = computed(() => {
+  if (selectedOption.value) return selectedOption.value.text
+
+  return optionsFilter.value
+})
+
 // Methods
 const handleFilterChange = (filter: string) => {
   optionsFilter.value = filter
 }
 
-const handleClick = () => {
+const handleInputClick = () => {
   showOptions.value = !showOptions.value
+}
+
+const handleSelectOption = (option: MDropdownItemData) => {
+  selectedOption.value = option
+  optionsFilter.value = ''
+  showOptions.value = false
 }
 </script>
 
@@ -101,6 +121,7 @@ const handleClick = () => {
     padding: $global-spacing-10;
 
     background: var(--secondary-1);
+    border-radius: $global-border-radius-10;
   }
 }
 </style>

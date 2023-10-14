@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, toRef, ref } from 'vue'
+import { computed, toRef, ref, watch } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
@@ -159,6 +159,14 @@ const appendIcon = computed(() => {
 
   return appendIconState.value ? props.appendIconOn : props.appendIconOff
 })
+
+// Watchers
+watch(
+  () => props.value,
+  (newValue) => {
+    inputValue.value = newValue ?? ''
+  }
+)
 
 // Methods
 const handleAppendIconClick = () => {
