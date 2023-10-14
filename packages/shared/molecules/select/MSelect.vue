@@ -18,9 +18,8 @@
           :key="index"
           :value="option"
           class="m-select__option"
-        >
-          {{ option }}
-        </option>
+          v-text="option"
+        />
       </select>
 
       <span class="m-select__arrow" />
@@ -162,6 +161,13 @@ const validationListeners = computed(() => {
       position: relative;
       left: $global-spacing-70;
     }
+  }
+
+  &__label {
+    cursor: pointer;
+    color: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
   &__select,
