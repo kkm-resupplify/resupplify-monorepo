@@ -1,53 +1,38 @@
 import { defineStore } from 'pinia'
-
-interface RegisterCompanyGeneralStep {
-  name: string
-  country: string
-  shortDescription: string
-  description: string
-}
-
-interface RegisterCompanyDetailsStep {
-  address: string
-  tin: string
-  logo: File | null
-}
-
-interface RegisterCompanyContactInfoStep {
-  phoneNumber: string
-  email: string
-  contactPerson: string
-  externalWebsite: string
-}
+import type {
+  RegisterCompanyGeneralStep,
+  RegisterCompanyDetailsStep,
+  RegisterCompanyContactInfoStep
+} from '@interfaces/company/registerCompany'
 
 interface RegisterCompanyState {
-  generalData: RegisterCompanyGeneralStep
-  detailsData: RegisterCompanyDetailsStep
-  contactInfoData: RegisterCompanyContactInfoStep
+  generalStepData: RegisterCompanyGeneralStep
+  detailsStepData: RegisterCompanyDetailsStep
+  contactInfoStepData: RegisterCompanyContactInfoStep
 }
 
 export const useRegisterCompanyStore = defineStore({
   id: 'registerCompany',
 
   state: (): RegisterCompanyState => ({
-    generalData: { name: '', country: '', shortDescription: '', description: '' },
-    detailsData: { address: '', tin: '', logo: null },
-    contactInfoData: { phoneNumber: '', email: '', contactPerson: '', externalWebsite: '' }
+    generalStepData: { name: '', country: '', shortDescription: '', description: '' },
+    detailsStepData: { address: '', tin: '', logo: null },
+    contactInfoStepData: { phoneNumber: '', email: '', contactPerson: '', externalWebsite: '' }
   }),
 
   getters: {},
 
   actions: {
-    setGeneralData(generalData: RegisterCompanyGeneralStep) {
-      this.generalData = generalData
+    setGeneralStepData(generalStepData: RegisterCompanyGeneralStep) {
+      this.generalStepData = generalStepData
     },
 
-    setDetailsData(detailsData: RegisterCompanyDetailsStep) {
-      this.detailsData = detailsData
+    setDetailsStepData(detailsStepData: RegisterCompanyDetailsStep) {
+      this.detailsStepData = detailsStepData
     },
 
-    setContactInfoData(contactInfoData: RegisterCompanyContactInfoStep) {
-      this.contactInfoData = contactInfoData
+    setContactStepInfoData(contactInfoStepData: RegisterCompanyContactInfoStep) {
+      this.contactInfoStepData = contactInfoStepData
     }
   }
 })
