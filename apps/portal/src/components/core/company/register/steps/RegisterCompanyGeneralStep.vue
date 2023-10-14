@@ -15,7 +15,7 @@
               :placeholder="$t('company.register.form.companyNamePlaceholder')"
             />
 
-            <m-text-field
+            <m-select
               name="countryId"
               rules="required"
               :label="$t('company.register.form.companyCountryLabel')"

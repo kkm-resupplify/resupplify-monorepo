@@ -11,6 +11,7 @@ import { computed } from 'vue'
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
 import TestFormTwo from './TestFormTwo.vue'
+import RegisterCompany from '@/components/core/company/register/RegisterCompany.vue'
 
 const steps = [
   {
