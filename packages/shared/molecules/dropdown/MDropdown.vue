@@ -8,6 +8,7 @@
       prepend-icon-on="close"
       :name="name"
       :value="inputText"
+      :label="label"
       :placeholder="placeholder"
       :rules="rules"
       :disabled="disabled"
@@ -60,6 +61,7 @@ interface MDropdownItemData {
 
 const props = defineProps({
   name: { type: String, required: true },
+  label: String,
   placeholder: { type: String, required: true },
   options: { type: Array as PropType<MDropdownItemData[]>, default: () => [] },
   required: Boolean,
