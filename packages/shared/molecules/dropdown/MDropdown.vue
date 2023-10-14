@@ -9,18 +9,18 @@
       :disabled="disabled"
       :validate="false"
       variant="round"
-      append-icon-on="keyboard_arrow_up"
-      append-icon-off="keyboard_arrow_down"
+      :append-icon-on="appendIcon"
+      autocomplete="off"
       @input-change="handleFilterChange"
+      @click="handleClick"
     />
 
-    <div class="m-dropdown-content">
-      <m-dropdown-item
-        v-for="(option, idx) in filteredOptions"
-        :key="idx"
-        :text="option.text"
-        :icon-prepend="option.iconPrepend"
-      />
+    <div v-if="showOptions" class="m-dropdown__content">
+      <template v-for="(option, idx) in filteredOptions" :key="idx">
+        <m-dropdown-item :text="option.text" :icon-prepend="option.iconPrepend" />
+      </template>
+
+      <span v-if="!filteredOptions.length" v-text="$t('global.noResults')" />
 
       <slot name="content" />
     </div>
@@ -55,6 +55,7 @@ const props = defineProps({
 // Variables
 const baseClass = 'm-dropdown'
 const optionsFilter = ref('')
+const showOptions = ref(false)
 
 // Composable
 const { generateClassNames } = useClassComposable()
@@ -74,9 +75,16 @@ const filteredOptions = computed(() => {
   )
 })
 
+const appendIcon = computed(() => {
+  return showOptions.value ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
+})
 // Methods
 const handleFilterChange = (filter: string) => {
   optionsFilter.value = filter
+}
+
+const handleClick = () => {
+  showOptions.value = !showOptions.value
 }
 </script>
 
@@ -84,5 +92,15 @@ const handleFilterChange = (filter: string) => {
 .m-dropdown {
   display: flex;
   flex-direction: column;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-20;
+
+    padding: $global-spacing-10;
+
+    background: var(--secondary-1);
+  }
 }
 </style>
