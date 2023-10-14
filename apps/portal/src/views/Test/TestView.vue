@@ -32,6 +32,15 @@
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
 import TestFormTwo from './TestFormTwo.vue'
+import { useI18n } from 'vue-i18n'
+import { reactive } from 'vue'
+
+const { t } = useI18n()
+const genders = reactive([
+  t('userDetails.gender.male'),
+  t('userDetails.gender.female'),
+  t('userDetails.gender.preferNot')
+])
 
 const steps = [
   {
