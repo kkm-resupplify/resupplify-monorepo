@@ -151,10 +151,12 @@ const validationListeners = computed(() => {
 })
 
 const showAppendIcon = computed(() => {
-  return props.appendIconOn && props.appendIconOff
+  return !!props.appendIconOn || !!props.appendIconOff
 })
 
 const appendIcon = computed(() => {
+  if (!props.appendIconOff) return props.appendIconOn
+
   return appendIconState.value ? props.appendIconOn : props.appendIconOff
 })
 
