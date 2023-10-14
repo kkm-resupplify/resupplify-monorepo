@@ -15,10 +15,10 @@
       :validate="false"
       :append-icon-on="appendIcon"
       :prevent-input="false"
-      :prepend-icon-callback-on="clearselect"
+      :prepend-icon-callback-on="clearSelect"
       @input-change="handleFilterChange"
       @click="handleInputClick"
-      @blur="closeselect"
+      @blur="closeSelect"
     />
 
     <div v-if="showOptions" class="m-select__content">
@@ -127,7 +127,7 @@ const clickOutsideEvent = (event: any) => {
     !(selectRef.value === event.target || selectRef.value.contains(event.target)) &&
     showOptions.value
   ) {
-    closeselect()
+    closeSelect()
   }
 }
 
@@ -145,12 +145,12 @@ const handleSelectOption = (option: MSelectItemData) => {
   showOptions.value = false
 }
 
-const clearselect = () => {
+const clearSelect = () => {
   selectedOption.value = null
   optionsFilter.value = ''
 }
 
-const closeselect = () => {
+const closeSelect = () => {
   showOptions.value = false
 }
 </script>
