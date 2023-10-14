@@ -16,6 +16,7 @@
       "@/*": ["./"],
       "@sharedAtoms/*": ["./atoms/*"],
       "@sharedMolecules/*": ["./molecules/*"],
+      "@sharedOrganisms/*": ["./organisms/*"],
       "@sharedEnums/*": ["./enums/*"],
       "@sharedTranslations/*": ["./translations/*"],
       "@sharedComposables/*": ["./composables/*"],
