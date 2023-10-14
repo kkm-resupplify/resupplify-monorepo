@@ -5,7 +5,9 @@
     "actionSuccess": "Akcja zakończyła się pomyślnie",
     "errorOccured": "Wystąpił błąd",
     "submit": "Wyślij",
-    "save": "Zapisz"
+    "save": "Zapisz",
+    "actionSuccess": "Akcja zakończona pomyślnie",
+    "noResults": "Brak wyników"
   },
 
   "payments": {

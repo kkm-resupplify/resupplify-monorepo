@@ -5,7 +5,8 @@
     "actionSuccess": "Action completed successfully",
     "errorOccured": "An error occured",
     "submit": "Submit",
-    "save": "Save"
+    "save": "Save",
+    "noResults": "No results"
   },
 
   "payments": {

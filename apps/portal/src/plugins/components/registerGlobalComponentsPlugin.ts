@@ -7,8 +7,19 @@ import AHeader from '@sharedAtoms/header/AHeader.vue'
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
 import AInputErrorList from '@sharedAtoms/input/AInputErrorList.vue'
+import ASelect from '@sharedAtoms/select/ASelect.vue'
 
-const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotification, AInputErrorList]
+const atoms = [
+  AButton,
+  ACard,
+  ALink,
+  ALine,
+  AHeader,
+  AIcon,
+  AGeneralNotification,
+  AInputErrorList,
+  ASelect
+]
 
 // Molecules
 import MCardList from '@sharedMolecules/cards/MCardList.vue'
