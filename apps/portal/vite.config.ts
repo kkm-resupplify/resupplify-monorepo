@@ -23,6 +23,9 @@ export default defineConfig({
       '@sharedMolecules': fileURLToPath(
         new URL('../../packages/shared/molecules', import.meta.url)
       ),
+      '@sharedOrganisms': fileURLToPath(
+        new URL('../../packages/shared/organisms', import.meta.url)
+      ),
       '@sharedEnums': fileURLToPath(new URL('../../packages/shared/enums', import.meta.url)),
       '@sharedComposables': fileURLToPath(
         new URL('../../packages/shared/composables', import.meta.url)

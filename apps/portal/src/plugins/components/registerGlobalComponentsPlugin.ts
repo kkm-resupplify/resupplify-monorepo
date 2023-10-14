@@ -19,6 +19,11 @@ import MStepperStepContent from '@sharedMolecules/stepper/items/MStepperStepCont
 
 const molecules = [MCardList, MTextField, MTextArea, MStepper, MStepperStepContent]
 
+// Organisms
+import OForm from '@sharedOrganisms/form/OForm.vue'
+
+const organisms = [OForm]
+
 // Vee-validate
 import { Field, Form, ErrorMessage } from 'vee-validate'
 
@@ -29,6 +34,7 @@ export default {
   install: (app: any) => {
     installComponents(app, atoms)
     installComponents(app, molecules)
+    installComponents(app, organisms)
     installVeeValidateComponents(app, veeValidateComponents)
   }
 }
