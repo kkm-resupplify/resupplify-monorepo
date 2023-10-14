@@ -7,7 +7,8 @@ class UserDetailsDTO {
   sex: string
 
   constructor({ firstName, lastName, phoneNumber, birthDate, sex }: UserDetails) {
-    this.fullName = `${firstName} ${lastName}`
+    this.firstName = firstName
+    this.lastName = lastName
     this.phoneNumber = phoneNumber
     this.birthDate = birthDate
     this.sex = sex
@@ -23,11 +24,8 @@ interface UserDetails {
 }
 
 class UserDetailsService extends BaseService {
-  // static ADD_SUFFIX = 'register'
-
   async saveUserDetails(userDetailsData: UserDetails) {
     const userDetails = new UserDetailsDTO(userDetailsData)
-    console.log(userDetails)
   }
 }
 
