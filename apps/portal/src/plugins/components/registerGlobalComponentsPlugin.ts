@@ -27,9 +27,9 @@ import MTextField from '@sharedMolecules/input/MTextField.vue'
 import MTextArea from '@sharedMolecules/input/MTextArea.vue'
 import MStepper from '@sharedMolecules/stepper/MStepper.vue'
 import MStepperStepContent from '@sharedMolecules/stepper/items/MStepperStepContent.vue'
-import MDropdown from '@sharedMolecules/dropdown/MDropdown.vue'
+import MSelect from '@sharedMolecules/select/MSelect.vue'
 
-const molecules = [MCardList, MTextField, MTextArea, MStepper, MStepperStepContent, MDropdown]
+const molecules = [MCardList, MTextField, MTextArea, MStepper, MStepperStepContent, MSelect]
 
 // Organisms
 import OForm from '@sharedOrganisms/form/OForm.vue'
