@@ -1,27 +1,31 @@
 <template>
   <div :class="generateClasses">
-    <label for="sex" class="m-select__label">{{ props.label }}</label>
+    <label v-if="label" :for="name" class="m-select__label">{{ label }}</label>
+
     <div class="m-select__select-wrapper">
       <select
-        id="sex"
+        :id="name"
         :name="name"
         class="m-select__select"
         :disabled="disabled"
         :rules="rules"
         v-on="validationListeners"
       >
-        <option value="" disabled selected hidden>{{ props.placeholder }}</option>
+        <option value="" disabled selected hidden v-text="placeholder" />
+
         <option
-          v-for="(value, index) in props.options"
+          v-for="(option, index) in options"
           :key="index"
-          :value="value"
+          :value="option"
           class="m-select__option"
         >
-          {{ value }}
+          {{ option }}
         </option>
       </select>
-      <span class="m-select__arrow"></span>
+
+      <span class="m-select__arrow" />
     </div>
+
     <a-input-error-list :errors="errors" />
   </div>
 </template>
@@ -51,7 +55,10 @@ const props = defineProps({
   value: String,
   label: String,
   disabled: Boolean,
-  options: Array<String>,
+  options: {
+    type: Array<String>,
+    required: true
+  },
   placeholder: String,
   size: {
     type: String,
@@ -168,6 +175,7 @@ const validationListeners = computed(() => {
 
   &__select {
     width: 100%;
+
     appearance: none;
     background-color: var(--primary);
     background-image: linear-gradient(var(--primary), var(--primary)), v-bind(borderColor);
@@ -177,6 +185,13 @@ const validationListeners = computed(() => {
     border: 0.25em solid transparent;
     border-radius: 24px;
 
+    transition: background 0.25s ease-out;
+
+    &:hover,
+    &:focus {
+      background-position: 90% 0;
+    }
+
     &:focus {
       outline: none;
     }
@@ -184,10 +199,13 @@ const validationListeners = computed(() => {
 
   &__arrow {
     pointer-events: none;
+
     position: absolute;
     top: 50%;
     right: $global-spacing-40;
+
     display: block;
+
     width: $global-spacing-100;
     height: 100%;
   }
