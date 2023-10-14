@@ -165,7 +165,7 @@ const closeSelect = () => {
   &__content {
     position: absolute;
     z-index: 5;
-    transform: translateY(calc(v-bind(inputHeight) - $global-spacing-20));
+    transform: translateY(calc(v-bind(inputHeight) + $global-spacing-20));
 
     display: flex;
     flex-direction: column;
