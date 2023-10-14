@@ -39,8 +39,8 @@ const generateClasses = computed(() => {
 
 // Methods
 
-const handleSubmit = () => {
-  props.submitCallback()
+const handleSubmit = (values: any) => {
+  props.submitCallback(values)
 }
 </script>
 
@@ -57,7 +57,7 @@ const handleSubmit = () => {
   }
 
   &__footer {
-    flex: 1;
+    display: flex;
   }
 }
 </style>
