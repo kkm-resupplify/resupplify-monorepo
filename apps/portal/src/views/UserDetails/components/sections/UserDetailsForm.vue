@@ -93,7 +93,6 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
   gap: $global-spacing-100;
   align-items: center;
   justify-content: center;
-  border: 2px solid white;
 
   &__select {
     width: 100%;
