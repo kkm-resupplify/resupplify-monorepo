@@ -13,11 +13,17 @@ const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotificatio
 // Molecules
 import MCardList from '@sharedMolecules/cards/MCardList.vue'
 import MTextField from '@sharedMolecules/input/MTextField.vue'
+import MTextArea from '@sharedMolecules/input/MTextArea.vue'
 import MStepper from '@sharedMolecules/stepper/MStepper.vue'
 import MStepperStepContent from '@sharedMolecules/stepper/items/MStepperStepContent.vue'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 
-const molecules = [MCardList, MTextField, MStepper, MStepperStepContent, MSelect]
+const molecules = [MCardList, MTextField, MTextArea, MStepper, MStepperStepContent, MSelect]
+
+// Organisms
+import OForm from '@sharedOrganisms/form/OForm.vue'
+
+const organisms = [OForm]
 
 // Vee-validate
 import { Field, Form, ErrorMessage } from 'vee-validate'
@@ -29,6 +35,7 @@ export default {
   install: (app: any) => {
     installComponents(app, atoms)
     installComponents(app, molecules)
+    installComponents(app, organisms)
     installVeeValidateComponents(app, veeValidateComponents)
   }
 }

@@ -33,7 +33,7 @@ const generateClasses = computed(() => {
   flex-direction: column;
 
   &__body {
-    display: flex;
+    width: 100%;
   }
 
   &__footer {
