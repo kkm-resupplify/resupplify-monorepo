@@ -5,7 +5,8 @@
     "actionSuccess": "Action completed successfully",
     "errorOccured": "An error occured",
     "next": "Next",
-    "back": "Back"
+    "back": "Back",
+    "noResults": "No results"
   },
 
   "payments": {
@@ -110,5 +111,15 @@
     "expandYourClientBase": "Expand your client base",
     "diversifyAndGrowClientele": "Diversify and grow clientele",
     "increaseYourMarketShare": "Increase your market share"
+  },
+
+  "userDetails": {
+    "sex": "Sex",
+    "gender": {
+      "male": "Male",
+      "female": "Female",
+      "preferNot": "Prefer not to say"
+    },
+    "placeholder": "Select your gender"
   }
 }

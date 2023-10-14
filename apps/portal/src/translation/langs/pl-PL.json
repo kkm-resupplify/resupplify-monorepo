@@ -2,7 +2,9 @@
   "global": {
     "welcome": "Witaj",
     "goodbye": "Dowidzenia",
+    "actionSuccess": "Akcja zakończona pomyślnie",
     "errorOccured": "Wystąpił błąd",
+    "noResults": "Brak wyników",
     "next": "Dalej",
     "back": "Wstecz"
   },
@@ -109,5 +111,15 @@
     "expandYourClientBase": "Poszerz swoją bazę klientów",
     "diversifyAndGrowClientele": "Dywersyfikuj i rozwijaj klientelę",
     "increaseYourMarketShare": "Zwiększ swój udział w rynku"
+  },
+
+  "userDetails": {
+    "sex": "Płeć",
+    "gender": {
+      "male": "Mężczyzna",
+      "female": "Kobieta",
+      "preferNot": "Wolę nie mówić"
+    },
+    "placeholder": "Wybierz płeć"
   }
 }

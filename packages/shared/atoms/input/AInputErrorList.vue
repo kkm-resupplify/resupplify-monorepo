@@ -36,7 +36,7 @@ function onBeforeEnter(el: any) {
 function onEnter(el: any, done: any) {
   gsap.to(el, {
     opacity: 1,
-    height: '20px',
+    height: '30px',
     duration: 0.15,
     onComplete: done
   })
