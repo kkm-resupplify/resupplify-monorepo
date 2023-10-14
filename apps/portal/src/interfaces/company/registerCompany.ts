@@ -1,6 +1,6 @@
 export interface RegisterCompanyGeneralStep {
   name: string
-  country: string
+  countryId: string
   shortDescription: string
   description: string
 }

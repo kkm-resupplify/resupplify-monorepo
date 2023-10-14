@@ -15,7 +15,7 @@ export const useRegisterCompanyStore = defineStore({
   id: 'registerCompany',
 
   state: (): RegisterCompanyState => ({
-    generalStepData: { name: '', country: '', shortDescription: '', description: '' },
+    generalStepData: { name: '', countryId: '', shortDescription: '', description: '' },
     detailsStepData: { address: '', tin: '', logo: null },
     contactInfoStepData: { phoneNumber: '', email: '', contactPerson: '', externalWebsite: '' }
   }),
