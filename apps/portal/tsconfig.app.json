@@ -27,6 +27,7 @@
       "@interfaces/*": ["./src/interfaces/*"],
       "@sharedAtoms/*": ["../../packages/shared/atoms/*"],
       "@sharedMolecules/*": ["../../packages/shared/molecules/*"],
+      "@sharedOrganisms/*": ["../../packages/shared/organisms/*"],
       "@sharedEnums/*": ["../../packages/shared/enums/*"],
       "@sharedComposables/*": ["../../packages/shared/composables/*"],
       "@sharedInterfaces/*": ["../../packages/shared/interfaces/*"],
