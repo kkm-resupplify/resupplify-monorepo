@@ -1,5 +1,5 @@
 <template>
-  <div :class="generateClasses">
+  <div ref="dropdownRef" :class="generateClasses">
     <m-text-field
       class="m-dropdown__input"
       :name="name"
@@ -16,6 +16,7 @@
       :prepend-icon-callback-on="clearDropdown"
       @input-change="handleFilterChange"
       @click="handleInputClick"
+      @blur="closeDropdown"
     />
 
     <div class="m-dropdown__content">
@@ -37,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type PropType, ref } from 'vue'
+import { computed, type PropType, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MDropdownItem from './items/MDropdownItem.vue'
 
@@ -65,6 +66,7 @@ const props = defineProps({
 // Variables
 const baseClass = 'm-dropdown'
 const optionsFilter = ref('')
+const dropdownRef = ref<HTMLElement | null>(null)
 const showOptions = ref(false)
 const selectedOption = ref<MDropdownItemData | null>(null)
 
@@ -97,6 +99,24 @@ const inputText = computed(() => {
 })
 
 // Methods
+onMounted(() => {
+  document.addEventListener('click', clickOutsideEvent)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', clickOutsideEvent)
+})
+
+const clickOutsideEvent = (event: any) => {
+  if (!dropdownRef.value) return
+
+  if (
+    !(dropdownRef.value === event.target || dropdownRef.value.contains(event.target)) &&
+    showOptions.value
+  ) {
+    closeDropdown()
+  }
+}
 const handleFilterChange = (filter: string) => {
   optionsFilter.value = filter
 }
@@ -114,6 +134,11 @@ const handleSelectOption = (option: MDropdownItemData) => {
 const clearDropdown = () => {
   selectedOption.value = null
   optionsFilter.value = ''
+}
+
+const closeDropdown = () => {
+  console.log('close')
+  showOptions.value = false
 }
 </script>
 
