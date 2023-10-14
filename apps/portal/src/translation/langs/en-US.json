@@ -96,6 +96,7 @@
       "male": "Male",
       "female": "Female",
       "preferNot": "Prefer not to say"
-    }
+    },
+    "placeholder": "Select your gender"
   }
 }

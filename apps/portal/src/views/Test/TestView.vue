@@ -1,12 +1,29 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <m-stepper
-        :steps="steps"
-        style="min-height: 600px"
-        title="Company registration"
-        description="Please provide information about your company."
-      />
+      <o-form style="min-height: 800px" :submit-callback="handleNextStep">
+        <template #body>
+          <m-text-field
+            name="blob"
+            :label="$t('auth.form.emailAddress')"
+            :placeholder="$t('auth.form.emailAddressPlaceholder')"
+            autocomplete="username"
+            rules="required"
+          />
+
+          <m-text-field
+            name="glob"
+            :label="$t('auth.form.emailAddress')"
+            :placeholder="$t('auth.form.emailAddressPlaceholder')"
+            autocomplete="username"
+            rules="required"
+          />
+        </template>
+
+        <template #footer>
+          <a-button type="submit" text="Next step" />
+        </template>
+      </o-form>
     </template>
   </basic-view-layout>
 </template>
@@ -15,6 +32,15 @@
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
 import TestFormTwo from './TestFormTwo.vue'
+import { useI18n } from 'vue-i18n'
+import { reactive } from 'vue'
+
+const { t } = useI18n()
+const genders = reactive([
+  t('userDetails.gender.male'),
+  t('userDetails.gender.female'),
+  t('userDetails.gender.preferNot')
+])
 
 const steps = [
   {
@@ -51,6 +77,11 @@ const steps = [
     component: TestFormTwo
   }
 ]
+
+// Methods
+const handleNextStep = (values: any) => {
+  console.log(values)
+}
 </script>
 
 <style lang="scss" scoped>

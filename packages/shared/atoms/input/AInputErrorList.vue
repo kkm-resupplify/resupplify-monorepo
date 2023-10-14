@@ -36,7 +36,7 @@ function onBeforeEnter(el: any) {
 function onEnter(el: any, done: any) {
   gsap.to(el, {
     opacity: 1,
-    height: '30px',
+    height: '20px',
     duration: 0.15,
     onComplete: done
   })
@@ -58,6 +58,10 @@ function onLeave(el: any, done: any) {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-10;
+  align-items: center;
+  align-self: flex-start;
+  max-width: 100%;
+
   padding: $global-spacing-20 $global-spacing-80;
 
   &__item {
@@ -65,10 +69,6 @@ function onLeave(el: any, done: any) {
     display: flex;
     gap: $global-spacing-10;
     align-items: center;
-  }
-
-  &__item-icon {
-    align-self: flex-start;
   }
 
   &__item-text {

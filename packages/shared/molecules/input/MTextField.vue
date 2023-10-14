@@ -76,10 +76,6 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
-  variant: {
-    type: String,
-    default: 'sharp'
-  },
   appendIconCallbackOn: {
     type: Function,
     default: () => {}
@@ -89,13 +85,15 @@ const props = defineProps({
     default: () => {}
   },
   appendIconOn: String,
-  appendIconOff: String
+  appendIconOff: String,
+  width: { type: String, default: '100%' }
 })
 
 // Variables
 const baseClass = 'm-text-field'
 
 const name = toRef(props, 'name')
+const width = toRef(props, 'width')
 const inputType = toRef(props.inputType)
 
 const {
@@ -167,6 +165,8 @@ const handleAppendIconClick = () => {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/mixins/input-gradient';
+
 @mixin size($padding, $font-size) {
   padding: $padding;
   font-size: $font-size;
@@ -182,7 +182,7 @@ const handleAppendIconClick = () => {
 
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: v-bind(width);
   height: fit-content;
 
   &--medium {
@@ -221,7 +221,6 @@ const handleAppendIconClick = () => {
   }
 
   &__label {
-    cursor: pointer;
     color: var(--font-primary);
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -245,23 +244,11 @@ const handleAppendIconClick = () => {
   }
 
   &__input {
-    width: 100%;
+    @include input-gradient(v-bind(borderColor));
 
+    width: 100%;
     line-height: 1;
     color: var(--font-primary);
-
-    background-image: linear-gradient(var(--primary), var(--primary)), v-bind(borderColor);
-    background-clip: padding-box, border-box;
-    background-origin: border-box;
-    background-size: 200% 150%;
-    outline: none;
-
-    transition: background 0.25s ease-out;
-
-    &:hover,
-    &:focus {
-      background-position: 90% 0;
-    }
   }
 }
 </style>

@@ -13,6 +13,8 @@
 // Themes
 @import './themes';
 
+// Shared Mixins
+@import '../../../../packages/shared/styles/mixins/custom-scrollbar';
 
 * {
   font-family: Poppins, sans-serif;
@@ -22,7 +24,7 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -34,6 +36,9 @@ body {
 }
 
 #app {
+  @include custom-scrollbar;
+
+  overflow: auto;
   display: flex;
   flex: 1;
   flex-direction: column;
