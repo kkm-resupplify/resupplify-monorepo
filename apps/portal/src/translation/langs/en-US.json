@@ -3,7 +3,8 @@
     "welcome": "Welcome",
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
-    "errorOccured": "An error occured"
+    "errorOccured": "An error occured",
+    "noResults": "No results"
   },
 
   "payments": {

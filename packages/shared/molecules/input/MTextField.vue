@@ -3,24 +3,34 @@
     <label v-if="label" class="m-text-field__label" :for="name" v-text="label" />
 
     <div class="m-text-field__input-group">
+      <a-icon
+        v-if="showPreppendIcon"
+        class="m-text-field__input-prepend"
+        :icon="prependIcon"
+        size="large"
+        @click="handlePrependIconClick"
+      />
+
       <input
         :id="name"
         :name="name"
         :value="inputValue"
-        class="m-text-field__input"
+        :class="inputClasses"
         :type="inputType"
         :placeholder="placeholder"
         :autocomplete="autocomplete"
         :rules="rules"
         :disabled="disabled"
         v-on="validationListeners"
+        @input="handleInputChange"
+        @keydown="handleKeydown"
       />
 
       <a-icon
         v-if="showAppendIcon"
         class="m-text-field__input-append"
         :icon="appendIcon"
-        size="medium"
+        size="large"
         @click="handleAppendIconClick"
       />
     </div>
@@ -30,9 +40,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, toRef, ref } from 'vue'
+import { computed, toRef, ref, watch } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+
+const emits = defineEmits(['input-change'])
 
 // Props
 const props = defineProps({
@@ -76,21 +88,36 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
+  prependIconCallbackOn: {
+    type: Function,
+    default: () => {
+      return
+    }
+  },
   appendIconCallbackOn: {
     type: Function,
-    default: () => {}
+    default: () => {
+      return
+    }
   },
   appendIconCallbackOff: {
     type: Function,
-    default: () => {}
+    default: () => {
+      return
+    }
   },
   appendIconOn: String,
   appendIconOff: String,
-  width: { type: String, default: '100%' }
+  prependIconOn: String,
+  prependIconOff: String,
+  width: { type: String, default: '100%' },
+  preventInput: Boolean
 })
 
 // Variables
 const baseClass = 'm-text-field'
+const appendIconState = ref(false)
+const prependIconState = ref(false)
 
 const name = toRef(props, 'name')
 const width = toRef(props, 'width')
@@ -107,8 +134,6 @@ const {
   initialValue: props.value,
   validateOnValueUpdate: false
 })
-
-const appendIconState = ref(false)
 
 // Composables
 const { generateClassNames } = useClassComposable()
@@ -147,20 +172,63 @@ const validationListeners = computed(() => {
   }
 })
 
+const showPreppendIcon = computed(() => {
+  return !!props.prependIconOn || !!props.prependIconOff
+})
+
+const prependIcon = computed(() => {
+  if (!props.prependIconOff) return props.prependIconOn
+
+  return prependIconState.value ? props.prependIconOn : props.prependIconOff
+})
+
 const showAppendIcon = computed(() => {
-  return props.appendIconOn && props.appendIconOff
+  return !!props.appendIconOn || !!props.appendIconOff
 })
 
 const appendIcon = computed(() => {
+  if (!props.appendIconOff) return props.appendIconOn
+
   return appendIconState.value ? props.appendIconOn : props.appendIconOff
 })
+
+const inputClasses = computed(() => {
+  return !props.preventInput
+    ? `m-text-field__input`
+    : `m-text-field__input m-text-field__input--prevent-input`
+})
+
+// Watchers
+watch(
+  () => props.value,
+  (newValue) => {
+    inputValue.value = newValue ?? ''
+  }
+)
 
 // Methods
 const handleAppendIconClick = () => {
   appendIconState.value = !appendIconState.value
+  if (props.inputType == 'password') {
+    if (inputType.value == 'password') inputType.value = 'text'
+    else inputType.value = 'password'
+  }
+}
 
-  if (inputType.value == 'password') inputType.value = 'text'
-  else inputType.value = 'password'
+const handlePrependIconClick = (event: Event) => {
+  event.stopPropagation()
+  props.prependIconCallbackOn()
+  prependIconState.value = !prependIconState.value
+}
+
+const handleKeydown = (event: KeyboardEvent) => {
+  if (props.preventInput) {
+    event.preventDefault()
+  }
+}
+
+const handleInputChange = () => {
+  emits('input-change', inputValue.value)
 }
 </script>
 
@@ -226,12 +294,27 @@ const handleAppendIconClick = () => {
     display: flex;
   }
 
+  &__input-prepend {
+    cursor: pointer;
+    user-select: none;
+
+    position: absolute;
+    z-index: 499;
+    left: $global-spacing-10;
+
+    display: flex;
+  }
+
   &__input {
     @include input-gradient(v-bind(borderColor));
 
     width: 100%;
     line-height: 1;
     color: var(--font-primary);
+
+    &--prevent-input {
+      caret-color: transparent;
+    }
   }
 }
 </style>

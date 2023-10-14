@@ -2,7 +2,9 @@
   "global": {
     "welcome": "Witaj",
     "goodbye": "Dowidzenia",
-    "errorOccured": "Wystąpił błąd"
+    "actionSuccess": "Akcja zakończona pomyślnie",
+    "errorOccured": "Wystąpił błąd",
+    "noResults": "Brak wyników"
   },
 
   "payments": {
