@@ -8,8 +8,9 @@
         :placeholder="$t('auth.userDetails.firstNamePlaceholder')"
         autocomplete="given-name"
         rules="required"
-        class="login-box-form-section__text-field"
+        class="user-details-form__text-field"
       />
+
       <m-text-field
         name="lastName"
         input-type="text"
@@ -17,8 +18,9 @@
         :placeholder="$t('auth.userDetails.lastNamePlaceholder')"
         autocomplete="family-name"
         rules="required"
-        class="login-box-form-section__text-field"
+        class="user-details-form__text-field"
       />
+
       <m-text-field
         name="phoneNumber"
         input-type="tel"
@@ -26,17 +28,27 @@
         :placeholder="$t('auth.userDetails.phoneNumberPlaceholder')"
         autocomplete="tel"
         :rules="{ regex: /^(?:\+48)?[1-9]\d{8}$/ }"
-        class="login-box-form-section__text-field"
+        class="user-details-form__text-field"
       />
+
       <m-text-field
         name="birthDate"
         input-type="date"
         :label="$t('auth.userDetails.birthDate')"
         autocomplete="bday"
         rules="required"
-        class="login-box-form-section__text-field"
+        class="user-details-form__text-field"
       />
-      <m-select name="sex" :label="$t('userDetails.sex')" :values="genderOptions" />
+
+      <m-select
+        name="sex"
+        :label="$t('userDetails.sex')"
+        :options="genderOptions"
+        :placeholder="$t('userDetails.placeholder')"
+        rules="required"
+        class="user-details-form__select"
+      />
+
       <a-button :text="$t('global.save')" size="x-large" type="submit" />
     </v-form>
   </div>
@@ -44,7 +56,8 @@
 <script setup lang="ts">
 import UserDetailsService from '@/services/user/UserDetailsService'
 import { useI18n } from 'vue-i18n'
-import { ref } from 'vue'
+import { reactive } from 'vue'
+import { useClassComposable } from '../../../../../../../packages/shared/composables/class/useClassComposable'
 
 //Interfaces
 interface UserDetailsFormData {
@@ -57,7 +70,7 @@ interface UserDetailsFormData {
 
 //Variables
 const { t } = useI18n()
-const genderOptions = ref([
+const genderOptions = reactive([
   t('userDetails.gender.male'),
   t('userDetails.gender.female'),
   t('userDetails.gender.preferNot')
@@ -80,9 +93,10 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
   gap: $global-spacing-100;
   align-items: center;
   justify-content: center;
+  border: 2px solid white;
 
-  &__text-field {
-    max-width: 292px;
+  &__select {
+    width: 100%;
   }
 
   &__form {
@@ -91,11 +105,6 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
     gap: $global-spacing-100;
     align-items: center;
     justify-content: center;
-
-    &--buttons {
-      display: flex;
-      gap: $global-spacing-100;
-    }
   }
 }
 </style>
