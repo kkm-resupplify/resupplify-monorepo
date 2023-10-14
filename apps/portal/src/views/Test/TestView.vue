@@ -2,6 +2,9 @@
   <basic-view-layout class="test-view">
     <template #body>
       <m-dropdown name="test" placeholder="Select country" :options="options" :filter="true" />
+      <div>a</div>
+      <div>b</div>
+      <div>c</div>
     </template>
   </basic-view-layout>
 </template>

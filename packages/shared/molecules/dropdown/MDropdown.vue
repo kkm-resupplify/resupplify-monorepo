@@ -1,7 +1,11 @@
 <template>
   <div ref="dropdownRef" :class="generateClasses">
     <m-text-field
+      ref="inputRef"
       class="m-dropdown__input"
+      variant="round"
+      autocomplete="off"
+      prepend-icon-on="close"
       :name="name"
       :value="inputText"
       :placeholder="placeholder"
@@ -9,36 +13,36 @@
       :disabled="disabled"
       :validate="false"
       :append-icon-on="appendIcon"
-      prepend-icon-on="close"
       :prevent-input="false"
-      variant="round"
-      autocomplete="off"
       :prepend-icon-callback-on="clearDropdown"
       @input-change="handleFilterChange"
       @click="handleInputClick"
       @blur="closeDropdown"
     />
 
-    <div class="m-dropdown__content">
-      <template v-if="showOptions">
-        <m-dropdown-item
-          v-for="(option, idx) in filteredOptions"
-          :key="idx"
-          :text="option.text"
-          :icon-prepend="option.iconPrepend"
-          @mousedown="handleSelectOption(option)"
-        />
-      </template>
+    <div v-if="showOptions" class="m-dropdown__content">
+      <m-dropdown-item
+        v-for="(option, idx) in filteredOptions"
+        :key="idx"
+        :text="option.text"
+        :icon-prepend="option.iconPrepend"
+        @mousedown="handleSelectOption(option)"
+      />
 
       <span v-if="!filteredOptions.length" v-text="$t('global.noResults')" />
-
-      <slot name="content" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, type PropType, ref, onMounted, onBeforeUnmount } from 'vue'
+import {
+  computed,
+  ref,
+  onMounted,
+  onBeforeUnmount,
+  type PropType,
+  type ComponentPublicInstance
+} from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MDropdownItem from './items/MDropdownItem.vue'
 
@@ -67,6 +71,7 @@ const props = defineProps({
 const baseClass = 'm-dropdown'
 const optionsFilter = ref('')
 const dropdownRef = ref<HTMLElement | null>(null)
+const inputRef = ref<ComponentPublicInstance | null>(null)
 const showOptions = ref(false)
 const selectedOption = ref<MDropdownItemData | null>(null)
 
@@ -98,6 +103,12 @@ const inputText = computed(() => {
   return optionsFilter.value
 })
 
+const inputHeight = computed(() => {
+  const height = inputRef.value ? inputRef.value.$el.offsetHeight : 42
+
+  return `${height}px`
+})
+
 // Methods
 onMounted(() => {
   document.addEventListener('click', clickOutsideEvent)
@@ -117,6 +128,7 @@ const clickOutsideEvent = (event: any) => {
     closeDropdown()
   }
 }
+
 const handleFilterChange = (filter: string) => {
   optionsFilter.value = filter
 }
@@ -137,21 +149,27 @@ const clearDropdown = () => {
 }
 
 const closeDropdown = () => {
-  console.log('close')
   showOptions.value = false
 }
 </script>
 
 <style lang="scss" scoped>
 .m-dropdown {
+  position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   &__content {
+    position: absolute;
+    z-index: 5;
+    transform: translateY(calc(v-bind(inputHeight) - $global-spacing-20));
+
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
 
+    width: calc(100% - $global-spacing-20);
     padding: $global-spacing-10;
 
     background: var(--secondary-1);
