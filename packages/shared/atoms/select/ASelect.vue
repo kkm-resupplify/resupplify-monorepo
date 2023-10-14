@@ -1,12 +1,12 @@
 <template>
   <div :class="generateClasses">
-    <label v-if="label" :for="name" class="m-select__label">{{ label }}</label>
+    <label v-if="label" :for="name" class="a-select__label" v-text="label" />
 
-    <div class="m-select__select-wrapper">
+    <div class="a-select__select-wrapper">
       <select
         :id="name"
         :name="name"
-        class="m-select__select"
+        class="a-select__select"
         :disabled="disabled"
         :rules="rules"
         v-on="validationListeners"
@@ -17,12 +17,12 @@
           v-for="(option, index) in options"
           :key="index"
           :value="option"
-          class="m-select__option"
+          class="a-select__option"
           v-text="option"
         />
       </select>
 
-      <span class="m-select__arrow" />
+      <span class="a-select__arrow" />
     </div>
 
     <a-input-error-list :errors="errors" />
@@ -34,17 +34,6 @@ import { computed, toRef } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
-// Variables
-const baseClass = 'm-select'
-
-// Composables
-const { generateClassNames } = useClassComposable()
-
-// Computed
-const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.size])
-})
-
 const props = defineProps({
   name: {
     type: String,
@@ -55,7 +44,7 @@ const props = defineProps({
   label: String,
   disabled: Boolean,
   options: {
-    type: Array<String>,
+    type: Array<string>,
     required: true
   },
   placeholder: String,
@@ -83,6 +72,17 @@ const props = defineProps({
     type: Boolean,
     default: true
   }
+})
+
+// Variables
+const baseClass = 'a-select'
+
+// Composables
+const { generateClassNames } = useClassComposable()
+
+// Computed
+const generateClasses = computed(() => {
+  return generateClassNames(baseClass, [props.size])
 })
 
 const name = toRef(props, 'name')
@@ -133,7 +133,7 @@ const validationListeners = computed(() => {
   font-size: $font-size;
 }
 
-.m-select {
+.a-select {
   $self: &;
 
   display: flex;
