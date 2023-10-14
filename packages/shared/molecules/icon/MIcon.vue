@@ -1,7 +1,6 @@
 <template>
-  <country-flag v-if="country" :class="generateClasses" :country="icon" :size="size" />
-  <a-icon
-    v-else
+  <component
+    :is="iconComponent"
     :class="generateClasses"
     :icon="icon"
     :color="color"
@@ -15,8 +14,9 @@
 import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import CountryFlag from 'vue-country-flag-next'
+import AIcon from '@sharedAtoms/icon/AIcon.vue'
 
-defineProps({
+const props = defineProps({
   icon: {
     type: String,
     required: true
@@ -49,6 +49,10 @@ const { generateClassNames } = useClassComposable()
 // Computed
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
+})
+
+const iconComponent = computed(() => {
+  return props.country ? CountryFlag : AIcon
 })
 </script>
 
