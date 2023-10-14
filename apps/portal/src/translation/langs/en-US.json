@@ -4,9 +4,9 @@
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
     "errorOccured": "An error occured",
+    "noResults": "No results",
     "next": "Next",
-    "back": "Back",
-    "noResults": "No results"
+    "back": "Back"
   },
 
   "payments": {
