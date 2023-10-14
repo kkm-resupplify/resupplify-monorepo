@@ -14,6 +14,7 @@
         :rules="rules"
         :disabled="disabled"
         v-on="validationListeners"
+        @input="handleInputChange"
       />
 
       <a-icon
@@ -33,6 +34,8 @@
 import { computed, toRef, ref } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+
+const emits = defineEmits(['input-change'])
 
 // Props
 const props = defineProps({
@@ -158,9 +161,14 @@ const appendIcon = computed(() => {
 // Methods
 const handleAppendIconClick = () => {
   appendIconState.value = !appendIconState.value
+  if (props.inputType == 'password') {
+    if (inputType.value == 'password') inputType.value = 'text'
+    else inputType.value = 'password'
+  }
+}
 
-  if (inputType.value == 'password') inputType.value = 'text'
-  else inputType.value = 'password'
+const handleInputChange = () => {
+  emits('input-change', inputValue.value)
 }
 </script>
 
