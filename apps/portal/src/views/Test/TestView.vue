@@ -1,7 +1,7 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <m-dropdown name="test" placeholder="Select country" :options="options" />
+      <m-dropdown name="test" placeholder="Select country" :options="options" :filter="true" />
     </template>
   </basic-view-layout>
 </template>

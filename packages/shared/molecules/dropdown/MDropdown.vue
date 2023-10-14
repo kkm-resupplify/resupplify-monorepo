@@ -8,9 +8,12 @@
       :rules="rules"
       :disabled="disabled"
       :validate="false"
-      variant="round"
       :append-icon-on="appendIcon"
+      prepend-icon-on="close"
+      :prevent-input="false"
+      variant="round"
       autocomplete="off"
+      :prepend-icon-callback-on="clearDropdown"
       @input-change="handleFilterChange"
       @click="handleInputClick"
     />
@@ -55,7 +58,8 @@ const props = defineProps({
   placeholder: { type: String, required: true },
   options: { type: Array as PropType<MDropdownItemData[]>, default: () => [] },
   required: Boolean,
-  disabled: Boolean
+  disabled: Boolean,
+  filter: Boolean
 })
 
 // Variables
@@ -105,6 +109,11 @@ const handleSelectOption = (option: MDropdownItemData) => {
   selectedOption.value = option
   optionsFilter.value = ''
   showOptions.value = false
+}
+
+const clearDropdown = () => {
+  selectedOption.value = null
+  optionsFilter.value = ''
 }
 </script>
 
