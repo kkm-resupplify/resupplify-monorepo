@@ -34,7 +34,7 @@ const props = defineProps({
   iconAppend: Object as () => IconData | null
 })
 // Variables
-const baseClass = 'm-dropdown-item'
+const baseClass = 'm-select-item'
 
 // Composable
 const { generateClassNames } = useClassComposable()
@@ -46,7 +46,7 @@ const generateClasses = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.m-dropdown-item {
+.m-select-item {
   display: flex;
   gap: $global-spacing-20;
   align-items: center;

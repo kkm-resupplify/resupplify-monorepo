@@ -1,8 +1,8 @@
 <template>
-  <div ref="dropdownRef" :class="generateClasses">
+  <div ref="selectRef" :class="generateClasses">
     <m-text-field
       ref="inputRef"
-      class="m-dropdown__input"
+      class="m-select__input"
       variant="round"
       autocomplete="off"
       prepend-icon-on="close"
@@ -15,14 +15,14 @@
       :validate="false"
       :append-icon-on="appendIcon"
       :prevent-input="false"
-      :prepend-icon-callback-on="clearDropdown"
+      :prepend-icon-callback-on="clearselect"
       @input-change="handleFilterChange"
       @click="handleInputClick"
-      @blur="closeDropdown"
+      @blur="closeselect"
     />
 
-    <div v-if="showOptions" class="m-dropdown__content">
-      <m-dropdown-item
+    <div v-if="showOptions" class="m-select__content">
+      <m-select-item
         v-for="(option, idx) in filteredOptions"
         :key="idx"
         :text="option.text"
@@ -45,7 +45,7 @@ import {
   type ComponentPublicInstance
 } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-import MDropdownItem from './items/MDropdownItem.vue'
+import MSelectItem from './items/MSelectItem.vue'
 
 interface IconData {
   name: string
@@ -53,7 +53,7 @@ interface IconData {
   color?: string
 }
 
-interface MDropdownItemData {
+interface MSelectItemData {
   text?: string
   iconPrepend?: IconData
   iconAppend?: IconData
@@ -63,19 +63,19 @@ const props = defineProps({
   name: { type: String, required: true },
   label: String,
   placeholder: { type: String, required: true },
-  options: { type: Array as PropType<MDropdownItemData[]>, default: () => [] },
+  options: { type: Array as PropType<MSelectItemData[]>, default: () => [] },
   required: Boolean,
   disabled: Boolean,
   filter: Boolean
 })
 
 // Variables
-const baseClass = 'm-dropdown'
+const baseClass = 'm-select'
 const optionsFilter = ref('')
-const dropdownRef = ref<HTMLElement | null>(null)
+const selectRef = ref<HTMLElement | null>(null)
 const inputRef = ref<ComponentPublicInstance | null>(null)
 const showOptions = ref(false)
-const selectedOption = ref<MDropdownItemData | null>(null)
+const selectedOption = ref<MSelectItemData | null>(null)
 
 // Composable
 const { generateClassNames } = useClassComposable()
@@ -121,13 +121,13 @@ onBeforeUnmount(() => {
 })
 
 const clickOutsideEvent = (event: any) => {
-  if (!dropdownRef.value) return
+  if (!selectRef.value) return
 
   if (
-    !(dropdownRef.value === event.target || dropdownRef.value.contains(event.target)) &&
+    !(selectRef.value === event.target || selectRef.value.contains(event.target)) &&
     showOptions.value
   ) {
-    closeDropdown()
+    closeselect()
   }
 }
 
@@ -139,24 +139,24 @@ const handleInputClick = () => {
   showOptions.value = !showOptions.value
 }
 
-const handleSelectOption = (option: MDropdownItemData) => {
+const handleSelectOption = (option: MSelectItemData) => {
   selectedOption.value = option
   optionsFilter.value = ''
   showOptions.value = false
 }
 
-const clearDropdown = () => {
+const clearselect = () => {
   selectedOption.value = null
   optionsFilter.value = ''
 }
 
-const closeDropdown = () => {
+const closeselect = () => {
   showOptions.value = false
 }
 </script>
 
 <style lang="scss" scoped>
-.m-dropdown {
+.m-select {
   position: relative;
   display: flex;
   flex-direction: column;
