@@ -20,6 +20,7 @@
               rules="required"
               :label="$t('company.register.form.companyCountryLabel')"
               :placeholder="$t('company.register.form.companyCountryPlaceholder')"
+              :options="countries"
             />
 
             <m-text-area
@@ -52,6 +53,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { RegisterCompanyGeneralStep } from '@interfaces/company/registerCompany'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
@@ -70,6 +72,10 @@ const handleNextStep = async (values: RegisterCompanyGeneralStep) => {
 const handlePreviousStep = () => {
   emits('previous-step')
 }
+
+const countries = computed(() => {
+  return [{ text: 'Polska', iconPrepend: { name: '_pl', size: 'small' } }]
+})
 </script>
 
 <style lang="scss" scoped>

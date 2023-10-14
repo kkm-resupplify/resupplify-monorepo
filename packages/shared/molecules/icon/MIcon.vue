@@ -2,9 +2,10 @@
   <component
     :is="iconComponent"
     :class="generateClasses"
-    :icon="icon"
+    :icon="iconValue"
     :color="color"
     :size="size"
+    :country="iconValue"
     :library="library"
     :variant="variant"
   />
@@ -51,8 +52,16 @@ const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
 
+const isCountryIcon = computed(() => {
+  return props.icon.startsWith('_')
+})
+
+const iconValue = computed(() => {
+  return isCountryIcon.value ? props.icon.slice(1) : props.icon
+})
+
 const iconComponent = computed(() => {
-  return props.country ? CountryFlag : AIcon
+  return isCountryIcon.value ? CountryFlag : AIcon
 })
 </script>
 
