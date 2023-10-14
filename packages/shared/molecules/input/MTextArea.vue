@@ -129,11 +129,11 @@ const validationListeners = computed(() => {
       @include size($global-font-size-20, 0 $global-spacing-20);
 
       position: relative;
-      left: $global-spacing-50;
+      left: $global-spacing-70;
     }
 
     #{$self}__input {
-      @include size($text-input-font-size-md, $global-spacing-30);
+      @include size($text-input-font-size-md, $global-spacing-30 $global-spacing-70);
     }
   }
 
