@@ -15,12 +15,11 @@
               :placeholder="$t('company.register.form.companyNamePlaceholder')"
             />
 
-            <m-select
+            <country-select
               name="countryId"
-              rules="required"
+              required
               :label="$t('company.register.form.companyCountryLabel')"
               :placeholder="$t('company.register.form.companyCountryPlaceholder')"
-              :options="countries"
             />
 
             <m-text-area
@@ -56,6 +55,7 @@
 import { computed } from 'vue'
 import type { RegisterCompanyGeneralStep } from '@interfaces/company/registerCompany'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
+import CountrySelect from '@/components/common/select/CountrySelect.vue'
 
 // Emits
 const emits = defineEmits(['next-step', 'previous-step', 'general-step-data'])
@@ -72,10 +72,6 @@ const handleNextStep = async (values: RegisterCompanyGeneralStep) => {
 const handlePreviousStep = () => {
   emits('previous-step')
 }
-
-const countries = computed(() => {
-  return [{ text: 'Polska', iconPrepend: { name: '_pl', size: 'small' } }]
-})
 </script>
 
 <style lang="scss" scoped>

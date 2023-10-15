@@ -1,7 +1,6 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <country-select />
       <register-company />
     </template>
   </basic-view-layout>
@@ -13,7 +12,7 @@ import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
 import TestFormTwo from './TestFormTwo.vue'
 import RegisterCompany from '@/components/core/company/register/RegisterCompany.vue'
-import CountrySelect from '@/components/common/select/CountrySelect.vue'
+
 const steps = [
   {
     stepInfo: {
