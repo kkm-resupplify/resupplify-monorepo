@@ -13,6 +13,7 @@
 
       <input
         :id="name"
+        ref="inputRef"
         :name="name"
         :value="inputValue"
         :class="inputClasses"
@@ -126,6 +127,7 @@ const prependIconState = ref(false)
 const name = toRef(props, 'name')
 const width = toRef(props, 'width')
 const inputType = toRef(props.inputType)
+const inputRef = ref(null)
 
 const {
   value: inputValue,
@@ -133,7 +135,8 @@ const {
   handleBlur,
   errorMessage,
   handleChange,
-  meta
+  meta,
+  validate
 } = useField(name, props.rules, {
   initialValue: props.value,
   validateOnValueUpdate: false
@@ -230,6 +233,14 @@ const handleKeydown = (event: KeyboardEvent) => {
     event.preventDefault()
   }
 }
+
+const manualValidate = () => {
+  if (meta.touched) {
+    validate()
+  }
+}
+
+defineExpose({ manualValidate })
 
 const handleInputChange = () => {
   emits('input-change', inputValue.value)

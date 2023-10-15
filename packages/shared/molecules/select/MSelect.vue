@@ -43,7 +43,8 @@ import {
   onBeforeUnmount,
   toRef,
   type PropType,
-  type ComponentPublicInstance
+  type ComponentPublicInstance,
+  type Component
 } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MSelectItem from './items/MSelectItem.vue'
@@ -136,6 +137,9 @@ const handleFilterChange = (filter: string) => {
 
 const handleInputClick = () => {
   showOptions.value = !showOptions.value
+  if (inputRef.value) {
+    inputRef.value.manualValidate()
+  }
 }
 
 const handleSelectOption = (option: MSelectItemData) => {
