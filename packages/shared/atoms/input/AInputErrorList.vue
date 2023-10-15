@@ -1,5 +1,5 @@
 <template>
-  <div v-show="errors.length" class="a-input-error-list">
+  <div class="a-input-error-list">
     <TransitionGroup
       :duration="10"
       tag="div"
@@ -60,15 +60,15 @@ function onLeave(el: any, done: any) {
   gap: $global-spacing-10;
   align-items: center;
   align-self: flex-start;
-  max-width: 100%;
 
-  padding: $global-spacing-20 $global-spacing-80;
+  max-width: 100%;
 
   &__item {
     overflow: hidden;
     display: flex;
     gap: $global-spacing-10;
     align-items: center;
+    padding: $global-spacing-20 $global-spacing-80;
   }
 
   &__item-text {
