@@ -9,6 +9,7 @@
     :disabled="disabled"
     :validate="validate"
     :rules="validationRules"
+    :initial-value="initialValue"
   />
 </template>
 
@@ -24,7 +25,8 @@ const props = defineProps({
   disabled: Boolean,
   filter: Boolean,
   isLoading: Boolean,
-  validate: { type: Boolean, default: true }
+  validate: { type: Boolean, default: true },
+  initialValue: { type: String, default: null }
 })
 
 // Computed

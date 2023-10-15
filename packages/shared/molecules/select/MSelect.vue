@@ -41,10 +41,8 @@ import {
   ref,
   onMounted,
   onBeforeUnmount,
-  toRef,
   type PropType,
-  type ComponentPublicInstance,
-  type Component
+  type ComponentPublicInstance
 } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MSelectItem from './items/MSelectItem.vue'
@@ -70,7 +68,8 @@ const props = defineProps({
   filter: Boolean,
   isLoading: Boolean,
   rules: String,
-  validate: { type: Boolean, default: true }
+  validate: { type: Boolean, default: true },
+  initialValue: { type: String, default: null }
 })
 
 // Variables
@@ -113,6 +112,7 @@ const inputHeight = computed(() => {
 
 // Methods
 onMounted(() => {
+  optionsFilter.value = props.initialValue ?? null
   document.addEventListener('click', clickOutsideEvent)
 })
 
