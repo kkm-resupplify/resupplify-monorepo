@@ -111,7 +111,7 @@ const showIndicatorLine = computed(() => {
     @include indicator-color;
 
     position: relative;
-    z-index: 22;
+    z-index: 2;
 
     display: flex;
     align-items: center;

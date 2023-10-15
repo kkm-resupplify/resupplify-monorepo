@@ -109,7 +109,7 @@ const toggleListVisibility = () => {
 
   &__controller {
     position: relative;
-    z-index: 4;
+    z-index: 5;
 
     display: flex;
     flex: 1;

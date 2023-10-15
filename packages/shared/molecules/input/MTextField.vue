@@ -320,7 +320,7 @@ const handleInputChange = () => {
     user-select: none;
 
     position: absolute;
-    z-index: 499;
+    z-index: 2;
     left: $global-spacing-10;
 
     display: flex;

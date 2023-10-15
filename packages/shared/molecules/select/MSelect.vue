@@ -41,6 +41,7 @@ import {
   ref,
   onMounted,
   onBeforeUnmount,
+  toRef,
   type PropType,
   type ComponentPublicInstance
 } from 'vue'
@@ -66,7 +67,8 @@ const props = defineProps({
   options: { type: Array as PropType<MSelectItemData[]>, default: () => [] },
   required: Boolean,
   disabled: Boolean,
-  filter: Boolean
+  filter: Boolean,
+  isLoading: Boolean
 })
 
 // Variables
@@ -76,6 +78,7 @@ const selectRef = ref<HTMLElement | null>(null)
 const inputRef = ref<ComponentPublicInstance | null>(null)
 const showOptions = ref(false)
 const selectedOption = ref<MSelectItemData | null>(null)
+const isLoading = toRef(props, 'isLoading')
 
 // Composable
 const { generateClassNames } = useClassComposable()
@@ -164,14 +167,16 @@ const closeSelect = () => {
 
   &__content {
     position: absolute;
-    z-index: 5;
+    z-index: 10;
     transform: translateY(calc(v-bind(inputHeight) + $global-spacing-20));
 
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
 
     width: calc(100% - $global-spacing-20);
+    max-height: 400px;
     padding: $global-spacing-10;
 
     background: var(--secondary-1);

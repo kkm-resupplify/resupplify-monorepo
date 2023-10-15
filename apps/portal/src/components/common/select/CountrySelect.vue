@@ -5,8 +5,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { i18n } from '@/translation/index'
-// Computed
 
+// Computed
 const countries = computed(() => {
   const countryCodes = Object.keys(i18n.global.messages.value['en-US']['country'])
 
@@ -16,6 +16,7 @@ const countries = computed(() => {
       iconPrepend: { name: `_${code}`, size: 'small' }
     }
   })
+
   return data
 })
 </script>
