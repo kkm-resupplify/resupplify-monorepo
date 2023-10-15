@@ -4,6 +4,8 @@
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
     "errorOccured": "An error occured",
+    "submit": "Submit",
+    "save": "Save",
     "noResults": "No results"
   },
 
@@ -50,6 +52,18 @@
       "welcome": "Welcome back",
       "createAccount": "Create your account",
       "connectAndGrow": "Reach new customers and expand opportunities"
+    },
+
+    "userDetails": {
+      "firstName": "First Name",
+      "lastName": "Second Name",
+      "phoneNumber": "Phone Number",
+      "birthDate": "Birth Date",
+      "sex": "Sex",
+      
+      "firstNamePlaceholder": "Enter your first name",
+      "lastNamePlaceholder": "Enter your last name",
+      "phoneNumberPlaceholder": "Enter your phone number"
     }
   },
 

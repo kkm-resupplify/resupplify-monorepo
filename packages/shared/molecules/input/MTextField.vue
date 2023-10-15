@@ -240,6 +240,11 @@ const handleInputChange = () => {
   font-size: $font-size;
 }
 
+@mixin border($border-width, $border-radius) {
+  border: $border-width solid transparent;
+  border-radius: $border-radius;
+}
+
 .m-text-field {
   $self: &;
 
@@ -258,6 +263,18 @@ const handleInputChange = () => {
         $global-spacing-30 32px $global-spacing-30 $global-spacing-70,
         $text-input-font-size-md
       );
+    }
+  }
+
+  &--sharp {
+    #{$self}__input {
+      @include border(2px, $global-border-radius-10);
+    }
+  }
+
+  &--rounded {
+    #{$self}__input {
+      @include border(0.25em, 24px);
     }
   }
 

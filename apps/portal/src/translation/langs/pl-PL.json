@@ -2,8 +2,11 @@
   "global": {
     "welcome": "Witaj",
     "goodbye": "Dowidzenia",
-    "actionSuccess": "Akcja zakończona pomyślnie",
+    "actionSuccess": "Akcja zakończyła się pomyślnie",
     "errorOccured": "Wystąpił błąd",
+    "submit": "Wyślij",
+    "save": "Zapisz",
+    "actionSuccess": "Akcja zakończona pomyślnie",
     "noResults": "Brak wyników"
   },
 
@@ -50,6 +53,18 @@
       "welcome": "Witaj ponownie",
       "createAccount": "Załóż swoje konto",
       "connectAndGrow": "Docieraj do nowych klientów i rozwijaj swoje możliwości"
+    },
+
+    "userDetails": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "phoneNumber": "Numer telefonu",
+      "birthDate": "Data urodzenia",
+      "sex": "Płeć",
+
+      "firstNamePlaceholder": "Podaj swoje imię",
+      "lastNamePlaceholder": "Podaj swoje nazwisko",
+      "phoneNumberPlaceholder": "Podaj swój numer telefonu"
     }
   },
 
