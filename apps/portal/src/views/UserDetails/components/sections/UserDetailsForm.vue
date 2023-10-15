@@ -50,7 +50,12 @@
           class="user-details-form__select"
         />
 
-        <a-button :text="$t('global.save')" size="x-large" type="submit" class="user-details-form__button"/>
+        <a-button
+          :text="$t('global.save')"
+          size="x-large"
+          type="submit"
+          class="user-details-form__button"
+        />
       </template>
     </o-form>
   </div>

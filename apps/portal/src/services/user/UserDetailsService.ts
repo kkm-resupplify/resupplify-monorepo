@@ -1,7 +1,8 @@
 import BaseService from '../BaseService'
 
 class UserDetailsDTO {
-  fullName: string
+  firstName: string
+  lastName: string
   phoneNumber: string
   birthDate: string
   sex: string
