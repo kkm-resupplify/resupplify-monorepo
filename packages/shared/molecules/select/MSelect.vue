@@ -12,7 +12,7 @@
       :placeholder="placeholder"
       :rules="rules"
       :disabled="disabled"
-      :validate="false"
+      :validate="validate"
       :append-icon-on="appendIcon"
       :prevent-input="false"
       :prepend-icon-callback-on="clearSelect"
@@ -65,10 +65,11 @@ const props = defineProps({
   label: String,
   placeholder: { type: String, required: true },
   options: { type: Array as PropType<MSelectItemData[]>, default: () => [] },
-  required: Boolean,
   disabled: Boolean,
   filter: Boolean,
-  isLoading: Boolean
+  isLoading: Boolean,
+  rules: String,
+  validate: { type: Boolean, default: true }
 })
 
 // Variables
@@ -78,7 +79,6 @@ const selectRef = ref<HTMLElement | null>(null)
 const inputRef = ref<ComponentPublicInstance | null>(null)
 const showOptions = ref(false)
 const selectedOption = ref<MSelectItemData | null>(null)
-const isLoading = toRef(props, 'isLoading')
 
 // Composable
 const { generateClassNames } = useClassComposable()
@@ -86,10 +86,6 @@ const { generateClassNames } = useClassComposable()
 // Computed
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
-})
-
-const rules = computed(() => {
-  return props.required ? `required` : ''
 })
 
 const filteredOptions = computed(() => {
@@ -181,6 +177,7 @@ const closeSelect = () => {
 
     background: var(--secondary-1);
     border-radius: $global-border-radius-10;
+    box-shadow: -2px 2px 2px 1px rgb(0 0 0 / 20%), 2px 0 2px 1px rgb(0 0 0 / 20%);
   }
 }
 </style>
