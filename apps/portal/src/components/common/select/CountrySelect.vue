@@ -31,11 +31,13 @@ const props = defineProps({
 
 // Computed
 const countries = computed(() => {
-  const countryCodes = Object.keys(i18n.global.messages.value['en-US']['country'])
+  const countryCodes = Object.keys(i18n.global.messages.value['en-US']['country']).map((key: any) =>
+    key.toLowerCase()
+  )
 
-  const data = countryCodes.map((code: string) => {
+  const data = countryCodes.map((code: any) => {
     return {
-      text: i18n.global.messages.value[i18n.global.locale.value ?? 'en-US'].country[code],
+      text: (i18n.global.messages.value[i18n.global.locale.value ?? 'en-US'].country as any)[code],
       iconPrepend: { name: `_${code}`, size: 'small' }
     }
   })

@@ -138,6 +138,7 @@ const handleFilterChange = (filter: string) => {
 const handleInputClick = () => {
   showOptions.value = !showOptions.value
   if (inputRef.value) {
+    // @ts-ignore
     inputRef.value.manualValidate()
   }
 }
