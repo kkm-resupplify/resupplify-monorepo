@@ -7,6 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
+  import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import UserDetailsForm from './components/sections/UserDetailsForm.vue';
 </script>
