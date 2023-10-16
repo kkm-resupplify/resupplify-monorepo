@@ -1,5 +1,7 @@
 <template>
-  <div :class="generateClasses"></div>
+  <div :class="generateClasses">
+    <a-image-input />
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -29,6 +29,8 @@
               :placeholder="$t('company.register.form.companyDescriptionPlaceholder')"
               min-height="200px"
             />
+
+            <m-file-input />
           </div>
         </template>
 
