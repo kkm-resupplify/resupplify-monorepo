@@ -12,12 +12,22 @@
         <a-button :text="$t('userSettings.joinCompany')" size="x-large" />
       </template>
     </m-tabs>
+    <user-settings-content
+      userImg="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      firstName="Lorem"
+      lastName="Ipsum"
+      email="loremipsum@gmail.com"
+      phoneNumber="123456789"
+      birthDate="10-10-2000"
+      sex="Female"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
+import UserSettingsContent from './UserSettingsContent.vue'
 
 // Interfaces
 interface profileLinksData {
