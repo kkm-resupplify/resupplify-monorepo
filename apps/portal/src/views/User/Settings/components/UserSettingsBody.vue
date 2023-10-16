@@ -1,10 +1,12 @@
+import { reactive } from 'vue';
 <template>
   <div class="user-settings-body">
-    
+
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
 
-<style scoped lang="scss">
-</style>
+</script>
+
+<style scoped lang="scss"></style>
