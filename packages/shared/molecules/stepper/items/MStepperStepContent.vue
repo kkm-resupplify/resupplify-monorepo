@@ -4,7 +4,7 @@
       <slot name="body" />
     </div>
 
-    <div class="m-stepper-step-content__footer">
+    <div v-if="$slots.footer" class="m-stepper-step-content__footer">
       <slot name="footer" />
     </div>
   </div>
@@ -34,6 +34,8 @@ const generateClasses = computed(() => {
 
   &__body {
     display: flex;
+    flex: 1;
+    width: 100%;
   }
 
   &__footer {

@@ -1,0 +1,15 @@
+@mixin input-gradient($border-color) {
+  background-image: linear-gradient(var(--primary), var(--primary)), $border-color;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  background-size: 200% 150%;
+  border: 2px solid transparent;
+  outline: none;
+
+  transition: background 0.25s ease-out;
+
+  &:hover,
+  &:focus {
+    background-position: 90% 0;
+  }
+}

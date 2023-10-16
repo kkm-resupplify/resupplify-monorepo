@@ -1,20 +1,17 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <m-stepper
-        :steps="steps"
-        style="min-height: 600px"
-        title="Company registration"
-        description="Please provide information about your company."
-      />
+      <register-company />
     </template>
   </basic-view-layout>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
 import TestFormTwo from './TestFormTwo.vue'
+import RegisterCompany from '@/components/core/company/register/RegisterCompany.vue'
 
 const steps = [
   {
@@ -51,6 +48,11 @@ const steps = [
     component: TestFormTwo
   }
 ]
+
+// Methods
+const handleNextStep = (values: any) => {
+  console.log(values)
+}
 </script>
 
 <style lang="scss" scoped>

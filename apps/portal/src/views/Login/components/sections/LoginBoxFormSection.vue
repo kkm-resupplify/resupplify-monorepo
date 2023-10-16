@@ -9,6 +9,7 @@
         autocomplete="username"
         rules="required|email"
         class="login-box-form-section__text-field"
+        variant="rounded"
       />
 
       <m-text-field
@@ -21,6 +22,7 @@
         append-icon-on="visibility"
         append-icon-off="visibility_off"
         class="login-box-form-section__text-field"
+        variant="rounded"
       />
 
       <m-text-field
@@ -33,6 +35,7 @@
         append-icon-on="visibility"
         append-icon-off="visibility_off"
         class="login-box-form-section__text-field"
+        variant="rounded"
       />
 
       <a-button text="Log in" size="x-large" type="submit" />
