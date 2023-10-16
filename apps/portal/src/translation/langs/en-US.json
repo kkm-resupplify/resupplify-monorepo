@@ -28,6 +28,7 @@
     "alreadyRegistered": "Already have an account? {login}",
     "forgotPassword": "Forgot password?",
     "newUser": "Don't have an account? {signup}",
+    "logout": "Log out",
 
     "form": {
       "emailAddress": "Email address",
@@ -99,5 +100,12 @@
       "preferNot": "Prefer not to say"
     },
     "placeholder": "Select your gender"
+  },
+
+  "userSettings": {
+    "profile": "Profile",
+    "preferences": "Preferences",
+    "myCompany": "My Company",
+    "joinCompany": "Join company"
   }
 }

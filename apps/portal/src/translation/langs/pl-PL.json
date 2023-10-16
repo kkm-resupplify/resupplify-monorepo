@@ -29,6 +29,7 @@
     "alreadyRegistered": "Masz już konto? {login}",
     "forgotPassword": "Nie pamiętasz hasła?",
     "newUser": "Nie posiadasz konta? {signup}",
+    "logout": "Wyloguj się",
 
     "form": {
       "emailAddress": "Adres email",
@@ -100,5 +101,12 @@
       "preferNot": "Wolę nie mówić"
     },
     "placeholder": "Wybierz płeć"
+  },
+
+  "userSettings": {
+    "profile": "Profil",
+    "preferences": "Preferencje",
+    "myCompany": "Moja firma",
+    "joinCompany": "Dołącz do firmy"
   }
 }
