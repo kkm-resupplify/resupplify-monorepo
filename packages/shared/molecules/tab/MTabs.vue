@@ -28,8 +28,6 @@ const generateClasses = computed(() => {
 
 <style scoped lang="scss">
 .m-tabs {
-  width: 260px;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

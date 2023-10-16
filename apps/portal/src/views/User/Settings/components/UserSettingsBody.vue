@@ -14,12 +14,14 @@
     </m-tabs>
     <user-settings-content
       userImg="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      userImgAlt="profile"
       firstName="Lorem"
       lastName="Ipsum"
       email="loremipsum@gmail.com"
       phoneNumber="123456789"
       birthDate="10-10-2000"
       sex="Female"
+      class="user-settings-body__content"
     />
   </div>
 </template>
@@ -69,20 +71,25 @@ const profileLinks: Array<profileLinksData> = reactive([
 .user-settings-body {
   @include boxshadow-primary-2;
   display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
   align-self: center;
-  justify-content: space-between;
 
   width: 60%;
   height: 760px;
 
   border-radius: $global-border-radius-10;
 
+  &__tabs {
+    width: 30%;
+  }
+
   &__tab {
     display: flex;
     align-items: center;
     gap: $global-spacing-40;
+  }
+
+  &__content {
+    width: 70%;
   }
 }
 </style>
