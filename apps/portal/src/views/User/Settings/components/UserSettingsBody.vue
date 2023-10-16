@@ -9,13 +9,16 @@
           :text="item.text"
         />
       </template>
+      <template #button>
+        <a-button :text="$t('userSettings.joinCompany')" />
+      </template>
     </m-tabs>
   </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { useI18n } from 'vue-i18n';
+import { useI18n } from 'vue-i18n'
 
 // Variables
 const { t } = useI18n()
