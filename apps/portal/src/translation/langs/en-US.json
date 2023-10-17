@@ -7,7 +7,7 @@
     "noResults": "No results",
     "next": "Next",
     "back": "Back",
-    "send": "Send",
+    "submit": "Submit",
     "imagePreview": "Image preview"
   },
 
@@ -80,10 +80,14 @@
           "subtitle": "Contact information",
           "description": "This step focuses on the means of contact, including the communication preferences."
         },
+
         "submit": {
           "title": "Submit",
           "subtitle": "Submit & next steps",
-          "description": "Submit the form to register your company."
+          "description": "Submit the form to register your company.",
+          "content": {
+            "description": "This is the last step in the registration form process. After submitting the form, the company awaits verification. However, we encourage the user to explore the portal and familiarize themselves with the available options while we complete the verification process. Our platform offers many exciting features to discover, so please feel free to make the most of these resources in the meantime."
+          }
         }
       },
 

@@ -1,10 +1,19 @@
 <template>
   <m-stepper-step-content class="register-company-submit-step">
     <template #body>
+      <div class="register-company-submit-step__content">
+        <span
+          class="register-company-submit-step__next-steps"
+          v-text="$t('company.register.steps.submit.content.description')"
+        />
+      </div>
+    </template>
+
+    <template #footer>
       <div class="register-company-submit-step__footer">
         <a-button size="large" :text="$t('global.back')" @click="handlePreviousStep" />
 
-        <a-button type="submit" size="large" :text="$t('global.next')" />
+        <a-button type="submit" size="large" :text="$t('global.submit')" />
       </div>
     </template>
   </m-stepper-step-content>
@@ -34,17 +43,15 @@ const handlePreviousStep = (values: RegisterCompanyContactInfoStep) => {
 
 <style lang="scss" scoped>
 .register-company-submit-step {
-  &__form {
+  &__content {
     display: flex;
     flex: 1;
     flex-direction: column;
     gap: $global-spacing-50;
   }
 
-  &__fields {
-    display: flex;
-    flex-direction: column;
-    gap: $global-spacing-40;
+  &__next-steps {
+    font-size: $global-font-size-40;
   }
 
   &__footer {
