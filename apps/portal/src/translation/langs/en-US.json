@@ -6,7 +6,8 @@
     "errorOccured": "An error occured",
     "noResults": "No results",
     "next": "Next",
-    "back": "Back"
+    "back": "Back",
+    "imagePreview": "Image preview"
   },
 
   "payments": {

@@ -25,9 +25,6 @@
 </template>
 
 <script setup lang="ts">
-// TODO:
-// Add general title
-
 import { computed, type PropType, ref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MStepperStepList from './items/MStepperStepList.vue'

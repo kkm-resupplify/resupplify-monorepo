@@ -6,7 +6,8 @@
     "errorOccured": "Wystąpił błąd",
     "noResults": "Brak wyników",
     "next": "Dalej",
-    "back": "Wstecz"
+    "back": "Wstecz",
+    "imagePreview": "Podgląd obrazu"
   },
 
   "payments": {
