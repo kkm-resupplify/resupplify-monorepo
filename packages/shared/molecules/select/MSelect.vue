@@ -39,7 +39,7 @@
     <a-input-error-list :errors="errors" />
 
     <div v-if="showOptions" ref="optionsFilterRef" class="m-select__content">
-      <input v-model="optionsFilter" />
+      <input v-model="optionsFilter" class="m-select__input" />
 
       <m-select-item
         v-for="(option, idx) in filteredOptions"
@@ -187,42 +187,6 @@ const inputHeight = computed(() => {
   return `${height}px`
 })
 
-// Methods
-onMounted(() => {
-  optionsFilter.value = props.initialValue ?? null
-  document.addEventListener('click', clickOutsideEvent)
-})
-
-onBeforeUnmount(() => {
-  document.removeEventListener('click', clickOutsideEvent)
-})
-
-const clickOutsideEvent = (event: any) => {
-  if (!selectRef.value || !optionsFilterRef.value) return
-  if (optionsFilterRef.value === event.target) return
-
-  if (
-    !(selectRef.value === event.target || selectRef.value.contains(event.target)) &&
-    showOptions.value
-  ) {
-    // closeSelect()
-  }
-}
-
-const handleInputClick = () => {
-  showOptions.value = !showOptions.value
-}
-
-const clearSelect = () => {
-  selectedOption.value = null
-  optionsFilter.value = ''
-}
-
-const closeSelect = () => {
-  console.log('xdd')
-  showOptions.value = false
-}
-
 const borderColor = computed(() => {
   if (props.disabled) return ''
 
@@ -267,6 +231,40 @@ const showAppendIcon = computed(() => {
 })
 
 // Methods
+onMounted(() => {
+  optionsFilter.value = props.initialValue ?? null
+  document.addEventListener('click', clickOutsideEvent)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', clickOutsideEvent)
+})
+
+const clickOutsideEvent = (event: any) => {
+  if (!selectRef.value || !optionsFilterRef.value) return
+  if (optionsFilterRef.value === event.target) return
+
+  if (
+    !(selectRef.value === event.target || selectRef.value.contains(event.target)) &&
+    showOptions.value
+  ) {
+    closeSelect()
+  }
+}
+
+const handleInputClick = () => {
+  showOptions.value = !showOptions.value
+}
+
+const clearSelect = () => {
+  selectedOption.value = null
+  optionsFilter.value = ''
+}
+
+const closeSelect = () => {
+  showOptions.value = false
+}
+
 const handleAppendIconClick = () => {
   appendIconState.value = !appendIconState.value
 }
