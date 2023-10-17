@@ -112,6 +112,11 @@
           "phoneNumberLabel": "Phone Number",
           "phoneNumberPlaceholder": "Enter company phone number"
         }
+      },
+
+      "notification": {
+        "registerCompanySuccessTitle": "Company registered successfully",
+        "registerCompanySuccessText": "Your company awaits verification now."
       }
     },
 

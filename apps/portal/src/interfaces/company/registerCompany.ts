@@ -17,3 +17,9 @@ export interface RegisterCompanyContactInfoStep {
   contactPerson: string
   externalWebsite: string
 }
+
+export interface RegisterCompanyData {
+  generalStepData: RegisterCompanyGeneralStep
+  detailsStepData: RegisterCompanyDetailsStep
+  contactInfoStepData: RegisterCompanyContactInfoStep
+}
