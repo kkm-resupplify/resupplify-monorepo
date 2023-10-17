@@ -1,26 +1,5 @@
 <template>
   <div ref="selectRef" :class="generateClasses">
-    <!-- <m-text-field
-      ref="inputRef"
-      class="m-select__input"
-      variant="round"
-      autocomplete="off"
-      prepend-icon-on="close"
-      :name="name"
-      :value="inputText"
-      :label="label"
-      :placeholder="placeholder"
-      :rules="rules"
-      :disabled="disabled"
-      :validate="validate"
-      :append-icon-on="appendIcon"
-      :prevent-input="false"
-      :prepend-icon-callback-on="clearSelect"
-      @input-change="handleFilterChange"
-      @click="handleInputClick"
-      @blur="closeSelect"
-    /> -->
-
     <label v-if="label" class="m-select__label" :for="name" v-text="label" />
 
     <div class="m-select__input-group" @click="handleInputClick">
