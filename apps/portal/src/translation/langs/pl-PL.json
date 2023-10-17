@@ -6,7 +6,8 @@
     "errorOccured": "Wystąpił błąd",
     "noResults": "Brak wyników",
     "next": "Dalej",
-    "back": "Wstecz"
+    "back": "Wstecz",
+    "imagePreview": "Podgląd obrazu"
   },
 
   "payments": {
@@ -79,14 +80,25 @@
       },
 
       "form": {
-        "companyNameLabel": "Nazwa",
-        "companyNamePlaceholder": "Wprowadź nazwę firmy",
-        "companyCountryLabel": "Kraj",
-        "companyCountryPlaceholder": "Wybierz kraj",
-        "companyDescriptionLabel": "Opis",
-        "companyDescriptionPlaceholder": "Wprowadź opis firmy",
-        "companyShortDescriptionLabel": "Krótki opis",
-        "companyShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
+        "general": {
+          "companyNameLabel": "Nazwa",
+          "companyNamePlaceholder": "Wprowadź nazwę firmy",
+          "companyCountryLabel": "Kraj",
+          "companyCountryPlaceholder": "Wybierz kraj",
+          "companyDescriptionLabel": "Opis",
+          "companyDescriptionPlaceholder": "Wprowadź opis firmy",
+          "companyShortDescriptionLabel": "Krótki opis",
+          "companyShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
+        },
+
+        "details": {
+          "companyAddressLabel": "Adres firmy",
+          "companyAddressPlaceholder": "Wprowadź adres firmy",
+          "companyLogoLabel": "Logo firmy",
+          "companyLogoPlaceholder": "Wprowadź logo firmy",
+          "companyTinLabel": "Numer identyfikacji podatkowej (NIP)",
+          "companyTinPlaceholder": "Wprowadź NIP"
+        }
       }
     },
 

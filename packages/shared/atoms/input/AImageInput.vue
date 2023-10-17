@@ -1,10 +1,11 @@
 <template>
   <div :class="generateClasses">
     <div class="a-image-input__input-group">
-      <label for="my-file" class="a-image-input__label">Select Image</label>
+      <label :for="name" class="a-image-input__label" v-text="label" />
 
       <input
-        id="my-file"
+        :id="name"
+        :name="name"
         type="file"
         accept="image/*"
         class="a-image-input__input"
@@ -13,9 +14,13 @@
     </div>
 
     <div v-if="preview" class="a-image-input__preview-group">
-      <span>Preview</span>
+      <span v-text="$t('global.imagePreview')" />
 
-      <img :src="preview" class="a-image-input__preview-group-image" alt="image preview" />
+      <img
+        :src="preview"
+        class="a-image-input__preview-group-image"
+        :alt="$t('global.imagePreview')"
+      />
     </div>
   </div>
 </template>
@@ -23,10 +28,15 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+
 const props = defineProps({
+  name: { type: String, required: true },
+  label: String,
+  placeholder: String,
   size: { type: String, default: 'medium' },
   variant: { type: String, default: 'rounded' }
 })
+
 // Variable
 const baseClass = 'a-image-input'
 const preview = ref<any>(null)
