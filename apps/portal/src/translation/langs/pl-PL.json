@@ -110,6 +110,12 @@
           "externalWebsitePlaceholder": "Podaj stronę główną firmy",
           "phoneNumberLabel": "Numer telefonu",
           "phoneNumberPlaceholder": "Wprowadź numer telefonu firmy"
+        },
+
+        "submit": {
+          "title": "Zatwierdź",
+          "subtitle": "Zatwierdź i kolejne kroki",
+          "description": "Zatwierdź formularz, aby zarejestrować swoją firmę."
         }
       }
     },

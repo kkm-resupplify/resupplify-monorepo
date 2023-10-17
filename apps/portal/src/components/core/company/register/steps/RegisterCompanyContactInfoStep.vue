@@ -45,7 +45,7 @@
           <div class="register-company-contactInfo-step__footer">
             <a-button size="large" :text="$t('global.back')" @click="handlePreviousStep" />
 
-            <a-button type="submit" size="large" :text="$t('global.send')" />
+            <a-button type="submit" size="large" :text="$t('global.next')" />
           </div>
         </template>
       </o-form>

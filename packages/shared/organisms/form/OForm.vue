@@ -27,7 +27,6 @@ const props = defineProps({
     default: null
   },
   keepValues: Boolean,
-
   submitCallback: {
     type: Function,
     required: true

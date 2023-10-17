@@ -15,6 +15,7 @@ import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStor
 import RegisterCompanyGeneralStep from './steps/RegisterCompanyGeneralStep.vue'
 import RegisterCompanyDetailsStep from './steps/RegisterCompanyDetailsStep.vue'
 import RegisterCompanyContactInfoStep from './steps/RegisterCompanyContactInfoStep.vue'
+import RegisterCompanySubmitStep from './steps/RegisterCompanySubmitStep.vue'
 
 // Interface
 interface RegisterCompanyStep {
@@ -57,6 +58,10 @@ const steps = computed(() => [
   {
     stepInfo: new RegisterCompanyStepDTO({ step: 'contactInfo', icon: 'alternate_email' }),
     component: RegisterCompanyContactInfoStep
+  },
+  {
+    stepInfo: new RegisterCompanyStepDTO({ step: 'submit', icon: 'check' }),
+    component: RegisterCompanySubmitStep
   }
 ])
 
