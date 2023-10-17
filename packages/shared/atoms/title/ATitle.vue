@@ -18,7 +18,7 @@ const props = defineProps({
     type: String,
     required: true
   },
-  subHeader: {
+  sub-header: {
     type: String,
     required: true
   }

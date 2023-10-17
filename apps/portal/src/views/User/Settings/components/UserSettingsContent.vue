@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="user-settings-content__data">
-        <h3 class="user-settings-content__data-header">Email</h3>
+      <!-- <h3 class="user-settings-content__data-header">Email</h3>
 
         <p class="user-settings-content__data-content">{{ email }}</p> 
 
@@ -22,7 +22,9 @@
 
         <h3 class="user-settings-content__data-header">Sex</h3>
 
-        <p class="user-settings-content__data-content">{{ sex }}</p>
+        <p class="user-settings-content__data-content">{{ sex }}</p> -->
+
+      <a-title header="Email" :sub-header="email" />
     </div>
   </div>
 </template>

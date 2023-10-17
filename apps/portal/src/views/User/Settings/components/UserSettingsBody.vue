@@ -13,13 +13,13 @@
       </template>
     </m-tabs>
     <user-settings-content
-      userImg="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-      userImgAlt="profile"
-      firstName="Lorem"
-      lastName="Ipsum"
+      user-img="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      user-img-alt="profile"
+      first-name="Lorem"
+      last-name="Ipsum"
       email="loremipsum@gmail.com"
-      phoneNumber="123456789"
-      birthDate="10-10-2000"
+      phone-number="123456789"
+      birth-date="10-10-2000"
       sex="Female"
       class="user-settings-body__content"
     />
@@ -68,14 +68,14 @@ const profileLinks: Array<profileLinksData> = reactive([
   box-shadow: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
     #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
 }
-
 .user-settings-body {
   @include boxshadow-primary-2;
-
   display: flex;
   align-self: center;
+
   width: 60%;
   height: 760px;
+
   border-radius: $global-border-radius-10;
 
   &__tabs {
@@ -84,8 +84,8 @@ const profileLinks: Array<profileLinksData> = reactive([
 
   &__tab {
     display: flex;
-    gap: $global-spacing-40;
     align-items: center;
+    gap: $global-spacing-40;
   }
 
   &__content {
