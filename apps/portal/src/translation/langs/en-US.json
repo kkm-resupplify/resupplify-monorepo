@@ -66,11 +66,13 @@
           "subtitle": "General information",
           "description": "This step gathers fundamental information about the company."
         },
+
         "details": {
           "title": "Details",
           "subtitle": "Company details",
           "description": "Company details, including Tax Identification Number (TIN), address etc."
         },
+
         "contactInfo": {
           "title": "Contact",
           "subtitle": "Contact information",
@@ -79,14 +81,25 @@
       },
 
       "form": {
-        "companyNameLabel": "Name",
-        "companyNamePlaceholder": "Enter company name",
-        "companyCountryLabel": "Country",
-        "companyCountryPlaceholder": "Select country",
-        "companyDescriptionLabel": "Description",
-        "companyDescriptionPlaceholder": "Enter company description",
-        "companyShortDescriptionLabel": "Short description",
-        "companyShortDescriptionPlaceholder": "Enter company short description"
+        "general": {
+          "companyNameLabel": "Name",
+          "companyNamePlaceholder": "Enter company name",
+          "companyCountryLabel": "Country",
+          "companyCountryPlaceholder": "Select country",
+          "companyDescriptionLabel": "Description",
+          "companyDescriptionPlaceholder": "Enter company description",
+          "companyShortDescriptionLabel": "Short description",
+          "companyShortDescriptionPlaceholder": "Enter company short description"
+        },
+
+        "details": {
+          "companyAddressLabel": "Company address",
+          "companyLogoLabel": "Company logo",
+          "companyTinLabel": "Tax Identification Number (TIN)",
+          "companyAddressPlaceholder": "Enter company address",
+          "companyLogoPlaceholder": "Enter company logo",
+          "companyTinPlaceholder": "Enter TIN"
+        }
       }
     },
 

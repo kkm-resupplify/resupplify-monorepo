@@ -11,30 +11,30 @@
             <m-text-field
               name="name"
               rules="required|min:3"
-              :label="$t('company.register.form.companyNameLabel')"
-              :placeholder="$t('company.register.form.companyNamePlaceholder')"
+              :label="$t('company.register.form.general.companyNameLabel')"
+              :placeholder="$t('company.register.form.general.companyNamePlaceholder')"
             />
 
             <country-select
               name="countryId"
               required
-              :label="$t('company.register.form.companyCountryLabel')"
-              :placeholder="$t('company.register.form.companyCountryPlaceholder')"
+              :label="$t('company.register.form.general.companyCountryLabel')"
+              :placeholder="$t('company.register.form.general.companyCountryPlaceholder')"
               :initial-value="registerCompanyStore.generalStepData.countryId"
             />
 
             <m-text-area
               name="shortDescription"
               rules="required|min:16|max:255"
-              :label="$t('company.register.form.companyShortDescriptionLabel')"
-              :placeholder="$t('company.register.form.companyShortDescriptionPlaceholder')"
+              :label="$t('company.register.form.general.companyShortDescriptionLabel')"
+              :placeholder="$t('company.register.form.general.companyShortDescriptionPlaceholder')"
             />
 
             <m-text-area
               name="description"
               rules="required|min:32|max:1000"
-              :label="$t('company.register.form.companyDescriptionLabel')"
-              :placeholder="$t('company.register.form.companyDescriptionPlaceholder')"
+              :label="$t('company.register.form.general.companyDescriptionLabel')"
+              :placeholder="$t('company.register.form.general.companyDescriptionPlaceholder')"
               min-height="200px"
             />
           </div>

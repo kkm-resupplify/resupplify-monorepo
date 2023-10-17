@@ -79,14 +79,25 @@
       },
 
       "form": {
-        "companyNameLabel": "Nazwa",
-        "companyNamePlaceholder": "Wprowadź nazwę firmy",
-        "companyCountryLabel": "Kraj",
-        "companyCountryPlaceholder": "Wybierz kraj",
-        "companyDescriptionLabel": "Opis",
-        "companyDescriptionPlaceholder": "Wprowadź opis firmy",
-        "companyShortDescriptionLabel": "Krótki opis",
-        "companyShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
+        "general": {
+          "companyNameLabel": "Nazwa",
+          "companyNamePlaceholder": "Wprowadź nazwę firmy",
+          "companyCountryLabel": "Kraj",
+          "companyCountryPlaceholder": "Wybierz kraj",
+          "companyDescriptionLabel": "Opis",
+          "companyDescriptionPlaceholder": "Wprowadź opis firmy",
+          "companyShortDescriptionLabel": "Krótki opis",
+          "companyShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
+        },
+
+        "details": {
+          "companyAddressLabel": "Adres firmy",
+          "companyLogoLabel": "Logo firmy",
+          "companyTinLabel": "Numer identyfikacji podatkowej (NIP)",
+          "companyAddressPlaceholder": "Wprowadź adres firmy",
+          "companyLogoPlaceholder": "Wprowadź logo firmy",
+          "companyTinPlaceholder": "Wprowadź NIP"
+        }
       }
     },
 

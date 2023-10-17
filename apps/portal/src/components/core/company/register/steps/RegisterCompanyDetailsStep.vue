@@ -9,28 +9,20 @@
         <template #body>
           <div class="register-company-details-step__fields">
             <m-text-field
-              name="name"
+              name="address"
               rules="required|min:3"
               :label="$t('company.register.form.companyNameLabel')"
               :placeholder="$t('company.register.form.companyNamePlaceholder')"
             />
 
-            <m-text-area
-              name="shortDescription"
-              rules="required|min:16|max:255"
+            <m-text-field
+              name="tin"
+              rules="required|max:255"
               :label="$t('company.register.form.companyShortDescriptionLabel')"
               :placeholder="$t('company.register.form.companyShortDescriptionPlaceholder')"
             />
 
-            <m-text-area
-              name="description"
-              rules="required|min:32|max:1000"
-              :label="$t('company.register.form.companyDescriptionLabel')"
-              :placeholder="$t('company.register.form.companyDescriptionPlaceholder')"
-              min-height="200px"
-            />
-
-            <m-file-input />
+            <m-file-input name="logo" />
           </div>
         </template>
 
