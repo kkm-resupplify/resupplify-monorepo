@@ -6,9 +6,8 @@ import ALine from '@sharedAtoms/line/ALine.vue'
 import AHeader from '@sharedAtoms/header/AHeader.vue'
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
-import ATitle from '@sharedAtoms/title/ATitle.vue'
 
-const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotification, ATitle]
+const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotification]
 
 // Molecules
 import MCardList from '@sharedMolecules/cards/MCardList.vue'

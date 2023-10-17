@@ -1,8 +1,8 @@
 <template>
   <div :class="generateClasses">
-    <h3 class="a-title__header" v-text="header">
+    <h3 class="a-title__header" v-text="header" />
 
-    <span class="a-title__content" v-text="subHeader">
+    <span class="a-title__content" v-text="subHeader" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ const props = defineProps({
     type: String,
     required: true
   },
-  sub-header: {
+  subHeader: {
     type: String,
     required: true
   }

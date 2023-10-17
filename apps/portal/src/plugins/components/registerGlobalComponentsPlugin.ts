@@ -8,6 +8,7 @@ import AIcon from '@sharedAtoms/icon/AIcon.vue'
 import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
 import AInputErrorList from '@sharedAtoms/input/AInputErrorList.vue'
 import ASelect from '@sharedAtoms/select/ASelect.vue'
+import ATitle from '@sharedAtoms/title/ATitle.vue'
 
 const atoms = [
   AButton,
@@ -18,7 +19,8 @@ const atoms = [
   AIcon,
   AGeneralNotification,
   AInputErrorList,
-  ASelect
+  ASelect,
+  ATitle
 ]
 
 // Molecules

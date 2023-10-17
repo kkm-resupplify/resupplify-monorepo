@@ -23,8 +23,6 @@
         <h3 class="user-settings-content__data-header">Sex</h3>
 
         <p class="user-settings-content__data-content">{{ sex }}</p> -->
-
-      <a-title header="Email" :sub-header="email" />
     </div>
   </div>
 </template>

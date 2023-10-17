@@ -58,10 +58,11 @@
     "userDetails": {
       "firstName": "First Name",
       "lastName": "Second Name",
+      "email": "Email Address",
       "phoneNumber": "Phone Number",
       "birthDate": "Birth Date",
       "sex": "Sex",
-      
+
       "firstNamePlaceholder": "Enter your first name",
       "lastNamePlaceholder": "Enter your last name",
       "phoneNumberPlaceholder": "Enter your phone number"

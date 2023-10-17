@@ -6,7 +6,6 @@
     "errorOccured": "Wystąpił błąd",
     "submit": "Wyślij",
     "save": "Zapisz",
-    "actionSuccess": "Akcja zakończona pomyślnie",
     "noResults": "Brak wyników"
   },
 
@@ -59,10 +58,11 @@
     "userDetails": {
       "firstName": "Imię",
       "lastName": "Nazwisko",
+      "email": "Addres e-mail",
       "phoneNumber": "Numer telefonu",
       "birthDate": "Data urodzenia",
       "sex": "Płeć",
-
+      
       "firstNamePlaceholder": "Podaj swoje imię",
       "lastNamePlaceholder": "Podaj swoje nazwisko",
       "phoneNumberPlaceholder": "Podaj swój numer telefonu"
