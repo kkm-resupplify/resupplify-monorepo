@@ -81,23 +81,34 @@
 
       "form": {
         "general": {
-          "companyNameLabel": "Nazwa",
-          "companyNamePlaceholder": "Wprowadź nazwę firmy",
-          "companyCountryLabel": "Kraj",
-          "companyCountryPlaceholder": "Wybierz kraj",
-          "companyDescriptionLabel": "Opis",
-          "companyDescriptionPlaceholder": "Wprowadź opis firmy",
-          "companyShortDescriptionLabel": "Krótki opis",
-          "companyShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
+          "NameLabel": "Nazwa",
+          "NamePlaceholder": "Wprowadź nazwę firmy",
+          "CountryLabel": "Kraj",
+          "CountryPlaceholder": "Wybierz kraj",
+          "DescriptionLabel": "Opis",
+          "DescriptionPlaceholder": "Wprowadź opis firmy",
+          "ShortDescriptionLabel": "Krótki opis",
+          "ShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
         },
 
         "details": {
-          "companyAddressLabel": "Adres firmy",
-          "companyAddressPlaceholder": "Wprowadź adres firmy",
-          "companyLogoLabel": "Logo firmy",
-          "companyLogoPlaceholder": "Wprowadź logo firmy",
-          "companyTinLabel": "Numer identyfikacji podatkowej (NIP)",
-          "companyTinPlaceholder": "Wprowadź NIP"
+          "AddressLabel": "Adres firmy",
+          "AddressPlaceholder": "Wprowadź adres firmy",
+          "LogoLabel": "Logo firmy",
+          "LogoPlaceholder": "Wprowadź logo firmy",
+          "tinLabel": "Numer identyfikacji podatkowej (NIP)",
+          "tinPlaceholder": "Wprowadź NIP"
+        },
+
+        "contactInfo": {
+          "contactPerson": "Osoba kontaktowa",
+          "contactPersonPlaceholder": "Podaj osobę kontaktową",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Wprowadź adres email firmy",
+          "externalWebsiteLabel": "Strona główna firmy",
+          "externalWebsitePlaceholder": "Podaj stronę główną firmy",
+          "phoneNumberLabel": "Numer telefonu",
+          "phoneNumberPlaceholder": "Wprowadź numer telefonu firmy"
         }
       }
     },

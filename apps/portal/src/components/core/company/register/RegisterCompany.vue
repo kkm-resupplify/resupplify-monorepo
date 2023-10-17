@@ -47,16 +47,16 @@ const registerCompanyStore = useRegisterCompanyStore()
 // Computed
 const steps = computed(() => [
   {
+    stepInfo: new RegisterCompanyStepDTO({ step: 'contactInfo', icon: 'alternate_email' }),
+    component: RegisterCompanyContactInfoStep
+  },
+  {
     stepInfo: new RegisterCompanyStepDTO({ step: 'details', icon: 'info_i' }),
     component: RegisterCompanyDetailsStep
   },
   {
     stepInfo: new RegisterCompanyStepDTO({ step: 'general', icon: 'apartment' }),
     component: RegisterCompanyGeneralStep
-  },
-  {
-    stepInfo: new RegisterCompanyStepDTO({ step: 'contactInfo', icon: 'alternate_email' }),
-    component: RegisterCompanyContactInfoStep
   }
 ])
 
