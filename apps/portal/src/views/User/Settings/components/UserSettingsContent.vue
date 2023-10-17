@@ -10,7 +10,7 @@
     <div class="user-settings-content__data">
         <h3 class="user-settings-content__data-header">Email</h3>
 
-        <p class="user-settings-content__data-content">{{ email }}</p>
+        <p class="user-settings-content__data-content">{{ email }}</p> 
 
         <h3 class="user-settings-content__data-header">Phone number</h3>
 
