@@ -2,7 +2,6 @@
   <m-stepper
     class="register-company"
     :steps="steps"
-    style="min-height: 600px"
     title="Company registration"
     description="Please provide information about your company."
   />
@@ -73,6 +72,7 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 .register-company {
   display: flex;
-  min-width: 800px;
+  max-width: 800px;
+  min-height: 600px;
 }
 </style>

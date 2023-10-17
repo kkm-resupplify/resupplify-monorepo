@@ -92,7 +92,6 @@ const toggleListVisibility = () => {
 
 <style lang="scss" scoped>
 .m-stepper-step-list {
-  overflow: hidden;
   display: flex;
   height: 100%;
 
