@@ -18,7 +18,7 @@ const routes = [
   { path: '/register', component: RegisterView },
   { path: '/resources', component: ResourcesView },
   { path: '/user-details', component: UserDetailsViewVue },
-  { path: '/company/settings/profile', component: CompanySettingsViewVue },
+  { path: '/company/settings/profile', component: CompanySettingsViewVue }
 ]
 
 export const router = createRouter({

@@ -6,7 +6,6 @@
     "errorOccured": "Wystąpił błąd",
     "submit": "Wyślij",
     "save": "Zapisz",
-    "actionSuccess": "Akcja zakończona pomyślnie",
     "noResults": "Brak wyników"
   },
 
@@ -100,5 +99,14 @@
       "preferNot": "Wolę nie mówić"
     },
     "placeholder": "Wybierz płeć"
+  },
+
+  "companyDetails": {
+    "name": "Nazwa",
+    "country": "Kraj",
+    "slug": "Slug",
+    "description": "Opis firmy",
+    "owner": "Właściciel",
+    
   }
 }
