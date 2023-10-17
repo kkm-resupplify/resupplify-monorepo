@@ -16,7 +16,7 @@
         ref="inputRef"
         :name="name"
         :value="inputText"
-        :class="inputClasses"
+        class="m-select__input"
         type="text"
         :placeholder="placeholder"
         :autocomplete="autocomplete"
@@ -25,7 +25,6 @@
         v-on="validationListeners"
         @input="handleInputChange"
         @keydown="handleKeydown"
-        @blur="closeSelect"
       />
 
       <a-icon
@@ -39,7 +38,9 @@
 
     <a-input-error-list :errors="errors" />
 
-    <div v-if="showOptions" class="m-select__content">
+    <div v-if="showOptions" ref="optionsFilterRef" class="m-select__content">
+      <input v-model="optionsFilter" />
+
       <m-select-item
         v-for="(option, idx) in filteredOptions"
         :key="idx"
@@ -124,6 +125,7 @@ const baseClass = 'm-select'
 const optionsFilter = ref<any>('')
 const selectRef = ref<HTMLElement | null>(null)
 const inputRef = ref<HTMLElement | null>(null)
+const optionsFilterRef = ref<HTMLElement | null>(null)
 const showOptions = ref(false)
 const selectedOption = ref<MSelectItemData | null>(null)
 const name = toRef(props, 'name')
@@ -160,7 +162,7 @@ const handleSelectOption = (option: MSelectItemData) => {
 const inputText = computed(() => {
   if (selectedOption.value) return selectedOption.value.text
 
-  return optionsFilter.value
+  return null
 })
 
 const handleInputChange = () => {
@@ -196,13 +198,14 @@ onBeforeUnmount(() => {
 })
 
 const clickOutsideEvent = (event: any) => {
-  if (!selectRef.value) return
+  if (!selectRef.value || !optionsFilterRef.value) return
+  if (optionsFilterRef.value === event.target) return
 
   if (
     !(selectRef.value === event.target || selectRef.value.contains(event.target)) &&
     showOptions.value
   ) {
-    closeSelect()
+    // closeSelect()
   }
 }
 
@@ -216,6 +219,7 @@ const clearSelect = () => {
 }
 
 const closeSelect = () => {
+  console.log('xdd')
   showOptions.value = false
 }
 
@@ -262,10 +266,6 @@ const showAppendIcon = computed(() => {
   return !!props.appendIconOn || !!props.appendIconOff
 })
 
-const inputClasses = computed(() => {
-  return !props.preventInput ? `m-select__input` : `m-select__input m-select__input--prevent-input`
-})
-
 // Methods
 const handleAppendIconClick = () => {
   appendIconState.value = !appendIconState.value
@@ -277,9 +277,7 @@ const handlePrependIconClick = (event: Event) => {
 }
 
 const handleKeydown = (event: KeyboardEvent) => {
-  if (props.preventInput) {
-    event.preventDefault()
-  }
+  event.preventDefault()
 }
 </script>
 
@@ -379,10 +377,7 @@ const handleKeydown = (event: KeyboardEvent) => {
     width: 100%;
     line-height: 1;
     color: var(--font-primary);
-
-    &--prevent-input {
-      caret-color: transparent;
-    }
+    caret-color: transparent;
   }
 
   &__content {
