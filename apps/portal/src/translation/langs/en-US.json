@@ -100,6 +100,17 @@
           "companyLogoPlaceholder": "Enter company logo",
           "companyTinLabel": "Tax Identification Number (TIN)",
           "companyTinPlaceholder": "Enter TIN"
+        },
+
+        "contactInfo": {
+          "contactPersonLabel": "Contact Person",
+          "contactPersonPlaceholder": "Enter contact person",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Enter company email address",
+          "externalWebsiteLabel": "Company Website",
+          "externalWebsitePlaceholder": "Enter company website",
+          "phoneNumberLabel": "Phone Number",
+          "phoneNumberPlaceholder": "Enter company phone number"
         }
       }
     },

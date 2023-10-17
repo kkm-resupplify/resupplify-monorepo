@@ -31,7 +31,7 @@ export const useRegisterCompanyStore = defineStore({
       this.detailsStepData = detailsStepData
     },
 
-    setContactStepInfoData(contactInfoStepData: RegisterCompanyContactInfoStep) {
+    setContactInfoStepData(contactInfoStepData: RegisterCompanyContactInfoStep) {
       this.contactInfoStepData = contactInfoStepData
     }
   }
