@@ -110,6 +110,7 @@ defineExpose({
 
   &__header-description {
     font-size: $global-text-medium-font-size;
+    word-wrap: break-word;
   }
 
   &__body {

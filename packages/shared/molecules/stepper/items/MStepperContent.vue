@@ -49,13 +49,15 @@ const handleNextStep = () => {
 <style lang="scss" scoped>
 .m-stepper-content {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: $global-spacing-30;
-  flex: 1;
 
   &__header {
     display: flex;
     flex-direction: column;
+    min-width: 600px;
+    max-width: 600px;
     font-size: $global-text-normal-font-size;
   }
 
@@ -65,8 +67,8 @@ const handleNextStep = () => {
   }
 
   &__header-description {
-    max-width: 400px;
     font-size: $global-text-medium-font-size;
+    word-wrap: break-word;
   }
 
   &__content {
