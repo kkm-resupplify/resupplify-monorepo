@@ -101,12 +101,12 @@
     "placeholder": "Wybierz płeć"
   },
 
-  "companyDetails": {
-    "name": "Nazwa",
-    "country": "Kraj",
-    "slug": "Slug",
-    "description": "Opis firmy",
-    "owner": "Właściciel",
-    
+  "companyInformations": {
+    "company": "Firma",
+    "companyDetails": "Informacje o firmie",
+    "companyCategory": "Kategoria firmy",
+    "companyOwner": "Właściciel firmy",
+    "companyProducts": "Produkty firmy",
+    "companyProductsDetails": "Informacje o produktach firmy"
   }
 }

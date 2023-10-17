@@ -60,7 +60,7 @@
       "phoneNumber": "Phone Number",
       "birthDate": "Birth Date",
       "sex": "Sex",
-      
+
       "firstNamePlaceholder": "Enter your first name",
       "lastNamePlaceholder": "Enter your last name",
       "phoneNumberPlaceholder": "Enter your phone number"
@@ -99,5 +99,14 @@
       "preferNot": "Prefer not to say"
     },
     "placeholder": "Select your gender"
+  },
+
+  "companyInformations": {
+    "company": "Company",
+    "companyDetails": "Companies details",
+    "companyCategory": "Company Details",
+    "companyOwner": "Company Owner",
+    "companyProducts": "Company Products",
+    "companyProductsDetails": "Company Products Details"
   }
 }

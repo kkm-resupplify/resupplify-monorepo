@@ -62,24 +62,24 @@ const props = defineProps({
   company: {
     type: Object as PropType<Company>,
     required: true
-  }
+  },
   companyCategory: {
     type: Object as PropType<CompanyCategory>,
     required: true
-  }
+  },
   companyDetails: {
     type: Object as PropType<CompanyDetails>,
     required: true
-  }
+  },
   owner: {
     type: Object as PropType<Owner>,
     required: true
-  }
-  companyProduct: {
+  },
+  companyProducts: {
     type: Object as PropType<CompanyProduct>,
     required: true
-  }
-  companyProductDetails: {
+  },
+  companyProductsDetails: {
     type: Object as PropType<CompanyProductDetails>,
     required: true
   }
