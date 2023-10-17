@@ -14,7 +14,8 @@
 
     <div v-if="preview" class="a-image-input__preview-group">
       <span>Preview</span>
-      <img :src="preview" class="a-image-input__preview-image" alt="image preview" />
+
+      <img :src="preview" class="a-image-input__preview-group-image" alt="image preview" />
     </div>
   </div>
 </template>
@@ -41,6 +42,10 @@ const generateClasses = computed(() => {
 
 const borderColor = computed(() => {
   return 'var(--info-gradient)'
+})
+
+const backgroundImage = computed(() => {
+  return `background-image: url('${preview.value}')`
 })
 
 // Methods
@@ -143,10 +148,15 @@ const previewImage = (event: any) => {
   }
 
   &__preview-group {
-    display: flex;
-    flex-direction: column;
     position: relative;
     left: $global-spacing-70;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__preview-group-image {
+    width: fit-content;
+    max-height: 160px;
   }
 }
 </style>
