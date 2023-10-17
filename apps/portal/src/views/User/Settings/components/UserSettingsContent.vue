@@ -8,16 +8,21 @@
       </div>
     </div>
     <div class="user-settings-content__data">
-      <div>
         <h3 class="user-settings-content__data-header">Email</h3>
+
         <p class="user-settings-content__data-content">{{ email }}</p>
+
         <h3 class="user-settings-content__data-header">Phone number</h3>
+
         <p class="user-settings-content__data-content">{{ phoneNumber }}</p>
+
         <h3 class="user-settings-content__data-header">Birth Date</h3>
+
         <p class="user-settings-content__data-content">{{ birthDate }}</p>
+
         <h3 class="user-settings-content__data-header">Sex</h3>
+
         <p class="user-settings-content__data-content">{{ sex }}</p>
-      </div>
     </div>
   </div>
 </template>

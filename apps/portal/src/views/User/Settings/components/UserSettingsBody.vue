@@ -2,9 +2,9 @@
   <div class="user-settings-body">
     <m-tabs class="user-settings-body__tabs">
       <template #tabs>
-        <div v-for="(item, idx) in profileLinks" class="user-settings-body__tab">
+        <div v-for="(item, idx) in profileLinks" :key="idx" class="user-settings-body__tab">
           <span :class="item.imageClass" v-text="item.imageContent" />
-          <a-link :key="idx" :link="item.link" :text="item.text" size="large" />
+          <a-link :link="item.link" :text="item.text" size="large" />
         </div>
       </template>
 
@@ -68,14 +68,14 @@ const profileLinks: Array<profileLinksData> = reactive([
   box-shadow: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
     #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
 }
+
 .user-settings-body {
   @include boxshadow-primary-2;
+
   display: flex;
   align-self: center;
-
   width: 60%;
   height: 760px;
-
   border-radius: $global-border-radius-10;
 
   &__tabs {
@@ -84,8 +84,8 @@ const profileLinks: Array<profileLinksData> = reactive([
 
   &__tab {
     display: flex;
-    align-items: center;
     gap: $global-spacing-40;
+    align-items: center;
   }
 
   &__content {
