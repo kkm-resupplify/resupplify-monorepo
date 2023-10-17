@@ -26,6 +26,7 @@ const props = defineProps({
     type: Object as () => Record<string, [number, string]>,
     default: null
   },
+  keepValues: Boolean,
 
   submitCallback: {
     type: Function,
@@ -48,6 +49,8 @@ const generateClasses = computed(() => {
 // Returns an array in the form of a { field1: true, field2: false } etc.
 // So basically, if a field (key) has a value, we want to set it as touched.
 const getInitialTouched = computed(() => {
+  if (!props.initialValues) return
+
   return Object.entries(props.initialValues).reduce((newObj: any, [key, value]) => {
     newObj[key] = value !== null && value !== undefined && value.length > 0
     return newObj

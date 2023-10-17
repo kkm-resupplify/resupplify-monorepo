@@ -45,7 +45,7 @@
           <div class="register-company-contactInfo-step__footer">
             <a-button size="large" :text="$t('global.back')" @click="handlePreviousStep" />
 
-            <a-button type="submit" size="large" :text="$t('global.next')" />
+            <a-button type="submit" size="large" :text="$t('global.send')" />
           </div>
         </template>
       </o-form>
@@ -54,6 +54,7 @@
 </template>
 
 <script setup lang="ts">
+import { reactive } from 'vue'
 import type { RegisterCompanyContactInfoStep } from '@interfaces/company/registerCompany'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
@@ -61,6 +62,7 @@ import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStor
 const emits = defineEmits(['next-step', 'previous-step'])
 
 // Variables
+const data = reactive({})
 const registerCompanyStore = useRegisterCompanyStore()
 
 // Methods
@@ -69,7 +71,8 @@ const handleNextStep = async (values: RegisterCompanyContactInfoStep) => {
   emits('next-step')
 }
 
-const handlePreviousStep = () => {
+const handlePreviousStep = (values: RegisterCompanyContactInfoStep) => {
+  registerCompanyStore.setContactInfoStepData(values)
   emits('previous-step')
 }
 </script>
