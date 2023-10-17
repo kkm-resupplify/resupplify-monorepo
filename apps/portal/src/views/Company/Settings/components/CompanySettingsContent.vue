@@ -1,10 +1,10 @@
 <template>
   <div class="user-settings-content">
     <div class="user-settings-content__profile">
-      <img :src="userImg" :alt="userImgAlt" class="user-settings-content__profile-image" />
+      <img :src="logo" :alt="logoAlt" class="user-settings-content__profile-image" />
 
       <div class="user-settings-content__profile-name">
-        <h2>{{ firstName }} {{ lastName }}</h2>
+        <h2>{{ name }}</h2>
       </div>
     </div>
     <div class="user-settings-content__data">
@@ -21,34 +21,46 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  companyLogo: {
-    type: String,
-    required: true
-  },
-  companyLogoAlt: {
-    type: String,
-    required: true
-  },
-  companyName: {
-    type: String,
-    required: true
-  }.
-  email: {
-    type: String,
-    required: true
-  },
-  phoneNumber: {
-    type: String,
-    required: true
-  },
-  birthDate: {
-    type: String,
-    required: true
-  },
-  sex: {
-    type: String,
-    required: true
-  }
+    address: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    phoneNumber: {
+        type: String,
+        required: true
+    },
+    externalWebsite: {
+        type: String,
+        required: true
+    },
+    logo: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    logoAlt: {
+        type: String,
+        required: true
+    },
+    tin: {
+        type: String,
+        required: true
+    },
+    country: {
+        type: String,
+        required: true
+    },
+    companyCategory: {
+        type: String,
+        required: true
+    }
 })
 </script>
 
