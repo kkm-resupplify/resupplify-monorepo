@@ -22,7 +22,11 @@
               :placeholder="$t('company.register.form.details.companyTinPlaceholder')"
             />
 
-            <m-file-input name="logo" />
+            <m-file-input
+              name="logo"
+              :label="$t('company.register.form.details.companyLogoLabel')"
+              :placeholder="$t('company.register.form.details.companyLogoPlaceholder')"
+            />
           </div>
         </template>
 
