@@ -38,7 +38,6 @@ interface profileLinksData {
   text: string
   link: string
 }
-
 // Variables
 const { t } = useI18n()
 const profileLinks: Array<profileLinksData> = reactive([
