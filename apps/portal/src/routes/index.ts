@@ -9,6 +9,7 @@ import RegisterView from '@/views/Register/RegisterView.vue'
 import ResourcesView from '@/views/Resources/ResourcesView.vue'
 import UserDetailsViewVue from '@/views/UserDetails/UserDetailsView.vue'
 import UserSettingsViewVue from '@/views/User/Settings/UserSettingsView.vue'
+import UserSettingsEditViewVue from '@/views/User/Settings/UserSettingsEditView.vue'
 
 const routes = [
   { path: '/test', component: TestView },
@@ -18,7 +19,8 @@ const routes = [
   { path: '/register', component: RegisterView },
   { path: '/resources', component: ResourcesView },
   { path: '/user-details', component: UserDetailsViewVue },
-  { path: '/settings', component: UserSettingsViewVue }
+  { path: '/settings/profile', component: UserSettingsViewVue },
+  { path: '/settings/profile/edit', component: UserSettingsEditViewVue }
 ]
 
 export const router = createRouter({
