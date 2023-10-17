@@ -11,15 +11,15 @@
             <m-text-field
               name="address"
               rules="required|min:3"
-              :label="$t('company.register.form.companyNameLabel')"
-              :placeholder="$t('company.register.form.companyNamePlaceholder')"
+              :label="$t('company.register.form.details.companyAddressLabel')"
+              :placeholder="$t('company.register.form.details.companyAddressPlaceholder')"
             />
 
             <m-text-field
               name="tin"
               rules="required|max:255"
-              :label="$t('company.register.form.companyShortDescriptionLabel')"
-              :placeholder="$t('company.register.form.companyShortDescriptionPlaceholder')"
+              :label="$t('company.register.form.details.companyTinLabel')"
+              :placeholder="$t('company.register.form.details.companyTinPlaceholder')"
             />
 
             <m-file-input name="logo" />
@@ -39,20 +39,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { RegisterCompanyGeneralStep } from '@interfaces/company/registerCompany'
+import type { RegisterCompanyDetailsStep } from '@interfaces/company/registerCompany'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
-import CountrySelect from '@/components/common/select/CountrySelect.vue'
 
 // Emits
-const emits = defineEmits(['next-step', 'previous-step', 'general-step-data'])
+const emits = defineEmits(['next-step', 'previous-step'])
 
 // Variables
 const registerCompanyStore = useRegisterCompanyStore()
 
 // Methods
-const handleNextStep = async (values: RegisterCompanyGeneralStep) => {
-  registerCompanyStore.setGeneralStepData(values)
+const handleNextStep = async (values: RegisterCompanyDetailsStep) => {
+  registerCompanyStore.setDetailsStepData(values)
   emits('next-step')
 }
 

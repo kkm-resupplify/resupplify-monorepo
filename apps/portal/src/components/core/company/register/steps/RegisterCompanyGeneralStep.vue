@@ -53,13 +53,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import CountrySelect from '@/components/common/select/CountrySelect.vue'
 import type { RegisterCompanyGeneralStep } from '@interfaces/company/registerCompany'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
-import CountrySelect from '@/components/common/select/CountrySelect.vue'
 
 // Emits
-const emits = defineEmits(['next-step', 'previous-step', 'general-step-data'])
+const emits = defineEmits(['next-step', 'previous-step'])
 
 // Variables
 const registerCompanyStore = useRegisterCompanyStore()

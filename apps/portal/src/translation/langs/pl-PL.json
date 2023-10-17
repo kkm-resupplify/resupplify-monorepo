@@ -92,10 +92,10 @@
 
         "details": {
           "companyAddressLabel": "Adres firmy",
-          "companyLogoLabel": "Logo firmy",
-          "companyTinLabel": "Numer identyfikacji podatkowej (NIP)",
           "companyAddressPlaceholder": "Wprowadź adres firmy",
+          "companyLogoLabel": "Logo firmy",
           "companyLogoPlaceholder": "Wprowadź logo firmy",
+          "companyTinLabel": "Numer identyfikacji podatkowej (NIP)",
           "companyTinPlaceholder": "Wprowadź NIP"
         }
       }
