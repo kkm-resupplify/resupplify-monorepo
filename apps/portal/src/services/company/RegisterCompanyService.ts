@@ -49,4 +49,4 @@ class RegisterCompanyService extends BaseService {
   }
 }
 
-export default new RegisterCompanyService('/register')
+export default new RegisterCompanyService('/company')
