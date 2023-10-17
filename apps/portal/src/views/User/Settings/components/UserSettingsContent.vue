@@ -8,21 +8,13 @@
       </div>
     </div>
     <div class="user-settings-content__data">
-      <!-- <h3 class="user-settings-content__data-header">Email</h3>
+      <a-title :header="$t('auth.userDetails.email')" :sub-header="email" />
 
-        <p class="user-settings-content__data-content">{{ email }}</p> 
+      <a-title :header="$t('auth.userDetails.phoneNumber')" :sub-header="phoneNumber" />
 
-        <h3 class="user-settings-content__data-header">Phone number</h3>
-
-        <p class="user-settings-content__data-content">{{ phoneNumber }}</p>
-
-        <h3 class="user-settings-content__data-header">Birth Date</h3>
-
-        <p class="user-settings-content__data-content">{{ birthDate }}</p>
-
-        <h3 class="user-settings-content__data-header">Sex</h3>
-
-        <p class="user-settings-content__data-content">{{ sex }}</p> -->
+      <a-title :header="$t('auth.userDetails.birthDate')" :sub-header="birthDate" />
+      
+      <a-title :header="$t('auth.userDetails.sex')" :sub-header="sex" />
     </div>
   </div>
 </template>
