@@ -20,7 +20,9 @@ export const useRegisterCompanyStore = defineStore({
     contactInfoStepData: { phoneNumber: '', email: '', contactPerson: '', externalWebsite: '' }
   }),
 
-  getters: {},
+  getters: {
+    registerCompanyFormData: (state: RegisterCompanyState) => state
+  },
 
   actions: {
     setGeneralStepData(generalStepData: RegisterCompanyGeneralStep) {

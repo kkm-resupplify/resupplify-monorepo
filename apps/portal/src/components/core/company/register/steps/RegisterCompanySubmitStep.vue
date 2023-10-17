@@ -13,7 +13,7 @@
       <div class="register-company-submit-step__footer">
         <a-button size="large" :text="$t('global.back')" @click="handlePreviousStep" />
 
-        <a-button size="large" :text="$t('global.submit')" />
+        <a-button size="large" :text="$t('global.submit')" @click="handleSubmit" />
       </div>
     </template>
   </m-stepper-step-content>
@@ -22,6 +22,7 @@
 <script setup lang="ts">
 import type { RegisterCompanyContactInfoStep } from '@interfaces/company/registerCompany'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
+import RegisterCompanyService from '@/services/company/RegisterCompanyService'
 
 // Emits
 const emits = defineEmits(['previous-step'])
@@ -30,8 +31,8 @@ const emits = defineEmits(['previous-step'])
 const registerCompanyStore = useRegisterCompanyStore()
 
 // Methods
-const handleNextStep = async (values: RegisterCompanyContactInfoStep) => {
-  registerCompanyStore.setContactInfoStepData(values)
+const handleSubmit = async () => {
+  await RegisterCompanyService.register(registerCompanyStore.registerCompanyFormData)
 }
 
 const handlePreviousStep = (values: RegisterCompanyContactInfoStep) => {
