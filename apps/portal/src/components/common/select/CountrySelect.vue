@@ -35,9 +35,10 @@ const countries = computed(() => {
     key.toLowerCase()
   )
 
-  const data = countryCodes.map((code: any) => {
+  const data = countryCodes.map((code: any, index: number) => {
     return {
       text: (i18n.global.messages.value[i18n.global.locale.value ?? 'en-US'].country as any)[code],
+      id: index,
       iconPrepend: { name: `_${code}`, size: 'small' }
     }
   })
@@ -46,7 +47,7 @@ const countries = computed(() => {
 })
 
 const validationRules = computed(() => {
-  const countryNames = countries.value.map(({ text }: { text: string }) => text).join(',')
-  return `required|one_of:${countryNames}`
+  const countryIds = countries.value.map(({ id }: { id: string | number }) => id).join(',')
+  return `required|one_of:${countryIds}`
 })
 </script>
