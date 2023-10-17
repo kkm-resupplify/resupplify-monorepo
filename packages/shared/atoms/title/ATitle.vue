@@ -36,10 +36,15 @@ const generateClasses = computed(() => {
 </script>
 
 <style scoped lang="scss">
-.m-title {
+.a-title {
   display: flex;
+
   &--vertical {
     flex-direction: column;
+  }
+
+  &__header {
+    line-height: 0;
   }
 }
 </style>

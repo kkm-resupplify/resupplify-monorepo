@@ -13,7 +13,7 @@
       <a-title :header="$t('auth.userDetails.phoneNumber')" :sub-header="phoneNumber" />
 
       <a-title :header="$t('auth.userDetails.birthDate')" :sub-header="birthDate" />
-      
+
       <a-title :header="$t('auth.userDetails.sex')" :sub-header="sex" />
     </div>
   </div>
@@ -58,12 +58,13 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .user-settings-content {
-  padding: $global-spacing-100;
   display: flex;
   flex-direction: column;
+  padding: $global-spacing-100;
 
   &__profile,
-  &__profile-name {
+  &__profile-name,
+  &__data {
     display: flex;
     gap: $global-spacing-100;
   }
@@ -77,7 +78,10 @@ const props = defineProps({
     height: 100px;
     border-radius: 50%;
   }
+
   &__data {
+    flex-direction: column;
+    margin-top: $global-spacing-70;
     padding: $global-spacing-100;
   }
 }

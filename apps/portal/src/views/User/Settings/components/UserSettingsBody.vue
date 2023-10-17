@@ -68,8 +68,10 @@ const profileLinks: Array<profileLinksData> = reactive([
   box-shadow: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
     #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
 }
+
 .user-settings-body {
   @include boxshadow-primary-2;
+
   display: flex;
   align-self: center;
 
@@ -84,8 +86,8 @@ const profileLinks: Array<profileLinksData> = reactive([
 
   &__tab {
     display: flex;
-    align-items: center;
     gap: $global-spacing-40;
+    align-items: center;
   }
 
   &__content {
