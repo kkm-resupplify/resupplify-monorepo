@@ -54,15 +54,14 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
-import type { RegisterCompanyContactInfoStep } from '@interfaces/company/registerCompany'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
+
+import type { RegisterCompanyContactInfoStep } from '@interfaces/company/registerCompany'
 
 // Emits
 const emits = defineEmits(['next-step', 'previous-step'])
 
 // Variables
-const data = reactive({})
 const registerCompanyStore = useRegisterCompanyStore()
 
 // Methods
