@@ -7,6 +7,6 @@
   </template>
   <script setup lang="ts">
   import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
-  import UserSettingsBody from './components/UserSettingsBody.vue'
+  import CompanySettingsBody from './components/CompanySettingsBody.vue'
   </script>
   <style scoped lang="scss"></style>
