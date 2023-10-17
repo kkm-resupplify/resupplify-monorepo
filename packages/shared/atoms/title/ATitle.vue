@@ -2,7 +2,7 @@
   <div :class="generateClasses">
     <h3 class="a-title__header" v-text="header" />
 
-    <span class="a-title__content" v-text="subHeader" />
+    <span v-if="subHeader" class="a-title__content" v-text="subHeader" />
   </div>
 </template>
 
@@ -18,11 +18,9 @@ const props = defineProps({
     type: String,
     required: true
   },
-  subHeader: {
-    type: String,
-    required: true
-  }
+  subHeader: String
 })
+
 // Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
@@ -38,7 +36,6 @@ const generateClasses = computed(() => {
 <style scoped lang="scss">
 .a-title {
   display: flex;
-
   &--vertical {
     flex-direction: column;
   }
