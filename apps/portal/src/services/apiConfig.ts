@@ -33,5 +33,5 @@ function getAuthorizationHeader() {
   const userStore = useUserStore()
   const token = userStore.getToken
 
-  return `Authorization ${token}`
+  return `Bearer ${token}`
 }

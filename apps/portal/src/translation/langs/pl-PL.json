@@ -4,10 +4,12 @@
     "goodbye": "Dowidzenia",
     "actionSuccess": "Akcja zakończyła się pomyślnie",
     "errorOccured": "Wystąpił błąd",
-    "submit": "Wyślij",
     "save": "Zapisz",
-    "actionSuccess": "Akcja zakończona pomyślnie",
-    "noResults": "Brak wyników"
+    "noResults": "Brak wyników",
+    "next": "Dalej",
+    "back": "Wstecz",
+    "submit": "Zatwierdź",
+    "imagePreview": "Podgląd obrazu"
   },
 
   "payments": {
@@ -69,6 +71,78 @@
   },
 
   "company": {
+    "register": {
+      "title": "Rejestracja firmy",
+      "description": "Proszę podać informacje o Twojej firmie",
+
+      "steps": {
+        "general": {
+          "title": "Ogólne",
+          "subtitle": "Ogólne informacje",
+          "description": "Ten etap zbiera podstawowe informacje o firmie."
+        },
+        "details": {
+          "title": "Szczegóły",
+          "subtitle": "Szczegóły firmy",
+          "description": "Szczegóły firmy, w tym numer identyfikacji podatkowej (NIP), adres, itp."
+        },
+        "contactInfo": {
+          "title": "Kontakt",
+          "subtitle": "Dane kontaktowe",
+          "description": "Ten krok skupia się na środkach kontaktu, w tym preferencje komunikacyjne."
+        }
+      },
+
+      "form": {
+        "general": {
+          "NameLabel": "Nazwa",
+          "NamePlaceholder": "Wprowadź nazwę firmy",
+          "CountryLabel": "Kraj",
+          "CountryPlaceholder": "Wybierz kraj",
+          "DescriptionLabel": "Opis",
+          "DescriptionPlaceholder": "Wprowadź opis firmy",
+          "ShortDescriptionLabel": "Krótki opis",
+          "ShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
+        },
+
+        "details": {
+          "AddressLabel": "Adres firmy",
+          "AddressPlaceholder": "Wprowadź adres firmy",
+          "companyCategoryLabel": "Kateogria firmy",
+          "companyCategoryPlaceholder": "Wybierz kategorię firmy",
+          "LogoLabel": "Logo firmy",
+          "LogoPlaceholder": "Wprowadź logo firmy",
+          "tinLabel": "Numer identyfikacji podatkowej (NIP)",
+          "tinPlaceholder": "Wprowadź NIP"
+        },
+
+        "contactInfo": {
+          "contactPerson": "Osoba kontaktowa",
+          "contactPersonPlaceholder": "Podaj osobę kontaktową",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Wprowadź adres email firmy",
+          "externalWebsiteLabel": "Strona główna firmy",
+          "externalWebsitePlaceholder": "Podaj stronę główną firmy",
+          "phoneNumberLabel": "Numer telefonu",
+          "phoneNumberPlaceholder": "Wprowadź numer telefonu firmy"
+        },
+
+        "submit": {
+          "title": "Zatwierdź",
+          "subtitle": "Zatwierdź i kolejne kroki",
+          "description": "Zatwierdź formularz, aby zarejestrować swoją firmę.",
+          "content": {
+            "description": "Oto ostatni krok w procesie wypełniania formularza rejestracyjnego. Po zatwierdzeniu formularza, firma oczekuje na weryfikację. Jednakże, zachęcamy użytkownika do zwiedzenia portalu i zapoznania się z dostępnymi opcjami, podczas gdy czekamy na zakończenie procesu weryfikacji. Nasza platforma oferuje wiele interesujących możliwości do odkrycia, więc prosimy, aby użytkownik korzystał z tych zasobów w międzyczasie."
+          }
+        }
+      },
+
+      "notification": {
+        "registerCompanySuccessTitle": "Wniosek o rejestrację firmy został wysłany pomyślnie",
+        "registerCompanySuccessText": "Twoja firma oczekuje na weryfikację."
+      }
+    },
+
     "promotion": {
       "ourPartners": "Nasi partnerzy",
       "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"
@@ -100,5 +174,53 @@
       "preferNot": "Wolę nie mówić"
     },
     "placeholder": "Wybierz płeć"
+  },
+
+  "country": {
+    "al": "Albania",
+    "ad": "Andora",
+    "at": "Austria",
+    "by": "Białoruś",
+    "be": "Belgia",
+    "ba": "Bośnia i Hercegowina",
+    "bg": "Bułgaria",
+    "hr": "Chorwacja",
+    "cy": "Cypr",
+    "cz": "Czechy",
+    "dk": "Dania",
+    "ee": "Estonia",
+    "fi": "Finlandia",
+    "fr": "Francja",
+    "de": "Niemcy",
+    "gr": "Grecja",
+    "hu": "Węgry",
+    "is": "Islandia",
+    "ie": "Irlandia",
+    "it": "Włochy",
+    "lv": "Łotwa",
+    "li": "Liechtenstein",
+    "lt": "Litwa",
+    "lu": "Luksemburg",
+    "mk": "Macedonia, Była Jugosłowiańska Republika",
+    "mt": "Malta",
+    "md": "Mołdawia",
+    "mc": "Monako",
+    "me": "Czarnogóra",
+    "nl": "Holandia",
+    "no": "Norwegia",
+    "pl": "Polska",
+    "pt": "Portugalia",
+    "ro": "Rumunia",
+    "ru": "Rosja",
+    "sm": "San Marino",
+    "rs": "Serbia",
+    "sk": "Słowacja",
+    "si": "Słowenia",
+    "es": "Hiszpania",
+    "se": "Szwecja",
+    "ch": "Szwajcaria",
+    "ua": "Ukraina",
+    "gb": "Wielka Brytania",
+    "va": "Watykan"
   }
 }

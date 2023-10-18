@@ -25,9 +25,6 @@
 </template>
 
 <script setup lang="ts">
-// TODO:
-// Add general title
-
 import { computed, type PropType, ref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MStepperStepList from './items/MStepperStepList.vue'
@@ -110,6 +107,7 @@ defineExpose({
 
   &__header-description {
     font-size: $global-text-medium-font-size;
+    word-wrap: break-word;
   }
 
   &__body {
