@@ -95,6 +95,8 @@
         "details": {
           "AddressLabel": "Adres firmy",
           "AddressPlaceholder": "Wprowadź adres firmy",
+          "companyCategoryLabel": "Kateogria firmy",
+          "companyCategoryPlaceholder": "Wybierz kategorię firmy",
           "LogoLabel": "Logo firmy",
           "LogoPlaceholder": "Wprowadź logo firmy",
           "tinLabel": "Numer identyfikacji podatkowej (NIP)",

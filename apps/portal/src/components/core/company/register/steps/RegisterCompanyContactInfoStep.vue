@@ -70,8 +70,7 @@ const handleNextStep = async (values: RegisterCompanyContactInfoStep) => {
   emits('next-step')
 }
 
-const handlePreviousStep = (values: RegisterCompanyContactInfoStep) => {
-  registerCompanyStore.setContactInfoStepData(values)
+const handlePreviousStep = () => {
   emits('previous-step')
 }
 </script>

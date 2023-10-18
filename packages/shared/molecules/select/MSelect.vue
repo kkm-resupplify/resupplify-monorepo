@@ -126,6 +126,7 @@ const generateClasses = computed(() => {
 })
 
 const filteredOptions = computed(() => {
+  if (!optionsFilter.value) return props.options
   return props.options.filter((option) =>
     option.text?.toLowerCase().includes(optionsFilter.value.toLowerCase())
   )

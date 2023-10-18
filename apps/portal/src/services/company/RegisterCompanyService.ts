@@ -14,6 +14,7 @@ class RegisterCompanyFormDataDTO {
   email: string
   contactPerson: string
   externalWebsite: string
+  companyCategoryId: number
 
   constructor({ generalStepData, detailsStepData, contactInfoStepData }: RegisterCompanyData) {
     this.name = generalStepData.name
@@ -21,6 +22,7 @@ class RegisterCompanyFormDataDTO {
     this.shortDescription = generalStepData.shortDescription
     this.description = generalStepData.description
     this.address = detailsStepData.address
+    this.companyCategoryId = detailsStepData.companyCategoryId
     this.tin = detailsStepData.tin
     this.logo = detailsStepData.logo
     this.phoneNumber = contactInfoStepData.phoneNumber
@@ -43,7 +45,6 @@ class RegisterCompanyService extends BaseService {
     })
 
     const { data } = response
-    console.log(data)
 
     return response
   }

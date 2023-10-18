@@ -15,6 +15,14 @@
               :placeholder="$t('company.register.form.details.companyAddressPlaceholder')"
             />
 
+            <m-select
+              :options="companyCategoryList"
+              name="companyCategoryId"
+              rules="required"
+              :label="$t('company.register.form.details.companyCategoryLabel')"
+              :placeholder="$t('company.register.form.details.companyCategoryPlaceholder')"
+            />
+
             <m-text-field
               name="tin"
               rules="required|max:255"
@@ -43,6 +51,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { RegisterCompanyDetailsStep } from '@interfaces/company/registerCompany'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
@@ -61,6 +70,33 @@ const handleNextStep = async (values: RegisterCompanyDetailsStep) => {
 const handlePreviousStep = () => {
   emits('previous-step')
 }
+
+const companyCategoryList = computed(() => {
+  return [
+    { id: 1, text: 'Beverages' },
+    { id: 2, text: 'Snacks' },
+    { id: 3, text: 'Personal Care' },
+    { id: 4, text: 'Household Essentials' },
+    { id: 5, text: 'Frozen Foods' },
+    { id: 6, text: 'Dairy Products' },
+    { id: 7, text: 'Bakery and Confectionery' },
+    { id: 8, text: 'Canned Goods' },
+    { id: 9, text: 'Health and Wellness' },
+    { id: 10, text: 'Baby Care' },
+    { id: 11, text: 'Pet Care' },
+    { id: 12, text: 'Cleaning Supplies' },
+    { id: 13, text: 'Toiletries' },
+    { id: 14, text: 'Paper Products' },
+    { id: 15, text: 'Cosmetics' },
+    { id: 16, text: 'Spices and Condiments' },
+    { id: 17, text: 'Breakfast Foods' },
+    { id: 18, text: 'Instant Noodles and Pasta' },
+    { id: 19, text: 'Cooking Oils' },
+    { id: 20, text: 'Sauces and Marinades' },
+    { id: 21, text: 'Nutritional Supplements' },
+    { id: 22, text: 'Office and School Supplies' }
+  ]
+})
 </script>
 
 <style lang="scss" scoped>

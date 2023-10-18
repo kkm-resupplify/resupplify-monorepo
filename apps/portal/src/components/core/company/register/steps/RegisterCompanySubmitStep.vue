@@ -36,7 +36,6 @@ const handleSubmit = async () => {
 }
 
 const handlePreviousStep = (values: RegisterCompanyContactInfoStep) => {
-  registerCompanyStore.setContactInfoStepData(values)
   emits('previous-step')
 }
 </script>
