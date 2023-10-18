@@ -1,6 +1,12 @@
 import { defineStore } from 'pinia'
 import BaseEnum from '@sharedEnums/BaseEnum'
 
+class NotificationDurationEnum extends BaseEnum {
+  static SHORT = 3000
+  static MEDIUM = 5000
+  static LONG = 10000
+}
+
 class NotificationVariantEnum extends BaseEnum {
   static INFO = 'info'
   static SUCCESS = 'success'
@@ -37,32 +43,20 @@ export const useGeneralNotificationStore = defineStore({
   },
 
   actions: {
-    sendSuccessNotification({
-      title = '',
-      text = ''
-    }: {
-      title?: string
-      text?: string
-    } = {}): void {
+    sendSuccessNotification({ title = '', text = '', duration }: Notification): void {
       this.notificationQueue.push({
         title,
-        duration: 3000,
+        duration: duration ?? NotificationDurationEnum.SHORT,
         text,
         variant: NotificationVariantEnum.SUCCESS,
         icon: 'check_circle'
       })
     },
 
-    sendFailNotification({
-      title = '',
-      text = ''
-    }: {
-      title?: string
-      text?: string
-    } = {}): void {
+    sendFailNotification({ title = '', text = '', duration }: Notification): void {
       this.notificationQueue.push({
         title,
-        duration: 3000,
+        duration: duration ?? NotificationDurationEnum.SHORT,
         text,
         variant: NotificationVariantEnum.DANGER,
         icon: 'cancel'
@@ -72,7 +66,7 @@ export const useGeneralNotificationStore = defineStore({
     sendNotification({ title, duration, text, variant, icon }: Notification): void {
       this.notificationQueue.push({
         title,
-        duration: duration,
+        duration: duration ?? NotificationDurationEnum.SHORT,
         text,
         variant: variant ?? NotificationVariantEnum.INFO,
         icon

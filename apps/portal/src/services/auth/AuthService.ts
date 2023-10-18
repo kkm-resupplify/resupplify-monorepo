@@ -16,7 +16,8 @@ class AuthService extends BaseService {
       data: { email, password, password_confirmation: passwordConfirmation },
       suffix: AuthService.REGISTER_SUFFIX,
       notificationTitle: 'auth.notification.registerSuccessTitle',
-      notificationText: 'auth.notification.registerSuccessText'
+      notificationText: 'auth.notification.registerSuccessText',
+      notificationDuration: 10000
     })
 
     const { data } = response
