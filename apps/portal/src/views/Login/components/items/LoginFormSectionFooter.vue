@@ -9,10 +9,9 @@
     />
     <br />
 
-    <i18n-t class="register-hero-section-footer__new-user" keypath="auth.newUser" tag="span">
+    <i18n-t class="login-form-section-footer__sign-up" keypath="auth.newUser" tag="span">
       <template #signup>
         <a-link link="/register" :text="$t('auth.signup')" text-color="info" size="medium" />
-        <br />
       </template>
     </i18n-t>
   </div>
@@ -22,10 +21,9 @@
 .login-form-section-footer {
   display: flex;
   flex-direction: column;
+  gap: $global-spacing-20;
   align-items: center;
   justify-content: center;
-
-  margin-bottom: $global-spacing-100;
 
   text-align: center;
 
@@ -33,9 +31,9 @@
     font-size: $global-font-size-50;
   }
 
-  &__new-user {
+  &__sign-up {
     align-self: flex-end;
-    font-size: $global-font-size-20;
+    font-size: $global-font-size-60;
   }
 }
 </style>

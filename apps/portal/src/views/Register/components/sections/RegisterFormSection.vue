@@ -37,9 +37,9 @@
 
       <a-button
         class="register-form-section__form-submit"
-        text="Register"
         type="submit"
         size="x-large"
+        :text="$t('auth.signup')"
       />
     </v-form>
 

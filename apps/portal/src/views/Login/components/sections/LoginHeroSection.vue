@@ -10,31 +10,18 @@
 
 <style lang="scss" scoped>
 .login-hero-section {
-  @include respond-to('md-and-up') {
-    width: 50%;
-    margin-bottom: 0;
-    padding-left: $global-spacing-70;
-
-    text-align: left;
-
-    border-radius: $global-border-radius-20 0 0 $global-border-radius-20;
-
-    .login-hero-section__top {
-      text-align: left;
-    }
-  }
+  $self: &;
 
   display: flex;
   flex-direction: column;
-  align-self: stretch;
 
-  box-sizing: border-box;
-  margin-bottom: $global-spacing-70;
-  padding-inline: $global-spacing-40;
+  width: 50%;
+  height: 100%;
+  padding: 0 $global-spacing-70;
 
   background: var(--primary-gradient);
   background-size: 400% 400%;
-  border-radius: $global-border-radius-20 $global-border-radius-20 0 0;
+  border-radius: $global-border-radius-20 0 0 $global-border-radius-20;
 
   animation: gradient-movement 15s ease infinite;
 
@@ -62,15 +49,14 @@
   }
 
   &__top {
+    transform: translateY(25%);
+
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    align-self: stretch;
+    flex: 1;
+    align-items: center;
     justify-content: center;
 
-    height: 298px;
-
-    text-align: center;
+    font-size: 60px;
   }
 }
 

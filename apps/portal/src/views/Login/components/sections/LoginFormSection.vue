@@ -8,7 +8,6 @@
         :placeholder="$t('auth.form.emailAddressPlaceholder')"
         autocomplete="username"
         rules="required|email"
-        class="login-form-section__text-field"
         variant="rounded"
       />
 
@@ -21,12 +20,17 @@
         rules="required"
         append-icon-on="visibility"
         append-icon-off="visibility_off"
-        class="login-form-section__text-field"
         variant="rounded"
       />
 
-      <a-button text="Log in" size="x-large" type="submit" />
+      <a-button
+        class="login-form-section__form-submit"
+        type="submit"
+        size="x-large"
+        :text="$t('auth.login')"
+      />
     </v-form>
+
     <login-form-section-footer />
   </div>
 </template>
@@ -57,40 +61,28 @@ const handleFormSubmit = async (formData: LoginFormData) => {
 
 <style scoped lang="scss">
 .login-form-section {
-  @include respond-to('md-and-up') {
-    flex: 1 0 0;
-    align-self: stretch;
-  }
-
   display: flex;
   flex-direction: column;
-  gap: $global-spacing-100;
   align-items: center;
   justify-content: center;
 
-  &__text-field {
-    max-width: 292px;
-  }
+  width: 50%;
+  padding: $global-spacing-50;
+
+  background: var(--secondary-1);
+  border-radius: 0 $global-border-radius-20 $global-border-radius-20 0;
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-100;
+    gap: $global-spacing-40;
     align-items: center;
-    justify-content: center;
+
+    width: 80%;
   }
 
-  &__footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: $global-spacing-100;
-
-    &--sign-up {
-      display: flex;
-      gap: $global-spacing-30;
-      align-items: center;
-    }
+  &__form-submit {
+    margin-bottom: $global-spacing-40;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <basic-view-layout class="register-view">
     <template #body>
-      <div class="register-view__box">
+      <div class="register-view__content">
         <register-hero-section />
 
         <register-form-section />
@@ -18,7 +18,9 @@ import RegisterFormSection from './components/sections/RegisterFormSection.vue'
 
 <style lang="scss" scoped>
 .register-view {
-  &__box {
+  &__content {
+    @include boxshadow-primary-2;
+
     display: flex;
     align-self: center;
     width: 800px;

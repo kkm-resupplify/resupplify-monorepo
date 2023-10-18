@@ -17,26 +17,15 @@ import LoginFormSection from './components/sections/LoginFormSection.vue'
 </script>
 
 <style lang="scss" scoped>
-@mixin boxshadow-primary-2 {
-  box-shadow: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
-    #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
-}
-
 .login-view {
   &__content {
-    @include respond-to('md-and-up') {
-      flex-direction: row;
-    }
     @include boxshadow-primary-2;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
     align-self: center;
-    justify-content: space-between;
 
-    min-width: 800px;
-    min-height: 600px;
+    width: 800px;
+    height: 600px;
 
     border-radius: $global-border-radius-10;
   }
