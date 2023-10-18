@@ -1,7 +1,7 @@
 <template>
   <Transition type="animation" name="slide">
-    <div class="login-box-welcome-section">
-      <div class="login-box-welcome-section__top">
+    <div class="login-hero-section">
+      <div class="login-hero-section__top">
         <span v-text="$t('auth.slogan.welcome')" />
       </div>
     </div>
@@ -9,7 +9,7 @@
 </template>
 
 <style lang="scss" scoped>
-.login-box-welcome-section {
+.login-hero-section {
   @include respond-to('md-and-up') {
     width: 50%;
     margin-bottom: 0;
@@ -19,7 +19,7 @@
 
     border-radius: $global-border-radius-20 0 0 $global-border-radius-20;
 
-    .login-box-welcome-section__top {
+    .login-hero-section__top {
       text-align: left;
     }
   }

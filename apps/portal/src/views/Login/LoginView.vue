@@ -2,9 +2,9 @@
   <basic-view-layout class="login-view">
     <template #body>
       <div class="login-view__content">
-        <login-box-welcome-section />
+        <login-hero-section />
 
-        <login-box-form-section />
+        <login-form-section />
       </div>
     </template>
   </basic-view-layout>
@@ -12,8 +12,8 @@
 
 <script setup lang="ts">
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
-import LoginBoxWelcomeSection from './components/sections/LoginBoxWelcomeSection.vue'
-import LoginBoxFormSection from './components/sections/LoginBoxFormSection.vue'
+import LoginHeroSection from './components/sections/LoginHeroSection.vue'
+import LoginFormSection from './components/sections/LoginFormSection.vue'
 </script>
 
 <style lang="scss" scoped>

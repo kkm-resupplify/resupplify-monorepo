@@ -1,11 +1,11 @@
 <template>
   <Transition type="animation" name="slide">
-    <div class="register-left-section">
-      <div class="register-left-section__top">
+    <div class="register-hero-section">
+      <div class="register-hero-section__top">
         <span v-text="$t('auth.slogan.createAccount')" />
       </div>
 
-      <div class="register-left-section__bottom">
+      <div class="register-hero-section__bottom">
         <span v-text="$t('auth.slogan.connectAndGrow')" />
       </div>
     </div>
@@ -13,7 +13,7 @@
 </template>
 
 <style lang="scss" scoped>
-.register-left-section {
+.register-hero-section {
   display: flex;
   flex-direction: column;
 

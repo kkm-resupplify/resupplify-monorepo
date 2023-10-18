@@ -2,9 +2,9 @@
   <basic-view-layout class="register-view">
     <template #body>
       <div class="register-view__box">
-        <register-left-section />
+        <register-hero-section />
 
-        <register-right-section />
+        <register-form-section />
       </div>
     </template>
   </basic-view-layout>
@@ -12,8 +12,8 @@
 
 <script setup lang="ts">
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
-import RegisterLeftSection from './components/sections/RegisterLeftSection.vue'
-import RegisterRightSection from './components/sections/RegisterRightSection.vue'
+import RegisterHeroSection from './components/sections/RegisterHeroSection.vue'
+import RegisterFormSection from './components/sections/RegisterFormSection.vue'
 </script>
 
 <style lang="scss" scoped>
