@@ -53,9 +53,10 @@ const router = useRouter()
 // Methods
 const handleFormSubmit = async (formData: LoginFormData) => {
   const response = await AuthService.login(formData)
-  const { status } = response
 
-  if (status == 200) router.push('/')
+  const { httpCode } = response
+
+  if (httpCode == 200) router.push('/')
 }
 </script>
 

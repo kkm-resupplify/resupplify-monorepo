@@ -37,6 +37,8 @@ class AuthService extends BaseService {
       notificationText: 'auth.notification.loginSuccessText'
     })
 
+    if (!response.success) return response
+
     const { data } = response
     const { token, user } = data
     const userStore = useUserStore()

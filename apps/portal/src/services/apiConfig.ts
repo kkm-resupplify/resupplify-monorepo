@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { AxiosRequestConfig } from 'axios'
+import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { i18n } from '@/translation/index'
 import { useUserStore } from '@/stores/user/useUserStore'
 
@@ -21,8 +21,17 @@ const requestInterceptorConfig = (req: AxiosRequestConfig<any>) => {
   return req
 }
 
+const rejectedResponseInterceptorConfig = async ({ response }: AxiosResponse) => {
+  const { data } = response
+
+  if (!data.httpCode) return { success: false }
+
+  throw data
+}
+
 export const axiosInstance = axios.create(axiosConfig)
 axiosInstance.interceptors.request.use(requestInterceptorConfig)
+axiosInstance.interceptors.response.use(({ data }) => data, rejectedResponseInterceptorConfig)
 
 // Utility functions
 function getBaseUrl() {

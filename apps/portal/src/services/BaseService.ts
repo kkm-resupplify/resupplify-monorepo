@@ -34,15 +34,15 @@ export default class BaseService {
   }
 
   handleErrors(error: any) {
-    if (!error.response) return { success: false }
+    if (!error.httpCode) return { success: false }
 
-    const httpCode: number = error.response.status
+    const httpCode: number = error.httpCode
 
     const key = `handleErrorCode${httpCode}` as keyof typeof HttpErrorHandler
 
-    HttpErrorHandler[key](error)
+    HttpErrorHandler[key](error.error)
 
-    return { ...error, success: true }
+    return { ...error }
   }
 
   getEndpoint({ id, prefix, suffix }: Endpoint = {}) {
@@ -109,7 +109,7 @@ export default class BaseService {
       const { status } = response
 
       return { data: response.data.data, status }
-    } catch (error) {
+    } catch (error: any) {
       return this.handleErrors(error)
     }
   }
