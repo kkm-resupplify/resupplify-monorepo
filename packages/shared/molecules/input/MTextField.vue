@@ -147,7 +147,7 @@ const { generateClassNames } = useClassComposable()
 
 // Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.size, props.variant])
+  return generateClassNames(baseClass, [props.size])
 })
 
 const borderColor = computed(() => {
