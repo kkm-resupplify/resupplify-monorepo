@@ -122,6 +122,11 @@
             "description": "Oto ostatni krok w procesie wypełniania formularza rejestracyjnego. Po zatwierdzeniu formularza, firma oczekuje na weryfikację. Jednakże, zachęcamy użytkownika do zwiedzenia portalu i zapoznania się z dostępnymi opcjami, podczas gdy czekamy na zakończenie procesu weryfikacji. Nasza platforma oferuje wiele interesujących możliwości do odkrycia, więc prosimy, aby użytkownik korzystał z tych zasobów w międzyczasie."
           }
         }
+      },
+
+      "notification": {
+        "registerCompanySuccessTitle": "Wniosek o rejestrację firmy został wysłany pomyślnie",
+        "registerCompanySuccessText": "Twoja firma oczekuje na weryfikację."
       }
     },
 

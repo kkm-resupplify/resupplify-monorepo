@@ -123,12 +123,12 @@
           "externalWebsitePlaceholder": "Enter company website",
           "phoneNumberLabel": "Phone Number",
           "phoneNumberPlaceholder": "Enter company phone number"
-        },
-
-        "notification": {
-          "registerCompanySuccessTitle": "Company registered successfully",
-          "registerCompanySuccessText": "Your company awaits verification now."
         }
+      },
+
+      "notification": {
+        "registerCompanySuccessTitle": "Company registered form submitted successfully",
+        "registerCompanySuccessText": "Your company awaits verification now."
       }
     },
 
