@@ -17,7 +17,7 @@
 import { computed } from 'vue'
 import { i18n } from '@/translation/index'
 
-const props = defineProps({
+defineProps({
   name: { type: String, required: true },
   label: String,
   placeholder: { type: String, required: true },

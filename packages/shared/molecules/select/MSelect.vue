@@ -4,7 +4,6 @@
 
     <div class="m-select__input-group" @click="handleInputClick">
       <a-icon
-        v-if="showPreppendIcon"
         class="m-select__input-prepend"
         :icon="prependIcon"
         size="large"
@@ -19,7 +18,7 @@
         class="m-select__input"
         type="text"
         :placeholder="placeholder"
-        :autocomplete="autocomplete"
+        autocomplete="off"
         :rules="rules"
         :disabled="disabled"
         v-on="validationListeners"
@@ -27,19 +26,13 @@
         @keydown="handleKeydown"
       />
 
-      <a-icon
-        v-if="showAppendIcon"
-        class="m-select__input-append"
-        :icon="appendIcon"
-        size="large"
-        @click="handleAppendIconClick"
-      />
+      <a-icon class="m-select__input-append" :icon="appendIcon" size="large" />
     </div>
 
     <a-input-error-list :errors="errors" />
 
-    <div v-if="showOptions" ref="optionsFilterRef" class="m-select__content">
-      <input v-model="optionsFilter" class="m-select__input" />
+    <div v-if="showOptions" class="m-select__content">
+      <input ref="optionsFilterRef" v-model="optionsFilter" class="m-select__option-filter-input" />
 
       <m-select-item
         v-for="(option, idx) in filteredOptions"
@@ -84,10 +77,6 @@ const props = defineProps({
   rules: String,
   validate: { type: Boolean, default: true },
   initialValue: { type: String, default: null },
-  appendIconOn: String,
-  appendIconOff: String,
-  prependIconOn: String,
-  prependIconOff: String,
   width: { type: String, default: '100%' },
   preventInput: Boolean,
   autocomplete: String,
@@ -117,9 +106,6 @@ const props = defineProps({
   }
 })
 
-// Emits
-const emits = defineEmits(['input-change'])
-
 // Variables
 const baseClass = 'm-select'
 const optionsFilter = ref<any>('')
@@ -145,10 +131,6 @@ const filteredOptions = computed(() => {
   )
 })
 
-const appendIcon = computed(() => {
-  return showOptions.value ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
-})
-
 const handleSelectOption = (option: MSelectItemData) => {
   optionsFilter.value = ''
 
@@ -156,6 +138,7 @@ const handleSelectOption = (option: MSelectItemData) => {
   inputValue.value = selectedOption.value.id
 
   showOptions.value = false
+  appendIconState.value = !appendIconState.value
   validate()
 }
 
@@ -182,9 +165,9 @@ const {
 })
 
 const inputHeight = computed(() => {
-  const height = inputRef.value ? inputRef.value.offsetHeight : 42
+  const height = inputRef.value ? inputRef.value.clientHeight : 42
 
-  return `${height}px`
+  return `${1.5 * height}px`
 })
 
 const borderColor = computed(() => {
@@ -216,18 +199,12 @@ const validationListeners = computed(() => {
   }
 })
 
-const showPreppendIcon = computed(() => {
-  return !!props.prependIconOn || !!props.prependIconOff
+const appendIcon = computed(() => {
+  return appendIconState.value ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
 })
 
 const prependIcon = computed(() => {
-  if (!props.prependIconOff) return props.prependIconOn
-
-  return prependIconState.value ? props.prependIconOn : props.prependIconOff
-})
-
-const showAppendIcon = computed(() => {
-  return !!props.appendIconOn || !!props.appendIconOff
+  return 'close'
 })
 
 // Methods
@@ -254,22 +231,22 @@ const clickOutsideEvent = (event: any) => {
 
 const handleInputClick = () => {
   showOptions.value = !showOptions.value
+  appendIconState.value = !appendIconState.value
 }
 
 const clearSelect = () => {
   selectedOption.value = null
   optionsFilter.value = ''
+  inputValue.value = null
 }
 
 const closeSelect = () => {
   showOptions.value = false
-}
-
-const handleAppendIconClick = () => {
   appendIconState.value = !appendIconState.value
 }
 
 const handlePrependIconClick = (event: Event) => {
+  clearSelect()
   event.stopPropagation()
   prependIconState.value = !prependIconState.value
 }
@@ -298,7 +275,7 @@ const handleKeydown = (event: KeyboardEvent) => {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: v-bind(width);
 
   &--medium {
     #{$self}__label {
@@ -376,6 +353,15 @@ const handleKeydown = (event: KeyboardEvent) => {
     line-height: 1;
     color: var(--font-primary);
     caret-color: transparent;
+  }
+
+  &__option-filter-input {
+    @include input-gradient(var(--info-gradient));
+    @include border(0.25em, 24px);
+    @include size($global-spacing-20 $global-spacing-30, 12px);
+
+    align-self: center;
+    width: 80%;
   }
 
   &__content {
