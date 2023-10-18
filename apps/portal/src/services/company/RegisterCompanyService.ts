@@ -9,7 +9,7 @@ class RegisterCompanyFormDataDTO {
   description: string
   address: string
   tin: string
-  logo: File | null
+  logo: File | null | String
   phoneNumber: string
   email: string
   contactPerson: string
