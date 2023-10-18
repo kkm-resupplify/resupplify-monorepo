@@ -31,13 +31,12 @@ import LoginBoxFormSection from './components/sections/LoginBoxFormSection.vue'
 
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
     align-items: center;
     align-self: center;
     justify-content: space-between;
 
-    max-width: 952px;
-    min-height: 644px;
+    min-width: 800px;
+    min-height: 600px;
 
     border-radius: $global-border-radius-10;
   }
