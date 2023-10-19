@@ -41,7 +41,8 @@ class RegisterCompanyService extends BaseService {
         contactInfoStepData
       }),
       notificationTitle: 'company.register.notification.registerCompanySuccessTitle',
-      notificationText: 'company.register.registerCompanySuccessText'
+      notificationText: 'company.register.notification.registerCompanySuccessText',
+      notificationDuration: 7000
     })
 
     const { data } = response
