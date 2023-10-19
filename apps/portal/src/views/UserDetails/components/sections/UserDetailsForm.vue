@@ -77,15 +77,14 @@ interface UserDetailsFormData {
 //Variables
 const { t } = useI18n()
 const genderOptions = reactive([
-  t('userDetails.gender.male'),
-  t('userDetails.gender.female'),
-  t('userDetails.gender.preferNot')
+  { text: t('userDetails.gender.male') },
+  { text: t('userDetails.gender.female') },
+  { text: t('userDetails.gender.preferNot') }
 ])
 
 //Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  const response = await UserDetailsService.saveUserDetails(formData)
-  console.log(response)
+  await UserDetailsService.saveUserDetails(formData)
 }
 </script>
 <style scoped lang="scss">
