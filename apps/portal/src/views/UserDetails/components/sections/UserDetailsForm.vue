@@ -2,6 +2,7 @@
   <div class="user-details-form">
     <o-form class="user-details-form__form" :submit-callback="handleFormSubmit">
       <template #body>
+        <h1>Enter your user details</h1>
         <m-text-field
           name="firstName"
           input-type="text"
@@ -88,17 +89,27 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
 }
 </script>
 <style scoped lang="scss">
+@mixin boxshadow-primary-2 {
+  box-shadow: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
+    #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
+}
 .user-details-form {
   @include respond-to('md-and-up') {
     flex: 1 0 0;
     align-self: stretch;
   }
+  @include boxshadow-primary-2;
 
   display: flex;
   flex-direction: column;
   gap: $global-spacing-100;
-  align-items: center;
   justify-content: center;
+  padding: $global-spacing-80;
+
+  width: 452px;
+  margin-inline: auto;
+
+  border-radius: $global-border-radius-10;
 
   &__select {
     width: 100%;
