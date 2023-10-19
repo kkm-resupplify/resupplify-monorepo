@@ -2,7 +2,7 @@
   <div class="user-details-form">
     <o-form class="user-details-form__form" :submit-callback="handleFormSubmit">
       <template #body>
-        <h1>Enter your user details</h1>
+        <h1 v-text="$t('auth.userDetails.enterUserDetailsTitle')" />
         <m-text-field
           name="firstName"
           input-type="text"
@@ -44,9 +44,9 @@
 
         <m-select
           name="sex"
-          :label="$t('userDetails.sex')"
+          :label="$t('auth.userDetails.sex')"
           :options="genderOptions"
-          :placeholder="$t('userDetails.placeholder')"
+          :placeholder="$t('auth.userDetails.genderPlaceholder')"
           rules="required"
           class="user-details-form__select"
         />
@@ -78,9 +78,9 @@ interface UserDetailsFormData {
 //Variables
 const { t } = useI18n()
 const genderOptions = reactive([
-  { text: t('userDetails.gender.male') },
-  { text: t('userDetails.gender.female') },
-  { text: t('userDetails.gender.preferNot') }
+  { text: t('auth.userDetails.gender.male') },
+  { text: t('auth.userDetails.gender.female') },
+  { text: t('auth.userDetails.gender.preferNot') }
 ])
 
 //Methods
@@ -93,6 +93,7 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
   box-shadow: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
     #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
 }
+
 .user-details-form {
   @include respond-to('md-and-up') {
     flex: 1 0 0;
@@ -104,10 +105,10 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
   flex-direction: column;
   gap: $global-spacing-100;
   justify-content: center;
-  padding: $global-spacing-80;
 
   width: 452px;
   margin-inline: auto;
+  padding: $global-spacing-80;
 
   border-radius: $global-border-radius-10;
 

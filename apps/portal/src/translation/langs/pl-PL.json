@@ -60,10 +60,18 @@
       "phoneNumber": "Numer telefonu",
       "birthDate": "Data urodzenia",
       "sex": "Płeć",
+      "gender": {
+        "male": "Mężczyzna",
+        "female": "Kobieta",
+        "preferNot": "Wolę nie mówić"
+      },
 
       "firstNamePlaceholder": "Podaj swoje imię",
       "lastNamePlaceholder": "Podaj swoje nazwisko",
-      "phoneNumberPlaceholder": "Podaj swój numer telefonu"
+      "phoneNumberPlaceholder": "Podaj swój numer telefonu",
+      "genderPlaceholder": "Wybierz płeć",
+
+      "enterUserDetailsTitle": "Wprowadź swoje dane osobowe"
     }
   },
 
@@ -89,15 +97,5 @@
     "expandYourClientBase": "Poszerz swoją bazę klientów",
     "diversifyAndGrowClientele": "Dywersyfikuj i rozwijaj klientelę",
     "increaseYourMarketShare": "Zwiększ swój udział w rynku"
-  },
-
-  "userDetails": {
-    "sex": "Płeć",
-    "gender": {
-      "male": "Mężczyzna",
-      "female": "Kobieta",
-      "preferNot": "Wolę nie mówić"
-    },
-    "placeholder": "Wybierz płeć"
   }
 }

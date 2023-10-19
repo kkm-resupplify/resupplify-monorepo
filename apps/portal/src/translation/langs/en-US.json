@@ -55,15 +55,23 @@
     },
 
     "userDetails": {
-      "firstName": "First Name",
-      "lastName": "Second Name",
-      "phoneNumber": "Phone Number",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "phoneNumber": "Phone number",
       "birthDate": "Birth Date",
       "sex": "Sex",
-      
+      "gender": {
+        "male": "Male",
+        "female": "Female",
+        "preferNot": "Prefer not to say"
+      },
+
       "firstNamePlaceholder": "Enter your first name",
       "lastNamePlaceholder": "Enter your last name",
-      "phoneNumberPlaceholder": "Enter your phone number"
+      "phoneNumberPlaceholder": "Enter your phone number",
+      "genderPlaceholder": "Select your gender",
+
+      "enterUserDetailsTitle": "Enter your personal details"
     }
   },
 
@@ -89,15 +97,5 @@
     "expandYourClientBase": "Expand your client base",
     "diversifyAndGrowClientele": "Diversify and grow clientele",
     "increaseYourMarketShare": "Increase your market share"
-  },
-
-  "userDetails": {
-    "sex": "Sex",
-    "gender": {
-      "male": "Male",
-      "female": "Female",
-      "preferNot": "Prefer not to say"
-    },
-    "placeholder": "Select your gender"
   }
 }
