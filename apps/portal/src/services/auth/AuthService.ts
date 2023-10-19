@@ -20,6 +20,8 @@ class AuthService extends BaseService {
       notificationDuration: 10000
     })
 
+    console.log(response)
+    if (!response.success) return response
     const { data } = response
     const { token, user } = data
 
@@ -40,6 +42,7 @@ class AuthService extends BaseService {
     if (!response.success) return response
 
     const { data } = response
+
     const { token, user } = data
     const userStore = useUserStore()
     userStore.setUser({ email: user.email, token })

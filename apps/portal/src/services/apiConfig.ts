@@ -21,6 +21,7 @@ const requestInterceptorConfig = (req: AxiosRequestConfig<any>) => {
   return req
 }
 
+//@ts-ignore
 const rejectedResponseInterceptorConfig = async ({ response }: AxiosResponse) => {
   const { data } = response
 
@@ -29,9 +30,20 @@ const rejectedResponseInterceptorConfig = async ({ response }: AxiosResponse) =>
   throw data
 }
 
+const responseOnFulfilledServiceInterceptor = async (response: AxiosResponse) => {
+  const { data } = response
+
+  if (data === '') return { success: true, data: [] }
+
+  return data
+}
+
 export const axiosInstance = axios.create(axiosConfig)
 axiosInstance.interceptors.request.use(requestInterceptorConfig)
-axiosInstance.interceptors.response.use(({ data }) => data, rejectedResponseInterceptorConfig)
+axiosInstance.interceptors.response.use(
+  responseOnFulfilledServiceInterceptor,
+  rejectedResponseInterceptorConfig
+)
 
 // Utility functions
 function getBaseUrl() {
