@@ -8,7 +8,7 @@ interface UserStoreDetailsData {
   sex: string
 }
 
-export const useUserStoreDetails = defineStore({
+export const useUserDetailsStore = defineStore({
   id: 'userStore',
 
   state: (): UserStoreDetailsData => ({

@@ -10,7 +10,7 @@
       />
       <div>a</div>
       <div>b</div>
-      <div>c</div>
+      <div>c</div> 
     </template>
   </basic-view-layout>
 </template>

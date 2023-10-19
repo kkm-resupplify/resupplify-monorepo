@@ -1,6 +1,6 @@
 <template>
   <div class="user-details-form">
-    <o-form class="user-details-form__form" @submit="handleFormSubmit">
+    <o-form class="user-details-form__form" :submit-callback="handleFormSubmit">
       <template #body>
         <m-text-field
           name="firstName"
@@ -84,7 +84,8 @@ const genderOptions = reactive([
 
 //Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  await UserDetailsService.saveUserDetails(formData)
+  const response = await UserDetailsService.saveUserDetails(formData)
+  console.log(response)
 }
 </script>
 <style scoped lang="scss">
@@ -113,8 +114,8 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
   }
 
   &__button {
-    width: min-content;
     align-self: center;
+    width: min-content;
     margin-top: $global-spacing-50;
   }
 }

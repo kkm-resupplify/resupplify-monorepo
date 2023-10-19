@@ -64,7 +64,7 @@ const handleFormSubmit = async (formData: LoginFormData) => {
   const response = await AuthService.login(formData)
   const { status } = response
 
-  if (status == 200) router.push('/')
+  if (status == 200) router.push('/user-details')
 }
 </script>
 
