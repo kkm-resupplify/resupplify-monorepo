@@ -52,7 +52,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { RegisterCompanyDetailsStep } from '@interfaces/company/registerCompany'
+import type { RegisterCompanyDetailsStep } from '@interfaces/company/RegisterCompanyInterface'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
 // Emits
@@ -122,3 +122,4 @@ const companyCategoryList = computed(() => {
   }
 }
 </style>
+@/interfaces/company/RegisterCompanyInterfaceInterface

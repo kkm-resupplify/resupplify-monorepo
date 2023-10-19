@@ -56,7 +56,7 @@
 <script setup lang="ts">
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
-import type { RegisterCompanyContactInfoStep } from '@interfaces/company/registerCompany'
+import type { RegisterCompanyContactInfoStep } from '@interfaces/company/RegisterCompanyInterface'
 
 // Emits
 const emits = defineEmits(['next-step', 'previous-step'])
@@ -98,3 +98,4 @@ const handlePreviousStep = () => {
   }
 }
 </style>
+@/interfaces/company/RegisterCompanyInterfaceInterface

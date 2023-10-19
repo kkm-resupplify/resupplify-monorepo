@@ -3,7 +3,7 @@ import type {
   RegisterCompanyGeneralStep,
   RegisterCompanyDetailsStep,
   RegisterCompanyContactInfoStep
-} from '@interfaces/company/registerCompany'
+} from '@/interfaces/company/RegisterCompanyInterface'
 
 interface RegisterCompanyState {
   generalStepData: RegisterCompanyGeneralStep
