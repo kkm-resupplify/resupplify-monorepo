@@ -1,9 +1,9 @@
 import type { RouteRecordRaw } from 'vue-router'
 
-import UserSetingsRoutes from './settings/UserSettingsRoutes'
+import UserProfileView from '@/views/User/Profile/UserProfileView.vue'
 
 const UserRoutes: RouteRecordRaw[] = [
-  { path: '/user', name: 'user', children: [...UserSetingsRoutes] }
+  { path: '/user/profile/:id', name: 'user', component: UserProfileView }
 ]
 
 export default UserRoutes

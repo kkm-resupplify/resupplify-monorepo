@@ -1,5 +1,5 @@
 <template>
-  <div>User settings view</div>
+  <div>{{ $route.params.slug }}</div>
 </template>
 
 <script setup lang="ts"></script>
