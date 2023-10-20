@@ -1,11 +1,13 @@
 import BaseService from '../BaseService'
 import { useUserStore } from '@/stores/user/useUserStore'
+import router, { RouteNames } from '@/routes/index'
 
 interface AuthRequest {
   email: string
   password: string
   passwordConfirmation?: string
 }
+
 class AuthService extends BaseService {
   static REGISTER_SUFFIX = 'register'
   static LOGIN_SUFFIX = 'login'
@@ -26,6 +28,8 @@ class AuthService extends BaseService {
 
       const userStore = useUserStore()
       userStore.setUser({ email: user.email, token })
+
+      router.push({ name: RouteNames.HOME })
     }
 
     return response
@@ -41,10 +45,12 @@ class AuthService extends BaseService {
 
     if (response.success) {
       const { data } = response
-
       const { token, user } = data
+
       const userStore = useUserStore()
       userStore.setUser({ email: user.email, token })
+
+      router.push({ name: RouteNames.HOME })
     }
 
     return response

@@ -1,7 +1,11 @@
+import HomeView from '@/views/Home/HomeView.vue'
+import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 
-import HomeView from '@/views/Home/HomeView.vue'
+class HomeRouteEnum extends BaseEnum {
+  static readonly HOME: string = 'HOME'
+}
 
-const HomeRoutes: RouteRecordRaw[] = [{ path: '/', component: HomeView }]
+const Routes: RouteRecordRaw[] = [{ path: '/', name: HomeRouteEnum.HOME, component: HomeView }]
 
-export default HomeRoutes
+export default Routes

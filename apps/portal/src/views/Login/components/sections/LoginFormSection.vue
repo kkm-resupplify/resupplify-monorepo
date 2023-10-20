@@ -38,7 +38,6 @@
 <script setup lang="ts">
 import AuthService from '@/services/auth/AuthService'
 import LoginFormSectionFooter from '../items/LoginFormSectionFooter.vue'
-import { useRouter } from 'vue-router'
 
 // Interfaces
 interface LoginFormData {
@@ -47,16 +46,9 @@ interface LoginFormData {
   passwordConfirmation: string
 }
 
-// Variables
-const router = useRouter()
-
 // Methods
 const handleFormSubmit = async (formData: LoginFormData) => {
-  const response = await AuthService.login(formData)
-
-  const { httpCode } = response
-
-  if (httpCode == 200) router.push('/')
+  await AuthService.login(formData)
 }
 </script>
 
