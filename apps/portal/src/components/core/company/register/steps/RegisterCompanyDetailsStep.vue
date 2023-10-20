@@ -122,4 +122,3 @@ const companyCategoryList = computed(() => {
   }
 }
 </style>
-@/interfaces/company/RegisterCompanyInterfaceInterface

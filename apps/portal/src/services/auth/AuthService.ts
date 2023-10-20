@@ -20,13 +20,13 @@ class AuthService extends BaseService {
       notificationDuration: 10000
     })
 
-    console.log(response)
-    if (!response.success) return response
-    const { data } = response
-    const { token, user } = data
+    if (response.success) {
+      const { data } = response
+      const { token, user } = data
 
-    const userStore = useUserStore()
-    userStore.setUser({ email: user.email, token })
+      const userStore = useUserStore()
+      userStore.setUser({ email: user.email, token })
+    }
 
     return response
   }
@@ -39,13 +39,13 @@ class AuthService extends BaseService {
       notificationText: 'auth.notification.loginSuccessText'
     })
 
-    if (!response.success) return response
+    if (response.success) {
+      const { data } = response
 
-    const { data } = response
-
-    const { token, user } = data
-    const userStore = useUserStore()
-    userStore.setUser({ email: user.email, token })
+      const { token, user } = data
+      const userStore = useUserStore()
+      userStore.setUser({ email: user.email, token })
+    }
 
     return response
   }
