@@ -29,7 +29,7 @@ class AuthService extends BaseService {
       const userStore = useUserStore()
       userStore.setUser({ email: user.email, token })
 
-      router.push({ name: RouteNames.HOME })
+      await router.push({ name: RouteNames.SETTINGS })
     }
 
     return response
