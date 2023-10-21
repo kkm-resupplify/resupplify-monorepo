@@ -19,7 +19,7 @@ class AuthService extends BaseService {
       suffix: AuthService.REGISTER_SUFFIX,
       notificationTitle: 'auth.notification.registerSuccessTitle',
       notificationText: 'auth.notification.registerSuccessText',
-      notificationDuration: 10000
+      notificationDuration: 7000
     })
 
     if (response.success) {

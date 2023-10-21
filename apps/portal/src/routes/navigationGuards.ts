@@ -1,18 +1,21 @@
 import { useUserStore } from '@/stores/user/useUserStore'
-import type { RouteRecordRaw } from 'vue-router'
+import { RouteNames } from '@/routes/index'
 
-interface NavigationGuard {
-  guard(): void | RouteRecordRaw | boolean
+interface Route {
+  name: string
 }
 
-class MustHaveUserDetailsNavigationGuard implements NavigationGuard {
-  guard(): boolean {
+abstract class NavigationGuard {
+  static guard(): void | Route | boolean {}
+}
+
+export class MustHaveUserDetailsNavigationGuard extends NavigationGuard {
+  static guard(): Route | void {
     const userStore = useUserStore()
-    if (!userStore.isLoggedIn) {
-      return false
+    if (!userStore.getUserDetails) {
+      return { name: RouteNames.SETTINGS }
     }
-    return false
   }
 }
 
-class MustBeAuthenticated {}
+export class MustBeAuthenticated {}

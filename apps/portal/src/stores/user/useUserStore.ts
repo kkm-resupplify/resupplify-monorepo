@@ -25,10 +25,11 @@ export const useUserStore = defineStore({
   }),
 
   getters: {
+    getUserData: (state) => state,
     getEmail: (state) => state.email,
     getToken: (state) => state.token,
     getLanguage: (state) => state.language,
-    getUserData: (state) => state
+    getUserDetails: (state) => state.details
   },
 
   actions: {

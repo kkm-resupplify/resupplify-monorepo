@@ -23,10 +23,6 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from) => {
-  
-})
-
 const getRouteNames = (routes: RouteRecordRaw[]): { [key: string]: string } => {
   const names: { [key: string]: string } = {}
 
