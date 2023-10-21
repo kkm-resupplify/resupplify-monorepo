@@ -40,7 +40,7 @@ class UserDetailsService extends BaseService {
     const { data } = response
 
     const userStore = useUserStore()
-    userStore.setUserDetails(data)
+    userStore.setUserDetails(data.userDetails)
 
     return response
   }

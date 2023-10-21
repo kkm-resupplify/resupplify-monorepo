@@ -4,6 +4,7 @@
       <template #tabs>
         <div v-for="(item, idx) in profileLinks" :key="idx" class="user-settings-body__tab">
           <span :class="item.imageClass" v-text="item.imageContent" />
+
           <a-link :link="item.link" :text="item.text" size="large" />
         </div>
       </template>
@@ -12,10 +13,10 @@
         <a-button :text="$t('user.settings.joinCompany')" size="x-large" />
       </template>
     </m-tabs>
+    
     <user-settings-content
       :first-name="userDetails?.first_name"
       :last-name="userDetails?.last_name"
-      :email="userDetails?.email"
       :phone-number="userDetails?.phone_number"
       :birth-date="userDetails?.birth_date"
       :sex="userDetails?.sex"

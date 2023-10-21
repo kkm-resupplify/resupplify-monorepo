@@ -1,16 +1,26 @@
 <template>
   <div class="user-settings-content">
     <div class="user-settings-content__profile">
-      <img v-if="userImg" :src="userImg" :alt="userImgAlt" class="user-settings-content__profile-image" />
+      <img
+        v-if="userImg"
+        :src="userImg"
+        :alt="userImgAlt"
+        class="user-settings-content__profile-image"
+      />
+
+      <span v-else class="material-symbols-outlined"> account_circle </span>
 
       <div v-if="firstName && lastName" class="user-settings-content__profile-name">
         <h2>{{ firstName }} {{ lastName }}</h2>
       </div>
     </div>
+    
     <div class="user-settings-content__data">
-      <a-title v-if="email" :header="$t('user.details.email')" :sub-header="email" />
-
-      <a-title v-if="phoneNumber" :header="$t('user.details.phoneNumber')" :sub-header="phoneNumber" />
+      <a-title
+        v-if="phoneNumber"
+        :header="$t('user.details.phoneNumber')"
+        :sub-header="phoneNumber"
+      />
 
       <a-title v-if="birthDate" :header="$t('user.details.birthDate')" :sub-header="birthDate" />
 
