@@ -1,7 +1,7 @@
 import App from './App.vue'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { router } from './routes/index'
+import router from './routes/index'
 import { i18n } from './translation/index'
 import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
 import { useUserStore } from '@/stores/user/useUserStore'
@@ -30,3 +30,5 @@ userStore.initializeLocale()
 
 app.use(registerGlobalComponentsPlugin)
 app.mount('#app')
+
+// export default router

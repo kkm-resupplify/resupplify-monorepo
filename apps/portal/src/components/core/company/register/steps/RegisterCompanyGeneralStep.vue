@@ -20,7 +20,6 @@
               required
               :label="$t('company.register.form.general.companyCountryLabel')"
               :placeholder="$t('company.register.form.general.companyCountryPlaceholder')"
-              :initial-value="registerCompanyStore.generalStepData.countryId"
             />
 
             <m-text-area
@@ -54,7 +53,7 @@
 
 <script setup lang="ts">
 import CountrySelect from '@/components/common/select/CountrySelect.vue'
-import type { RegisterCompanyGeneralStep } from '@interfaces/company/registerCompany'
+import type { RegisterCompanyGeneralStep } from '@interfaces/company/RegisterCompanyInterface'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
 // Emits

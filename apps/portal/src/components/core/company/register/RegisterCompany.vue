@@ -72,7 +72,8 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 .register-company {
   display: flex;
-  max-width: 800px;
-  min-height: 600px;
+  min-width: 1000px;
+  max-width: 1000px;
+  min-height: 700px;
 }
 </style>

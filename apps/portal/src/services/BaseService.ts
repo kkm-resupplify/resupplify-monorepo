@@ -17,6 +17,7 @@ interface RequestConfig {
   prefix?: string
   notificationTitle?: string
   notificationText?: string
+  notificationDuration?: number
 }
 
 const { t } = i18n.global
@@ -33,15 +34,15 @@ export default class BaseService {
   }
 
   handleErrors(error: any) {
-    if (!error.response) return { success: false }
+    if (!error.httpCode) return { success: false }
 
-    const httpCode: number = error.response.status
+    const httpCode: number = error.httpCode
 
     const key = `handleErrorCode${httpCode}` as keyof typeof HttpErrorHandler
 
-    HttpErrorHandler[key](error)
+    HttpErrorHandler[key](error.error)
 
-    return { ...error, success: true }
+    return { ...error }
   }
 
   getEndpoint({ id, prefix, suffix }: Endpoint = {}) {
@@ -60,7 +61,8 @@ export default class BaseService {
     suffix = '',
     prefix = '',
     notificationTitle = '',
-    notificationText = ''
+    notificationText = '',
+    notificationDuration
   }: RequestConfig): Promise<any> {
     try {
       const response = await axiosInstance.get(this.getEndpoint({ id, suffix, prefix }), config)
@@ -70,12 +72,12 @@ export default class BaseService {
       if (notificationTitle || notificationText) {
         generalNotification.sendSuccessNotification({
           title: t(notificationTitle),
-          text: t(notificationText)
+          text: t(notificationText),
+          duration: notificationDuration
         })
       }
-      const { data, status } = response
 
-      return { data: data.data, status }
+      return response
     } catch (error) {
       return this.handleErrors(error)
     }
@@ -87,7 +89,8 @@ export default class BaseService {
     suffix = '',
     prefix = '',
     notificationTitle = '',
-    notificationText = ''
+    notificationText = '',
+    notificationDuration
   }: RequestConfig) {
     try {
       const response = await axiosInstance.post(this.getEndpoint({ id, suffix, prefix }), data)
@@ -97,14 +100,13 @@ export default class BaseService {
       if (notificationTitle || notificationText) {
         generalNotification.sendSuccessNotification({
           title: t(notificationTitle),
-          text: t(notificationText)
+          text: t(notificationText),
+          duration: notificationDuration
         })
       }
 
-      const { status } = response
-
-      return { data: response.data.data, status }
-    } catch (error) {
+      return response
+    } catch (error: any) {
       return this.handleErrors(error)
     }
   }
@@ -115,7 +117,8 @@ export default class BaseService {
     suffix = '',
     prefix = '',
     notificationTitle = '',
-    notificationText = ''
+    notificationText = '',
+    notificationDuration
   }: RequestConfig) {
     try {
       const response = await axiosInstance.put(this.getEndpoint({ id, suffix, prefix }), data)
@@ -125,13 +128,12 @@ export default class BaseService {
       if (notificationTitle || notificationText) {
         generalNotification.sendSuccessNotification({
           title: t(notificationTitle),
-          text: t(notificationText)
+          text: t(notificationText),
+          duration: notificationDuration
         })
       }
 
-      const { status } = response
-
-      return { data: response.data.data, status }
+      return response
     } catch (error) {
       return this.handleErrors(error)
     }
@@ -143,7 +145,8 @@ export default class BaseService {
     suffix = '',
     prefix = '',
     notificationTitle = '',
-    notificationText = ''
+    notificationText = '',
+    notificationDuration
   }: RequestConfig) {
     try {
       const response = await axiosInstance.delete(this.getEndpoint({ id, suffix, prefix }), config)
@@ -153,13 +156,12 @@ export default class BaseService {
       if (notificationTitle || notificationText) {
         generalNotification.sendSuccessNotification({
           title: t(notificationTitle),
-          text: t(notificationText)
+          text: t(notificationText),
+          duration: notificationDuration
         })
       }
 
-      const { data, status } = response
-
-      return { data: data.data, status }
+      return response
     } catch (error) {
       return this.handleErrors(error)
     }

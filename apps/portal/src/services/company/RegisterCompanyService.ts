@@ -1,20 +1,20 @@
 import BaseService from '../BaseService'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
-import type { RegisterCompanyData } from '@interfaces/company/registerCompany'
+import type { RegisterCompanyData } from '@/interfaces/company/RegisterCompanyInterface'
 
 class RegisterCompanyFormDataDTO {
   name: string
-  countryId: string
+  countryId: number | null
   shortDescription: string
   description: string
   address: string
   tin: string
-  logo: File | null | String
+  logo: File | null | string
   phoneNumber: string
   email: string
   contactPerson: string
   externalWebsite: string
-  companyCategoryId: number
+  companyCategoryId: number | null
 
   constructor({ generalStepData, detailsStepData, contactInfoStepData }: RegisterCompanyData) {
     this.name = generalStepData.name
@@ -41,7 +41,8 @@ class RegisterCompanyService extends BaseService {
         contactInfoStepData
       }),
       notificationTitle: 'company.register.notification.registerCompanySuccessTitle',
-      notificationText: 'company.register.registerCompanySuccessText'
+      notificationText: 'company.register.notification.registerCompanySuccessText',
+      notificationDuration: 7000
     })
 
     const { data } = response

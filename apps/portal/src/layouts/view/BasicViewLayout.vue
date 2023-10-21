@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import NavigationBar from '@/components/navigation/NavigationBar.vue'
+import NavigationBar from '@/components/core/navigation/NavigationBar.vue'
 </script>
 
 <style scoped lang="scss">
