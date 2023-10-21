@@ -48,7 +48,7 @@
       "logoutSuccessTitle": "Logged out successfully",
       "logoutSuccessText": "See you soon.",
       "registerSuccessTitle": "Registered successfully",
-      "registerSuccessText": "We will now ask you to register a new company or join already existing one."
+      "registerSuccessText": "We will now ask you to fill in your personal information and then to register a new company or join already existing one."
     },
 
     "slogan": {
@@ -63,7 +63,7 @@
       "phoneNumber": "Phone Number",
       "birthDate": "Birth Date",
       "sex": "Sex",
-      
+
       "firstNamePlaceholder": "Enter your first name",
       "lastNamePlaceholder": "Enter your last name",
       "phoneNumberPlaceholder": "Enter your phone number"
