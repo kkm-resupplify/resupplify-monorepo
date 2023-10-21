@@ -13,7 +13,7 @@ class UserDetailsDTO {
     this.firstName = firstName
     this.lastName = lastName
     this.phoneNumber = phoneNumber
-    this.birthDate = DateTime.fromISO(`${birthDate}T13:07:04.054`).toFormat('MM-dd-yyyy')
+    this.birthDate = DateTime.fromISO(`${birthDate}`).toFormat('MM-dd-yyyy')
     this.sex = sex
   }
 }
@@ -27,14 +27,12 @@ interface UserDetails {
 }
 
 class UserDetailsService extends BaseService {
-  static EDIT_USER_DETAILS_SUFFIX = 'user/userDetails'
-
   async saveUserDetails(userDetailsData: UserDetails) {
     const userDetails = new UserDetailsDTO(userDetailsData)
 
     const response = await this.post({
       data: userDetails,
-      suffix: UserDetailsService.EDIT_USER_DETAILS_SUFFIX,
+      suffix: 'user/userDetails',
       notificationTitle: 'auth.notification.registerSuccessTitle',
       notificationText: 'auth.notification.registerSuccessText'
     })

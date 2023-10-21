@@ -4,5 +4,5 @@
 </template>
 
 <script setup lang="ts">
-import UserDetailsForm from '../UserDetails/components/sections/UserDetailsForm.vue';
+import UserDetailsForm from '@/components/core/user/details/UserDetailsForm.vue'
 </script>
