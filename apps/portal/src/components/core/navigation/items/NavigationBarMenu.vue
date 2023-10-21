@@ -3,13 +3,13 @@
     <template #activator>
       <div class="navigation-bar-menu__header">
         <div class="navigation-bar-menu__user-data">
-          <span v-text="fullName" />
+          <span class="navigation-bar-menu__fullname" v-text="fullName" />
 
-          <span v-text="userStore.email" />
+          <span class="navigation-bar-menu__email" v-text="userStore.email" />
         </div>
 
         <div class="navigation-bar-menu__user-avatar">
-          <div class="img" />
+          <a-icon icon="account_circle" size="xx-large" />
         </div>
       </div>
     </template>
@@ -26,6 +26,7 @@
 import { computed } from 'vue'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { useFullNameComposable } from '@sharedComposables/user/useUserDataComposable'
+
 // Variables
 const userStore = useUserStore()
 const { userFullName } = useFullNameComposable()
@@ -40,11 +41,26 @@ const fullName = computed(() => {
 .navigation-bar-menu {
   &__header {
     display: flex;
+    align-items: center;
+    gap: $global-spacing-20;
   }
 
   &__user-data {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__fullname {
+    font-size: $global-text-medium-font-size;
+  }
+
+  &__email {
+    font-size: $global-text-normal-font-size;
+  }
+
+  &__user-avatar {
+    display: flex;
   }
 }
 </style>
