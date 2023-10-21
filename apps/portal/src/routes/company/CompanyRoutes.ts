@@ -14,9 +14,7 @@ const CompanyRoutes: RouteRecordRaw[] = [
     name: CompanyRouteEnum.COMPANY,
     children: [...CompanyDashboardRoutes, ...CompanyProfileRoutes],
     beforeEnter: () => {
-      const noUserDetails = MustHaveUserDetailsNavigationGuard.guard()
-
-      if (noUserDetails) return noUserDetails
+      return MustHaveUserDetailsNavigationGuard.guard()
     }
   }
 ]

@@ -29,14 +29,11 @@ export const useUserStore = defineStore({
     getEmail: (state) => state.email,
     getToken: (state) => state.token,
     getLanguage: (state) => state.language,
-    getUserDetails: (state) => state.details
+    getUserDetails: (state) => state.details,
+    isAuthenticated: (state) => !!state.token
   },
 
   actions: {
-    isLoggedIn() {
-      return !!this.token
-    },
-
     setUserData(userData: UserData, token: string) {
       this.email = userData.email
       this.token = token
