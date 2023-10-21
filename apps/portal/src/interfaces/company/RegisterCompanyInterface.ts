@@ -1,15 +1,15 @@
 export interface RegisterCompanyGeneralStep {
   name: string
-  countryId: string
+  countryId: number | null
   shortDescription: string
   description: string
 }
 
 export interface RegisterCompanyDetailsStep {
   address: string
-  companyCategoryId: number
+  companyCategoryId: number | null
   tin: string
-  logo: File | null | String
+  logo: File | null | string
 }
 
 export interface RegisterCompanyContactInfoStep {

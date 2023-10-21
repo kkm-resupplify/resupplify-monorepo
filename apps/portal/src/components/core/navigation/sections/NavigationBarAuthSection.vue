@@ -1,12 +1,14 @@
 <template>
   <div class="navigation-bar-auth-section">
-    <router-link
-      v-for="buttonLinkItem in buttonLinkList"
-      :key="buttonLinkItem.link"
-      :to="buttonLinkItem.link"
-    >
-      <a-button :text="buttonLinkItem.text" :outlined="buttonLinkItem.outlined" size="x-large" />
-    </router-link>
+    <template v-if="!userStore.isAuthenticated">
+      <router-link
+        v-for="buttonLinkItem in buttonLinkList"
+        :key="buttonLinkItem.link"
+        :to="buttonLinkItem.link"
+      >
+        <a-button :text="buttonLinkItem.text" :outlined="buttonLinkItem.outlined" size="x-large" />
+      </router-link>
+    </template>
 
     <a-button text="Change theme" @click="toggleUserTheme" />
 
@@ -25,6 +27,7 @@ const { t } = useI18n()
 const userThemeStore = useUserThemeStore()
 const userStore = useUserStore()
 
+// Computed
 const buttonLinkList = computed(() => [
   { link: '/login', text: t('auth.login') },
   { link: '/register', text: t('auth.signup'), outlined: true }

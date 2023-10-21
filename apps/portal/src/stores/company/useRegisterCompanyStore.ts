@@ -3,7 +3,7 @@ import type {
   RegisterCompanyGeneralStep,
   RegisterCompanyDetailsStep,
   RegisterCompanyContactInfoStep
-} from '@interfaces/company/registerCompany'
+} from '@/interfaces/company/RegisterCompanyInterface'
 
 interface RegisterCompanyState {
   generalStepData: RegisterCompanyGeneralStep
@@ -15,8 +15,8 @@ export const useRegisterCompanyStore = defineStore({
   id: 'registerCompany',
 
   state: (): RegisterCompanyState => ({
-    generalStepData: { name: '', countryId: '', shortDescription: '', description: '' },
-    detailsStepData: { address: '', companyCategoryId: 1, tin: '', logo: 'xdd' },
+    generalStepData: { name: '', countryId: null, shortDescription: '', description: '' },
+    detailsStepData: { address: '', companyCategoryId: null, tin: '', logo: 'xdd' },
     contactInfoStepData: { phoneNumber: '', email: '', contactPerson: '', externalWebsite: '' }
   }),
 

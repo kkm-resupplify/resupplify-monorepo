@@ -55,14 +55,18 @@ const handleNextStep = () => {
 
   &__header {
     display: flex;
+    flex-basis: 10%;
     flex-direction: column;
+
     max-width: 600px;
+
     font-size: $global-text-normal-font-size;
   }
 
   &__header-title {
     font-size: $global-title-large-font-size;
     font-weight: $global-title-normal-font-weight;
+    line-height: 1;
   }
 
   &__header-description {

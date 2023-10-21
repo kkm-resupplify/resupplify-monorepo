@@ -23,7 +23,7 @@
         :disabled="disabled"
         v-on="validationListeners"
         @input="handleInputChange"
-        @keydown="handleKeydown"
+        @keydown.prevent
       />
 
       <a-icon class="m-select__input-append" :icon="appendIcon" size="large" />
@@ -69,6 +69,7 @@ interface MSelectItemData {
 const props = defineProps({
   name: { type: String, required: true },
   label: String,
+  value: [String, Number],
   placeholder: { type: String, required: true },
   options: { type: Array as PropType<MSelectItemData[]>, default: () => [] },
   disabled: Boolean,
@@ -76,7 +77,6 @@ const props = defineProps({
   isLoading: Boolean,
   rules: String,
   validate: { type: Boolean, default: true },
-  initialValue: { type: String, default: null },
   width: { type: String, default: '100%' },
   preventInput: Boolean,
   autocomplete: String,
@@ -105,6 +105,9 @@ const props = defineProps({
     default: 'rounded'
   }
 })
+
+// Emits
+const emits = defineEmits(['input-change'])
 
 // Variables
 const baseClass = 'm-select'
@@ -140,6 +143,7 @@ const handleSelectOption = (option: MSelectItemData) => {
 
   showOptions.value = false
   appendIconState.value = !appendIconState.value
+
   validate()
 }
 
@@ -151,6 +155,7 @@ const inputText = computed(() => {
 
 const handleInputChange = () => {
   optionsFilter.value = inputValue.value
+  emits('input-change', inputValue.value)
 }
 
 const {
@@ -210,7 +215,17 @@ const prependIcon = computed(() => {
 
 // Methods
 onMounted(() => {
-  optionsFilter.value = props.initialValue ?? null
+  if (props.value || inputValue.value) {
+    const matchingOption = props.options.find(
+      (option) => option.id === (props.value ?? inputValue.value)
+    )
+
+    if (matchingOption) {
+      selectedOption.value = matchingOption
+      inputValue.value = matchingOption.id
+    }
+  }
+
   document.addEventListener('click', clickOutsideEvent)
 })
 
@@ -250,10 +265,6 @@ const handlePrependIconClick = (event: Event) => {
   clearSelect()
   event.stopPropagation()
   prependIconState.value = !prependIconState.value
-}
-
-const handleKeydown = (event: KeyboardEvent) => {
-  event.preventDefault()
 }
 </script>
 
@@ -342,7 +353,7 @@ const handleKeydown = (event: KeyboardEvent) => {
 
     position: absolute;
     z-index: 2;
-    left: $global-spacing-10;
+    left: $global-spacing-20;
 
     display: flex;
   }

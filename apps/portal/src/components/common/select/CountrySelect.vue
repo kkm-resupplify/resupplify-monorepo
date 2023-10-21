@@ -9,7 +9,7 @@
     :disabled="disabled"
     :validate="validate"
     :rules="validationRules"
-    :initial-value="initialValue"
+    :value="value"
   />
 </template>
 
@@ -19,14 +19,14 @@ import { i18n } from '@/translation/index'
 
 defineProps({
   name: { type: String, required: true },
+  value: [String, Number],
   label: String,
   placeholder: { type: String, required: true },
   required: Boolean,
   disabled: Boolean,
   filter: Boolean,
   isLoading: Boolean,
-  validate: { type: Boolean, default: true },
-  initialValue: { type: String, default: null }
+  validate: { type: Boolean, default: true }
 })
 
 // Computed
