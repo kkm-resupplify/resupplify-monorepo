@@ -14,7 +14,7 @@
         <h2>{{ firstName }} {{ lastName }}</h2>
       </div>
     </div>
-    
+
     <div class="user-settings-content__data">
       <a-title
         v-if="phoneNumber"
@@ -25,6 +25,14 @@
       <a-title v-if="birthDate" :header="$t('user.details.birthDate')" :sub-header="birthDate" />
 
       <a-title v-if="sex" :header="$t('user.details.sex')" :sub-header="sex" />
+
+      <a-link
+        link="/settings/profile/edit"
+        :text="$t('user.settings.edit')"
+        textColor="info"
+        size="xlarge"
+        class="user-settings-content__edit-profile"
+      />
     </div>
   </div>
 </template>
@@ -69,6 +77,12 @@ const props = defineProps({
     flex-direction: column;
     margin-top: $global-spacing-70;
     padding: $global-spacing-100;
+  }
+
+  &__edit-profile {
+    margin-top: $global-spacing-100;
+    width: min-content;
+    white-space: nowrap;
   }
 }
 </style>
