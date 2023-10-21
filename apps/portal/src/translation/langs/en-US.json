@@ -36,7 +36,6 @@
       "emailAddress": "Email address",
       "password": "Password",
       "confirmPassword": "Confirm password",
-
       "emailAddressPlaceholder": "Enter your email address",
       "passwordPlaceholder": "Enter your password",
       "confirmPasswordPlaceholder": "Confirm your password"
@@ -63,7 +62,6 @@
       "phoneNumber": "Phone Number",
       "birthDate": "Birth Date",
       "sex": "Sex",
-
       "firstNamePlaceholder": "Enter your first name",
       "lastNamePlaceholder": "Enter your last name",
       "phoneNumberPlaceholder": "Enter your phone number"
@@ -99,7 +97,7 @@
           "subtitle": "Submit & next steps",
           "description": "Submit the form to register your company.",
           "content": {
-            "description": "This is the last step in the registration form process. After submitting the form, the company awaits verification. However, we encourage the user to explore the portal and familiarize themselves with the available options while we complete the verification process. Our platform offers many exciting features to discover, so please feel free to make the most of these resources in the meantime."
+            "description": "This is the last step in the registration form process. After submitting the form, the company awaits verification. However, we encourage to explore the portal and familiarize themselves with the available options while we complete the verification process. Our platform offers many exciting features to discover, so please feel free to make the most of these resources in the meantime."
           }
         }
       },
