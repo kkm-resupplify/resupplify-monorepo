@@ -1,20 +1,20 @@
 <template>
   <div class="user-settings-content">
     <div class="user-settings-content__profile">
-      <img :src="userImg" :alt="userImgAlt" class="user-settings-content__profile-image" />
+      <img v-if="userImg" :src="userImg" :alt="userImgAlt" class="user-settings-content__profile-image" />
 
-      <div class="user-settings-content__profile-name">
+      <div v-if="firstName && lastName" class="user-settings-content__profile-name">
         <h2>{{ firstName }} {{ lastName }}</h2>
       </div>
     </div>
     <div class="user-settings-content__data">
-      <a-title :header="$t('user.details.email')" :sub-header="email" />
+      <a-title v-if="email" :header="$t('user.details.email')" :sub-header="email" />
 
-      <a-title :header="$t('user.details.phoneNumber')" :sub-header="phoneNumber" />
+      <a-title v-if="phoneNumber" :header="$t('user.details.phoneNumber')" :sub-header="phoneNumber" />
 
-      <a-title :header="$t('user.details.birthDate')" :sub-header="birthDate" />
+      <a-title v-if="birthDate" :header="$t('user.details.birthDate')" :sub-header="birthDate" />
 
-      <a-title :header="$t('user.details.sex')" :sub-header="sex" />
+      <a-title v-if="sex" :header="$t('user.details.sex')" :sub-header="sex" />
     </div>
   </div>
 </template>
