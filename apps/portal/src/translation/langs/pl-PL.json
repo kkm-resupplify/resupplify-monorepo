@@ -54,26 +54,6 @@
       "welcome": "Witaj ponownie",
       "createAccount": "Załóż swoje konto",
       "connectAndGrow": "Docieraj do nowych klientów i rozwijaj swoje możliwości"
-    },
-
-    "userDetails": {
-      "firstName": "Imię",
-      "lastName": "Nazwisko",
-      "phoneNumber": "Numer telefonu",
-      "birthDate": "Data urodzenia",
-      "sex": "Płeć",
-      "gender": {
-        "male": "Mężczyzna",
-        "female": "Kobieta",
-        "preferNot": "Wolę nie mówić"
-      },
-
-      "firstNamePlaceholder": "Podaj swoje imię",
-      "lastNamePlaceholder": "Podaj swoje nazwisko",
-      "phoneNumberPlaceholder": "Podaj swój numer telefonu",
-      "genderPlaceholder": "Wybierz płeć",
-
-      "enterUserDetailsTitle": "Wprowadź swoje dane osobowe"
     }
   },
 
@@ -173,14 +153,26 @@
     "increaseYourMarketShare": "Zwiększ swój udział w rynku"
   },
 
-  "userDetails": {
-    "sex": "Płeć",
-    "gender": {
-      "male": "Mężczyzna",
-      "female": "Kobieta",
-      "preferNot": "Wolę nie mówić"
-    },
-    "placeholder": "Wybierz płeć"
+  "user": {
+    "details": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "phoneNumber": "Numer telefonu",
+      "birthDate": "Data urodzenia",
+      "sex": "Płeć",
+      "gender": {
+        "male": "Mężczyzna",
+        "female": "Kobieta",
+        "preferNot": "Wolę nie mówić"
+      },
+
+      "firstNamePlaceholder": "Podaj swoje imię",
+      "lastNamePlaceholder": "Podaj swoje nazwisko",
+      "phoneNumberPlaceholder": "Podaj swój numer telefonu",
+      "genderPlaceholder": "Wybierz płeć",
+
+      "enterUserDetailsTitle": "Wprowadź swoje dane osobowe"
+    }
   },
 
   "country": {

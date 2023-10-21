@@ -2,12 +2,12 @@
   <div class="user-details-form">
     <o-form class="user-details-form__form" :submit-callback="handleFormSubmit">
       <template #body>
-        <h1 v-text="$t('auth.userDetails.enterUserDetailsTitle')" />
+        <h1 v-text="$t('user.details.enterUserDetailsTitle')" />
         <m-text-field
           name="firstName"
           input-type="text"
-          :label="$t('auth.userDetails.firstName')"
-          :placeholder="$t('auth.userDetails.firstNamePlaceholder')"
+          :label="$t('user.details.firstName')"
+          :placeholder="$t('user.details.firstNamePlaceholder')"
           autocomplete="given-name"
           rules="required"
           class="user-details-form__text-field"
@@ -16,8 +16,8 @@
         <m-text-field
           name="lastName"
           input-type="text"
-          :label="$t('auth.userDetails.lastName')"
-          :placeholder="$t('auth.userDetails.lastNamePlaceholder')"
+          :label="$t('user.details.lastName')"
+          :placeholder="$t('user.details.lastNamePlaceholder')"
           autocomplete="family-name"
           rules="required"
           class="user-details-form__text-field"
@@ -26,8 +26,8 @@
         <m-text-field
           name="phoneNumber"
           input-type="tel"
-          :label="$t('auth.userDetails.phoneNumber')"
-          :placeholder="$t('auth.userDetails.phoneNumberPlaceholder')"
+          :label="$t('user.details.phoneNumber')"
+          :placeholder="$t('user.details.phoneNumberPlaceholder')"
           autocomplete="tel"
           :rules="{ regex: /^(?:\+48)?[1-9]\d{8}$/ }"
           class="user-details-form__text-field"
@@ -36,7 +36,7 @@
         <m-text-field
           name="birthDate"
           input-type="date"
-          :label="$t('auth.userDetails.birthDate')"
+          :label="$t('user.details.birthDate')"
           autocomplete="bday"
           rules="required"
           class="user-details-form__text-field"
@@ -44,9 +44,9 @@
 
         <m-select
           name="sex"
-          :label="$t('auth.userDetails.sex')"
+          :label="$t('user.details.sex')"
           :options="genderOptions"
-          :placeholder="$t('auth.userDetails.genderPlaceholder')"
+          :placeholder="$t('user.details.genderPlaceholder')"
           rules="required"
           class="user-details-form__select"
         />
@@ -64,7 +64,7 @@
 <script setup lang="ts">
 import UserDetailsService from '@/services/user/UserDetailsService'
 import { useI18n } from 'vue-i18n'
-import { reactive } from 'vue'
+import { computed } from 'vue'
 
 //Interfaces
 interface UserDetailsFormData {
@@ -77,10 +77,10 @@ interface UserDetailsFormData {
 
 //Variables
 const { t } = useI18n()
-const genderOptions = reactive([
-  { text: t('auth.userDetails.gender.male') },
-  { text: t('auth.userDetails.gender.female') },
-  { text: t('auth.userDetails.gender.preferNot') }
+const genderOptions = computed(() => [
+  { id: 1, text: t('user.details.gender.male') },
+  { id: 2, text: t('user.details.gender.female') },
+  { id: 3, text: t('user.details.gender.preferNot') }
 ])
 
 //Methods
