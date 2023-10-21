@@ -353,7 +353,7 @@ const handlePrependIconClick = (event: Event) => {
 
     position: absolute;
     z-index: 2;
-    left: $global-spacing-10;
+    left: $global-spacing-20;
 
     display: flex;
   }

@@ -81,10 +81,8 @@ const showIndicatorLine = computed(() => {
 
   &__wrapper {
     cursor: pointer;
-
     display: flex;
     gap: $global-spacing-100;
-    align-items: center;
     justify-content: flex-end;
   }
 
@@ -93,6 +91,7 @@ const showIndicatorLine = computed(() => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-10;
+    justify-content: space-evenly;
 
     max-width: 140px;
 
