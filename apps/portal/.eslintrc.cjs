@@ -33,6 +33,7 @@ module.exports = {
       {
         endOfLine: 'auto'
       }
-    ]
+    ],
+    'vue/require-default-prop': 'off'
   }
 }

@@ -60,15 +60,15 @@ function onLeave(el: any, done: any) {
   gap: $global-spacing-10;
   align-items: center;
   align-self: flex-start;
-  max-width: 100%;
 
-  padding: $global-spacing-20 $global-spacing-80;
+  max-width: 100%;
 
   &__item {
     overflow: hidden;
     display: flex;
     gap: $global-spacing-10;
     align-items: center;
+    padding: $global-spacing-20 $global-spacing-80;
   }
 
   &__item-text {

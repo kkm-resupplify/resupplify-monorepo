@@ -13,8 +13,7 @@
 // Themes
 @import './themes';
 
-// Shared Mixins
-@import '../../../../packages/shared/styles/mixins/custom-scrollbar';
+// Shared Mixins are in vite.config.ts scss preporcessor
 
 * {
   font-family: Poppins, sans-serif;

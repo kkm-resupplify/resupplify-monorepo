@@ -81,10 +81,8 @@ const showIndicatorLine = computed(() => {
 
   &__wrapper {
     cursor: pointer;
-
     display: flex;
     gap: $global-spacing-100;
-    align-items: center;
     justify-content: flex-end;
   }
 
@@ -93,6 +91,7 @@ const showIndicatorLine = computed(() => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-10;
+    justify-content: space-evenly;
 
     max-width: 140px;
 
@@ -111,14 +110,16 @@ const showIndicatorLine = computed(() => {
     @include indicator-color;
 
     position: relative;
-    z-index: 22;
+    z-index: 2;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     min-width: v-bind(indicatorSize);
+    max-width: v-bind(indicatorSize);
     min-height: v-bind(indicatorSize);
+    max-height: v-bind(indicatorSize);
 
     border: 2px solid v-bind(indicatorColor);
     border-radius: 50%;

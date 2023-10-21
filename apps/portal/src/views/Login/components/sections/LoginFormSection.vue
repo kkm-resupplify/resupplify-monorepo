@@ -1,6 +1,6 @@
 <template>
-  <div class="register-right-section">
-    <v-form class="register-right-section__form" @submit="handleFormSubmit">
+  <div class="login-form-section">
+    <v-form class="login-form-section__form" @submit="handleFormSubmit">
       <m-text-field
         name="email"
         input-type="email"
@@ -17,62 +17,43 @@
         :label="$t('auth.form.password')"
         :placeholder="$t('auth.form.passwordPlaceholder')"
         autocomplete="new-password"
-        rules="required|min:8|max:32"
-        append-icon-on="visibility"
-        append-icon-off="visibility_off"
-        variant="rounded"
-      />
-
-      <m-text-field
-        name="passwordConfirmation"
-        input-type="password"
-        :label="$t('auth.form.confirmPassword')"
-        :placeholder="$t('auth.form.confirmPasswordPlaceholder')"
-        autocomplete="new-password"
-        rules="required|confirmed:@password"
+        rules="required"
         append-icon-on="visibility"
         append-icon-off="visibility_off"
         variant="rounded"
       />
 
       <a-button
-        class="register-right-section__form-submit"
-        text="Register"
+        class="login-form-section__form-submit"
         type="submit"
         size="x-large"
+        :text="$t('auth.login')"
       />
     </v-form>
 
-    <register-right-section-footer />
+    <login-form-section-footer />
   </div>
 </template>
 
 <script setup lang="ts">
-import RegisterRightSectionFooter from './items/RegisterRightSectionFooter.vue'
 import AuthService from '@/services/auth/AuthService'
-import { useRouter } from 'vue-router'
+import LoginFormSectionFooter from '../items/LoginFormSectionFooter.vue'
 
 // Interfaces
-interface RegisterFormData {
+interface LoginFormData {
   email: string
   password: string
-  passwrodConfirmation: string
+  passwordConfirmation: string
 }
 
-// Variables
-const router = useRouter()
-
 // Methods
-const handleFormSubmit = async (formData: RegisterFormData) => {
-  const response = await AuthService.register(formData)
-  const { status } = response
-
-  if (status == 200) router.push('/')
+const handleFormSubmit = async (formData: LoginFormData) => {
+  await AuthService.login(formData)
 }
 </script>
 
-<style lang="scss" scoped>
-.register-right-section {
+<style scoped lang="scss">
+.login-form-section {
   display: flex;
   flex-direction: column;
   align-items: center;

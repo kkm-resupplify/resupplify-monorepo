@@ -6,7 +6,10 @@
     "errorOccured": "An error occured",
     "submit": "Submit",
     "save": "Save",
-    "noResults": "No results"
+    "noResults": "No results",
+    "next": "Next",
+    "back": "Back",
+    "imagePreview": "Image preview"
   },
 
   "payments": {
@@ -34,7 +37,6 @@
       "emailAddress": "Email address",
       "password": "Password",
       "confirmPassword": "Confirm password",
-
       "emailAddressPlaceholder": "Enter your email address",
       "passwordPlaceholder": "Enter your password",
       "confirmPasswordPlaceholder": "Confirm your password"
@@ -46,7 +48,7 @@
       "logoutSuccessTitle": "Logged out successfully",
       "logoutSuccessText": "See you soon.",
       "registerSuccessTitle": "Registered successfully",
-      "registerSuccessText": "We will now ask you to register a new company or join already existing one."
+      "registerSuccessText": "We will now ask you to fill in your personal information and then to register a new company or join already existing one."
     },
 
     "slogan": {
@@ -62,7 +64,6 @@
       "phoneNumber": "Phone Number",
       "birthDate": "Birth Date",
       "sex": "Sex",
-
       "firstNamePlaceholder": "Enter your first name",
       "lastNamePlaceholder": "Enter your last name",
       "phoneNumberPlaceholder": "Enter your phone number"
@@ -70,6 +71,80 @@
   },
 
   "company": {
+    "register": {
+      "title": "Company registration",
+      "description": "Please provide information about your company",
+
+      "steps": {
+        "general": {
+          "title": "General",
+          "subtitle": "General information",
+          "description": "This step gathers fundamental information about the company."
+        },
+
+        "details": {
+          "title": "Details",
+          "subtitle": "Company details",
+          "description": "Company details, including Tax Identification Number (TIN), address etc."
+        },
+
+        "contactInfo": {
+          "title": "Contact",
+          "subtitle": "Contact information",
+          "description": "This step focuses on the means of contact, including the communication preferences."
+        },
+
+        "submit": {
+          "title": "Submit",
+          "subtitle": "Submit & next steps",
+          "description": "Submit the form to register your company.",
+          "content": {
+            "description": "This is the last step in the registration form process. After submitting the form, the company awaits verification. However, we encourage to explore the portal and familiarize themselves with the available options while we complete the verification process. Our platform offers many exciting features to discover, so please feel free to make the most of these resources in the meantime."
+          }
+        }
+      },
+
+      "form": {
+        "general": {
+          "companyNameLabel": "Name",
+          "companyNamePlaceholder": "Enter company name",
+          "companyCountryLabel": "Country",
+          "companyCountryPlaceholder": "Select country",
+          "companyDescriptionLabel": "Description",
+          "companyDescriptionPlaceholder": "Enter company description",
+          "companyShortDescriptionLabel": "Short description",
+          "companyShortDescriptionPlaceholder": "Enter company short description"
+        },
+
+        "details": {
+          "companyAddressLabel": "Company address",
+          "companyAddressPlaceholder": "Enter company address",
+          "companyCategoryLabel": "Company category",
+          "companyCategoryPlaceholder": "Select company category",
+          "companyLogoLabel": "Company logo",
+          "companyLogoPlaceholder": "Enter company logo",
+          "companyTinLabel": "Tax Identification Number (TIN)",
+          "companyTinPlaceholder": "Enter TIN"
+        },
+
+        "contactInfo": {
+          "contactPersonLabel": "Contact Person",
+          "contactPersonPlaceholder": "Enter contact person",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Enter company email address",
+          "externalWebsiteLabel": "Company Website",
+          "externalWebsitePlaceholder": "Enter company website",
+          "phoneNumberLabel": "Phone Number",
+          "phoneNumberPlaceholder": "Enter company phone number"
+        }
+      },
+
+      "notification": {
+        "registerCompanySuccessTitle": "Company registered form submitted successfully",
+        "registerCompanySuccessText": "Your company awaits verification now."
+      }
+    },
+
     "promotion": {
       "ourPartners": "Our partners",
       "companiesThatChoseUs": "Companies and businesses that chose us"
@@ -103,10 +178,51 @@
     "placeholder": "Select your gender"
   },
 
-  "userSettings": {
-    "profile": "Profile",
-    "preferences": "Preferences",
-    "myCompany": "My Company",
-    "joinCompany": "Join company"
+  "country": {
+    "al": "Albania",
+    "ad": "Andorra",
+    "at": "Austria",
+    "by": "Belarus",
+    "be": "Belgium",
+    "ba": "Bosnia and Herzegovina",
+    "bg": "Bulgaria",
+    "hr": "Croatia",
+    "cy": "Cyprus",
+    "cz": "Czech Republic",
+    "dk": "Denmark",
+    "ee": "Estonia",
+    "fi": "Finland",
+    "fr": "France",
+    "de": "Germany",
+    "gr": "Greece",
+    "hu": "Hungary",
+    "is": "Iceland",
+    "ie": "Ireland",
+    "it": "Italy",
+    "lv": "Latvia",
+    "li": "Liechtenstein",
+    "lt": "Lithuania",
+    "lu": "Luxembourg",
+    "mk": "Macedonia, The Former Yugoslav Republic of",
+    "mt": "Malta",
+    "md": "Moldova, Republic of",
+    "mc": "Monaco",
+    "me": "Montenegro",
+    "nl": "Netherlands",
+    "no": "Norway",
+    "pl": "Poland",
+    "pt": "Portugal",
+    "ro": "Romania",
+    "ru": "Russian Federation",
+    "sm": "San Marino",
+    "rs": "Serbia",
+    "sk": "Slovakia",
+    "si": "Slovenia",
+    "es": "Spain",
+    "se": "Sweden",
+    "ch": "Switzerland",
+    "ua": "Ukraine",
+    "gb": "United Kingdom",
+    "va": "Vatican City State"
   }
 }
