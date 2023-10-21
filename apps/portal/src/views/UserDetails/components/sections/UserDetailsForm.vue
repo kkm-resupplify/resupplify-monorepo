@@ -101,15 +101,9 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
   }
   @include boxshadow-primary-2;
 
-  display: flex;
-  flex-direction: column;
-  gap: $global-spacing-100;
-  justify-content: center;
-
   width: 452px;
   margin-inline: auto;
   padding: $global-spacing-80;
-
   border-radius: $global-border-radius-10;
 
   &__select {
@@ -118,10 +112,11 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
 
   &__form {
     display: flex;
-    flex-direction: column;
-    gap: $global-spacing-100;
     align-items: center;
-    justify-content: center;
+
+    :deep(div) {
+      gap: $global-spacing-30;
+    }
   }
 
   &__button {
