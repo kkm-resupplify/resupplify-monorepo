@@ -1,7 +1,6 @@
 import BaseService from '../BaseService'
 import { useUserStore } from '@/stores/user/useUserStore'
 import router, { RouteNames } from '@/routes/index'
-import type { UserData } from '@/interfaces/user/UserStoreDataInterface'
 
 interface AuthRequest {
   email: string
