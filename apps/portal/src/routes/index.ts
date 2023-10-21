@@ -17,7 +17,7 @@ const routes = [
   ...BrowseRoutes,
   ...UserRoutes,
   ...CompanyRoutes,
-  ...TestRoutes
+  ...TestRoutes,
 ]
 
 const router = createRouter({
