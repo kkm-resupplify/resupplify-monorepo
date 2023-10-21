@@ -159,6 +159,7 @@
     "details": {
       "firstName": "First Name",
       "lastName": "Last Name",
+      "email": "Email Address",
       "phoneNumber": "Phone Number",
       "birthDate": "Birth Date",
       "sex": "Sex",
@@ -178,7 +179,8 @@
     "settings": {
       "profile": "Profile",
       "preferences": "Preferences",
-      "myCompany": "My company"
+      "myCompany": "My company",
+      "joinCompany": "Join new company"
     }
   },
 

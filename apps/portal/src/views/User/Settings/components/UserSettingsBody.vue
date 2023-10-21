@@ -9,7 +9,7 @@
       </template>
 
       <template #button>
-        <a-button :text="$t('userSettings.joinCompany')" size="x-large" />
+        <a-button :text="$t('user.settings.joinCompany')" size="x-large" />
       </template>
     </m-tabs>
     <user-settings-content
@@ -43,19 +43,19 @@ const profileLinks: Array<profileLinksData> = computed(() => [
   {
     imageClass: 'material-symbols-outlined',
     imageContent: 'account_circle',
-    text: t('userSettings.profile'),
+    text: t('user.settings.profile'),
     link: '/settings/profile'
   },
   {
     imageClass: 'material-symbols-outlined',
     imageContent: 'settings_accessibility',
-    text: t('userSettings.preferences'),
+    text: t('user.settings.preferences'),
     link: '/settings/preferences'
   },
   {
     imageClass: 'material-symbols-outlined',
     imageContent: 'apartment',
-    text: t('userSettings.myCompany'),
+    text: t('user.settings.myCompany'),
     link: '/settings/my-company'
   }
 ])

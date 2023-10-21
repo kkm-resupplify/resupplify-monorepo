@@ -172,6 +172,7 @@
     "details": {
       "firstName": "Imię",
       "lastName": "Nazwisko",
+      "email":"Adres e-mail",
       "phoneNumber": "Numer telefonu",
       "birthDate": "Data urodzenia",
       "sex": "Płeć",
@@ -191,7 +192,8 @@
     "settings": {
       "profile": "Profil",
       "preferences": "Preferencje",
-      "myCompany": "Moja firma"
+      "myCompany": "Moja firma",
+      "joinCompany": "Dołącz do nowej firmy"
     }
   },
 
