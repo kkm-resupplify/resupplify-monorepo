@@ -4,17 +4,17 @@ import type { RegisterCompanyData } from '@/interfaces/company/RegisterCompanyIn
 
 class RegisterCompanyFormDataDTO {
   name: string
-  countryId: string
+  countryId: number | null
   shortDescription: string
   description: string
   address: string
   tin: string
-  logo: File | null | String
+  logo: File | null | string
   phoneNumber: string
   email: string
   contactPerson: string
   externalWebsite: string
-  companyCategoryId: number
+  companyCategoryId: number | null
 
   constructor({ generalStepData, detailsStepData, contactInfoStepData }: RegisterCompanyData) {
     this.name = generalStepData.name
