@@ -10,7 +10,7 @@ import AInputErrorList from '@sharedAtoms/input/AInputErrorList.vue'
 import ASelect from '@sharedAtoms/select/ASelect.vue'
 import ATitle from '@sharedAtoms/title/ATitle.vue'
 import AImageInput from '@sharedAtoms/input/AImageInput.vue'
-import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
+// import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
 
 const atoms = [
   AButton,
@@ -22,9 +22,9 @@ const atoms = [
   AGeneralNotification,
   AInputErrorList,
   ASelect,
-  ATitle
-  AImageInput,
-  ADropdown
+  ATitle,
+  AImageInput
+  // ADropdown
 ]
 
 // Molecules
@@ -46,7 +46,7 @@ const molecules = [
   MStepper,
   MStepperStepContent,
   MSelect,
-  MIcon, 
+  MIcon,
   MTabs
 ]
 

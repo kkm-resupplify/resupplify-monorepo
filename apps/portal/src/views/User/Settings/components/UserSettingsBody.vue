@@ -13,21 +13,19 @@
       </template>
     </m-tabs>
     <user-settings-content
-      user-img="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-      user-img-alt="profile"
-      first-name="Lorem"
-      last-name="Ipsum"
-      email="loremipsum@gmail.com"
-      phone-number="123456789"
-      birth-date="10-10-2000"
-      sex="Female"
+      user.details.first-name="Lorem"
+      user.details.last-name="Ipsum"
+      user.details.email="loremipsum@gmail.com"
+      user.details.phone-number="123456789"
+      user.details.birth-date="10-10-2000"
+      user.details.sex="Female"
       class="user-settings-body__content"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import UserSettingsContent from './UserSettingsContent.vue'
 
@@ -40,7 +38,7 @@ interface profileLinksData {
 }
 // Variables
 const { t } = useI18n()
-const profileLinks: Array<profileLinksData> = reactive([
+const profileLinks: Array<profileLinksData> = computed(() => [
   {
     imageClass: 'material-symbols-outlined',
     imageContent: 'account_circle',
@@ -60,6 +58,9 @@ const profileLinks: Array<profileLinksData> = reactive([
     link: '/settings/my-company'
   }
 ])
+
+const user = useUserStore()
+
 </script>
 
 <style scoped lang="scss">
