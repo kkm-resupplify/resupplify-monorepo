@@ -1,5 +1,3 @@
-import { createRouter, createWebHistory } from 'vue-router'
-
 import AuthRoutes from './auth/AuthRoutes'
 import UserRoutes from './user/UserRoutes'
 import ResourcesRoutes from './resources/ResourcesRoutes'
@@ -7,6 +5,8 @@ import TestRoutes from './test/TestRoutes'
 import CompanyRoutes from './company/CompanyRoutes'
 import HomeRoutes from './home/HomeRoutes'
 import Settings from './settings/SettingsRoutes'
+import { createRouter, createWebHistory } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
 
 const routes = [
   ...HomeRoutes,
@@ -17,14 +17,16 @@ const routes = [
   ...UserRoutes,
   ...CompanyRoutes
 ]
+
 const router = createRouter({
   history: createWebHistory(),
   routes
 })
 
-export default router
+router.beforeEach((to, from) => {
+  
+})
 
-import type { RouteRecordRaw } from 'vue-router'
 const getRouteNames = (routes: RouteRecordRaw[]): { [key: string]: string } => {
   const names: { [key: string]: string } = {}
 
@@ -44,4 +46,5 @@ const getRouteNames = (routes: RouteRecordRaw[]): { [key: string]: string } => {
   return names
 }
 
+export default router
 export const RouteNames = getRouteNames(routes)

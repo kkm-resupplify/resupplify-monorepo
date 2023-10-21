@@ -1,6 +1,7 @@
 import BaseService from '../BaseService'
 import { useUserStore } from '@/stores/user/useUserStore'
 import router, { RouteNames } from '@/routes/index'
+import type { UserData } from '@/interfaces/user/UserStoreDataInterface'
 
 interface AuthRequest {
   email: string
@@ -27,7 +28,7 @@ class AuthService extends BaseService {
       const { token, user } = data
 
       const userStore = useUserStore()
-      userStore.setUser({ email: user.email, token })
+      userStore.setUserData(user, token)
 
       await router.push({ name: RouteNames.SETTINGS })
     }
@@ -48,7 +49,7 @@ class AuthService extends BaseService {
       const { token, user } = data
 
       const userStore = useUserStore()
-      userStore.setUser({ email: user.email, token })
+      userStore.setUserData(user, token)
 
       router.push({ name: RouteNames.HOME })
     }
