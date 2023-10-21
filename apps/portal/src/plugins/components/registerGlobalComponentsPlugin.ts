@@ -7,16 +7,49 @@ import AHeader from '@sharedAtoms/header/AHeader.vue'
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
 import AInputErrorList from '@sharedAtoms/input/AInputErrorList.vue'
+import ASelect from '@sharedAtoms/select/ASelect.vue'
+import AImageInput from '@sharedAtoms/input/AImageInput.vue'
+import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
 
-const atoms = [AButton, ACard, ALink, ALine, AHeader, AIcon, AGeneralNotification, AInputErrorList]
+const atoms = [
+  AButton,
+  ACard,
+  ALink,
+  ALine,
+  AHeader,
+  AIcon,
+  AGeneralNotification,
+  AInputErrorList,
+  ASelect,
+  AImageInput,
+  ADropdown
+]
 
 // Molecules
 import MCardList from '@sharedMolecules/cards/MCardList.vue'
 import MTextField from '@sharedMolecules/input/MTextField.vue'
-import MAuthUserVue from '@sharedMolecules/navbar/MAuthUser.vue'
-import MAuthUserMenuVue from '@sharedMolecules/navbar/MAuthUserMenu.vue'
+import MTextArea from '@sharedMolecules/input/MTextArea.vue'
+import MFileInput from '@sharedMolecules/input/MFileInput.vue'
+import MStepper from '@sharedMolecules/stepper/MStepper.vue'
+import MStepperStepContent from '@sharedMolecules/stepper/items/MStepperStepContent.vue'
+import MSelect from '@sharedMolecules/select/MSelect.vue'
+import MIcon from '@sharedMolecules/icon/MIcon.vue'
 
-const molecules = [MCardList, MTextField, MAuthUserVue, MAuthUserMenuVue]
+const molecules = [
+  MCardList,
+  MTextField,
+  MTextArea,
+  MFileInput,
+  MStepper,
+  MStepperStepContent,
+  MSelect,
+  MIcon
+]
+
+// Organisms
+import OForm from '@sharedOrganisms/form/OForm.vue'
+
+const organisms = [OForm]
 
 // Vee-validate
 import { Field, Form, ErrorMessage } from 'vee-validate'
@@ -28,6 +61,7 @@ export default {
   install: (app: any) => {
     installComponents(app, atoms)
     installComponents(app, molecules)
+    installComponents(app, organisms)
     installVeeValidateComponents(app, veeValidateComponents)
   }
 }

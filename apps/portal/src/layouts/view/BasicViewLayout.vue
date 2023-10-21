@@ -21,13 +21,18 @@
 </template>
 
 <script setup lang="ts">
-import NavigationBar from '@/components/navigation/NavigationBar.vue'
+import NavigationBar from '@/components/core/navigation/NavigationBar.vue'
 </script>
 
 <style scoped lang="scss">
+@import '../../styles/mixins/custom-scrollbar';
+
 .basic-view-layout {
+  @include custom-scrollbar;
+
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   &__header {
     display: flex;

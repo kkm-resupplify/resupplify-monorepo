@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { AxiosRequestConfig } from 'axios'
+import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { i18n } from '@/translation/index'
 import { useUserStore } from '@/stores/user/useUserStore'
 
@@ -21,8 +21,29 @@ const requestInterceptorConfig = (req: AxiosRequestConfig<any>) => {
   return req
 }
 
+//@ts-ignore
+const rejectedResponseInterceptorConfig = async ({ response }: AxiosResponse) => {
+  const { data } = response
+
+  if (!data.httpCode) return { success: false }
+
+  throw data
+}
+
+const responseOnFulfilledServiceInterceptor = async (response: AxiosResponse) => {
+  const { data } = response
+
+  if (data === '') return { success: true, data: [] }
+
+  return data
+}
+
 export const axiosInstance = axios.create(axiosConfig)
 axiosInstance.interceptors.request.use(requestInterceptorConfig)
+axiosInstance.interceptors.response.use(
+  responseOnFulfilledServiceInterceptor,
+  rejectedResponseInterceptorConfig
+)
 
 // Utility functions
 function getBaseUrl() {
@@ -33,5 +54,5 @@ function getAuthorizationHeader() {
   const userStore = useUserStore()
   const token = userStore.getToken
 
-  return `Authorization ${token}`
+  return `Bearer ${token}`
 }

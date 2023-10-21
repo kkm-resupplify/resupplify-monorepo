@@ -9,6 +9,7 @@
     "../../packages/shared/composables/**/*.ts",
     "../../packages/shared/stores/**/*.ts",
     "../../packages/shared/enums/**/*.ts",
+    "../../packages/shared/interfaces/**/*.ts",
     "../../packages/shared/**/*.json",
     "../../packages/shared/shims-vue.d.ts"
   ],
@@ -27,6 +28,7 @@
       "@sharedMolecules/*": ["../../packages/shared/molecules/*"],
       "@sharedEnums/*": ["../../packages/shared/enums/*"],
       "@sharedComposables/*": ["../../packages/shared/composables/*"],
+      "@sharedInterfaces/*": ["../../packages/shared/interfaces/*"],
       "@sharedStores/*": ["../../packages/shared/stores/*"]
     }
   }

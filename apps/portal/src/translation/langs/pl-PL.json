@@ -2,7 +2,14 @@
   "global": {
     "welcome": "Witaj",
     "goodbye": "Dowidzenia",
-    "errorOccured": "Wystąpił błąd"
+    "actionSuccess": "Akcja zakończyła się pomyślnie",
+    "errorOccured": "Wystąpił błąd",
+    "save": "Zapisz",
+    "noResults": "Brak wyników",
+    "next": "Dalej",
+    "back": "Wstecz",
+    "submit": "Zatwierdź",
+    "imagePreview": "Podgląd obrazu"
   },
 
   "payments": {
@@ -29,7 +36,6 @@
       "emailAddress": "Adres email",
       "password": "Hasło",
       "confirmPassword": "Potwierdź hasło",
-
       "emailAddressPlaceholder": "Wprowadź swój adres e-mail",
       "passwordPlaceholder": "Wprowadź swoje hasło",
       "confirmPasswordPlaceholder": "Potwierdź swoje hasło"
@@ -41,7 +47,7 @@
       "logoutSuccessTitle": "Wylogowano pomyślnie",
       "logoutSuccessText": "Do zobaczenia w krótce.",
       "registerSuccessTitle": "Zarejestrowano pomyślnie",
-      "registerSuccessText": "Poprosimy Cię teraz o założenie lub dołączenie do istniejącej do firmy."
+      "registerSuccessText": "Poprosimy Cię teraz o podanie Twoich danych osobowych, a następnie o założenie lub dołączenie do istniejącej do firmy."
     },
 
     "slogan": {
@@ -50,15 +56,93 @@
       "connectAndGrow": "Docieraj do nowych klientów i rozwijaj swoje możliwości"
     },
 
-    "user": {
-      "account": "Moje konto",
-      "settings": "Ustawienia",
-      "companies": "Firmy",
-      "logout": "Wyloguj się"
+    "userDetails": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "phoneNumber": "Numer telefonu",
+      "birthDate": "Data urodzenia",
+      "sex": "Płeć",
+      "firstNamePlaceholder": "Podaj swoje imię",
+      "lastNamePlaceholder": "Podaj swoje nazwisko",
+      "phoneNumberPlaceholder": "Podaj swój numer telefonu"
     }
   },
 
   "company": {
+    "register": {
+      "title": "Rejestracja firmy",
+      "description": "Proszę podać informacje o Twojej firmie",
+
+      "steps": {
+        "general": {
+          "title": "Ogólne",
+          "subtitle": "Ogólne informacje",
+          "description": "Ten etap zbiera podstawowe informacje o firmie."
+        },
+
+        "details": {
+          "title": "Szczegóły",
+          "subtitle": "Szczegóły firmy",
+          "description": "Szczegóły firmy, w tym numer identyfikacji podatkowej (NIP), adres, itp."
+        },
+
+        "contactInfo": {
+          "title": "Kontakt",
+          "subtitle": "Dane kontaktowe",
+          "description": "Ten krok skupia się na środkach kontaktu, w tym preferencje komunikacyjne."
+        },
+
+        "submit": {
+          "title": "Zatwierdź",
+          "subtitle": "Zatwierdź i kolejne kroki",
+          "description": "Złóż formularz rejestracji firmy.",
+          "content": {
+            "description": "To ostatni krok w procesie rejestracji. Po złożeniu formularza firma oczekuje na weryfikację. Zachęcamy jednak do eksploracji portalu i zapoznania się z dostępnymi opcjami podczas, gdy my dokonujemy weryfikacji. Nasza platforma oferuje wiele interesujących funkcji, więc zachęchamy w międzyczasie do zapoznanie się z nimi."
+          }
+        }
+      },
+
+      "form": {
+        "general": {
+          "companyNameLabel": "Nazwa",
+          "companyNamePlaceholder": "Wprowadź nazwę firmy",
+          "companyCountryLabel": "Kraj",
+          "companyCountryPlaceholder": "Wybierz kraj",
+          "companyDescriptionLabel": "Opis",
+          "companyDescriptionPlaceholder": "Wprowadź opis firmy",
+          "companyShortDescriptionLabel": "Krótki opis",
+          "companyShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
+        },
+
+        "details": {
+          "companyAddressLabel": "Adres firmy",
+          "companyAddressPlaceholder": "Wprowadź adres firmy",
+          "companyCategoryLabel": "Kateogria firmy",
+          "companyCategoryPlaceholder": "Wybierz kategorię firmy",
+          "companyLogoLabel": "Logo firmy",
+          "companyLogoPlaceholder": "Wprowadź logo firmy",
+          "companyTinLabel": "Numer identyfikacji podatkowej (NIP)",
+          "companyTinPlaceholder": "Wprowadź NIP"
+        },
+
+        "contactInfo": {
+          "contactPersonLabel": "Osoba kontaktowa",
+          "contactPersonPlaceholder": "Podaj osobę kontaktową",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Wprowadź adres email firmy",
+          "externalWebsiteLabel": "Strona główna firmy",
+          "externalWebsitePlaceholder": "Podaj stronę główną firmy",
+          "phoneNumberLabel": "Numer telefonu",
+          "phoneNumberPlaceholder": "Wprowadź numer telefonu firmy"
+        }
+      },
+
+      "notification": {
+        "registerCompanySuccessTitle": "Wniosek o rejestrację firmy został wysłany pomyślnie",
+        "registerCompanySuccessText": "Twoja firma oczekuje na weryfikację."
+      }
+    },
+
     "promotion": {
       "ourPartners": "Nasi partnerzy",
       "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"
@@ -80,5 +164,63 @@
     "expandYourClientBase": "Poszerz swoją bazę klientów",
     "diversifyAndGrowClientele": "Dywersyfikuj i rozwijaj klientelę",
     "increaseYourMarketShare": "Zwiększ swój udział w rynku"
+  },
+
+  "userDetails": {
+    "sex": "Płeć",
+    "gender": {
+      "male": "Mężczyzna",
+      "female": "Kobieta",
+      "preferNot": "Wolę nie mówić"
+    },
+    "placeholder": "Wybierz płeć"
+  },
+
+  "country": {
+    "al": "Albania",
+    "ad": "Andora",
+    "at": "Austria",
+    "by": "Białoruś",
+    "be": "Belgia",
+    "ba": "Bośnia i Hercegowina",
+    "bg": "Bułgaria",
+    "hr": "Chorwacja",
+    "cy": "Cypr",
+    "cz": "Czechy",
+    "dk": "Dania",
+    "ee": "Estonia",
+    "fi": "Finlandia",
+    "fr": "Francja",
+    "de": "Niemcy",
+    "gr": "Grecja",
+    "hu": "Węgry",
+    "is": "Islandia",
+    "ie": "Irlandia",
+    "it": "Włochy",
+    "lv": "Łotwa",
+    "li": "Liechtenstein",
+    "lt": "Litwa",
+    "lu": "Luksemburg",
+    "mk": "Macedonia, Była Jugosłowiańska Republika",
+    "mt": "Malta",
+    "md": "Mołdawia",
+    "mc": "Monako",
+    "me": "Czarnogóra",
+    "nl": "Holandia",
+    "no": "Norwegia",
+    "pl": "Polska",
+    "pt": "Portugalia",
+    "ro": "Rumunia",
+    "ru": "Rosja",
+    "sm": "San Marino",
+    "rs": "Serbia",
+    "sk": "Słowacja",
+    "si": "Słowenia",
+    "es": "Hiszpania",
+    "se": "Szwecja",
+    "ch": "Szwajcaria",
+    "ua": "Ukraina",
+    "gb": "Wielka Brytania",
+    "va": "Watykan"
   }
 }
