@@ -61,4 +61,3 @@ const handlePreviousStep = (values: RegisterCompanyContactInfoStep) => {
   }
 }
 </style>
-@/interfaces/company/RegisterCompanyInterfaceInterface

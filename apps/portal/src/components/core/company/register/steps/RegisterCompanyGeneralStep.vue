@@ -97,4 +97,3 @@ const handlePreviousStep = () => {
   }
 }
 </style>
-@/interfaces/company/RegisterCompanyInterfaceInterface
