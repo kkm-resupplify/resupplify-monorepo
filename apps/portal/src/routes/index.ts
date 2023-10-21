@@ -1,10 +1,11 @@
 import AuthRoutes from './auth/AuthRoutes'
 import UserRoutes from './user/UserRoutes'
 import ResourcesRoutes from './resources/ResourcesRoutes'
-import TestRoutes from './test/TestRoutes'
+import BrowseRoutes from './browse/BrowseRoutes'
 import CompanyRoutes from './company/CompanyRoutes'
 import HomeRoutes from './home/HomeRoutes'
 import Settings from './settings/SettingsRoutes'
+import TestRoutes from './test/TestRoutes'
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -12,10 +13,11 @@ const routes = [
   ...HomeRoutes,
   ...AuthRoutes,
   ...Settings,
-  ...TestRoutes,
   ...ResourcesRoutes,
+  ...BrowseRoutes,
   ...UserRoutes,
-  ...CompanyRoutes
+  ...CompanyRoutes,
+  ...TestRoutes
 ]
 
 const router = createRouter({
