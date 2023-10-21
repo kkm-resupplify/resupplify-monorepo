@@ -13,12 +13,12 @@
       </template>
     </m-tabs>
     <user-settings-content
-      user.details.first-name="Lorem"
-      user.details.last-name="Ipsum"
-      user.details.email="loremipsum@gmail.com"
-      user.details.phone-number="123456789"
-      user.details.birth-date="10-10-2000"
-      user.details.sex="Female"
+      :first-name="userDetails?.first_name"
+      :last-name="userDetails?.last_name"
+      :email="userDetails?.email"
+      :phone-number="userDetails?.phone_number"
+      :birth-date="userDetails?.birth_date"
+      :sex="userDetails?.sex"
       class="user-settings-body__content"
     />
   </div>
@@ -28,6 +28,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import UserSettingsContent from './UserSettingsContent.vue'
+import { useUserStore } from '../../../../stores/user/useUserStore'
 
 // Interfaces
 interface profileLinksData {
@@ -59,8 +60,7 @@ const profileLinks: Array<profileLinksData> = computed(() => [
   }
 ])
 
-const user = useUserStore()
-
+const userDetails = useUserStore().getUserDetails
 </script>
 
 <style scoped lang="scss">

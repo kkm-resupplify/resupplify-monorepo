@@ -21,38 +21,14 @@
 
 <script setup lang="ts">
 const props = defineProps({
-  userImg: {
-    type: String,
-    required: true
-  },
-  userImgAlt: {
-    type: String,
-    required: true
-  },
-  firstName: {
-    type: String,
-    required: true
-  },
-  lastName: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true
-  },
-  phoneNumber: {
-    type: String,
-    required: true
-  },
-  birthDate: {
-    type: String,
-    required: true
-  },
-  sex: {
-    type: String,
-    required: true
-  }
+  userImg: String,
+  userImgAlt: String,
+  firstName: String,
+  lastName: String,
+  email: String,
+  phoneNumber: String,
+  birthDate: String,
+  sex: String
 })
 </script>
 
