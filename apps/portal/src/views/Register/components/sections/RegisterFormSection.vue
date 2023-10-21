@@ -64,10 +64,7 @@ const router = useRouter()
 
 // Methods
 const handleFormSubmit = async (formData: RegisterFormData) => {
-  const response = await AuthService.register(formData)
-  const { status } = response
-
-  if (status == 200) router.push('/')
+  await AuthService.register(formData)
 }
 </script>
 

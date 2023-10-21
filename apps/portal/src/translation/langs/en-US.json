@@ -54,17 +54,6 @@
       "welcome": "Welcome back",
       "createAccount": "Create your account",
       "connectAndGrow": "Reach new customers and expand opportunities"
-    },
-
-    "userDetails": {
-      "firstName": "First Name",
-      "lastName": "Second Name",
-      "phoneNumber": "Phone Number",
-      "birthDate": "Birth Date",
-      "sex": "Sex",
-      "firstNamePlaceholder": "Enter your first name",
-      "lastNamePlaceholder": "Enter your last name",
-      "phoneNumberPlaceholder": "Enter your phone number"
     }
   },
 
@@ -166,14 +155,26 @@
     "increaseYourMarketShare": "Increase your market share"
   },
 
-  "userDetails": {
-    "sex": "Sex",
-    "gender": {
-      "male": "Male",
-      "female": "Female",
-      "preferNot": "Prefer not to say"
-    },
-    "placeholder": "Select your gender"
+  "user": {
+    "details": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phoneNumber": "Phone Number",
+      "birthDate": "Birth Date",
+      "sex": "Sex",
+      "gender": {
+        "male": "Male",
+        "female": "Female",
+        "preferNot": "Prefer not to say"
+      },
+
+      "firstNamePlaceholder": "Enter your first name",
+      "lastNamePlaceholder": "Enter your last name",
+      "phoneNumberPlaceholder": "Enter your phone number",
+      "genderPlaceholder": "Select your gender",
+
+      "enterUserDetailsTitle": "Enter your user details"
+    }
   },
 
   "country": {
