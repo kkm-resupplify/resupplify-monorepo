@@ -13,6 +13,8 @@
     <a-button text="Change theme" @click="toggleUserTheme" />
 
     <a-button text="Change locale" @click="changeLocale" />
+
+    <navigation-bar-menu />
   </div>
 </template>
 
@@ -21,6 +23,7 @@ import { computed } from 'vue'
 import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { useI18n } from 'vue-i18n'
+import NavigationBarMenu from '../items/NavigationBarMenu.vue'
 
 // Variables
 const { t } = useI18n()

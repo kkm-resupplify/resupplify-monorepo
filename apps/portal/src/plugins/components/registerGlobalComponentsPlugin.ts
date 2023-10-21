@@ -9,6 +9,7 @@ import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification
 import AInputErrorList from '@sharedAtoms/input/AInputErrorList.vue'
 import ASelect from '@sharedAtoms/select/ASelect.vue'
 import AImageInput from '@sharedAtoms/input/AImageInput.vue'
+import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
 
 const atoms = [
   AButton,
@@ -20,7 +21,8 @@ const atoms = [
   AGeneralNotification,
   AInputErrorList,
   ASelect,
-  AImageInput
+  AImageInput,
+  ADropdown
 ]
 
 // Molecules
