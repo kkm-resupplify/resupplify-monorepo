@@ -1,6 +1,6 @@
-import { useUserDetailsStore } from '@/stores/user/useUserDetailsStore'
 import BaseService from '../BaseService'
 import { DateTime } from 'luxon'
+import { useUserStore } from '@/stores/user/useUserStore'
 
 class UserDetailsDTO {
   firstName: string
@@ -41,8 +41,8 @@ class UserDetailsService extends BaseService {
 
     const { data } = response
 
-    const userDetailsStore = useUserDetailsStore()
-    userDetailsStore.setUserDetails(data)
+    const userStore = useUserStore()
+    userStore.setUserDetails(data)
 
     return response
   }

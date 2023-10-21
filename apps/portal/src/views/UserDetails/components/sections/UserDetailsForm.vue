@@ -78,9 +78,9 @@ interface UserDetailsFormData {
 //Variables
 const { t } = useI18n()
 const genderOptions = computed(() => [
-  { id: 1, text: t('user.details.gender.male') },
-  { id: 2, text: t('user.details.gender.female') },
-  { id: 3, text: t('user.details.gender.preferNot') }
+  { id: t('user.details.gender.male'), text: t('user.details.gender.male') },
+  { id: t('user.details.gender.female'), text: t('user.details.gender.female') },
+  { id: t('user.details.gender.preferNot'), text: t('user.details.gender.preferNot') }
 ])
 
 //Methods
