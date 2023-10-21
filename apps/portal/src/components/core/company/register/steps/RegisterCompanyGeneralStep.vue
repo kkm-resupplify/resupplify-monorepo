@@ -20,7 +20,6 @@
               required
               :label="$t('company.register.form.general.companyCountryLabel')"
               :placeholder="$t('company.register.form.general.companyCountryPlaceholder')"
-              :initial-value="registerCompanyStore.generalStepData.countryId"
             />
 
             <m-text-area

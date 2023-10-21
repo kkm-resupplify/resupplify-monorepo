@@ -7,7 +7,7 @@ export interface RegisterCompanyGeneralStep {
 
 export interface RegisterCompanyDetailsStep {
   address: string
-  companyCategoryId: number
+  companyCategoryId: number | null
   tin: string
   logo: File | null | string
 }

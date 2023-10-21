@@ -51,7 +51,7 @@ const getInitialTouched = computed(() => {
   if (!props.initialValues) return
 
   return Object.entries(props.initialValues).reduce((newObj: any, [key, value]) => {
-    newObj[key] = value !== null && value !== undefined && value.length > 0
+    newObj[key] = value ?? ((value as string)?.length > 0 || +value)
     return newObj
   }, {})
 })
