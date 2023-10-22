@@ -122,7 +122,7 @@ export default class BaseService {
   }: RequestConfig) {
     try {
       const response = await axiosInstance.put(this.getEndpoint({ id, suffix, prefix }), data)
-      console.log('xdd')
+
       const generalNotification = useGeneralNotificationStore()
 
       if (notificationTitle || notificationText) {
