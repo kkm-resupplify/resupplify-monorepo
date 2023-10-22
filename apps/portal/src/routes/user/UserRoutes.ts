@@ -6,8 +6,9 @@ import { MustBeAuthenticated } from '../navigationGuards'
 
 class UserProfileRouteEnum extends BaseEnum {
   static readonly USER_PROFILE: string = 'USER_PROFILE'
-  static readonly USER_DETAILS: string = 'USER_DETAILS'
-  static readonly COMPANY_SETTINGS_PROFILE: string = 'COMPANY_SETTINGS_PROFILE'
+  static readonly USER_SETTINGS: string = 'USER_SETTINGS'
+  static readonly USER_SETTINGS_EDIT: string = 'USER_SETTINGS_EDIT'
+  static readonly USER_SETTINGS_PROFILE: string = 'USER_SETTINGS_PROFILE'
 }
 
 const UserRoutes: RouteRecordRaw[] = [
@@ -23,6 +24,11 @@ const UserRoutes: RouteRecordRaw[] = [
     beforeEnter: () => {
       return MustBeAuthenticated.guard()
     }
+  },
+  {
+    path: '/user/profile/:slug',
+    name: UserProfileRouteEnum.USER_PROFILE,
+    component: UserProfileView
   }
 ]
 

@@ -13,7 +13,7 @@ class UserDetailsDTO {
     this.firstName = firstName
     this.lastName = lastName
     this.phoneNumber = phoneNumber
-    this.birthDate = DateTime.fromISO(`${birthDate}`).toFormat('MM-dd-yyyy')
+    this.birthDate = DateTime.fromISO(birthDate).toFormat('dd-MM-yyyy')
     this.sex = sex
   }
 }
@@ -31,6 +31,24 @@ class UserDetailsService extends BaseService {
     const userDetails = new UserDetailsDTO(userDetailsData)
 
     const response = await this.post({
+      data: userDetails,
+      suffix: 'user/userDetails',
+      notificationTitle: 'auth.notification.registerSuccessTitle',
+      notificationText: 'auth.notification.registerSuccessText'
+    })
+
+    const { data } = response
+
+    const userStore = useUserStore()
+    userStore.setUserDetails(data)
+
+    return response
+  }
+
+  async editUserDetails(userDetailsData: UserDetails) {
+    const userDetails = new UserDetailsDTO(userDetailsData)
+
+    const response = await this.put({
       data: userDetails,
       suffix: 'user/userDetails',
       notificationTitle: 'auth.notification.registerSuccessTitle',
