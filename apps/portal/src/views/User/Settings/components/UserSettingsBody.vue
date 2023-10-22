@@ -13,7 +13,7 @@
         <a-button :text="$t('user.settings.joinCompany')" size="x-large" />
       </template>
     </m-tabs>
-    
+
     <user-settings-content
       :first-name="userDetails?.first_name"
       :last-name="userDetails?.last_name"
@@ -30,6 +30,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import UserSettingsContent from './UserSettingsContent.vue'
 import { useUserStore } from '../../../../stores/user/useUserStore'
+import type { ComputedRef } from 'vue'
 
 // Interfaces
 interface profileLinksData {
@@ -40,7 +41,7 @@ interface profileLinksData {
 }
 // Variables
 const { t } = useI18n()
-const profileLinks: Array<profileLinksData> = computed(() => [
+const profileLinks: ComputedRef<profileLinksData[]> = computed(() => [
   {
     imageClass: 'material-symbols-outlined',
     imageContent: 'account_circle',
