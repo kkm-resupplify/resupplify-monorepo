@@ -1,11 +1,13 @@
 import type { RouteRecordRaw } from 'vue-router'
 import LoginView from '@/views/Login/LoginView.vue'
+import LogoutView from '@/views/Logout/LogoutView.vue'
 import RegisterView from '@/views/Register/RegisterView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
-import { MustNotBeAuthenticated } from '@/routes/navigationGuards'
+import { MustNotBeAuthenticated, MustBeAuthenticated } from '@/routes/navigationGuards'
 
 class AuthRouteEnum extends BaseEnum {
   static readonly LOGIN: string = 'LOGIN'
+  static readonly LOGOUT: string = 'LOGOUT'
   static readonly REGISTER: string = 'REGISTER'
 }
 
@@ -16,6 +18,14 @@ const AuthRoutes: RouteRecordRaw[] = [
     component: LoginView,
     beforeEnter: () => {
       return MustNotBeAuthenticated.guard()
+    }
+  },
+  {
+    path: '/logout',
+    name: AuthRouteEnum.LOGOUT,
+    component: LogoutView,
+    beforeEnter: () => {
+      return MustBeAuthenticated.guard()
     }
   },
   {
