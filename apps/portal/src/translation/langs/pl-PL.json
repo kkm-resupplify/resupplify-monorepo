@@ -4,6 +4,7 @@
     "goodbye": "Dowidzenia",
     "errorOccured": "Wystąpił błąd",
     "save": "Zapisz",
+    "edit": "Edytuj",
     "noResults": "Brak wyników",
     "next": "Dalej",
     "back": "Wstecz",
@@ -155,33 +156,45 @@
     "increaseYourMarketShare": "Zwiększ swój udział w rynku"
   },
 
-  "user": {
-    "details": {
-      "firstName": "Imię",
-      "lastName": "Nazwisko",
-      "email":"Adres e-mail",
-      "phoneNumber": "Numer telefonu",
-      "birthDate": "Data urodzenia",
-      "sex": "Płeć",
-      "gender": {
-        "male": "Mężczyzna",
-        "female": "Kobieta",
-        "preferNot": "Wolę nie mówić"
+  "settings": {
+    "profile": {
+      "title": "Profil",
+
+      "details": {
+        "firstName": "Imię",
+        "lastName": "Nazwisko",
+        "email": "Adres e-mail",
+        "phoneNumber": "Numer telefonu",
+        "birthDate": "Data urodzenia",
+        "firstNamePlaceholder": "Podaj swoje imię",
+        "lastNamePlaceholder": "Podaj swoje nazwisko",
+        "phoneNumberPlaceholder": "Podaj swój numer telefonu",
+        "genderPlaceholder": "Wybierz płeć",
+        "enterUserDetailsTitle": "Wprowadź swoje dane osobowe",
+        "sex": "Płeć",
+
+        "gender": {
+          "male": "Mężczyzna",
+          "female": "Kobieta",
+          "preferNot": "Wolę nie mówić"
+        }
       },
 
-      "firstNamePlaceholder": "Podaj swoje imię",
-      "lastNamePlaceholder": "Podaj swoje nazwisko",
-      "phoneNumberPlaceholder": "Podaj swój numer telefonu",
-      "genderPlaceholder": "Wybierz płeć",
-
-      "enterUserDetailsTitle": "Wprowadź swoje dane osobowe"
+      "notification": {
+        "updateSuccessful": "Dane użytkownika zostały zaktualizowany pomyślnie"
+      }
     },
-    "settings": {
-      "profile": "Profil",
-      "preferences": "Preferencje",
-      "myCompany": "Moja firma",
-      "joinCompany": "Dołącz do nowej firmy",
-      "edit": "Edytuj profil"
+
+    "preferences": {
+      "title": "Preferencje",
+
+      "notification": {
+        "updateSuccessful": "Preferencje użytkownika zostały zaktualizowany pomyślnie"
+      }
+    },
+
+    "myCompany": {
+      "title": "Moja firma"
     }
   },
 

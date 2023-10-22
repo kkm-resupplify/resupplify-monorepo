@@ -13,7 +13,7 @@ class UserDetailsDTO {
     this.firstName = firstName
     this.lastName = lastName
     this.phoneNumber = phoneNumber
-    this.birthDate = DateTime.fromISO(birthDate).toFormat('MM-dd-yyyy')
+    this.birthDate = DateTime.fromISO(birthDate).toFormat('dd-MM-yyyy')
     this.sex = sex
   }
 }
@@ -40,7 +40,7 @@ class UserDetailsService extends BaseService {
     const { data } = response
 
     const userStore = useUserStore()
-    userStore.setUserDetails(data.userDetails)
+    userStore.setUserDetails(data)
 
     return response
   }
@@ -58,7 +58,7 @@ class UserDetailsService extends BaseService {
     const { data } = response
 
     const userStore = useUserStore()
-    userStore.setUserDetails(data.userDetails)
+    userStore.setUserDetails(data)
 
     return response
   }

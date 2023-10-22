@@ -18,18 +18,21 @@
 
     <div v-else class="user-settings-profile-tab__user-data">
       <a-title
-        :title="$t('user.details.phoneNumber')"
+        :title="$t('settings.profile.details.phoneNumber')"
         :sub-title="userStore.getUserDetails?.phoneNumber"
       />
 
       <a-title
-        :title="$t('user.details.birthDate')"
+        :title="$t('settings.profile.details.birthDate')"
         :sub-title="userStore.getUserDetails?.birthDate"
       />
 
-      <a-title :title="$t('user.details.sex')" :sub-title="userStore.getUserDetails?.sex" />
+      <a-title
+        :title="$t('settings.profile.details.sex')"
+        :sub-title="userStore.getUserDetails?.sex"
+      />
 
-      <a-button :text="$t('user.settings.edit')" size="large" @click="toggleEditUserDetails" />
+      <a-button :text="$t('global.edit')" size="large" @click="toggleEditUserDetails" />
     </div>
   </div>
 </template>

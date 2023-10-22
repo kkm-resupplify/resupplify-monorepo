@@ -19,19 +19,19 @@ const { t } = useI18n()
 const settingsViewTabs = computed(() => {
   return [
     {
-      title: t('user.settings.profile'),
+      title: t('settings.profile.title'),
       to: '#profile',
       icon: 'account_circle',
       component: UserSettingsProfileTab
     },
     {
-      title: t('user.settings.preferences'),
+      title: t('settings.preferences.title'),
       to: '#preferences',
       icon: 'settings_accessibility',
       component: UserSettingsProfileTab
     },
     {
-      title: t('user.settings.myCompany'),
+      title: t('settings.myCompany.title'),
       icon: 'apartment',
       to: '#my-company',
       component: UserSettingsProfileTab

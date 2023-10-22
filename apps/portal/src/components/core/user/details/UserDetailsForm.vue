@@ -4,15 +4,15 @@
       <template #body>
         <h1
           class="user-details-form__form--header"
-          v-text="$t('user.details.enterUserDetailsTitle')"
+          v-text="$t('settings.profile.details.enterUserDetailsTitle')"
         />
 
         <div class="user-details-form__form--inputs-wrapper">
           <m-text-field
             name="firstName"
             input-type="text"
-            :label="$t('user.details.firstName')"
-            :placeholder="$t('user.details.firstNamePlaceholder')"
+            :label="$t('settings.profile.details.firstName')"
+            :placeholder="$t('settings.profile.details.firstNamePlaceholder')"
             autocomplete="given-name"
             rules="required"
             :value="userDetails?.firstName"
@@ -22,8 +22,8 @@
           <m-text-field
             name="lastName"
             input-type="text"
-            :label="$t('user.details.lastName')"
-            :placeholder="$t('user.details.lastNamePlaceholder')"
+            :label="$t('settings.profile.details.lastName')"
+            :placeholder="$t('settings.profile.details.lastNamePlaceholder')"
             autocomplete="family-name"
             rules="required"
             :value="userDetails?.lastName"
@@ -33,8 +33,8 @@
           <m-text-field
             name="phoneNumber"
             input-type="tel"
-            :label="$t('user.details.phoneNumber')"
-            :placeholder="$t('user.details.phoneNumberPlaceholder')"
+            :label="$t('settings.profile.details.phoneNumber')"
+            :placeholder="$t('settings.profile.details.phoneNumberPlaceholder')"
             autocomplete="tel"
             :rules="{ regex: /^(?:\+48)?[1-9]\d{8}$/ }"
             :value="userDetails?.phoneNumber"
@@ -44,7 +44,7 @@
           <m-text-field
             name="birthDate"
             input-type="date"
-            :label="$t('user.details.birthDate')"
+            :label="$t('settings.profile.details.birthDate')"
             autocomplete="bday"
             rules="required"
             :value="birthDateYearFormat"
@@ -53,9 +53,9 @@
 
           <m-select
             name="sex"
-            :label="$t('user.details.sex')"
+            :label="$t('settings.profile.details.sex')"
             :options="genderOptions"
-            :placeholder="$t('user.details.genderPlaceholder')"
+            :placeholder="$t('settings.profile.details.genderPlaceholder')"
             rules="required"
             :value="userDetails?.sex"
             class="user-details-form__select"
@@ -77,10 +77,10 @@ import UserDetailsService from '@/services/user/UserDetailsService'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useUserStore } from '../../../../stores/user/useUserStore'
+import { useUserStore } from '@/stores/user/useUserStore'
 import { DateTime } from 'luxon'
 
-//Interfaces
+// Interfaces
 interface UserDetailsFormData {
   firstName: string
   lastName: string
@@ -89,30 +89,38 @@ interface UserDetailsFormData {
   sex: string
 }
 
-//Variables
+// Variables
 const { t } = useI18n()
-const route = useRoute()
+
 const genderOptions = computed(() => [
-  { id: t('user.details.gender.male'), text: t('user.details.gender.male') },
-  { id: t('user.details.gender.female'), text: t('user.details.gender.female') },
-  { id: t('user.details.gender.preferNot'), text: t('user.details.gender.preferNot') }
+  {
+    id: t('settings.profile.details.gender.male'),
+    text: t('settings.profile.details.gender.male')
+  },
+  {
+    id: t('settings.profile.details.gender.female'),
+    text: t('settings.profile.details.gender.female')
+  },
+  {
+    id: t('settings.profile.details.gender.preferNot'),
+    text: t('settings.profile.details.gender.preferNot')
+  }
 ])
+
 const userDetails = useUserStore().getUserDetails
 
-//Transforming date to YYYY-mm-dd format
+// Transforming date to YYYY-mm-dd format
 const birthDateYearFormat = computed(() => {
-  return userDetails ? DateTime.fromFormat(userDetails.birthDate, 'MM-dd-yyyy').toISODate() : null
+  return userDetails?.birthDate ? DateTime.fromISO(userDetails.birthDate).toISO() : null
 })
 
-//Methods
+// Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  if (route.path === '/settings') {
-    await UserDetailsService.saveUserDetails(formData)
-  } else if (route.path === '/settings/profile/edit') {
-    await UserDetailsService.editUserDetails(formData)
-  }
+  if (userDetails === null) await UserDetailsService.saveUserDetails(formData)
+  else await UserDetailsService.editUserDetails(formData)
 }
 </script>
+
 <style scoped lang="scss">
 .user-details-form {
   @include respond-to('md-and-up') {
