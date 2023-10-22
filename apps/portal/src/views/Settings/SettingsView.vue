@@ -10,7 +10,6 @@
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
-import UserDetailsView from '@/views/UserDetails/UserDetailsView.vue'
 import UserSettingsProfileTab from '@/components/core/user/settings/profile/UserSettingsProfileTab.vue'
 
 // Variables
@@ -29,13 +28,13 @@ const settingsViewTabs = computed(() => {
       title: t('user.settings.preferences'),
       to: '#preferences',
       icon: 'settings_accessibility',
-      component: UserDetailsView
+      component: UserSettingsProfileTab
     },
     {
       title: t('user.settings.myCompany'),
       icon: 'apartment',
       to: '#my-company',
-      component: UserDetailsView
+      component: UserSettingsProfileTab
     }
   ]
 })
