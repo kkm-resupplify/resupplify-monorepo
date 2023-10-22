@@ -19,8 +19,8 @@
         <router-link
           v-for="(dropdownItem, idx) in dropdownItems"
           :key="idx"
-          class="navigation-bar-menu__dropdown-item"
           :to="{ name: dropdownItem.link }"
+          class="navigation-bar-menu__dropdown-item"
         >
           <span v-text="dropdownItem.text" />
 
@@ -86,9 +86,15 @@ const dropdownItems = computed(() => {
   }
 
   &__dropdown-items {
+    @include boxshadow-primary-2;
+
     display: flex;
     flex: 1;
     flex-direction: column;
+    gap: $global-spacing-10;
+
+    padding: $global-spacing-20;
+
     background-color: var(--primary);
   }
 
@@ -100,10 +106,17 @@ const dropdownItems = computed(() => {
     align-items: center;
     justify-content: space-between;
 
-    padding: $global-spacing-20;
+    padding: $global-spacing-10 $global-spacing-20;
 
     font-size: $global-text-medium-font-size;
     color: var(--white);
+    text-decoration: none;
+
+    border-radius: $global-border-radius-10;
+
+    &:hover {
+      background-color: var(--secondary-2);
+    }
   }
 }
 </style>
