@@ -1,4 +1,6 @@
 import BaseService from '../BaseService'
+import { DateTime } from 'luxon'
+import { useUserStore } from '@/stores/user/useUserStore'
 
 class UserDetailsDTO {
   firstName: string
@@ -11,7 +13,7 @@ class UserDetailsDTO {
     this.firstName = firstName
     this.lastName = lastName
     this.phoneNumber = phoneNumber
-    this.birthDate = birthDate
+    this.birthDate = DateTime.fromISO(`${birthDate}`).toFormat('MM-dd-yyyy')
     this.sex = sex
   }
 }
@@ -27,6 +29,20 @@ interface UserDetails {
 class UserDetailsService extends BaseService {
   async saveUserDetails(userDetailsData: UserDetails) {
     const userDetails = new UserDetailsDTO(userDetailsData)
+
+    const response = await this.post({
+      data: userDetails,
+      suffix: 'user/userDetails',
+      notificationTitle: 'auth.notification.registerSuccessTitle',
+      notificationText: 'auth.notification.registerSuccessText'
+    })
+
+    const { data } = response
+
+    const userStore = useUserStore()
+    userStore.setUserDetails(data)
+
+    return response
   }
 }
 
