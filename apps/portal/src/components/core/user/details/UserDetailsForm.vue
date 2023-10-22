@@ -15,6 +15,7 @@
             :placeholder="$t('user.details.firstNamePlaceholder')"
             autocomplete="given-name"
             rules="required"
+            :value="userDetails?.first_name"
             class="user-details-form__text-field"
           />
 
@@ -25,6 +26,7 @@
             :placeholder="$t('user.details.lastNamePlaceholder')"
             autocomplete="family-name"
             rules="required"
+            :value="userDetails?.last_name"
             class="user-details-form__text-field"
           />
 
@@ -35,6 +37,7 @@
             :placeholder="$t('user.details.phoneNumberPlaceholder')"
             autocomplete="tel"
             :rules="{ regex: /^(?:\+48)?[1-9]\d{8}$/ }"
+            :value="userDetails?.phone_number"
             class="user-details-form__text-field"
           />
 
@@ -44,6 +47,7 @@
             :label="$t('user.details.birthDate')"
             autocomplete="bday"
             rules="required"
+            :value="userDetails?.birth_date"
             class="user-details-form__text-field"
           />
 
@@ -53,6 +57,7 @@
             :options="genderOptions"
             :placeholder="$t('user.details.genderPlaceholder')"
             rules="required"
+            :value="userDetails?.sex"
             class="user-details-form__select"
           />
 
@@ -71,6 +76,8 @@
 import UserDetailsService from '@/services/user/UserDetailsService'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { useUserStore } from '../../../../stores/user/useUserStore'
 
 //Interfaces
 interface UserDetailsFormData {
@@ -83,15 +90,21 @@ interface UserDetailsFormData {
 
 //Variables
 const { t } = useI18n()
+const route = useRoute()
 const genderOptions = computed(() => [
   { id: t('user.details.gender.male'), text: t('user.details.gender.male') },
   { id: t('user.details.gender.female'), text: t('user.details.gender.female') },
   { id: t('user.details.gender.preferNot'), text: t('user.details.gender.preferNot') }
 ])
+const userDetails = useUserStore().getUserDetails
 
 //Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  await UserDetailsService.saveUserDetails(formData)
+  if (route.path === '/settings/profile') {
+    await UserDetailsService.saveUserDetails(formData)
+  } else if (route.path === '/settings/profile/edit') {
+    await UserDetailsService.editUserDetails(formData)
+  }
 }
 </script>
 <style scoped lang="scss">
