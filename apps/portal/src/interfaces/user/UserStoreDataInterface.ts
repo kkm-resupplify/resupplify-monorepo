@@ -8,11 +8,11 @@ export interface UserData {
 
 export interface UserDetails {
   id: number
-  first_name: string
-  last_name: string
-  phone_number: string
-  birth_date: string
+  firstName: string
+  lastName: string
+  phoneNumber: string
+  birthDate: string
   sex: string
-  created_at: string
-  updated_at: string
+  createdAt: string
+  updatedAt: string
 }
