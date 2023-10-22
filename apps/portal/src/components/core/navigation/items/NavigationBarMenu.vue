@@ -15,8 +15,17 @@
     </template>
 
     <template #content>
-      <div style="display: flex; flex-direction: column; background-color: var(--primary); flex: 1">
-        <div v-for="i in 5" :key="i" style="display: flex" v-text="i" />
+      <div class="navigation-bar-menu__dropdown-items">
+        <router-link
+          v-for="(dropdownItem, idx) in dropdownItems"
+          :key="idx"
+          class="navigation-bar-menu__dropdown-item"
+          :to="{ name: dropdownItem.link }"
+        >
+          <span v-text="dropdownItem.text" />
+
+          <a-icon :icon="dropdownItem.icon" size="x-large" />
+        </router-link>
       </div>
     </template>
   </a-dropdown>
@@ -26,7 +35,13 @@
 import { computed } from 'vue'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { useFullNameComposable } from '@sharedComposables/user/useUserDataComposable'
+import { RouteNames } from '@/routes/index'
 
+interface DropdownItemData {
+  text: string
+  icon: string
+  link: string
+}
 // Variables
 const userStore = useUserStore()
 const { userFullName } = useFullNameComposable()
@@ -35,14 +50,21 @@ const { userFullName } = useFullNameComposable()
 const fullName = computed(() => {
   return userFullName(userStore.getUserDetails?.firstName, userStore.getUserDetails?.lastName)
 })
+
+const dropdownItems = computed(() => {
+  return [
+    { text: 'Settings', icon: 'settings', link: RouteNames.SETTINGS },
+    { text: 'Logout', icon: 'logout', link: RouteNames.LOGOUT }
+  ]
+})
 </script>
 
 <style lang="scss" scoped>
 .navigation-bar-menu {
   &__header {
     display: flex;
-    align-items: center;
     gap: $global-spacing-20;
+    align-items: center;
   }
 
   &__user-data {
@@ -61,6 +83,27 @@ const fullName = computed(() => {
 
   &__user-avatar {
     display: flex;
+  }
+
+  &__dropdown-items {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: var(--primary);
+  }
+
+  &__dropdown-item {
+    cursor: pointer;
+
+    display: flex;
+    gap: $global-spacing-20;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: $global-spacing-20;
+
+    font-size: $global-text-medium-font-size;
+    color: var(--white);
   }
 }
 </style>
