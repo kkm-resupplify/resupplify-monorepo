@@ -11,20 +11,23 @@
         @click="handlePrependIconClick"
       />
 
-      <input
-        :id="name"
-        :name="name"
-        :value="inputValue"
-        :class="inputClasses"
-        :type="inputType"
-        :placeholder="placeholder"
-        :autocomplete="autocomplete"
-        :rules="rules"
-        :disabled="disabled"
-        v-on="validationListeners"
-        @input="handleInputChange"
-        @keydown="handleKeydown"
-      />
+      <span class="m-text-field__input-wrapper" :for="name">
+        <input
+          :id="name"
+          ref="inputRef"
+          :class="inputClasses"
+          :name="name"
+          :value="inputValue"
+          :type="inputType"
+          :placeholder="placeholder"
+          :autocomplete="autocomplete"
+          :rules="rules"
+          :disabled="disabled"
+          v-on="validationListeners"
+          @input="handleInputChange"
+          @keydown="handleKeydown"
+        />
+      </span>
 
       <a-icon
         v-if="showAppendIcon"
@@ -94,6 +97,10 @@ const props = defineProps({
       return
     }
   },
+  variant: {
+    type: String,
+    default: 'sharp'
+  },
   appendIconCallbackOn: {
     type: Function,
     default: () => {
@@ -122,6 +129,7 @@ const prependIconState = ref(false)
 const name = toRef(props, 'name')
 const width = toRef(props, 'width')
 const inputType = toRef(props.inputType)
+const inputRef = ref(null)
 
 const {
   value: inputValue,
@@ -129,7 +137,8 @@ const {
   handleBlur,
   errorMessage,
   handleChange,
-  meta
+  meta,
+  validate
 } = useField(name, props.rules, {
   initialValue: props.value,
   validateOnValueUpdate: false
@@ -195,7 +204,7 @@ const appendIcon = computed(() => {
 const inputClasses = computed(() => {
   return !props.preventInput
     ? `m-text-field__input`
-    : `m-text-field__input m-text-field__input--prevent-input`
+    : `m-text-field__input m-text-field__input-wrapper--prevent-input`
 })
 
 // Watchers
@@ -226,6 +235,14 @@ const handleKeydown = (event: KeyboardEvent) => {
     event.preventDefault()
   }
 }
+
+const manualValidate = () => {
+  if (meta.touched) {
+    validate()
+  }
+}
+
+defineExpose({ manualValidate })
 
 const handleInputChange = () => {
   emits('input-change', inputValue.value)
@@ -316,22 +333,40 @@ const handleInputChange = () => {
     user-select: none;
 
     position: absolute;
-    z-index: 499;
+    z-index: 2;
     left: $global-spacing-10;
 
     display: flex;
   }
 
-  &__input {
+  &__input-wrapper {
     @include input-gradient(v-bind(borderColor));
 
     width: 100%;
+  }
+
+  &__input {
+    width: 100%;
+
     line-height: 1;
-    color: var(--font-primary);
+
+    background: transparent;
+    border: 0;
+    outline: none;
 
     &--prevent-input {
       caret-color: transparent;
     }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    caret-color: var(--font-primary);
+    transition: background-color 9999s ease-in-out 0s;
+
+    -webkit-text-fill-color: var(--font-primary);
   }
 }
 </style>

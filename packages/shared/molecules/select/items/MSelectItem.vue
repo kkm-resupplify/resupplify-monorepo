@@ -1,6 +1,6 @@
 <template>
   <div :class="generateClasses">
-    <a-icon
+    <m-icon
       v-if="iconPrepend"
       :icon="iconPrepend.name"
       :size="iconPrepend.size ?? `large`"
@@ -9,7 +9,7 @@
 
     <span v-text="text" />
 
-    <a-icon
+    <m-icon
       v-if="iconAppend"
       :icon="iconAppend.name"
       :size="iconAppend.size ?? `large`"

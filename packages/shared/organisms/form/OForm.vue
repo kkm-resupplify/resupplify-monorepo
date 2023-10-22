@@ -1,5 +1,11 @@
 <template>
-  <v-form :class="generateClasses" :initial-values="initialValues" @submit="handleSubmit">
+  <v-form
+    ref="form"
+    :class="generateClasses"
+    :initial-values="initialValues"
+    :initial-touched="getInitialTouched"
+    @submit="handleSubmit"
+  >
     <div class="o-form__body">
       <slot v-if="$slots.body" name="body" />
     </div>
@@ -11,15 +17,16 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import type { Form } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 const props = defineProps({
   initialValues: {
     type: Object as () => Record<string, [number, string]>,
-    default: () => ({})
+    default: null
   },
-
+  keepValues: Boolean,
   submitCallback: {
     type: Function,
     required: true
@@ -28,6 +35,7 @@ const props = defineProps({
 
 // Variables
 const baseClass = 'o-form'
+const form = ref<typeof Form | null>(null)
 
 // Composable
 const { generateClassNames } = useClassComposable()
@@ -37,8 +45,18 @@ const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
 
-// Methods
+// Returns an array in the form of a { field1: true, field2: false } etc.
+// So basically, if a field (key) has a value, we want to set it as touched.
+const getInitialTouched = computed(() => {
+  if (!props.initialValues) return
 
+  return Object.entries(props.initialValues).reduce((newObj: any, [key, value]) => {
+    newObj[key] = value ?? ((value as string)?.length > 0 || +value)
+    return newObj
+  }, {})
+})
+
+// Methods
 const handleSubmit = (values: any) => {
   props.submitCallback(values)
 }

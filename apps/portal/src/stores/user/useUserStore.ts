@@ -1,10 +1,14 @@
 import { defineStore } from 'pinia'
 import { i18n } from '@/translation/index'
 import { setLocale } from '@vee-validate/i18n'
+import type { UserDetails, UserData } from '@/interfaces/user/UserStoreDataInterface'
 
-interface UserStoreData {
+export interface UserStoreData {
   email: string
   token: string
+  details: UserDetails | null
+  type: number
+  createdAt: string
   language: 'en-US' | 'pl-PL'
 }
 
@@ -14,44 +18,36 @@ export const useUserStore = defineStore({
   state: (): UserStoreData => ({
     email: '',
     token: '',
+    type: 1,
+    details: null,
+    createdAt: '',
     language: 'en-US'
   }),
 
   getters: {
+    getUserData: (state) => state,
     getEmail: (state) => state.email,
     getToken: (state) => state.token,
-    getLanguage: (state) => state.language
+    getLanguage: (state) => state.language,
+    getUserDetails: (state) => state.details,
+    isAuthenticated: (state) => !!state.token
   },
 
   actions: {
-    isLoggedIn() {
-      return !!this.token
+    setUserData(userData: UserData, token: string) {
+      this.email = userData.email
+      this.token = token
+      this.type = userData.type
+      this.details = userData.details
+      this.createdAt = userData.createdAt
     },
 
-    setUser({ email, token }: { email: string; token: string }) {
-      this.setEmail(email)
-      this.setToken(token)
+    setUserDetails(userDetails: UserDetails) {
+      this.details = userDetails
     },
 
     clearUser() {
-      this.clearEmail()
-      this.clearToken()
-    },
-
-    setEmail(token: string) {
-      this.email = token
-    },
-
-    clearEmail() {
-      this.email = ''
-    },
-
-    setToken(token: string) {
-      this.token = token
-    },
-
-    clearToken() {
-      this.token = ''
+      this.$reset()
     },
 
     setLanguage(language: 'en-US' | 'pl-PL') {

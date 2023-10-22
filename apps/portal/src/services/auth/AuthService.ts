@@ -1,11 +1,13 @@
 import BaseService from '../BaseService'
 import { useUserStore } from '@/stores/user/useUserStore'
+import router, { RouteNames } from '@/routes/index'
 
 interface AuthRequest {
   email: string
   password: string
   passwordConfirmation?: string
 }
+
 class AuthService extends BaseService {
   static REGISTER_SUFFIX = 'register'
   static LOGIN_SUFFIX = 'login'
@@ -16,14 +18,19 @@ class AuthService extends BaseService {
       data: { email, password, password_confirmation: passwordConfirmation },
       suffix: AuthService.REGISTER_SUFFIX,
       notificationTitle: 'auth.notification.registerSuccessTitle',
-      notificationText: 'auth.notification.registerSuccessText'
+      notificationText: 'auth.notification.registerSuccessText',
+      notificationDuration: 7000
     })
 
-    const { data } = response
-    const { token, user } = data
+    if (response.success) {
+      const { data } = response
+      const { token, user } = data
 
-    const userStore = useUserStore()
-    userStore.setUser({ email: user.email, token })
+      const userStore = useUserStore()
+      userStore.setUserData(user, token)
+
+      await router.push({ name: RouteNames.SETTINGS })
+    }
 
     return response
   }
@@ -36,10 +43,15 @@ class AuthService extends BaseService {
       notificationText: 'auth.notification.loginSuccessText'
     })
 
-    const { data } = response
-    const { token, user } = data
-    const userStore = useUserStore()
-    userStore.setUser({ email: user.email, token })
+    if (response.success) {
+      const { data } = response
+      const { token, user } = data
+
+      const userStore = useUserStore()
+      userStore.setUserData(user, token)
+
+      router.push({ name: RouteNames.HOME })
+    }
 
     return response
   }
