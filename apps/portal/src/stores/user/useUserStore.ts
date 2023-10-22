@@ -5,7 +5,7 @@ import type { UserDetails, UserData } from '@/interfaces/user/UserStoreDataInter
 
 export interface UserStoreData {
   email: string
-  token: string
+  token: string | null
   details: UserDetails | null
   type: number
   createdAt: string
@@ -17,7 +17,7 @@ export const useUserStore = defineStore({
 
   state: (): UserStoreData => ({
     email: '',
-    token: '',
+    token: null,
     type: 1,
     details: null,
     createdAt: '',

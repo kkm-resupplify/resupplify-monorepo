@@ -181,7 +181,7 @@
       },
 
       "notification": {
-        "userDataUpdateSuccessTitle": "User details updated successfully"
+        "updateSuccess": "User details updated successfully"
       }
     },
 
@@ -189,7 +189,7 @@
       "title": "Preferences",
 
       "notification": {
-        "userDataUpdateSuccessTitle": "Preferences updated successfully"
+        "updateSuccess": "Preferences updated successfully"
       }
     },
 

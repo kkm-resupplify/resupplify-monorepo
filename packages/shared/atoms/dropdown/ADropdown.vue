@@ -44,13 +44,9 @@ const toggleShowContent = () => {
 
   &__content {
     position: absolute;
-
     display: flex;
-
-    width: fit-content;
-    padding: 2px;
-
-    background-color: #fff;
+    width: 100%;
+    padding: $global-spacing-10;
   }
 }
 </style>

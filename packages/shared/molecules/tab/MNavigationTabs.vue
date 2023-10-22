@@ -1,14 +1,14 @@
 <template>
   <div :class="generateClasses">
-    <div class="m-tabs__navigation">
+    <div class="m-navigation-tabs__navigation">
       <m-navigation-tabs-item v-for="(tab, index) in tabs" :key="index" :tab="tab" />
 
-      <div class="m-tabs__append">
+      <div class="m-navigation-tabs__append">
         <slot name="append" />
       </div>
     </div>
 
-    <div class="m-tabs__content">
+    <div class="m-navigation-tabs__content">
       <component :is="currentTabComponent.component" />
     </div>
   </div>
@@ -29,7 +29,7 @@ const props = defineProps({
 })
 
 // Variables
-const baseClass = 'm-tabs'
+const baseClass = 'm-navigation-tabs'
 const route = useRoute()
 const { generateClassNames } = useClassComposable()
 
@@ -48,17 +48,18 @@ const currentTabComponent = computed(() => {
 </script>
 
 <style scoped lang="scss">
-.m-tabs {
+.m-navigation-tabs {
+  @include boxshadow-primary-2;
+
   display: flex;
   min-height: 800px;
-  padding: $global-spacing-40;
 
   &__navigation {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-50;
 
-    padding: $global-spacing-30;
+    padding: $global-spacing-50;
 
     background-color: var(--secondary-1);
     border-radius: $global-border-radius-10 0 0 $global-border-radius-10;
@@ -67,14 +68,14 @@ const currentTabComponent = computed(() => {
   &__append {
     display: flex;
     flex: 1;
-    padding: $global-spacing-30;
+    padding: $global-spacing-50;
   }
 
   &__content {
     display: flex;
     flex: 1;
 
-    padding: $global-spacing-30;
+    padding: $global-spacing-50;
 
     background-color: var(--secondary-3);
     border-radius: 0 $global-border-radius-10 $global-border-radius-10 0 0;

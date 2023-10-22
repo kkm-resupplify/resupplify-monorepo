@@ -103,6 +103,10 @@ const generateClasses = computed(() => {
     @include size($button-font-size-md);
   }
 
+  &--x-medium {
+    @include size($global-size-600);
+  }
+
   &--large {
     @include size($button-font-size-lg);
   }
