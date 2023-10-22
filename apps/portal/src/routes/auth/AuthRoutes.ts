@@ -3,7 +3,10 @@ import LoginView from '@/views/Login/LoginView.vue'
 import LogoutView from '@/views/Logout/LogoutView.vue'
 import RegisterView from '@/views/Register/RegisterView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
-import { MustNotBeAuthenticated, MustBeAuthenticated } from '@/routes/navigationGuards'
+import {
+  MustNotBeAuthenticatedNavigationGuard,
+  MustBeAuthenticatedNavigationGuard
+} from '@/routes/navigationGuards'
 
 class AuthRouteEnum extends BaseEnum {
   static readonly LOGIN: string = 'LOGIN'
@@ -17,7 +20,7 @@ const AuthRoutes: RouteRecordRaw[] = [
     name: AuthRouteEnum.LOGIN,
     component: LoginView,
     beforeEnter: () => {
-      return MustNotBeAuthenticated.guard()
+      return MustNotBeAuthenticatedNavigationGuard.guard()
     }
   },
   {
@@ -25,7 +28,7 @@ const AuthRoutes: RouteRecordRaw[] = [
     name: AuthRouteEnum.LOGOUT,
     component: LogoutView,
     beforeEnter: () => {
-      return MustBeAuthenticated.guard()
+      return MustBeAuthenticatedNavigationGuard.guard()
     }
   },
   {
@@ -33,7 +36,7 @@ const AuthRoutes: RouteRecordRaw[] = [
     name: AuthRouteEnum.REGISTER,
     component: RegisterView,
     beforeEnter: () => {
-      return MustNotBeAuthenticated.guard()
+      return MustNotBeAuthenticatedNavigationGuard.guard()
     }
   }
 ]
