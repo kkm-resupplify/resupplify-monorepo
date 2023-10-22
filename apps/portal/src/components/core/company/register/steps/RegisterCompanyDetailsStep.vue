@@ -42,7 +42,7 @@
           <div class="register-company-details-step__footer">
             <a-button size="large" :text="$t('global.back')" @click="handlePreviousStep" />
 
-            <a-button type="submit" size="large" :text="$t('global.next')" />
+            <a-button type="submit" size="large" :text="$t('global.next')"/>
           </div>
         </template>
       </o-form>
@@ -64,6 +64,7 @@ const registerCompanyStore = useRegisterCompanyStore()
 // Methods
 const handleNextStep = async (values: RegisterCompanyDetailsStep) => {
   registerCompanyStore.setDetailsStepData(values)
+  console.log(values)
   emits('next-step')
 }
 

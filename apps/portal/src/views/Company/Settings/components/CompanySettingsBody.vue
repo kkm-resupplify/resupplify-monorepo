@@ -16,16 +16,16 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import CompanySettingsContent from './CompanySettingsContent.vue'
+import { useRegisterCompanyStore } from '../../../../stores/company/useRegisterCompanyStore'
 
 // Interfaces
 interface category {
-  imageClass: String;
-  imageContent: String;
-  text: String;
-  link: String;
+  imageClass: String
+  imageContent: String
+  text: String
+  link: String
 }
 // Variables
 const { t } = useI18n()
@@ -49,6 +49,13 @@ const profileLinks: Array<category> = reactive([
     link: '/settings/my-company'
   }
 ])
+
+const data = ref([])
+
+onMounted(() => {
+  const registerCompanyStore = useRegisterCompanyStore().registerCompanyFormData
+  data.value = registerCompanyStore
+})
 </script>
 
 <style scoped lang="scss">
