@@ -50,7 +50,7 @@ class UserDetailsService extends BaseService {
     const response = await this.put({
       data: userDetails,
       suffix: 'user/userDetails',
-      notificationTitle: 'settings.profile.notification.updateSuccess',
+      notificationTitle: 'settings.profile.notification.updateSuccess'
     })
 
     const { data } = response
