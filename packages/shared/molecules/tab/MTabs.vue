@@ -1,7 +1,7 @@
 <template>
   <div :class="generateClasses">
-    <div class="m-tabs__tabs">
-      <slot name="tabs" />
+    <div class="m-tabs__tab-list">
+      <m-tabs-item v-for="(tab, index) in tabs" :key="index" :tab="tab" />
     </div>
 
     <div class="m-tabs__button">
@@ -11,16 +11,23 @@
 </template>
 
 <script setup lang="ts">
-// Vue
-import { computed } from 'vue'
-
-// Composables
+import { computed, type PropType } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+import type { MTabsItemData } from '@sharedInterfaces/MTabsInterface'
+import MTabsItem from './MTabsItem.vue'
 
+const props = defineProps({
+  tabs: {
+    type: Array as PropType<MTabsItemData[]>,
+    required: true
+  }
+})
+
+// Variables
 const baseClass = 'm-tabs'
-
 const { generateClassNames } = useClassComposable()
 
+// Computed
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
@@ -31,10 +38,12 @@ const generateClasses = computed(() => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: var(--secondary-1);
-  
+
   padding: $global-spacing-100;
-  &__tabs {
+
+  background: var(--secondary-1);
+
+  &__tab-list {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-50;

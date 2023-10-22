@@ -5,7 +5,7 @@
         <div v-for="(item, idx) in profileLinks" :key="idx" class="user-settings-body__tab">
           <span :class="item.imageClass" v-text="item.imageContent" />
 
-          <a-link :link="item.link" :text="item.text" size="large" />
+          <!-- <a-link :link="item.link" :text="item.text" size="large" /> -->
         </div>
       </template>
 
