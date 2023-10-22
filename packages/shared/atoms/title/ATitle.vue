@@ -42,8 +42,8 @@ const generateClasses = computed(() => {
   }
 
   &__title {
-    font-size: $global-title-large-font-size;
-    font-weight: $global-title-large-font-weight;
+    font-size: $global-title-x-large-font-size;
+    font-weight: $global-title-x-large-font-weight;
   }
 }
 </style>

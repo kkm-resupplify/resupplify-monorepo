@@ -15,7 +15,7 @@
             :placeholder="$t('user.details.firstNamePlaceholder')"
             autocomplete="given-name"
             rules="required"
-            :value="userDetails?.first_name"
+            :value="userDetails?.firstName"
             class="user-details-form__text-field"
           />
 
@@ -26,7 +26,7 @@
             :placeholder="$t('user.details.lastNamePlaceholder')"
             autocomplete="family-name"
             rules="required"
-            :value="userDetails?.last_name"
+            :value="userDetails?.lastName"
             class="user-details-form__text-field"
           />
 
@@ -37,7 +37,7 @@
             :placeholder="$t('user.details.phoneNumberPlaceholder')"
             autocomplete="tel"
             :rules="{ regex: /^(?:\+48)?[1-9]\d{8}$/ }"
-            :value="userDetails?.phone_number"
+            :value="userDetails?.phoneNumber"
             class="user-details-form__text-field"
           />
 
@@ -101,7 +101,7 @@ const userDetails = useUserStore().getUserDetails
 
 //Transforming date to YYYY-mm-dd format
 const birthDateYearFormat = computed(() => {
-  return userDetails ? DateTime.fromFormat(userDetails.birth_date, 'MM-dd-yyyy').toISODate() : null
+  return userDetails ? DateTime.fromFormat(userDetails.birthDate, 'MM-dd-yyyy').toISODate() : null
 })
 
 //Methods
@@ -119,7 +119,6 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
     flex: 1 0 0;
     align-self: stretch;
   }
-  @include boxshadow-primary-2;
 
   width: 452px;
   margin-inline: auto;

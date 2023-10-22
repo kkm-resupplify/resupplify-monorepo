@@ -1,16 +1,14 @@
 <template>
   <div :class="generateClasses">
     <div class="m-tabs__navigation">
-      <div class="m-tabs__tab-list">
-        <m-tabs-item v-for="(tab, index) in tabs" :key="index" :tab="tab" />
-      </div>
+      <m-navigation-tabs-item v-for="(tab, index) in tabs" :key="index" :tab="tab" />
 
       <div class="m-tabs__append">
         <slot name="append" />
       </div>
     </div>
 
-    <div clas="m-tabs__content">
+    <div class="m-tabs__content">
       <component :is="currentTabComponent.component" />
     </div>
   </div>
@@ -19,13 +17,13 @@
 <script setup lang="ts">
 import { computed, type PropType } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-import type { MTabsItemData } from '@sharedInterfaces/MTabsInterface'
-import MTabsItem from './MTabsItem.vue'
+import type { MNavigationTabsItemData } from '@sharedInterfaces/MNavigationTabsInterface'
+import MNavigationTabsItem from './MNavigationTabsItem.vue'
 import { useRoute } from 'vue-router'
 
 const props = defineProps({
   tabs: {
-    type: Array as PropType<MTabsItemData[]>,
+    type: Array as PropType<MNavigationTabsItemData[]>,
     required: true
   }
 })
@@ -52,29 +50,34 @@ const currentTabComponent = computed(() => {
 <style scoped lang="scss">
 .m-tabs {
   display: flex;
-  padding: $global-spacing-90;
-  background: var(--secondary-1);
-  gap: $global-spacing-40;
+  min-height: 800px;
+  padding: $global-spacing-40;
 
   &__navigation {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-  }
-
-  &__tab-list {
-    display: flex;
-    flex-direction: column;
     gap: $global-spacing-50;
+
+    padding: $global-spacing-30;
+
+    background-color: var(--secondary-1);
+    border-radius: $global-border-radius-10 0 0 $global-border-radius-10;
   }
 
   &__append {
     display: flex;
     flex: 1;
+    padding: $global-spacing-30;
   }
 
-  &__tab-content {
+  &__content {
     display: flex;
+    flex: 1;
+
+    padding: $global-spacing-30;
+
+    background-color: var(--secondary-3);
+    border-radius: 0 $global-border-radius-10 $global-border-radius-10 0 0;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 import type { Component } from 'vue'
 
-export interface MTabsItemData {
+export interface MNavigationTabsItemData {
   title: string
   to: string
   icon?: string

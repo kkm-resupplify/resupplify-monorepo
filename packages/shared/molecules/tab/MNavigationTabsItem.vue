@@ -7,12 +7,12 @@
 </template>
 
 <script setup lang="ts">
-import type { MTabsItemData } from '@sharedInterfaces/MTabsInterface'
+import type { MNavigationTabsItemData } from '@sharedInterfaces/MNavigationTabsInterface'
 import { type PropType } from 'vue'
 
 defineProps({
   tab: {
-    type: Object as PropType<MTabsItemData>,
+    type: Object as PropType<MNavigationTabsItemData>,
     required: true
   }
 })

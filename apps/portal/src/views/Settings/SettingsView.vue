@@ -1,7 +1,7 @@
 <template>
   <basic-view-layout>
     <template #body>
-      <m-tabs :tabs="settingsViewTabs" />
+      <m-navigation-tabs :tabs="settingsViewTabs" />
     </template>
   </basic-view-layout>
 </template>
@@ -11,6 +11,7 @@ import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import UserDetailsView from '@/views/UserDetails/UserDetailsView.vue'
+import UserSettingsProfileTab from '@/components/core/user/settings/profile/UserSettingsProfileTab.vue'
 
 // Variables
 const { t } = useI18n()
@@ -22,7 +23,7 @@ const settingsViewTabs = computed(() => {
       title: t('user.settings.profile'),
       to: '#profile',
       icon: 'account_circle',
-      component: UserDetailsView
+      component: UserSettingsProfileTab
     },
     {
       title: t('user.settings.preferences'),
