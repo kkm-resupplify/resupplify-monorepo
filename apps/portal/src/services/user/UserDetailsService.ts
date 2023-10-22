@@ -44,6 +44,24 @@ class UserDetailsService extends BaseService {
 
     return response
   }
+
+  async editUserDetails(userDetailsData: UserDetails) {
+    const userDetails = new UserDetailsDTO(userDetailsData)
+
+    const response = await this.put({
+      data: userDetails,
+      suffix: 'user/userDetails',
+      notificationTitle: 'auth.notification.registerSuccessTitle',
+      notificationText: 'auth.notification.registerSuccessText'
+    })
+
+    const { data } = response
+
+    const userStore = useUserStore()
+    userStore.setUserDetails(data.userDetails)
+
+    return response
+  }
 }
 
 export default new UserDetailsService('')
