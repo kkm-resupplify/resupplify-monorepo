@@ -33,8 +33,7 @@ class UserDetailsService extends BaseService {
     const response = await this.post({
       data: userDetails,
       suffix: 'user/userDetails',
-      notificationTitle: 'auth.notification.registerSuccessTitle',
-      notificationText: 'auth.notification.registerSuccessText'
+      notificationTitle: 'settings.profile.notification.updateSuccess'
     })
 
     const { data } = response
@@ -51,8 +50,7 @@ class UserDetailsService extends BaseService {
     const response = await this.put({
       data: userDetails,
       suffix: 'user/userDetails',
-      notificationTitle: 'auth.notification.registerSuccessTitle',
-      notificationText: 'auth.notification.registerSuccessText'
+      notificationTitle: 'settings.profile.notification.updateSuccess',
     })
 
     const { data } = response

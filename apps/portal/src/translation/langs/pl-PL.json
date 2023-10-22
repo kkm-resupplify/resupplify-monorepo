@@ -181,7 +181,7 @@
       },
 
       "notification": {
-        "updateSuccessful": "Dane użytkownika zostały zaktualizowany pomyślnie"
+        "updateSuccess": "Dane użytkownika zostały zaktualizowany pomyślnie"
       }
     },
 
@@ -189,7 +189,7 @@
       "title": "Preferencje",
 
       "notification": {
-        "updateSuccessful": "Preferencje użytkownika zostały zaktualizowany pomyślnie"
+        "updateSuccess": "Preferencje użytkownika zostały zaktualizowany pomyślnie"
       }
     },
 

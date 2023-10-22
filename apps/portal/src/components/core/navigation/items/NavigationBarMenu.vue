@@ -33,7 +33,7 @@ const { userFullName } = useFullNameComposable()
 
 // Computed
 const fullName = computed(() => {
-  return userFullName(userStore.getUserDetails?.first_name, userStore.getUserDetails?.last_name)
+  return userFullName(userStore.getUserDetails?.firstName, userStore.getUserDetails?.lastName)
 })
 </script>
 
