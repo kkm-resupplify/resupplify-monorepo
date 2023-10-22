@@ -1,7 +1,7 @@
 <template>
-  <basic-view-layout>
+  <basic-view-layout class="settings-view">
     <template #body>
-      <m-navigation-tabs :tabs="settingsViewTabs" class="settings-view" />
+      <m-navigation-tabs :tabs="settingsViewTabs" />
     </template>
   </basic-view-layout>
 </template>
@@ -39,9 +39,3 @@ const settingsViewTabs = computed(() => {
   ]
 })
 </script>
-
-<style lang="scss" scoped>
-.settings-view {
-  @include boxshadow-primary-2;
-}
-</style>

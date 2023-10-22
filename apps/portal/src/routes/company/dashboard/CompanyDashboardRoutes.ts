@@ -13,8 +13,8 @@ const CompanyDashboardRoutes: RouteRecordRaw[] = [
     name: CompanyProfileRouteEnum.COMPANY_DASHBOARD,
     component: CompanyDashboardView,
     beforeEnter: () => {
-      const mustBeAuthenticated = MustBeAuthenticated.guard()
-      if (mustBeAuthenticated) return mustBeAuthenticated
+      const mustBeAuthenticatedNavigationGuard = MustBeAuthenticated.guard()
+      if (mustBeAuthenticatedNavigationGuard) return mustBeAuthenticated
 
       const mustHaveUserDetailsNavigationGuard = MustHaveUserDetailsNavigationGuard.guard()
       if (mustHaveUserDetailsNavigationGuard) return mustHaveUserDetailsNavigationGuard

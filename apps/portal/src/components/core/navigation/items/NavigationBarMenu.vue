@@ -53,6 +53,7 @@ const fullName = computed(() => {
 
 const dropdownItems = computed(() => {
   return [
+    { text: 'My company', icon: 'apartment', link: RouteNames.COMPANY_DASHBOARD },
     { text: 'Settings', icon: 'settings', link: RouteNames.SETTINGS },
     { text: 'Logout', icon: 'logout', link: RouteNames.LOGOUT }
   ]
@@ -62,15 +63,19 @@ const dropdownItems = computed(() => {
 <style lang="scss" scoped>
 .navigation-bar-menu {
   &__header {
+    min-width: 200px;
     display: flex;
     gap: $global-spacing-20;
     align-items: center;
+    align-self: flex-end;
   }
 
   &__user-data {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    align-self: flex-end;
+    flex: 1;
   }
 
   &__fullname {
