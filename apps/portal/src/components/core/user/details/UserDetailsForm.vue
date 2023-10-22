@@ -47,7 +47,7 @@
             :label="$t('user.details.birthDate')"
             autocomplete="bday"
             rules="required"
-            :value="userDetails?.birth_date"
+            :value="birthDateYearFormat"
             class="user-details-form__text-field"
           />
 
@@ -78,6 +78,7 @@ import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useUserStore } from '../../../../stores/user/useUserStore'
+import { DateTime } from 'luxon'
 
 //Interfaces
 interface UserDetailsFormData {
@@ -98,9 +99,14 @@ const genderOptions = computed(() => [
 ])
 const userDetails = useUserStore().getUserDetails
 
+//Transforming date to YYYY-mm-dd format
+const birthDateYearFormat = computed(() => {
+  return userDetails ? DateTime.fromFormat(userDetails.birth_date, 'MM-dd-yyyy').toISODate() : null
+})
+
 //Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  if (route.path === '/settings/profile') {
+  if (route.path === '/settings') {
     await UserDetailsService.saveUserDetails(formData)
   } else if (route.path === '/settings/profile/edit') {
     await UserDetailsService.editUserDetails(formData)

@@ -13,7 +13,7 @@ class UserDetailsDTO {
     this.firstName = firstName
     this.lastName = lastName
     this.phoneNumber = phoneNumber
-    this.birthDate = DateTime.fromISO(`${birthDate}`).toFormat('MM-dd-yyyy')
+    this.birthDate = DateTime.fromISO(birthDate).toFormat('MM-dd-yyyy')
     this.sex = sex
   }
 }
