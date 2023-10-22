@@ -14,22 +14,21 @@
       </template>
     </m-tabs>
 
-    <user-settings-content
+    <!-- <user-settings-content
       :first-name="userDetails?.first_name"
       :last-name="userDetails?.last_name"
       :phone-number="userDetails?.phone_number"
       :birth-date="userDetails?.birth_date"
       :sex="userDetails?.sex"
       class="user-settings-body__content"
-    />
+    /> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import UserSettingsContent from './UserSettingsContent.vue'
-import { useUserStore } from '../../../../stores/user/useUserStore'
+import { useUserStore } from '@/stores/user/useUserStore'
 import type { ComputedRef } from 'vue'
 
 // Interfaces

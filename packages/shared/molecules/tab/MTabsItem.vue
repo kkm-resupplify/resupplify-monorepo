@@ -1,8 +1,7 @@
 <template>
   <div class="m-tabs-item">
-    <a-icon v-if="tab.icon" :icon="tab.icon" />
+    <a-icon v-if="tab.icon" :icon="tab.icon" size="xx-large" />
 
-    <!-- <a href="" v-text="tab.title" /> -->
     <a-link :text="tab.title" :link="tab.to" size="large" />
   </div>
 </template>
@@ -19,9 +18,10 @@ defineProps({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .m-tabs-item {
   display: flex;
+  gap: $global-spacing-30;
   align-items: center;
   width: 100%;
 }
