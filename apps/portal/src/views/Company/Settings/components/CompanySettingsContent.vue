@@ -2,88 +2,24 @@
   <div class="user-settings-content">
     <div class="user-settings-content__profile">
       <div class="user-settings-content__company-name">
-        <h2>{{ company.name }}</h2>
+        <!-- <h2>{{ company.name }}</h2> -->
       </div>
     </div>
     <div class="user-settings-content__data">
-      <a-title :header="$t('companyDetails.address')" :sub-header="name" />
+      <a-title :header="$t('companyDetails.address')" sub-header="name" />
+      <div v-for="(item, index) in generalStepData" :key="index">
+        {{ item }}
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-interface Company {
-  name: String
-  country: String
-  slug: String
-  description: String
-  shortDescription: String
-  owner: Owner
-  status: String
-  companyCategory: CompanyCategory
-  companyDetails: CompanyDetails
-}
+import { useRegisterCompanyStore } from '../../../../stores/company/useRegisterCompanyStore'
 
-interface CompanyCategory {
-  name: String
-  slug: String
-  description: String
-}
+const registerCompanyStore = useRegisterCompanyStore().registerCompanyFormData
 
-interface CompanyDetails {
-  address: String
-  email: String
-  phoneNumber: String
-  externalWebsite: String
-  logo: String
-  tin: String
-  country: String
-  companyCategory: String
-}
-
-interface Owner {
-  firstName: String
-  lastName: String
-}
-
-interface CompanyProduct {
-  name: String
-  slug: String
-  description: String
-}
-
-interface CompanyProductDetails {
-  availableQuantity: String
-  description: String
-  externalLink: String
-}
-
-const props = defineProps({
-  company: {
-    type: Object as PropType<Company>,
-    required: true
-  },
-  companyCategory: {
-    type: Object as PropType<CompanyCategory>,
-    required: true
-  },
-  companyDetails: {
-    type: Object as PropType<CompanyDetails>,
-    required: true
-  },
-  owner: {
-    type: Object as PropType<Owner>,
-    required: true
-  },
-  companyProducts: {
-    type: Object as PropType<CompanyProduct>,
-    required: true
-  },
-  companyProductsDetails: {
-    type: Object as PropType<CompanyProductDetails>,
-    required: true
-  }
-})
+const { generalStepData, detailsStepData, contactInfoStepData } = registerCompanyStore
 </script>
 
 <style scoped lang="scss">

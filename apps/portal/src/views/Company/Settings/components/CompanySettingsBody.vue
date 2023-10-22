@@ -50,12 +50,6 @@ const profileLinks: Array<category> = reactive([
   }
 ])
 
-const data = ref([])
-
-onMounted(() => {
-  const registerCompanyStore = useRegisterCompanyStore().registerCompanyFormData
-  data.value = registerCompanyStore
-})
 </script>
 
 <style scoped lang="scss">
