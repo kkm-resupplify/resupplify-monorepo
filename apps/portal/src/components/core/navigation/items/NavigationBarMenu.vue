@@ -63,19 +63,20 @@ const dropdownItems = computed(() => {
 <style lang="scss" scoped>
 .navigation-bar-menu {
   &__header {
-    min-width: 200px;
     display: flex;
     gap: $global-spacing-20;
     align-items: center;
     align-self: flex-end;
+
+    min-width: 200px;
   }
 
   &__user-data {
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: flex-end;
     align-self: flex-end;
-    flex: 1;
   }
 
   &__fullname {
