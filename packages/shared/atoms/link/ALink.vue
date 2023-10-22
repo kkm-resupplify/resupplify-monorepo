@@ -35,8 +35,10 @@ const props = defineProps({
   }
 })
 
+// Variables
 const baseClass = 'a-link'
 
+// Computed
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [
     props.size,
