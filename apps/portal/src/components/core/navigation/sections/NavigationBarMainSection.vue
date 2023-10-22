@@ -5,7 +5,7 @@
       :key="linkItem.link"
       :link="linkItem.link"
       :text="linkItem.text"
-      size="medium"
+      size="x-medium"
     />
   </div>
 </template>

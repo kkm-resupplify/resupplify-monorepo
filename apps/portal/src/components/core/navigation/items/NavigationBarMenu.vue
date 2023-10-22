@@ -79,7 +79,7 @@ const dropdownItems = computed(() => {
   }
 
   &__fullname {
-    font-size: $global-text-medium-font-size;
+    font-size: $global-size-600;
   }
 
   &__email {

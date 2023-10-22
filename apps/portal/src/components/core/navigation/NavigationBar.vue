@@ -1,6 +1,8 @@
 <template>
   <nav class="navigation-bar">
-    <div>img</div>
+    <router-link :to="{ name: 'HOME' }">
+      <img src="public/resupplify-logo.png" alt="logo" width="125" />
+    </router-link>
 
     <navigation-bar-main-section />
 
