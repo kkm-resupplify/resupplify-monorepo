@@ -6,6 +6,7 @@
     "errorOccured": "An error occured",
     "submit": "Submit",
     "save": "Save",
+    "edit": "Edit",
     "noResults": "No results",
     "next": "Next",
     "back": "Back",
@@ -155,25 +156,45 @@
     "increaseYourMarketShare": "Increase your market share"
   },
 
-  "user": {
-    "details": {
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "phoneNumber": "Phone Number",
-      "birthDate": "Birth Date",
-      "sex": "Sex",
-      "gender": {
-        "male": "Male",
-        "female": "Female",
-        "preferNot": "Prefer not to say"
+  "settings": {
+    "profile": {
+      "title": "Profile",
+
+      "details": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email Address",
+        "phoneNumber": "Phone Number",
+        "birthDate": "Birth Date",
+        "firstNamePlaceholder": "Enter your first name",
+        "lastNamePlaceholder": "Enter your last name",
+        "phoneNumberPlaceholder": "Enter your phone number",
+        "genderPlaceholder": "Select your gender",
+        "enterUserDetailsTitle": "Enter your user details",
+        "sex": "Sex",
+
+        "gender": {
+          "male": "Male",
+          "female": "Female",
+          "preferNot": "Prefer not to say"
+        }
       },
 
-      "firstNamePlaceholder": "Enter your first name",
-      "lastNamePlaceholder": "Enter your last name",
-      "phoneNumberPlaceholder": "Enter your phone number",
-      "genderPlaceholder": "Select your gender",
+      "notification": {
+        "userDataUpdateSuccessTitle": "User details updated successfully"
+      }
+    },
 
-      "enterUserDetailsTitle": "Enter your user details"
+    "preferences": {
+      "title": "Preferences",
+
+      "notification": {
+        "userDataUpdateSuccessTitle": "Preferences updated successfully"
+      }
+    },
+
+    "myCompany": {
+      "title": "My company"
     }
   },
 

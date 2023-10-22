@@ -8,6 +8,7 @@ import AIcon from '@sharedAtoms/icon/AIcon.vue'
 import AGeneralNotification from '@sharedAtoms/notification/AGeneralNotification.vue'
 import AInputErrorList from '@sharedAtoms/input/AInputErrorList.vue'
 import ASelect from '@sharedAtoms/select/ASelect.vue'
+import ATitle from '@sharedAtoms/title/ATitle.vue'
 import AImageInput from '@sharedAtoms/input/AImageInput.vue'
 import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
 
@@ -21,6 +22,7 @@ const atoms = [
   AGeneralNotification,
   AInputErrorList,
   ASelect,
+  ATitle,
   AImageInput,
   ADropdown
 ]
@@ -33,6 +35,7 @@ import MFileInput from '@sharedMolecules/input/MFileInput.vue'
 import MStepper from '@sharedMolecules/stepper/MStepper.vue'
 import MStepperStepContent from '@sharedMolecules/stepper/items/MStepperStepContent.vue'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
+import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
 import MIcon from '@sharedMolecules/icon/MIcon.vue'
 
 const molecules = [
@@ -43,7 +46,8 @@ const molecules = [
   MStepper,
   MStepperStepContent,
   MSelect,
-  MIcon
+  MIcon,
+  MNavigationTabs
 ]
 
 // Organisms
