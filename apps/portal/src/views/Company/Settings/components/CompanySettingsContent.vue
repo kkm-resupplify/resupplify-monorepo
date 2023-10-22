@@ -6,10 +6,16 @@
       </div>
     </div>
     <div class="user-settings-content__data">
-      <a-title :header="$t('companyDetails.address')" sub-header="name" />
-      <div v-for="(item, index) in generalStepData" :key="index">
-        {{ item }}
-      </div>
+      <a-title :header="$t('company.register.steps.general.subtitle')" />
+      <div v-for="(value, key, index) in generalStepData" :key="index"><span class="user-settings-content__data--title">{{ key }}: </span>{{ value }}</div>
+    </div>
+    <div class="user-settings-content__data">
+      <a-title :header="$t('company.register.steps.details.subtitle')" />
+      <div v-for="(value, key, index) in detailsStepData" :key="index"><span class="user-settings-content__data--title">{{ key }}: </span>{{ value }}</div>
+    </div>
+    <div class="user-settings-content__data">
+      <a-title :header="$t('company.register.steps.contactInfo.subtitle')" />
+      <div v-for="(value, key, index) in contactInfoStepData" :key="index"><span class="user-settings-content__data--title">{{ key }}: </span>{{ value }}</div>
     </div>
   </div>
 </template>
@@ -49,6 +55,9 @@ const { generalStepData, detailsStepData, contactInfoStepData } = registerCompan
     flex-direction: column;
     margin-top: $global-spacing-70;
     padding: $global-spacing-100;
+    &--title {
+      font-weight: $global-font-weight-100;
+    }
   }
 }
 </style>

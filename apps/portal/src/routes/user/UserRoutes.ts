@@ -13,11 +13,6 @@ class UserProfileRouteEnum extends BaseEnum {
 
 const UserRoutes: RouteRecordRaw[] = [
   {
-    path: '/user/profile/:id',
-    name: UserProfileRouteEnum.USER_PROFILE,
-    component: UserProfileView
-  },
-  {
     path: '/company/settings/profile',
     name: UserProfileRouteEnum.COMPANY_SETTINGS_PROFILE,
     component: CompanySettingsView,
