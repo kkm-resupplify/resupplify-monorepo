@@ -30,7 +30,8 @@ export const useUserStore = defineStore({
     getToken: (state) => state.token,
     getLanguage: (state) => state.language,
     getUserDetails: (state) => state.details,
-    isAuthenticated: (state) => !!state.token
+    isAuthenticated: (state) => !!state.token,
+    hasUserDetails: (state) => !!state.details
   },
 
   actions: {

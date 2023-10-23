@@ -16,6 +16,14 @@
     "payNow": "Zapłać teraz"
   },
 
+  "navigation": {
+    "menu": {
+      "settings": "Ustawienia",
+      "myCompany": "Moja firma",
+      "logout": "Wyloguj"
+    }
+  },
+
   "pages": {
     "home": "Strona główna",
     "browse": "Przeglądaj",

@@ -5,7 +5,11 @@
         <div class="navigation-bar-menu__user-data">
           <span class="navigation-bar-menu__fullname" v-text="fullName" />
 
-          <span class="navigation-bar-menu__email" v-text="userStore.email" />
+          <span
+            v-if="userStore.hasUserDetails"
+            class="navigation-bar-menu__email"
+            v-text="userStore.email"
+          />
         </div>
 
         <div class="navigation-bar-menu__user-avatar">
@@ -26,6 +30,12 @@
 
           <a-icon :icon="dropdownItem.icon" size="x-large" />
         </router-link>
+
+        <div class="navigation-bar-menu__dropdown-item" @click="handleLogoutClick">
+          <span v-text="$t('navigation.menu.logout')" />
+
+          <a-icon icon="logout" size="x-large" />
+        </div>
       </div>
     </template>
   </a-dropdown>
@@ -36,28 +46,32 @@ import { computed } from 'vue'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { useFullNameComposable } from '@sharedComposables/user/useUserDataComposable'
 import { RouteNames } from '@/routes/index'
+import { useI18n } from 'vue-i18n'
+import AuthService from '@/services/auth/AuthService'
 
-interface DropdownItemData {
-  text: string
-  icon: string
-  link: string
-}
 // Variables
 const userStore = useUserStore()
 const { userFullName } = useFullNameComposable()
+const { t } = useI18n()
 
 // Computed
 const fullName = computed(() => {
-  return userFullName(userStore.getUserDetails?.firstName, userStore.getUserDetails?.lastName)
+  return userStore.hasUserDetails
+    ? userFullName(userStore.getUserDetails?.firstName, userStore.getUserDetails?.lastName)
+    : userStore.getEmail
 })
 
 const dropdownItems = computed(() => {
   return [
-    { text: 'My company', icon: 'apartment', link: RouteNames.COMPANY_DASHBOARD },
-    { text: 'Settings', icon: 'settings', link: RouteNames.SETTINGS },
-    { text: 'Logout', icon: 'logout', link: RouteNames.LOGOUT }
+    { text: t('navigation.menu.myCompany'), icon: 'apartment', link: RouteNames.COMPANY_DASHBOARD },
+    { text: t('navigation.menu.settings'), icon: 'settings', link: RouteNames.SETTINGS }
   ]
 })
+
+// Methods
+const handleLogoutClick = async () => {
+  await AuthService.logout()
+}
 </script>
 
 <style lang="scss" scoped>

@@ -17,6 +17,14 @@
     "payNow": "Pay now"
   },
 
+  "navigation": {
+    "menu": {
+      "settings": "Settings",
+      "myCompany": "My company",
+      "logout": "Logout"
+    }
+  },
+
   "pages": {
     "home": "Home",
     "browse": "Browse",

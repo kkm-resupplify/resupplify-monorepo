@@ -57,14 +57,17 @@ class AuthService extends BaseService {
   }
 
   async logout() {
-    const response = await this.get({
+    const response = await this.post({
       suffix: AuthService.LOGOUT_SUFFIX,
       notificationTitle: 'auth.notification.logoutSuccessTitle',
       notificationText: 'auth.notification.logoutSuccessText'
     })
-
-    const userStore = useUserStore()
-    userStore.clearUser()
+    console.log(response)
+    if (response.success) {
+      const userStore = useUserStore()
+      userStore.clearUser()
+      router.push({ name: RouteNames.LOGIN })
+    }
 
     return response
   }

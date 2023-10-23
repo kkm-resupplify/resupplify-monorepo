@@ -107,7 +107,8 @@ const genderOptions = computed(() => [
   }
 ])
 
-const userDetails = useUserStore().getUserDetails
+const userStore = useUserStore()
+const userDetails = userStore.getUserDetails
 
 // Transforming date to YYYY-mm-dd format
 const birthDateYearFormat = computed(() => {
@@ -116,6 +117,7 @@ const birthDateYearFormat = computed(() => {
 
 // Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
+  console.log(userDetails)
   if (userDetails === null) await UserDetailsService.saveUserDetails(formData)
   else await UserDetailsService.editUserDetails(formData)
 }
