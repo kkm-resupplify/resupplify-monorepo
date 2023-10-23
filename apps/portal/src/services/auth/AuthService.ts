@@ -50,7 +50,7 @@ class AuthService extends BaseService {
       const userStore = useUserStore()
       userStore.setUserData(user, token)
 
-      router.push({ name: RouteNames.HOME })
+      await router.push({ name: RouteNames.HOME })
     }
 
     return response
@@ -66,7 +66,7 @@ class AuthService extends BaseService {
     if (response.success) {
       const userStore = useUserStore()
       userStore.clearUser()
-      router.push({ name: RouteNames.LOGIN })
+      await router.push({ name: RouteNames.LOGIN })
     }
 
     return response
