@@ -48,11 +48,6 @@ const steps = [
     component: TestFormTwo
   }
 ]
-
-// Methods
-const handleNextStep = (values: any) => {
-  console.log(values)
-}
 </script>
 
 <style lang="scss" scoped>

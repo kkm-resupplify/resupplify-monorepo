@@ -62,7 +62,7 @@ class AuthService extends BaseService {
       notificationTitle: 'auth.notification.logoutSuccessTitle',
       notificationText: 'auth.notification.logoutSuccessText'
     })
-    console.log(response)
+
     if (response.success) {
       const userStore = useUserStore()
       userStore.clearUser()

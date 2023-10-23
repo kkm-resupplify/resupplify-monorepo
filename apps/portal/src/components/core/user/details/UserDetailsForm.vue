@@ -117,7 +117,6 @@ const birthDateYearFormat = computed(() => {
 
 // Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  console.log(userDetails)
   if (userDetails === null) await UserDetailsService.saveUserDetails(formData)
   else await UserDetailsService.editUserDetails(formData)
 }
