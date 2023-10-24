@@ -2,7 +2,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import UserProfileView from '@/views/User/Profile/UserProfileView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import CompanySettingsView from '@/views/Company/Settings/CompanySettingsView.vue'
-import { MustBeAuthenticated } from '../navigationGuards'
+import { MustBeAuthenticatedNavigationGuard } from '../navigationGuards'
 
 class UserProfileRouteEnum extends BaseEnum {
   static readonly USER_PROFILE: string = 'USER_PROFILE'
@@ -17,7 +17,7 @@ const UserRoutes: RouteRecordRaw[] = [
     name: UserProfileRouteEnum.COMPANY_SETTINGS_PROFILE,
     component: CompanySettingsView,
     beforeEnter: () => {
-      return MustBeAuthenticated.guard()
+      return MustBeAuthenticatedNavigationGuard.guard()
     }
   },
   {
