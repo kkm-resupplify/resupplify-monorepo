@@ -2,7 +2,7 @@
   <div :class="generateClasses">
     <span class="a-title__title" v-text="title" />
 
-    <span v-if="subTitle" class="a-title__content" v-text="subTitle" />
+    <span v-if="subtitle" class="a-title__subtitle" v-text="subtitle" />
   </div>
 </template>
 
@@ -18,7 +18,11 @@ const props = defineProps({
     type: String,
     required: true
   },
-  subTitle: String
+  subtitle: String,
+  size: {
+    type: String,
+    default: 'x-large'
+  }
 })
 
 // Composables
@@ -29,21 +33,41 @@ const baseClass = 'a-title'
 const { generateClassNames } = useClassComposable()
 
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.variant])
+  return generateClassNames(baseClass, [props.variant, props.size])
 })
 </script>
 
 <style scoped lang="scss">
 .a-title {
-  display: flex;
+  $self: &;
 
-  &--vertical {
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+
+  &--horizontal {
+    flex-direction: row;
+    gap: $global-spacing-40;
+    align-items: center;
+  }
+
+  &--xx-large {
+    #{$self}__title {
+      font-size: $global-title-xx-large-font-size;
+    }
+    #{$self}__subtitle {
+      font-size: $global-title-x-large-font-size;
+      font-weight: $global-title-x-large-font-weight;
+    }
   }
 
   &__title {
     font-size: $global-title-x-large-font-size;
     font-weight: $global-title-x-large-font-weight;
+  }
+
+  &__content {
+    font-size: $global-title-medium-font-size;
+    font-weight: $global-title-medium-font-weight;
   }
 }
 </style>
