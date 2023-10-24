@@ -43,6 +43,7 @@ export const useUserStore = defineStore({
       this.token = token
       this.type = userData.type
       this.details = userData.details
+      this.company = userData.company
       this.createdAt = userData.createdAt
     },
 
