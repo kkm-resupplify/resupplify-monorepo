@@ -10,6 +10,7 @@ export interface UserStoreData {
   type: number
   createdAt: string
   language: 'en-US' | 'pl-PL'
+  company: null | Record<string, any>
 }
 
 export const useUserStore = defineStore({
@@ -21,7 +22,8 @@ export const useUserStore = defineStore({
     type: 1,
     details: null,
     createdAt: '',
-    language: 'en-US'
+    language: 'en-US',
+    company: null
   }),
 
   getters: {
@@ -31,7 +33,8 @@ export const useUserStore = defineStore({
     getLanguage: (state) => state.language,
     getUserDetails: (state) => state.details,
     isAuthenticated: (state) => !!state.token,
-    hasUserDetails: (state) => !!state.details
+    hasUserDetails: (state) => !!state.details,
+    hasCompany: (state) => !!state.company
   },
 
   actions: {
