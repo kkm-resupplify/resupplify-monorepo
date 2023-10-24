@@ -80,7 +80,7 @@ const handleUserDetailsFormUpdated = () => {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-50;
-  min-width: 400px;
+  min-width: 500px;
 
   &__header {
     display: flex;
