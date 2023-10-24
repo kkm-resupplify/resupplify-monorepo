@@ -44,7 +44,6 @@
     &__content {
       display: flex;
       width: 100%;
-      padding: $global-spacing-10;
     }
   }
   </style>

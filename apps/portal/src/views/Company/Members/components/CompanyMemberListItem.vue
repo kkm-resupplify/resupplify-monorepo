@@ -1,6 +1,6 @@
 <template>
     <div class="company-member-list-item">
-        <a-dropdown class="company-member-list-item__dropdown">
+        <a-expansion-panel class="company-member-list-item__expansion-panel">
             <template #activator>
                 <div class="company-member-list-item__header">
                     <a-title title="email" />
@@ -19,15 +19,18 @@
                     <a-title title="sex" size="medium"/>
                 </div>
             </template>
-        </a-dropdown>
+        </a-expansion-panel>
     </div>
 </template>
 
 <style scoped lang="scss">
 .company-member-list-item {
+    &__header, &__details, &__expansion-panel {
+        width: 100%;
+    }
+
     &__header, &__details {
         padding: $global-spacing-50;
-        width: 100%;
     }
 
     &__header {
