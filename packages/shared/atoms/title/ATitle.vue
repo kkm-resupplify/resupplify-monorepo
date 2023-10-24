@@ -40,7 +40,7 @@ const generateClasses = computed(() => {
 <style scoped lang="scss">
 .a-title {
   $self: &;
-  
+
   display: flex;
   flex-direction: column;
 
