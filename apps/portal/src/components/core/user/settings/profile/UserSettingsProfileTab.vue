@@ -4,11 +4,10 @@
       <a-icon icon="account_circle" size="xx-large" />
 
       <span class="user-settings-profile-tab__name">
-        <template v-if="hasUserDetails">
-          <a-title
-            :title="`${userStore.getUserDetails?.firstName} ${userStore.getUserDetails?.lastName}`"
-          />
-        </template>
+        <a-title
+          v-if="hasUserDetails"
+          :title="`${userStore.getUserDetails?.firstName} ${userStore.getUserDetails?.lastName}`"
+        />
 
         <template v-else>{{ userStore.getEmail }}</template>
       </span>
