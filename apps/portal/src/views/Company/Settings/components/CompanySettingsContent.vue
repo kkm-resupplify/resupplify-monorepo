@@ -6,6 +6,7 @@
       <div v-for="(value, key, index) in generalStepData" :key="index">
         <a-title :title="$t(`company.information.general.${key}`)" :subtitle="value" variant="horizontal" />
       </div>
+
       <a-line :height="1"/>
     </div>
     <div class="user-settings-content__data">
@@ -14,6 +15,7 @@
       <div v-for="(value, key, index) in detailsStepData" :key="index">
         <a-title :title="$t(`company.information.details.${key}`)" :subtitle="value" variant="horizontal" />
       </div>
+
       <a-line :height="1"/>
     </div>
     <div class="user-settings-content__data">
@@ -22,6 +24,7 @@
       <div v-for="(value, key, index) in contactInfoStepData" :key="index">
         <a-title :title="$t(`company.information.contact.${key}`)" :subtitle="value" variant="horizontal" />
       </div>
+
       <a-line :height="1"/>
     </div>
   </div>
@@ -39,8 +42,8 @@ const { generalStepData, detailsStepData, contactInfoStepData } = registerCompan
 .user-settings-content {
   display: flex;
   flex-direction: column;
-  padding: $global-spacing-100;
   max-width: 100%;
+  padding: $global-spacing-100;
 
   &__profile,
   &__profile-name,
@@ -63,6 +66,7 @@ const { generalStepData, detailsStepData, contactInfoStepData } = registerCompan
     flex-direction: column;
     margin-top: $global-spacing-70;
     padding: $global-spacing-100;
+
     &--title {
       font-weight: $global-font-weight-100;
     }

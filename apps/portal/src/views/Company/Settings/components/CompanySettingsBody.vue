@@ -5,40 +5,7 @@
 </template>
 
 <script setup lang="ts">
-// import { computed } from 'vue'
-// import { useI18n } from 'vue-i18n'
 import CompanySettingsContent from './CompanySettingsContent.vue';
-
-// Interfaces
-// interface category {
-//   imageClass: String
-//   imageContent: String
-//   text: String
-//   link: String
-// }
-// Variables
-// const { t } = useI18n()
-// const profileLinks = computed<Array<category>>(() => [
-//   {
-//     imageClass: 'material-symbols-outlined',
-//     imageContent: 'account_circle',
-//     text: t('userSettings.profile'),
-//     link: '/settings/profile'
-//   },
-//   {
-//     imageClass: 'material-symbols-outlined',
-//     imageContent: 'settings_accessibility',
-//     text: t('userSettings.preferences'),
-//     link: '/settings/preferences'
-//   },
-//   {
-//     imageClass: 'material-symbols-outlined',
-//     imageContent: 'apartment',
-//     text: t('userSettings.myCompany'),
-//     link: '/settings/my-company'
-//   }
-// ])
-
 </script>
 
 <style scoped lang="scss">
@@ -52,9 +19,7 @@ import CompanySettingsContent from './CompanySettingsContent.vue';
 
   display: flex;
   align-self: center;
-
   width: 60%;
-
   border-radius: $global-border-radius-10;
 
   &__tabs {
