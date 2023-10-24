@@ -59,7 +59,7 @@ import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
   company: {
-    type: [Object as PropType<CompanyData>],
+    type: Object as PropType<CompanyData>,
     required: true
   }
 })

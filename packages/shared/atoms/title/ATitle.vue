@@ -42,7 +42,19 @@ const titleText = computed(() => {
 </script>
 
 <style scoped lang="scss">
-@mixin size($fontSize) {
+@mixin size-vertical($fontSize) {
+  .a-title__title {
+    font-size: $fontSize;
+    font-weight: $global-font-weight-50;
+  }
+
+  .a-title__subtitle {
+    font-size: calc($fontSize - 4px);
+    font-weight: $global-font-weight-40;
+  }
+}
+
+@mixin size-horizontal($fontSize) {
   .a-title__title {
     font-size: $fontSize;
     font-weight: $global-font-weight-50;
@@ -62,11 +74,51 @@ const titleText = computed(() => {
 
   &--vertical {
     flex-direction: column;
+
+    &#{$self}--normal {
+      @include size-vertical($global-title-normal-font-size);
+    }
+
+    &#{$self}--medium {
+      @include size-vertical($global-title-medium-font-size);
+    }
+
+    &#{$self}--large {
+      @include size-vertical($global-title-large-font-size);
+    }
+
+    &#{$self}--x-large {
+      @include size-vertical($global-title-x-large-font-size);
+    }
+
+    &#{$self}--xx-large {
+      @include size-vertical($global-title-xx-large-font-size);
+    }
   }
 
   &--horizontal {
     flex-direction: row;
     align-items: flex-end;
+
+    &#{$self}--normal {
+      @include size-horizontal($global-title-normal-font-size);
+    }
+
+    &#{$self}--medium {
+      @include size-horizontal($global-title-medium-font-size);
+    }
+
+    &#{$self}--large {
+      @include size-horizontal($global-title-large-font-size);
+    }
+
+    &#{$self}--x-large {
+      @include size-horizontal($global-title-x-large-font-size);
+    }
+
+    &#{$self}--xx-large {
+      @include size-horizontal($global-title-xx-large-font-size);
+    }
   }
 
   &__title {
@@ -75,24 +127,5 @@ const titleText = computed(() => {
   }
 
   // Size
-  &--normal {
-    @include size($global-title-normal-font-size);
-  }
-
-  &--medium {
-    @include size($global-title-medium-font-size);
-  }
-
-  &--large {
-    @include size($global-title-large-font-size);
-  }
-
-  &--x-large {
-    @include size($global-title-x-large-font-size);
-  }
-
-  &--xx-large {
-    @include size($global-title-xx-large-font-size);
-  }
 }
 </style>
