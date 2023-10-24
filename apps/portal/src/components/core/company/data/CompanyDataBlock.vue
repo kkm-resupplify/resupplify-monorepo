@@ -1,7 +1,7 @@
 <template>
   <div class="company-data-block">
     <div class="company-data-block__section">
-      <a-title :title="$t('company.data.generalInformation')" />
+      <a-title :title="$t('company.data.generalInformation')" size="x-large" />
 
       <div class="company-data-block__section-items">
         <a-title
@@ -15,8 +15,10 @@
       </div>
     </div>
 
+    <a-line :height="1" />
+
     <div class="company-data-block__section">
-      <a-title :title="$t('company.data.generalInformation')" />
+      <a-title :title="$t('company.data.generalInformation')" size="x-large" />
 
       <div class="company-data-block__section-items">
         <a-title
@@ -30,8 +32,10 @@
       </div>
     </div>
 
+    <a-line :height="1" />
+
     <div class="company-data-block__section">
-      <a-title :title="$t('company.data.generalInformation')" />
+      <a-title :title="$t('company.data.generalInformation')" size="x-large" />
 
       <div class="company-data-block__section-items">
         <a-title
@@ -95,6 +99,6 @@ const companyContactData = computed(() => {
 .company-data-block {
   display: flex;
   flex-direction: column;
-  gap: $global-spacing-50;
+  gap: $global-spacing-60;
 }
 </style>
