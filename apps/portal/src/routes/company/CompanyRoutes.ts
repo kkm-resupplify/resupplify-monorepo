@@ -2,6 +2,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import CompanyDashboardRoutes from './dashboard/CompanyDashboardRoutes'
 import CompanyProfileRoutes from './profile/CompanyProfileRoutes'
 import CompanyRegisterRoutes from './register/CompanyRegisterRoutes'
+import CompanyMembersRoutes from './members/CompanyMembersRoutes'
 import BaseEnum from '@sharedEnums/BaseEnum'
 
 class CompanyRouteEnum extends BaseEnum {
@@ -12,7 +13,7 @@ const CompanyRoutes: RouteRecordRaw[] = [
   {
     path: '/company',
     name: CompanyRouteEnum.COMPANY,
-    children: [...CompanyDashboardRoutes, ...CompanyProfileRoutes, ...CompanyRegisterRoutes]
+    children: [...CompanyDashboardRoutes, ...CompanyProfileRoutes, ...CompanyRegisterRoutes, ...CompanyMembersRoutes]
   }
 ]
 

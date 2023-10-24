@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router'
-import CompanyMembersView from '@/views/Company/members/CompanyMembersView.vue'
+import CompanyMembersView from '@/views/Company/Members/CompanyMembersView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import {
   MustBeAuthenticatedNavigationGuard,
