@@ -14,7 +14,7 @@
       </span>
     </div>
 
-    <user-details-form v-if="showUserDetailsForm" />
+    <user-details-form v-if="showUserDetailsForm" @updated="handleUserDetailsFormUpdated" />
 
     <div v-else class="user-settings-profile-tab__user-data">
       <a-title
@@ -59,6 +59,10 @@ const showUserDetailsForm = computed(() => {
 // Methods
 const toggleEditUserDetails = () => {
   editUserDetails.value = !editUserDetails.value
+}
+
+const handleUserDetailsFormUpdated = () => {
+  editUserDetails.value = false
 }
 </script>
 
