@@ -5,7 +5,7 @@
     <div class="user-settings-my-company-tab__content">
       <join-company-section v-if="!userStore.hasCompany" />
 
-      <div v-else>xdd</div>
+      <my-company-section v-else />
     </div>
   </div>
 </template>
@@ -14,6 +14,7 @@
 import { computed, ref } from 'vue'
 import { useUserStore } from '@/stores/user/useUserStore'
 import JoinCompanySection from '@/components/core/user/settings/myCompany/sections/JoinCompanySection.vue'
+import MyCompanySection from '@/components/core/user/settings/myCompany/sections/MyCompanySection.vue'
 
 // Variables
 const userStore = useUserStore()
