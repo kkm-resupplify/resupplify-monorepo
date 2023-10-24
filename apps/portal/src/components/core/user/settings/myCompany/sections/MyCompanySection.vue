@@ -2,6 +2,7 @@
   <div class="my-company-section">
     <div class="my-company-section__header">
       <a-title
+        size="x-large"
         title="My company"
         subtitle="Settings and information related to the company you are a member of."
       />
