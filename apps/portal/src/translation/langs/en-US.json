@@ -4,12 +4,12 @@
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
     "errorOccured": "An error occured",
-    "submit": "Submit",
     "save": "Save",
     "edit": "Edit",
     "noResults": "No results",
     "next": "Next",
     "back": "Back",
+    "submit": "Submit",
     "imagePreview": "Image preview"
   },
 
@@ -40,6 +40,7 @@
     "alreadyRegistered": "Already have an account? {login}",
     "forgotPassword": "Forgot password?",
     "newUser": "Don't have an account? {signup}",
+    "logout": "Log out",
 
     "form": {
       "emailAddress": "Email address",
@@ -202,7 +203,15 @@
     },
 
     "myCompany": {
-      "title": "My company"
+      "title": "My company",
+
+      "joinCompany": {
+        "title": "Join a company",
+        "description": "To join a company, you need a invitation token first. It should have been given you to you by your suprior or a person responsible for handling company member invitations for your company on our platform.",
+        "invitationToken": "Invitation token",
+        "invitationTokenPlaceholder": "Enter your Invitation token",
+        "enterInvitationToken": "Please enter your invitation token"
+      }
     }
   },
 

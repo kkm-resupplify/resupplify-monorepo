@@ -2,7 +2,7 @@
   <div :class="generateClasses">
     <span class="a-title__title" v-text="title" />
 
-    <span v-if="subTitle" class="a-title__content" v-text="subTitle" />
+    <span v-if="subtitle" class="a-title__content" v-text="subtitle" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ const props = defineProps({
     type: String,
     required: true
   },
-  subTitle: String
+  subtitle: String
 })
 
 // Composables

@@ -4,32 +4,31 @@
       <a-icon icon="account_circle" size="xx-large" />
 
       <span class="user-settings-profile-tab__name">
-        <template v-if="hasUserDetails">
-          <a-title
-            :title="`${userStore.getUserDetails?.firstName} ${userStore.getUserDetails?.lastName}`"
-          />
-        </template>
+        <a-title
+          v-if="hasUserDetails"
+          :title="`${userStore.getUserDetails?.firstName} ${userStore.getUserDetails?.lastName}`"
+        />
 
         <template v-else>{{ userStore.getEmail }}</template>
       </span>
     </div>
 
-    <user-details-form v-if="showUserDetailsForm" />
+    <user-details-form v-if="showUserDetailsForm" @updated="handleUserDetailsFormUpdated" />
 
     <div v-else class="user-settings-profile-tab__user-data">
       <a-title
         :title="$t('settings.profile.details.phoneNumber')"
-        :sub-title="userStore.getUserDetails?.phoneNumber"
+        :subtitle="userStore.getUserDetails?.phoneNumber"
       />
 
       <a-title
         :title="$t('settings.profile.details.birthDate')"
-        :sub-title="userStore.getUserDetails?.birthDate"
+        :subtitle="userStore.getUserDetails?.birthDate"
       />
 
       <a-title
         :title="$t('settings.profile.details.sex')"
-        :sub-title="userStore.getUserDetails?.sex"
+        :subtitle="userStore.getUserDetails?.sex"
       />
 
       <a-button :text="$t('global.edit')" size="large" @click="toggleEditUserDetails" />
@@ -59,6 +58,10 @@ const showUserDetailsForm = computed(() => {
 // Methods
 const toggleEditUserDetails = () => {
   editUserDetails.value = !editUserDetails.value
+}
+
+const handleUserDetailsFormUpdated = () => {
+  editUserDetails.value = false
 }
 </script>
 
