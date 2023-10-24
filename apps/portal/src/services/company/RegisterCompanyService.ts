@@ -45,8 +45,6 @@ class RegisterCompanyService extends BaseService {
       notificationDuration: 7000
     })
 
-    const { data } = response
-
     return response
   }
 }

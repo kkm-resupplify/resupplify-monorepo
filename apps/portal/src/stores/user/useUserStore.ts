@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { i18n } from '@/translation/index'
 import { setLocale } from '@vee-validate/i18n'
 import type { UserDetails, UserData } from '@/interfaces/user/UserStoreDataInterface'
+import type { CompanyData } from '@/interfaces/company/CompanyInterface'
 
 export interface UserStoreData {
   email: string
@@ -10,7 +11,7 @@ export interface UserStoreData {
   type: number
   createdAt: string
   language: 'en-US' | 'pl-PL'
-  company: null | Record<string, any>
+  company: null | CompanyData
 }
 
 export const useUserStore = defineStore({
@@ -34,7 +35,8 @@ export const useUserStore = defineStore({
     getUserDetails: (state) => state.details,
     isAuthenticated: (state) => !!state.token,
     hasUserDetails: (state) => !!state.details,
-    hasCompany: (state) => !!state.company
+    hasCompany: (state) => !!state.company,
+    getCompany: (state) => state.company
   },
 
   actions: {
@@ -51,7 +53,7 @@ export const useUserStore = defineStore({
       this.details = userDetails
     },
 
-    setUserCompany(company: Record<string, any>) {
+    setUserCompany(company: CompanyData) {
       this.company = company
     },
 

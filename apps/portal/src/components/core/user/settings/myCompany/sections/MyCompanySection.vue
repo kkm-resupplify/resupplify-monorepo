@@ -1,11 +1,28 @@
 <template>
   <div class="my-company-section">
-    <div class="my-company-section__header">My company header</div>
-    <div class="my-company-section__content">My company content</div>
+    <div class="my-company-section__header">
+      <a-title
+        title="My company"
+        subtitle="Settings and information related to the company you are a member of."
+      />
+    </div>
+
+    <div v-if="userStore.getCompany" class="my-company-section__content">
+      <company-data-block :company="userStore.getCompany" />
+    </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useUserStore } from '@/stores/user/useUserStore'
+import CompanyDataBlock from '@/components/core/company/data/CompanyDataBlock.vue'
+
+// Variables
+const userStore = useUserStore()
+
+// Computed
+</script>
 
 <style lang="scss" scoped>
 .my-company-section {

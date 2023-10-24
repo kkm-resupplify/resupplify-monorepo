@@ -24,7 +24,6 @@ const userStore = useUserStore()
 .user-settings-my-company-tab {
   display: flex;
   flex-direction: column;
-  gap: $global-spacing-50;
 
   &__header {
     display: flex;
