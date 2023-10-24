@@ -14,14 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useUserStore } from '@/stores/user/useUserStore'
 import CompanyDataBlock from '@/components/core/company/data/CompanyDataBlock.vue'
 
 // Variables
 const userStore = useUserStore()
-
-// Computed
 </script>
 
 <style lang="scss" scoped>

@@ -145,6 +145,24 @@
     "promotion": {
       "ourPartners": "Our partners",
       "companiesThatChoseUs": "Companies and businesses that chose us"
+    },
+
+    "data": {
+      "generalInformation": "General information",
+      "companyDetails": "Company details",
+      "contactInformation": "Contact information",
+      "nameLabel": "Name",
+      "countryLabel": "Country",
+      "descriptionLabel": "Description",
+      "shortDescriptionLabel": "Short description",
+      "addressLabel": "Company address",
+      "categoryLabel": "Company category",
+      "logoLabel": "Company logo",
+      "tinLabel": "Tax Identification Number",
+      "contactPersonLabel": "Contact Person",
+      "emailLabel": "Email",
+      "externalWebsiteLabel": "Company Website",
+      "phoneNumberLabel": "Phone Number"
     }
   },
 
