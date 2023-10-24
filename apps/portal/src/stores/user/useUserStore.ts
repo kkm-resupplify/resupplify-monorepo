@@ -50,6 +50,10 @@ export const useUserStore = defineStore({
       this.details = userDetails
     },
 
+    setUserCompany(company: Record<string, any>) {
+      this.company = company
+    },
+
     clearUser() {
       this.$reset()
     },

@@ -35,14 +35,15 @@
 </template>
 
 <script setup lang="ts">
-// Variables
+import UserCompanyService from '@/services/user/UserCompanyService'
 
-// Computed
+// Emits
+const emits = defineEmits(['success'])
 
 // Methods
-
-const handleFormSubmit = () => {
-  console.log('handleFormSubmit')
+const handleFormSubmit = async (formData: { invitationToken: string }) => {
+  const { success } = await UserCompanyService.joinCompany(formData)
+  if (success) emits('success')
 }
 </script>
 
