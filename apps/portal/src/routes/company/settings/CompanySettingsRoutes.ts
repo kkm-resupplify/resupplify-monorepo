@@ -15,7 +15,7 @@ const CompanyRegisterRoutes: RouteRecordRaw[] = [
     component: CompanySettingsView,
     beforeEnter: () => {
       const mustBeAuthenticated = MustBeAuthenticatedNavigationGuard.guard()
-      if (mustBeAuthenticated) return MustBeAuthenticatedNavigationGuard
+      if (mustBeAuthenticated) return mustBeAuthenticated
 
       const mustHaveUserDetailsNavigationGuard = MustHaveUserDetailsNavigationGuard.guard()
       if (mustHaveUserDetailsNavigationGuard) return mustHaveUserDetailsNavigationGuard
