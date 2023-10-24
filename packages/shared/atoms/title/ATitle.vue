@@ -60,6 +60,16 @@ const generateClasses = computed(() => {
     }
   }
 
+  &--medium {
+    #{$self}__title {
+      font-size: $global-title-large-font-size;
+    }
+    #{$self}__subtitle {
+      font-size: $global-title-normal-font-size;
+      font-weight: $global-title-normal-font-weight;
+    }
+  }
+
   &__title {
     font-size: $global-title-x-large-font-size;
     font-weight: $global-title-x-large-font-weight;
