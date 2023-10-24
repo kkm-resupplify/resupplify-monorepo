@@ -37,11 +37,16 @@
     <div class="join-company-section__register">
       <a-title
         size="large"
-        title="Register company"
-        subtitle="You might also want to register you company. In that case, you can begin the registration process by clicking the button below - you may cancel it at any time."
+        :title="$t('settings.myCompany.registerCompany.title')"
+        :subtitle="$t('settings.myCompany.registerCompany.description')"
       />
 
-      <a-button variant="primary" size="x-large" text="Begin" @click="handleShowRegistrationForm" />
+      <a-button
+        variant="primary"
+        size="x-large"
+        :text="$t('settings.myCompany.registerCompany.registerNow')"
+        @click="handleShowRegistrationForm"
+      />
     </div>
   </div>
 </template>

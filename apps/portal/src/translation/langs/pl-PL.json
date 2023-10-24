@@ -229,6 +229,12 @@
         "invitationToken": "Token zaproszenia",
         "invitationTokenPlaceholder": "Wprowadź swój token zaproszenia",
         "enterInvitationToken": "Proszę wprowadzić swój token zaproszenia"
+      },
+
+      "registerCompany": {
+        "title": "Zarejestruj firmę",
+        "description": "Możesz również chcieć zarejestrować swoją firmę. W takim przypadku możesz rozpocząć proces rejestracji, klikając poniższy przycisk - proces możesz anulować w dowolnym momencie.",
+        "registerNow": "Zarejestruj teraz"
       }
     }
   },

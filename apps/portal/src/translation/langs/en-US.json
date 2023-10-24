@@ -229,6 +229,12 @@
         "invitationToken": "Invitation token",
         "invitationTokenPlaceholder": "Enter your Invitation token",
         "enterInvitationToken": "Please enter your invitation token"
+      },
+
+      "registerCompany": {
+        "title": "Register a company",
+        "description": "You might also want to register you company. In that case, you can begin the registration process by clicking the button below - you may cancel it at any time.",
+        "registerNow": "Register now"
       }
     }
   },
