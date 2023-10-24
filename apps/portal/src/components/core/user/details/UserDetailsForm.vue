@@ -76,7 +76,6 @@
 import UserDetailsService from '@/services/user/UserDetailsService'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { DateTime } from 'luxon'
 
@@ -89,8 +88,19 @@ interface UserDetailsFormData {
   sex: string
 }
 
+// Emits
+const emits = defineEmits(['updated'])
+
 // Variables
 const { t } = useI18n()
+
+const userStore = useUserStore()
+const userDetails = userStore.getUserDetails
+
+// Computed
+const birthDateYearFormat = computed(() => {
+  return userDetails?.birthDate ? DateTime.fromISO(userDetails.birthDate).toISO() : null
+})
 
 const genderOptions = computed(() => [
   {
@@ -107,18 +117,15 @@ const genderOptions = computed(() => [
   }
 ])
 
-const userStore = useUserStore()
-const userDetails = userStore.getUserDetails
-
-// Transforming date to YYYY-mm-dd format
-const birthDateYearFormat = computed(() => {
-  return userDetails?.birthDate ? DateTime.fromISO(userDetails.birthDate).toISO() : null
-})
-
 // Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  if (userDetails === null) await UserDetailsService.saveUserDetails(formData)
-  else await UserDetailsService.editUserDetails(formData)
+  if (userDetails === null) {
+    const { success } = await UserDetailsService.saveUserDetails(formData)
+    if (success) emits('updated')
+  } else {
+    const { success } = await UserDetailsService.editUserDetails(formData)
+    if (success) emits('updated')
+  }
 }
 </script>
 
