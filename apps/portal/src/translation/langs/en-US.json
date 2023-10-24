@@ -148,21 +148,18 @@
 
     "information": {
       "general": {
-        "title": "General information",
         "name": "Company name",
         "countryId": "Country Id",
         "shortDescription": "Short description",
         "description": "Description"
       },
       "details": {
-        "title": "Company details",
         "address": "Address",
         "companyCategoryId": "Company category Id",
         "tin": "Tax Identification Number (TIN)",
         "logo": "Company logo"
       },
       "contact": {
-        "title": "Contact information",
         "phoneNumber": "Phone number",
         "email": "Address e-mail",
         "contactPerson": "Contact details",

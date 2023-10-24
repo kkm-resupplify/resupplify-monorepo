@@ -1,12 +1,7 @@
 <template>
   <div class="user-settings-content">
-    <div class="user-settings-content__profile">
-      <div class="user-settings-content__company-name">
-        <!-- <h2>{{ company.name }}</h2> -->
-      </div>
-    </div>
     <div class="user-settings-content__data">
-      <a-title :title="$t('company.information.general.title')" size="xx-large"/>
+      <a-title :title="$t('company.register.steps.general.subtitle')" size="xx-large"/>
 
       <div v-for="(value, key, index) in generalStepData" :key="index">
         <a-title :title="$t(`company.information.general.${key}`)" :subtitle="value" variant="horizontal" />
@@ -14,7 +9,7 @@
       <a-line :height="1"/>
     </div>
     <div class="user-settings-content__data">
-      <a-title :title="$t('company.information.details.title')" size="xx-large" />
+      <a-title :title="$t('company.register.steps.details.subtitle')" size="xx-large" />
 
       <div v-for="(value, key, index) in detailsStepData" :key="index">
         <a-title :title="$t(`company.information.details.${key}`)" :subtitle="value" variant="horizontal" />
@@ -22,7 +17,7 @@
       <a-line :height="1"/>
     </div>
     <div class="user-settings-content__data">
-      <a-title :title="$t('company.information.contact.title')" size="xx-large" />
+      <a-title :title="$t('company.register.steps.contactInfo.subtitle')" size="xx-large" />
 
       <div v-for="(value, key, index) in contactInfoStepData" :key="index">
         <a-title :title="$t(`company.information.contact.${key}`)" :subtitle="value" variant="horizontal" />
@@ -33,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRegisterCompanyStore } from '../../../../stores/company/useRegisterCompanyStore'
+import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore';
 
 const registerCompanyStore = useRegisterCompanyStore().registerCompanyFormData
 

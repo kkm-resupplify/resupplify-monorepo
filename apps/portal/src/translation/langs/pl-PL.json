@@ -148,21 +148,18 @@
 
     "information": {
       "general": {
-        "title": "Ogólne informacje",
         "name": "Nazwa firmy",
         "countryId": "Id kraju",
         "shortDescription": "Krótki opis",
         "description": "Opis"
       },
       "details": {
-        "title": "Szczegóły firmy",
         "address": "Adres",
         "companyCategoryId": "Id kategorii firmy",
         "tin": "Numer identyfikacji podatkowej (NIP)",
         "logo": "Logo firmy"
       },
       "contact": {
-        "title": "Dane kontaktowe",
         "phoneNumber": "Numer telefonu",
         "email": "Adres e-mail",
         "contactPerson": "Dane kontaktowe",
