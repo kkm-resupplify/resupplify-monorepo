@@ -1,5 +1,5 @@
 <template>
-  <basic-view-layout>
+  <basic-view-layout class="settings-view">
     <template #body>
       <m-navigation-tabs :tabs="settingsViewTabs" />
     </template>

@@ -1,7 +1,10 @@
 import type { RouteRecordRaw } from 'vue-router'
 import CompanyDashboardView from '@/views/Company/Dashboard/CompanyDashboardView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
-import { MustBeAuthenticated, MustHaveUserDetailsNavigationGuard } from '@/routes/navigationGuards'
+import {
+  MustBeAuthenticatedNavigationGuard,
+  MustHaveUserDetailsNavigationGuard
+} from '@/routes/navigationGuards'
 
 class CompanyProfileRouteEnum extends BaseEnum {
   static readonly COMPANY_DASHBOARD: string = 'COMPANY_DASHBOARD'
@@ -13,8 +16,8 @@ const CompanyDashboardRoutes: RouteRecordRaw[] = [
     name: CompanyProfileRouteEnum.COMPANY_DASHBOARD,
     component: CompanyDashboardView,
     beforeEnter: () => {
-      const mustBeAuthenticated = MustBeAuthenticated.guard()
-      if (mustBeAuthenticated) return mustBeAuthenticated
+      const mustBeAuthenticatedNavigationGuard = MustBeAuthenticatedNavigationGuard.guard()
+      if (mustBeAuthenticatedNavigationGuard) return mustBeAuthenticatedNavigationGuard
 
       const mustHaveUserDetailsNavigationGuard = MustHaveUserDetailsNavigationGuard.guard()
       if (mustHaveUserDetailsNavigationGuard) return mustHaveUserDetailsNavigationGuard

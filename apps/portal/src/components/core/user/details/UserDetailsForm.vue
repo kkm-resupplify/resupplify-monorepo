@@ -107,7 +107,8 @@ const genderOptions = computed(() => [
   }
 ])
 
-const userDetails = useUserStore().getUserDetails
+const userStore = useUserStore()
+const userDetails = userStore.getUserDetails
 
 // Transforming date to YYYY-mm-dd format
 const birthDateYearFormat = computed(() => {

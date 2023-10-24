@@ -16,6 +16,14 @@
     "payNow": "Zapłać teraz"
   },
 
+  "navigation": {
+    "menu": {
+      "settings": "Ustawienia",
+      "myCompany": "Moja firma",
+      "logout": "Wyloguj"
+    }
+  },
+
   "pages": {
     "home": "Strona główna",
     "browse": "Przeglądaj",
@@ -181,7 +189,7 @@
       },
 
       "notification": {
-        "updateSuccessful": "Dane użytkownika zostały zaktualizowany pomyślnie"
+        "updateSuccess": "Dane użytkownika zostały zaktualizowany pomyślnie"
       }
     },
 
@@ -189,7 +197,7 @@
       "title": "Preferencje",
 
       "notification": {
-        "updateSuccessful": "Preferencje użytkownika zostały zaktualizowany pomyślnie"
+        "updateSuccess": "Preferencje użytkownika zostały zaktualizowany pomyślnie"
       }
     },
 

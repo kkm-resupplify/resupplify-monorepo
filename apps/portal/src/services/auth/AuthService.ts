@@ -50,21 +50,24 @@ class AuthService extends BaseService {
       const userStore = useUserStore()
       userStore.setUserData(user, token)
 
-      router.push({ name: RouteNames.HOME })
+      await router.push({ name: RouteNames.HOME })
     }
 
     return response
   }
 
   async logout() {
-    const response = await this.get({
+    const response = await this.post({
       suffix: AuthService.LOGOUT_SUFFIX,
       notificationTitle: 'auth.notification.logoutSuccessTitle',
       notificationText: 'auth.notification.logoutSuccessText'
     })
 
-    const userStore = useUserStore()
-    userStore.clearUser()
+    if (response.success) {
+      const userStore = useUserStore()
+      userStore.clearUser()
+      await router.push({ name: RouteNames.LOGIN })
+    }
 
     return response
   }

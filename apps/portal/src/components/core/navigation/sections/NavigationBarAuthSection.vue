@@ -14,7 +14,7 @@
 
     <a-button text="Change locale" @click="changeLocale" />
 
-    <navigation-bar-menu />
+    <navigation-bar-menu v-if="userStore.isAuthenticated" />
   </div>
 </template>
 

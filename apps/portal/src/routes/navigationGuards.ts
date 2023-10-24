@@ -19,7 +19,7 @@ export class MustHaveUserDetailsNavigationGuard extends NavigationGuard {
   }
 }
 
-export class MustBeAuthenticated extends NavigationGuard {
+export class MustBeAuthenticatedNavigationGuard extends NavigationGuard {
   static guard(): Route | void {
     const userStore = useUserStore()
 
@@ -29,7 +29,7 @@ export class MustBeAuthenticated extends NavigationGuard {
   }
 }
 
-export class MustNotBeAuthenticated extends NavigationGuard {
+export class MustNotBeAuthenticatedNavigationGuard extends NavigationGuard {
   static guard(): boolean | void {
     const userStore = useUserStore()
 
