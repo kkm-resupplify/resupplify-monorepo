@@ -9,7 +9,7 @@ export interface RegisterCompanyDetailsStep {
   address: string
   companyCategoryId: number | null
   tin: string
-  logo: File | null | string
+  logo: null | string
 }
 
 export interface RegisterCompanyContactInfoStep {

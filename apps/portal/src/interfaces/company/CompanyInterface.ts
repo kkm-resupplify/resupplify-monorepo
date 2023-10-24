@@ -13,7 +13,7 @@ export interface CompanyDetailsData {
   contactPerson: string
   countryId: number
   email: string
-  logo: File | null | string
+  logo: null | string
   phoneNumber: string
   tin: string
 }

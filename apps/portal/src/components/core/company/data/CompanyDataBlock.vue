@@ -18,7 +18,7 @@
     <a-line :height="1" />
 
     <div class="company-data-block__section">
-      <a-title :title="$t('company.data.generalInformation')" size="x-large" />
+      <a-title :title="$t('company.data.companyDetails')" size="x-large" />
 
       <div class="company-data-block__section-items">
         <a-title
@@ -35,7 +35,7 @@
     <a-line :height="1" />
 
     <div class="company-data-block__section">
-      <a-title :title="$t('company.data.generalInformation')" size="x-large" />
+      <a-title :title="$t('company.data.contactInformation')" size="x-large" />
 
       <div class="company-data-block__section-items">
         <a-title
@@ -72,13 +72,12 @@ const companyGeneralData = computed(() => {
     { title: t('company.data.name'), value: props.company.name },
     { title: t('company.data.description'), value: props.company.description },
     { title: t('company.data.shortDescription'), value: props.company.shortDescription }
-    // { title: t('company.data.logo'), value: props.company.details.logo }
   ]
 })
 
 const companyDetailsData = computed(() => {
   return [
-    // { title: t('company.data.country'), value: props.company.details.countryId },
+    { title: t('company.data.country'), value: props.company.details.countryId },
     { title: t('company.data.address'), value: props.company.details.address },
     { title: t('company.data.category'), value: props.company.details.companyCategoryId },
     { title: t('company.data.tin'), value: props.company.details.tin }
