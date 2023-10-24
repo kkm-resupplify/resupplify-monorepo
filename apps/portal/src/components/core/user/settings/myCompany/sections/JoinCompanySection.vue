@@ -33,6 +33,16 @@
         </template>
       </o-form>
     </div>
+
+    <div class="join-company-section__register">
+      <a-title
+        size="large"
+        title="Register company"
+        subtitle="You might also want to register you company. In that case, you can begin the registration process by clicking the button below - you may cancel it at any time."
+      />
+
+      <a-button variant="primary" size="x-large" text="Begin" @click="handleShowRegistrationForm" />
+    </div>
   </div>
 </template>
 
@@ -40,12 +50,17 @@
 import UserCompanyService from '@/services/user/UserCompanyService'
 
 // Emits
-const emits = defineEmits(['success'])
+const emits = defineEmits(['success', 'show-registration-form'])
 
 // Methods
 const handleFormSubmit = async (formData: { invitationToken: string }) => {
   const { success } = await UserCompanyService.joinCompany(formData)
   if (success) emits('success')
+}
+
+// Methods
+const handleShowRegistrationForm = () => {
+  emits('show-registration-form', true)
 }
 </script>
 
@@ -72,6 +87,12 @@ const handleFormSubmit = async (formData: { invitationToken: string }) => {
     display: flex;
     flex: 1;
     justify-content: center;
+  }
+
+  &__register {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-40;
   }
 }
 </style>
