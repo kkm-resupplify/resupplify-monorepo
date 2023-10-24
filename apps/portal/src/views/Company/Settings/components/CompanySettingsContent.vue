@@ -6,16 +6,25 @@
       </div>
     </div>
     <div class="user-settings-content__data">
-      <a-title :header="$t('company.register.steps.general.subtitle')" />
-      <div v-for="(value, key, index) in generalStepData" :key="index"><span class="user-settings-content__data--title">{{ key }}: </span>{{ value }}</div>
+      <a-title :title="$t('company.register.steps.general.subtitle')" size="xx-large"/>
+
+      <div v-for="(value, key, index) in generalStepData" :key="index">
+        <a-title :title="key" :sub-title="value" variant="horizontal" />
+      </div>
     </div>
     <div class="user-settings-content__data">
-      <a-title :header="$t('company.register.steps.details.subtitle')" />
-      <div v-for="(value, key, index) in detailsStepData" :key="index"><span class="user-settings-content__data--title">{{ key }}: </span>{{ value }}</div>
+      <a-title :title="$t('company.register.steps.details.subtitle')" size="xx-large" />
+
+      <div v-for="(value, key, index) in detailsStepData" :key="index">
+        <a-title :title="key" :sub-title="value" variant="horizontal" />
+      </div>
     </div>
     <div class="user-settings-content__data">
-      <a-title :header="$t('company.register.steps.contactInfo.subtitle')" />
-      <div v-for="(value, key, index) in contactInfoStepData" :key="index"><span class="user-settings-content__data--title">{{ key }}: </span>{{ value }}</div>
+      <a-title :title="$t('company.register.steps.contactInfo.subtitle')" size="xx-large" />
+
+      <div v-for="(value, key, index) in contactInfoStepData" :key="index">
+        <a-title :title="key" :sub-title="value" variant="horizontal" />
+      </div>
     </div>
   </div>
 </template>
