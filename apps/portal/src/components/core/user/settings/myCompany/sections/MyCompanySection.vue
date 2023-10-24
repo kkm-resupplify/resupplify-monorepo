@@ -14,7 +14,7 @@
           class="my-company-section__company-avatar"
         />
       </div>
-      <div v-else>Image placholder</div>
+      <div v-else>Image placeholder</div>
     </div>
 
     <div v-if="userStore.getCompany" class="my-company-section__content">

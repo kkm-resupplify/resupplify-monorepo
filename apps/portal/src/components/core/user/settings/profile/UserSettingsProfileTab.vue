@@ -6,6 +6,7 @@
       <span class="user-settings-profile-tab__name">
         <a-title
           v-if="hasUserDetails"
+          size="xx-large"
           :title="`${userStore.getUserDetails?.firstName} ${userStore.getUserDetails?.lastName}`"
         />
 
@@ -17,16 +18,25 @@
 
     <div v-else class="user-settings-profile-tab__user-data">
       <a-title
+        size="large"
+        variant="horizontal"
+        append-colon
         :title="$t('settings.profile.details.phoneNumber')"
         :subtitle="userStore.getUserDetails?.phoneNumber"
       />
 
       <a-title
+        size="large"
+        variant="horizontal"
+        append-colon
         :title="$t('settings.profile.details.birthDate')"
         :subtitle="userStore.getUserDetails?.birthDate"
       />
 
       <a-title
+        size="large"
+        variant="horizontal"
+        append-colon
         :title="$t('settings.profile.details.sex')"
         :subtitle="userStore.getUserDetails?.sex"
       />
@@ -70,6 +80,7 @@ const handleUserDetailsFormUpdated = () => {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-50;
+  min-width: 400px;
 
   &__header {
     display: flex;

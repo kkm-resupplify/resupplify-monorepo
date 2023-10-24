@@ -2,12 +2,14 @@
   <div class="join-company-section">
     <div class="join-company-section__header">
       <a-title
+        size="large"
         :title="$t('settings.myCompany.joinCompany.title')"
         :subtitle="$t('settings.myCompany.joinCompany.description')"
       />
     </div>
     <div class="join-company-section__content">
       <a-title
+        size="large"
         :title="$t('settings.myCompany.joinCompany.invitationToken')"
         :subtitle="$t('settings.myCompany.joinCompany.enterInvitationToken')"
       />

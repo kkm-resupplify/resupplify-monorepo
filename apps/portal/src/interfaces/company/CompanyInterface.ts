@@ -16,4 +16,5 @@ export interface CompanyDetailsData {
   logo: null | string
   phoneNumber: string
   tin: string
+  externalWebsite: string
 }
