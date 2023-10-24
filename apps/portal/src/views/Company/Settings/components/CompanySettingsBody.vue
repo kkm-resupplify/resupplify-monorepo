@@ -1,54 +1,43 @@
 <template>
   <div class="user-settings-body">
-    <m-tabs class="user-settings-body__tabs">
-      <template #tabs>
-        <div v-for="(item, idx) in profileLinks" :key="idx" class="user-settings-body__tab">
-          <span :class="item.imageClass" v-text="item.imageContent" />
-          <a-link :link="item.link" :text="item.text" size="large" />
-        </div>
-      </template>
-
-      <template #button>
-        <a-button :text="$t('userSettings.joinCompany')" size="x-large" />
-      </template>
-    </m-tabs>
+    <company-settings-content />
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, onMounted } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { useRegisterCompanyStore } from '../../../../stores/company/useRegisterCompanyStore'
+// import { computed } from 'vue'
+// import { useI18n } from 'vue-i18n'
+import CompanySettingsContent from './CompanySettingsContent.vue';
 
 // Interfaces
-interface category {
-  imageClass: String
-  imageContent: String
-  text: String
-  link: String
-}
+// interface category {
+//   imageClass: String
+//   imageContent: String
+//   text: String
+//   link: String
+// }
 // Variables
-const { t } = useI18n()
-const profileLinks: Array<category> = reactive([
-  {
-    imageClass: 'material-symbols-outlined',
-    imageContent: 'account_circle',
-    text: t('userSettings.profile'),
-    link: '/settings/profile'
-  },
-  {
-    imageClass: 'material-symbols-outlined',
-    imageContent: 'settings_accessibility',
-    text: t('userSettings.preferences'),
-    link: '/settings/preferences'
-  },
-  {
-    imageClass: 'material-symbols-outlined',
-    imageContent: 'apartment',
-    text: t('userSettings.myCompany'),
-    link: '/settings/my-company'
-  }
-])
+// const { t } = useI18n()
+// const profileLinks = computed<Array<category>>(() => [
+//   {
+//     imageClass: 'material-symbols-outlined',
+//     imageContent: 'account_circle',
+//     text: t('userSettings.profile'),
+//     link: '/settings/profile'
+//   },
+//   {
+//     imageClass: 'material-symbols-outlined',
+//     imageContent: 'settings_accessibility',
+//     text: t('userSettings.preferences'),
+//     link: '/settings/preferences'
+//   },
+//   {
+//     imageClass: 'material-symbols-outlined',
+//     imageContent: 'apartment',
+//     text: t('userSettings.myCompany'),
+//     link: '/settings/my-company'
+//   }
+// ])
 
 </script>
 
@@ -65,7 +54,6 @@ const profileLinks: Array<category> = reactive([
   align-self: center;
 
   width: 60%;
-  height: 760px;
 
   border-radius: $global-border-radius-10;
 

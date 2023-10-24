@@ -6,25 +6,28 @@
       </div>
     </div>
     <div class="user-settings-content__data">
-      <a-title :title="$t('company.register.steps.general.subtitle')" size="xx-large"/>
+      <a-title :title="$t('company.information.general.title')" size="xx-large"/>
 
       <div v-for="(value, key, index) in generalStepData" :key="index">
-        <a-title :title="key" :sub-title="value" variant="horizontal" />
+        <a-title :title="$t(`company.information.general.${key}`)" :subtitle="value" variant="horizontal" />
       </div>
+      <a-line :height="1"/>
     </div>
     <div class="user-settings-content__data">
-      <a-title :title="$t('company.register.steps.details.subtitle')" size="xx-large" />
+      <a-title :title="$t('company.information.details.title')" size="xx-large" />
 
       <div v-for="(value, key, index) in detailsStepData" :key="index">
-        <a-title :title="key" :sub-title="value" variant="horizontal" />
+        <a-title :title="$t(`company.information.details.${key}`)" :subtitle="value" variant="horizontal" />
       </div>
+      <a-line :height="1"/>
     </div>
     <div class="user-settings-content__data">
-      <a-title :title="$t('company.register.steps.contactInfo.subtitle')" size="xx-large" />
+      <a-title :title="$t('company.information.contact.title')" size="xx-large" />
 
       <div v-for="(value, key, index) in contactInfoStepData" :key="index">
-        <a-title :title="key" :sub-title="value" variant="horizontal" />
+        <a-title :title="$t(`company.information.contact.${key}`)" :subtitle="value" variant="horizontal" />
       </div>
+      <a-line :height="1"/>
     </div>
   </div>
 </template>
@@ -42,6 +45,7 @@ const { generalStepData, detailsStepData, contactInfoStepData } = registerCompan
   display: flex;
   flex-direction: column;
   padding: $global-spacing-100;
+  max-width: 100%;
 
   &__profile,
   &__profile-name,

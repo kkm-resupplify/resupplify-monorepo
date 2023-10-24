@@ -2,7 +2,7 @@
   <div :class="generateClasses">
     <span class="a-title__title" v-text="title" />
 
-    <span v-if="subTitle" class="a-title__sub-title" v-text="subTitle" />
+    <span v-if="subtitle" class="a-title__subtitle" v-text="subtitle" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ const props = defineProps({
     type: String,
     required: true
   },
-  subTitle: String,
+  subtitle: String,
   size: {
     type: String,
     default: 'x-large'
@@ -40,20 +40,21 @@ const generateClasses = computed(() => {
 <style scoped lang="scss">
 .a-title {
   $self: &;
+  
   display: flex;
   flex-direction: column;
 
   &--horizontal {
     flex-direction: row;
-    align-items: center;
     gap: $global-spacing-40;
+    align-items: center;
   }
 
   &--xx-large {
     #{$self}__title {
       font-size: $global-title-xx-large-font-size;
     }
-    #{$self}__sub-title {
+    #{$self}__subtitle {
       font-size: $global-title-x-large-font-size;
       font-weight: $global-title-x-large-font-weight;
     }

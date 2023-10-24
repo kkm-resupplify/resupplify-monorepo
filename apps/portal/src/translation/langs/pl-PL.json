@@ -115,7 +115,7 @@
         "details": {
           "companyAddressLabel": "Adres firmy",
           "companyAddressPlaceholder": "Wprowadź adres firmy",
-          "companyCategoryLabel": "Kateogria firmy",
+          "companyCategoryLabel": "Kategoria firmy",
           "companyCategoryPlaceholder": "Wybierz kategorię firmy",
           "companyLogoLabel": "Logo firmy",
           "companyLogoPlaceholder": "Wprowadź logo firmy",
@@ -144,6 +144,30 @@
     "promotion": {
       "ourPartners": "Nasi partnerzy",
       "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"
+    },
+
+    "information": {
+      "general": {
+        "title": "Ogólne informacje",
+        "name": "Nazwa firmy",
+        "countryId": "Id kraju",
+        "shortDescription": "Krótki opis",
+        "description": "Opis"
+      },
+      "details": {
+        "title": "Szczegóły firmy",
+        "address": "Adres",
+        "companyCategoryId": "Id kategorii firmy",
+        "tin": "Numer identyfikacji podatkowej (NIP)",
+        "logo": "Logo firmy"
+      },
+      "contact": {
+        "title": "Dane kontaktowe",
+        "phoneNumber": "Numer telefonu",
+        "email": "Adres e-mail",
+        "contactPerson": "Dane kontaktowe",
+        "externalWebsite": "Strona internetowa"
+      }
     }
   },
 
