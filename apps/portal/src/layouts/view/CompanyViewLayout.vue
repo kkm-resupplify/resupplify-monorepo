@@ -35,6 +35,7 @@ import CompanyNavigation from '@/components/core/company/navigation/CompanyNavig
 
   &__body {
     display: flex;
+    min-height: 800px;
     padding: $global-spacing-30 $global-spacing-40;
   }
 }

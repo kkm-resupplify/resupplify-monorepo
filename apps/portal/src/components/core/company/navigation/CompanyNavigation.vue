@@ -70,12 +70,18 @@ const tabs = computed(() => [
   flex-direction: column;
   gap: $global-spacing-30;
 
+  padding: $global-spacing-50;
+
+  background-color: var(--secondary-1);
+  border-radius: $global-border-radius-10 0 0 $global-border-radius-10;
+
   &__header {
     display: flex;
     gap: $global-spacing-40;
     align-items: center;
 
-    width: 240px;
+    min-width: 240px;
+    max-width: 240px;
 
     text-decoration: none;
   }
