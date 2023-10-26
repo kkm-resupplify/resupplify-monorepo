@@ -5,7 +5,8 @@ import CompanyDashboardView from '@/views/Company/Dashboard/CompanyDashboardView
 
 import {
   MustBeAuthenticatedNavigationGuard,
-  MustHaveUserDetailsNavigationGuard
+  MustHaveUserDetailsNavigationGuard,
+  MustBelongToCompanyNavigationGuard
 } from '@/routes/navigationGuards'
 
 class CompanyRouteEnum extends BaseEnum {
@@ -25,6 +26,9 @@ const CompanyRoutes: RouteRecordRaw[] = [
 
       const mustHaveUserDetailsNavigationGuard = MustHaveUserDetailsNavigationGuard.guard()
       if (mustHaveUserDetailsNavigationGuard) return mustHaveUserDetailsNavigationGuard
+
+      const mustBelongToCompanyNavigationGuard = MustBelongToCompanyNavigationGuard.guard()
+      if (mustBelongToCompanyNavigationGuard) return mustBelongToCompanyNavigationGuard
     }
   }
 ]
