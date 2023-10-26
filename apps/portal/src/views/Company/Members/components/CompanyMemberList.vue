@@ -1,5 +1,6 @@
 <template>
     <div class="company-member-list">
+        <company-member-invitation />
         <p>Members</p>
         <company-member-list-item />
         <company-member-list-item />
@@ -8,6 +9,7 @@
 
 <script setup lang="ts">
 import CompanyMemberListItem from './CompanyMemberListItem.vue';
+import CompanyMemberInvitation from './CompanyMemberInvitation.vue';
 </script>
 <style scoped lang="scss">
     .company-member-list {
