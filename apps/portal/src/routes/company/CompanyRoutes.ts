@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import CompanyManagementRoutes from './management/CompanyManagementRoutes'
 import BaseEnum from '@sharedEnums/BaseEnum'
-import CompanyDashboardView from '@/views/Company/Dashboard/CompanyDashboardView.vue'
+import CompanyDashboardView from '@/views/Company/Management/CompanyDashboardView.vue'
 
 import {
   MustBeAuthenticatedNavigationGuard,

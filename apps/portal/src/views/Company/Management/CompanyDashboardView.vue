@@ -1,6 +1,6 @@
 <template>
   <company-view-layout>
-    <template #content>elo</template>
+    <template #content>Dashboard</template>
   </company-view-layout>
 </template>
 
