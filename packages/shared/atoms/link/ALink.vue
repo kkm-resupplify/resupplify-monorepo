@@ -6,15 +6,19 @@
 
 <script setup lang="ts">
 // Vue
-import { computed } from 'vue'
+import { computed, type PropType } from 'vue'
 
 // Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const { generateClassNames } = useClassComposable()
 
+interface Route {
+  name: string
+}
+
 const props = defineProps({
   link: {
-    type: String,
+    type: [String, Object] as PropType<string | Route>,
     required: true
   },
   text: {
