@@ -9,11 +9,14 @@ class CompanyMembersDataDTO {
 }
 
 class CompanyMembersService extends BaseService {
-  async getCompanyMembers() {
+  async getCompanyMembers(): Promise<CompanyMembersData> {
     const response = await this.get({
       suffix: 'user/company/users'
     })
-    return response
+
+    const { data } = response
+
+    return data
   }
 }
 
