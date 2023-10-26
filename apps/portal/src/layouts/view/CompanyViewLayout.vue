@@ -7,6 +7,8 @@
     </div>
 
     <div class="company-view-layout__body">
+      <company-navigation />
+
       <slot name="content" />
     </div>
   </div>
@@ -14,6 +16,7 @@
 
 <script setup lang="ts">
 import NavigationBar from '@/components/core/navigation/NavigationBar.vue'
+import CompanyNavigation from '@/components/core/company/navigation/CompanyNavigation.vue'
 </script>
 
 <style scoped lang="scss">
@@ -32,7 +35,6 @@ import NavigationBar from '@/components/core/navigation/NavigationBar.vue'
 
   &__body {
     display: flex;
-    flex-direction: column;
     padding: $global-spacing-30 $global-spacing-40;
   }
 }
