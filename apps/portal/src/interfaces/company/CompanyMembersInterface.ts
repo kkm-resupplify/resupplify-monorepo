@@ -1,7 +1,7 @@
 import type { UserDetails } from "../user/UserStoreDataInterface";
 
 export interface CompanyMembersData {
-    members: Array<CompanyMember>;
+    members: CompanyMember[];
 }
 
 export interface CompanyMember {
