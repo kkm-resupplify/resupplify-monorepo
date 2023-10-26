@@ -24,42 +24,42 @@ const { t } = useI18n()
 const tabs = computed(() => [
   {
     to: { name: RouteNames.COMPANY_DASHBOARD },
-    title: t('company.management.navigation.dashboard'),
+    title: t('company.management.navigation.dashboard.title'),
     icon: 'dashboard'
   },
   {
     to: { name: RouteNames.COMPANY_OFFERS },
-    title: t('company.management.navigation.offers'),
+    title: t('company.management.navigation.offers.title'),
     icon: 'sell'
   },
   {
     to: { name: RouteNames.COMPANY_DEALS },
-    title: t('company.management.navigation.deals'),
+    title: t('company.management.navigation.deals.title'),
     icon: 'price_change'
   },
   {
     to: { name: RouteNames.COMPANY_PRODUCTS },
-    title: t('company.management.navigation.products'),
+    title: t('company.management.navigation.products.title'),
     icon: 'inventory_2'
   },
   {
     to: { name: RouteNames.COMPANY_WAREHOUSES },
-    title: t('company.management.navigation.warehouses'),
+    title: t('company.management.navigation.warehouses.title'),
     icon: 'warehouse'
   },
   {
     to: { name: RouteNames.COMPANY_MEMBERS },
-    title: t('company.management.navigation.members'),
+    title: t('company.management.navigation.members.title'),
     icon: 'groups'
   },
   {
     to: { name: RouteNames.COMPANY_SETTINGS },
-    title: t('company.management.navigation.settings'),
+    title: t('company.management.navigation.settings.title'),
     icon: 'settings'
   },
   {
     to: { name: RouteNames.COMPANY_PAYMENTS },
-    title: t('company.management.navigation.payments'),
+    title: t('company.management.navigation.payments.title'),
     icon: 'account_balance'
   }
 ])
