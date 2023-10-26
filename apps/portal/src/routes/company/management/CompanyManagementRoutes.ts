@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router'
-import CompanyDashboardView from '@/views/Company/Dashboard/CompanyDashboardView.vue'
+import CompanyDashboardView from '@/views/Company/Management/CompanyDashboardView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 
 class CompanyProfileRouteEnum extends BaseEnum {
@@ -17,6 +17,41 @@ const CompanyDashboardRoutes: RouteRecordRaw[] = [
   {
     path: 'dashboard',
     name: CompanyProfileRouteEnum.COMPANY_DASHBOARD,
+    component: CompanyDashboardView
+  },
+  {
+    path: 'offers',
+    name: CompanyProfileRouteEnum.COMPANY_OFFERS,
+    component: CompanyDashboardView
+  },
+  {
+    path: 'deals',
+    name: CompanyProfileRouteEnum.COMPANY_DEALS,
+    component: CompanyDashboardView
+  },
+  {
+    path: 'products',
+    name: CompanyProfileRouteEnum.COMPANY_PRODUCTS,
+    component: CompanyDashboardView
+  },
+  {
+    path: 'warehouses',
+    name: CompanyProfileRouteEnum.COMPANY_WAREHOUSES,
+    component: CompanyDashboardView
+  },
+  {
+    path: 'members',
+    name: CompanyProfileRouteEnum.COMPANY_MEMBERS,
+    component: CompanyDashboardView
+  },
+  {
+    path: 'settings',
+    name: CompanyProfileRouteEnum.COMPANY_SETTINGS,
+    component: CompanyDashboardView
+  },
+  {
+    path: 'payments',
+    name: CompanyProfileRouteEnum.COMPANY_PAYMENTS,
     component: CompanyDashboardView
   }
 ]
