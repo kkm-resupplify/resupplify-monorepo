@@ -8,5 +8,6 @@ export interface CompanyMember {
     id: number;
     email: string;
     type: number;
-    userDetails: UserDetails;
+    createdAt: string;
+    details: UserDetails | null;
 }
