@@ -1,9 +1,7 @@
 <template>
-  <company-view-layout>
-    <template #content>Warehouses</template>
-  </company-view-layout>
+  <company-management-panel> Warehouses </company-management-panel>
 </template>
 
 <script setup lang="ts">
-import CompanyViewLayout from '@/layouts/view/CompanyViewLayout.vue'
+import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
 </script>

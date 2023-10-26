@@ -9,19 +9,7 @@
       <div class="company-view-layout__body">
         <company-navigation />
 
-        <div class="company-view-layout__content">
-          <div class="company-view-layout__content-header">
-            <slot name="header" />
-          </div>
-
-          <div class="company-view-layout__content-tiles">
-            <slot name="tiles" />
-          </div>
-
-          <div class="company-view-layout__content-content">
-            <slot name="content" />
-          </div>
-        </div>
+        <router-view />
       </div>
     </div>
   </div>
@@ -55,12 +43,6 @@ import CompanyNavigation from '@/components/core/company/navigation/CompanyNavig
 
     display: flex;
     min-height: 800px;
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    padding: $global-spacing-40 $global-spacing-50;
   }
 }
 </style>

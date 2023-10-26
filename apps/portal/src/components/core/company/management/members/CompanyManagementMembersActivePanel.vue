@@ -1,5 +1,7 @@
 <template>
-  <company-management-panel class="company-dashboard-view"> Dashboard </company-management-panel>
+  <company-management-panel class="company-management-members-active-panel">
+    company-management-members-active-panel
+  </company-management-panel>
 </template>
 
 <script setup lang="ts">
@@ -7,8 +9,7 @@ import CompanyManagementPanel from '@/components/core/company/panel/CompanyManag
 </script>
 
 <style lang="scss" scoped>
-.company-dashboard-view {
+.company-management-members-active-panel {
   display: flex;
-  flex-direction: column;
 }
 </style>

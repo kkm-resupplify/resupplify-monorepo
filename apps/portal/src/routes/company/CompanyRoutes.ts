@@ -1,8 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import CompanyManagementRoutes from './management/CompanyManagementRoutes'
 import BaseEnum from '@sharedEnums/BaseEnum'
-import CompanyDashboardView from '@/views/Company/Management/CompanyDashboardView.vue'
-
+import CompanyViewLayout from '@/layouts/view/CompanyViewLayout.vue'
 import {
   MustBeAuthenticatedNavigationGuard,
   MustHaveUserDetailsNavigationGuard,
@@ -17,8 +16,8 @@ const CompanyRoutes: RouteRecordRaw[] = [
   {
     path: '/company',
     name: CompanyRouteEnum.COMPANY,
-    component: CompanyDashboardView,
-
+    component: CompanyViewLayout,
+    children: [...CompanyManagementRoutes],
     beforeEnter: () => {
       const mustBeAuthenticatedNavigationGuard = MustBeAuthenticatedNavigationGuard.guard()
       if (mustBeAuthenticatedNavigationGuard) return mustBeAuthenticatedNavigationGuard
@@ -29,8 +28,7 @@ const CompanyRoutes: RouteRecordRaw[] = [
       const mustBelongToCompanyNavigationGuard = MustBelongToCompanyNavigationGuard.guard()
       if (mustBelongToCompanyNavigationGuard) return mustBelongToCompanyNavigationGuard
     }
-  },
-  ...CompanyManagementRoutes
+  }
 ]
 
 export default CompanyRoutes
