@@ -35,8 +35,11 @@ import MFileInput from '@sharedMolecules/input/MFileInput.vue'
 import MStepper from '@sharedMolecules/stepper/MStepper.vue'
 import MStepperStepContent from '@sharedMolecules/stepper/items/MStepperStepContent.vue'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
-import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
 import MIcon from '@sharedMolecules/icon/MIcon.vue'
+import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
+import MNavigationTabsItem from '@sharedMolecules/tab/MNavigationTabsItem.vue'
+import MTile from '@sharedMolecules/tile/MTile.vue'
+import MTileList from '@sharedMolecules/tile/MTileList.vue'
 
 const molecules = [
   MCardList,
@@ -47,7 +50,10 @@ const molecules = [
   MStepperStepContent,
   MSelect,
   MIcon,
-  MNavigationTabs
+  MNavigationTabs,
+  MNavigationTabsItem,
+  MTile,
+  MTileList
 ]
 
 // Organisms

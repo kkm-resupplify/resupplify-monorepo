@@ -163,6 +163,46 @@
       "email": "Email",
       "externalWebsite": "Strona internetowa firmy",
       "phoneNumber": "Numer telefonu"
+    },
+
+    "management": {
+      "navigation": {
+        "dashboard": {
+          "title": "Pulpit"
+        },
+
+        "offers": {
+          "title": "Oferty"
+        },
+
+        "deals": {
+          "title": "Oferty"
+        },
+
+        "products": {
+          "title": "Produkty"
+        },
+
+        "warehouses": {
+          "title": "Magazyny"
+        },
+
+        "members": {
+          "title": "Członkowie",
+          "tiles": {
+            "activeMembers": "Aktywni pracownicy",
+            "permissions": "Uprawnienia"
+          }
+        },
+
+        "settings": {
+          "title": "Ustawienia"
+        },
+
+        "payments": {
+          "title": "Płatności"
+        }
+      }
     }
   },
 

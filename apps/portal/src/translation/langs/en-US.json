@@ -163,6 +163,46 @@
       "email": "Email",
       "externalWebsite": "Company Website",
       "phoneNumber": "Phone Number"
+    },
+
+    "management": {
+      "navigation": {
+        "dashboard": {
+          "title": "Dashboard"
+        },
+
+        "offers": {
+          "title": "Offers"
+        },
+
+        "deals": {
+          "title": "Deals"
+        },
+
+        "products": {
+          "title": "Products"
+        },
+
+        "warehouses": {
+          "title": "Warehouses"
+        },
+
+        "members": {
+          "title": "Members",
+          "tiles": {
+            "activeMembers": "Active members",
+            "permissions": "Permissions"
+          }
+        },
+
+        "settings": {
+          "title": "Settings"
+        },
+
+        "payments": {
+          "title": "Payments"
+        }
+      }
     }
   },
 
