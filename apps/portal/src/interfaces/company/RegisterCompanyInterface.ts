@@ -24,3 +24,5 @@ export interface RegisterCompanyData {
   detailsStepData: RegisterCompanyDetailsStep
   contactInfoStepData: RegisterCompanyContactInfoStep
 }
+
+
