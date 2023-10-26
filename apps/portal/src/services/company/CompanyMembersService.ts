@@ -11,10 +11,7 @@ class CompanyMembersDataDTO {
 class CompanyMembersService extends BaseService {
   async getCompanyMembers() {
     const response = await this.get({
-      suffix: 'user/company/users',
-      notificationTitle: 'company.register.notification.registerCompanySuccessTitle',
-      notificationText: 'company.register.notification.registerCompanySuccessText',
-      notificationDuration: 7000
+      suffix: 'user/company/users'
     })
     return response
   }
