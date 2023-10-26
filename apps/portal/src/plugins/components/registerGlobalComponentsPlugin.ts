@@ -39,6 +39,7 @@ import MIcon from '@sharedMolecules/icon/MIcon.vue'
 import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
 import MNavigationTabsItem from '@sharedMolecules/tab/MNavigationTabsItem.vue'
 import MTile from '@sharedMolecules/tile/MTile.vue'
+import MTileList from '@sharedMolecules/tile/MTileList.vue'
 
 const molecules = [
   MCardList,
@@ -51,7 +52,8 @@ const molecules = [
   MIcon,
   MNavigationTabs,
   MNavigationTabsItem,
-  MTile
+  MTile,
+  MTileList
 ]
 
 // Organisms
