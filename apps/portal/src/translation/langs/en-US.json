@@ -167,14 +167,41 @@
 
     "management": {
       "navigation": {
-        "dashboard": "Dashboard",
-        "offers": "Offers",
-        "deals": "Deals",
-        "products": "Products",
-        "warehouses": "Warehouses",
-        "members": "Members",
-        "settings": "Settings",
-        "payments": "Payments"
+        "dashboard": {
+          "title": "Dashboard"
+        },
+
+        "offers": {
+          "title": "Offers"
+        },
+
+        "deals": {
+          "title": "Deals"
+        },
+
+        "products": {
+          "title": "Products"
+        },
+
+        "warehouses": {
+          "title": "Warehouses"
+        },
+
+        "members": {
+          "title": "Members",
+          "tiles": {
+            "activeMembers": "Active members",
+            "permissions": "Permissions"
+          }
+        },
+
+        "settings": {
+          "title": "Settings"
+        },
+
+        "payments": {
+          "title": "Payments"
+        }
       }
     }
   },
