@@ -1,7 +1,7 @@
 <template>
     <div class="company-member-list">
         <company-member-invitation />
-        <p>Members</p>
+        <a-title title="Members"/>
         <company-member-list-item />
         <company-member-list-item />
     </div>
@@ -14,11 +14,13 @@ import CompanyMemberInvitation from './CompanyMemberInvitation.vue';
 <style scoped lang="scss">
     .company-member-list {
         @include boxshadow-primary-2;
-        width: 60%;
-        margin-inline: auto;
+
         display: flex;
         flex-direction: column;
         gap: $global-spacing-80;
+        
+        width: 60%;
+        margin-inline: auto;
         padding: $global-spacing-90;
     }
 </style>
