@@ -1,10 +1,10 @@
 import type { CompanyMembersData } from '@/interfaces/company/CompanyMembersInterface'
 import BaseService from '../BaseService'
 class CompanyMembersDataDTO {
-  members: CompanyMembersData
+  users: CompanyMembersData
 
-  constructor(members: CompanyMembersData) {
-    this.members = members
+  constructor(users: CompanyMembersData) {
+    this.users = users
   }
 }
 

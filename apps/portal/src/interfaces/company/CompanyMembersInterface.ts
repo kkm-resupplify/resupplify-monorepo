@@ -1,7 +1,7 @@
 import type { UserDetails } from "../user/UserStoreDataInterface";
 
 export interface CompanyMembersData {
-    members: CompanyMember[];
+    users: CompanyMember[];
 }
 
 export interface CompanyMember {
@@ -9,5 +9,5 @@ export interface CompanyMember {
     email: string;
     type: number;
     createdAt: string;
-    details: UserDetails | null;
+    userDetails: UserDetails | null;
 }
