@@ -13,11 +13,11 @@
 
       <template #content>
         <div class="company-member-invitation__dropdown--content">
-          <a-title title="Enter how many tokens you want to generate" size="medium"/>
+          <a-title :title="$t('company.invitation.title')" size="medium"/>
 
           <m-text-field />
 
-          <a-button text="Invite" class="company-member-invitation__dropdown--content__submit"/>
+          <a-button :title="$t('company.invitation.invite')" class="company-member-invitation__dropdown--content__submit"/>
         </div>
       </template>
     </a-dropdown>

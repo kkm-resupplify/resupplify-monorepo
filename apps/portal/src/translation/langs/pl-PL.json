@@ -141,6 +141,11 @@
       }
     },
 
+    "invitation": {
+      "title": "Napisz ile tokenów chciałbyś wygenerować",
+      "invite": "Zaproś"
+    },
+
     "promotion": {
       "ourPartners": "Nasi partnerzy",
       "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"
