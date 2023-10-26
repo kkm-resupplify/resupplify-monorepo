@@ -29,7 +29,6 @@
   margin-left: auto;
 
   &__dropdown {
-
     position: relative;
 
     &--content {
@@ -37,17 +36,20 @@
       z-index: 9999;
       top: $global-spacing-50;
       right: 0;
+      
       display: flex;
       flex-direction: column;
       gap: $global-spacing-60;
+      
       width: 400px;
       padding: $global-spacing-50;
+      
       background-color: var(--secondary-1);
 
       &__submit {
         width: min-content;
-        margin-left: auto;
         margin-top: $global-spacing-30;
+        margin-left: auto;
       }
     }
   }

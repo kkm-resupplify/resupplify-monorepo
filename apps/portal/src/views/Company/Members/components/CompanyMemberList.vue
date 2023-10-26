@@ -10,6 +10,8 @@
 <script setup lang="ts">
 import CompanyMemberListItem from './CompanyMemberListItem.vue';
 import CompanyMemberInvitation from './CompanyMemberInvitation.vue';
+
+
 </script>
 <style scoped lang="scss">
     .company-member-list {
