@@ -16,6 +16,7 @@
 import { computed } from 'vue'
 import { RouteNames } from '@/routes/index'
 import { useI18n } from 'vue-i18n'
+
 // Variables
 const { t } = useI18n()
 
@@ -70,7 +71,7 @@ const tabs = computed(() => [
   flex-direction: column;
   gap: $global-spacing-30;
 
-  padding: $global-spacing-50;
+  padding: $global-spacing-40 $global-spacing-50;
 
   background-color: var(--secondary-1);
   border-radius: $global-border-radius-10 0 0 $global-border-radius-10;

@@ -11,6 +11,7 @@ import ASelect from '@sharedAtoms/select/ASelect.vue'
 import ATitle from '@sharedAtoms/title/ATitle.vue'
 import AImageInput from '@sharedAtoms/input/AImageInput.vue'
 import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
+import ATile from '@sharedAtoms/tile/ATile.vue'
 
 const atoms = [
   AButton,
@@ -24,7 +25,8 @@ const atoms = [
   ASelect,
   ATitle,
   AImageInput,
-  ADropdown
+  ADropdown,
+  ATile
 ]
 
 // Molecules

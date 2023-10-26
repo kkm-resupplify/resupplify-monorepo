@@ -5,11 +5,24 @@
     <div class="company-view-layout__header">
       <navigation-bar />
     </div>
+    <div class="company-view-layout__body-wrapper">
+      <div class="company-view-layout__body">
+        <company-navigation />
 
-    <div class="company-view-layout__body">
-      <company-navigation />
+        <div class="company-view-layout__content">
+          <div class="company-view-layout__content-header">
+            <slot name="header" />
+          </div>
 
-      <slot name="content" />
+          <div class="company-view-layout__content-tiles">
+            <slot name="tiles" />
+          </div>
+
+          <div class="company-view-layout__content-content">
+            <slot name="content" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -33,10 +46,20 @@ import CompanyNavigation from '@/components/core/company/navigation/CompanyNavig
     display: flex;
   }
 
+  &__body-wrapper {
+    padding: $global-spacing-30 $global-spacing-40;
+  }
+
   &__body {
+    @include boxshadow-primary-2;
+
     display: flex;
     min-height: 800px;
-    padding: $global-spacing-30 $global-spacing-40;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>
