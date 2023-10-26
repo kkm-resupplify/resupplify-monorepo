@@ -60,6 +60,7 @@ import CompanyNavigation from '@/components/core/company/navigation/CompanyNavig
   &__content {
     display: flex;
     flex-direction: column;
+    padding: $global-spacing-40 $global-spacing-50;
   }
 }
 </style>
