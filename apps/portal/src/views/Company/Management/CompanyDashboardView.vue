@@ -1,7 +1,6 @@
 <template>
   <company-view-layout class="company-dashboard-view">
     <template #header>Dashboard</template>
-    <template #tiles>Dashboard</template>
   </company-view-layout>
 </template>
 
