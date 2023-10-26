@@ -163,6 +163,19 @@
       "email": "Email",
       "externalWebsite": "Strona internetowa firmy",
       "phoneNumber": "Numer telefonu"
+    },
+
+    "management": {
+      "navigation": {
+        "dashboard": "Pulpit",
+        "offers": "Oferty",
+        "deals": "Transakcje",
+        "products": "Produkty",
+        "warehouses": "Magazyny",
+        "members": "Członkowie",
+        "settings": "Ustawienia",
+        "payments": "Płatności"
+      }
     }
   },
 

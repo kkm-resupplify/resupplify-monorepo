@@ -15,17 +15,52 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouteNames } from '@/routes/index'
+import { useI18n } from 'vue-i18n'
+// Variables
+const { t } = useI18n()
 
 // Computed
 const tabs = computed(() => [
-  { to: { name: RouteNames.COMPANY_DASHBOARD }, title: 'Dashboard', icon: 'dashboard' },
-  { to: { name: RouteNames.COMPANY_OFFERS }, title: 'Offers', icon: 'sell' },
-  { to: { name: RouteNames.COMPANY_DEALS }, title: 'Deals', icon: 'price_change' },
-  { to: { name: RouteNames.COMPANY_PRODUCTS }, title: 'Products', icon: 'inventory_2' },
-  { to: { name: RouteNames.COMPANY_WAREHOUSES }, title: 'Warehouses', icon: 'warehouse' },
-  { to: { name: RouteNames.COMPANY_MEMBERS }, title: 'Members', icon: 'groups' },
-  { to: { name: RouteNames.COMPANY_SETTINGS }, title: 'Settings', icon: 'settings' },
-  { to: { name: RouteNames.COMPANY_PAYMENTS }, title: 'Payments', icon: 'account_balance' }
+  {
+    to: { name: RouteNames.COMPANY_DASHBOARD },
+    title: t('company.management.navigation.dashboard'),
+    icon: 'dashboard'
+  },
+  {
+    to: { name: RouteNames.COMPANY_OFFERS },
+    title: t('company.management.navigation.offers'),
+    icon: 'sell'
+  },
+  {
+    to: { name: RouteNames.COMPANY_DEALS },
+    title: t('company.management.navigation.deals'),
+    icon: 'price_change'
+  },
+  {
+    to: { name: RouteNames.COMPANY_PRODUCTS },
+    title: t('company.management.navigation.products'),
+    icon: 'inventory_2'
+  },
+  {
+    to: { name: RouteNames.COMPANY_WAREHOUSES },
+    title: t('company.management.navigation.warehouses'),
+    icon: 'warehouse'
+  },
+  {
+    to: { name: RouteNames.COMPANY_MEMBERS },
+    title: t('company.management.navigation.members'),
+    icon: 'groups'
+  },
+  {
+    to: { name: RouteNames.COMPANY_SETTINGS },
+    title: t('company.management.navigation.settings'),
+    icon: 'settings'
+  },
+  {
+    to: { name: RouteNames.COMPANY_PAYMENTS },
+    title: t('company.management.navigation.payments'),
+    icon: 'account_balance'
+  }
 ])
 </script>
 
