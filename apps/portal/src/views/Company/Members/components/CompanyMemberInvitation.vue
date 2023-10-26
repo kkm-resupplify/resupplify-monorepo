@@ -4,7 +4,7 @@
       <template #activator>
         <div class="company-member-invitation__invite">
           <a-button
-            text="Invite new members"
+            :text="$t('company.invitation.inviteNew')"
             size="x-large"
             class="company-member-invitation__invite--button"
           />
@@ -17,7 +17,7 @@
 
           <m-text-field />
 
-          <a-button :title="$t('company.invitation.invite')" class="company-member-invitation__dropdown--content__submit"/>
+          <a-button :text="$t('company.invitation.generate')" class="company-member-invitation__dropdown--content__submit" />
         </div>
       </template>
     </a-dropdown>
@@ -56,7 +56,7 @@
 
   &__invite {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
   }
 }
 </style>

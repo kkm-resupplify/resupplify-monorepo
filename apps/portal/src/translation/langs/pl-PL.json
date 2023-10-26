@@ -143,7 +143,9 @@
 
     "invitation": {
       "title": "Napisz ile tokenów chciałbyś wygenerować",
-      "invite": "Zaproś"
+      "invite": "Zaproś",
+      "generate": "Wygeneruj",
+      "inviteNew": "Zaproś nowych czlonków"
     },
 
     "promotion": {
