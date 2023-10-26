@@ -19,13 +19,13 @@ import { RouteNames } from '@/routes/index'
 // Computed
 const tabs = computed(() => [
   { to: { name: RouteNames.COMPANY_DASHBOARD }, title: 'Dashboard', icon: 'dashboard' },
-  { to: { name: RouteNames.COMPANY_DASHBOARD }, title: 'Offers', icon: 'sell' },
-  { to: { name: RouteNames.COMPANY_DASHBOARD }, title: 'Deals', icon: 'price_change' },
-  { to: { name: RouteNames.COMPANY_DASHBOARD }, title: 'Products', icon: 'inventory_2' },
-  { to: { name: RouteNames.COMPANY_DASHBOARD }, title: 'Warehouses', icon: 'warehouse' },
-  { to: { name: RouteNames.COMPANY_DASHBOARD }, title: 'Members', icon: 'groups' },
-  { to: { name: RouteNames.COMPANY_DASHBOARD }, title: 'Settings', icon: 'settings' },
-  { to: { name: RouteNames.COMPANY_DASHBOARD }, title: 'Payments', icon: 'account_balance' }
+  { to: { name: RouteNames.COMPANY_OFFERS }, title: 'Offers', icon: 'sell' },
+  { to: { name: RouteNames.COMPANY_DEALS }, title: 'Deals', icon: 'price_change' },
+  { to: { name: RouteNames.COMPANY_PRODUCTS }, title: 'Products', icon: 'inventory_2' },
+  { to: { name: RouteNames.COMPANY_WAREHOUSES }, title: 'Warehouses', icon: 'warehouse' },
+  { to: { name: RouteNames.COMPANY_MEMBERS }, title: 'Members', icon: 'groups' },
+  { to: { name: RouteNames.COMPANY_SETTINGS }, title: 'Settings', icon: 'settings' },
+  { to: { name: RouteNames.COMPANY_PAYMENTS }, title: 'Payments', icon: 'account_balance' }
 ])
 </script>
 

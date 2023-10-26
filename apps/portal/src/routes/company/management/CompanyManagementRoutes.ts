@@ -1,5 +1,12 @@
 import type { RouteRecordRaw } from 'vue-router'
 import CompanyDashboardView from '@/views/Company/Management/CompanyDashboardView.vue'
+import CompanyDealsView from '@/views/Company/Management/CompanyDealsView.vue'
+import CompanyMembersView from '@/views/Company/Management/CompanyMembersView.vue'
+import CompanyOffersView from '@/views/Company/Management/CompanyOffersView.vue'
+import CompanyPaymentsView from '@/views/Company/Management/CompanyPaymentsView.vue'
+import CompanyProductsView from '@/views/Company/Management/CompanyProductsView.vue'
+import CompanySettingsView from '@/views/Company/Management/CompanySettingsView.vue'
+import CompanyWarehousesView from '@/views/Company/Management/CompanyWarehousesView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 
 class CompanyProfileRouteEnum extends BaseEnum {
@@ -15,44 +22,44 @@ class CompanyProfileRouteEnum extends BaseEnum {
 
 const CompanyDashboardRoutes: RouteRecordRaw[] = [
   {
-    path: 'dashboard',
+    path: '/company/dashboard',
     name: CompanyProfileRouteEnum.COMPANY_DASHBOARD,
     component: CompanyDashboardView
   },
   {
-    path: 'offers',
+    path: '/company/offers',
     name: CompanyProfileRouteEnum.COMPANY_OFFERS,
-    component: CompanyDashboardView
+    component: CompanyOffersView
   },
   {
-    path: 'deals',
+    path: '/company/deals',
     name: CompanyProfileRouteEnum.COMPANY_DEALS,
-    component: CompanyDashboardView
+    component: CompanyDealsView
   },
   {
-    path: 'products',
+    path: '/company/products',
     name: CompanyProfileRouteEnum.COMPANY_PRODUCTS,
-    component: CompanyDashboardView
+    component: CompanyProductsView
   },
   {
-    path: 'warehouses',
+    path: '/company/warehouses',
     name: CompanyProfileRouteEnum.COMPANY_WAREHOUSES,
-    component: CompanyDashboardView
+    component: CompanyWarehousesView
   },
   {
-    path: 'members',
+    path: '/company/members',
     name: CompanyProfileRouteEnum.COMPANY_MEMBERS,
-    component: CompanyDashboardView
+    component: CompanyMembersView
   },
   {
-    path: 'settings',
+    path: '/company/settings',
     name: CompanyProfileRouteEnum.COMPANY_SETTINGS,
-    component: CompanyDashboardView
+    component: CompanySettingsView
   },
   {
-    path: 'payments',
+    path: '/company/payments',
     name: CompanyProfileRouteEnum.COMPANY_PAYMENTS,
-    component: CompanyDashboardView
+    component: CompanyPaymentsView
   }
 ]
 

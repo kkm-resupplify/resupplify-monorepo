@@ -18,7 +18,6 @@ const CompanyRoutes: RouteRecordRaw[] = [
     path: '/company',
     name: CompanyRouteEnum.COMPANY,
     component: CompanyDashboardView,
-    children: [...CompanyManagementRoutes],
 
     beforeEnter: () => {
       const mustBeAuthenticatedNavigationGuard = MustBeAuthenticatedNavigationGuard.guard()
@@ -30,7 +29,8 @@ const CompanyRoutes: RouteRecordRaw[] = [
       const mustBelongToCompanyNavigationGuard = MustBelongToCompanyNavigationGuard.guard()
       if (mustBelongToCompanyNavigationGuard) return mustBelongToCompanyNavigationGuard
     }
-  }
+  },
+  ...CompanyManagementRoutes
 ]
 
 export default CompanyRoutes
