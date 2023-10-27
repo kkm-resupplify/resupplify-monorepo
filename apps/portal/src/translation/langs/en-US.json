@@ -4,12 +4,12 @@
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
     "errorOccured": "An error occured",
-    "submit": "Submit",
     "save": "Save",
     "edit": "Edit",
     "noResults": "No results",
     "next": "Next",
     "back": "Back",
+    "submit": "Submit",
     "imagePreview": "Image preview"
   },
 
@@ -40,6 +40,7 @@
     "alreadyRegistered": "Already have an account? {login}",
     "forgotPassword": "Forgot password?",
     "newUser": "Don't have an account? {signup}",
+    "logout": "Log out",
 
     "form": {
       "emailAddress": "Email address",
@@ -153,9 +154,62 @@
       "companiesThatChoseUs": "Companies and businesses that chose us"
     },
 
-    "notification": {
-      "registerCompanySuccessTitle": "Company registered form submitted successfully",
-      "registerCompanySuccessText": "Your company awaits verification now."
+    "data": {
+      "generalInformation": "General information",
+      "companyDetails": "Company details",
+      "contactInformation": "Contact information",
+      "name": "Name",
+      "country": "Country",
+      "description": "Description",
+      "shortDescription": "Short description",
+      "address": "Company address",
+      "category": "Company category",
+      "logo": "Company logo",
+      "tin": "Tax Identification Number",
+      "contactPerson": "Contact Person",
+      "email": "Email",
+      "externalWebsite": "Company Website",
+      "phoneNumber": "Phone Number"
+    },
+
+    "management": {
+      "navigation": {
+        "dashboard": {
+          "title": "Dashboard"
+        },
+
+        "offers": {
+          "title": "Offers"
+        },
+
+        "deals": {
+          "title": "Deals"
+        },
+
+        "products": {
+          "title": "Products"
+        },
+
+        "warehouses": {
+          "title": "Warehouses"
+        },
+
+        "members": {
+          "title": "Members",
+          "tiles": {
+            "activeMembers": "Active members",
+            "permissions": "Permissions"
+          }
+        },
+
+        "settings": {
+          "title": "Settings"
+        },
+
+        "payments": {
+          "title": "Payments"
+        }
+      }
     }
   },
 
@@ -214,7 +268,21 @@
     },
 
     "myCompany": {
-      "title": "My company"
+      "title": "My company",
+
+      "joinCompany": {
+        "title": "Join a company",
+        "description": "To join a company, you need a invitation token first. It should have been given you to you by your suprior or a person responsible for handling company member invitations for your company on our platform.",
+        "invitationToken": "Invitation token",
+        "invitationTokenPlaceholder": "Enter your Invitation token",
+        "enterInvitationToken": "Please enter your invitation token"
+      },
+
+      "registerCompany": {
+        "title": "Register a company",
+        "description": "You might also want to register you company. In that case, you can begin the registration process by clicking the button below - you may cancel it at any time.",
+        "registerNow": "Register now"
+      }
     }
   },
 

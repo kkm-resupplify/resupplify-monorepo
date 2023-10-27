@@ -2,6 +2,7 @@
   "global": {
     "welcome": "Witaj",
     "goodbye": "Dowidzenia",
+    "actionSuccess": "Akcja zakończona sukcesem",
     "errorOccured": "Wystąpił błąd",
     "save": "Zapisz",
     "edit": "Edytuj",
@@ -156,6 +157,64 @@
     "promotion": {
       "ourPartners": "Nasi partnerzy",
       "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"
+    },
+
+    "data": {
+      "generalInformation": "Informacje ogólne",
+      "companyDetails": "Dane firmy",
+      "contactInformation": "Informacje kontaktowe",
+      "name": "Nazwa",
+      "country": "Kraj",
+      "description": "Opis",
+      "shortDescription": "Krótki opis",
+      "address": "Adres firmy",
+      "category": "Kategoria firmy",
+      "logo": "Logo firmy",
+      "tin": "Numer identyfikacji podatkowej",
+      "contactPerson": "Osoba kontaktowa",
+      "email": "Email",
+      "externalWebsite": "Strona internetowa firmy",
+      "phoneNumber": "Numer telefonu"
+    },
+
+    "management": {
+      "navigation": {
+        "dashboard": {
+          "title": "Pulpit"
+        },
+
+        "offers": {
+          "title": "Oferty"
+        },
+
+        "deals": {
+          "title": "Oferty"
+        },
+
+        "products": {
+          "title": "Produkty"
+        },
+
+        "warehouses": {
+          "title": "Magazyny"
+        },
+
+        "members": {
+          "title": "Członkowie",
+          "tiles": {
+            "activeMembers": "Aktywni pracownicy",
+            "permissions": "Uprawnienia"
+          }
+        },
+
+        "settings": {
+          "title": "Ustawienia"
+        },
+
+        "payments": {
+          "title": "Płatności"
+        }
+      }
     }
   },
 
@@ -214,7 +273,21 @@
     },
 
     "myCompany": {
-      "title": "Moja firma"
+      "title": "Moja firma",
+
+      "joinCompany": {
+        "title": "Dołącz do firmy",
+        "description": "Aby dołączyć do firmy, potrzebujesz najpierw tokena zaproszenia. Powinien on zostać udzielony przez twojego przełożonego lub osobę odpowiedzialną za zarządzanie zaproszeniami członków firmy w naszej platformie.",
+        "invitationToken": "Token zaproszenia",
+        "invitationTokenPlaceholder": "Wprowadź swój token zaproszenia",
+        "enterInvitationToken": "Proszę wprowadzić swój token zaproszenia"
+      },
+
+      "registerCompany": {
+        "title": "Zarejestruj firmę",
+        "description": "Możesz również chcieć zarejestrować swoją firmę. W takim przypadku możesz rozpocząć proces rejestracji, klikając poniższy przycisk - proces możesz anulować w dowolnym momencie.",
+        "registerNow": "Zarejestruj teraz"
+      }
     }
   },
 

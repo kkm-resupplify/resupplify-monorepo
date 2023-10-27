@@ -1,9 +1,12 @@
 import type { RouteRecordRaw } from 'vue-router'
-import CompanyDashboardRoutes from './dashboard/CompanyDashboardRoutes'
-import CompanyProfileRoutes from './profile/CompanyProfileRoutes'
-import CompanyRegisterRoutes from './register/CompanyRegisterRoutes'
-import CompanyMembersRoutes from './members/CompanyMembersRoutes'
+import CompanyManagementRoutes from './management/CompanyManagementRoutes'
 import BaseEnum from '@sharedEnums/BaseEnum'
+import CompanyViewLayout from '@/layouts/view/CompanyViewLayout.vue'
+import {
+  MustBeAuthenticatedNavigationGuard,
+  MustHaveUserDetailsNavigationGuard,
+  MustBelongToCompanyNavigationGuard
+} from '@/routes/navigationGuards'
 
 class CompanyRouteEnum extends BaseEnum {
   static readonly COMPANY: string = 'COMPANY'
@@ -13,7 +16,18 @@ const CompanyRoutes: RouteRecordRaw[] = [
   {
     path: '/company',
     name: CompanyRouteEnum.COMPANY,
-    children: [...CompanyDashboardRoutes, ...CompanyProfileRoutes, ...CompanyRegisterRoutes, ...CompanyMembersRoutes]
+    component: CompanyViewLayout,
+    children: [...CompanyManagementRoutes],
+    beforeEnter: () => {
+      const mustBeAuthenticatedNavigationGuard = MustBeAuthenticatedNavigationGuard.guard()
+      if (mustBeAuthenticatedNavigationGuard) return mustBeAuthenticatedNavigationGuard
+
+      const mustHaveUserDetailsNavigationGuard = MustHaveUserDetailsNavigationGuard.guard()
+      if (mustHaveUserDetailsNavigationGuard) return mustHaveUserDetailsNavigationGuard
+
+      const mustBelongToCompanyNavigationGuard = MustBelongToCompanyNavigationGuard.guard()
+      if (mustBelongToCompanyNavigationGuard) return mustBelongToCompanyNavigationGuard
+    }
   }
 ]
 

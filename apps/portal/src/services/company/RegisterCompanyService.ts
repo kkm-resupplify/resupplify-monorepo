@@ -1,5 +1,4 @@
 import BaseService from '../BaseService'
-import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 import type { RegisterCompanyData } from '@/interfaces/company/RegisterCompanyInterface'
 
 class RegisterCompanyFormDataDTO {
@@ -9,7 +8,7 @@ class RegisterCompanyFormDataDTO {
   description: string
   address: string
   tin: string
-  logo: File | null | string
+  logo: null | string
   phoneNumber: string
   email: string
   contactPerson: string
@@ -44,8 +43,6 @@ class RegisterCompanyService extends BaseService {
       notificationText: 'company.register.notification.registerCompanySuccessText',
       notificationDuration: 7000
     })
-
-    const { data } = response
 
     return response
   }

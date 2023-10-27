@@ -4,11 +4,11 @@
       <a-icon icon="account_circle" size="xx-large" />
 
       <span class="user-settings-profile-tab__name">
-        <template v-if="hasUserDetails">
-          <a-title
-            :title="`${userStore.getUserDetails?.firstName} ${userStore.getUserDetails?.lastName}`"
-          />
-        </template>
+        <a-title
+          v-if="hasUserDetails"
+          size="xx-large"
+          :title="`${userStore.getUserDetails?.firstName} ${userStore.getUserDetails?.lastName}`"
+        />
 
         <template v-else>{{ userStore.getEmail }}</template>
       </span>
@@ -18,18 +18,27 @@
 
     <div v-else class="user-settings-profile-tab__user-data">
       <a-title
+        size="large"
+        variant="horizontal"
+        append-colon
         :title="$t('settings.profile.details.phoneNumber')"
-        :sub-title="userStore.getUserDetails?.phoneNumber"
+        :subtitle="userStore.getUserDetails?.phoneNumber"
       />
 
       <a-title
+        size="large"
+        variant="horizontal"
+        append-colon
         :title="$t('settings.profile.details.birthDate')"
-        :sub-title="userStore.getUserDetails?.birthDate"
+        :subtitle="userStore.getUserDetails?.birthDate"
       />
 
       <a-title
+        size="large"
+        variant="horizontal"
+        append-colon
         :title="$t('settings.profile.details.sex')"
-        :sub-title="userStore.getUserDetails?.sex"
+        :subtitle="userStore.getUserDetails?.sex"
       />
 
       <a-button :text="$t('global.edit')" size="large" @click="toggleEditUserDetails" />
@@ -71,6 +80,7 @@ const handleUserDetailsFormUpdated = () => {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-50;
+  min-width: 500px;
 
   &__header {
     display: flex;

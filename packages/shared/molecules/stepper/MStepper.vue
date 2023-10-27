@@ -43,6 +43,9 @@ const props = defineProps({
   description: String
 })
 
+// Emits
+const emits = defineEmits(['previous-step', 'next-step', 'cancel'])
+
 // Variables
 const baseClass = 'm-stepper'
 const currentStep = ref(0)
@@ -65,11 +68,19 @@ const handleNextStep = () => {
   if (currentStep.value + 1 < props.steps.length) {
     currentStep.value++
     validatedStep.value++
+
+    emits('next-step')
   }
 }
 
 const handlePreviousStep = () => {
-  if (currentStep.value - 1 >= 0) currentStep.value--
+  if (currentStep.value === 0) {
+    emits('cancel')
+  } else if (currentStep.value - 1 >= 0) {
+    currentStep.value--
+
+    emits('previous-step')
+  }
 }
 
 const handleGoToStep = (idx: number) => {
@@ -89,9 +100,6 @@ defineExpose({
   gap: $global-spacing-80;
   align-self: center;
 
-  padding: $global-spacing-30 $global-spacing-40;
-
-  background-color: var(--secondary-1);
   border-radius: $global-border-radius-20;
 
   &__header {

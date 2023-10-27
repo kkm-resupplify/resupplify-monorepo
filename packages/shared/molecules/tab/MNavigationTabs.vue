@@ -25,6 +25,11 @@ const props = defineProps({
   tabs: {
     type: Array as PropType<MNavigationTabsItemData[]>,
     required: true
+  },
+
+  minNavigationWidth: {
+    type: Number,
+    default: 200
   }
 })
 
@@ -45,6 +50,10 @@ const hash = computed(() => {
 const currentTabComponent = computed(() => {
   return props.tabs.find((tab) => tab.to === hash.value) ?? props.tabs[0]
 })
+
+const minNavigationWidth = computed(() => {
+  return `${props.minNavigationWidth}px`
+})
 </script>
 
 <style scoped lang="scss">
@@ -59,6 +68,7 @@ const currentTabComponent = computed(() => {
     flex-direction: column;
     gap: $global-spacing-50;
 
+    min-width: v-bind(minNavigationWidth);
     padding: $global-spacing-50;
 
     background-color: var(--secondary-1);
