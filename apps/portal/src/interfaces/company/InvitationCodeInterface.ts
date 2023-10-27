@@ -5,5 +5,5 @@ export interface CreateInvitationCodeData {
 }
 
 export interface InvitationCodeData {
-    data: string[]
+  invitationCode: string
 }

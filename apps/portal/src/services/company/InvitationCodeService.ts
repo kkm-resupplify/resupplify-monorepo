@@ -22,7 +22,9 @@ class InvitationCodeService extends BaseService {
     const response = await this.post({
       data: invitationCode,
       suffix: 'company/createInvitationCode',
-      notificationTitle: 'settings.profile.notification.created'
+      notificationTitle: 'company.invitation.notifications.createdInvitationCodeTitle', 
+      notificationText: 'company.invitation.notifications.createdInvitationCodeSuccess',
+      notificationDuration: 7000
     })
 
     const { data } = response

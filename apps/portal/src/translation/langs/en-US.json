@@ -142,8 +142,9 @@
       "generate": "Generate",
       "inviteNew": "Invite new members",
 
-      "notifictions": {
-        "created": "Code generated successfully"
+      "notifications": {
+        "createdInvitationCodeTitle": "Code generated successfully",
+        "createdInvitationCodeSuccess": "Use it in the next step"
       }
     },
 

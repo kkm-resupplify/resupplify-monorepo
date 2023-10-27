@@ -147,8 +147,9 @@
       "generate": "Wygeneruj",
       "inviteNew": "Zaproś nowych czlonków",
 
-      "notifictions": {
-        "created": "Pomyślnie wygenerowano kod"
+      "notifications": {
+        "createdInvitationCodeTitle": "Pomyślnie wygenerowano kod",
+        "createdInvitationCodeSuccess": "Użyj go w następnym kroku"
       }
     },
 

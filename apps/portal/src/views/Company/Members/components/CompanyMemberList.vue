@@ -1,7 +1,9 @@
 <template>
   <div class="company-member-list">
     <company-member-invitation />
+
     <a-title title="Members" />
+
     <company-member-list-item
       v-for="member in companyMembers"
       :email="member.email"
@@ -21,8 +23,10 @@ import { ref, onMounted } from 'vue'
 import CompanyMembersService from '@/services/company/CompanyMembersService'
 import type { CompanyMember } from '@/interfaces/company/CompanyMembersInterface'
 
+// Variables
 const companyMembers = ref<CompanyMember[] | null>()
 
+// Hooks
 onMounted(async () => {
   const response = await CompanyMembersService.getCompanyMembers()
 
