@@ -19,7 +19,7 @@ import CompanyMemberListItem from './CompanyMemberListItem.vue'
 import CompanyMemberInvitation from './CompanyMemberInvitation.vue'
 import { ref, onMounted } from 'vue'
 import CompanyMembersService from '@/services/company/CompanyMembersService'
-import type { CompanyMember } from '../../../../interfaces/company/CompanyMembersInterface'
+import type { CompanyMember } from '@/interfaces/company/CompanyMembersInterface'
 
 const companyMembers = ref<CompanyMember[] | null>()
 
