@@ -1,7 +1,7 @@
 import type { CompanyMembersData } from '@/interfaces/company/CompanyMembersInterface'
 import { defineStore } from 'pinia'
 
-export const useRegisterCompanyStore = defineStore({
+export const useCompanyMembersStore = defineStore({
   id: 'companyMembers',
 
   state: (): CompanyMembersData => ({

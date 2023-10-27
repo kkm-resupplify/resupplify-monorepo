@@ -1,5 +1,6 @@
 import type { CompanyMembersData } from '@/interfaces/company/CompanyMembersInterface'
 import BaseService from '../BaseService'
+import { useCompanyMembersStore } from '@/stores/company/useCompanyMembersStore'
 class CompanyMembersDataDTO {
   users: CompanyMembersData
 
@@ -15,6 +16,9 @@ class CompanyMembersService extends BaseService {
     })
 
     const { data } = response
+    
+    const companyMembersStore = useCompanyMembersStore()
+    companyMembersStore.setCompanyMembers(data)
 
     return data
   }
