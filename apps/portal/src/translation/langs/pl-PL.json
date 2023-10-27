@@ -145,7 +145,11 @@
       "title": "Napisz ile tokenów chciałbyś wygenerować",
       "invite": "Zaproś",
       "generate": "Wygeneruj",
-      "inviteNew": "Zaproś nowych czlonków"
+      "inviteNew": "Zaproś nowych czlonków",
+
+      "notifictions": {
+        "created": "Pomyślnie wygenerowano kod"
+      }
     },
 
     "promotion": {

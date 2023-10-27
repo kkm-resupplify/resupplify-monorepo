@@ -1,17 +1,28 @@
-import type { CompanyMembersData } from '@/interfaces/company/CompanyMembersInterface'
+import type {
+  CreateInvitationCodeData,
+  InvitationCodeData
+} from '@/interfaces/company/InvitationCodeInterface'
 import BaseService from '../BaseService'
-class InvitationCodeServiceDTO {
-  invitationCode: string
 
-  constructor(users: CompanyMembersData) {
-    this.users = users
+class InvitationCodeServiceDTO {
+  roleId: number
+  companyId: number
+  expiryDate: string
+  constructor({ roleId, companyId, expiryDate }: CreateInvitationCodeData) {
+    this.roleId = roleId
+    this.companyId = companyId
+    this.expiryDate = expiryDate
   }
 }
 
-class CompanyMembersService extends BaseService {
-  async getCompanyMembers(): Promise<CompanyMembersData> {
-    const response = await this.get({
-      suffix: 'user/company/users'
+class InvitationCodeService extends BaseService {
+  async createInvitationCode(createCodeData: CreateInvitationCodeData): Promise<InvitationCodeData> {
+    const invitationCode = new InvitationCodeServiceDTO(createCodeData)
+
+    const response = await this.post({
+      data: invitationCode,
+      suffix: 'company/createInvitationCode',
+      notificationTitle: 'settings.profile.notification.created'
     })
 
     const { data } = response
@@ -20,4 +31,4 @@ class CompanyMembersService extends BaseService {
   }
 }
 
-export default new CompanyMembersService('')
+export default new InvitationCodeService('')

@@ -140,7 +140,11 @@
       "title": "Enter how many tokens you want to generate",
       "invite": "Invite",
       "generate": "Generate",
-      "inviteNew": "Invite new members"
+      "inviteNew": "Invite new members",
+
+      "notifictions": {
+        "created": "Code generated successfully"
+      }
     },
 
     "promotion": {
