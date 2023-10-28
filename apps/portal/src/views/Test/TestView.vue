@@ -1,8 +1,10 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <register-company />
+      <!-- <register-company /> -->
+      <a-image :source="image" alt="image" :width=300 />
     </template>
+
   </basic-view-layout>
 </template>
 
@@ -12,6 +14,8 @@ import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
 import TestFormTwo from './TestFormTwo.vue'
 import RegisterCompany from '@/components/core/company/register/RegisterCompany.vue'
+import AImage from '@sharedAtoms/image/AImage.vue' 
+import image from '@/assets/images/hero_1.jpg';
 
 const steps = [
   {

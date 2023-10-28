@@ -23,12 +23,12 @@ const props = defineProps({
     default: 'default'
   },
   width: {
-    type: Number,
-    default: 100
+    type: [String, Number],
+    default: "auto"
   },
   height: {
-    type: Number,
-    default: 100
+    type: [String, Number],
+    default: "auto"
   }
 })
 
@@ -44,16 +44,26 @@ const generateClasses = computed(() => {
 })
 
 const height = computed(() => {
-  return `${props.height}px`
+  if (typeof props.height === 'number') {
+    return `${props.height}px`
+  }
+  return "auto"
 })
 
 const width = computed(() => {
-  return `${props.width}px`
+  if (typeof props.width === 'number') {
+    return `${props.width}px`
+  }
+  return "auto"
 })
+
+console.log(width.value);
+
+
 </script>
 
 <style scoped lang="scss">
-.a-icon {
+.a-image {
   width: v-bind(width);
   height: v-bind(height);
 
