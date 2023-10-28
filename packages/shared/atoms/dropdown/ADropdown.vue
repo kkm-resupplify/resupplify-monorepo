@@ -36,11 +36,11 @@ const toggleShowContent = () => {
 
 <style lang="scss" scoped>
 .a-dropdown {
-  cursor: pointer;
   position: relative;
   display: inline-block;
 
   &__activator {
+    cursor: pointer;
     user-select: none;
     display: flex;
   }

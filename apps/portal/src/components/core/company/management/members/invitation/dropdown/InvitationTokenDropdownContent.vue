@@ -38,7 +38,9 @@
       </template>
     </o-form>
 
-    <span :v-text="invitationCode" />
+    <div class="invitation-token-dropdown-content__token-list">
+      <span class="invitation-token-dropdown-content__token-item" v-text="invitationCode" />
+    </div>
   </div>
 </template>
 
@@ -77,6 +79,8 @@ const handleGenerateCode = async (formData: CreateInvitationCodeData) => {
 .invitation-token-dropdown-content {
   @include boxshadow-primary-2;
 
+  cursor: default;
+
   position: absolute;
   top: $global-spacing-30;
   right: 0;
@@ -107,6 +111,19 @@ const handleGenerateCode = async (formData: CreateInvitationCodeData) => {
     display: flex;
     flex: 1;
     justify-content: center;
+  }
+
+  &__token-list {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-30;
+    text-align: center;
+  }
+
+  &__token-item {
+    cursor: text;
+    background-color: var(--secondary-2);
+    border-radius: $global-border-radius-10;
   }
 }
 </style>
