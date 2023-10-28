@@ -5,6 +5,8 @@
 
       <m-text-field />
 
+      <m-select />
+
       <a-button
         :text="$t('company.invitation.generate')"
         class="dropdown-content__generate"

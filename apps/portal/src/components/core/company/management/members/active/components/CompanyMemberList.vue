@@ -3,7 +3,7 @@
     <div class="company-member-list__header">
       <a-title size="large" :title="$t('company.management.navigation.members.title')" />
 
-      <company-member-invitation :roles="roles" />
+      <company-member-invitation />
     </div>
 
     <div class="company-member-list__items">
@@ -31,14 +31,12 @@ import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface';
 
 // Variables
 const companyMembers = reactive<CompanyMember[]>([])
-const roles = reactive<CompanyRole[]>([])
+const companyRoles = reactive<CompanyRole[]>([]) 
 
 // Hooks
 onBeforeMount(async () => {
-  const company = await CompanyMembersService.getCompanyMembers()
-  const roles = await CompanyMembersService.getRoles()
-
-  companyMembers.splice(0, companyMembers.length, ...company)
+  const { success, data } = await CompanyMembersService.getCompanyMembers()
+  if (success && data.users) companyMembers.push(...data.users)
 })
 </script>
 <style scoped lang="scss">
