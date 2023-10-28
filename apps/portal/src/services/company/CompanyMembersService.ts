@@ -1,7 +1,4 @@
-import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
 import BaseService from '../BaseService'
-import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore'
-import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface'
 
 class CompanyMemberService extends BaseService {
   async getCompanyMembers() {

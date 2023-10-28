@@ -15,8 +15,7 @@ class InvitationCodeService extends BaseService {
 
     const response = await this.post({
       data: invitationCode,
-      notificationTitle: 'company.invitation.notifications.createdInvitationCodeTitle',
-      notificationText: 'company.invitation.notifications.createdInvitationCodeSuccess',
+      notificationTitle: 'company.invitation.notification.createdInvitationTokenTitleSuccess',
       notificationDuration: 3000
     })
 
