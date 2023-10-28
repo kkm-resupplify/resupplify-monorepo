@@ -1,19 +1,25 @@
 import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface'
 import { defineStore } from 'pinia'
 
-interface CompanyRolesState {
+interface CompanyRoleState {
   roles: CompanyRole[]
 }
 
-export const useCompanyRolesService = defineStore({
+export const useCompanyRoleStore = defineStore({
   id: 'companyRoles',
 
-  state: (): CompanyRolesState => ({
+  state: (): CompanyRoleState => ({
     roles: []
   }),
 
   getters: {
     getCompanyRoles: (state) => state.roles
+  },
+
+  actions: {
+    setCompanyRoles(companyRoles: CompanyRole[]) {
+      this.roles = companyRoles
+    }
   },
 
   persist: true

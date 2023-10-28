@@ -24,16 +24,19 @@
 <script setup lang="ts">
 import CompanyMemberListItem from './CompanyMemberListItem.vue'
 import CompanyMemberInvitation from '../../invitation/CompanyMemberInvitation.vue'
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive, onBeforeMount } from 'vue';
 import CompanyMembersService from '@/services/company/CompanyMembersService'
 import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
+import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface';
 
 // Variables
 const companyMembers = reactive<CompanyMember[]>([])
+const roles = reactive<CompanyRole[]>([])
 
 // Hooks
-onMounted(async () => {
+onBeforeMount(async () => {
   const company = await CompanyMembersService.getCompanyMembers()
+  const roles = await CompanyMembersService.getRoles()
 
   companyMembers.splice(0, companyMembers.length, ...company)
 })
