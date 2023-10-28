@@ -1,6 +1,4 @@
-import type {
-  CreateInvitationCodeData,
-} from '@/interfaces/company/InvitationCodeInterface'
+import type { CreateInvitationCodeData } from '@/interfaces/company/InvitationCodeInterface'
 import BaseService from '../BaseService'
 
 class InvitationCodeServiceDTO {
@@ -21,9 +19,9 @@ class InvitationCodeService extends BaseService {
 
     const response = await this.post({
       data: invitationCode,
-      notificationTitle: 'company.invitation.notifications.createdInvitationCodeTitle', 
+      notificationTitle: 'company.invitation.notifications.createdInvitationCodeTitle',
       notificationText: 'company.invitation.notifications.createdInvitationCodeSuccess',
-      notificationDuration: 7000
+      notificationDuration: 3000
     })
 
     const { data } = response
