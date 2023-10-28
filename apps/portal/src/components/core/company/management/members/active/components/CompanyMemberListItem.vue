@@ -5,10 +5,10 @@
         <a-title :title="$t('settings.profile.details.email')" :subtitle="email" />
 
         <a-icon
-          icon="more_vert"
+          :icon="detailsIcon"
           size="xx-large"
           class="company-member-list-item__icon"
-          :color="detailsIconColor"
+          color="font-primary"
         />
       </div>
     </template>
@@ -70,8 +70,8 @@ const companyMemberListItems = computed(() => {
   ]
 })
 
-const detailsIconColor = computed(() => {
-  return iconStatus.value ? 'font-primary' : 'secondary-3'
+const detailsIcon = computed(() => {
+  return iconStatus.value ? 'expand_less' : 'expand_more'
 })
 
 // Methods
