@@ -12,7 +12,7 @@
       />
     </div>
     
-    <a-title :title="invitationCodeData" />
+    <a-title :title="invitationCode" />
   </div>
 </template>
 
