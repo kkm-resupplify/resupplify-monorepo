@@ -10,7 +10,8 @@
     "next": "Dalej",
     "back": "Wstecz",
     "submit": "Zatwierdź",
-    "imagePreview": "Podgląd obrazu" 
+    "imagePreview": "Podgląd obrazu",
+    "delete": "Usuń"
   },
 
   "payments": {
@@ -149,8 +150,7 @@
       "inviteNew": "Zaproś nowych czlonków",
 
       "notification": {
-        "createdInvitationCodeTitle": "Pomyślnie wygenerowano kod",
-        "createdInvitationCodeSuccess": "Użyj go w następnym kroku"
+        "createdInvitationTokenTitleSuccess": "Pomyślnie wygenerowano token zaproszenia"
       }
     },
 
@@ -204,6 +204,10 @@
           "tiles": {
             "activeMembers": "Aktywni pracownicy",
             "permissions": "Uprawnienia"
+          },
+
+          "activeMembers": {
+            "action": "Usuń pracownika"
           }
         },
 

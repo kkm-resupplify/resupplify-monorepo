@@ -10,7 +10,8 @@
     "next": "Next",
     "back": "Back",
     "submit": "Submit",
-    "imagePreview": "Image preview"
+    "imagePreview": "Image preview",
+    "delete": "Delete"
   },
 
   "payments": {
@@ -144,8 +145,7 @@
       "inviteNew": "Invite new members",
 
       "notification": {
-        "createdInvitationCodeTitle": "Code generated successfully",
-        "createdInvitationCodeSuccess": "Use it in the next step"
+        "createdInvitationTokenTitleSuccess": "Invitation token generated successfully"
       }
     },
 
@@ -199,6 +199,10 @@
           "tiles": {
             "activeMembers": "Active members",
             "permissions": "Permissions"
+          },
+
+          "activeMembers": {
+            "action": "Delete member"
           }
         },
 
