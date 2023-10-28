@@ -3,7 +3,7 @@
     <div class="company-member-list__header">
       <a-title size="large" :title="$t('company.management.navigation.members.title')" />
 
-      <company-member-invitation :roles="roles" />
+      <company-member-invitation />
     </div>
 
     <div class="company-member-list__items">
@@ -27,7 +27,6 @@ import CompanyMemberInvitation from '../../invitation/CompanyMemberInvitation.vu
 import { onBeforeMount, reactive } from 'vue'
 import CompanyMembersService from '@/services/company/CompanyMembersService'
 import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
-import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface'
 
 // Variables
 const companyMembers: CompanyMember[] = reactive([])
@@ -35,7 +34,6 @@ const companyMembers: CompanyMember[] = reactive([])
 // Hooks
 onBeforeMount(async () => {
   const { success, data } = await CompanyMembersService.getCompanyMembers()
-
   if (success && data.users) companyMembers.push(...data.users)
 })
 </script>
