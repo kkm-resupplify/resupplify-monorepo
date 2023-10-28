@@ -18,7 +18,7 @@
     </a-dropdown>
   </div>
 
-  <a-title :title="invitationCode" />
+  <span :v-text="invitationCode" />
 </template>
 
 <script setup lang="ts">
@@ -33,7 +33,7 @@ const props = defineProps({
   }
 })
 
-const invitationCode = ref<String>()
+const invitationCode = ref<string>()
 
 const handleInvitationCode = (newInvitationCode: string) => {
   invitationCode.value = newInvitationCode
