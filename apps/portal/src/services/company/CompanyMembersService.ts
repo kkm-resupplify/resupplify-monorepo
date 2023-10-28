@@ -22,6 +22,12 @@ class CompanyMemberService extends BaseService {
 
     return data
   }
+
+  async deleteMember({ id }: { id: number }) {
+    const response = await this.delete({ id })
+
+    return response
+  }
 }
 
 export default new CompanyMemberService('company')

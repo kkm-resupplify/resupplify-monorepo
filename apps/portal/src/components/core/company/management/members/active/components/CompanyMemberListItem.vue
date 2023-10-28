@@ -28,6 +28,7 @@
             :text="$t('company.management.navigation.members.activeMembers.action')"
             color="gradient-danger"
             size="large"
+            @click="handleRemoveMember"
           />
         </div>
       </div>
@@ -38,8 +39,10 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import CompanyMembersService from '@/services/company/CompanyMembersService'
 
 const props = defineProps({
+  memberId: { type: Number, required: true },
   email: String,
   firstName: String,
   lastName: String,
@@ -47,6 +50,9 @@ const props = defineProps({
   birthDate: String,
   sex: String
 })
+
+// Emits
+const emits = defineEmits(['delete-member'])
 
 // Variables
 const { t } = useI18n()
@@ -85,6 +91,12 @@ const detailsIcon = computed(() => {
 // Methods
 const handleToggleExpansionPanel = (state: boolean) => {
   iconStatus.value = state
+}
+
+const handleRemoveMember = async () => {
+  const { success } = await CompanyMembersService.deleteMember({ id: props.memberId })
+
+  if (success) emits('delete-member')
 }
 </script>
 

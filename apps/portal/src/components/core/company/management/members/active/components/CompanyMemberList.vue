@@ -10,12 +10,14 @@
       <company-member-list-item
         v-for="(member, idx) in companyMembers"
         :key="idx"
+        :member-id="member.id"
         :email="member.email"
         :first-name="member.userDetails?.firstName"
         :last-name="member.userDetails?.lastName"
         :phone-number="member.userDetails?.phoneNumber"
         :birth-date="member.userDetails?.birthDate"
         :sex="member.userDetails?.sex"
+        @delete-member="handleFetchCompanyMembers"
       />
     </div>
   </div>
@@ -31,10 +33,16 @@ import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
 // Variables
 const companyMembers: CompanyMember[] = reactive([])
 
+// Methods
+const handleFetchCompanyMembers = async () => {
+  const { success, data } = await CompanyMembersService.getCompanyMembers()
+
+  if (success && data.users) companyMembers.push(...data.users)
+}
+
 // Hooks
 onBeforeMount(async () => {
-  const { success, data } = await CompanyMembersService.getCompanyMembers()
-  if (success && data.users) companyMembers.push(...data.users)
+  await handleFetchCompanyMembers()
 })
 </script>
 <style scoped lang="scss">
@@ -51,10 +59,11 @@ onBeforeMount(async () => {
   }
 
   &__items {
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: $global-spacing-40;
-    overflow-y: auto;
+
     max-height: 100%;
     padding-right: $global-spacing-20;
   }
