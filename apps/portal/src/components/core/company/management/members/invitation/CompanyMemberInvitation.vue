@@ -18,7 +18,7 @@
     </a-dropdown>
   </div>
 
-  <a-title :title="invitationCode" />
+  <span :v-text="invitationCode" />
 </template>
 
 <script setup lang="ts">
@@ -26,8 +26,14 @@ import InvitationTokenDropdownContent from './dropdown/InvitationTokenDropdownCo
 import { ref, computed } from 'vue'
 import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface'
 
-// Variables
-const invitationCode = ref<String>()
+const props = defineProps({
+  roles: {
+    type: Object as () => CompanyRole[],
+    required: true
+  }
+})
+
+const invitationCode = ref<string>()
 
 // Methods
 const handleInvitationCode = (newInvitationCode: string) => {

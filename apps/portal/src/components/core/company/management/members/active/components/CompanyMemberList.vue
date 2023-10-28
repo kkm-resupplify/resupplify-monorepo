@@ -27,11 +27,9 @@ import CompanyMemberInvitation from '../../invitation/CompanyMemberInvitation.vu
 import { onBeforeMount, reactive } from 'vue'
 import CompanyMembersService from '@/services/company/CompanyMembersService'
 import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
-import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface';
 
 // Variables
-const companyMembers = reactive<CompanyMember[]>([])
-const companyRoles = reactive<CompanyRole[]>([]) 
+const companyMembers: CompanyMember[] = reactive([])
 
 // Hooks
 onBeforeMount(async () => {

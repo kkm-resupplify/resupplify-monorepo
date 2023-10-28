@@ -1,4 +1,3 @@
-
 import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
 import BaseService from '../BaseService'
 import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore'
@@ -6,17 +5,16 @@ import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore'
 class CompanyMemberService extends BaseService {
   async getCompanyMembers() {
     const response = await this.get({
-      suffix: 'user/company/users'
+      prefix: 'user',
+      suffix: 'users'
     })
 
-    const { data } = response
-
-    return data.users
+    return response
   }
 
   async getRoles() {
     const response = await this.get({
-      suffix: 'company/roles'
+      suffix: 'roles'
     })
 
     const { data } = response
@@ -27,4 +25,4 @@ class CompanyMemberService extends BaseService {
   }
 }
 
-export default new CompanyMemberService('')
+export default new CompanyMemberService('company')
