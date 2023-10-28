@@ -3,7 +3,7 @@
     <div class="company-member-list__header">
       <a-title size="large" :title="$t('company.management.navigation.members.title')" />
 
-      <company-member-invitation />
+      <company-member-invitation :roles="roles" />
     </div>
 
     <div class="company-member-list__items">
