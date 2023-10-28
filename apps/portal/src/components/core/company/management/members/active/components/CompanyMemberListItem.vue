@@ -2,7 +2,7 @@
   <a-expansion-panel class="company-member-list-item" @toggle="handleToggleExpansionPanel">
     <template #activator>
       <div class="company-member-list-item__header">
-        <a-title :title="$t('settings.profile.details.email')" :subtitle="email" />
+        <a-title :title="userFullName(props.firstName, props.lastName)" :subtitle="email" />
 
         <a-icon
           :icon="detailsIcon"
@@ -40,6 +40,7 @@
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import CompanyMembersService from '@/services/company/CompanyMembersService'
+import { useFullNameComposable } from '@sharedComposables/user/useUserDataComposable'
 
 const props = defineProps({
   memberId: { type: Number, required: true },
@@ -57,18 +58,11 @@ const emits = defineEmits(['delete-member'])
 // Variables
 const { t } = useI18n()
 const iconStatus = ref(false)
+const { userFullName } = useFullNameComposable()
 
 // Computed
 const companyMemberListItems = computed(() => {
   return [
-    {
-      title: t('settings.profile.details.firstName'),
-      subtitle: props.firstName
-    },
-    {
-      title: t('settings.profile.details.lastName'),
-      subtitle: props.lastName
-    },
     {
       title: t('settings.profile.details.phoneNumber'),
       subtitle: props.phoneNumber
