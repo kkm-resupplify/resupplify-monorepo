@@ -1,35 +1,20 @@
+import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface'
 import { defineStore } from 'pinia'
 
-interface RegisterCompanyState {
-  generalStepData: RegisterCompanyGeneralStep
-  detailsStepData: RegisterCompanyDetailsStep
-  contactInfoStepData: RegisterCompanyContactInfoStep
+interface CompanyRolesState {
+  roles: CompanyRole[]
 }
 
-export const useRegisterCompanyStore = defineStore({
-  id: 'registerCompany',
+export const useCompanyRolesService = defineStore({
+  id: 'companyRoles',
 
-  state: (): RegisterCompanyState => ({
-    generalStepData: { name: '', countryId: null, shortDescription: '', description: '' },
-    detailsStepData: { address: '', companyCategoryId: null, tin: '', logo: 'xdd' },
-    contactInfoStepData: { phoneNumber: '', email: '', contactPerson: '', externalWebsite: '' }
+  state: (): CompanyRolesState => ({
+    roles: []
   }),
 
   getters: {
-    registerCompanyFormData: (state: RegisterCompanyState) => state
+    getCompanyRoles: (state) => state.roles
   },
 
-  actions: {
-    setGeneralStepData(generalStepData: RegisterCompanyGeneralStep) {
-      this.generalStepData = generalStepData
-    },
-
-    setDetailsStepData(detailsStepData: RegisterCompanyDetailsStep) {
-      this.detailsStepData = detailsStepData
-    },
-
-    setContactInfoStepData(contactInfoStepData: RegisterCompanyContactInfoStep) {
-      this.contactInfoStepData = contactInfoStepData
-    }
-  }
+  persist: true
 })
