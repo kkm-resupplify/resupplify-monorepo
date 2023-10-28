@@ -3,7 +3,11 @@
     <router-link class="company-navigation__header" :to="{ name: RouteNames.COMPANY_DASHBOARD }">
       <div class="company-navigation__avatar">PH</div>
 
-      <a-title title="Company Name Inc." size="large" />
+      <a-title
+        class="company-navigation__company-name"
+        :title="userStore.getCompany?.name"
+        size="large"
+      />
     </router-link>
 
     <div class="company-navigation__menu">
@@ -16,9 +20,11 @@
 import { computed } from 'vue'
 import { RouteNames } from '@/routes/index'
 import { useI18n } from 'vue-i18n'
+import { useUserStore } from '@/stores/user/useUserStore'
 
 // Variables
 const { t } = useI18n()
+const userStore = useUserStore()
 
 // Computed
 const tabs = computed(() => [
@@ -98,6 +104,11 @@ const tabs = computed(() => [
 
     background-color: var(--info);
     border-radius: $global-border-radius-10;
+  }
+
+  &__company-name {
+    overflow: clip;
+    text-overflow: ellipsis;
   }
 
   &__menu {
