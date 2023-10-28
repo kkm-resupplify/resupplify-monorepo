@@ -40,7 +40,7 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-80;
-
+  
   width: 60%;
   margin-inline: auto;
   padding: $global-spacing-90;

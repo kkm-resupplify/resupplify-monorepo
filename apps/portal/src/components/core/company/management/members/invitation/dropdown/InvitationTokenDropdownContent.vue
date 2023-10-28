@@ -11,6 +11,8 @@
         @click="createInvitationCode(invitationCodeData)"
       />
     </div>
+    
+    <a-title :title="invitationCodeData" />
   </div>
 </template>
 
@@ -18,7 +20,6 @@
 import type { CreateInvitationCodeData } from '@/interfaces/company/InvitationCodeInterface'
 import InvitationCodeService from '@/services/company/InvitationCodeService'
 import { ref, reactive } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 // Variables
 const invitationCodeData = reactive<CreateInvitationCodeData>({
@@ -27,18 +28,12 @@ const invitationCodeData = reactive<CreateInvitationCodeData>({
   expiryDate: '2005-08-15T15:52:01+00:00'
 })
 const invitationCode = ref<String>()
-const { t } = useI18n()
-
-// Emits
-const emit = defineEmits(['invitation-code-created'])
 
 // Methods
 const createInvitationCode = async (invitationCodeData: CreateInvitationCodeData) => {
   const data = await InvitationCodeService.createInvitationCode(invitationCodeData)
 
   invitationCode.value = data.invitationCode
-
-  emit('invitation-code-created', invitationCode.value)
 }
 </script>
 

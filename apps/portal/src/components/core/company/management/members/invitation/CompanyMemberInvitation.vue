@@ -7,12 +7,13 @@
             :text="$t('company.invitation.inviteNew')"
             size="x-large"
             class="company-member-invitation__invite-button"
+            @click="handleInvitationCode"
           />
         </div>
       </template>
 
       <template #content>
-        <invitation-token-dropdown-content @invitation-code-created="handleInvitationCode" />
+        <invitation-token-dropdown-content />
       </template>
     </a-dropdown>
   </div>
@@ -21,8 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import InvitationTokenDropdownContentVue from './dropdown/InvitationTokenDropdownContent.vue'
-import { ref } from 'vue'
+import InvitationTokenDropdownContent from './dropdown/InvitationTokenDropdownContent.vue';
+import { ref } from 'vue';
 
 const invitationCode = ref<String>()
 
