@@ -22,6 +22,14 @@
           :subtitle="item.subtitle"
           size="medium"
         />
+
+        <div class="company-member-list-item__actions">
+          <a-button
+            :text="$t('company.management.navigation.members.activeMembers.action')"
+            color="gradient-danger"
+            size="large"
+          />
+        </div>
       </div>
     </template>
   </a-expansion-panel>
