@@ -1,8 +1,10 @@
 <template>
   <div class="company-member-list">
-    <company-member-invitation />
+    <div class="company-member-list__header">
+      <a-title :title="$t('company.management.navigation.members.title')" />
 
-    <a-title :title="$t('company.management.navigation.members.title')" />
+      <company-member-invitation />
+    </div>
 
     <div class="company-member-list__items">
       <company-member-list-item
@@ -40,7 +42,13 @@ onMounted(async () => {
 .company-member-list {
   display: flex;
   flex-direction: column;
-  gap: $global-spacing-80;
+  gap: $global-spacing-40;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &__items {
     display: flex;

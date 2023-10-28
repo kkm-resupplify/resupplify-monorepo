@@ -71,8 +71,9 @@ const companyMemberListItems = computed(() => {
 })
 
 const detailsIconColor = computed(() => {
-  return iconStatus.value ? 'font-primary' : 'secondary-2'
+  return iconStatus.value ? 'font-primary' : 'secondary-3'
 })
+
 // Methods
 const handleToggleExpansionPanel = (state: boolean) => {
   iconStatus.value = state
