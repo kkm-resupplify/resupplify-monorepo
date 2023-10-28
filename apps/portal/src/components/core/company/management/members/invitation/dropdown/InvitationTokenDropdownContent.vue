@@ -1,51 +1,82 @@
 <template>
-  <div class="dropdown-content">
-    <div class="dropdown-content__fields">
-      <a-title :title="$t('company.invitation.title')" size="medium" />
+  <div class="invitation-token-dropdown-content">
+    <a-title :title="$t('company.invitation.title')" size="medium" />
 
-      <m-text-field />
+    <o-form
+      class="invitation-token-dropdown-content__form"
+      :initial-values="initialFormValues"
+      :submit-callback="handleGenerateCode"
+    >
+      <template #body>
+        <div class="invitation-token-dropdown-content__fields">
+          <m-text-field
+            name="tokenCount"
+            label="Token amount"
+            placeholder="Enter amount of tokens you wish to generate"
+            :validate="false"
+            input-type="number"
+          />
 
-      <m-select />
+          <m-select
+            name="roleId"
+            :options="companyRoles"
+            placeholder="Select company role"
+            :validate="false"
+          />
+        </div>
+      </template>
 
-      <a-button
-        :text="$t('company.invitation.generate')"
-        class="dropdown-content__generate"
-      />
-    </div>
-    
-    <a-title :title="invitationCode" />
+      <template #footer>
+        <div class="invitation-token-dropdown-content__footer">
+          <a-button
+            :text="$t('company.invitation.generate')"
+            label="Select role for the token"
+            size="x-large"
+            type="submit"
+          />
+        </div>
+      </template>
+    </o-form>
+
+    <span :v-text="invitationCode" />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { CreateInvitationCodeData } from '@/interfaces/company/InvitationCodeInterface'
 import InvitationCodeService from '@/services/company/InvitationCodeService'
-import { ref, onBeforeMount, reactive, computed } from 'vue';
-import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface';
-import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore';
-
-const invitationCode = ref<String>()
-
-// Methods
-const createInvitationCode = async (invitationCodeData: CreateInvitationCodeData) => {
-  const data = await InvitationCodeService.createInvitationCode(invitationCodeData)
-
-  invitationCode.value = data.invitationCode
-}
+import { ref, computed } from 'vue'
+import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore'
+import type { CreateInvitationCodeData } from '@/interfaces/company/InvitationCodeInterface'
 
 // Variables
-const companyRoleStore = useCompanyRoleStore
-// const companyRoles: CompanyRole[] = 
-// const rolesToOptions = computed(() => companyRoles.map(({ id, name }) => ({ id, name })));
+const companyRoleStore = useCompanyRoleStore()
+const invitationCode = ref<string>()
 
-console.log(companyRoleStore.getCompanyRoles);
+// Computed
+const companyRoles = computed(() =>
+  companyRoleStore.getCompanyRoles
+    .map((role) => {
+      return { id: role.id, text: role.name }
+    })
+    .sort((a, b) => a.id + b.id)
+)
 
+const initialFormValues = computed(() => {
+  return { tokenCount: 1, roleId: companyRoles.value[0].id }
+})
+
+// Methods
+const handleGenerateCode = async (formData: CreateInvitationCodeData) => {
+  const { data, success } = await InvitationCodeService.createInvitationCode(formData)
+
+  if (success) invitationCode.value = data.invitationCode
+}
 </script>
 
 <style scoped lang="scss">
-.dropdown-content {
+.invitation-token-dropdown-content {
   position: absolute;
-  z-index: 9999;
+  z-index: 4;
   top: $global-spacing-50;
   right: 0;
 
@@ -58,10 +89,22 @@ console.log(companyRoleStore.getCompanyRoles);
 
   background-color: var(--secondary-1);
 
-  &__submit {
-    width: min-content;
-    margin-top: $global-spacing-30;
-    margin-left: auto;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-40;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-30;
+  }
+
+  &__footer {
+    display: flex;
+    flex: 1;
+    justify-content: center;
   }
 }
 </style>

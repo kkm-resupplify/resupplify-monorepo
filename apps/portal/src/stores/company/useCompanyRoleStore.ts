@@ -24,4 +24,3 @@ export const useCompanyRoleStore = defineStore({
 
   persist: true
 })
-

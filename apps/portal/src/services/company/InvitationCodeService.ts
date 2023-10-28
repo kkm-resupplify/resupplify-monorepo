@@ -3,13 +3,9 @@ import BaseService from '../BaseService'
 
 class InvitationCodeServiceDTO {
   roleId: number
-  companyId: number
-  expiryDate: string
 
-  constructor({ roleId, companyId, expiryDate }: CreateInvitationCodeData) {
+  constructor({ roleId }: CreateInvitationCodeData) {
     this.roleId = roleId
-    this.companyId = companyId
-    this.expiryDate = expiryDate
   }
 }
 
@@ -24,9 +20,7 @@ class InvitationCodeService extends BaseService {
       notificationDuration: 3000
     })
 
-    const { data } = response
-
-    return data
+    return response
   }
 }
 
