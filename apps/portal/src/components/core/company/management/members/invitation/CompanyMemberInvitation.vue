@@ -24,14 +24,6 @@
 <script setup lang="ts">
 import InvitationTokenDropdownContent from './dropdown/InvitationTokenDropdownContent.vue'
 import { ref, computed } from 'vue'
-import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface'
-
-const props = defineProps({
-  roles: {
-    type: Object as () => CompanyRole[],
-    required: true
-  }
-})
 
 const invitationCode = ref<string>()
 

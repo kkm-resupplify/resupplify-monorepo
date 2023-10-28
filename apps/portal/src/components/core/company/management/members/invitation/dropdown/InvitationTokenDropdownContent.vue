@@ -10,7 +10,6 @@
       <a-button
         :text="$t('company.invitation.generate')"
         class="dropdown-content__generate"
-        @click="createInvitationCode(invitationCodeData)"
       />
     </div>
     
