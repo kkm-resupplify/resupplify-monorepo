@@ -47,7 +47,10 @@ const toggleShowContent = () => {
 
   &__content {
     position: absolute;
+    z-index: 4;
+
     display: flex;
+
     width: 100%;
     padding: $global-spacing-10;
   }
