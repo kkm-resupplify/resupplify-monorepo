@@ -1,6 +1,6 @@
 import CompanyMembersView from '@/views/Company/Management/CompanyMembersView.vue'
-import CompanyManagementMembersActivePanelVue from '@/components/core/company/management/members/CompanyManagementMembersActivePanel.vue'
-import CompanyManagementMembersPermissionsPanel from '@/components/core/company/management/members/CompanyManagementMembersPermissionsPanel.vue'
+import CompanyManagementMembersActivePanelVue from '@/components/core/company/management/members/active/CompanyManagementMembersActivePanel.vue'
+import CompanyManagementMembersPermissionsPanel from '@/components/core/company/management/members/permissions/CompanyManagementMembersPermissionsPanel.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 

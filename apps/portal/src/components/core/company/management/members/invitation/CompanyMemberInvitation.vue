@@ -21,8 +21,8 @@
 </template>
 
 <script setup lang="ts">
-import InvitationTokenDropdownContentVue from './dropdown/InvitationTokenDropdownContent.vue';
-import { ref } from 'vue';
+import InvitationTokenDropdownContentVue from './dropdown/InvitationTokenDropdownContent.vue'
+import { ref } from 'vue'
 
 const invitationCode = ref<String>()
 
