@@ -1,7 +1,7 @@
 <template>
   <nav class="navigation-bar">
     <router-link :to="{ name: 'HOME' }">
-      <img rel="preload" src="/resupplify-logo.png" alt="logo" width="125" />
+      <img rel="preload" src="/resupplify-logo.png" alt="logo" width="100" />
     </router-link>
 
     <navigation-bar-main-section />

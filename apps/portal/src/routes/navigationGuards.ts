@@ -48,3 +48,4 @@ export class MustBelongToCompanyNavigationGuard extends NavigationGuard {
     }
   }
 }
+
