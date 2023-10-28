@@ -14,12 +14,13 @@
 import { computed, ref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
-const props = defineProps({})
+// Emits
+const emits = defineEmits(['toggle'])
 
 // Variables
 const baseClass = 'a-dropdown'
 const { generateClassNames } = useClassComposable()
-const showContent = ref<boolean>(false)
+const showContent = ref(false)
 
 // Computed
 const generateClasses = computed(() => {
@@ -28,23 +29,28 @@ const generateClasses = computed(() => {
 
 const toggleShowContent = () => {
   showContent.value = !showContent.value
+
+  emits('toggle', showContent.value)
 }
 </script>
 
 <style lang="scss" scoped>
 .a-dropdown {
-  cursor: pointer;
   position: relative;
   display: inline-block;
 
   &__activator {
+    cursor: pointer;
     user-select: none;
     display: flex;
   }
 
   &__content {
     position: absolute;
+    z-index: 4;
+
     display: flex;
+
     width: 100%;
     padding: $global-spacing-10;
   }

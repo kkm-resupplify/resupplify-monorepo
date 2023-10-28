@@ -4,6 +4,7 @@
     :steps="steps"
     title="Company registration"
     description="Please provide information about your company."
+    @cancel="handleCancelRegister"
   />
 </template>
 
@@ -16,6 +17,7 @@ import RegisterCompanyDetailsStep from './steps/RegisterCompanyDetailsStep.vue'
 import RegisterCompanyContactInfoStep from './steps/RegisterCompanyContactInfoStep.vue'
 import RegisterCompanySubmitStep from './steps/RegisterCompanySubmitStep.vue'
 
+const emits = defineEmits(['cancel'])
 // Interface
 interface RegisterCompanyStep {
   step: string
@@ -64,6 +66,10 @@ const steps = computed(() => [
   }
 ])
 
+// Methods
+const handleCancelRegister = () => {
+  emits('cancel')
+}
 onUnmounted(() => {
   registerCompanyStore.$reset()
 })

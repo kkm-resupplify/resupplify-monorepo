@@ -11,6 +11,7 @@ import ASelect from '@sharedAtoms/select/ASelect.vue'
 import ATitle from '@sharedAtoms/title/ATitle.vue'
 import AImageInput from '@sharedAtoms/input/AImageInput.vue'
 import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
+import AExpansionPanel from '@sharedAtoms/expansion-panel/AExpansionPanel.vue'
 
 const atoms = [
   AButton,
@@ -24,7 +25,8 @@ const atoms = [
   ASelect,
   ATitle,
   AImageInput,
-  ADropdown
+  ADropdown,
+  AExpansionPanel
 ]
 
 // Molecules
@@ -35,8 +37,11 @@ import MFileInput from '@sharedMolecules/input/MFileInput.vue'
 import MStepper from '@sharedMolecules/stepper/MStepper.vue'
 import MStepperStepContent from '@sharedMolecules/stepper/items/MStepperStepContent.vue'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
-import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
 import MIcon from '@sharedMolecules/icon/MIcon.vue'
+import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
+import MNavigationTabsItem from '@sharedMolecules/tab/MNavigationTabsItem.vue'
+import MTile from '@sharedMolecules/tile/MTile.vue'
+import MTileList from '@sharedMolecules/tile/MTileList.vue'
 
 const molecules = [
   MCardList,
@@ -47,7 +52,10 @@ const molecules = [
   MStepperStepContent,
   MSelect,
   MIcon,
-  MNavigationTabs
+  MNavigationTabs,
+  MNavigationTabsItem,
+  MTile,
+  MTileList
 ]
 
 // Organisms
