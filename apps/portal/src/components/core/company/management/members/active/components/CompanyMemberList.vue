@@ -1,7 +1,7 @@
 <template>
   <div class="company-member-list">
     <div class="company-member-list__header">
-      <a-title :title="$t('company.management.navigation.members.title')" />
+      <a-title size="large" :title="$t('company.management.navigation.members.title')" />
 
       <company-member-invitation />
     </div>

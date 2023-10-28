@@ -14,7 +14,7 @@
     </template>
 
     <template #content>
-      <div class="company-member-list-item__details">
+      <div class="company-member-list-item__content">
         <a-title
           v-for="(item, idx) in companyMemberListItems"
           :key="idx"
@@ -83,19 +83,17 @@ const handleToggleExpansionPanel = (state: boolean) => {
 <style scoped lang="scss">
 .company-member-list-item {
   width: 100%;
+  background-color: var(--secondary-2);
+  border-radius: $global-border-radius-20;
 
   &__header {
     position: relative;
-
     display: flex;
     flex: 1;
-
     padding: $global-spacing-50;
-
-    background-color: var(--secondary-2);
   }
 
-  &__details {
+  &__content {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -104,6 +102,7 @@ const handleToggleExpansionPanel = (state: boolean) => {
     padding: $global-spacing-50;
 
     background-color: var(--secondary-1);
+    border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
   }
 
   &__icon {
