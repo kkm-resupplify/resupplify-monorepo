@@ -75,8 +75,10 @@ const handleGenerateCode = async (formData: CreateInvitationCodeData) => {
 
 <style scoped lang="scss">
 .invitation-token-dropdown-content {
+  @include boxshadow-primary-2;
+
   position: absolute;
-  top: $global-spacing-50;
+  top: $global-spacing-30;
   right: 0;
 
   display: flex;
