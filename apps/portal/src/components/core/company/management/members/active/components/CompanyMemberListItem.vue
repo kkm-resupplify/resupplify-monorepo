@@ -101,7 +101,6 @@ const handleRemoveMember = async () => {
   border-radius: $global-border-radius-20;
 
   &__header {
-    position: relative;
     display: flex;
     flex: 1;
     padding: $global-spacing-50;
