@@ -12,6 +12,7 @@
 .company-management-panel {
   display: flex;
   flex-direction: column;
+  max-height: 800px;
   padding: $global-spacing-40 $global-spacing-50;
 }
 </style>

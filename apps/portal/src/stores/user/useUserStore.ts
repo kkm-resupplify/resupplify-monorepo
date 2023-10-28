@@ -3,6 +3,7 @@ import { i18n } from '@/translation/index'
 import { setLocale } from '@vee-validate/i18n'
 import type { UserDetails, UserData } from '@/interfaces/user/UserStoreDataInterface'
 import type { CompanyData } from '@/interfaces/company/CompanyInterface'
+import { onMounted } from 'vue'
 
 export interface UserStoreData {
   email: string

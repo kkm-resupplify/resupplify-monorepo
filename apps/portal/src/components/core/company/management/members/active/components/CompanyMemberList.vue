@@ -42,6 +42,7 @@ onBeforeMount(async () => {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-40;
+  max-height: 100%;
 
   &__header {
     display: flex;
@@ -53,6 +54,9 @@ onBeforeMount(async () => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-40;
+    overflow-y: auto;
+    max-height: 100%;
+    padding-right: $global-spacing-20;
   }
 }
 </style>
