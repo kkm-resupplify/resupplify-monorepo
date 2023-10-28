@@ -15,7 +15,7 @@
   import { useClassComposable } from '@sharedComposables/class/useClassComposable'
   
   // Variables
-  const baseClass = 'a-dropdown'
+  const baseClass = 'a-expansion-panel'
   const { generateClassNames } = useClassComposable()
   const showContent = ref<boolean>(false)
   
@@ -30,7 +30,7 @@
   </script>
   
   <style lang="scss" scoped>
-  .a-dropdown {
+  .a-expansion-panel {
     cursor: pointer;
     display: inline-block;
   

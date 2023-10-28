@@ -1,8 +1,7 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <!-- <register-company /> -->
-      <company-member-list />
+      <register-company />
     </template>
   </basic-view-layout>
 </template>

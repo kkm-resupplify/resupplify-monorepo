@@ -6,21 +6,22 @@
           <a-button
             :text="$t('company.invitation.inviteNew')"
             size="x-large"
-            class="company-member-invitation__invite--button"
+            class="company-member-invitation__invite-button"
           />
         </div>
       </template>
 
       <template #content>
-        <dropdown-content @invitation-code-created="handleInvitationCode" />
+        <invitation-token-dropdown-content @invitation-code-created="handleInvitationCode" />
       </template>
     </a-dropdown>
   </div>
+
   <a-title :title="invitationCode" />
 </template>
 
 <script setup lang="ts">
-import DropdownContent from './DropdownContent.vue'
+import InvitationTokenDropdownContentVue from './dropdown/InvitationTokenDropdownContent.vue';
 import { ref } from 'vue';
 
 const invitationCode = ref<String>()
