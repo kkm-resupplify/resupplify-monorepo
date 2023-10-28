@@ -23,8 +23,9 @@
 
 <script setup lang="ts">
 import InvitationTokenDropdownContent from './dropdown/InvitationTokenDropdownContent.vue'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
+// Variables
 const invitationCode = ref<string>()
 
 // Methods

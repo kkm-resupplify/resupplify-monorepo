@@ -120,10 +120,12 @@ const handleRemoveMember = async () => {
   }
 
   &__icon {
-    position: absolute;
-    top: 50%;
-    right: $global-spacing-60;
-    transform: translateY(-50%);
+    user-select: none;
+
+    display: flex;
+    flex: 1;
+    align-self: center;
+    justify-content: flex-end;
   }
 }
 </style>
