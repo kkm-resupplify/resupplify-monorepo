@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import CompanyMemberListItem from './CompanyMemberListItem.vue'
 import CompanyMemberInvitation from '../../invitation/CompanyMemberInvitation.vue'
-import { onMounted, reactive, onBeforeMount } from 'vue';
+import { onBeforeMount, reactive } from 'vue'
 import CompanyMembersService from '@/services/company/CompanyMembersService'
 import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
 import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface';
