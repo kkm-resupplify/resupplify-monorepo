@@ -20,16 +20,9 @@
 <script setup lang="ts">
 import type { CreateInvitationCodeData } from '@/interfaces/company/InvitationCodeInterface'
 import InvitationCodeService from '@/services/company/InvitationCodeService'
-import { ref, reactive, onMounted } from 'vue';
-import CompanyMembersService from '@/services/company/CompanyMembersService';
-import { onBeforeMount } from 'vue';
-
-// Variables
-// const invitationCodeData = reactive<CreateInvitationCodeData>({
-//   roleId: 1,
-//   companyId: 1,
-//   expiryDate: '2005-08-15T15:52:01+00:00'
-// })
+import { ref, onBeforeMount, reactive, computed } from 'vue';
+import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface';
+import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore';
 
 const invitationCode = ref<String>()
 
@@ -39,6 +32,13 @@ const createInvitationCode = async (invitationCodeData: CreateInvitationCodeData
 
   invitationCode.value = data.invitationCode
 }
+
+// Variables
+const companyRoleStore = useCompanyRoleStore
+// const companyRoles: CompanyRole[] = 
+// const rolesToOptions = computed(() => companyRoles.map(({ id, name }) => ({ id, name })));
+
+console.log(companyRoleStore.getCompanyRoles);
 
 </script>
 
