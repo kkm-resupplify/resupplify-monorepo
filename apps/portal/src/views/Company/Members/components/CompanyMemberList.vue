@@ -2,7 +2,7 @@
   <div class="company-member-list">
     <company-member-invitation />
 
-    <a-title :title="$t('management.navigation.members.title')" />
+    <a-title :title="$t('company.management.navigation.members.title')" />
 
     <company-member-list-item
       v-for="member in companyMembers"

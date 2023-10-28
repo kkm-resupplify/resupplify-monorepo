@@ -9,7 +9,7 @@ class CompanyMembersDataDTO {
 }
 
 class CompanyMembersService extends BaseService {
-  async getCompanyMembers(): Promise<CompanyMember[]> {
+  async getCompanyMembers() {
     const response = await this.get({})
 
     const { data } = response

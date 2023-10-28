@@ -1,6 +1,5 @@
 import type {
   CreateInvitationCodeData,
-  InvitationCodeData
 } from '@/interfaces/company/InvitationCodeInterface'
 import BaseService from '../BaseService'
 
@@ -17,7 +16,7 @@ class InvitationCodeServiceDTO {
 }
 
 class InvitationCodeService extends BaseService {
-  async createInvitationCode(createCodeData: CreateInvitationCodeData): Promise<InvitationCodeData> {
+  async createInvitationCode(createCodeData: CreateInvitationCodeData) {
     const invitationCode = new InvitationCodeServiceDTO(createCodeData)
 
     const response = await this.post({
