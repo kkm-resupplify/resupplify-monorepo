@@ -138,7 +138,7 @@
     },
 
     "invitation": {
-      "title": "Enter how many tokens you want to generate",
+      "title": "Enter amount of tokens you wish to generate",
       "invite": "Invite",
       "generate": "Generate",
       "inviteNew": "Invite new members",

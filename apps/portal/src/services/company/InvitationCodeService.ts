@@ -8,6 +8,7 @@ class InvitationCodeServiceDTO {
   roleId: number
   companyId: number
   expiryDate: string
+
   constructor({ roleId, companyId, expiryDate }: CreateInvitationCodeData) {
     this.roleId = roleId
     this.companyId = companyId
@@ -21,7 +22,6 @@ class InvitationCodeService extends BaseService {
 
     const response = await this.post({
       data: invitationCode,
-      suffix: 'company/createInvitationCode',
       notificationTitle: 'company.invitation.notifications.createdInvitationCodeTitle', 
       notificationText: 'company.invitation.notifications.createdInvitationCodeSuccess',
       notificationDuration: 7000
@@ -33,4 +33,4 @@ class InvitationCodeService extends BaseService {
   }
 }
 
-export default new InvitationCodeService('')
+export default new InvitationCodeService('company/createInvitationCode')

@@ -1,7 +1,8 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <register-company />
+      <!-- <register-company /> -->
+      <company-member-list />
     </template>
   </basic-view-layout>
 </template>
@@ -12,6 +13,7 @@ import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
 import TestFormTwo from './TestFormTwo.vue'
 import RegisterCompany from '@/components/core/company/register/RegisterCompany.vue'
+import CompanyMemberList from '../Company/Members/components/CompanyMemberList.vue'
 
 const steps = [
   {

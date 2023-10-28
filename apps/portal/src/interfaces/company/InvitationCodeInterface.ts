@@ -3,7 +3,3 @@ export interface CreateInvitationCodeData {
   companyId: number
   expiryDate: string
 }
-
-export interface InvitationCodeData {
-  invitationCode: string
-}

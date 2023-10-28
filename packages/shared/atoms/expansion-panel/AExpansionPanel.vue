@@ -14,8 +14,6 @@
   import { computed, ref } from 'vue'
   import { useClassComposable } from '@sharedComposables/class/useClassComposable'
   
-  const props = defineProps({})
-  
   // Variables
   const baseClass = 'a-dropdown'
   const { generateClassNames } = useClassComposable()

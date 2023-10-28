@@ -12,18 +12,7 @@
       </template>
 
       <template #content>
-        <div class="company-member-invitation__dropdown--content">
-          <a-title :title="$t('company.invitation.title')" size="medium" />
-
-          <m-text-field />
-
-          <a-button
-            :text="$t('company.invitation.generate')"
-            class="company-member-invitation__dropdown--content__submit"
-            buttonType="submit"
-            @click="createInvitationCode(invitationCodeData)"
-          />
-        </div>
+        <dropdown-content @invitation-code-created="handleInvitationCode" />
       </template>
     </a-dropdown>
   </div>
@@ -31,23 +20,13 @@
 </template>
 
 <script setup lang="ts">
-import type { CreateInvitationCodeData } from '@/interfaces/company/InvitationCodeInterface'
-import InvitationCodeService from '@/services/company/InvitationCodeService'
-import { ref } from 'vue'
+import DropdownContent from './DropdownContent.vue'
+import { ref } from 'vue';
 
-// Variables
-const invitationCodeData = ref<CreateInvitationCodeData>({
-  roleId: 1,
-  companyId: 1,
-  expiryDate: '2005-08-15T15:52:01+00:00'
-})
 const invitationCode = ref<String>()
 
-// Methods
-const createInvitationCode = async (invitationCodeData: CreateInvitationCodeData) => {
-  const data = await InvitationCodeService.createInvitationCode(invitationCodeData)
-
-  invitationCode.value = data.invitationCode
+const handleInvitationCode = (newInvitationCode: string) => {
+  invitationCode.value = newInvitationCode
 }
 </script>
 
@@ -55,30 +34,8 @@ const createInvitationCode = async (invitationCodeData: CreateInvitationCodeData
 .company-member-invitation {
   margin-left: auto;
 
-  &__dropdown {
+  &__content {
     position: relative;
-
-    &--content {
-      position: absolute;
-      z-index: 9999;
-      top: $global-spacing-50;
-      right: 0;
-
-      display: flex;
-      flex-direction: column;
-      gap: $global-spacing-60;
-
-      width: 400px;
-      padding: $global-spacing-50;
-
-      background-color: var(--secondary-1);
-
-      &__submit {
-        width: min-content;
-        margin-top: $global-spacing-30;
-        margin-left: auto;
-      }
-    }
   }
 
   &__invite {

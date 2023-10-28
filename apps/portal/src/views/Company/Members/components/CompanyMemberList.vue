@@ -2,7 +2,7 @@
   <div class="company-member-list">
     <company-member-invitation />
 
-    <a-title title="Members" />
+    <a-title :title="$t('management.navigation.members.title')" />
 
     <company-member-list-item
       v-for="member in companyMembers"
@@ -19,18 +19,18 @@
 <script setup lang="ts">
 import CompanyMemberListItem from './CompanyMemberListItem.vue'
 import CompanyMemberInvitation from './CompanyMemberInvitation.vue'
-import { ref, onMounted } from 'vue'
+import { onMounted, reactive } from 'vue';
 import CompanyMembersService from '@/services/company/CompanyMembersService'
-import type { CompanyMember } from '@/interfaces/company/CompanyMembersInterface'
+import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
 
 // Variables
-const companyMembers = ref<CompanyMember[] | null>()
+const companyMembers = reactive<CompanyMember[]>([]);
 
 // Hooks
 onMounted(async () => {
-  const response = await CompanyMembersService.getCompanyMembers()
+  const company = await CompanyMembersService.getCompanyMembers()
 
-  companyMembers.value = await response?.users
+  companyMembers.splice(0, companyMembers.length, ...company);
 })
 </script>
 <style scoped lang="scss">

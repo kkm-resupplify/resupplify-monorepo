@@ -1,27 +1,21 @@
-import type { CompanyMembersData } from '@/interfaces/company/CompanyMembersInterface'
+import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
 import BaseService from '../BaseService'
-import { useCompanyMembersStore } from '@/stores/company/useCompanyMembersStore'
 class CompanyMembersDataDTO {
-  users: CompanyMembersData
+  users: CompanyMember[]
 
-  constructor(users: CompanyMembersData) {
+  constructor(users: CompanyMember[]) {
     this.users = users
   }
 }
 
 class CompanyMembersService extends BaseService {
-  async getCompanyMembers(): Promise<CompanyMembersData> {
-    const response = await this.get({
-      suffix: 'user/company/users'
-    })
+  async getCompanyMembers(): Promise<CompanyMember[]> {
+    const response = await this.get({})
 
     const { data } = response
-    
-    const companyMembersStore = useCompanyMembersStore()
-    companyMembersStore.setCompanyMembers(data)
 
-    return data
+    return data.users
   }
 }
 
-export default new CompanyMembersService('')
+export default new CompanyMembersService('user/company/users')
