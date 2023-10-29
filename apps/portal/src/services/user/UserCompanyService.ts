@@ -20,6 +20,8 @@ class UserCompanyService extends BaseService {
     return response
   }
 
+  // TODO
+  // Implement leave company
   async leaveCompany() {}
 }
 

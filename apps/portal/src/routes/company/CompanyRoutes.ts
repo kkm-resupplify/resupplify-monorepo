@@ -8,7 +8,7 @@ import {
   MustBelongToCompanyNavigationGuard
 } from '@/routes/navigationGuards'
 import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore'
-import CompanyMembersService from '@/services/company/CompanyMembersService'
+import CompanyRoleService from '@/services/company/CompanyRoleService'
 
 class CompanyRouteEnum extends BaseEnum {
   static readonly COMPANY: string = 'COMPANY'
@@ -30,8 +30,8 @@ const CompanyRoutes: RouteRecordRaw[] = [
       const mustBelongToCompanyNavigationGuard = MustBelongToCompanyNavigationGuard.guard()
       if (mustBelongToCompanyNavigationGuard) return mustBelongToCompanyNavigationGuard
 
-      const roles = await CompanyMembersService.getRoles()
-      
+      const roles = await CompanyRoleService.getRoles()
+
       const companyRoleStore = useCompanyRoleStore()
       if (roles) {
         companyRoleStore.setCompanyRoles(roles)
