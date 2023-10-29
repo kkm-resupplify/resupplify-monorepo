@@ -41,9 +41,15 @@
 
         <template #footer>
           <div class="register-company-general-step__footer">
-            <a-button size="large" :text="$t('global.back')" @click="handlePreviousStep" />
+            <a-button
+              variant="primary"
+              color="gradient-danger"
+              size="x-large"
+              text="Cancel"
+              @click="handlePreviousStep"
+            />
 
-            <a-button type="submit" size="large" :text="$t('global.next')" />
+            <a-button type="submit" size="x-large" :text="$t('global.next')" />
           </div>
         </template>
       </o-form>

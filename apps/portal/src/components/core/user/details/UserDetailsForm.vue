@@ -119,7 +119,7 @@ const genderOptions = computed(() => [
 
 // Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  if (userDetails === null) {
+  if (!userStore.hasUserDetails) {
     const { success } = await UserDetailsService.saveUserDetails(formData)
     if (success) emits('updated')
   } else {
