@@ -2,7 +2,7 @@
   <basic-view-layout class="test-view">
     <template #body>
       <!-- <register-company /> -->
-      <a-image :source="image" alt="image" :width=300 />
+      <a-image :source="image" alt="image" :width=300 variant="circle"/>
     </template>
 
   </basic-view-layout>

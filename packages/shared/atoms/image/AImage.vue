@@ -1,12 +1,19 @@
 <template>
-  <img :src="source" :alt="alt" :class="generateClasses" />
+  <div class="image-container">
+    <img
+      :src="source"
+      :alt="alt"
+      :class="generateClasses"
+      @error="imageError"
+      @load="imageLoaded"
+      ref="imageRef"
+    />
+    <a-icon v-if="isLoading || isError" class="placeholder" icon="no_photography" size="xx-large" />
+  </div>
 </template>
 
 <script setup lang="ts">
-// Vue
-import { computed } from 'vue'
-
-// Composables
+import { computed, ref, unref } from 'vue';
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 const props = defineProps({
@@ -24,40 +31,56 @@ const props = defineProps({
   },
   width: {
     type: [String, Number],
-    default: "auto"
+    default: 'auto'
   },
   height: {
     type: [String, Number],
-    default: "auto"
+    default: 'auto'
   }
 })
 
-// Variables
+// Composables
 const baseClass = 'a-image'
 
-// Composables
 const { generateClassNames } = useClassComposable()
 
-// Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.source, props.alt, props.variant])
+  return generateClassNames(baseClass, [props.variant])
 })
 
+
+// Variables
+const isLoading = ref(true)
+const isError = ref(false)
+const imageRef = ref<HTMLImageElement | null>()
+
+// Computed
 const height = computed(() => {
   if (typeof props.height === 'number') {
     return `${props.height}px`
   }
-  return "auto"
+  return 'auto'
 })
 
 const width = computed(() => {
   if (typeof props.width === 'number') {
     return `${props.width}px`
   }
-  return "auto"
+  return 'auto'
 })
 
-console.log(width.value);
+// Methods
+const imageLoaded = () => {
+  isLoading.value = false
+}
+
+const imageError = () => {
+  const imageElement = unref(imageRef)
+  if (imageElement) {
+    imageElement.style.display = 'none'
+  }
+  isError.value = true
+}
 
 
 </script>
@@ -73,6 +96,10 @@ console.log(width.value);
 
   &--circle {
     border-radius: 50%;
+  }
+
+  &--hidden {
+    display: none;
   }
 }
 </style>
