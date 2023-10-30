@@ -4,14 +4,16 @@
       <slot name="activator" />
     </div>
 
-    <div v-if="showContent" class="a-dropdown__content">
-      <slot name="content" />
-    </div>
+    <Transition name="slide-fade">
+      <div v-if="showContent" class="a-dropdown__content">
+        <slot name="content" />
+      </div>
+    </Transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Emits
@@ -37,8 +39,8 @@ const toggleShowContent = () => {
 
 const closeContent = (event: Event) => {
   if (!dropdown?.value?.contains(event.target as Node)) {
-    showContent.value = false;
-    emits('close', showContent.value);
+    showContent.value = false
+    emits('close', showContent.value)
   }
 }
 
@@ -72,5 +74,18 @@ onBeforeUnmount(() => {
     width: 100%;
     padding: $global-spacing-10;
   }
+}
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
 }
 </style>
