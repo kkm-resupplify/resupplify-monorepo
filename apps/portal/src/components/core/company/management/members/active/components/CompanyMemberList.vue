@@ -36,7 +36,7 @@ const companyMembers: CompanyMember[] = reactive([])
 // Methods
 const handleFetchCompanyMembers = async () => {
   const { success, data } = await CompanyMembersService.getCompanyMembers()
-
+  companyMembers.length = 0
   if (success && data) companyMembers.push(...data)
 }
 
