@@ -132,7 +132,7 @@ const generateClasses = computed(() => {
       @include gradient($button-gradient-primary-default);
 
       &:hover {
-        @include gradient($button-gradient-primary-hover);
+        opacity: 0.8;
       }
     }
 
