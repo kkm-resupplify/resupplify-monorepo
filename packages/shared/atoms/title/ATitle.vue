@@ -98,7 +98,6 @@ const titleText = computed(() => {
 
   &--horizontal {
     flex-direction: row;
-    align-items: flex-end;
 
     &#{$self}--normal {
       @include size-horizontal($global-title-normal-font-size);
