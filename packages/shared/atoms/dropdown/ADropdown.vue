@@ -1,6 +1,6 @@
 <template>
   <div :class="generateClasses">
-    <div class="a-dropdown__activator" @click="toggleShowContent">
+    <div class="a-dropdown__activator" @click="toggleShowContent" ref="dropdown">
       <slot name="activator" />
     </div>
 
@@ -11,27 +11,45 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Emits
-const emits = defineEmits(['toggle'])
+const emits = defineEmits(['toggle', 'close'])
 
 // Variables
 const baseClass = 'a-dropdown'
 const { generateClassNames } = useClassComposable()
 const showContent = ref(false)
+const dropdown = ref<HTMLElement | null>(null)
 
 // Computed
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
 
+// Methods
 const toggleShowContent = () => {
   showContent.value = !showContent.value
 
   emits('toggle', showContent.value)
 }
+
+const closeContent = (event: Event) => {
+  if (!dropdown?.value?.contains(event.target as Node)) {
+    showContent.value = false;
+    emits('close', showContent.value);
+  }
+}
+
+// Hooks
+onMounted(() => {
+  window.addEventListener('click', closeContent)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('click', closeContent)
+})
 </script>
 
 <style lang="scss" scoped>
