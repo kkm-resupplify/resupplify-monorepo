@@ -9,7 +9,7 @@ class UserCompanyService extends BaseService {
   async joinCompany({ invitationToken }: JoinCompany) {
     const response = await this.post({
       data: { invitationCode: invitationToken },
-      notificationTitle: 'user.notification.joinCompanySuccess'
+      notificationTitle: 'settings.myCompany.joinCompany.notification.joinCompanySuccessTitle'
     })
 
     const { data } = response

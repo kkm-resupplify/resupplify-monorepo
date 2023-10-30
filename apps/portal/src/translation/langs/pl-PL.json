@@ -284,7 +284,11 @@
         "description": "Aby dołączyć do firmy, potrzebujesz najpierw tokena zaproszenia. Powinien on zostać udzielony przez twojego przełożonego lub osobę odpowiedzialną za zarządzanie zaproszeniami pracowników firmy w naszej platformie.",
         "invitationToken": "Token zaproszenia",
         "invitationTokenPlaceholder": "Wprowadź swój token zaproszenia",
-        "enterInvitationToken": "Proszę wprowadzić swój token zaproszenia"
+        "enterInvitationToken": "Proszę wprowadzić swój token zaproszenia",
+
+        "notification": {
+          "joinCompanySuccessTitle": "Company joined successfully"
+        }
       },
 
       "registerCompany": {

@@ -140,7 +140,7 @@
       "notification": {
         "registerCompanySuccessTitle": "Company registration submitted successfully",
         "registerCompanySuccessText": "Your company is awaiting verification."
-        }
+      }
     },
 
     "invitation": {
@@ -284,7 +284,11 @@
         "description": "To join a company, you need a invitation token first. It should have been given you to you by your suprior or a person responsible for handling company member invitations for your company on our platform.",
         "invitationToken": "Invitation token",
         "invitationTokenPlaceholder": "Enter your Invitation token",
-        "enterInvitationToken": "Please enter your invitation token"
+        "enterInvitationToken": "Please enter your invitation token",
+
+        "notification": {
+          "joinCompanySuccessTitle": "Company joined successfully"
+        }
       },
 
       "registerCompany": {
