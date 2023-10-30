@@ -39,22 +39,18 @@ const props = defineProps({
   }
 })
 
-// Composables
-const baseClass = 'a-image'
-
-const { generateClassNames } = useClassComposable()
-
-const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.variant])
-})
-
-
 // Variables
+const baseClass = 'a-image'
+const { generateClassNames } = useClassComposable()
 const isLoading = ref(true)
 const isError = ref(false)
 const imageRef = ref<HTMLImageElement | null>()
 
 // Computed
+const generateClasses = computed(() => {
+  return generateClassNames(baseClass, [props.variant])
+})
+
 const height = computed(() => {
   if (typeof props.height === 'number') {
     return `${props.height}px`
