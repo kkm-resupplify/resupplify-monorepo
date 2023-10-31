@@ -49,12 +49,12 @@ const tabs = computed(() => [
     icon: 'inventory_2'
   },
   {
-    to: { name: RouteNames.COMPANY_WAREHOUSES },
+    to: { name: RouteNames.COMPANY_WAREHOUSE_TILES },
     title: t('company.management.navigation.warehouses.title'),
     icon: 'warehouse'
   },
   {
-    to: { name: RouteNames.COMPANY_MEMBERS },
+    to: { name: RouteNames.COMPANY_MEMBERS_TILES },
     title: t('company.management.navigation.members.title'),
     icon: 'groups'
   },
