@@ -1,19 +1,17 @@
 <template>
-  <div class="image-container">
-    <img
-      :src="source"
-      :alt="alt"
-      :class="generateClasses"
-      @error="imageError"
-      @load="imageLoaded"
-      ref="imageRef"
-    />
-    <a-icon v-if="isLoading || isError" class="placeholder" icon="no_photography" size="xx-large" />
-  </div>
+  <img
+    :src="source"
+    :alt="alt"
+    :class="generateClasses"
+    @error="imageError"
+    @load="imageLoaded"
+    ref="imageRef"
+  />
+  <a-icon v-if="isLoading || isError" class="placeholder" icon="no_photography" size="xx-large" />
 </template>
 
 <script setup lang="ts">
-import { computed, ref, unref } from 'vue';
+import { computed, ref, unref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 const props = defineProps({
@@ -77,8 +75,6 @@ const imageError = () => {
   }
   isError.value = true
 }
-
-
 </script>
 
 <style scoped lang="scss">
