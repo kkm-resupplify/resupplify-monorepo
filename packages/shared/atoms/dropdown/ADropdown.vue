@@ -1,17 +1,19 @@
 <template>
   <div :class="generateClasses">
-    <div class="a-dropdown__activator" @click="toggleShowContent">
+    <div ref="dropdown" class="a-dropdown__activator" @click="toggleShowContent">
       <slot name="activator" />
     </div>
 
-    <div v-if="showContent" class="a-dropdown__content">
-      <slot name="content" />
-    </div>
+    <Transition name="slide-fade">
+      <div v-if="showContent" class="a-dropdown__content">
+        <slot name="content" />
+      </div>
+    </Transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Emits
@@ -21,17 +23,35 @@ const emits = defineEmits(['toggle'])
 const baseClass = 'a-dropdown'
 const { generateClassNames } = useClassComposable()
 const showContent = ref(false)
+const dropdown = ref<HTMLElement | null>(null)
 
 // Computed
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
 
+// Methods
 const toggleShowContent = () => {
   showContent.value = !showContent.value
 
   emits('toggle', showContent.value)
 }
+
+const closeContent = (event: Event) => {
+  if (!dropdown?.value?.contains(event.target as Node)) {
+    showContent.value = false
+    emits('toggle', showContent.value)
+  }
+}
+
+// Hooks
+onMounted(() => {
+  window.addEventListener('click', closeContent)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('click', closeContent)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -54,5 +74,19 @@ const toggleShowContent = () => {
     width: 100%;
     padding: $global-spacing-10;
   }
+}
+
+.slide-fade-enter-active {
+  transition: all 0.15s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.15s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
 }
 </style>

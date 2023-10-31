@@ -2,22 +2,9 @@ import BaseService from '../BaseService'
 
 class CompanyMemberService extends BaseService {
   async getCompanyMembers() {
-    const response = await this.get({
-      prefix: 'user',
-      suffix: 'users'
-    })
+    const response = await this.get({})
 
     return response
-  }
-
-  async getRoles() {
-    const response = await this.get({
-      suffix: 'roles'
-    })
-
-    const { data } = response
-
-    return data
   }
 
   async deleteMember({ id }: { id: number }) {
@@ -27,4 +14,4 @@ class CompanyMemberService extends BaseService {
   }
 }
 
-export default new CompanyMemberService('company')
+export default new CompanyMemberService('/company/companyMembers')

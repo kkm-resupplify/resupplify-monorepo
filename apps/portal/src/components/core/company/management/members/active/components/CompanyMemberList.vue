@@ -36,8 +36,8 @@ const companyMembers: CompanyMember[] = reactive([])
 // Methods
 const handleFetchCompanyMembers = async () => {
   const { success, data } = await CompanyMembersService.getCompanyMembers()
-
-  if (success && data.users) companyMembers.push(...data.users)
+  companyMembers.length = 0
+  if (success && data) companyMembers.push(...data)
 }
 
 // Hooks
