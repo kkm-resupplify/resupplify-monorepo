@@ -1,6 +1,6 @@
 <template>
   <div :class="generateClasses">
-    <div class="a-dropdown__activator" @click="toggleShowContent" ref="dropdown">
+    <div ref="dropdown" class="a-dropdown__activator" @click="toggleShowContent">
       <slot name="activator" />
     </div>
 
@@ -17,7 +17,7 @@ import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Emits
-const emits = defineEmits(['toggle', 'close'])
+const emits = defineEmits(['toggle'])
 
 // Variables
 const baseClass = 'a-dropdown'
@@ -40,7 +40,7 @@ const toggleShowContent = () => {
 const closeContent = (event: Event) => {
   if (!dropdown?.value?.contains(event.target as Node)) {
     showContent.value = false
-    emits('close', showContent.value)
+    emits('toggle', showContent.value)
   }
 }
 
