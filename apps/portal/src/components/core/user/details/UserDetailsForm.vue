@@ -1,13 +1,10 @@
 <template>
-  <div class="user-details-form">
-    <o-form class="user-details-form__form" :submit-callback="handleFormSubmit">
-      <template #body>
-        <h1
-          class="user-details-form__form--header"
-          v-text="$t('settings.profile.details.enterUserDetailsTitle')"
-        />
+  <o-form :submit-callback="handleFormSubmit">
+    <template #body>
+      <div class="user-details-form__body">
+        <a-title :title="$t('settings.profile.details.enterUserDetailsTitle')" size="large" />
 
-        <div class="user-details-form__form--inputs-wrapper">
+        <div class="user-details-form__inputs-wrapper">
           <m-text-field
             name="firstName"
             input-type="text"
@@ -16,7 +13,6 @@
             autocomplete="given-name"
             rules="required"
             :value="userDetails?.firstName"
-            class="user-details-form__text-field"
           />
 
           <m-text-field
@@ -27,7 +23,6 @@
             autocomplete="family-name"
             rules="required"
             :value="userDetails?.lastName"
-            class="user-details-form__text-field"
           />
 
           <m-text-field
@@ -36,9 +31,8 @@
             :label="$t('settings.profile.details.phoneNumber')"
             :placeholder="$t('settings.profile.details.phoneNumberPlaceholder')"
             autocomplete="tel"
-            :rules="{ regex: /^(?:\+48)?[1-9]\d{8}$/ }"
+            :rules="{ regex: phoneNumber }"
             :value="userDetails?.phoneNumber"
-            class="user-details-form__text-field"
           />
 
           <m-text-field
@@ -48,7 +42,6 @@
             autocomplete="bday"
             rules="required"
             :value="birthDateYearFormat"
-            class="user-details-form__text-field"
           />
 
           <m-select
@@ -68,9 +61,9 @@
             class="user-details-form__button"
           />
         </div>
-      </template>
-    </o-form>
-  </div>
+      </div>
+    </template>
+  </o-form>
 </template>
 <script setup lang="ts">
 import UserDetailsService from '@/services/user/UserDetailsService'
@@ -78,6 +71,7 @@ import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { DateTime } from 'luxon'
+import { phoneNumber } from '@/plugins/vee-validate/veeValidateRulesPlugin'
 
 // Interfaces
 interface UserDetailsFormData {
@@ -99,7 +93,9 @@ const userDetails = userStore.getUserDetails
 
 // Computed
 const birthDateYearFormat = computed(() => {
-  return userDetails?.birthDate ? DateTime.fromISO(userDetails.birthDate).toISO() : null
+  return userDetails?.birthDate
+    ? DateTime.fromFormat(userDetails.birthDate, 'dd-MM-yyyy').toISODate()
+    : null
 })
 
 const genderOptions = computed(() => [
@@ -119,43 +115,34 @@ const genderOptions = computed(() => [
 
 // Methods
 const handleFormSubmit = async (formData: UserDetailsFormData) => {
-  if (!userStore.hasUserDetails) {
-    const { success } = await UserDetailsService.saveUserDetails(formData)
-    if (success) emits('updated')
-  } else {
-    const { success } = await UserDetailsService.editUserDetails(formData)
-    if (success) emits('updated')
-  }
+  const method = userStore.hasUserDetails ? 'editUserDetails' : 'saveUserDetails'
+
+  const { success } = await UserDetailsService[method](formData)
+  if (success) emits('updated')
 }
 </script>
 
 <style scoped lang="scss">
 .user-details-form {
-  @include respond-to('md-and-up') {
-    flex: 1 0 0;
-    align-self: stretch;
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-30;
   }
-
-  width: 452px;
-  margin-inline: auto;
-  padding: $global-spacing-100;
-  border-radius: $global-border-radius-10;
 
   &__select {
     width: 100%;
   }
 
-  &__form--inputs-wrapper {
+  &__inputs-wrapper {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-50;
     align-items: center;
     justify-content: center;
-
-    padding: $global-spacing-100;
   }
 
-  &__form--header {
+  &__form-header {
     margin-left: $global-spacing-100;
   }
 
