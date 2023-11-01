@@ -31,6 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: $global-spacing-60;
+  
   width: 452px;
   padding: $global-spacing-100;
 }
