@@ -92,15 +92,6 @@
           "description": "This step focuses on the means of contact, including the communication preferences."
         },
 
-        "warehouseEditor": {
-          "title": "New warehouse",
-          "nameLabel": "Name",
-          "namePlaceholder": "Enter name",
-          "descriptionName": "Description",
-          "descriptionPlaceholder": "Ener description",
-          "create": "Create"
-        },
-
         "submit": {
           "title": "Submit",
           "subtitle": "Submit & next steps",
@@ -144,6 +135,15 @@
           "phoneNumberLabel": "Phone Number",
           "phoneNumberPlaceholder": "Enter company phone number"
         }
+      },
+
+      "warehouseEditor": {
+        "title": "New warehouse",
+        "nameLabel": "Name",
+        "namePlaceholder": "Enter name",
+        "descriptionLabel": "Description",
+        "descriptionPlaceholder": "Enter description",
+        "create": "Create"
       },
 
       "notification": {

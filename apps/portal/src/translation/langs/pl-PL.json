@@ -134,16 +134,16 @@
           "externalWebsitePlaceholder": "Podaj stronę główną firmy",
           "phoneNumberLabel": "Numer telefonu",
           "phoneNumberPlaceholder": "Wprowadź numer telefonu firmy"
-        },
-
-        "warehouseEditor": {
-          "title": "Nowy magazyn",
-          "nameLabel": "Nazwa",
-          "namePlaceholder": "Wprowadź nazwę",
-          "descriptionName": "Opis",
-          "descriptionPlaceholder": "Wprowadź opis",
-          "create": "Utwórz"
         }
+      },
+
+      "warehouseEditor": {
+        "title": "Nowy magazyn",
+        "nameLabel": "Nazwa",
+        "namePlaceholder": "Wprowadź nazwę",
+        "descriptionLabel": "Opis",
+        "descriptionPlaceholder": "Wprowadź opis",
+        "create": "Utwórz"
       },
 
       "notification": {

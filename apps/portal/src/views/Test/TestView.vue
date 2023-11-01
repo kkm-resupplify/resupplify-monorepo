@@ -2,6 +2,7 @@
   <basic-view-layout class="test-view">
     <template #body>
       <!-- <register-company /> -->
+      <warehouse-editor-form />
     </template>
   </basic-view-layout>
 </template>
@@ -11,7 +12,7 @@ import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
 import TestFormTwo from './TestFormTwo.vue'
 import RegisterCompany from '@/components/core/company/register/RegisterCompany.vue'
-
+import WarehouseEditorForm from '../Company/Warehouses/components/WarehouseEditorForm.vue'  
 const steps = [
   {
     stepInfo: {
