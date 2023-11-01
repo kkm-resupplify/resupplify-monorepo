@@ -134,6 +134,15 @@
           "externalWebsitePlaceholder": "Podaj stronę główną firmy",
           "phoneNumberLabel": "Numer telefonu",
           "phoneNumberPlaceholder": "Wprowadź numer telefonu firmy"
+        },
+
+        "warehouseEdit": {
+          "title": "Nowy magazyn",
+          "nameLabel": "Nazwa",
+          "namePlaceholder": "Wprowadź nazwę",
+          "descriptionName": "Opis",
+          "descriptionPlaceholder": "Wprowadź opis",
+          "create": "Utwórz"
         }
       },
 
