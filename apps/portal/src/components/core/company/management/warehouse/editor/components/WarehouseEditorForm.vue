@@ -3,6 +3,7 @@
     <template #body>
       <div class="warehouse-editor-form__body">
         <a-title :title="$t('warehouse.editor.title')" size="x-large" />
+
         <m-text-field
           name="warehouse-name"
           input-type="text"
@@ -10,12 +11,14 @@
           :placeholder="$t('warehouse.editor.namePlaceholder')"
           rules="required"
         />
+
         <m-text-area
           name="warehouse-description"
           rules="required|min:16|max:255"
           :label="$t('warehouse.editor.descriptionLabel')"
           :placeholder="$t('warehouse.editor.descriptionPlaceholder')"
         />
+
         <a-button
           :text="$t('warehouse.editor.create')"
           button-type="submit"
