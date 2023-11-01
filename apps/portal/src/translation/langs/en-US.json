@@ -198,15 +198,6 @@
         "warehouses": {
           "title": "Warehouses",
 
-          "editor": {
-            "title": "New warehouse",
-            "nameLabel": "Name",
-            "namePlaceholder": "Enter name",
-            "descriptionLabel": "Description",
-            "descriptionPlaceholder": "Enter description",
-            "create": "Create"
-          },
-
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"
@@ -231,6 +222,17 @@
 
         "payments": {
           "title": "Payments"
+        }
+      },
+
+      "warehouse": {
+        "editor": {
+          "title": "New warehouse",
+          "nameLabel": "Name",
+          "namePlaceholder": "Enter name",
+          "descriptionLabel": "Description",
+          "descriptionPlaceholder": "Enter description",
+          "create": "Create"
         }
       }
     }
@@ -310,17 +312,6 @@
         "description": "You might also want to register you company. In that case, you can begin the registration process by clicking the button below - you may cancel it at any time.",
         "registerNow": "Register now"
       }
-    }
-  },
-
-  "warehouse": {
-    "editor": {
-      "title": "New warehouse",
-      "nameLabel": "Name",
-      "namePlaceholder": "Enter name",
-      "descriptionLabel": "Description",
-      "descriptionPlaceholder": "Enter description",
-      "create": "Create"
     }
   },
 

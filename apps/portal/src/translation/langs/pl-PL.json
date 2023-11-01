@@ -198,15 +198,6 @@
         "warehouses": {
           "title": "Magazyny",
 
-          "editor": {
-            "title": "Nowy magazyn",
-            "nameLabel": "Nazwa",
-            "namePlaceholder": "Wprowadź nazwę",
-            "descriptionLabel": "Opis",
-            "descriptionPlaceholder": "Wprowadź opis",
-            "create": "Utwórz"
-          },
-
           "tiles": {
             "companyWarehouses": "Panel magazynów",
             "newWarehouse": "Nowy magazyn"
@@ -231,6 +222,17 @@
 
         "payments": {
           "title": "Płatności"
+        }
+      },
+
+      "warehouse": {
+        "editor": {
+          "title": "Nowy magazyn",
+          "nameLabel": "Nazwa",
+          "namePlaceholder": "Wprowadź nazwę",
+          "descriptionLabel": "Opis",
+          "descriptionPlaceholder": "Wprowadź opis",
+          "create": "Utwórz"
         }
       }
     }
