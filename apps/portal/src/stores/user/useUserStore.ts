@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { i18n } from '@/translation/index'
 import { setLocale } from '@vee-validate/i18n'
 import type { UserDetails, UserData } from '@/interfaces/user/UserStoreDataInterface'
+import { DateTime } from 'luxon'
 
 export interface UserStoreData {
   email: string

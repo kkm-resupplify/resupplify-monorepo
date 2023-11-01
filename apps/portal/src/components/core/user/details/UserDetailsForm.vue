@@ -59,6 +59,7 @@
             rules="required"
             :value="userDetails?.sex"
             class="user-details-form__select"
+            variant="sharp"
           />
 
           <a-button
@@ -76,7 +77,6 @@
 import UserDetailsService from '@/services/user/UserDetailsService'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { DateTime } from 'luxon'
 
@@ -110,8 +110,11 @@ const genderOptions = computed(() => [
 const userDetails = useUserStore().getUserDetails
 
 // Transforming date to YYYY-mm-dd format
+// Computed
 const birthDateYearFormat = computed(() => {
-  return userDetails?.birthDate ? DateTime.fromISO(userDetails.birthDate).toISO() : null
+  return userDetails?.birthDate
+    ? DateTime.fromFormat(userDetails.birthDate, 'dd-MM-yyyy').toFormat('yyyy-MM-dd')
+    : null
 })
 
 // Methods
@@ -123,10 +126,7 @@ const handleFormSubmit = async (formData: UserDetailsFormData) => {
 
 <style scoped lang="scss">
 .user-details-form {
-  @include respond-to('md-and-up') {
-    flex: 1 0 0;
-    align-self: stretch;
-  }
+  @include boxshadow-primary-2;
 
   width: 452px;
   margin-inline: auto;

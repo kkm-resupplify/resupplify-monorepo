@@ -32,7 +32,7 @@
         :sub-title="userStore.getUserDetails?.sex"
       />
 
-      <a-button :text="$t('global.edit')" size="large" @click="toggleEditUserDetails" />
+      <a-button :text="$t('global.edit')" size="large" @click="toggleEditUserDetails" class="user-settings-profile-tab__button" />
     </div>
   </div>
 </template>
@@ -67,6 +67,8 @@ const toggleEditUserDetails = () => {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-50;
+  background-color: var(--primary);
+  width: 100%;
 
   &__header {
     display: flex;
@@ -81,6 +83,10 @@ const toggleEditUserDetails = () => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-30;
+  }
+
+  &__button {
+    width: min-content;
   }
 }
 </style>
