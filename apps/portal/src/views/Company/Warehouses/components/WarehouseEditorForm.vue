@@ -9,7 +9,6 @@
           :label="$t('warehouse.editor.nameLabel')"
           :placeholder="$t('warehouse.editor.namePlaceholder')"
           rules="required"
-          variant="rounded"
         />
         <m-text-area
           name="warehouse-description"
