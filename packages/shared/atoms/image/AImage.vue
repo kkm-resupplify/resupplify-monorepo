@@ -1,13 +1,14 @@
 <template>
   <img
-    :src="source"
+    ref="imageRef"
+    :src="src"
     :alt="alt"
     :class="generateClasses"
     @error="imageError"
-    @load="imageLoaded"
-    ref="imageRef"
+    @load="handleImageLoaded"
   />
-  <a-icon v-if="isLoading || isError" class="placeholder" icon="no_photography" size="xx-large" />
+
+  <a-icon v-if="isLoading || isError" icon="no_photography" size="xx-large" />
 </template>
 
 <script setup lang="ts">
@@ -15,7 +16,7 @@ import { computed, ref, unref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 const props = defineProps({
-  source: {
+  src: {
     type: String,
     required: true
   },
@@ -50,29 +51,27 @@ const generateClasses = computed(() => {
 })
 
 const height = computed(() => {
-  if (typeof props.height === 'number') {
-    return `${props.height}px`
-  }
-  return 'auto'
+  if (typeof props.height === 'number') return `${props.height}px`
+
+  return `${props.height}`
 })
 
 const width = computed(() => {
-  if (typeof props.width === 'number') {
-    return `${props.width}px`
-  }
-  return 'auto'
+  if (typeof props.width === 'number') return `${props.width}px`
+
+  return `${props.width}`
 })
 
 // Methods
-const imageLoaded = () => {
+const handleImageLoaded = () => {
   isLoading.value = false
 }
 
 const imageError = () => {
   const imageElement = unref(imageRef)
-  if (imageElement) {
-    imageElement.style.display = 'none'
-  }
+
+  if (imageElement) imageElement.style.display = 'none'
+
   isError.value = true
 }
 </script>
