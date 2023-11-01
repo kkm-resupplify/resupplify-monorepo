@@ -2,22 +2,22 @@
   <o-form>
     <template #body>
       <div class="warehouse-editor-form__body">
-        <a-title :title="$t('company.register.warehouseEditor.title')" size="x-large"/>
+        <a-title :title="$t('warehouse.editor.title')" size="x-large"/>
         <m-text-field
           name="warehouse-name"
           input-type="text"
-          :label="$t('company.register.warehouseEditor.nameLabel')"
-          :placeholder="$t('company.register.warehouseEditor.namePlaceholder')"
+          :label="$t('warehouse.editor.nameLabel')"
+          :placeholder="$t('warehouse.editor.namePlaceholder')"
           rules="required"
           variant="rounded"
         />
         <m-text-area
           name="warehouse-description"
           rules="required|min:16|max:255"
-          :label="$t('company.register.warehouseEditor.descriptionLabel')"
-          :placeholder="$t('company.register.warehouseEditor.descriptionPlaceholder')"
+          :label="$t('warehouse.editor.descriptionLabel')"
+          :placeholder="$t('warehouse.editor.descriptionPlaceholder')"
         />
-        <a-button :text="$t('company.register.warehouseEditor.create')" buttonType="submit" class="warehouse-editor-form__button" size="x-large"/>
+        <a-button :text="$t('warehouse.editor.create')" buttonType="submit" class="warehouse-editor-form__button" size="x-large"/>
       </div>
     </template>
   </o-form>

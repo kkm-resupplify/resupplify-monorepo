@@ -137,15 +137,6 @@
         }
       },
 
-      "warehouseEditor": {
-        "title": "New warehouse",
-        "nameLabel": "Name",
-        "namePlaceholder": "Enter name",
-        "descriptionLabel": "Description",
-        "descriptionPlaceholder": "Enter description",
-        "create": "Create"
-      },
-
       "notification": {
         "registerCompanySuccessTitle": "Company registration submitted successfully",
         "registerCompanySuccessText": "Your company is awaiting verification."
@@ -305,6 +296,17 @@
         "description": "You might also want to register you company. In that case, you can begin the registration process by clicking the button below - you may cancel it at any time.",
         "registerNow": "Register now"
       }
+    }
+  },
+
+  "warehouse": {
+    "editor": {
+      "title": "New warehouse",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter name",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Enter description",
+      "create": "Create"
     }
   },
 
