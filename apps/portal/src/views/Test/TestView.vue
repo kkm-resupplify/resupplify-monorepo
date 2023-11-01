@@ -2,8 +2,16 @@
   <basic-view-layout class="test-view">
     <template #body>
       <!-- <register-company /> -->
+      <m-text-field
+        name="phoneNumber"
+        input-type="tel"
+        :label="$t('settings.profile.details.phoneNumber')"
+        :placeholder="$t('settings.profile.details.phoneNumberPlaceholder')"
+        autocomplete="tel"
+        :rules="{ required: true, regex: /^(?:\+48)?[1-9]\d{8}$/ }"
+        class="user-details-form__text-field"
+      />
     </template>
-
   </basic-view-layout>
 </template>
 
