@@ -11,6 +11,7 @@ import ASelect from '@sharedAtoms/select/ASelect.vue'
 import ATitle from '@sharedAtoms/title/ATitle.vue'
 import AImageInput from '@sharedAtoms/input/AImageInput.vue'
 import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
+import AImage from '@sharedAtoms/image/AImage.vue'
 import AExpansionPanel from '@sharedAtoms/expansion-panel/AExpansionPanel.vue'
 
 const atoms = [
@@ -26,6 +27,7 @@ const atoms = [
   ATitle,
   AImageInput,
   ADropdown,
+  AImage,
   AExpansionPanel
 ]
 
