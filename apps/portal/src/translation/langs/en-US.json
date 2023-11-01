@@ -92,14 +92,14 @@
           "description": "This step focuses on the means of contact, including the communication preferences."
         },
 
-        "warehouseEdit": {
+        "warehouseEditor": {
           "title": "New warehouse",
           "nameLabel": "Name",
           "namePlaceholder": "Enter name",
           "descriptionName": "Description",
           "descriptionPlaceholder": "Ener description",
           "create": "Create"
-        }
+        },
 
         "submit": {
           "title": "Submit",

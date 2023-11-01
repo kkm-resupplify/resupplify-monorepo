@@ -136,7 +136,7 @@
           "phoneNumberPlaceholder": "Wprowadź numer telefonu firmy"
         },
 
-        "warehouseEdit": {
+        "warehouseEditor": {
           "title": "Nowy magazyn",
           "nameLabel": "Nazwa",
           "namePlaceholder": "Wprowadź nazwę",
