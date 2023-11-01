@@ -35,4 +35,9 @@
   width: 452px;
   padding: $global-spacing-100;
 }
+
+.warehouse-editor-form__button {
+  display: flex;
+  justify-content: center;
+}
 </style>
