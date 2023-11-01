@@ -198,6 +198,15 @@
         "warehouses": {
           "title": "Magazyny",
 
+          "editor": {
+            "title": "Nowy magazyn",
+            "nameLabel": "Nazwa",
+            "namePlaceholder": "Wprowadź nazwę",
+            "descriptionLabel": "Opis",
+            "descriptionPlaceholder": "Wprowadź opis",
+            "create": "Utwórz"
+          },
+
           "tiles": {
             "companyWarehouses": "Panel magazynów",
             "newWarehouse": "Nowy magazyn"
@@ -301,17 +310,6 @@
         "description": "Możesz również chcieć zarejestrować swoją firmę. W takim przypadku możesz rozpocząć proces rejestracji, klikając poniższy przycisk - proces możesz anulować w dowolnym momencie.",
         "registerNow": "Zarejestruj teraz"
       }
-    }
-  },
-
-  "warehouse": {
-    "editor": {
-      "title": "Nowy magazyn",
-      "nameLabel": "Nazwa",
-      "namePlaceholder": "Wprowadź nazwę",
-      "descriptionLabel": "Opis",
-      "descriptionPlaceholder": "Wprowadź opis",
-      "create": "Utwórz"
     }
   },
 

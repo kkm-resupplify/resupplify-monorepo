@@ -198,6 +198,15 @@
         "warehouses": {
           "title": "Warehouses",
 
+          "editor": {
+            "title": "New warehouse",
+            "nameLabel": "Name",
+            "namePlaceholder": "Enter name",
+            "descriptionLabel": "Description",
+            "descriptionPlaceholder": "Enter description",
+            "create": "Create"
+          },
+
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"

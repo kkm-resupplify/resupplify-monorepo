@@ -2,25 +2,30 @@
   <o-form>
     <template #body>
       <div class="warehouse-editor-form__body">
-        <a-title :title="$t('warehouse.editor.title')" size="x-large" />
+        <a-title
+          :title="$t('company.management.navigation.warehouses.editor.title')"
+          size="x-large"
+        />
 
         <m-text-field
-          name="warehouse-name"
+          name="warehouseName"
           input-type="text"
-          :label="$t('warehouse.editor.nameLabel')"
-          :placeholder="$t('warehouse.editor.namePlaceholder')"
+          :label="$t('company.management.navigation.warehouses.editor.nameLabel')"
+          :placeholder="$t('company.management.navigation.warehouses.editor.namePlaceholder')"
           rules="required"
         />
 
         <m-text-area
-          name="warehouse-description"
+          name="warehouseDescription"
           rules="required|min:16|max:255"
-          :label="$t('warehouse.editor.descriptionLabel')"
-          :placeholder="$t('warehouse.editor.descriptionPlaceholder')"
+          :label="$t('company.management.navigation.warehouses.editor.descriptionLabel')"
+          :placeholder="
+            $t('company.management.navigation.warehouses.editor.descriptionPlaceholder')
+          "
         />
 
         <a-button
-          :text="$t('warehouse.editor.create')"
+          :text="$t('company.management.navigation.warehouses.editor.descriptionLabel')"
           button-type="submit"
           class="warehouse-editor-form__button"
           size="x-large"
