@@ -1,16 +1,7 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <!-- <register-company /> -->
-      <m-text-field
-        name="phoneNumber"
-        input-type="tel"
-        :label="$t('settings.profile.details.phoneNumber')"
-        :placeholder="$t('settings.profile.details.phoneNumberPlaceholder')"
-        autocomplete="tel"
-        :rules="{ required: true, regex: /^(?:\+48)?[1-9]\d{8}$/ }"
-        class="user-details-form__text-field"
-      />
+      <register-company />
     </template>
   </basic-view-layout>
 </template>
@@ -20,7 +11,6 @@ import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import TestForm from './TestForm.vue'
 import TestFormTwo from './TestFormTwo.vue'
 import RegisterCompany from '@/components/core/company/register/RegisterCompany.vue'
-
 const steps = [
   {
     stepInfo: {

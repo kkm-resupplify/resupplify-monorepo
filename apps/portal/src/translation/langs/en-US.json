@@ -223,6 +223,17 @@
         "payments": {
           "title": "Payments"
         }
+      },
+
+      "warehouse": {
+        "editor": {
+          "title": "New warehouse",
+          "nameLabel": "Name",
+          "namePlaceholder": "Enter name",
+          "descriptionLabel": "Description",
+          "descriptionPlaceholder": "Enter description",
+          "create": "Create"
+        }
       }
     }
   },

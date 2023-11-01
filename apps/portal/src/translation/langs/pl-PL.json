@@ -223,6 +223,17 @@
         "payments": {
           "title": "Płatności"
         }
+      },
+
+      "warehouse": {
+        "editor": {
+          "title": "Nowy magazyn",
+          "nameLabel": "Nazwa",
+          "namePlaceholder": "Wprowadź nazwę",
+          "descriptionLabel": "Opis",
+          "descriptionPlaceholder": "Wprowadź opis",
+          "create": "Utwórz"
+        }
       }
     }
   },
