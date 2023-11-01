@@ -1,7 +1,7 @@
 <template>
   <div class="a-card">
     <div :class="headerClasses">
-      <img :src="props.headerImage" />
+      <a-image :src="props.headerImage" :width="300"/>
     </div>
 
     <div class="a-card__overlay a-card__overlay--right">
@@ -116,11 +116,6 @@ $body-max-height: 150px;
     align-items: center;
     justify-content: center;
     height: 95%;
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
 
     &--bg-primary {
       background: var(--primary-gradient);
