@@ -93,7 +93,9 @@ const userDetails = userStore.getUserDetails
 
 // Computed
 const birthDateYearFormat = computed(() => {
-  return userDetails?.birthDate ? DateTime.fromISO(userDetails.birthDate).toISO() : null
+  return userDetails?.birthDate
+    ? DateTime.fromFormat(userDetails.birthDate, 'dd-MM-yyyy').toISODate()
+    : null
 })
 
 const genderOptions = computed(() => [
