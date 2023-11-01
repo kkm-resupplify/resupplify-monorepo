@@ -1,7 +1,7 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <register-company />
+      <!-- <register-company /> -->
     </template>
   </basic-view-layout>
 </template>
