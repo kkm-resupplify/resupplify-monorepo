@@ -6,8 +6,7 @@
 
 <script setup lang="ts">
 import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
-import WarehouseEditorForm from './components/WarehouseEditorForm.vue';
- 
+import WarehouseEditorForm from '@/components/core/company/management/warehouse/editor/components/WarehouseEditorForm.vue'
 </script>
 
 <style lang="scss" scoped>
