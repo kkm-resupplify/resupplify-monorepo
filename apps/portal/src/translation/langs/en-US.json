@@ -196,7 +196,12 @@
         },
 
         "warehouses": {
-          "title": "Warehouses"
+          "title": "Warehouses",
+
+          "tiles": {
+            "companyWarehouses": "Warehouse dashboard",
+            "newWarehouse": "New warehouse"
+          }
         },
 
         "members": {

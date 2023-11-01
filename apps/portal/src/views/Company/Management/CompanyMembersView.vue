@@ -27,11 +27,3 @@ const tiles = computed(() => [
   }
 ])
 </script>
-
-<style lang="scss" scoped>
-.m-tile-list {
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: $global-spacing-100;
-}
-</style>

@@ -73,7 +73,7 @@ const props = defineProps({
     default: 'info'
   },
   rules: {
-    type: String
+    type: [String, Object]
   },
   validColor: {
     type: String,
