@@ -27,7 +27,7 @@ header {
   margin: 0 auto 2rem;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   header {
     display: flex;
     place-items: center;
@@ -40,8 +40,8 @@ header {
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
     flex-wrap: wrap;
+    place-items: flex-start;
   }
 }
 </style>
