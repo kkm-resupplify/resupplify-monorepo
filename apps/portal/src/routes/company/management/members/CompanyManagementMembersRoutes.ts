@@ -5,7 +5,7 @@ import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 
 class CompanyProfileRouteEnum extends BaseEnum {
-  static readonly COMPANY_MEMBERS: string = 'COMPANY_MEMBERS'
+  static readonly COMPANY_MEMBERS_TILES: string = 'COMPANY_MEMBERS_TILES'
   static readonly COMPANY_MEMBERS_ACTIVE: string = 'COMPANY_MEMBERS_ACTIVE'
   static readonly COMPANY_MEMBERS_PERMISSIONS: string = 'COMPANY_MEMBERS_PERMISSIONS'
 }
@@ -13,7 +13,7 @@ class CompanyProfileRouteEnum extends BaseEnum {
 const CompanyManagementMembersRoutes: RouteRecordRaw[] = [
   {
     path: 'members',
-    name: CompanyProfileRouteEnum.COMPANY_MEMBERS,
+    name: CompanyProfileRouteEnum.COMPANY_MEMBERS_TILES,
     component: CompanyMembersView
   },
   {

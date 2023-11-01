@@ -196,7 +196,12 @@
         },
 
         "warehouses": {
-          "title": "Magazyny"
+          "title": "Magazyny",
+
+          "tiles": {
+            "companyWarehouses": "Panel magazynów",
+            "newWarehouse": "Nowy magazyn"
+          }
         },
 
         "members": {
