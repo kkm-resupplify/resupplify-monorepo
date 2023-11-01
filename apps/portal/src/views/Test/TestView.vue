@@ -9,7 +9,6 @@
         :placeholder="$t('settings.profile.details.phoneNumberPlaceholder')"
         autocomplete="tel"
         :rules="{ required: true, regex: /^(?:\+48)?[1-9]\d{8}$/ }"
-        :value="userDetails?.phoneNumber"
         class="user-details-form__text-field"
       />
     </template>
