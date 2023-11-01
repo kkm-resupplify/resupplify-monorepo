@@ -17,12 +17,12 @@ const { t } = useI18n()
 const tiles = computed(() => [
   {
     title: t('company.management.navigation.warehouses.tiles.companyWarehouses'),
-    icon: 'groups',
+    icon: 'warehouse',
     to: { name: RouteNames.COMPANY_WAREHOUSE_LIST }
   },
   {
     title: t('company.management.navigation.warehouses.tiles.newWarehouse'),
-    icon: 'tune',
+    icon: 'add_box',
     to: { name: RouteNames.COMPANY_WAREHOUSE_EDITOR }
   }
 ])

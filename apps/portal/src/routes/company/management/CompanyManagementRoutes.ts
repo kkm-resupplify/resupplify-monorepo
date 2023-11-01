@@ -7,7 +7,7 @@ import CompanyProductsView from '@/views/Company/Management/CompanyProductsView.
 import CompanySettingsView from '@/views/Company/Management/CompanySettingsView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import CompanyManagementMembersRoutes from './members/CompanyManagementMembersRoutes'
-import CompanyManagementWarehouseRoutes from './warehouse/CompanyManagementWarehouseRoutes'
+import CompanyManagementWarehouseRoutes from './warehouses/CompanyManagementWarehouseRoutes'
 
 class CompanyProfileRouteEnum extends BaseEnum {
   static readonly COMPANY_DASHBOARD: string = 'COMPANY_DASHBOARD'

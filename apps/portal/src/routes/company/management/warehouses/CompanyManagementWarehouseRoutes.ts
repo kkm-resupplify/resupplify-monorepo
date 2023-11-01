@@ -12,17 +12,17 @@ class CompanyWarehouseRouteEnum extends BaseEnum {
 
 const CompanyManagementWarehouseRoutes: RouteRecordRaw[] = [
   {
-    path: 'warehouse',
+    path: 'warehouses',
     name: CompanyWarehouseRouteEnum.COMPANY_WAREHOUSE_TILES,
     component: CompanyWarehousesView
   },
   {
-    path: 'warehouse/list',
+    path: 'warehouses/list',
     name: CompanyWarehouseRouteEnum.COMPANY_WAREHOUSE_LIST,
     component: CompanyManagementWarehouseDashboardPanel
   },
   {
-    path: 'warehouse/editor',
+    path: 'warehouse/new',
     name: CompanyWarehouseRouteEnum.COMPANY_WAREHOUSE_EDITOR,
     component: CompanyManagementWarehousEditorPanel
   }
