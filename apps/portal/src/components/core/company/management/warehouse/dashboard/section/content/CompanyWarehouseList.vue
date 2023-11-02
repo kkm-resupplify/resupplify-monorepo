@@ -1,0 +1,13 @@
+<template>
+  <div>
+    CompanyWarehouseList
+
+    <company-warehouse-list-item />
+  </div>
+</template>
+
+<script setup lang="ts">
+import CompanyWarehouseListItem from '@/components/core/company/management/warehouse/dashboard/section/content/CompanyWarehouseListItem.vue'
+</script>
+
+<style scoped lang="scss"></style>
