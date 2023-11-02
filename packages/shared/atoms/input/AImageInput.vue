@@ -16,10 +16,11 @@
     <div v-if="preview" class="a-image-input__preview-group">
       <span v-text="$t('global.imagePreview')" />
 
-      <img
+      <a-image
         :src="preview"
         class="a-image-input__preview-group-image"
         :alt="$t('global.imagePreview')"
+        :width="300"
       />
     </div>
   </div>

@@ -8,7 +8,7 @@
       />
 
       <div v-if="userStore.getCompany?.details.logo">
-        <img
+        <a-image
           :src="companyAvatarUrl"
           alt="Company logo"
           class="my-company-section__company-avatar"
