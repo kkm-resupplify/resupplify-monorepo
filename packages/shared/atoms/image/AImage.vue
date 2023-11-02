@@ -4,6 +4,7 @@
     :src="src"
     :alt="alt"
     :class="generateClasses"
+    :rel="rel"
     @error="imageError"
     @load="handleImageLoaded"
   />
@@ -28,6 +29,7 @@ const props = defineProps({
     type: String,
     default: 'default'
   },
+  rel: String,
   width: {
     type: [String, Number],
     default: 'auto'
