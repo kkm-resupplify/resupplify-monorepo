@@ -44,6 +44,7 @@ import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
 import MNavigationTabsItem from '@sharedMolecules/tab/MNavigationTabsItem.vue'
 import MTile from '@sharedMolecules/tile/MTile.vue'
 import MTileList from '@sharedMolecules/tile/MTileList.vue'
+import MSearchBar from '@sharedMolecules/searchbar/MSearchBar.vue'
 
 const molecules = [
   MCardList,
@@ -52,6 +53,7 @@ const molecules = [
   MFileInput,
   MStepper,
   MStepperStepContent,
+  MSearchBar,
   MSelect,
   MIcon,
   MNavigationTabs,
