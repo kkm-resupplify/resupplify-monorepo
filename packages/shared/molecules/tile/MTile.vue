@@ -43,6 +43,7 @@ const generateClasses = computed(() => {
 
   width: 200px;
   height: 180px;
+  padding: $global-spacing-30;
 
   text-align: center;
   text-decoration: none;
