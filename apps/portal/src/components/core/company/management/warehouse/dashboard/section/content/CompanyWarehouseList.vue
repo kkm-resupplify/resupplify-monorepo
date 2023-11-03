@@ -1,6 +1,10 @@
 <template>
   <div class="company-warehouse-list">
-    <company-warehouse-list-item v-for="i in 5" :key="i" :warehouse="{ id: i }" />
+    <company-warehouse-list-item
+      v-for="i in 5"
+      :key="i"
+      :warehouse="{ id: i, name: `Warehouse ${i}`, status: i }"
+    />
   </div>
 </template>
 
