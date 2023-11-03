@@ -5,10 +5,7 @@
     <div class="company-management-warehouse-preview-header-section__content">
       <company-management-warehouse-preview-stats />
 
-      <a-button
-        size="xx-large"
-        :text="$t('company.management.warehouse.preview.header.addProduct')"
-      />
+      <add-warehouse-product-dialog />
     </div>
   </div>
 </template>
@@ -16,6 +13,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import CompanyManagementWarehousePreviewStats from '@/components/core/company/management/warehouse/preview/CompanyManagementWarehousePreviewStats.vue'
+import AddWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/AddWarehouseProductDialog.vue'
 
 const warehouse = reactive({
   title: 'Bread Warehouse'
