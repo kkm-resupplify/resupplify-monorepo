@@ -2,6 +2,8 @@
   <company-management-panel class="company-management-warehouse-preview-panel">
     <company-management-warehouse-preview-header-section />
 
+    <a-line :height="1" />
+
     <company-management-warehouse-preview-content-section />
   </company-management-panel>
 </template>
@@ -15,5 +17,7 @@ import CompanyManagementWarehousePreviewContentSection from '@/components/core/c
 <style lang="scss" scoped>
 .company-management-warehouse-preview-panel {
   display: flex;
+  gap: $global-spacing-40;
+  width: 100%;
 }
 </style>
