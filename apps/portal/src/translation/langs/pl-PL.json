@@ -233,6 +233,15 @@
           "descriptionLabel": "Opis",
           "descriptionPlaceholder": "Wprowadź opis",
           "create": "Utwórz"
+        },
+
+        "preview": {
+          "header": {
+            "totalProductsCount": "Produktów łącznie:",
+            "belowSafeQuantityProductsCount": "Produkty poniżej bezpiecznego stanu:",
+            "soldOutProductsCount": "Produkty wyprzedane:",
+            "reservedProductsCount": "Ilość zarezerwowanych produktów:"
+          }
         }
       }
     }
@@ -275,7 +284,7 @@
         "gender": {
           "male": "Mężczyzna",
           "female": "Kobieta",
-          "preferNot": "Wolę nie mówić"
+          "preferNot": "Inna"
         }
       },
 
