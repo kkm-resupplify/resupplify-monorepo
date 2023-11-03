@@ -1,22 +1,22 @@
 <template>
   <router-link :to="to" :class="generateClasses">
-    <a-icon :icon="icon" size="xx-large" class="m-tile__icon" />
+    <slot />
 
-    <span class="m-tile__title" v-text="title" />
+    <a-icon v-if="icon" :icon="icon" size="xx-large" class="m-tile__icon" />
+
+    <span v-if="title" class="m-tile__title" v-text="title" />
   </router-link>
 </template>
 
 <script setup lang="ts">
 import { computed, type PropType } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-interface Route {
-  name: string
-}
+import type { RouteRecordRaw } from 'vue-router'
 
-const props = defineProps({
-  title: { type: String, required: true },
-  icon: { type: String, required: true },
-  to: { type: Object as PropType<Route>, required: true }
+defineProps({
+  title: String,
+  icon: String,
+  to: { type: Object as PropType<RouteRecordRaw>, required: true }
 })
 
 // Variables
@@ -44,7 +44,9 @@ const generateClasses = computed(() => {
   width: 200px;
   height: 180px;
 
+  text-align: center;
   text-decoration: none;
+  word-break: break-all;
 
   background-color: var(--secondary-1);
   border-radius: $global-border-radius-20;

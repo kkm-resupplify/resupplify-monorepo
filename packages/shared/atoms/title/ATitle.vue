@@ -125,7 +125,5 @@ const titleText = computed(() => {
     display: flex;
     flex-basis: 30%;
   }
-
-  // Size
 }
 </style>

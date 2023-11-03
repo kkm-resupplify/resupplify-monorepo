@@ -8,6 +8,7 @@ class CompanyWarehouseRouteEnum extends BaseEnum {
   static readonly COMPANY_WAREHOUSE_TILES: string = 'COMPANY_WAREHOUSE_TILES'
   static readonly COMPANY_WAREHOUSE_LIST: string = 'COMPANY_WAREHOUSE_LIST'
   static readonly COMPANY_WAREHOUSE_EDITOR: string = 'COMPANY_WAREHOUSE_EDITOR'
+  static readonly COMPANY_WAREHOUSE_PREVIEW: string = 'COMPANY_WAREHOUSE_PREVIEW'
 }
 
 const CompanyManagementWarehouseRoutes: RouteRecordRaw[] = [
@@ -22,8 +23,13 @@ const CompanyManagementWarehouseRoutes: RouteRecordRaw[] = [
     component: CompanyManagementWarehouseDashboardPanel
   },
   {
-    path: 'warehouse/new',
+    path: 'warehouses/new',
     name: CompanyWarehouseRouteEnum.COMPANY_WAREHOUSE_EDITOR,
+    component: CompanyManagementWarehousEditorPanel
+  },
+  {
+    path: 'warehouse/:id',
+    name: CompanyWarehouseRouteEnum.COMPANY_WAREHOUSE_PREVIEW,
     component: CompanyManagementWarehousEditorPanel
   }
 ]
