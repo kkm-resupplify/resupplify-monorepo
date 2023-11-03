@@ -12,7 +12,8 @@ import ATitle from '@sharedAtoms/title/ATitle.vue'
 import AImageInput from '@sharedAtoms/input/AImageInput.vue'
 import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
 import AImage from '@sharedAtoms/image/AImage.vue'
-import AExpansionPanel from '@sharedAtoms/expansion-panel/AExpansionPanel.vue'
+import AExpansionPanel from '@sharedAtoms/expansionPanel/AExpansionPanel.vue'
+import AStatusIndicator from '@sharedAtoms/indicator/AStatusIndicator.vue'
 
 const atoms = [
   AButton,
@@ -28,7 +29,8 @@ const atoms = [
   AImageInput,
   ADropdown,
   AImage,
-  AExpansionPanel
+  AExpansionPanel,
+  AStatusIndicator
 ]
 
 // Molecules

@@ -1,5 +1,11 @@
 <template>
-  <m-tile :to="warehouseLink"> CompanyWarehouseListItem </m-tile>
+  <m-tile :to="warehouseLink">
+    <div class="warehouse-list-item__header">
+      <a-status-indicator :status="warehouse.status" />
+    </div>
+
+    <div class="warehouse-list-item__content">{{ warehouse.name }}</div>
+  </m-tile>
 </template>
 
 <script setup lang="ts">
@@ -20,4 +26,17 @@ const warehouseLink = computed(() => {
 })
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.warehouse-list-item {
+  &__header {
+    display: flex;
+    align-self: flex-end;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+}
+</style>
