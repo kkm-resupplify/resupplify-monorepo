@@ -240,7 +240,8 @@
             "totalProductsCount": "Total products:",
             "belowSafeQuantityProductsCount": "Products below safe quantity:",
             "soldOutProductsCount": "Sold-out products:",
-            "reservedProductsCount": "Reserved products:"
+            "reservedProductsCount": "Reserved products:",
+            "addProduct": "Add product"
           }
         }
       }
