@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import WarehouseList from '@/components/core/company/management/warehouse/dashboard/section/content/WarehouseList.vue'
+import WarehouseList from '@/components/core/company/management/warehouse/dashboard/section/content/list/WarehouseList.vue'
 </script>
 
 <style scoped lang="scss"></style>

@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import WarehouseListItem from '@/components/core/company/management/warehouse/dashboard/section/content/WarehouseListItem.vue'
+import WarehouseListItem from '@/components/core/company/management/warehouse/dashboard/section/content/list/WarehouseListItem.vue'
 </script>
 
 <style scoped lang="scss">
