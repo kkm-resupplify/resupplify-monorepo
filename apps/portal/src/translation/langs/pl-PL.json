@@ -11,7 +11,8 @@
     "back": "Wstecz",
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
-    "delete": "Usuń"
+    "delete": "Usuń",
+    "search": "Szukaj"
   },
 
   "payments": {
@@ -197,6 +198,7 @@
 
         "warehouses": {
           "title": "Magazyny",
+          "search": "Szukaj magazynów",
 
           "tiles": {
             "companyWarehouses": "Panel magazynów",

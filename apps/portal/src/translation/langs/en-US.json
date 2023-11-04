@@ -3,15 +3,16 @@
     "welcome": "Welcome",
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
-    "errorOccured": "An error occured",
-    "save": "Save",
+    "errorOccured": "An error occured", 
     "edit": "Edit",
     "noResults": "No results",
     "next": "Next",
     "back": "Back",
     "submit": "Submit",
     "imagePreview": "Image preview",
-    "delete": "Delete"
+    "delete": "Delete",
+    "save": "Save",
+    "search": "Szukaj"
   },
 
   "payments": {
@@ -197,6 +198,7 @@
 
         "warehouses": {
           "title": "Warehouses",
+          "search": "Search warehouses",
 
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
