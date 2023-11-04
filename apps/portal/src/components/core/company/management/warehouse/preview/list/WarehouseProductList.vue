@@ -1,0 +1,46 @@
+<template>
+  <div class="warehouse-product-list">
+    <warehouse-product-list-item
+      v-for="(warehouseProduct, idx) in warehouseProducts"
+      :key="idx"
+      :product="warehouseProduct"
+    />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { reactive } from 'vue'
+import WarehouseProductListItem from '@/components/core/company/management/warehouse/preview/list/WarehouseProductListItem.vue'
+
+// Variables
+const warehouseProducts = reactive([
+  { id: 1, name: 'Product 1', quantity: 1200, safeQuantity: 500 },
+  { id: 2, name: 'Product 2', quantity: 340, safeQuantity: 300 },
+  { id: 3, name: 'Product 2', quantity: 0, safeQuantity: 100 },
+  { id: 4, name: 'Product 3', quantity: 100, safeQuantity: 50 },
+  { id: 5, name: 'Product 4', quantity: 500, safeQuantity: 250 },
+  { id: 6, name: 'Product 5', quantity: 200, safeQuantity: 100 },
+  { id: 7, name: 'Product 6', quantity: 150, safeQuantity: 75 },
+  { id: 8, name: 'Product 7', quantity: 300, safeQuantity: 150 },
+  { id: 9, name: 'Product 8', quantity: 250, safeQuantity: 125 },
+  { id: 10, name: 'Product 9', quantity: 400, safeQuantity: 200 },
+  { id: 11, name: 'Product 10', quantity: 100, safeQuantity: 50 },
+  { id: 12, name: 'Product 11', quantity: 500, safeQuantity: 250 },
+  { id: 13, name: 'Product 12', quantity: 200, safeQuantity: 100 },
+  { id: 14, name: 'Product 13', quantity: 150, safeQuantity: 75 },
+  { id: 15, name: 'Product 14', quantity: 300, safeQuantity: 150 },
+  { id: 16, name: 'Product 15', quantity: 250, safeQuantity: 125 },
+  { id: 17, name: 'Product 16', quantity: 400, safeQuantity: 200 },
+  { id: 18, name: 'Product 17', quantity: 100, safeQuantity: 50 },
+  { id: 19, name: 'Product 18', quantity: 500, safeQuantity: 250 },
+  { id: 20, name: 'Product 19', quantity: 200, safeQuantity: 100 }
+])
+</script>
+
+<style scoped lang="scss">
+.warehouse-product-list {
+  display: flex;
+  flex-direction: column;
+  gap: $global-spacing-30;
+}
+</style>
