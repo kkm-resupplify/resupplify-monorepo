@@ -1,5 +1,7 @@
 <template>
   <div class="warehouse-product-list-item">
+    <a-status-indicator :status="warehouseIndicatorStatus" />
+
     <a-title :title="product.name" />
   </div>
 </template>
@@ -15,7 +17,20 @@ const props = defineProps({
 })
 
 // Computed
+const isProductActive = computed(() => {
+  return props.product.status === 1
+})
+
+const productSafeQuantityRatio = computed(() => {
+  return props.product.quantity / props.product.safeQuantity
+})
 const warehouseIndicatorStatus = computed(() => {
+  if (isProductActive.value) {
+    if (productSafeQuantityRatio.value >= 1.2) return 1
+    else if (productSafeQuantityRatio.value >= 0.8) return 2
+    else if (productSafeQuantityRatio.value === 0) return 3
+  }
+
   return 0
 })
 </script>
@@ -24,6 +39,7 @@ const warehouseIndicatorStatus = computed(() => {
 .warehouse-product-list-item {
   display: flex;
   flex: 1;
+  gap: $global-spacing-20;
   align-items: center;
 
   box-sizing: border-box;
