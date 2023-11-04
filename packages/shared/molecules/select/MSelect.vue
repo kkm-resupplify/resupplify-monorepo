@@ -390,7 +390,7 @@ const handlePrependIconClick = (event: Event) => {
 
     box-sizing: border-box;
     width: calc(100% - $global-spacing-20);
-    max-height: 400px;
+    max-height: calc(5 * 30px);
     padding: $global-spacing-30;
 
     background: var(--secondary-3);

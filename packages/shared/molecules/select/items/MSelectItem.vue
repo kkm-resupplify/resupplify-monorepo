@@ -28,11 +28,12 @@ interface IconData {
   color?: string
 }
 
-const props = defineProps({
+defineProps({
   text: { type: String, default: '' },
   iconPrepend: Object as () => IconData | null,
   iconAppend: Object as () => IconData | null
 })
+
 // Variables
 const baseClass = 'm-select-item'
 
