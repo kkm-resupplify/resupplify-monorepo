@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import WarehousePreviewStats from '@/components/core/company/management/warehouse/preview/WarehousePreviewStats.vue'
+import WarehousePreviewStats from '@/components/core/company/management/warehouse/preview/section/header/WarehousePreviewStats.vue'
 import AddWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/AddWarehouseProductDialog.vue'
 
 const warehouse = reactive({

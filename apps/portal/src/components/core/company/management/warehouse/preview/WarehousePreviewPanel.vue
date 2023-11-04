@@ -10,8 +10,8 @@
 
 <script setup lang="ts">
 import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
-import WarehousePreviewHeaderSection from '@/components/core/company/management/warehouse/preview/WarehousePreviewHeaderSection.vue'
-import WarehousePreviewContentSection from '@/components/core/company/management/warehouse/preview/WarehousePreviewContentSection.vue'
+import WarehousePreviewHeaderSection from '@/components/core/company/management/warehouse/preview/section/header/WarehousePreviewHeaderSection.vue'
+import WarehousePreviewContentSection from '@/components/core/company/management/warehouse/preview/section/content/WarehousePreviewContentSection.vue'
 </script>
 
 <style lang="scss" scoped>
