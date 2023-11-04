@@ -1,15 +1,16 @@
 <template>
-  <company-management-panel class="company-management-warehouse-preview-panel">
-    company-management-warehouse-preview-panel
+  <company-management-panel class="warehouse-editor-panel">
+    <warehouse-editor-form />
   </company-management-panel>
 </template>
 
 <script setup lang="ts">
 import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
+import WarehouseEditorForm from '@/components/core/company/management/warehouse/editor/form/WarehouseEditorForm.vue'
 </script>
 
 <style lang="scss" scoped>
-.company-management-warehouse-preview-panel {
+.warehouse-editor-panel {
   display: flex;
 }
 </style>

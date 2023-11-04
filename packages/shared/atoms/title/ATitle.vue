@@ -2,7 +2,7 @@
   <div :class="generateClasses">
     <span class="a-title__title" v-text="titleText" />
 
-    <span v-if="subtitle" class="a-title__subtitle" v-text="subtitle" />
+    <span v-if="subtitle != null" class="a-title__subtitle" v-text="subtitle" />
   </div>
 </template>
 
@@ -19,11 +19,15 @@ const props = defineProps({
     type: String,
     required: true
   },
-  subtitle: String,
+  subtitle: [String, Number],
   appendColon: Boolean,
   size: {
     type: String,
     default: 'medium'
+  },
+  basis: {
+    type: Number,
+    default: 30
   }
 })
 
@@ -38,6 +42,10 @@ const generateClasses = computed(() => {
 
 const titleText = computed(() => {
   return props.appendColon ? `${props.title}:` : props.title
+})
+
+const flexBasisValue = computed(() => {
+  return `${props.basis}%`
 })
 </script>
 
@@ -71,6 +79,12 @@ const titleText = computed(() => {
 
   display: flex;
   gap: $global-spacing-30;
+  align-content: center;
+
+  &__title {
+    display: flex;
+    flex-basis: v-bind(flexBasisValue);
+  }
 
   &--vertical {
     flex-direction: column;
@@ -119,11 +133,6 @@ const titleText = computed(() => {
     &#{$self}--xx-large {
       @include size-horizontal($global-title-xx-large-font-size);
     }
-  }
-
-  &__title {
-    display: flex;
-    flex-basis: 30%;
   }
 }
 </style>

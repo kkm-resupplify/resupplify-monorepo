@@ -14,6 +14,8 @@ import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
 import AImage from '@sharedAtoms/image/AImage.vue'
 import AExpansionPanel from '@sharedAtoms/expansionPanel/AExpansionPanel.vue'
 import AStatusIndicator from '@sharedAtoms/indicator/AStatusIndicator.vue'
+import AListItemWrapper from '@sharedAtoms/list/AListItemWrapper.vue'
+import AListItemTitleSection from '@sharedAtoms/list/AListItemTitleSection.vue'
 
 const atoms = [
   AButton,
@@ -30,7 +32,9 @@ const atoms = [
   ADropdown,
   AImage,
   AExpansionPanel,
-  AStatusIndicator
+  AStatusIndicator,
+  AListItemWrapper,
+  AListItemTitleSection
 ]
 
 // Molecules
@@ -46,6 +50,7 @@ import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
 import MNavigationTabsItem from '@sharedMolecules/tab/MNavigationTabsItem.vue'
 import MTile from '@sharedMolecules/tile/MTile.vue'
 import MTileList from '@sharedMolecules/tile/MTileList.vue'
+import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 
 const molecules = [
   MCardList,
@@ -59,7 +64,8 @@ const molecules = [
   MNavigationTabs,
   MNavigationTabsItem,
   MTile,
-  MTileList
+  MTileList,
+  MDialog
 ]
 
 // Organisms

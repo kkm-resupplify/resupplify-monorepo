@@ -233,6 +233,23 @@
           "descriptionLabel": "Description",
           "descriptionPlaceholder": "Enter description",
           "create": "Create"
+        },
+
+        "preview": {
+          "header": {
+            "totalProductsCount": "Total products:",
+            "belowSafeQuantityProductsCount": "Products below safe quantity:",
+            "soldOutProductsCount": "Sold-out products:",
+            "reservedProductsCount": "Reserved products:",
+            "addProduct": "Add product"
+          },
+
+          "content": {
+            "productName": "Product name",
+            "productCode": "Product code",
+            "currentSupply": "Current supply",
+            "safeQuantity": "Safe quantity"
+          }
         }
       }
     }
@@ -275,7 +292,7 @@
         "gender": {
           "male": "Male",
           "female": "Female",
-          "preferNot": "Prefer not to say"
+          "preferNot": "Other"
         }
       },
 

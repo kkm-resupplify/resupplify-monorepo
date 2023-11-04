@@ -12,7 +12,7 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 // Props
 const props = defineProps({
   variant: String,
-  color: { type: String, default: 'white' },
+  color: { type: String, default: 'primary' },
   height: { type: Number, default: 8 }
 })
 
@@ -35,11 +35,10 @@ const lineHeight = computed(() => {
 $height-of-line: 8px;
 
 .a-line {
-  position: relative;
   height: v-bind(lineHeight);
 
-  &--white {
-    background: white;
+  &--primary {
+    background: var(--font-primary);
   }
 
   &--triangle {
