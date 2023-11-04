@@ -1,9 +1,9 @@
 <template>
-  <div class="company-management-warehouse-preview-header-section">
+  <div class="warehouse-preview-header-section">
     <a-title size="x-large" :title="warehouse.title" />
 
-    <div class="company-management-warehouse-preview-header-section__content">
-      <company-management-warehouse-preview-stats />
+    <div class="warehouse-preview-header-section__content">
+      <warehouse-preview-stats />
 
       <add-warehouse-product-dialog />
     </div>
@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import CompanyManagementWarehousePreviewStats from '@/components/core/company/management/warehouse/preview/CompanyManagementWarehousePreviewStats.vue'
+import WarehousePreviewStats from '@/components/core/company/management/warehouse/preview/WarehousePreviewStats.vue'
 import AddWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/AddWarehouseProductDialog.vue'
 
 const warehouse = reactive({
@@ -21,7 +21,7 @@ const warehouse = reactive({
 </script>
 
 <style scoped lang="scss">
-.company-management-warehouse-preview-header-section {
+.warehouse-preview-header-section {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-40;

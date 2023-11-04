@@ -55,6 +55,7 @@ const products = computed(() => {
     { id: 2, text: 'Product 2' }
   ]
 })
+
 // Methods
 const closeDialog = () => {
   dialogRef.value?.closeDialog()

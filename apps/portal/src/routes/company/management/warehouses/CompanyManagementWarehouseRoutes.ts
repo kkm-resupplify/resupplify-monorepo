@@ -1,7 +1,7 @@
 import CompanyWarehousesView from '@/views/Company/Management/CompanyWarehousesView.vue'
-import CompanyManagementWarehouseDashboardPanel from '@/components/core/company/management/warehouse/dashboard/CompanyManagementWarehouseDashboardPanel.vue'
-import CompanyManagementWarehousEditorPanel from '@/components/core/company/management/warehouse/editor/CompanyManagementWarehousEditorPanel.vue'
-import CompanyManagementWarehousePreviewPanel from '@/components/core/company/management/warehouse/preview/CompanyManagementWarehousePreviewPanel.vue'
+import WarehouseDashboardPanel from '@/components/core/company/management/warehouse/dashboard/WarehouseDashboardPanel.vue'
+import WarehouseEditorPanel from '@/components/core/company/management/warehouse/editor/WarehouseEditorPanel.vue'
+import WarehousePreviewPanel from '@/components/core/company/management/warehouse/preview/WarehousePreviewPanel.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -21,17 +21,17 @@ const CompanyManagementWarehouseRoutes: RouteRecordRaw[] = [
   {
     path: 'warehouses/list',
     name: CompanyWarehouseRouteEnum.COMPANY_WAREHOUSE_LIST,
-    component: CompanyManagementWarehouseDashboardPanel
+    component: WarehouseDashboardPanel
   },
   {
     path: 'warehouses/new',
     name: CompanyWarehouseRouteEnum.COMPANY_WAREHOUSE_EDITOR,
-    component: CompanyManagementWarehousEditorPanel
+    component: WarehouseEditorPanel
   },
   {
     path: 'warehouse/:id',
     name: CompanyWarehouseRouteEnum.COMPANY_WAREHOUSE_PREVIEW,
-    component: CompanyManagementWarehousePreviewPanel
+    component: WarehousePreviewPanel
   }
 ]
 

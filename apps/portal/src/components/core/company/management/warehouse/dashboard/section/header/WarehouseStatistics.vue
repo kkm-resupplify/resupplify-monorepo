@@ -1,5 +1,5 @@
 <template>
-  <div>CompanyWarehouseStatistics</div>
+  <div>WarehouseStatistics</div>
 </template>
 
 <script setup lang="ts"></script>

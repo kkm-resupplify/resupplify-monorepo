@@ -1,5 +1,5 @@
 <template>
-  <div class="company-management-warehouse-preview-stats">
+  <div class="warehouse-preview-stats">
     <a-title
       v-for="(stat, idx) in statList"
       :key="idx"
@@ -35,7 +35,7 @@ const getTranslationText = (key: string) => {
 </script>
 
 <style scoped lang="scss">
-.company-management-warehouse-preview-stats {
+.warehouse-preview-stats {
   display: flex;
   flex-direction: column;
   width: 100%;

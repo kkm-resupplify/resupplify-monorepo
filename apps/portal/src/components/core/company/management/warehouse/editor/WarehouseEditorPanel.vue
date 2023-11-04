@@ -1,5 +1,5 @@
 <template>
-  <company-management-panel class="company-management-warehous-editor-panel">
+  <company-management-panel class="warehouse-editor-panel">
     <warehouse-editor-form />
   </company-management-panel>
 </template>
@@ -10,7 +10,7 @@ import WarehouseEditorForm from '@/components/core/company/management/warehouse/
 </script>
 
 <style lang="scss" scoped>
-.company-management-warehous-editor-panel {
+.warehouse-editor-panel {
   display: flex;
 }
 </style>
