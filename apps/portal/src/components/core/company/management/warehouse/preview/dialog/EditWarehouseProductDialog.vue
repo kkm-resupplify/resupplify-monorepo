@@ -33,20 +33,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 
 // Variables
 // https://vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
-
-// Computed
-const products = computed(() => {
-  return [
-    { id: 1, text: 'Product 1' },
-    { id: 2, text: 'Product 2' }
-  ]
-})
 
 // Methods
 const closeDialog = () => {

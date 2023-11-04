@@ -2,14 +2,19 @@
   <a-list-item-wrapper>
     <a-status-indicator :status="warehouseIndicatorStatus" />
 
-    <a-list-item-title-section title="Product name" :value="product.name" :basis="20" />
+    <a-list-item-title-section
+      :title="t('company.management.warehouse.preview.content.productName')"
+      :value="product.name"
+      :basis="20"
+    />
 
-    <div class="warehouse-product-list-item__stats">
+    <div class="warehouse-product-list-item__descriptors">
       <a-list-item-title-section
         v-for="(productStat, idx) in productStatList"
         :key="idx"
         :title="productStat.title"
         :value="productStat.value"
+        :basis="15"
       />
     </div>
 
@@ -20,6 +25,7 @@
 <script setup lang="ts">
 import EditWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/EditWarehouseProductDialog.vue'
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
   product: {
@@ -27,6 +33,9 @@ const props = defineProps({
     required: true
   }
 })
+
+// Variables
+const { t } = useI18n()
 
 // Computed
 const isProductActive = computed(() => {
@@ -50,24 +59,28 @@ const warehouseIndicatorStatus = computed(() => {
 
 const productStatList = computed(() => {
   return [
-    { title: 'Current supply', value: props.product.quantity },
-    { title: 'Safe supply', value: props.product.safeQuantity }
+    {
+      title: t('company.management.warehouse.preview.content.productCode'),
+      value: props.product.code
+    },
+    {
+      title: t('company.management.warehouse.preview.content.currentSupply'),
+      value: props.product.quantity
+    },
+    {
+      title: t('company.management.warehouse.preview.content.safeQuantity'),
+      value: props.product.safeQuantity
+    }
   ]
 })
 </script>
 
 <style scoped lang="scss">
 .warehouse-product-list-item {
-  &__stats {
+  &__descriptors {
     display: flex;
     flex: 1;
     gap: $global-spacing-40;
-  }
-
-  &__stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 }
 </style>
