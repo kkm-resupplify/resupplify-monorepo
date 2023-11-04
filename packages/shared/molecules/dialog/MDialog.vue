@@ -26,7 +26,7 @@
 import { computed, ref } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
-const props = defineProps({
+defineProps({
   title: String
 })
 
@@ -72,17 +72,11 @@ defineExpose({
   }
 
   &__content {
-    @include respond-to('sm-and-down') {
-      max-width: 380px;
-    }
-
     overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
 
-    max-width: 60vw;
-    max-height: 90vh;
     margin-right: auto;
     margin-left: auto;
     padding: $global-spacing-30 $global-spacing-40;
@@ -104,7 +98,7 @@ defineExpose({
   }
 
   &__content-body {
-    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
   }
