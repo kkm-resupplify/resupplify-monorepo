@@ -11,7 +11,8 @@
     "back": "Wstecz",
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
-    "delete": "Usuń"
+    "delete": "Usuń",
+    "update": "Aktualizuj"
   },
 
   "payments": {

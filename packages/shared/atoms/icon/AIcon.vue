@@ -114,7 +114,7 @@ const iconColor = computed(() => {
 
     &:hover {
       color: var(--info);
-      background: rgba($global-colors-grey-100, 0.1);
+      background: var(--hover-primary);
     }
   }
 }
