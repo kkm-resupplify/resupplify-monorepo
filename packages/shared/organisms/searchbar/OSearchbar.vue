@@ -1,6 +1,6 @@
 <template>
   <div :class="generateClasses">
-    <m-text-field name="search" input-type="text" :placeholder="placeholder" />
+    <m-text-field name="search" input-type="text" :placeholder="placeholder" :validate="false" />
     <a-button :text="$t('global.search')" />
   </div>
 </template>
