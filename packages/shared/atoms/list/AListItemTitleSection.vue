@@ -10,9 +10,13 @@
 import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
-defineProps({
+const props = defineProps({
   title: String,
-  value: [String, Number]
+  value: [String, Number],
+  basis: {
+    type: Number,
+    default: 20
+  }
 })
 
 // Variables
@@ -23,11 +27,16 @@ const { generateClassNames } = useClassComposable()
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
+
+const flexBasis = computed(() => {
+  return `${props.basis}%`
+})
 </script>
 
 <style lang="scss" scoped>
 .a-list-item-title-section {
   display: flex;
+  flex-basis: v-bind(flexBasis);
   flex-direction: column;
   align-items: center;
 
