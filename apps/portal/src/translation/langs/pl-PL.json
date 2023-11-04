@@ -242,6 +242,13 @@
             "soldOutProductsCount": "Produkty wyprzedane:",
             "reservedProductsCount": "Ilość zarezerwowanych produktów:",
             "addProduct": "Add product"
+          },
+
+          "content": {
+            "productName": "Nazwa produktu",
+            "productCode": "Kod produktu",
+            "currentSupply": "Aktualna ilość",
+            "safeQuantity": "Bezpieczna ilość"
           }
         }
       }

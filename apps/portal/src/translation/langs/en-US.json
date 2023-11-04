@@ -242,6 +242,13 @@
             "soldOutProductsCount": "Sold-out products:",
             "reservedProductsCount": "Reserved products:",
             "addProduct": "Add product"
+          },
+
+          "content": {
+            "productName": "Product name",
+            "productCode": "Product code",
+            "currentSupply": "Current supply",
+            "safeQuantity": "Safe quantity"
           }
         }
       }
