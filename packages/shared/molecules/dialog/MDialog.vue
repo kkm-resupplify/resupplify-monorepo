@@ -48,6 +48,12 @@ const closeDialog = () => {
 const openDialog = () => {
   showContent.value = true
 }
+
+// Expose
+defineExpose({
+  closeDialog,
+  openDialog
+})
 </script>
 
 <style lang="scss" scoped>
