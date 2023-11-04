@@ -15,5 +15,6 @@ import WarehouseContentSection from '@/components/core/company/management/wareho
 <style lang="scss" scoped>
 .warehouse-dashboard-panel {
   display: flex;
+  width: 100%;
 }
 </style>
