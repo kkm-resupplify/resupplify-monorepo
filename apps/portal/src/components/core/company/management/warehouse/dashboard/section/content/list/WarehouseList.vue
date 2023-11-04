@@ -1,5 +1,6 @@
 <template>
   <div class="warehouse-list">
+    <o-searchbar :placeholder="$t('company.management.navigation.warehouses.search')" />
     <warehouse-list-item
       v-for="i in 5"
       :key="i"
