@@ -377,22 +377,25 @@ const handlePrependIconClick = (event: Event) => {
   }
 
   &__content {
+    @include boxshadow-primary-2;
+
     position: absolute;
     z-index: 10;
-    transform: translateY(calc(v-bind(inputHeight) + $global-spacing-20));
+    transform: translateY(calc(v-bind(inputHeight) + $global-spacing-30));
 
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
 
+    box-sizing: border-box;
     width: calc(100% - $global-spacing-20);
-    max-height: 400px;
-    padding: $global-spacing-10;
+    max-height: calc(5 * 30px);
+    padding: $global-spacing-30;
 
-    background: var(--secondary-1);
+    background: var(--secondary-3);
+    border: 2px solid var(--secondary-2);
     border-radius: $global-border-radius-10;
-    box-shadow: -2px 2px 2px 1px rgb(0 0 0 / 20%), 2px 0 2px 1px rgb(0 0 0 / 20%);
   }
 }
 </style>

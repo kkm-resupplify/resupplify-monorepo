@@ -242,7 +242,7 @@
             "belowSafeQuantityProductsCount": "Produkty poniżej bezpiecznego stanu:",
             "soldOutProductsCount": "Produkty wyprzedane:",
             "reservedProductsCount": "Ilość zarezerwowanych produktów:",
-            "addProduct": "Add product"
+            "addProduct": "Dodaj produkt"
           },
 
           "content": {
@@ -250,6 +250,19 @@
             "productCode": "Kod produktu",
             "currentSupply": "Aktualna ilość",
             "safeQuantity": "Bezpieczna ilość"
+          },
+
+          "dialog": {
+            "addProduct": {
+              "title": "Dodaj produkt do magazynu",
+              "selectProduct": "Wybierz produkt",
+              "selectProductPlaceholder": "Wybierz produkt z listy",
+              "safeQuantityLabel": "Bezpieczna ilość",
+              "safeQuantityPlaceholder": "Wprowadź bezpieczną ilość",
+              "currentSupplyLabel": "Aktualny stan",
+              "currentSupplyPlaceholder": "Wprowadź aktualny stan",
+              "submit": "Dodaj produkt"
+            }
           }
         }
       }
