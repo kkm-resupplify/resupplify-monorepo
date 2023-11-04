@@ -35,7 +35,6 @@ const lineHeight = computed(() => {
 $height-of-line: 8px;
 
 .a-line {
-  position: relative;
   height: v-bind(lineHeight);
 
   &--primary {

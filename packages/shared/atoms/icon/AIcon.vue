@@ -60,6 +60,7 @@ const iconColor = computed(() => {
 }
 
 .a-icon {
+  user-select: none;
   color: v-bind(iconColor);
 
   // Size
