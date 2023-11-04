@@ -29,6 +29,10 @@ const props = defineProps({
   variant: {
     type: String,
     default: 'outlined'
+  },
+  hoverable: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -40,8 +44,10 @@ const { generateClassNames } = useClassComposable()
 
 // Computed
 const generateClasses = computed(() => {
+  const hoverable = props.hoverable ? 'hoverable' : null
+
   return (
-    generateClassNames(baseClass, [props.color, props.size, 'gradient']) +
+    generateClassNames(baseClass, [props.color, props.size, hoverable]) +
     ` material-${props.library}-${props.variant}`
   )
 })
@@ -62,6 +68,7 @@ const iconColor = computed(() => {
 .a-icon {
   user-select: none;
   color: v-bind(iconColor);
+  border-radius: $global-border-radius-20;
 
   // Size
   &--small {
@@ -100,6 +107,15 @@ const iconColor = computed(() => {
     background-position: 100% 100%, 0 100%;
     background-clip: text;
     background-size: 200% 100%;
+  }
+
+  &--hoverable {
+    cursor: pointer;
+
+    &:hover {
+      color: var(--info);
+      background: rgba($global-colors-grey-100, 0.1);
+    }
   }
 }
 </style>
