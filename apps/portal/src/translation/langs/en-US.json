@@ -250,6 +250,19 @@
             "productCode": "Product code",
             "currentSupply": "Current supply",
             "safeQuantity": "Safe quantity"
+          },
+
+          "dialog": {
+            "addProduct": {
+              "title": "Add product to the warehouse",
+              "selectProduct": "Select product",
+              "selectProductPlaceholder": "Select product from the list",
+              "safeQuantityLabel": "Safe quantity",
+              "safeQuantityPlaceholder": "Enter safe quantity",
+              "currentSupplyLabel": "Current supply",
+              "currentSupplyPlaceholder": "Enter current supply",
+              "submit": "Add product"
+            }
           }
         }
       }
