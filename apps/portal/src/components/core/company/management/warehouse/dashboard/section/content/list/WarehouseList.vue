@@ -1,7 +1,7 @@
 <template>
   <div class="warehouse-list">
     <o-search-bar
-      class="warehouse-list__searchbar"
+      class="warehouse-list__search-bar"
       :placeholder="$t('company.management.navigation.warehouses.search')"
     />
 
@@ -21,13 +21,13 @@ import WarehouseListItem from '@/components/core/company/management/warehouse/da
 
 <style scoped lang="scss">
 .warehouse-list {
-  &__searchbar {
-    padding-top: $global-spacing-50;
-    padding-bottom: $global-spacing-100;
+  &__search-bar {
+    margin-top: $global-spacing-60;
     max-width: 450px;
   }
 
   &__items {
+    margin-top: $global-spacing-100;
     display: grid;
     grid-template-columns: repeat(auto-fit, 220px);
     grid-gap: $global-spacing-100;
