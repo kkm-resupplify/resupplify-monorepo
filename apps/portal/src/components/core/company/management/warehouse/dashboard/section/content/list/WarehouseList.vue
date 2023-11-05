@@ -32,7 +32,6 @@ import WarehouseListItem from '@/components/core/company/management/warehouse/da
     grid-template-columns: repeat(auto-fit, 220px);
     grid-gap: $global-spacing-100;
     max-height: 420px;
-    // justify-content: center;
     overflow-y: scroll;
     padding: $global-spacing-20;
   }

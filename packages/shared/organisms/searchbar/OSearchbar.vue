@@ -1,13 +1,14 @@
 <template>
   <div :class="generateClasses">
     <m-text-field name="search" input-type="text" :placeholder="placeholder" :validate="false" />
+
     <a-button :text="$t('global.search')" class="o-searchbar__button" />
   </div>
 </template>
 
 <script setup lang="ts">
 import MTextField from '@sharedMolecules/input/MTextField.vue'
-import { useClassComposable } from '../../composables/class/useClassComposable'
+import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import { computed } from 'vue'
 
 const props = defineProps({
