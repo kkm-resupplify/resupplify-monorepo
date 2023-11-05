@@ -28,6 +28,9 @@
                 <template #activator>
                   <a-button :text="$t('global.delete')" color="gradient-danger" />
                 </template>
+                <div class="delete-warehouse-product-dialog">
+                  
+                </div>
               </m-dialog>
             </div>
           </div>
