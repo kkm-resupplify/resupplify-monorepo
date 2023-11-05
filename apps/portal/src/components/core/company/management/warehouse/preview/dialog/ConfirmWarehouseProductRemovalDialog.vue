@@ -37,14 +37,14 @@
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 
-const props = defineProps({
+defineProps({
   productName: {
     type: String,
     required: true
   }
 })
 
-//Variables
+// Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Methods
@@ -63,8 +63,9 @@ const handleSubmitRemoveProduct = (formData: Record<string, any>) => {
   &__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: $global-spacing-100;
+    align-items: center;
+
     padding: 0 $global-spacing-50 $global-spacing-50 $global-spacing-50;
   }
 
