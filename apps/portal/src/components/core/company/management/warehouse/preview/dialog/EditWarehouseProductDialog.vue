@@ -29,7 +29,14 @@
                   <a-button :text="$t('global.delete')" color="gradient-danger" />
                 </template>
                 <div class="delete-warehouse-product-dialog">
-                  
+                  <a-title
+                    :title="$t('company.management.warehouse.preview.dialog.deleteProduct.title')"
+                    :subtitle="
+                      $t('company.management.warehouse.preview.dialog.deleteProduct.subtitle', {
+                        product: productName
+                      })
+                    "
+                  />
                 </div>
               </m-dialog>
             </div>
@@ -44,10 +51,18 @@
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 
+const props = defineProps({
+  productName: {
+    type: String,
+    required: true
+  }
+})
+
 // Variables
 // https://vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 const productRemovalDialogRef = ref<null | InstanceType<typeof MDialog>>(null)
+
 // Methods
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
