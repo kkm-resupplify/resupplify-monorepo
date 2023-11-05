@@ -11,7 +11,7 @@
         @click="handlePrependIconClick"
       />
 
-      <span class="m-text-field__input-wrapper" :for="name">
+      <div class="m-text-field__input-wrapper" :for="name">
         <input
           :id="name"
           ref="inputRef"
@@ -27,7 +27,7 @@
           @input="handleInputChange"
           @keydown="handleKeydown"
         />
-      </span>
+      </div>
 
       <a-icon
         v-if="showAppendIcon"
@@ -276,10 +276,7 @@ const handleInputChange = () => {
     }
 
     #{$self}__input {
-      @include size(
-        $global-spacing-30 32px $global-spacing-30 $global-spacing-70,
-        $text-input-font-size-md
-      );
+      @include size($global-spacing-30, $text-input-font-size-md);
     }
   }
 
@@ -342,10 +339,13 @@ const handleInputChange = () => {
   &__input-wrapper {
     @include input-gradient(v-bind(borderColor));
 
-    width: 100%;
+    display: flex;
+    flex: 1;
   }
 
   &__input {
+    display: flex;
+
     width: 100%;
 
     line-height: 1;
