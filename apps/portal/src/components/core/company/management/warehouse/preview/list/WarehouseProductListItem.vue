@@ -1,5 +1,5 @@
 <template>
-  <a-list-item-wrapper>
+  <a-list-item-wrapper class="warehouse-product-list-item">
     <a-status-indicator :status="warehouseIndicatorStatus" />
 
     <a-list-item-title-section
@@ -77,6 +77,12 @@ const productStatList = computed(() => {
 
 <style scoped lang="scss">
 .warehouse-product-list-item {
+  background-color: var(--secondary-1);
+
+  &:hover {
+    background: var(--hover-primary);
+  }
+
   &__descriptors {
     display: flex;
     flex: 1;
