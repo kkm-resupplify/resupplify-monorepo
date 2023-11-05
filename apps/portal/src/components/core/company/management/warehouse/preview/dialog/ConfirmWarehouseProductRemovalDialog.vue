@@ -18,7 +18,7 @@
           />
 
           <div class="confirm-warehouse-product-removal-dialog__buttons">
-            <a-button :text="$t('global.cancel')" size="x-large" />
+            <a-button :text="$t('global.cancel')" size="x-large" @click="closeDialog" />
 
             <a-button
               button-type="submit"
