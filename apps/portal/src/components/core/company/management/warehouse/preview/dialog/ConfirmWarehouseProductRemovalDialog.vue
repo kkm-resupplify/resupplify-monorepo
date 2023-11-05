@@ -1,23 +1,35 @@
 <template>
-  <m-dialog ref="productRemovalDialogRef">
+  <m-dialog ref="dialogRef">
     <template #activator>
       <a-button :text="$t('global.delete')" color="gradient-danger" />
     </template>
-    <div class="delete-warehouse-product-dialog">
-      <a-title
-        :title="$t('company.management.warehouse.preview.dialog.deleteProduct.title')"
-        :subtitle="
-          $t('company.management.warehouse.preview.dialog.deleteProduct.subtitle', {
-            product: productName
-          })
-        "
-        class="delete-warehouse-product-dialog__title"
-      />
-      <div class="delete-warehouse-product-dialog__buttons">
-        <a-button :text="$t('global.cancel')" size="x-large" />
-        <a-button :text="$t('global.delete')" color="gradient-danger" size="x-large" />
-      </div>
-    </div>
+
+    <o-form :submit-callback="handleSubmitRemoveProduct">
+      <template #body>
+        <div class="confirm-warehouse-product-removal-dialog__content">
+          <a-title
+            :title="$t('company.management.warehouse.preview.dialog.deleteProduct.title')"
+            :subtitle="
+              $t('company.management.warehouse.preview.dialog.deleteProduct.subtitle', {
+                product: productName
+              })
+            "
+            class="confirm-warehouse-product-removal-dialog__title"
+          />
+
+          <div class="confirm-warehouse-product-removal-dialog__buttons">
+            <a-button :text="$t('global.cancel')" size="x-large" />
+
+            <a-button
+              button-type="submit"
+              :text="$t('global.delete')"
+              color="gradient-danger"
+              size="x-large"
+            />
+          </div>
+        </div>
+      </template>
+    </o-form>
   </m-dialog>
 </template>
 
@@ -33,16 +45,28 @@ const props = defineProps({
 })
 
 //Variables
-const productRemovalDialogRef = ref<null | InstanceType<typeof MDialog>>(null)
+const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
+
+// Methods
+const closeDialog = () => {
+  dialogRef.value?.closeDialog()
+}
+
+const handleSubmitRemoveProduct = (formData: Record<string, any>) => {
+  console.log(formData)
+  closeDialog()
+}
 </script>
 
 <style scoped lang="scss">
-.delete-warehouse-product-dialog {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $global-spacing-100;
-  padding: 0 $global-spacing-50 $global-spacing-50 $global-spacing-50;
+.confirm-warehouse-product-removal-dialog {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $global-spacing-100;
+    padding: 0 $global-spacing-50 $global-spacing-50 $global-spacing-50;
+  }
 
   &__title {
     display: flex;
