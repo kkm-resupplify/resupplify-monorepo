@@ -18,7 +18,7 @@
       />
     </div>
 
-    <edit-warehouse-product-dialog />
+    <edit-warehouse-product-dialog :product-name="product.name" />
   </a-list-item-wrapper>
 </template>
 
