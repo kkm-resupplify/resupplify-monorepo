@@ -36,10 +36,11 @@
                         product: productName
                       })
                     "
+                    class="delete-warehouse-product-dialog__title"
                   />
                   <div class="delete-warehouse-product-dialog__buttons">
-                    <a-button :text="$t('global.cancel')" />
-                    <a-button :text="$t('global.delete')" color="gradient-danger" />
+                    <a-button :text="$t('global.cancel')" size="x-large" />
+                    <a-button :text="$t('global.delete')" color="gradient-danger" size="x-large" />
                   </div>
                 </div>
               </m-dialog>
@@ -98,6 +99,25 @@ const handleSubmitAddProduct = (formData: Record<string, any>) => {
   &__quantity-settings {
     display: flex;
     flex-direction: row;
+    gap: $global-spacing-50;
+  }
+}
+
+.delete-warehouse-product-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $global-spacing-100;
+  padding: 0 $global-spacing-50 $global-spacing-50 $global-spacing-50;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
     gap: $global-spacing-50;
   }
 }
