@@ -1,7 +1,7 @@
 <template>
   <div :class="generateClasses">
     <m-text-field name="search" input-type="text" :placeholder="placeholder" :validate="false" />
-    <a-button :text="$t('global.search')" />
+    <a-button :text="$t('global.search')" class="o-searchbar__button" />
   </div>
 </template>
 
@@ -32,5 +32,9 @@ const generateClasses = computed(() => {
 <style scoped lang="scss">
 .o-searchbar {
   display: flex;
+
+  &__button {
+    border-radius: 0;
+  }
 }
 </style>
