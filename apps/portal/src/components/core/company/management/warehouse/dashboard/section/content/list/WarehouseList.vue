@@ -4,12 +4,12 @@
       class="warehouse-list__searchbar"
       :placeholder="$t('company.management.navigation.warehouses.search')"
     />
+
     <div class="warehouse-list__items">
       <warehouse-list-item
-        v-for="i in 6"
+        v-for="i in 18"
         :key="i"
         :warehouse="{ id: i, name: `Warehouse ${i}`, status: i }"
-        class="warehouse-list__item"
       />
     </div>
   </div>
@@ -29,12 +29,12 @@ import WarehouseListItem from '@/components/core/company/management/warehouse/da
 
   &__items {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 220px);
+    grid-template-columns: repeat(auto-fit, 220px);
     grid-gap: $global-spacing-100;
-  }
-
-  &__item {
-    width: 100%;
+    max-height: 420px;
+    // justify-content: center;
+    overflow-y: scroll;
+    padding: $global-spacing-20;
   }
 }
 </style>
