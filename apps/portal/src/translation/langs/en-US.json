@@ -12,7 +12,8 @@
     "submit": "Submit",
     "imagePreview": "Image preview",
     "delete": "Delete",
-    "update": "Update"
+    "update": "Update",
+    "cancel": "Cancel"
   },
 
   "payments": {

@@ -37,6 +37,10 @@
                       })
                     "
                   />
+                  <div class="delete-warehouse-product-dialog__buttons">
+                    <a-button :text="$t('global.cancel')" />
+                    <a-button :text="$t('global.delete')" color="gradient-danger" />
+                  </div>
                 </div>
               </m-dialog>
             </div>
