@@ -8,7 +8,7 @@
       append-icon-on="close"
     />
 
-    <a-button :text="$t('global.search')" class="o-searchbar__button" />
+    <a-button :text="$t('global.search')" class="o-search-bar__button" />
   </div>
 </template>
 
@@ -25,7 +25,7 @@ defineProps({
 })
 
 // Variables
-const baseClass = 'o-searchbar'
+const baseClass = 'o-search-bar'
 
 // Composable
 const { generateClassNames } = useClassComposable()
@@ -37,7 +37,7 @@ const generateClasses = computed(() => {
 </script>
 
 <style scoped lang="scss">
-.o-searchbar {
+.o-search-bar {
   display: flex;
 
   &__button {

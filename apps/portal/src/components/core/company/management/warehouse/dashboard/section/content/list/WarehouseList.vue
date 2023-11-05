@@ -1,6 +1,6 @@
 <template>
   <div class="warehouse-list">
-    <o-searchbar
+    <o-search-bar
       class="warehouse-list__searchbar"
       :placeholder="$t('company.management.navigation.warehouses.search')"
     />
