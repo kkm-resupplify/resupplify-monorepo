@@ -24,26 +24,7 @@
                 type="number"
                 :validate="false"
               />
-              <m-dialog ref="productRemovalDialogRef">
-                <template #activator>
-                  <a-button :text="$t('global.delete')" color="gradient-danger" />
-                </template>
-                <div class="delete-warehouse-product-dialog">
-                  <a-title
-                    :title="$t('company.management.warehouse.preview.dialog.deleteProduct.title')"
-                    :subtitle="
-                      $t('company.management.warehouse.preview.dialog.deleteProduct.subtitle', {
-                        product: productName
-                      })
-                    "
-                    class="delete-warehouse-product-dialog__title"
-                  />
-                  <div class="delete-warehouse-product-dialog__buttons">
-                    <a-button :text="$t('global.cancel')" size="x-large" />
-                    <a-button :text="$t('global.delete')" color="gradient-danger" size="x-large" />
-                  </div>
-                </div>
-              </m-dialog>
+              <confirm-warehouse-product-removal-dialog :product-name="productName" />
             </div>
           </div>
         </template>
@@ -55,6 +36,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
+import ConfirmWarehouseProductRemovalDialog from './ConfirmWarehouseProductRemovalDialog.vue'
 
 const props = defineProps({
   productName: {
@@ -66,7 +48,6 @@ const props = defineProps({
 // Variables
 // https://vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
-const productRemovalDialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Methods
 const closeDialog = () => {
@@ -99,25 +80,6 @@ const handleSubmitAddProduct = (formData: Record<string, any>) => {
   &__quantity-settings {
     display: flex;
     flex-direction: row;
-    gap: $global-spacing-50;
-  }
-}
-
-.delete-warehouse-product-dialog {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $global-spacing-100;
-  padding: 0 $global-spacing-50 $global-spacing-50 $global-spacing-50;
-
-  &__title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__buttons {
-    display: flex;
     gap: $global-spacing-50;
   }
 }
