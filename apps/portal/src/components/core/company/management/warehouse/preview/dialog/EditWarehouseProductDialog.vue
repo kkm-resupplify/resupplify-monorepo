@@ -24,6 +24,11 @@
                 type="number"
                 :validate="false"
               />
+              <m-dialog ref="productRemovalDialogRef">
+                <template #activator>
+                  <a-button :text="$t('global.delete')" color="gradient-danger" />
+                </template>
+              </m-dialog>
             </div>
           </div>
         </template>
@@ -39,7 +44,7 @@ import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 // Variables
 // https://vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
-
+const productRemovalDialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 // Methods
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
