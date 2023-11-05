@@ -2,7 +2,7 @@
   <div :class="generateClasses">
     <label v-if="label" class="m-text-field__label" :for="name" v-text="label" />
 
-    <div class="m-text-field__input-group">
+    <div class="m-text-field__input-wrapper" :for="name">
       <a-icon
         v-if="showPreppendIcon"
         class="m-text-field__input-prepend"
@@ -11,23 +11,21 @@
         @click="handlePrependIconClick"
       />
 
-      <div class="m-text-field__input-wrapper" :for="name">
-        <input
-          :id="name"
-          ref="inputRef"
-          :class="inputClasses"
-          :name="name"
-          :value="inputValue"
-          :type="inputType"
-          :placeholder="placeholder"
-          :autocomplete="autocomplete"
-          :rules="rules"
-          :disabled="disabled"
-          v-on="validationListeners"
-          @input="handleInputChange"
-          @keydown="handleKeydown"
-        />
-      </div>
+      <input
+        :id="name"
+        ref="inputRef"
+        :class="inputClasses"
+        :name="name"
+        :value="inputValue"
+        :type="inputType"
+        :placeholder="placeholder"
+        :autocomplete="autocomplete"
+        :rules="rules"
+        :disabled="disabled"
+        v-on="validationListeners"
+        @input="handleInputChange"
+        @keydown="handleKeydown"
+      />
 
       <a-icon
         v-if="showAppendIcon"
@@ -308,7 +306,9 @@ const handleInputChange = () => {
     letter-spacing: 0.1em;
   }
 
-  &__input-group {
+  &__input-wrapper {
+    @include input-gradient(v-bind(borderColor));
+
     display: flex;
     flex: 1;
     align-items: center;
@@ -317,30 +317,15 @@ const handleInputChange = () => {
   &__input-append {
     cursor: pointer;
     user-select: none;
-
-    position: absolute;
-    left: 100%;
-    transform: translateX(-200%);
-
     display: flex;
+    padding-right: $global-spacing-20;
   }
 
   &__input-prepend {
     cursor: pointer;
     user-select: none;
-
-    position: absolute;
-    z-index: 2;
-    left: $global-spacing-10;
-
     display: flex;
-  }
-
-  &__input-wrapper {
-    @include input-gradient(v-bind(borderColor));
-
-    display: flex;
-    flex: 1;
+    padding-left: $global-spacing-20;
   }
 
   &__input {
