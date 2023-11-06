@@ -1,11 +1,11 @@
 <template>
-  <company-management-panel class="warehouse-editor-panel">
+  <a-panel class="warehouse-editor-panel">
     <warehouse-editor-form />
-  </company-management-panel>
+  </a-panel>
 </template>
 
 <script setup lang="ts">
-import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
+
 import WarehouseEditorForm from '@/components/core/company/management/warehouse/editor/form/WarehouseEditorForm.vue'
 </script>
 

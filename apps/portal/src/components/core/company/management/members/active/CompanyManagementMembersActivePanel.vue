@@ -1,11 +1,10 @@
 <template>
-  <company-management-panel class="company-management-members-active-panel">
+  <a-panel class="company-management-members-active-panel">
     <company-member-list />
-  </company-management-panel>
+  </a-panel>
 </template>
 
 <script setup lang="ts">
-import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
 import CompanyMemberList from '@/components/core/company/management/members/active/components/CompanyMemberList.vue'
 </script>
 

@@ -1,11 +1,10 @@
 <template>
-  <company-management-panel class="company-members-view">
+  <a-panel class="company-members-view">
     <m-tile-list :tiles="tiles" />
-  </company-management-panel>
+  </a-panel>
 </template>
 
 <script setup lang="ts">
-import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
 import { RouteNames } from '@/routes/index'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'

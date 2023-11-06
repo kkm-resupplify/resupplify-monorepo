@@ -1,13 +1,12 @@
 <template>
-  <company-management-panel class="warehouse-dashboard-panel">
+  <a-panel class="warehouse-dashboard-panel">
     <warehouse-header-section />
 
     <warehouse-content-section :warehouses="warehouses" />
-  </company-management-panel>
+  </a-panel>
 </template>
 
 <script setup lang="ts">
-import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
 import WarehouseHeaderSection from '@/components/core/company/management/warehouse/dashboard/section/header/WarehouseHeaderSection.vue'
 import WarehouseContentSection from '@/components/core/company/management/warehouse/dashboard/section/content/WarehouseContentSection.vue'
 import WarehouseService from '@/services/warehouse/WarehouseService'
