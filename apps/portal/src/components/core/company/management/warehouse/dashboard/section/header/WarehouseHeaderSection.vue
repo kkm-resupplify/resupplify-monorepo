@@ -1,7 +1,5 @@
 <template>
   <div class="warehouse-header-section">
-    WarehouseHeaderSection
-
     <warehouse-needing-attention />
 
     <warehouse-statistics />
