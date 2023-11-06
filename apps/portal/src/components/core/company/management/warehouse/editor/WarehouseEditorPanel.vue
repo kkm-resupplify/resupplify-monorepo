@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-
 import WarehouseEditorForm from '@/components/core/company/management/warehouse/editor/form/WarehouseEditorForm.vue'
 </script>
 

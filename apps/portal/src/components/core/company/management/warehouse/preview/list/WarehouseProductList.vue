@@ -22,6 +22,7 @@ defineProps({
 })
 
 // Variables
+// TODO: remove this
 const warehouseProducts = reactive([
   { id: 1, code: 'QJSD1128s', name: 'Shampoo', quantity: 1200, safeQuantity: 500, status: 0 },
   { id: 2, code: 'QJSD1128s', name: 'Toothpaste', quantity: 340, safeQuantity: 300, status: 1 },

@@ -2,7 +2,7 @@
   <a-panel-section class="warehouse-preview-content-section">
     <a-title title="Warehouse products" size="large" />
 
-    <warehouse-product-list v-if="true" :products="products" />
+    <warehouse-product-list v-if="products.length" :products="products" />
 
     <a-list-no-results
       v-else

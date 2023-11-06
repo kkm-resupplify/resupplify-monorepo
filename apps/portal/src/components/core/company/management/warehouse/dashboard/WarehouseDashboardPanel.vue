@@ -10,17 +10,22 @@
 import WarehouseHeaderSection from '@/components/core/company/management/warehouse/dashboard/section/header/WarehouseHeaderSection.vue'
 import WarehouseContentSection from '@/components/core/company/management/warehouse/dashboard/section/content/WarehouseContentSection.vue'
 import WarehouseService from '@/services/warehouse/WarehouseService'
-import { onBeforeMount, reactive } from 'vue'
+import { onBeforeMount, reactive, ref } from 'vue'
 import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
 
 // Variables
 const warehouses = reactive<Warehouse[]>([])
+const isLoading = ref(false)
 
 // Methods
 const handleFetchWarehouses = async () => {
+  isLoading.value = true
+
   const { data, success } = await WarehouseService.getWarehouses()
 
   if (success) warehouses.push(...(data as Warehouse[]))
+
+  isLoading.value = false
 }
 
 // Hooks
