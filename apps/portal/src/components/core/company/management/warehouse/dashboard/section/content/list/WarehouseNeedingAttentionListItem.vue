@@ -1,11 +1,11 @@
 <template>
-  <m-tile :to="warehouseLink">
-    <div class="warehouse-list-item__header">
+  <router-link :to="warehouseLink" class="warehouse-needing-attention-list-item">
+    <a-list-item-wrapper :to="warehouseLink">
       <a-status-indicator :status="warehouse.status" />
-    </div>
 
-    <div class="warehouse-list-item__content">{{ warehouse.name }}</div>
-  </m-tile>
+      <div class="warehouse-needing-attention-list-item__content">{{ warehouse.name }}</div>
+    </a-list-item-wrapper>
+  </router-link>
 </template>
 
 <script setup lang="ts">
@@ -26,4 +26,8 @@ const warehouseLink = computed(() => {
 })
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.warehouse-needing-attention-list-item {
+  text-decoration: none;
+}
+</style>
