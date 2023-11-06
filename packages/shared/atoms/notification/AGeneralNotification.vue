@@ -30,6 +30,7 @@
               :icon="notificationIcon"
               :color="iconColor"
               size="xx-large"
+              gradient
             />
           </div>
         </div>

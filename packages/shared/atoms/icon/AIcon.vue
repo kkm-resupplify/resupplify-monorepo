@@ -33,7 +33,8 @@ const props = defineProps({
   hoverable: {
     type: Boolean,
     default: false
-  }
+  },
+  gradient: Boolean
 })
 
 // Variables
@@ -45,9 +46,10 @@ const { generateClassNames } = useClassComposable()
 // Computed
 const generateClasses = computed(() => {
   const hoverable = props.hoverable ? 'hoverable' : null
+  const gradient = props.gradient ? 'gradient' : null
 
   return (
-    generateClassNames(baseClass, [props.color, props.size, hoverable]) +
+    generateClassNames(baseClass, [props.color, props.size, hoverable, gradient]) +
     ` material-${props.library}-${props.variant}`
   )
 })
