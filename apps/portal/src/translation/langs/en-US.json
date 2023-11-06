@@ -3,7 +3,7 @@
     "welcome": "Welcome",
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
-    "errorOccured": "An error occured", 
+    "errorOccured": "An error occured",
     "edit": "Edit",
     "noResults": "No results",
     "next": "Next",
@@ -201,6 +201,7 @@
         "warehouses": {
           "title": "Warehouses",
           "search": "Search warehouses",
+          "companyWarehouses": "Company warehousehouses",
 
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
@@ -211,6 +212,10 @@
             "warehouseCreatedTitle": "Warehouse created successfully",
             "warehouseUpdatedTitle": "Warehouse updated successfully",
             "warehouseDeletedTitle": "Warehouse deleted successfully"
+          },
+
+          "list": {
+            "noWarehouses": "Your company does not have any warehouses yet."
           }
         },
 

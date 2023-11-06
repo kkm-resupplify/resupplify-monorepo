@@ -1,6 +1,9 @@
 <template>
-  <div>
-    CompanyWarehouseContentSection
+  <div class="warehouse-content-section">
+    <a-title
+      :title="$t('company.management.navigation.warehouses.companyWarehouses')"
+      size="large"
+    />
 
     <warehouse-list :warehouses="warehouses" />
   </div>
@@ -17,3 +20,16 @@ defineProps({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.warehouse-content-section {
+  @include default-border-1;
+  display: flex;
+  flex-direction: column;
+  gap: $global-spacing-30;
+
+  padding: $global-spacing-20 $global-spacing-30;
+
+  background-color: var(--secondary-1);
+}
+</style>

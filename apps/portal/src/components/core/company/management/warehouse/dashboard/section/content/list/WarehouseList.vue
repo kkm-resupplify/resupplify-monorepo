@@ -5,13 +5,20 @@
       :placeholder="$t('company.management.navigation.warehouses.search')"
     />
 
-    <div class="warehouse-list__items">
+    <a-line :height="2" color="secondary-2" />
+
+    <div v-if="warehouses?.length" class="warehouse-list__items">
       <warehouse-list-item
         v-for="(warehouse, idx) in warehouses"
         :key="idx"
         :warehouse="warehouse"
       />
     </div>
+
+    <a-list-no-results
+      v-else
+      :text="$t('company.management.navigation.warehouses.list.noWarehouses')"
+    />
   </div>
 </template>
 
@@ -31,19 +38,18 @@ defineProps({
 .warehouse-list {
   display: flex;
   flex-direction: column;
-  gap: $global-spacing-70;
+  gap: $global-spacing-40;
 
   &__search-bar {
     max-width: 450px;
   }
 
   &__items {
-    overflow-y: scroll;
+    overflow-y: auto;
     display: grid;
+    grid-auto-flow: column;
     grid-gap: $global-spacing-100;
-    grid-template-columns: repeat(auto-fit, 220px);
 
-    max-height: 420px;
     padding: $global-spacing-20;
   }
 }

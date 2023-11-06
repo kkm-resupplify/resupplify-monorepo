@@ -201,10 +201,21 @@
         "warehouses": {
           "title": "Magazyny",
           "search": "Szukaj magazynów",
+          "companyWarehouses": "Magazyny firmy",
 
           "tiles": {
             "companyWarehouses": "Panel magazynów",
             "newWarehouse": "Nowy magazyn"
+          },
+
+          "notification": {
+            "warehouseCreatedTitle": "Warehouse created successfully",
+            "warehouseUpdatedTitle": "Warehouse updated successfully",
+            "warehouseDeletedTitle": "Warehouse deleted successfully"
+          },
+
+          "list": {
+            "noWarehouses": "Twoja firma nie ma jeszcze żadnych magazynów."
           }
         },
 
