@@ -25,7 +25,6 @@ const generateClasses = computed(() => {
 <style lang="scss" scoped>
 .a-list-no-results {
   display: flex;
-  flex: 1;
   gap: $global-spacing-40;
   align-items: center;
 

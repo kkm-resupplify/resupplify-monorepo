@@ -8,8 +8,6 @@
 import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
-const props = defineProps({})
-
 // Variables
 const baseClass = 'a-panel-section'
 const { generateClassNames } = useClassComposable()
