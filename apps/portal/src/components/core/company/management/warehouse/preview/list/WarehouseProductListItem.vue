@@ -77,7 +77,7 @@ const productStatList = computed(() => {
 
 <style scoped lang="scss">
 .warehouse-product-list-item {
-  background-color: var(--secondary-1);
+  background-color: var(--primary);
 
   &:hover {
     background: var(--hover-primary);

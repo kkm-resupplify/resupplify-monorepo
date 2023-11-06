@@ -49,7 +49,7 @@ const generateClasses = computed(() => {
   text-decoration: none;
   word-break: break;
 
-  background-color: var(--secondary-1);
+  background-color: var(--primary);
   border-radius: $global-border-radius-20;
 
   transition: transform 0.2s;

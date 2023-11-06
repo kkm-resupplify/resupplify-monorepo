@@ -1,6 +1,8 @@
 <template>
   <a-panel>
-    <m-tile-list :tiles="tiles" />
+    <a-panel-section>
+      <m-tile-list :tiles="tiles" />
+    </a-panel-section>
   </a-panel>
 </template>
 

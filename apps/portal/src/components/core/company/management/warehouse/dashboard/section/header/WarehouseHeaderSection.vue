@@ -10,5 +10,3 @@
 import WarehouseNeedingAttention from '@/components/core/company/management/warehouse/dashboard/section/header/WarehouseNeedingAttention.vue'
 import WarehouseStatistics from '@/components/core/company/management/warehouse/dashboard/section/header/WarehouseStatistics.vue'
 </script>
-
-<style scoped lang="scss"></style>

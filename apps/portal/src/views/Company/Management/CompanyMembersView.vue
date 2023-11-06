@@ -1,6 +1,8 @@
 <template>
-  <a-panel class="company-members-view">
-    <m-tile-list :tiles="tiles" />
+  <a-panel>
+    <a-panel-section>
+      <m-tile-list :tiles="tiles" />
+    </a-panel-section>
   </a-panel>
 </template>
 

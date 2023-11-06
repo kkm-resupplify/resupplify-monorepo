@@ -5,7 +5,7 @@
       size="large"
     />
 
-    <warehouse-product-list v-if="products.length" :products="products" />
+    <warehouse-product-list v-if="true" :products="products" />
 
     <a-list-no-results v-else :text="$t('company.management.warehouse.preview.list.noProducts')" />
   </a-panel-section>

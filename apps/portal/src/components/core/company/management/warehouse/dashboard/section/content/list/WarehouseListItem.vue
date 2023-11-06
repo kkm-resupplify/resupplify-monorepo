@@ -4,7 +4,7 @@
       <a-status-indicator :status="warehouse.status" />
     </div>
 
-    <div class="warehouse-list-item__content">{{ warehouse.name }}</div>
+    <div class="warehouse-list-item__content" v-text="warehouse.name" />
   </m-tile>
 </template>
 
