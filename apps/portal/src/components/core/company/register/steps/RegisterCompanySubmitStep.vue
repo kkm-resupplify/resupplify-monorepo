@@ -22,6 +22,7 @@
 <script setup lang="ts">
 import type { RegisterCompanyContactInfoStep } from '@interfaces/company/RegisterCompanyInterface'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
+import { useUserStore } from '@/stores/user/useUserStore'
 import RegisterCompanyService from '@/services/company/RegisterCompanyService'
 
 // Emits
@@ -32,7 +33,14 @@ const registerCompanyStore = useRegisterCompanyStore()
 
 // Methods
 const handleSubmit = async () => {
-  await RegisterCompanyService.register(registerCompanyStore.registerCompanyFormData)
+  const userStore = useUserStore()
+  const { data } = await RegisterCompanyService.register(
+    registerCompanyStore.registerCompanyFormData
+  )
+
+  if (data) {
+    userStore.setUserCompany(data)
+  }
 }
 
 const handlePreviousStep = (values: RegisterCompanyContactInfoStep) => {
