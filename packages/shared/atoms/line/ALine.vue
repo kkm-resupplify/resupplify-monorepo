@@ -41,6 +41,22 @@ $height-of-line: 8px;
     background: var(--font-primary);
   }
 
+  &--secondary-1 {
+    background: var(--secondary-1);
+  }
+
+  &--secondary-2 {
+    background: var(--secondary-2);
+  }
+
+  &--secondary-3 {
+    background: var(--secondary-3);
+  }
+
+  &--secondary-4 {
+    background: var(--secondary-4);
+  }
+
   &--triangle {
     clip-path: polygon(0 0, 100% 0, 99% 100%, 0 100%);
   }
