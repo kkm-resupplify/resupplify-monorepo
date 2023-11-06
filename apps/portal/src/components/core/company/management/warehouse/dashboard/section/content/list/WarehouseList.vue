@@ -7,9 +7,9 @@
 
     <div class="warehouse-list__items">
       <warehouse-list-item
-        v-for="i in 18"
-        :key="i"
-        :warehouse="{ id: i, name: `Warehouse ${i}`, status: i }"
+        v-for="(warehouse, idx) in warehouses"
+        :key="idx"
+        :warehouse="warehouse"
       />
     </div>
   </div>
@@ -17,6 +17,14 @@
 
 <script setup lang="ts">
 import WarehouseListItem from '@/components/core/company/management/warehouse/dashboard/section/content/list/WarehouseListItem.vue'
+import type { PropType } from 'vue'
+import type { Warehouse } from '@/interfaces/warehouse/WarehouseInterface'
+
+defineProps({
+  warehouses: {
+    type: Array as PropType<Warehouse[]>
+  }
+})
 </script>
 
 <style scoped lang="scss">

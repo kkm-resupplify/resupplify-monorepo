@@ -1,13 +1,9 @@
 import BaseService from '../BaseService'
+import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
 
 class WarehouseService extends BaseService {
   async getWarehouses() {
-    const response = await this.get({
-      notificationTitle:
-        'company.management.navigation.warehouses.notification.warehouseCreatedTitle'
-    })
-
-    return response
+    return await this.get({})
   }
 
   async getWarehouse(id: number) {
