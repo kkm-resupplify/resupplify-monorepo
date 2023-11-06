@@ -21,18 +21,21 @@ import WarehouseListItem from '@/components/core/company/management/warehouse/da
 
 <style scoped lang="scss">
 .warehouse-list {
+  display: flex;
+  flex-direction: column;
+  gap: $global-spacing-70;
+
   &__search-bar {
-    margin-top: $global-spacing-60;
     max-width: 450px;
   }
 
   &__items {
-    margin-top: $global-spacing-100;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 220px);
-    grid-gap: $global-spacing-100;
-    max-height: 420px;
     overflow-y: scroll;
+    display: grid;
+    grid-gap: $global-spacing-100;
+    grid-template-columns: repeat(auto-fit, 220px);
+
+    max-height: 420px;
     padding: $global-spacing-20;
   }
 }
