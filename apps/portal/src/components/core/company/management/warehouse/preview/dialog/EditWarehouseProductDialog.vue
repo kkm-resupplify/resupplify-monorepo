@@ -24,6 +24,7 @@
                 type="number"
                 :validate="false"
               />
+              <confirm-warehouse-product-removal-dialog :product-name="productName" />
             </div>
           </div>
         </template>
@@ -35,6 +36,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
+import ConfirmWarehouseProductRemovalDialog from './ConfirmWarehouseProductRemovalDialog.vue'
+
+const props = defineProps({
+  productName: {
+    type: String,
+    required: true
+  }
+})
 
 // Variables
 // https://vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs

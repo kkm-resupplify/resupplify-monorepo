@@ -13,7 +13,8 @@
     "delete": "Delete",
     "save": "Save",
     "search": "Search",
-    "update": "Update"
+    "update": "Update",
+    "cancel": "Cancel"
   },
 
   "payments": {
@@ -264,6 +265,11 @@
               "currentSupplyLabel": "Current supply",
               "currentSupplyPlaceholder": "Enter current supply",
               "submit": "Add product"
+            },
+
+            "deleteProduct": {
+              "title": "Confirm warehouse product removal",
+              "subtitle": "Are you sure you want to remove {product} from this warehouse?"
             }
           }
         }
