@@ -1,6 +1,6 @@
 <template>
-  <div :class="generateClasses">
-    <div ref="dropdown" class="a-dropdown__activator" @click="toggleShowContent">
+  <div ref="dropdown" :class="generateClasses">
+    <div class="a-dropdown__activator" @click="toggleShowContent">
       <slot name="activator" />
     </div>
 
