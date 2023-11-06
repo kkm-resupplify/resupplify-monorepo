@@ -12,6 +12,7 @@
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
     "delete": "Usuń",
+    "search": "Szukaj",
     "update": "Aktualizuj",
     "cancel": "Anuluj"
   },
@@ -199,6 +200,7 @@
 
         "warehouses": {
           "title": "Magazyny",
+          "search": "Szukaj magazynów",
 
           "tiles": {
             "companyWarehouses": "Panel magazynów",

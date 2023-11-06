@@ -1,10 +1,17 @@
 <template>
   <div class="warehouse-list">
-    <warehouse-list-item
-      v-for="i in 5"
-      :key="i"
-      :warehouse="{ id: i, name: `Warehouse ${i}`, status: i }"
+    <o-search-bar
+      class="warehouse-list__search-bar"
+      :placeholder="$t('company.management.navigation.warehouses.search')"
     />
+
+    <div class="warehouse-list__items">
+      <warehouse-list-item
+        v-for="i in 18"
+        :key="i"
+        :warehouse="{ id: i, name: `Warehouse ${i}`, status: i }"
+      />
+    </div>
   </div>
 </template>
 
@@ -14,8 +21,22 @@ import WarehouseListItem from '@/components/core/company/management/warehouse/da
 
 <style scoped lang="scss">
 .warehouse-list {
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: $global-spacing-100;
+  display: flex;
+  flex-direction: column;
+  gap: $global-spacing-70;
+
+  &__search-bar {
+    max-width: 450px;
+  }
+
+  &__items {
+    overflow-y: scroll;
+    display: grid;
+    grid-gap: $global-spacing-100;
+    grid-template-columns: repeat(auto-fit, 220px);
+
+    max-height: 420px;
+    padding: $global-spacing-20;
+  }
 }
 </style>
