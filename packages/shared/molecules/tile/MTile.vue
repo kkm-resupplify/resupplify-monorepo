@@ -33,7 +33,7 @@ const generateClasses = computed(() => {
 .m-tile {
   $self: &;
 
-  @include boxshadow-primary-2;
+  @include default-border-1-hover;
 
   display: flex;
   flex: 1;
