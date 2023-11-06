@@ -206,7 +206,8 @@
           },
 
           "needingAttention": {
-            "title": "Magazyny wymagające uwagi"
+            "title": "Magazyny wymagające uwagi",
+            "buttonText": "Sprawdź szczegóły"
           }
         },
 

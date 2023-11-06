@@ -3,7 +3,11 @@
     <a-list-item-wrapper :to="warehouseLink">
       <a-status-indicator :status="warehouse.status" />
 
-      <div class="warehouse-needing-attention-list-item__content">{{ warehouse.name }}</div>
+      <div>{{ warehouse.name }}</div>
+      <a-button
+        :text="$t('company.management.navigation.warehouses.needingAttention.buttonText')"
+        class="warehouse-needing-attention-list-item__button"
+      />
     </a-list-item-wrapper>
   </router-link>
 </template>
@@ -29,5 +33,9 @@ const warehouseLink = computed(() => {
 <style scoped lang="scss">
 .warehouse-needing-attention-list-item {
   text-decoration: none;
+
+  &__button {
+    margin-left: auto;
+  }
 }
 </style>

@@ -206,7 +206,8 @@
           },
 
           "needingAttention": {
-            "title": "Warehouses needing attention"
+            "title": "Warehouses needing attention",
+            "buttonText": "Check details"
           }
         },
 
