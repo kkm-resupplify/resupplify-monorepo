@@ -205,6 +205,12 @@
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"
+          },
+
+          "notification": {
+            "warehouseCreatedTitle": "Warehouse created successfully",
+            "warehouseUpdatedTitle": "Warehouse updated successfully",
+            "warehouseDeletedTitle": "Warehouse deleted successfully"
           }
         },
 
