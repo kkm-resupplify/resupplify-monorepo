@@ -1,5 +1,5 @@
 <template>
-  <div class="warehouse-preview-header-section">
+  <a-panel-section class="warehouse-preview-header-section">
     <a-title size="x-large" :title="warehouse.title" />
 
     <div class="warehouse-preview-header-section__content">
@@ -7,7 +7,7 @@
 
       <add-warehouse-product-dialog />
     </div>
-  </div>
+  </a-panel-section>
 </template>
 
 <script setup lang="ts">

@@ -2,15 +2,47 @@
   <a-panel class="warehouse-preview-panel">
     <warehouse-preview-header-section />
 
-    <a-line :height="1" />
+    <a-line :height="2" color="secondary-2" />
 
-    <warehouse-preview-content-section />
+    <warehouse-preview-content-section :products="warehouseProducts" />
   </a-panel>
 </template>
 
 <script setup lang="ts">
+import { computed, ref, onBeforeMount } from 'vue'
+import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
 import WarehousePreviewHeaderSection from '@/components/core/company/management/warehouse/preview/section/header/WarehousePreviewHeaderSection.vue'
 import WarehousePreviewContentSection from '@/components/core/company/management/warehouse/preview/section/content/WarehousePreviewContentSection.vue'
+import { useRoute } from 'vue-router'
+import WarehouseService from '@/services/warehouse/WarehouseService'
+
+// Variables
+const isLoading = ref(false)
+const route = useRoute()
+
+const warehouse = ref<Warehouse>()
+
+// Computed
+const warehouseId = computed(() => route.params.id)
+const warehouseProducts = computed(() => (warehouse.value ? warehouse.value.products : []))
+
+// Methods
+const handleFetchWarehouse = async () => {
+  isLoading.value = true
+
+  const { data, success } = await WarehouseService.getWarehouse(+warehouseId.value)
+
+  if (success) {
+    warehouse.value = data
+  }
+
+  isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchWarehouse()
+})
 </script>
 
 <style lang="scss" scoped>

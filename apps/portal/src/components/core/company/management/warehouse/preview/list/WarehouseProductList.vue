@@ -11,6 +11,15 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import WarehouseProductListItem from '@/components/core/company/management/warehouse/preview/list/WarehouseProductListItem.vue'
+import type { Product } from '@interfaces/product/ProductInterface'
+import type { PropType } from 'vue'
+
+defineProps({
+  products: {
+    type: Array as PropType<Product[]>,
+    required: true
+  }
+})
 
 // Variables
 const warehouseProducts = reactive([
@@ -47,7 +56,8 @@ const warehouseProducts = reactive([
     safeQuantity: 250,
     status: 1
   },
-  { id: 20, code: 'QJSD1128s', name: 'Candles', quantity: 0, safeQuantity: 100, status: 0 }
+  { id: 20, code: 'QJSD1128s', name: 'Candles', quantity: 0, safeQuantity: 100, status: 0 },
+  { id: 1, code: 'QJSD1128s', name: 'Shampoo', quantity: 1200, safeQuantity: 500, status: 0 }
 ])
 </script>
 
