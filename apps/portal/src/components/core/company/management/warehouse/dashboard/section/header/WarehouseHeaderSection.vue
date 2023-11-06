@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <a-panel-section>
     WarehouseHeaderSection
 
     <warehouse-needing-attention />
 
     <warehouse-statistics />
-  </div>
+  </a-panel-section>
 </template>
 
 <script setup lang="ts">

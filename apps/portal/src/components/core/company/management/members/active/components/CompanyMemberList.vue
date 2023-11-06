@@ -1,5 +1,5 @@
 <template>
-  <div class="company-member-list">
+  <a-panel-section class="company-member-list">
     <div class="company-member-list__header">
       <a-title size="large" :title="$t('company.management.navigation.members.title')" />
 
@@ -20,7 +20,7 @@
         @delete-member="handleFetchCompanyMembers"
       />
     </div>
-  </div>
+  </a-panel-section>
 </template>
 
 <script setup lang="ts">

@@ -8,8 +8,6 @@
 import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
-const props = defineProps({})
-
 // Variables
 const baseClass = 'a-panel'
 const { generateClassNames } = useClassComposable()
@@ -24,6 +22,8 @@ const generateClasses = computed(() => {
 .a-panel {
   display: flex;
   flex-direction: column;
+  gap: $global-spacing-30;
+
   max-height: 800px;
   padding: $global-spacing-40 $global-spacing-50;
 }
