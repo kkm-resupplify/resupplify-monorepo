@@ -1,7 +1,5 @@
 <template>
   <a-panel-section>
-    WarehouseHeaderSection
-
     <warehouse-needing-attention />
 
     <warehouse-statistics />
