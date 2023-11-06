@@ -20,6 +20,8 @@ const generateClasses = computed(() => {
 
 <style lang="scss" scoped>
 .a-list-item-wrapper {
+  @include default-border-1-hover;
+
   display: flex;
   flex: 1;
   gap: $global-spacing-40;
@@ -28,7 +30,6 @@ const generateClasses = computed(() => {
   box-sizing: border-box;
   padding: $global-spacing-40;
 
-  border: 1px solid var(--secondary-2);
   border-radius: $global-border-radius-10;
 }
 </style>
