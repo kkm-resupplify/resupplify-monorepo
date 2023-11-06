@@ -215,7 +215,8 @@
           },
 
           "list": {
-            "noWarehouses": "Your company does not have any warehouses yet."
+            "noWarehouses": "Your company does not have any warehouses yet.",
+            "noProducts": "Your company does not have any products assigned to this warehouse yet."
           }
         },
 
