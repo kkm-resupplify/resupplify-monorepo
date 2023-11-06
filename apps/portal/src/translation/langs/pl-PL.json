@@ -12,7 +12,8 @@
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
     "delete": "Usuń",
-    "update": "Aktualizuj"
+    "update": "Aktualizuj",
+    "cancel": "Anuluj"
   },
 
   "payments": {
@@ -262,6 +263,11 @@
               "currentSupplyLabel": "Aktualny stan",
               "currentSupplyPlaceholder": "Wprowadź aktualny stan",
               "submit": "Dodaj produkt"
+            },
+
+            "deleteProduct": {
+              "title": "Potwierdź usunięcie produktu",
+              "subtitle": "Czy jesteś pewny aby usunąć {product} z tego magazynu?"
             }
           }
         }
