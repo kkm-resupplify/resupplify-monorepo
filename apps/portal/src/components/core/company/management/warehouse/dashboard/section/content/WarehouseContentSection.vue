@@ -1,7 +1,7 @@
 <template>
   <a-panel-section>
     <a-title
-      :title="$t('company.management.navigation.warehouses.companyWarehouses')"
+      :title="$t('company.management.warehouse.preview.content.companyWarehouses')"
       size="large"
     />
 

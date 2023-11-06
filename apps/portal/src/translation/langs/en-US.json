@@ -200,23 +200,10 @@
 
         "warehouses": {
           "title": "Warehouses",
-          "search": "Search warehouses",
-          "companyWarehouses": "Company warehousehouses",
 
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"
-          },
-
-          "notification": {
-            "warehouseCreatedTitle": "Warehouse created successfully",
-            "warehouseUpdatedTitle": "Warehouse updated successfully",
-            "warehouseDeletedTitle": "Warehouse deleted successfully"
-          },
-
-          "list": {
-            "noWarehouses": "Your company does not have any warehouses yet.",
-            "noProducts": "Your company does not have any products assigned to this warehouse yet."
           }
         },
 
@@ -248,7 +235,9 @@
           "namePlaceholder": "Enter name",
           "descriptionLabel": "Description",
           "descriptionPlaceholder": "Enter description",
-          "create": "Create"
+          "create": "Create",
+          "search": "Search warehouses",
+          "companyWarehouses": "Company warehousehouses"
         },
 
         "preview": {
@@ -261,6 +250,7 @@
           },
 
           "content": {
+            "warehouseProducts": "Warehouse products",
             "productName": "Product name",
             "productCode": "Product code",
             "currentSupply": "Current supply",
@@ -283,6 +273,17 @@
               "title": "Confirm warehouse product removal",
               "subtitle": "Are you sure you want to remove {product} from this warehouse?"
             }
+          },
+
+          "notification": {
+            "warehouseCreatedTitle": "Warehouse created successfully",
+            "warehouseUpdatedTitle": "Warehouse updated successfully",
+            "warehouseDeletedTitle": "Warehouse deleted successfully"
+          },
+
+          "list": {
+            "noWarehouses": "Your company does not have any warehouses yet.",
+            "noProducts": "Your company does not have any products assigned to this warehouse yet."
           }
         }
       }

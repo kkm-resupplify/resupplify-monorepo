@@ -1,6 +1,8 @@
 <template>
   <a-panel class="warehouse-editor-panel">
-    <warehouse-editor-form />
+    <a-panel-section>
+      <warehouse-editor-form />
+    </a-panel-section>
   </a-panel>
 </template>
 

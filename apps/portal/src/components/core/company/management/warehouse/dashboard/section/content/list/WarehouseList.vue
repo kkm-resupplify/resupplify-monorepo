@@ -2,7 +2,7 @@
   <div class="warehouse-list">
     <o-search-bar
       class="warehouse-list__search-bar"
-      :placeholder="$t('company.management.navigation.warehouses.search')"
+      :placeholder="$t('company.management.warehouse.preview.content.search')"
     />
 
     <a-line :height="2" color="secondary-2" />

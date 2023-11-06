@@ -200,23 +200,10 @@
 
         "warehouses": {
           "title": "Magazyny",
-          "search": "Szukaj magazynów",
-          "companyWarehouses": "Magazyny firmy",
 
           "tiles": {
             "companyWarehouses": "Panel magazynów",
             "newWarehouse": "Nowy magazyn"
-          },
-
-          "notification": {
-            "warehouseCreatedTitle": "Warehouse created successfully",
-            "warehouseUpdatedTitle": "Warehouse updated successfully",
-            "warehouseDeletedTitle": "Warehouse deleted successfully"
-          },
-
-          "list": {
-            "noWarehouses": "Twoja firma nie ma jeszcze żadnych magazynów.",
-            "noProducts": "Twoja firma nie ma jeszcze żadnych produktów przypisanych do tego magazynu."
           }
         },
 
@@ -261,10 +248,13 @@
           },
 
           "content": {
+            "warehouseProducts": "Produkty w magazynie",
             "productName": "Nazwa produktu",
             "productCode": "Kod produktu",
             "currentSupply": "Aktualna ilość",
-            "safeQuantity": "Bezpieczna ilość"
+            "safeQuantity": "Bezpieczna ilość",
+            "search": "Szukaj magazynów",
+            "companyWarehouses": "Magazyny firmy"
           },
 
           "dialog": {
@@ -283,6 +273,17 @@
               "title": "Potwierdź usunięcie produktu",
               "subtitle": "Czy jesteś pewny aby usunąć {product} z tego magazynu?"
             }
+          },
+
+          "notification": {
+            "warehouseCreatedTitle": "Warehouse created successfully",
+            "warehouseUpdatedTitle": "Warehouse updated successfully",
+            "warehouseDeletedTitle": "Warehouse deleted successfully"
+          },
+
+          "list": {
+            "noWarehouses": "Twoja firma nie ma jeszcze żadnych magazynów.",
+            "noProducts": "Twoja firma nie ma jeszcze żadnych produktów przypisanych do tego magazynu."
           }
         }
       }

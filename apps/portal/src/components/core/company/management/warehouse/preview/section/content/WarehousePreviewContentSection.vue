@@ -1,13 +1,13 @@
 <template>
   <a-panel-section class="warehouse-preview-content-section">
-    <a-title title="Warehouse products" size="large" />
+    <a-title
+      :title="$t('company.management.warehouse.preview.content.warehouseProducts')"
+      size="large"
+    />
 
     <warehouse-product-list v-if="products.length" :products="products" />
 
-    <a-list-no-results
-      v-else
-      :text="$t('company.management.navigation.warehouses.list.noProducts')"
-    />
+    <a-list-no-results v-else :text="$t('company.management.warehouse.preview.list.noProducts')" />
   </a-panel-section>
 </template>
 

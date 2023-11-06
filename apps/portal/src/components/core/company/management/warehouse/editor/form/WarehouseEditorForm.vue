@@ -20,7 +20,7 @@
         />
 
         <a-button
-          :text="$t('company.management.warehouse.editor.descriptionLabel')"
+          :text="$t('global.save')"
           button-type="submit"
           class="warehouse-editor-form__button"
           size="x-large"
