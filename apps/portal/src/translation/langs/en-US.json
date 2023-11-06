@@ -203,6 +203,10 @@
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"
+          },
+
+          "needingAttention": {
+            "title": "Warehouses needing attention"
           }
         },
 

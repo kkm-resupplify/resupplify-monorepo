@@ -203,6 +203,10 @@
           "tiles": {
             "companyWarehouses": "Panel magazynów",
             "newWarehouse": "Nowy magazyn"
+          },
+
+          "needingAttention": {
+            "title": "Magazyny wymagające uwagi"
           }
         },
 
