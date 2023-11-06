@@ -143,6 +143,14 @@ const generateClasses = computed(() => {
         opacity: 0.8;
       }
     }
+
+    &-warning {
+      @include gradient(var(--warning-gradient));
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 
   &--text {

@@ -7,6 +7,8 @@
       <a-button
         :text="$t('company.management.navigation.warehouses.needingAttention.buttonText')"
         class="warehouse-needing-attention-list-item__button"
+        color="gradient-warning"
+        size="x-large"
       />
     </a-list-item-wrapper>
   </router-link>
