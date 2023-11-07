@@ -13,12 +13,12 @@
 
 <script setup lang="ts">
 import WarehouseProductList from '@/components/core/company/management/warehouse/preview/list/WarehouseProductList.vue'
-import type { Product } from '@interfaces/product/ProductInterface'
 import type { PropType } from 'vue'
+import type { WarehouseProduct } from '@/interfaces/warehouse/WarehouseProductInterface'
 
 defineProps({
   products: {
-    type: Array as PropType<Product[]>,
+    type: Array as PropType<WarehouseProduct[]>,
     required: true
   }
 })

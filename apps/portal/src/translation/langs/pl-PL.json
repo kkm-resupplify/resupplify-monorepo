@@ -11,10 +11,11 @@
     "back": "Wstecz",
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
-    "delete": "Usuń",
+    "remove": "Usuń",
     "search": "Szukaj",
     "update": "Aktualizuj",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "manage": "Zarządzaj"
   },
 
   "payments": {
@@ -267,6 +268,10 @@
               "currentSupplyLabel": "Aktualny stan",
               "currentSupplyPlaceholder": "Wprowadź aktualny stan",
               "submit": "Dodaj produkt"
+            },
+
+            "editProduct": {
+              "setQuantity": "Ustaw ilość"
             },
 
             "deleteProduct": {

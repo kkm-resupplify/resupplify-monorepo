@@ -11,12 +11,12 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import WarehouseProductListItem from '@/components/core/company/management/warehouse/preview/list/WarehouseProductListItem.vue'
-import type { Product } from '@interfaces/product/ProductInterface'
 import type { PropType } from 'vue'
+import type { WarehouseProduct } from '@/interfaces/warehouse/WarehouseProductInterface'
 
 defineProps({
   products: {
-    type: Array as PropType<Product[]>,
+    type: Array as PropType<WarehouseProduct[]>,
     required: true
   }
 })

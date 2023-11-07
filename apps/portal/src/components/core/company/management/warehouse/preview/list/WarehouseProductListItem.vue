@@ -18,7 +18,11 @@
       />
     </div>
 
-    <edit-warehouse-product-dialog :product-name="product.name" />
+    <edit-warehouse-product-dialog
+      :product-name="product.name"
+      :safe-quantity="product.safeQuantity"
+      :quantity="product.quantity"
+    />
   </a-list-item-wrapper>
 </template>
 
@@ -26,10 +30,12 @@
 import EditWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/EditWarehouseProductDialog.vue'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import type { WarehouseProduct } from '@/interfaces/warehouse/WarehouseProductInterface'
+import type { PropType } from 'vue'
 
 const props = defineProps({
   product: {
-    type: Object,
+    type: Object as PropType<WarehouseProduct>,
     required: true
   }
 })

@@ -1,7 +1,7 @@
 <template>
   <m-dialog ref="dialogRef">
     <template #activator>
-      <a-button :text="$t('global.delete')" color="gradient-danger" />
+      <a-button :text="$t('global.remove')" color="gradient-danger" size="x-large" />
     </template>
 
     <o-form :submit-callback="handleSubmitRemoveProduct">
@@ -22,7 +22,7 @@
 
             <a-button
               button-type="submit"
-              :text="$t('global.delete')"
+              :text="$t('global.remove')"
               color="gradient-danger"
               size="x-large"
             />
