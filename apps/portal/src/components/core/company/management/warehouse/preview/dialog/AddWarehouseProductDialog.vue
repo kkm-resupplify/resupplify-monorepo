@@ -71,50 +71,42 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
+import { useRoute } from 'vue-router'
+import WarehouseService from '@/services/warehouse/WarehouseService'
+import type { WarehouseProductFormData } from '@/interface/warehouse/WarehouseProductInterface'
 
 // Variables
 // https://vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
-
+const route = useRoute()
 // Computed
 const products = computed(() => {
   return [
     { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 1, text: 'Product 1' },
-    { id: 2, text: 'Product 2' }
+    { id: 2, text: 'Product 2' },
+    { id: 3, text: 'Product 3' }
   ]
 })
+const warehouseId = computed(() => route.params.id)
 
 // Methods
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
 
-const handleSubmitAddProduct = (formData: Record<string, any>) => {
-  console.log(formData)
-  // closeDialog()
+const handleSubmitAddProduct = async (formData: Record<string, any>) => {
+  const productData: WarehouseProductFormData = {
+    productId: formData.productId,
+    quantity: formData.quantity,
+    safeQuantity: formData.safeQuantity,
+    warehouseId: +warehouseId.value
+  }
+
+  const { success } = await WarehouseService.addWarehouseProduct(productData)
+
+  if (success) {
+    closeDialog()
+  }
 }
 </script>
 

@@ -39,15 +39,11 @@ const statList = computed(() => {
     },
     {
       text: 'soldOutProductsCount',
-      value: computed(() =>
-        countProductsByStatus(props.products, WarehouseProductStatusEnum.OUT_OF_STOCK)
-      )
+      value: countProductsByStatus(props.products, WarehouseProductStatusEnum.OUT_OF_STOCK)
     },
     {
       text: 'inactiveProductsCount',
-      value: computed(() =>
-        countProductsByStatus(props.products, WarehouseProductStatusEnum.INACTIVE)
-      )
+      value: countProductsByStatus(props.products, WarehouseProductStatusEnum.INACTIVE)
     },
     { text: 'reservedProductsCount', value: 0 }
   ]

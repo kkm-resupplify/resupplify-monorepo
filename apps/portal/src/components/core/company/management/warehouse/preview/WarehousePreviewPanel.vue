@@ -2,7 +2,10 @@
   <template v-if="isLoading"> implement-loader-here </template>
 
   <a-panel v-else class="warehouse-preview-panel">
-    <warehouse-preview-header-section :products="warehouseProducts" />
+    <warehouse-preview-header-section
+      :products="warehouseProducts"
+      :warehouse-name="warehouse?.name"
+    />
 
     <a-line :height="2" color="secondary-2" />
 
