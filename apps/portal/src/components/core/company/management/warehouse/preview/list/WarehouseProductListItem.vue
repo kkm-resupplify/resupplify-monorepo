@@ -23,9 +23,6 @@
       :safe-quantity="product.safeQuantity"
       :quantity="product.quantity"
     />
-    <span>warehouseProduct.status = {{ product.status }}</span>
-    <span>product.status = {{ product.product.status }}</span>
-    <span>product.verificationStatus = {{ product.product.verificationStatus }}</span>
   </a-list-item-wrapper>
 </template>
 
@@ -51,9 +48,7 @@ const { warehouseProductStatus } = useWarehouseProductStatus()
 // Computed
 
 const warehouseIndicatorStatus = computed(() => {
-  const t = warehouseProductStatus(props.product)
-  console.log(t)
-  return t
+  return warehouseProductStatus(props.product)
 })
 
 const productStatList = computed(() => {

@@ -5,7 +5,7 @@
       size="large"
     />
 
-    <warehouse-product-list v-if="true" :products="products" />
+    <warehouse-product-list v-if="showList" :products="products" />
 
     <a-list-no-results v-else :text="$t('company.management.warehouse.preview.list.noProducts')" />
   </a-panel-section>
@@ -13,14 +13,19 @@
 
 <script setup lang="ts">
 import WarehouseProductList from '@/components/core/company/management/warehouse/preview/list/WarehouseProductList.vue'
-import type { PropType } from 'vue'
+import { type PropType, computed } from 'vue'
 import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
 
-defineProps({
+const props = defineProps({
   products: {
     type: Array as PropType<WarehouseProduct[]>,
     required: true
   }
+})
+
+// Computed
+const showList = computed(() => {
+  return props.products.length > 0
 })
 </script>
 
