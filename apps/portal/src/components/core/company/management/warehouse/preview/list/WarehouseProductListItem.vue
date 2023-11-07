@@ -20,7 +20,7 @@
 
     <edit-warehouse-product-dialog
       :product-name="product.name"
-      :save-quantity="product.safeQuantity"
+      :safe-quantity="product.safeQuantity"
       :quantity="product.quantity"
     />
   </a-list-item-wrapper>

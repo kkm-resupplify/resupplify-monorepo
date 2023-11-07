@@ -5,49 +5,58 @@
     </template>
 
     <div class="edit-warehouse-product-dialog__content">
-      <o-form :submit-callback="handleSubmitAddProduct">
+      <div class="edit-warehouse-product-dialog__quantity-information">
+        <a-title
+          :title="
+            $t('company.management.warehouse.preview.dialog.addProduct.safeQuantityLabel') + ':'
+          "
+          :subtitle="safeQuantity"
+          variant="horizontal"
+        />
+
+        <a-title
+          :title="
+            $t('company.management.warehouse.preview.dialog.addProduct.currentSupplyLabel') + ':'
+          "
+          :subtitle="quantity"
+          variant="horizontal"
+        />
+      </div>
+
+      <a-line :height="2" color="secondary-2" />
+
+      <a-title :title="$t('global.manage')" size="large" />
+
+      <o-form :submit-callback="handleSubmitEditWarehouseProduct">
         <template #body>
           <div class="edit-warehouse-product-dialog__input-group">
-            <div class="edit-warehouse-product-dialog__quantity-information">
-              <a-title
-                :title="
-                  $t('company.management.warehouse.preview.dialog.addProduct.safeQuantityLabel') +
-                  ':'
-                "
-                :subtitle="saveQuantity"
-                variant="horizontal"
-              />
+            <m-text-field
+              name="quantity"
+              type="text"
+              label="Current supply"
+              :placeholder="
+                $t('company.management.warehouse.preview.dialog.editProduct.setQuantity')
+              "
+              :validate="false"
+            />
 
-              <a-title
-                :title="
-                  $t('company.management.warehouse.preview.dialog.addProduct.currentSupplyLabel') +
-                  ':'
-                "
-                :subtitle="quantity"
-                variant="horizontal"
-              />
-            </div>
+            <m-text-field
+              name="safeQuantity"
+              type="text"
+              label="Safe quantity"
+              :placeholder="
+                $t('company.management.warehouse.preview.dialog.editProduct.setQuantity')
+              "
+              :validate="false"
+            />
+          </div>
+        </template>
 
-            <a-line :height="2" />
+        <template #footer>
+          <div class="edit-warehouse-product-dialog__actions">
+            <confirm-warehouse-product-removal-dialog :product-name="productName" />
 
-            <a-title :title="$t('global.manage')" size="x-large" />
-
-            <div class="edit-warehouse-product-dialog__settings">
-              <m-text-field
-                name="quantity"
-                type="text"
-                :placeholder="
-                  $t('company.management.warehouse.preview.dialog.editProduct.setQuantity')
-                "
-                :validate="false"
-              />
-
-              <div class="edit-warehouse-product-dialog__settings-buttons">
-                <a-button :text="$t('global.update')" size="x-large" />
-
-                <confirm-warehouse-product-removal-dialog :product-name="productName" />
-              </div>
-            </div>
+            <a-button :text="$t('global.update')" size="x-large" type="submit" />
           </div>
         </template>
       </o-form>
@@ -65,7 +74,7 @@ defineProps({
     type: String,
     required: true
   },
-  saveQuantity: {
+  safeQuantity: {
     type: Number,
     required: true
   },
@@ -76,7 +85,6 @@ defineProps({
 })
 
 // Variables
-// https://vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Methods
@@ -84,7 +92,7 @@ const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
 
-const handleSubmitAddProduct = (formData: Record<string, any>) => {
+const handleSubmitEditWarehouseProduct = (formData: Record<string, any>) => {
   console.log(formData)
   closeDialog()
 }
@@ -95,35 +103,35 @@ const handleSubmitAddProduct = (formData: Record<string, any>) => {
   &__content {
     @include respond-to('sm-and-up') {
       width: 350px;
-      min-height: 400px;
-    }
-    width: 380px;
-    margin-top: $global-spacing-60;
-    white-space: nowrap;
-  }
 
-  &__input-group {
+      // min-height: 400px;
+    }
+
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-100;
+    gap: $global-spacing-30;
+
+    width: 380px;
+
+    white-space: nowrap;
   }
 
   &__quantity-information {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-50;
+    gap: $global-spacing-20;
   }
 
-  &__settings {
+  &__input-group {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-50;
+    gap: $global-spacing-40;
   }
 
-  &__settings-buttons {
+  &__actions {
     display: flex;
-    gap: $global-spacing-60;
-    justify-content: center;
+    flex: 1;
+    justify-content: space-around;
   }
 }
 </style>
