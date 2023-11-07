@@ -49,6 +49,7 @@ defineProps({
     display: grid;
     grid-auto-flow: column;
     grid-gap: $global-spacing-100;
+    align-self: self-start;
 
     padding: $global-spacing-20;
   }

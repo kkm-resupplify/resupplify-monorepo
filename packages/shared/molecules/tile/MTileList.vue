@@ -23,7 +23,7 @@ interface Tile {
   to: string | Route
 }
 
-const props = defineProps({
+defineProps({
   tiles: { type: Array as PropType<Tile[]>, required: true }
 })
 
