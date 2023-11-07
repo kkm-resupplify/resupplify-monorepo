@@ -1,4 +1,4 @@
-import type { CompanyData } from '@/interfaces/company/CompanyInterface'
+import type { CompanyData } from '@interfaces/company/CompanyInterface'
 
 export interface UserData {
   type: number

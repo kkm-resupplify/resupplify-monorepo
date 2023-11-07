@@ -3,7 +3,7 @@
     <a-title size="x-large" :title="warehouse.title" />
 
     <div class="warehouse-preview-header-section__content">
-      <warehouse-preview-stats />
+      <warehouse-preview-stats :products="products" />
 
       <div class="warehouse-preview-header-section__content-settings">
         <add-warehouse-product-dialog />
@@ -18,10 +18,17 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, type PropType } from 'vue'
 import WarehousePreviewStats from '@/components/core/company/management/warehouse/preview/section/header/WarehousePreviewStats.vue'
 import AddWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/AddWarehouseProductDialog.vue'
-import EditWarehouseDialog from '@/components/core/company/management/warehouse/preview/dialog/EditWarehouseDialog.vue'
+import type { WarehouseProduct } from '@/interface/warehouse/WarehouseProductInterface'
+
+defineProps({
+  products: {
+    type: Array as PropType<WarehouseProduct[]>,
+    required: true
+  }
+})
 
 const warehouse = reactive({
   title: 'Bread Warehouse',

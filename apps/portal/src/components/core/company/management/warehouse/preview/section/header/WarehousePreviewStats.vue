@@ -12,18 +12,43 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import type { WarehouseProduct } from '@/interface/warehouse/WarehouseProductInterface'
+import { computed, type PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useWarehouseProductStatus } from '@composables/warehouse/useWarehouseProductStatus'
+import WarehouseProductStatusEnum from '@sharedEnums/warehouse/WarehouseProductStatusEnum'
+
+const props = defineProps({
+  products: {
+    type: Array as PropType<WarehouseProduct[]>,
+    required: true
+  }
+})
 
 // Variables
 const { t } = useI18n()
+const { countProductsByStatus } = useWarehouseProductStatus()
 
 // Computed
 const statList = computed(() => {
   return [
-    { text: 'totalProductsCount', value: 0 },
-    { text: 'belowSafeQuantityProductsCount', value: 0 },
-    { text: 'soldOutProductsCount', value: 0 },
+    { text: 'totalProductsCount', value: props.products.length },
+    {
+      text: 'belowSafeQuantityProductsCount',
+      value: countProductsByStatus(props.products, WarehouseProductStatusEnum.BELOW_SAFE_QUANTITY)
+    },
+    {
+      text: 'soldOutProductsCount',
+      value: computed(() =>
+        countProductsByStatus(props.products, WarehouseProductStatusEnum.OUT_OF_STOCK)
+      )
+    },
+    {
+      text: 'inactiveProductsCount',
+      value: computed(() =>
+        countProductsByStatus(props.products, WarehouseProductStatusEnum.INACTIVE)
+      )
+    },
     { text: 'reservedProductsCount', value: 0 }
   ]
 })
