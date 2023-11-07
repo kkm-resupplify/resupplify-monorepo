@@ -1,5 +1,5 @@
 <template>
-  <m-dialog ref="dialogRef" title="Test title">
+  <m-dialog ref="dialogRef" :title="productName">
     <template #activator>
       <a-icon icon="more_vert" size="xx-large" hoverable />
     </template>
@@ -9,20 +9,19 @@
         <template #body>
           <div class="edit-warehouse-product-dialog__input-group">
             <div class="edit-warehouse-product-dialog__quantity-settings">
-              <m-text-field
-                placeholder="Enter safe quantity"
-                label="Safe quantity"
-                name="safeQuantity"
-                type="number"
-                :validate="false"
+              <a-title
+                :title="
+                  $t('company.management.warehouse.preview.dialog.addProduct.safeQuantityLabel')
+                "
+                :subtitle="saveQuantity"
+                variant="horizontal"
               />
-
-              <m-text-field
-                placeholder="Enter current quantity"
-                label="Quantity"
-                name="quantity"
-                type="number"
-                :validate="false"
+              <a-title
+                :title="
+                  $t('company.management.warehouse.preview.dialog.addProduct.currentSupplyLabel')
+                "
+                :subtitle="quantity"
+                variant="horizontal"
               />
               <confirm-warehouse-product-removal-dialog :product-name="productName" />
             </div>
@@ -72,8 +71,8 @@ const handleSubmitAddProduct = (formData: Record<string, any>) => {
 .edit-warehouse-product-dialog {
   &__content {
     @include respond-to('sm-and-up') {
-      width: 800px;
-      min-height: 600px;
+      width: 500px;
+      min-height: 400px;
     }
 
     width: 380px;
@@ -87,7 +86,7 @@ const handleSubmitAddProduct = (formData: Record<string, any>) => {
 
   &__quantity-settings {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: $global-spacing-50;
   }
 }
