@@ -239,6 +239,11 @@
           "create": "Utwórz"
         },
 
+        "needingAttentionSection": {
+          "title": "Magazyny wymagające uwagi",
+          "buttonText": "Sprawdź szczegóły"
+        },
+
         "preview": {
           "header": {
             "totalProductsCount": "Produktów łącznie:",
