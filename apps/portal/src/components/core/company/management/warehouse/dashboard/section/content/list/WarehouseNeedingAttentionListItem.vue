@@ -3,7 +3,7 @@
     <a-list-item-wrapper :to="warehouseLink">
       <a-status-indicator :status="warehouse.status" />
 
-      <div>{{ warehouse.name }}</div>
+      <span v-text="warehouse.name" />
 
       <a-button
         :text="$t('company.management.warehouse.needingAttentionSection.buttonText')"
