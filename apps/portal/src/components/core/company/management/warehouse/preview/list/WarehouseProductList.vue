@@ -23,43 +23,43 @@ defineProps({
 
 // Variables
 // TODO: remove this
-const warehouseProducts = reactive([
-  { id: 1, code: 'QJSD1128s', name: 'Shampoo', quantity: 1200, safeQuantity: 500, status: 0 },
-  { id: 2, code: 'QJSD1128s', name: 'Toothpaste', quantity: 340, safeQuantity: 300, status: 1 },
-  { id: 3, code: 'QJSD1128s', name: 'Soap', quantity: 0, safeQuantity: 100, status: 2 },
-  { id: 4, code: 'QJSD1128s', name: 'Cereal', quantity: 100, safeQuantity: 50, status: 1 },
-  { id: 5, code: 'QJSD1128s', name: 'Detergent', quantity: 500, safeQuantity: 250, status: 0 },
-  { id: 6, code: 'QJSD1128s', name: 'Milk', quantity: 70, safeQuantity: 100, status: 1 },
-  { id: 7, code: 'QJSD1128s', name: 'Bread', quantity: 150, safeQuantity: 75, status: 1 },
-  { id: 8, code: 'QJSD1128s', name: 'Canned Soup', quantity: 90, safeQuantity: 150, status: 2 },
-  { id: 9, code: 'QJSD1128s', name: 'Toilet Paper', quantity: 1, safeQuantity: 125, status: 1 },
-  { id: 10, code: 'QJSD1128s', name: 'Bottled Water', quantity: 400, safeQuantity: 200, status: 1 },
-  { id: 11, code: 'QJSD1128s', name: 'Cereal Bars', quantity: 100, safeQuantity: 50, status: 1 },
-  { id: 12, code: 'QJSD1128s', name: 'Juice', quantity: 0, safeQuantity: 250, status: 1 },
-  {
-    id: 13,
-    code: 'QJSD1128s',
-    name: 'Canned Vegetables',
-    quantity: 200,
-    safeQuantity: 100,
-    status: 1
-  },
-  { id: 14, code: 'QJSD1128s', name: 'Chips', quantity: 150, safeQuantity: 75, status: 0 },
-  { id: 15, code: 'QJSD1128s', name: 'Coffee', quantity: 300, safeQuantity: 150, status: 1 },
-  { id: 16, code: 'QJSD1128s', name: 'Tea', quantity: 250, safeQuantity: 125, status: 0 },
-  { id: 17, code: 'QJSD1128s', name: 'Paper Towels', quantity: 400, safeQuantity: 200, status: 1 },
-  { id: 18, code: 'QJSD1128s', name: 'Shaving Cream', quantity: 100, safeQuantity: 50, status: 2 },
-  {
-    id: 19,
-    code: 'QJSD1128s',
-    name: 'Laundry Detergent',
-    quantity: 500,
-    safeQuantity: 250,
-    status: 1
-  },
-  { id: 20, code: 'QJSD1128s', name: 'Candles', quantity: 0, safeQuantity: 100, status: 0 },
-  { id: 1, code: 'QJSD1128s', name: 'Shampoo', quantity: 1200, safeQuantity: 500, status: 0 }
-])
+
+const generateProducts = () => {
+  const productStatusList = [0, 1]
+  const productVerificationStatusList = [0, 1]
+  const warehouseProductStatusList = [0, 1]
+  const quantityList = [0, 1, 2, 3]
+  const safeQuantityList = [1, 2]
+
+  const products: WarehouseProduct[] = []
+
+  productStatusList.forEach((status, idx) => {
+    productVerificationStatusList.forEach((verificationStatus, idx) => {
+      warehouseProductStatusList.forEach((warehouseProductStatus, idx) => {
+        quantityList.forEach((quantity, idx) => {
+          safeQuantityList.forEach((safeQuantity, idx) => {
+            products.push({
+              id: idx,
+              product: {
+                name: `Product ${idx}`,
+                status: status,
+                verificationStatus: verificationStatus,
+                code: `XDD-PEDRO-CANCELLED-IT-${idx}`
+              },
+              status: warehouseProductStatus,
+              quantity: quantity,
+              safeQuantity: safeQuantity
+            })
+          })
+        })
+      })
+    })
+  })
+
+  return products
+}
+
+const warehouseProducts = reactive({ ...generateProducts() })
 </script>
 
 <style scoped lang="scss">

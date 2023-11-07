@@ -4,7 +4,7 @@
 
     <a-list-item-title-section
       :title="t('company.management.warehouse.preview.content.productName')"
-      :value="product.name"
+      :value="product.product.name"
       :basis="20"
     />
 
@@ -14,15 +14,18 @@
         :key="idx"
         :title="productStat.title"
         :value="productStat.value"
-        :basis="15"
+        :basis="25"
       />
     </div>
 
     <edit-warehouse-product-dialog
-      :product-name="product.name"
+      :product-name="product.product.name"
       :safe-quantity="product.safeQuantity"
       :quantity="product.quantity"
     />
+    <span>warehouseProduct.status = {{ product.status }}</span>
+    <span>product.status = {{ product.product.status }}</span>
+    <span>product.verificationStatus = {{ product.product.verificationStatus }}</span>
   </a-list-item-wrapper>
 </template>
 
@@ -32,6 +35,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
 import type { PropType } from 'vue'
+import { useWarehouseProductStatus } from '@composables/warehouse/useWarehouseProductStatus'
 
 const props = defineProps({
   product: {
@@ -42,32 +46,21 @@ const props = defineProps({
 
 // Variables
 const { t } = useI18n()
+const { warehouseProductStatus } = useWarehouseProductStatus()
 
 // Computed
-const isProductActive = computed(() => {
-  return props.product.status === 1
-})
-
-const productSafeQuantityRatio = computed(() => {
-  return props.product.quantity / props.product.safeQuantity
-})
 
 const warehouseIndicatorStatus = computed(() => {
-  if (isProductActive.value) {
-    if (productSafeQuantityRatio.value >= 1) return 1
-    else if (productSafeQuantityRatio.value === 0) return 3
-
-    return 2
-  }
-
-  return 0
+  const t = warehouseProductStatus(props.product)
+  console.log(t)
+  return t
 })
 
 const productStatList = computed(() => {
   return [
     {
       title: t('company.management.warehouse.preview.content.productCode'),
-      value: props.product.code
+      value: props.product.product.code
     },
     {
       title: t('company.management.warehouse.preview.content.currentSupply'),

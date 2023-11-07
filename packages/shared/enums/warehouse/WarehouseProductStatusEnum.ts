@@ -2,7 +2,7 @@ import BaseEnum from '../BaseEnum'
 
 export default class WarehouseProductStatusEnum extends BaseEnum {
   static readonly INACTIVE: number = 0
-  static readonly OK: number = 1
+  static readonly ACTIVE: number = 1
   static readonly BELOW_SAFE_QUANTITY: number = 2
   static readonly OUT_OF_STOCK: number = 3
 

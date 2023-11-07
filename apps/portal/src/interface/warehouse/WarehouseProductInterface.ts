@@ -1,14 +1,14 @@
 export interface WarehouseProduct {
   id: number
-  code: string
-  name: string
+  product: SimpleProduct
+  status: number
   quantity: number
   safeQuantity: number
-  status: WarehouseProductStatus
 }
 
-export enum WarehouseProductStatus {
-  Unverified,
-  Verified,
-  Rejected
+export interface SimpleProduct {
+  name: string
+  status: number
+  verificationStatus: number
+  code: string
 }
