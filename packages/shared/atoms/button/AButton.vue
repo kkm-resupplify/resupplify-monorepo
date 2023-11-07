@@ -94,6 +94,8 @@ const generateClasses = computed(() => {
 }
 
 .a-button {
+  cursor: pointer;
+
   align-items: flex-start;
 
   box-sizing: border-box;

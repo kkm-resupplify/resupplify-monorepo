@@ -1,5 +1,8 @@
 <template>
-  <a-title :title="$t('company.management.warehouse.needingAttentionSection.title')" />
+  <a-title
+    :title="$t('company.management.warehouse.needingAttentionSection.title')"
+    size="x-large"
+  />
 
   <div class="warehouse-needing-attention-list">
     <warehouse-needing-attention-list-item
