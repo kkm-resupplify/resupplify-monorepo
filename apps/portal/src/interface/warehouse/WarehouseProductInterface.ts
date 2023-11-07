@@ -12,3 +12,10 @@ export interface SimpleProduct {
   verificationStatus: number
   code: string
 }
+
+export interface WarehouseProductFormData {
+  productId: number
+  warehouseId: number
+  quantity: number
+  safeQuantity: number
+}
