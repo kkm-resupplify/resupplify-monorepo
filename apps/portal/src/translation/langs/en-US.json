@@ -235,9 +235,7 @@
           "namePlaceholder": "Enter name",
           "descriptionLabel": "Description",
           "descriptionPlaceholder": "Enter description",
-          "create": "Create",
-          "search": "Search warehouses",
-          "companyWarehouses": "Company warehousehouses"
+          "create": "Create"
         },
 
         "preview": {
@@ -254,7 +252,9 @@
             "productName": "Product name",
             "productCode": "Product code",
             "currentSupply": "Current supply",
-            "safeQuantity": "Safe quantity"
+            "safeQuantity": "Safe quantity",
+            "search": "Search warehouses",
+            "companyWarehouses": "Company warehouses"
           },
 
           "dialog": {
