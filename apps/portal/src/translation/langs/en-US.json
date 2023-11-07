@@ -270,7 +270,8 @@
               "safeQuantityPlaceholder": "Enter safe quantity",
               "currentSupplyLabel": "Current supply",
               "currentSupplyPlaceholder": "Enter current supply",
-              "submit": "Add product"
+              "submit": "Add product",
+              "addSuccessTitle": "Product added to the warehouse successfully"
             },
 
             "editProduct": {

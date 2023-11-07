@@ -268,7 +268,8 @@
               "safeQuantityPlaceholder": "Wprowadź bezpieczną ilość",
               "currentSupplyLabel": "Aktualny stan",
               "currentSupplyPlaceholder": "Wprowadź aktualny stan",
-              "submit": "Dodaj produkt"
+              "submit": "Dodaj produkt",
+              "addSuccessTitle": "Produkt został dodany do magazynu"
             },
 
             "editProduct": {

@@ -34,7 +34,7 @@ class WarehouseService extends BaseService {
     return await this.post({
       data: formData,
       suffix: WarehouseService.WAREHOUSE_PRODUCT_SUFFIX,
-      notificationTitle: 'company.management.warehouse.product.createSuccessTitle'
+      notificationTitle: 'company.management.warehouse.preview.dialog.addProduct.addSuccessTitle'
     })
   }
 
