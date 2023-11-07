@@ -5,7 +5,7 @@
     <div class="warehouse-preview-header-section__content">
       <warehouse-preview-stats :products="products" />
 
-      <add-warehouse-product-dialog />
+      <add-warehouse-product-dialog @fetch-warehouse="emitFetchWarehouse" />
     </div>
   </a-panel-section>
 </template>
@@ -23,6 +23,14 @@ defineProps({
     required: true
   }
 })
+
+// Emits
+const emits = defineEmits(['fetch-warehouse'])
+
+// Methods
+const emitFetchWarehouse = () => {
+  emits('fetch-warehouse')
+}
 </script>
 
 <style scoped lang="scss">

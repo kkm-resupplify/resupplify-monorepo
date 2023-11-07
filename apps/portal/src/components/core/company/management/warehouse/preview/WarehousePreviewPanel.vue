@@ -5,6 +5,7 @@
     <warehouse-preview-header-section
       :products="warehouseProducts"
       :warehouse-name="warehouse?.name"
+      @fetch-warehouse="handleFetchWarehouse"
     />
 
     <a-line :height="2" color="secondary-2" />
