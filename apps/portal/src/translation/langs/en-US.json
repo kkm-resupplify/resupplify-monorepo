@@ -274,8 +274,10 @@
               "addSuccessTitle": "Product added to the warehouse successfully"
             },
 
-            "editProduct": {
-              "setQuantity": "Set quantity"
+            "manageProduct": {
+              "setQuantity": "Set quantity",
+              "editSuccessTitle": "Warehouse product edited successfully",
+              "removeSuccessTitle": "Product removed from the warehouse successfully"
             },
 
             "deleteProduct": {
