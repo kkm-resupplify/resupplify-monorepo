@@ -12,7 +12,7 @@
 import { reactive } from 'vue'
 import WarehouseProductListItem from '@/components/core/company/management/warehouse/preview/list/WarehouseProductListItem.vue'
 import type { PropType } from 'vue'
-import type { WarehouseProduct } from '@/interfaces/warehouse/WarehouseProductInterface'
+import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
 
 defineProps({
   products: {

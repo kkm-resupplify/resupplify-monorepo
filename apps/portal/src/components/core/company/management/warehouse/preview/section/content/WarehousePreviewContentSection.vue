@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import WarehouseProductList from '@/components/core/company/management/warehouse/preview/list/WarehouseProductList.vue'
 import type { PropType } from 'vue'
-import type { WarehouseProduct } from '@/interfaces/warehouse/WarehouseProductInterface'
+import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
 
 defineProps({
   products: {

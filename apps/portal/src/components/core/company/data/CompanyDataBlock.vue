@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CompanyData } from '@/interfaces/company/CompanyInterface'
+import type { CompanyData } from '@interfaces/company/CompanyInterface'
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'

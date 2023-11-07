@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouteNames } from '@/routes/index'
-import type { WarehouseProduct } from '@/interfaces/warehouse/WarehouseProductInterface'
+import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
 const props = defineProps({
   warehouse: { type: Object, required: true }
 })
