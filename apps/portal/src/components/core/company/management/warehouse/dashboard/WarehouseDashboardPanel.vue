@@ -27,48 +27,10 @@ const handleFetchWarehouses = async () => {
   const { data, success } = await WarehouseService.getWarehouses()
 
   if (success) warehouses.push(...(data as Warehouse[]))
-  warehouses.forEach((warehouse) => (warehouse.products = generateProducts()))
-  console.log(warehouses)
+
   isLoading.value = false
 }
 
-// Variables
-// TODO: remove this
-
-const generateProducts = () => {
-  const productStatusList = [0, 1]
-  const productVerificationStatusList = [0, 1]
-  const warehouseProductStatusList = [0, 1]
-  const quantityList = [0, 1, 2, 3]
-  const safeQuantityList = [1, 2]
-
-  const products: WarehouseProduct[] = []
-
-  productStatusList.forEach((status) => {
-    productVerificationStatusList.forEach((verificationStatus) => {
-      warehouseProductStatusList.forEach((warehouseProductStatus) => {
-        quantityList.forEach((quantity) => {
-          safeQuantityList.forEach((safeQuantity, idx) => {
-            products.push({
-              id: idx,
-              product: {
-                name: `Product ${idx}`,
-                status: status,
-                verificationStatus: verificationStatus,
-                code: `XDD-PEDRO-CANCELLED-IT-${idx}`
-              },
-              status: warehouseProductStatus,
-              quantity: quantity,
-              safeQuantity: safeQuantity
-            })
-          })
-        })
-      })
-    })
-  })
-
-  return products
-}
 // Hooks
 onBeforeMount(async () => {
   await handleFetchWarehouses()
