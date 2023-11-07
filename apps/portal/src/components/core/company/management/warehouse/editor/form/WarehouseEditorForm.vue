@@ -1,11 +1,11 @@
 <template>
-  <o-form class="warehouse-editor-form">
+  <o-form class="warehouse-editor-form" :submit-callback="handleFormSubmit">
     <template #body>
       <div class="warehouse-editor-form__body">
         <a-title :title="$t('company.management.warehouse.editor.title')" size="x-large" />
 
         <m-text-field
-          name="warehouseName"
+          name="name"
           input-type="text"
           :label="$t('company.management.warehouse.editor.nameLabel')"
           :placeholder="$t('company.management.warehouse.editor.namePlaceholder')"
@@ -13,7 +13,7 @@
         />
 
         <m-text-area
-          name="warehouseDescription"
+          name="description"
           rules="required|min:16|max:255"
           :label="$t('company.management.warehouse.editor.descriptionLabel')"
           :placeholder="$t('company.management.warehouse.editor.descriptionPlaceholder')"
@@ -30,7 +30,29 @@
   </o-form>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import WarehouseService from '@/services/warehouse/WarehouseService'
+import type { WarehouseFormData } from '@interfaces/warehouse/WarehouseInterface'
+import router, { RouteNames } from '@/routes/index'
+
+// Methods
+const handleCreateWarehouse = async (formData: WarehouseFormData) => {
+  const { data, success } = await WarehouseService.createWarehouse(formData)
+
+  if (success) {
+    router.push({ name: RouteNames.COMPANY_WAREHOUSE_PREVIEW, params: { id: data.id } })
+  }
+}
+
+const handleEditWarehouse = async (formData: WarehouseFormData) => {
+  const { data, success } = await WarehouseService.editWarehouse(formData)
+  if (success) console.log(data)
+}
+
+const handleFormSubmit = async (formData: WarehouseFormData) => {
+  await handleCreateWarehouse(formData)
+}
+</script>
 
 <style scoped lang="scss">
 .warehouse-editor-form {
