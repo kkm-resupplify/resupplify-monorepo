@@ -8,22 +8,42 @@
       <o-form :submit-callback="handleSubmitAddProduct">
         <template #body>
           <div class="edit-warehouse-product-dialog__input-group">
-            <div class="edit-warehouse-product-dialog__quantity-settings">
+            <div class="edit-warehouse-product-dialog__quantity-information">
               <a-title
                 :title="
-                  $t('company.management.warehouse.preview.dialog.addProduct.safeQuantityLabel')
+                  $t('company.management.warehouse.preview.dialog.addProduct.safeQuantityLabel') +
+                  ':'
                 "
                 :subtitle="saveQuantity"
                 variant="horizontal"
               />
               <a-title
                 :title="
-                  $t('company.management.warehouse.preview.dialog.addProduct.currentSupplyLabel')
+                  $t('company.management.warehouse.preview.dialog.addProduct.currentSupplyLabel') +
+                  ':'
                 "
                 :subtitle="quantity"
                 variant="horizontal"
               />
-              <confirm-warehouse-product-removal-dialog :product-name="productName" />
+            </div>
+
+            <a-line :height="2" />
+
+            <a-title :title="$t('global.manage')" size="x-large" />
+
+            <div class="edit-warehouse-product-dialog__settings">
+              <m-text-field
+                name="quantity"
+                type="text"
+                :placeholder="
+                  $t('company.management.warehouse.preview.dialog.editProduct.setQuantity')
+                "
+                :validate="false"
+              />
+              <div class="edit-warehouse-product-dialog__settings-buttons">
+                <a-button :text="$t('global.update')" size="x-large" />
+                <confirm-warehouse-product-removal-dialog :product-name="productName" />
+              </div>
             </div>
           </div>
         </template>
@@ -71,23 +91,36 @@ const handleSubmitAddProduct = (formData: Record<string, any>) => {
 .edit-warehouse-product-dialog {
   &__content {
     @include respond-to('sm-and-up') {
-      width: 500px;
+      width: 350px;
       min-height: 400px;
     }
-
     width: 380px;
+    margin-top: $global-spacing-60;
+    white-space: nowrap;
   }
 
   &__input-group {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-20;
+    gap: $global-spacing-100;
   }
 
-  &__quantity-settings {
+  &__quantity-information {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-50;
+  }
+
+  &__settings {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-50;
+  }
+
+  &__settings-buttons {
+    display: flex;
+    gap: $global-spacing-60;
+    justify-content: center;
   }
 }
 </style>

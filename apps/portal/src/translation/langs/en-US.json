@@ -10,11 +10,12 @@
     "back": "Back",
     "submit": "Submit",
     "imagePreview": "Image preview",
-    "delete": "Delete",
+    "remove": "Remove",
     "save": "Save",
     "search": "Search",
     "update": "Update",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "manage": "Manage"
   },
 
   "payments": {
@@ -267,6 +268,10 @@
               "currentSupplyLabel": "Current supply",
               "currentSupplyPlaceholder": "Enter current supply",
               "submit": "Add product"
+            },
+
+            "editProduct": {
+              "setQuantity": "Set quantity"
             },
 
             "deleteProduct": {
