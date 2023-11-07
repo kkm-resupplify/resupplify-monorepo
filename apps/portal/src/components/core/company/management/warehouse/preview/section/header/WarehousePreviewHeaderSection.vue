@@ -8,7 +8,10 @@
       <div class="warehouse-preview-header-section__content-settings">
         <add-warehouse-product-dialog />
 
-        <edit-warehouse-dialog />
+        <edit-warehouse-dialog
+          :warehouse-name="warehouse.title"
+          :warehouse-description="warehouse.description"
+        />
       </div>
     </div>
   </a-panel-section>
@@ -21,7 +24,8 @@ import AddWarehouseProductDialog from '@/components/core/company/management/ware
 import EditWarehouseDialog from '@/components/core/company/management/warehouse/preview/dialog/EditWarehouseDialog.vue'
 
 const warehouse = reactive({
-  title: 'Bread Warehouse'
+  title: 'Bread Warehouse',
+  description: 'I like bread, bread is very tasty and delicious'
 })
 </script>
 
