@@ -14,7 +14,6 @@ import WarehouseContentSection from '@/components/core/company/management/wareho
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { onBeforeMount, reactive, ref } from 'vue'
 import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
-import type { WarehouseProduct } from '@/interface/warehouse/WarehouseProductInterface'
 
 // Variables
 const warehouses = reactive<Warehouse[]>([])
