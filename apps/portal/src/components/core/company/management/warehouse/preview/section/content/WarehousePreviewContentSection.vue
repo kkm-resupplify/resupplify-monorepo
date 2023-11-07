@@ -5,7 +5,11 @@
       size="large"
     />
 
-    <warehouse-product-list v-if="showList" :products="products" />
+    <warehouse-product-list
+      v-if="showList"
+      :products="products"
+      @product-changed="$emit('product-changed')"
+    />
 
     <a-list-no-results v-else :text="$t('company.management.warehouse.preview.list.noProducts')" />
   </a-panel-section>
@@ -23,6 +27,8 @@ const props = defineProps({
   }
 })
 
+// Emits
+defineEmits(['product-changed'])
 // Computed
 const showList = computed(() => {
   return props.products.length > 0

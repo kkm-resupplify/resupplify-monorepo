@@ -32,21 +32,33 @@
           <div class="edit-warehouse-product-dialog__input-group">
             <m-text-field
               name="quantity"
-              type="text"
+              type="number"
               label="Current supply"
               :placeholder="
-                $t('company.management.warehouse.preview.dialog.editProduct.setQuantity')
+                $t('company.management.warehouse.preview.dialog.manageProduct.setQuantity')
               "
               :validate="false"
             />
 
             <m-text-field
               name="safeQuantity"
-              type="text"
+              type="number"
               label="Safe quantity"
               :placeholder="
-                $t('company.management.warehouse.preview.dialog.editProduct.setQuantity')
+                $t('company.management.warehouse.preview.dialog.manageProduct.setQuantity')
               "
+              :validate="false"
+            />
+
+            <m-select
+              :label="$t('company.management.warehouse.preview.dialog.addProduct.selectProduct')"
+              :placeholder="
+                $t(
+                  'company.management.warehouse.preview.dialog.addProduct.selectProductPlaceholder'
+                )
+              "
+              name="status"
+              :options="productStatusOptions"
               :validate="false"
             />
           </div>
@@ -54,7 +66,10 @@
 
         <template #footer>
           <div class="edit-warehouse-product-dialog__actions">
-            <confirm-warehouse-product-removal-dialog :product-name="productName" />
+            <confirm-warehouse-product-removal-dialog
+              :product-name="productName"
+              @confirm="handleSubmitRemoveWarehouseProduct"
+            />
 
             <a-button :text="$t('global.update')" size="x-large" type="submit" />
           </div>
@@ -65,11 +80,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import ConfirmWarehouseProductRemovalDialog from './ConfirmWarehouseProductRemovalDialog.vue'
+import type { EditWarehouseProductFormData } from '@interfaces/warehouse/WarehouseProductInterface'
+import WarehouseService from '@/services/warehouse/WarehouseService'
+import { useRoute } from 'vue-router'
 
-defineProps({
+const props = defineProps({
+  productId: {
+    type: Number,
+    required: true
+  },
   productName: {
     type: String,
     required: true
@@ -84,18 +106,40 @@ defineProps({
   }
 })
 
+// Emits
+const emits = defineEmits(['product-changed'])
+
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
+const route = useRoute()
 
+// Computed
+const warehouseId = computed(() => +route.params.id)
+
+const productStatusOptions = computed(() => {
+  return [
+    { id: 0, text: 'Inactive' },
+    { id: 1, text: 'Active' }
+  ]
+})
 // Methods
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
 
-const handleSubmitEditWarehouseProduct = (formData: Record<string, any>) => {
-  console.log(formData)
-  closeDialog()
+const handleSubmitEditWarehouseProduct = async (formData: EditWarehouseProductFormData) => {
+  const { success, data } = await WarehouseService.editWarehouseProduct(
+    warehouseId.value,
+    props.productId,
+    formData
+  )
+  if (success) {
+    emits('product-changed')
+    closeDialog()
+  }
 }
+
+const handleSubmitRemoveWarehouseProduct = async () => {}
 </script>
 
 <style lang="scss" scoped>

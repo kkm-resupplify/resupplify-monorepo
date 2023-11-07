@@ -19,9 +19,11 @@
     </div>
 
     <edit-warehouse-product-dialog
+      :product-id="product.id"
       :product-name="product.product.name"
       :safe-quantity="product.safeQuantity"
       :quantity="product.quantity"
+      @product-changed="$emit('product-changed')"
     />
   </a-list-item-wrapper>
 </template>
@@ -40,6 +42,9 @@ const props = defineProps({
     required: true
   }
 })
+
+// Emits
+defineEmits(['product-changed'])
 
 // Variables
 const { t } = useI18n()

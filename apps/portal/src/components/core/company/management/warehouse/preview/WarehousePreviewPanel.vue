@@ -10,7 +10,10 @@
 
     <a-line :height="2" color="secondary-2" />
 
-    <warehouse-preview-content-section :products="warehouseProducts" />
+    <warehouse-preview-content-section
+      :products="warehouseProducts"
+      @product-changed="handleFetchWarehouse"
+    />
   </a-panel>
 </template>
 
