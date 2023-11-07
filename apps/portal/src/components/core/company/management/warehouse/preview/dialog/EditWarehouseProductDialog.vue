@@ -17,6 +17,7 @@
                 :subtitle="saveQuantity"
                 variant="horizontal"
               />
+
               <a-title
                 :title="
                   $t('company.management.warehouse.preview.dialog.addProduct.currentSupplyLabel') +
@@ -40,8 +41,10 @@
                 "
                 :validate="false"
               />
+
               <div class="edit-warehouse-product-dialog__settings-buttons">
                 <a-button :text="$t('global.update')" size="x-large" />
+
                 <confirm-warehouse-product-removal-dialog :product-name="productName" />
               </div>
             </div>
