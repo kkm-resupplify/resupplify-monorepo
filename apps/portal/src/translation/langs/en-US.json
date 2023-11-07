@@ -236,7 +236,9 @@
           "namePlaceholder": "Enter name",
           "descriptionLabel": "Description",
           "descriptionPlaceholder": "Enter description",
-          "create": "Create"
+          "create": "Create",
+          "createSuccessTitle": "New warehouse created successfully",
+          "editSuccessTitle": "Warehouse edited successfully"
         },
 
         "preview": {

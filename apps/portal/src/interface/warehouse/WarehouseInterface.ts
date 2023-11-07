@@ -6,3 +6,8 @@ export interface Warehouse {
   description: string
   products: WarehouseProduct[]
 }
+
+export interface WarehouseFormData {
+  name: string
+  description: string
+}
