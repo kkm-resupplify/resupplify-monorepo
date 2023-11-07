@@ -1,5 +1,6 @@
 <template>
-  <a-title :title="$t('company.management.navigation.warehouses.needingAttention.title')" />
+  <a-title :title="$t('company.management.warehouse.needingAttentionSection.title')" />
+
   <div class="warehouse-needing-attention-list">
     <warehouse-needing-attention-list-item
       v-for="el in warehouseProductsNeedingAttention"

@@ -203,11 +203,6 @@
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"
-          },
-
-          "needingAttention": {
-            "title": "Warehouses needing attention",
-            "buttonText": "Check details"
           }
         },
 
@@ -240,6 +235,11 @@
           "descriptionLabel": "Description",
           "descriptionPlaceholder": "Enter description",
           "create": "Create"
+        },
+
+        "needingAttentionSection": {
+          "title": "Warehouses needing attention",
+          "buttonText": "Check details"
         },
 
         "preview": {

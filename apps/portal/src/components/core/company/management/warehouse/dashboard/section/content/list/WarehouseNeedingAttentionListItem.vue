@@ -4,8 +4,9 @@
       <a-status-indicator :status="warehouse.status" />
 
       <div>{{ warehouse.name }}</div>
+
       <a-button
-        :text="$t('company.management.navigation.warehouses.needingAttention.buttonText')"
+        :text="$t('company.management.warehouse.needingAttentionSection.buttonText')"
         class="warehouse-needing-attention-list-item__button"
         color="gradient-warning"
         size="x-large"
