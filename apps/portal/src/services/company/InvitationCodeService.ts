@@ -1,4 +1,4 @@
-import type { CreateInvitationCodeData } from '@/interfaces/company/InvitationCodeInterface'
+import type { CreateInvitationCodeData } from '@interfaces/company/InvitationCodeInterface'
 import BaseService from '../BaseService'
 
 class InvitationCodeServiceDTO {

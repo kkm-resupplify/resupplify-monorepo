@@ -28,7 +28,7 @@ import CompanyMemberListItem from './CompanyMemberListItem.vue'
 import CompanyMemberInvitation from '../../invitation/CompanyMemberInvitation.vue'
 import { onBeforeMount, reactive } from 'vue'
 import CompanyMembersService from '@/services/company/CompanyMembersService'
-import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
+import type { CompanyMember } from '@interfaces/company/CompanyMemberInterface'
 
 // Variables
 const companyMembers: CompanyMember[] = reactive([])

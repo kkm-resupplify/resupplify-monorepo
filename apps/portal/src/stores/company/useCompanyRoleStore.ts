@@ -1,4 +1,4 @@
-import type { CompanyRole } from '@/interfaces/company/CompanyRoleInterface'
+import type { CompanyRole } from '@interfaces/company/CompanyRoleInterface'
 import { defineStore } from 'pinia'
 
 interface CompanyRoleState {
