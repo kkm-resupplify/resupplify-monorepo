@@ -244,6 +244,7 @@
             "totalProductsCount": "Produktów łącznie:",
             "belowSafeQuantityProductsCount": "Produkty poniżej bezpiecznego stanu:",
             "soldOutProductsCount": "Produkty wyprzedane:",
+            "inactiveProductsCount": "Nieaktywne produkty:",
             "reservedProductsCount": "Ilość zarezerwowanych produktów:",
             "addProduct": "Dodaj produkt"
           },
