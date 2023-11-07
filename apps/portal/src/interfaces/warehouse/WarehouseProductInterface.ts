@@ -1,4 +1,4 @@
-export interface WarehouseProductInterface {
+export interface WarehouseProduct {
   id: number
   code: string
   name: string
