@@ -1,5 +1,7 @@
 <template>
-  <a-panel class="warehouse-preview-panel">
+  <template v-if="isLoading"> implement-loader-here </template>
+
+  <a-panel v-else class="warehouse-preview-panel">
     <warehouse-preview-header-section />
 
     <a-line :height="2" color="secondary-2" />
