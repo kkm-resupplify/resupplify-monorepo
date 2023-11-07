@@ -42,6 +42,14 @@ defineProps({
   productName: {
     type: String,
     required: true
+  },
+  saveQuantity: {
+    type: Number,
+    required: true
+  },
+  quantity: {
+    type: Number,
+    required: true
   }
 })
 
