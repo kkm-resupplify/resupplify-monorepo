@@ -253,8 +253,7 @@
             "productCode": "Kod produktu",
             "currentSupply": "Aktualna ilość",
             "safeQuantity": "Bezpieczna ilość",
-            "search": "Szukaj magazynów",
-            "companyWarehouses": "Magazyny firmy"
+            "search": "Szukaj produktów"
           },
 
           "dialog": {

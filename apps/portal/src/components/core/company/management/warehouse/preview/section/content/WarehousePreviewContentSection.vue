@@ -1,9 +1,6 @@
 <template>
   <a-panel-section class="warehouse-preview-content-section">
-    <a-title
-      :title="$t('company.management.warehouse.preview.content.warehouseProducts')"
-      size="large"
-    />
+    <o-search-bar :placeholder="$t('company.management.warehouse.preview.content.search')" />
 
     <warehouse-product-list v-if="true" :products="products" />
 
