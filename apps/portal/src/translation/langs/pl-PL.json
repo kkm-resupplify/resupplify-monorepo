@@ -230,6 +230,8 @@
       },
 
       "warehouse": {
+        "edit": "Edytuj magazyn",
+        
         "editor": {
           "title": "Nowy magazyn",
           "nameLabel": "Nazwa",

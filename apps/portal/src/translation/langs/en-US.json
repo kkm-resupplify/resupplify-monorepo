@@ -230,6 +230,8 @@
       },
 
       "warehouse": {
+        "edit": "Edit warehouse",
+
         "editor": {
           "title": "New warehouse",
           "nameLabel": "Name",

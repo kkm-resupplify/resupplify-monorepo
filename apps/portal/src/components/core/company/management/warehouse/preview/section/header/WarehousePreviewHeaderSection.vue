@@ -5,7 +5,11 @@
     <div class="warehouse-preview-header-section__content">
       <warehouse-preview-stats />
 
-      <add-warehouse-product-dialog />
+      <div class="warehouse-preview-header-section__content-settings">
+        <add-warehouse-product-dialog />
+
+        <edit-warehouse-dialog />
+      </div>
     </div>
   </a-panel-section>
 </template>
@@ -14,6 +18,7 @@
 import { reactive } from 'vue'
 import WarehousePreviewStats from '@/components/core/company/management/warehouse/preview/section/header/WarehousePreviewStats.vue'
 import AddWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/AddWarehouseProductDialog.vue'
+import EditWarehouseDialog from '@/components/core/company/management/warehouse/preview/dialog/EditWarehouseDialog.vue'
 
 const warehouse = reactive({
   title: 'Bread Warehouse'
