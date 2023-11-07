@@ -38,7 +38,7 @@ import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import ConfirmWarehouseProductRemovalDialog from './ConfirmWarehouseProductRemovalDialog.vue'
 
-const props = defineProps({
+defineProps({
   productName: {
     type: String,
     required: true
