@@ -4,7 +4,7 @@ import type { WarehouseFormData } from '@interfaces/warehouse/WarehouseInterface
 
 class WarehouseService extends BaseService {
   static WAREHOUSE_PRODUCT_SUFFIX = 'product'
-  static WAREHOUSE_NOT_ASSIGNED_PRODUCTS = 'product'
+  static WAREHOUSE_NOT_ASSIGNED_PRODUCTS = 'productNotAttached'
 
   async getWarehouses() {
     return await this.get({})
