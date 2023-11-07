@@ -103,15 +103,13 @@ const handleSubmitEditWarehouseProduct = (formData: Record<string, any>) => {
   &__content {
     @include respond-to('sm-and-up') {
       width: 350px;
-
-      // min-height: 400px;
     }
 
     display: flex;
     flex-direction: column;
     gap: $global-spacing-30;
 
-    width: 380px;
+    width: 400px;
 
     white-space: nowrap;
   }
