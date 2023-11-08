@@ -2,7 +2,7 @@
   <template v-if="isLoading"> implement-loader-here </template>
 
   <a-panel v-else class="warehouse-dashboard-panel">
-    <warehouse-header-section />
+    <warehouse-header-section :warehouses="warehouses" />
 
     <warehouse-content-section :warehouses="warehouses" />
   </a-panel>

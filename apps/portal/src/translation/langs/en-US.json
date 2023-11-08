@@ -243,6 +243,11 @@
           "editSuccessTitle": "Warehouse edited successfully"
         },
 
+        "needingAttentionSection": {
+          "title": "Warehouses needing attention",
+          "buttonText": "Check details"
+        },
+
         "preview": {
           "header": {
             "totalProductsCount": "Total products:",
