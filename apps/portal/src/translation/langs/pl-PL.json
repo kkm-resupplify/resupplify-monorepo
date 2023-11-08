@@ -232,6 +232,15 @@
       "warehouse": {
         "edit": "Edytuj magazyn",
         
+        "delete": {
+          "title": "Usuń magazyn",
+
+          "dialog": {
+            "title": "Potwierdź usunięcie magazynu",
+            "subtitle": "Czy na pewno?"
+          }
+        },
+
         "editor": {
           "title": "Nowy magazyn",
           "nameLabel": "Nazwa",

@@ -232,6 +232,15 @@
       "warehouse": {
         "edit": "Edit warehouse",
 
+        "delete": {
+          "title": "Delete warehouse",
+
+          "dialog": {
+            "title": "Confirm warehouse removal",
+            "subtitle": "Are you sure?"
+          }
+        },
+
         "editor": {
           "title": "New warehouse",
           "nameLabel": "Name",

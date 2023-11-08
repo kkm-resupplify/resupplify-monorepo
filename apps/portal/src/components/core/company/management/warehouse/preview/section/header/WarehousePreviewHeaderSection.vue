@@ -12,6 +12,8 @@
           :warehouse-name="warehouseName"
           :warehouse-description="warehouseDescription"
         />
+
+        <confirm-warehouse-removal-dialog />
       </div>
     </div>
   </a-panel-section>
@@ -23,6 +25,7 @@ import WarehousePreviewStats from '@/components/core/company/management/warehous
 import AddWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/AddWarehouseProductDialog.vue'
 import type { WarehouseProduct } from '@/interface/warehouse/WarehouseProductInterface'
 import EditWarehouseDialog from '@/components/core/company/management/warehouse/preview/dialog/EditWarehouseDialog.vue'
+import ConfirmWarehouseRemovalDialog from '../../dialog/ConfirmWarehouseRemovalDialog.vue'
 
 defineProps({
   warehouseName: String,
