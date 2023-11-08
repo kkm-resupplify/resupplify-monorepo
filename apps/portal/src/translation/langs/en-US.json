@@ -15,7 +15,9 @@
     "search": "Search",
     "update": "Update",
     "cancel": "Cancel",
-    "manage": "Manage"
+    "manage": "Manage",
+    "active": "Active",
+    "inactive": "Inactive"
   },
 
   "payments": {

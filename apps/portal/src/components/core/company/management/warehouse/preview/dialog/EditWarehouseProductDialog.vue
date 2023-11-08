@@ -90,6 +90,7 @@ import type {
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
   warehouseProduct: {
@@ -104,6 +105,7 @@ const emits = defineEmits(['product-changed'])
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 const route = useRoute()
+const { t } = useI18n()
 
 // Computed
 const warehouseId = computed(() => +route.params.id)
@@ -114,8 +116,8 @@ const productId = computed(() => props.warehouseProduct.id)
 
 const productStatusOptions = computed(() => {
   return [
-    { id: 0, text: 'Inactive' },
-    { id: 1, text: 'Active' }
+    { id: 0, text: t('global.inactive') },
+    { id: 1, text: t('global.active') }
   ]
 })
 
@@ -125,7 +127,7 @@ const initialValues = computed(() => {
   return {
     quantity: quantity,
     safeQuantity: safeQuantity,
-    status: status
+    status
   }
 })
 
