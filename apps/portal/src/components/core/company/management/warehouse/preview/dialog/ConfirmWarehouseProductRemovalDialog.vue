@@ -22,7 +22,7 @@
 
             <a-button
               button-type="submit"
-              :text="$t('global.remove')"
+              :text="$t('global.delete')"
               color="gradient-danger"
               size="x-large"
             />

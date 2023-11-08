@@ -1,7 +1,7 @@
 <template>
   <m-dialog ref="dialogRef">
     <template #activator>
-      <a-button size="large" :text="$t('company.management.warehouse.edit')" />
+      <a-button size="x-large" :text="$t('company.management.warehouse.edit')" />
     </template>
 
     <o-form

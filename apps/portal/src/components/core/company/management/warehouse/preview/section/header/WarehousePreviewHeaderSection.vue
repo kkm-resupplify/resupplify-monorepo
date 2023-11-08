@@ -49,5 +49,13 @@ defineProps({
     display: flex;
     align-items: flex-start;
   }
+
+  &__content-settings {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-40;
+
+    white-space: nowrap;
+  }
 }
 </style>

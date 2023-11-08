@@ -11,7 +11,7 @@
     "back": "Wstecz",
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
-    "remove": "Usuń",
+    "delete": "Usuń",
     "search": "Szukaj",
     "update": "Aktualizuj",
     "cancel": "Anuluj",
@@ -231,7 +231,7 @@
 
       "warehouse": {
         "edit": "Edytuj magazyn",
-        
+
         "delete": {
           "title": "Usuń magazyn",
 
