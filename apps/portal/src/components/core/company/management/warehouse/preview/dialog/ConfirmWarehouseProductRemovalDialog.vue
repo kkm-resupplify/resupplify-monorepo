@@ -4,32 +4,28 @@
       <a-button :text="$t('global.remove')" color="gradient-danger" size="x-large" />
     </template>
 
-    <o-form :submit-callback="handleSubmitRemoveProduct">
-      <template #body>
-        <div class="confirm-warehouse-product-removal-dialog__content">
-          <a-title
-            :title="$t('company.management.warehouse.preview.dialog.deleteProduct.title')"
-            :subtitle="
-              $t('company.management.warehouse.preview.dialog.deleteProduct.subtitle', {
-                product: productName
-              })
-            "
-            class="confirm-warehouse-product-removal-dialog__title"
-          />
+    <div class="confirm-warehouse-product-removal-dialog__content">
+      <a-title
+        class="confirm-warehouse-product-removal-dialog__title"
+        :title="$t('company.management.warehouse.preview.dialog.deleteProduct.title')"
+        :subtitle="
+          $t('company.management.warehouse.preview.dialog.deleteProduct.subtitle', {
+            product: productName
+          })
+        "
+      />
 
-          <div class="confirm-warehouse-product-removal-dialog__buttons">
-            <a-button :text="$t('global.cancel')" size="x-large" @click="closeDialog" />
+      <div class="confirm-warehouse-product-removal-dialog__buttons">
+        <a-button :text="$t('global.cancel')" size="x-large" @click="closeDialog" />
 
-            <a-button
-              button-type="submit"
-              :text="$t('global.remove')"
-              color="gradient-danger"
-              size="x-large"
-            />
-          </div>
-        </div>
-      </template>
-    </o-form>
+        <a-button
+          :text="$t('global.remove')"
+          color="gradient-danger"
+          size="x-large"
+          @click="handleConfirm"
+        />
+      </div>
+    </div>
   </m-dialog>
 </template>
 
@@ -43,6 +39,8 @@ defineProps({
     required: true
   }
 })
+// Emits
+const emits = defineEmits(['confirm'])
 
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
@@ -52,8 +50,9 @@ const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
 
-const handleSubmitRemoveProduct = (formData: Record<string, any>) => {
-  console.log(formData)
+const handleConfirm = () => {
+  emits('confirm')
+
   closeDialog()
 }
 </script>

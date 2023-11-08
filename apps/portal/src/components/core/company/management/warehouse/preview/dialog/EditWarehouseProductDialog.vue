@@ -143,13 +143,21 @@ const handleSubmitEditWarehouseProduct = async (formData: EditWarehouseProductFo
     formData
   )
 
-  if (success) {
-    emits('product-changed')
-    closeDialog()
-  }
+  if (success) handleWarehouseProductActionSuccess()
 }
 
-const handleSubmitRemoveWarehouseProduct = async () => {}
+const handleSubmitRemoveWarehouseProduct = async () => {
+  const { success } = await WarehouseService.removeWarehouseProduct(
+    warehouseId.value,
+    productId.value
+  )
+  if (success) handleWarehouseProductActionSuccess()
+}
+
+const handleWarehouseProductActionSuccess = () => {
+  emits('product-changed')
+  closeDialog()
+}
 </script>
 
 <style lang="scss" scoped>

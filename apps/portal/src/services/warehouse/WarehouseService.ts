@@ -53,6 +53,15 @@ class WarehouseService extends BaseService {
     })
   }
 
+  async removeWarehouseProduct(warehouseId: number, productId: number) {
+    return await this.delete({
+      id: warehouseId,
+      suffix: `${WarehouseService.WAREHOUSE_PRODUCT_SUFFIX}/${productId}`,
+      notificationTitle:
+        'company.management.warehouse.preview.dialog.manageProduct.removeSuccessTitle'
+    })
+  }
+
   async getWarehouseNotAssignedProducts(id: number) {
     return await this.get({
       id,
