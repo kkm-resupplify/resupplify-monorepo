@@ -243,9 +243,10 @@
           "editSuccessTitle": "Warehouse edited successfully"
         },
 
-        "needingAttentionSection": {
+        "needingAttention": {
           "title": "Warehouses needing attention",
-          "buttonText": "Check details"
+          "buttonText": "Check details",
+          "noResults": "All of the company warehouses are in a good condition."
         },
 
         "preview": {
