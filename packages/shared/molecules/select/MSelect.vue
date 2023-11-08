@@ -215,7 +215,7 @@ const prependIcon = computed(() => {
 
 // Methods
 onMounted(() => {
-  if (props.value || inputValue.value) {
+  if (props.value !== null || inputValue.value !== null) {
     const matchingOption = props.options.find(
       (option) => option.id === (props.value ?? inputValue.value)
     )

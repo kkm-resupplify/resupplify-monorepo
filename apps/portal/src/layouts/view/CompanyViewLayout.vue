@@ -5,6 +5,7 @@
     <div class="company-view-layout__header">
       <navigation-bar />
     </div>
+
     <div class="company-view-layout__body-wrapper">
       <div class="company-view-layout__body">
         <company-navigation />
@@ -39,10 +40,10 @@ import CompanyNavigation from '@/components/core/company/navigation/CompanyNavig
   }
 
   &__body {
-    @include boxshadow-primary-2;
-
+    @include default-border-1;
     display: flex;
     min-height: 800px;
+    background-color: var(--secondary-3);
   }
 }
 </style>

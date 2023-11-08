@@ -1,7 +1,5 @@
 <template>
-  <company-management-panel> Payments </company-management-panel>
+  <a-panel> Payments </a-panel>
 </template>
 
-<script setup lang="ts">
-import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
-</script>
+<script setup lang="ts"></script>

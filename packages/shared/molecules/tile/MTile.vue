@@ -33,7 +33,7 @@ const generateClasses = computed(() => {
 .m-tile {
   $self: &;
 
-  @include boxshadow-primary-2;
+  @include default-border-1-hover;
 
   display: flex;
   flex: 1;
@@ -47,9 +47,9 @@ const generateClasses = computed(() => {
 
   text-align: center;
   text-decoration: none;
-  word-break: break-all;
+  word-break: break;
 
-  background-color: var(--secondary-1);
+  background-color: var(--primary);
   border-radius: $global-border-radius-20;
 
   transition: transform 0.2s;

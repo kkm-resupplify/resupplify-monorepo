@@ -16,6 +16,9 @@ import AExpansionPanel from '@sharedAtoms/expansionPanel/AExpansionPanel.vue'
 import AStatusIndicator from '@sharedAtoms/indicator/AStatusIndicator.vue'
 import AListItemWrapper from '@sharedAtoms/list/AListItemWrapper.vue'
 import AListItemTitleSection from '@sharedAtoms/list/AListItemTitleSection.vue'
+import AListNoResults from '@sharedAtoms/list/AListNoResults.vue'
+import APanel from '@sharedAtoms/panel/APanel.vue'
+import APanelSection from '@sharedAtoms/panel/APanelSection.vue'
 
 const atoms = [
   AButton,
@@ -34,7 +37,10 @@ const atoms = [
   AExpansionPanel,
   AStatusIndicator,
   AListItemWrapper,
-  AListItemTitleSection
+  AListItemTitleSection,
+  AListNoResults,
+  APanel,
+  APanelSection
 ]
 
 // Molecules

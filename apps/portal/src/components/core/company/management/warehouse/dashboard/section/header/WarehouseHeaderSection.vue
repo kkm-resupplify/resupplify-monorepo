@@ -1,20 +1,18 @@
 <template>
-  <div class="warehouse-header-section">
-    <warehouse-needing-attention />
-
-    <warehouse-statistics />
-  </div>
+  <a-panel-section>
+    <warehouseneeding-attention-list :warehouses="warehouses" />
+  </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import WarehouseNeedingAttention from '@/components/core/company/management/warehouse/dashboard/section/header/WarehouseNeedingAttention.vue'
-import WarehouseStatistics from '@/components/core/company/management/warehouse/dashboard/section/header/WarehouseStatistics.vue'
-</script>
+import WarehouseneedingAttentionList from '@/components/core/company/management/warehouse/dashboard/section/header/list/WarehouseNeedingAttentionList.vue'
+import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import { type PropType } from 'vue'
 
-<style scoped lang="scss">
-.warehouse-header-section {
-  display: flex;
-  flex-direction: column;
-  gap: $global-spacing-50;
-}
-</style>
+defineProps({
+  warehouses: {
+    type: Array as PropType<Warehouse[]>,
+    required: true
+  }
+})
+</script>

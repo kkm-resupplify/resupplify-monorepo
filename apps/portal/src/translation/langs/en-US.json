@@ -3,18 +3,21 @@
     "welcome": "Welcome",
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
-    "errorOccured": "An error occured", 
+    "errorOccured": "An error occured",
     "edit": "Edit",
     "noResults": "No results",
     "next": "Next",
     "back": "Back",
     "submit": "Submit",
     "imagePreview": "Image preview",
-    "delete": "Delete",
+    "remove": "Remove",
     "save": "Save",
     "search": "Search",
     "update": "Update",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "manage": "Manage",
+    "active": "Active",
+    "inactive": "Inactive"
   },
 
   "payments": {
@@ -200,7 +203,6 @@
 
         "warehouses": {
           "title": "Warehouses",
-          "search": "Search warehouses",
 
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
@@ -236,7 +238,9 @@
           "namePlaceholder": "Enter name",
           "descriptionLabel": "Description",
           "descriptionPlaceholder": "Enter description",
-          "create": "Create"
+          "create": "Create",
+          "createSuccessTitle": "New warehouse created successfully",
+          "editSuccessTitle": "Warehouse edited successfully"
         },
 
         "needingAttentionSection": {
@@ -249,15 +253,19 @@
             "totalProductsCount": "Total products:",
             "belowSafeQuantityProductsCount": "Products below safe quantity:",
             "soldOutProductsCount": "Sold-out products:",
+            "inactiveProductsCount": "Inactive products:",
             "reservedProductsCount": "Reserved products:",
             "addProduct": "Add product"
           },
 
           "content": {
+            "warehouseProducts": "Warehouse products",
             "productName": "Product name",
             "productCode": "Product code",
             "currentSupply": "Current supply",
-            "safeQuantity": "Safe quantity"
+            "safeQuantity": "Safe quantity",
+            "search": "Search warehouses",
+            "companyWarehouses": "Company warehouses"
           },
 
           "dialog": {
@@ -269,13 +277,31 @@
               "safeQuantityPlaceholder": "Enter safe quantity",
               "currentSupplyLabel": "Current supply",
               "currentSupplyPlaceholder": "Enter current supply",
-              "submit": "Add product"
+              "submit": "Add product",
+              "addSuccessTitle": "Product added to the warehouse successfully"
+            },
+
+            "manageProduct": {
+              "setQuantity": "Set quantity",
+              "editSuccessTitle": "Warehouse product edited successfully",
+              "removeSuccessTitle": "Product removed from the warehouse successfully"
             },
 
             "deleteProduct": {
               "title": "Confirm warehouse product removal",
               "subtitle": "Are you sure you want to remove {product} from this warehouse?"
             }
+          },
+
+          "notification": {
+            "warehouseCreatedTitle": "Warehouse created successfully",
+            "warehouseUpdatedTitle": "Warehouse updated successfully",
+            "warehouseDeletedTitle": "Warehouse deleted successfully"
+          },
+
+          "list": {
+            "noWarehouses": "Your company does not have any warehouses yet.",
+            "noProducts": "Your company does not have any products assigned to this warehouse yet."
           }
         }
       }

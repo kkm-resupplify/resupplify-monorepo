@@ -35,10 +35,27 @@ const lineHeight = computed(() => {
 $height-of-line: 8px;
 
 .a-line {
-  height: v-bind(lineHeight);
+  min-height: v-bind(lineHeight);
+  max-height: v-bind(lineHeight);
 
   &--primary {
     background: var(--font-primary);
+  }
+
+  &--secondary-1 {
+    background: var(--secondary-1);
+  }
+
+  &--secondary-2 {
+    background: var(--secondary-2);
+  }
+
+  &--secondary-3 {
+    background: var(--secondary-3);
+  }
+
+  &--secondary-4 {
+    background: var(--secondary-4);
   }
 
   &--triangle {

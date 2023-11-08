@@ -11,10 +11,13 @@
     "back": "Wstecz",
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
-    "delete": "Usuń",
+    "remove": "Usuń",
     "search": "Szukaj",
     "update": "Aktualizuj",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "manage": "Zarządzaj",
+    "active": "Actywny",
+    "inactive": "Nieaktywny"
   },
 
   "payments": {
@@ -200,7 +203,6 @@
 
         "warehouses": {
           "title": "Magazyny",
-          "search": "Szukaj magazynów",
 
           "tiles": {
             "companyWarehouses": "Panel magazynów",
@@ -249,15 +251,19 @@
             "totalProductsCount": "Produktów łącznie:",
             "belowSafeQuantityProductsCount": "Produkty poniżej bezpiecznego stanu:",
             "soldOutProductsCount": "Produkty wyprzedane:",
+            "inactiveProductsCount": "Nieaktywne produkty:",
             "reservedProductsCount": "Ilość zarezerwowanych produktów:",
             "addProduct": "Dodaj produkt"
           },
 
           "content": {
+            "warehouseProducts": "Produkty w magazynie",
             "productName": "Nazwa produktu",
             "productCode": "Kod produktu",
             "currentSupply": "Aktualna ilość",
-            "safeQuantity": "Bezpieczna ilość"
+            "safeQuantity": "Bezpieczna ilość",
+            "search": "Szukaj magazynów",
+            "companyWarehouses": "Magazyny firmy"
           },
 
           "dialog": {
@@ -269,13 +275,31 @@
               "safeQuantityPlaceholder": "Wprowadź bezpieczną ilość",
               "currentSupplyLabel": "Aktualny stan",
               "currentSupplyPlaceholder": "Wprowadź aktualny stan",
-              "submit": "Dodaj produkt"
+              "submit": "Dodaj produkt",
+              "addSuccessTitle": "Produkt dodany do magazynu pomyślnie"
+            },
+
+            "manageProduct": {
+              "setQuantity": "Ustaw ilość",
+              "editSuccessTitle": "Produkt magazynowy edytowany pomyślnie",
+              "removeSuccessTitle": "Produkt magazynowo usunięty pomyślnie"
             },
 
             "deleteProduct": {
               "title": "Potwierdź usunięcie produktu",
               "subtitle": "Czy jesteś pewny aby usunąć {product} z tego magazynu?"
             }
+          },
+
+          "notification": {
+            "warehouseCreatedTitle": "Warehouse created successfully",
+            "warehouseUpdatedTitle": "Warehouse updated successfully",
+            "warehouseDeletedTitle": "Warehouse deleted successfully"
+          },
+
+          "list": {
+            "noWarehouses": "Twoja firma nie ma jeszcze żadnych magazynów.",
+            "noProducts": "Twoja firma nie ma jeszcze żadnych produktów przypisanych do tego magazynu."
           }
         }
       }

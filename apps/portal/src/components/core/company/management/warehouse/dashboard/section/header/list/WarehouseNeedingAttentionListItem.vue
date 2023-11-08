@@ -1,7 +1,7 @@
 <template>
   <router-link :to="warehouseLink" class="warehouse-needing-attention-list-item">
-    <a-list-item-wrapper :to="warehouseLink">
-      <a-status-indicator :status="warehouse.status" />
+    <a-list-item-wrapper>
+      <a-status-indicator :status="warehouseStatus(warehouse)" />
 
       <span v-text="warehouse.name" />
 
@@ -16,13 +16,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, type PropType } from 'vue'
 import { RouteNames } from '@/routes/index'
+import { useWarehouseStatus } from '@/composable/warehouse/useWarehouseStatus'
+import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
 
 const props = defineProps({
-  warehouse: { type: Object, required: true }
+  warehouse: { type: Object as PropType<Warehouse>, required: true }
 })
 
+// Variables
+const { warehouseStatus } = useWarehouseStatus()
+
+// Computed
 const warehouseLink = computed(() => {
   return {
     name: RouteNames.COMPANY_WAREHOUSE_PREVIEW,
