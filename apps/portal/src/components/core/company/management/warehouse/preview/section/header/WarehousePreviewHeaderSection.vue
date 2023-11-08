@@ -6,7 +6,7 @@
       <warehouse-preview-stats :products="products" />
 
       <div class="warehouse-preview-header-section__content-settings">
-        <add-warehouse-product-dialog />
+        <add-warehouse-product-dialog @fetch-warehouse="emitFetchWarehouse" />
 
         <edit-warehouse-dialog
           :warehouse-name="warehouseName"
@@ -36,7 +36,13 @@ defineProps({
   }
 })
 
+// Emits
+const emits = defineEmits(['fetch-warehouse'])
+
 // Methods
+const emitFetchWarehouse = () => {
+  emits('fetch-warehouse')
+}
 </script>
 
 <style scoped lang="scss">

@@ -281,11 +281,14 @@
               "safeQuantityPlaceholder": "Enter safe quantity",
               "currentSupplyLabel": "Current supply",
               "currentSupplyPlaceholder": "Enter current supply",
-              "submit": "Add product"
+              "submit": "Add product",
+              "addSuccessTitle": "Product added to the warehouse successfully"
             },
 
-            "editProduct": {
-              "setQuantity": "Set quantity"
+            "manageProduct": {
+              "setQuantity": "Set quantity",
+              "editSuccessTitle": "Warehouse product edited successfully",
+              "removeSuccessTitle": "Product removed from the warehouse successfully"
             },
 
             "deleteProduct": {

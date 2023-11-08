@@ -18,4 +18,11 @@ export interface WarehouseProductFormData {
   warehouseId: number
   quantity: number
   safeQuantity: number
+  status?: number
+}
+
+export interface EditWarehouseProductFormData {
+  warehouseId: number
+  quantity: number
+  status: number
 }

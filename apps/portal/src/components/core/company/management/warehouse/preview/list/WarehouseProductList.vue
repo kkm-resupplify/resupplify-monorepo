@@ -4,6 +4,7 @@
       v-for="(warehouseProduct, idx) in products"
       :key="idx"
       :product="warehouseProduct"
+      @product-changed="$emit('product-changed')"
     />
   </div>
 </template>
@@ -19,6 +20,9 @@ defineProps({
     required: true
   }
 })
+
+// Emits
+defineEmits(['product-changed'])
 </script>
 
 <style scoped lang="scss">

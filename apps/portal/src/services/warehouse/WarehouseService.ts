@@ -1,10 +1,11 @@
 import type { WarehouseProductFormData } from '@/interface/warehouse/WarehouseProductInterface'
 import BaseService from '../BaseService'
 import type { WarehouseFormData } from '@interfaces/warehouse/WarehouseInterface'
+import type { EditWarehouseProductFormData } from '@interfaces/warehouse/WarehouseProductInterface'
 
 class WarehouseService extends BaseService {
   static WAREHOUSE_PRODUCT_SUFFIX = 'product'
-  static WAREHOUSE_NOT_ASSIGNED_PRODUCTS = 'product'
+  static WAREHOUSE_NOT_ASSIGNED_PRODUCTS = 'productNotAttached'
 
   async getWarehouses() {
     return await this.get({})
@@ -34,7 +35,21 @@ class WarehouseService extends BaseService {
     return await this.post({
       data: formData,
       suffix: WarehouseService.WAREHOUSE_PRODUCT_SUFFIX,
-      notificationTitle: 'company.management.warehouse.product.createSuccessTitle'
+      notificationTitle: 'company.management.warehouse.preview.dialog.addProduct.addSuccessTitle'
+    })
+  }
+
+  async editWarehouseProduct(
+    warehouseId: number,
+    productId: number,
+    data: EditWarehouseProductFormData
+  ) {
+    return await this.put({
+      id: warehouseId,
+      data: data,
+      suffix: `${WarehouseService.WAREHOUSE_PRODUCT_SUFFIX}/${productId}`,
+      notificationTitle:
+        'company.management.warehouse.preview.dialog.manageProduct.editSuccessTitle'
     })
   }
 
