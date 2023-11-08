@@ -5,6 +5,7 @@
     <warehouse-preview-header-section
       :products="warehouseProducts"
       :warehouse-name="warehouse?.name"
+      :warehouse-description="warehouse?.description"
     />
 
     <a-line :height="2" color="secondary-2" />

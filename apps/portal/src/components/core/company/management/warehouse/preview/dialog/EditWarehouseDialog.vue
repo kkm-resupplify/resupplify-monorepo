@@ -4,7 +4,11 @@
       <a-button size="large" :text="$t('company.management.warehouse.edit')" />
     </template>
 
-    <o-form class="edit-warehouse-dialog__form" :initial-values="props">
+    <o-form
+      class="edit-warehouse-dialog__form"
+      :initial-values="props"
+      :submit-callback="handleEditWarehouse"
+    >
       <template #body>
         <div class="edit-warehouse-dialog__body">
           <a-title :title="$t('company.management.warehouse.edit')" size="x-large" />
@@ -39,16 +43,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
+import type { WarehouseFormData } from '@/interface/warehouse/WarehouseInterface'
+import WarehouseService from '@/services/warehouse/WarehouseService'
 
 const props = defineProps({
-  warehouseName: {
-    type: String,
-    required: true
-  },
-  warehouseDescription: {
-    type: String,
-    required: true
-  }
+  warehouseName: String,
+  warehouseDescription: String
 })
 
 // Variables
@@ -57,6 +57,11 @@ const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 // Methods
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
+}
+
+const handleEditWarehouse = async (formData: WarehouseFormData) => {
+  await WarehouseService.editWarehouse(formData)
+  closeDialog()
 }
 </script>
 

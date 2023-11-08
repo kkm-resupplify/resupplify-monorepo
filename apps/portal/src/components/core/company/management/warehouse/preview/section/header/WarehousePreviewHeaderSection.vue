@@ -9,8 +9,8 @@
         <add-warehouse-product-dialog />
 
         <edit-warehouse-dialog
-          :warehouse-name="warehouse.title"
-          :warehouse-description="warehouse.description"
+          :warehouse-name="warehouseName"
+          :warehouse-description="warehouseDescription"
         />
       </div>
     </div>
@@ -22,14 +22,18 @@ import { type PropType } from 'vue'
 import WarehousePreviewStats from '@/components/core/company/management/warehouse/preview/section/header/WarehousePreviewStats.vue'
 import AddWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/AddWarehouseProductDialog.vue'
 import type { WarehouseProduct } from '@/interface/warehouse/WarehouseProductInterface'
+import EditWarehouseDialog from '@/components/core/company/management/warehouse/preview/dialog/EditWarehouseDialog.vue'
 
 defineProps({
   warehouseName: String,
+  warehouseDescription: String,
   products: {
     type: Array as PropType<WarehouseProduct[]>,
     required: true
   }
 })
+
+// Methods
 </script>
 
 <style scoped lang="scss">
