@@ -1,6 +1,8 @@
 <template>
   <basic-view-layout class="test-view">
-    <template #body></template>
+    <template #body>
+      <o-confirm-dialog type="delete" />
+    </template>
   </basic-view-layout>
 </template>
 
