@@ -1,34 +1,74 @@
 <template>
   <a-panel-section class="warehouse-preview-content-section">
-    <o-search-bar :placeholder="$t('company.management.warehouse.preview.content.search')" />
-
-    <warehouse-product-list
-      v-if="showList"
-      :products="products"
-      @product-changed="$emit('product-changed')"
+    <o-search-bar
+      :placeholder="$t('company.management.warehouse.preview.content.search')"
+      @search="handleFetchWarehouseProducts"
     />
 
-    <a-list-no-results v-else :text="$t('company.management.warehouse.preview.list.noProducts')" />
+    <a-line />
+
+    <template v-if="isLoading">implement-list-loader</template>
+
+    <template v-else>
+      <warehouse-product-list
+        v-if="showList"
+        :warehouse-products="warehouseProducts"
+        @product-changed="$emit('product-changed')"
+      />
+
+      <a-list-no-results
+        v-else
+        :text="$t('company.management.warehouse.preview.list.noProducts')"
+      />
+    </template>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
 import WarehouseProductList from '@/components/core/company/management/warehouse/preview/list/WarehouseProductList.vue'
-import { type PropType, computed } from 'vue'
-import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
 
-const props = defineProps({
-  products: {
-    type: Array as PropType<WarehouseProduct[]>,
-    required: true
-  }
-})
+import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
+import WarehouseService from '@/services/warehouse/WarehouseService'
+import { useRoute } from 'vue-router'
+import { ref, computed, onBeforeMount } from 'vue'
 
 // Emits
 defineEmits(['product-changed'])
+
+// Variables
+const isLoading = ref(false)
+const warehouseProducts = ref<WarehouseProduct[]>([])
+const route = useRoute()
+
 // Computed
+const warehouseId = computed(() => route.params.id)
+
 const showList = computed(() => {
-  return props.products.length > 0
+  return warehouseProducts.value.length > 0
+})
+
+// Methods
+const handleFetchWarehouseProducts = async () => {
+  isLoading.value = true
+
+  const {
+    query: { search }
+  } = route
+
+  const { data, success } = await WarehouseService.getWarehouseProducts(+warehouseId.value, {
+    name: search as string
+  })
+
+  if (success) {
+    warehouseProducts.value = data
+  }
+
+  isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchWarehouseProducts()
 })
 </script>
 

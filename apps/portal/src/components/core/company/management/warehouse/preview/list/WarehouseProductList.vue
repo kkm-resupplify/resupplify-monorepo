@@ -1,28 +1,32 @@
 <template>
   <div class="warehouse-product-list">
     <warehouse-product-list-item
-      v-for="(warehouseProduct, idx) in products"
+      v-for="(warehouseProduct, idx) in warehouseProducts"
       :key="idx"
       :product="warehouseProduct"
-      @product-changed="$emit('product-changed')"
+      @product-changed="handleProductChanged"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import WarehouseProductListItem from '@/components/core/company/management/warehouse/preview/list/WarehouseProductListItem.vue'
-import type { PropType } from 'vue'
 import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
+import { type PropType } from 'vue'
 
 defineProps({
-  products: {
+  warehouseProducts: {
     type: Array as PropType<WarehouseProduct[]>,
     required: true
   }
 })
 
 // Emits
-defineEmits(['product-changed'])
+const emits = defineEmits(['product-changed'])
+
+const handleProductChanged = () => {
+  emits('product-changed')
+}
 </script>
 
 <style scoped lang="scss">
