@@ -7,20 +7,24 @@
 
     <a-line />
 
-    <template v-if="isLoading">implement-list-loader</template>
+    <template v-if="hasProducts">
+      <template v-if="isLoading">implement-list-loader</template>
 
-    <template v-else>
-      <warehouse-product-list
-        v-if="showList"
-        :warehouse-products="warehouseProducts"
-        @product-changed="$emit('product-changed')"
-      />
+      <template v-else>
+        <warehouse-product-list
+          v-if="showList"
+          :warehouse-products="warehouseProducts"
+          @product-changed="$emit('product-changed')"
+        />
 
-      <a-list-no-results
-        v-else
-        :text="$t('company.management.warehouse.preview.list.noProducts')"
-      />
+        <a-list-no-results
+          v-else
+          :text="$t('company.management.warehouse.preview.list.noProductsMatchingFilter')"
+        />
+      </template>
     </template>
+
+    <a-list-no-results v-else :text="$t('company.management.warehouse.preview.list.noProducts')" />
   </a-panel-section>
 </template>
 
@@ -31,6 +35,10 @@ import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInt
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
 import { ref, computed, onBeforeMount } from 'vue'
+
+const props = defineProps({
+  hasProducts: Boolean
+})
 
 // Emits
 defineEmits(['product-changed'])
@@ -59,9 +67,7 @@ const handleFetchWarehouseProducts = async () => {
     name: search as string
   })
 
-  if (success) {
-    warehouseProducts.value = data
-  }
+  if (success) warehouseProducts.value = data
 
   isLoading.value = false
 }
