@@ -3,7 +3,7 @@
     <o-search-bar
       class="warehouse-list__search-bar"
       :placeholder="$t('company.management.warehouse.preview.content.search')"
-      @search="(v: string) => {console.log(v)}"
+      @search="$emit('search')"
     />
 
     <a-line :height="2" color="secondary-2" />
@@ -33,6 +33,9 @@ defineProps({
     type: Array as PropType<Warehouse[]>
   }
 })
+
+// Emits
+const emits = defineEmits(['search'])
 </script>
 
 <style scoped lang="scss">

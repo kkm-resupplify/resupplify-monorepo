@@ -5,7 +5,7 @@
       size="large"
     />
 
-    <warehouse-list :warehouses="warehouses" />
+    <warehouse-list :warehouses="warehouses" @search="$emit('search')" />
   </a-panel-section>
 </template>
 
@@ -19,4 +19,7 @@ defineProps({
     type: Array as PropType<Warehouse[]>
   }
 })
+
+// Emits
+const emits = defineEmits(['search'])
 </script>

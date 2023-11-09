@@ -4,7 +4,7 @@
   <a-panel v-else class="warehouse-dashboard-panel">
     <warehouse-header-section :warehouses="warehouses" />
 
-    <warehouse-content-section :warehouses="warehouses" />
+    <warehouse-content-section :warehouses="warehouses" @search="handleFetchWarehouses" />
   </a-panel>
 </template>
 
@@ -12,11 +12,11 @@
 import WarehouseHeaderSection from '@/components/core/company/management/warehouse/dashboard/section/header/WarehouseHeaderSection.vue'
 import WarehouseContentSection from '@/components/core/company/management/warehouse/dashboard/section/content/WarehouseContentSection.vue'
 import WarehouseService from '@/services/warehouse/WarehouseService'
-import { onBeforeMount, reactive, ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
 
 // Variables
-const warehouses = reactive<Warehouse[]>([])
+const warehouses = ref<Warehouse[]>([])
 const isLoading = ref(false)
 
 // Methods
@@ -25,7 +25,7 @@ const handleFetchWarehouses = async () => {
 
   const { data, success } = await WarehouseService.getWarehouses()
 
-  if (success) warehouses.push(...(data as Warehouse[]))
+  if (success) warehouses.value = data
 
   isLoading.value = false
 }
