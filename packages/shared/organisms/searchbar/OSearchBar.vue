@@ -82,6 +82,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .o-search-bar {
   display: flex;
+  max-width: 800px;
 
   &__button {
     border-radius: 0;
