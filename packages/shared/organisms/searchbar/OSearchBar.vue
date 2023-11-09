@@ -11,7 +11,12 @@
       @input-change="handleInputChange"
     />
 
-    <a-button type="submit" :text="$t('global.search')" class="o-search-bar__button" />
+    <a-button
+      type="submit"
+      :text="$t('global.search')"
+      class="o-search-bar__button"
+      :disabled="disabled"
+    />
   </form>
 </template>
 
@@ -25,7 +30,8 @@ defineProps({
   placeholder: {
     type: String,
     required: true
-  }
+  },
+  disabled: Boolean
 })
 
 // Emits
