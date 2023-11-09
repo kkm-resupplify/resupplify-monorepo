@@ -1,7 +1,7 @@
 <template>
   <basic-view-layout class="test-view">
     <template #body>
-      <o-confirm-dialog type="delete" />
+      <o-confirm-dialog type="update" item-name="item" />
     </template>
   </basic-view-layout>
 </template>

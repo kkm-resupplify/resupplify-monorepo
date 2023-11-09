@@ -1,16 +1,21 @@
 <template>
   <m-dialog :title="headerText">
     <template #activator>
-      <a-button text="button" />
+      <a-button :text="text" />
     </template>
 
     <div class="o-confirm-dialog__body">
-      <a-title title="Do you want to sth?" />
+      <a-title :title="contentText" />
 
       <div class="o-confirm-dialog__buttons">
-        <a-button text="Cancel" size="x-large" />
+        <a-button :text="$t('global.cancel')" size="x-large" />
 
-        <a-button text="Do it" color="gradient-danger" size="x-large" />
+        <a-button
+          :text="$t('global.confirm')"
+          color="gradient-danger"
+          size="x-large"
+          @click="handleConfirm"
+        />
       </div>
     </div>
   </m-dialog>
@@ -18,13 +23,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-
-const headerText = computed(() => {
-  if (props.type === 'add') return 'Add confirmation'
-  else if (props.type === 'remove') return 'Remove confirmation'
-  else if (props.type === 'delete') return 'Delete confirmation'
-  else return ''
-})
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
   itemName: {
@@ -33,7 +32,7 @@ const props = defineProps({
   },
   type: {
     validator(value: string) {
-      return ['add', 'remove', 'delete'].includes(value)
+      return ['add', 'update', 'delete'].includes(value)
     }
   },
   text: {
@@ -41,6 +40,35 @@ const props = defineProps({
     default: 'Title'
   }
 })
+
+// Variables
+const { t } = useI18n()
+
+// Computed
+const headerText = computed(() => {
+  if (props.type === 'add') return t('confirm.dialog.titleCreate')
+  else if (props.type === 'update') return t('confirm.dialog.titleUpdate')
+  else if (props.type === 'delete') return t('confirm.dialog.titleDelete')
+  else return ''
+})
+
+const contentText = computed(() => {
+  let translationKey
+  if (props.type === 'add') translationKey = 'confirm.dialog.textCreate'
+  else if (props.type === 'update') translationKey = 'confirm.dialog.textUpdate'
+  else if (props.type === 'delete') translationKey = 'confirm.dialog.textDelete'
+  else return ''
+
+  return t(translationKey, { item: props.itemName })
+})
+
+// Emits
+const emits = defineEmits(['confirmed'])
+
+// Methods
+const handleConfirm = () => {
+  emits('confirmed')
+}
 </script>
 
 <style scoped lang="scss">
