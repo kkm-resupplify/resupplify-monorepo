@@ -6,7 +6,7 @@
       <span v-text="warehouse.name" />
 
       <a-button
-        :text="$t('company.management.warehouse.needingAttentionSection.buttonText')"
+        :text="$t('company.management.warehouse.needingAttention.buttonText')"
         class="warehouse-needing-attention-list-item__button"
         color="gradient-warning"
         size="x-large"

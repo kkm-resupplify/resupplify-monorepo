@@ -1,16 +1,15 @@
 <template>
-  <a-title
-    :title="$t('company.management.warehouse.needingAttentionSection.title')"
-    size="x-large"
-  />
+  <a-title :title="$t('company.management.warehouse.needingAttention.title')" size="x-large" />
 
-  <div class="warehouse-needing-attention-list">
+  <div v-if="warehouseNeedingAttentionListItems.length" class="warehouse-needing-attention-list">
     <warehouse-needing-attention-list-item
       v-for="(warehouse, idx) in warehouseNeedingAttentionListItems"
       :key="idx"
       :warehouse="warehouse"
     />
   </div>
+
+  <a-list-no-results v-else :text="$t('company.management.warehouse.needingAttention.noResults')" />
 </template>
 
 <script setup lang="ts">

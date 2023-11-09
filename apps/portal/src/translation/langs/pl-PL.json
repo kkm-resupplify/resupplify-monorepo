@@ -242,9 +242,10 @@
           "create": "Utwórz"
         },
 
-        "needingAttentionSection": {
+        "needingAttention": {
           "title": "Magazyny wymagające uwagi",
-          "buttonText": "Sprawdź szczegóły"
+          "buttonText": "Sprawdź szczegóły",
+          "noResults": "Wszystkie magazyny firmy są w dobrym stanie"
         },
 
         "preview": {

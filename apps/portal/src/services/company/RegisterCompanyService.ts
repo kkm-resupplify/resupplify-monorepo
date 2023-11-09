@@ -1,3 +1,4 @@
+import { useUserStore } from '@/stores/user/useUserStore'
 import BaseService from '../BaseService'
 import type { RegisterCompanyData } from '@interfaces/company/RegisterCompanyInterface'
 
@@ -43,6 +44,11 @@ class RegisterCompanyService extends BaseService {
       notificationText: 'company.register.notification.registerCompanySuccessText',
       notificationDuration: 7000
     })
+
+    const { data } = response
+    const userStore = useUserStore()
+
+    userStore.setUserCompany(data)
 
     return response
   }
