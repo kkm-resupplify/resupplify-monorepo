@@ -17,7 +17,8 @@
     "cancel": "Anuluj",
     "manage": "Zarządzaj",
     "active": "Actywny",
-    "inactive": "Nieaktywny"
+    "inactive": "Nieaktywny",
+    "confirm": "Potwierdź"
   },
 
   "payments": {
@@ -293,9 +294,9 @@
           },
 
           "notification": {
-            "warehouseCreatedTitle": "Warehouse created successfully",
-            "warehouseUpdatedTitle": "Warehouse updated successfully",
-            "warehouseDeletedTitle": "Warehouse deleted successfully"
+            "warehouseCreatedTitle": "Magazyn utworzony pomyślnie",
+            "warehouseUpdatedTitle": "Magazyn zaaktualizowany pomyślnie",
+            "warehouseDeletedTitle": "Magazyn usunięty pomyślnie"
           },
 
           "list": {
@@ -322,6 +323,17 @@
     "expandYourClientBase": "Poszerz swoją bazę klientów",
     "diversifyAndGrowClientele": "Dywersyfikuj i rozwijaj klientelę",
     "increaseYourMarketShare": "Zwiększ swój udział w rynku"
+  },
+
+  "confirm": {
+    "dialog": {
+      "titleRemove": "Potwierdzenie usunięcia",
+      "textRemove": "Czy na pewno chcesz usunąć {item}?",
+      "titleUpdate": "Potwierdzenie aktualizacji",
+      "textUpdate": "Czy na pewno chcesz zaaktualizować {item}?",
+      "titleCreate": "Potwierdzenie dodania",
+      "textCreate": "Czy na pewno chcesz dodać {item}?"
+    }
   },
 
   "settings": {
