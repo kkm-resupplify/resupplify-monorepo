@@ -1,11 +1,11 @@
 <template>
-  <m-dialog :title="headerText">
+  <m-dialog :title="titleText">
     <template #activator>
-      <a-button :text="text" :size="activatorSize" />
+      <a-button :text="activatorName" :size="activatorSize" />
     </template>
 
     <div class="o-confirm-dialog__body">
-      <a-title :title="contentText" />
+      <span class="o-confirm-dialog__content" v-text="contentText" />
 
       <div class="o-confirm-dialog__buttons">
         <a-button :text="$t('global.cancel')" size="x-large" />
@@ -33,13 +33,15 @@ const props = defineProps({
   type: {
     type: String,
     validator(value: string) {
-      return ['create', 'update', 'delete', 'remove'].includes(value)
+      return ['create', 'update', 'remove'].includes(value)
     },
     required: true
   },
-  text: {
+  title: String,
+  content: String,
+  activatorName: {
     type: String,
-    default: 'Title'
+    required: true
   },
   activatorSize: {
     type: String,
@@ -51,16 +53,14 @@ const props = defineProps({
 const { t } = useI18n()
 
 // Computed
-const headerText = computed(() => {
-  const suffix = props.type.charAt(0).toUpperCase() + props.type.slice(1)
+const suffix = computed(() => props.type.charAt(0).toUpperCase() + props.type.slice(1))
 
-  return t(`confirm.dialog.title${suffix}`)
+const titleText = computed(() => {
+  return props.title || t(`confirm.dialog.title${suffix.value}`)
 })
 
 const contentText = computed(() => {
-  const suffix = props.type.charAt(0).toUpperCase() + props.type.slice(1)
-
-  return t(`confirm.dialog.text${suffix}`, { item: props.itemName })
+  return props.content || t(`confirm.dialog.text${suffix.value}`, { item: props.itemName })
 })
 
 // Emits
@@ -77,7 +77,7 @@ const handleConfirm = () => {
   &__body {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-100;
+    gap: 40px;
     align-items: center;
     justify-content: center;
 
