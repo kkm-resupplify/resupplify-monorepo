@@ -53,14 +53,18 @@ const props = defineProps({
 const { t } = useI18n()
 
 // Computed
-const suffix = computed(() => props.type.charAt(0).toUpperCase() + props.type.slice(1))
+const translationKeySuffix = computed(
+  () => props.type.charAt(0).toUpperCase() + props.type.slice(1)
+)
 
 const titleText = computed(() => {
-  return props.title || t(`confirm.dialog.title${suffix.value}`)
+  return props.title || t(`confirm.dialog.title${translationKeySuffix.value}`)
 })
 
 const contentText = computed(() => {
-  return props.content || t(`confirm.dialog.text${suffix.value}`, { item: props.itemName })
+  return (
+    props.content || t(`confirm.dialog.text${translationKeySuffix.value}`, { item: props.itemName })
+  )
 })
 
 // Emits
