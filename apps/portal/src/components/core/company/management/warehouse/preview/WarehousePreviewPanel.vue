@@ -4,9 +4,7 @@
   <a-panel v-else class="warehouse-preview-panel">
     <warehouse-preview-header-section
       :products="warehouseProducts"
-      :warehouse-id="warehouseId"
-      :warehouse-name="warehouse?.name"
-      :warehouse-description="warehouse?.description"
+      :warehouse="warehouse"
       @fetch-warehouse="handleFetchWarehouse"
     />
 

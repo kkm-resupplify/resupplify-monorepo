@@ -6,7 +6,7 @@
 
     <o-form
       class="edit-warehouse-dialog__form"
-      :initial-values="props"
+      :initial-values="{ ...props.warehouse }"
       :submit-callback="handleEditWarehouse"
     >
       <template #body>
@@ -46,10 +46,11 @@ import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import type { WarehouseFormData } from '@/interface/warehouse/WarehouseInterface'
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
+import type { PropType } from 'vue'
+import type { Warehouse } from '@/interface/warehouse/WarehouseInterface'
 
 const props = defineProps({
-  name: String,
-  description: String
+  warehouse: Object as PropType<Warehouse>
 })
 
 // Variables
