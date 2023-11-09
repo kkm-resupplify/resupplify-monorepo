@@ -1,7 +1,7 @@
 <template>
   <m-dialog ref="dialogRef" :title="titleText">
     <template #activator>
-      <a-button :text="activatorName" :size="activatorSize" />
+      <a-button :text="activatorName" :size="activatorSize" :color="activatorVariant" />
     </template>
 
     <div class="o-confirm-dialog__body">
@@ -58,6 +58,12 @@ const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 const translationKeySuffix = computed(
   () => props.type.charAt(0).toUpperCase() + props.type.slice(1)
 )
+
+const activatorVariant = computed(() =>
+  props.type === 'remove' ? 'gradient-danger' : 'gradient-primary'
+)
+
+console.log(activatorVariant.value)
 
 const titleText = computed(() => {
   return props.title || t(`confirm.dialog.title${translationKeySuffix.value}`)
