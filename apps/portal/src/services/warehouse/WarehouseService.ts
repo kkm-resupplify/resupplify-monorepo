@@ -7,7 +7,7 @@ class WarehouseService extends BaseService {
   static WAREHOUSE_PRODUCT_SUFFIX = 'product'
   static WAREHOUSE_NOT_ASSIGNED_PRODUCTS = 'productNotAttached'
 
-  async getWarehouses(params?: any) {
+  async getWarehouses(params?: { name?: string; status?: string }) {
     return await this.get({ config: { params } })
   }
 
@@ -15,6 +15,13 @@ class WarehouseService extends BaseService {
     return await this.get({ id })
   }
 
+  async getWarehouseProducts(id: number, params?: { name?: string; status?: string }) {
+    return await this.get({
+      id,
+      config: { params },
+      suffix: WarehouseService.WAREHOUSE_PRODUCT_SUFFIX
+    })
+  }
   async createWarehouse(formData: WarehouseFormData) {
     return await this.post({
       data: formData,
