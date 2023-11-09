@@ -7,8 +7,8 @@ class WarehouseService extends BaseService {
   static WAREHOUSE_PRODUCT_SUFFIX = 'product'
   static WAREHOUSE_NOT_ASSIGNED_PRODUCTS = 'productNotAttached'
 
-  async getWarehouses() {
-    return await this.get({})
+  async getWarehouses(params?: any) {
+    return await this.get({ config: { params } })
   }
 
   async getWarehouse(id: number) {
