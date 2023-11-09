@@ -46,10 +46,10 @@ const generateClasses = computed(() => {
 })
 
 // Methods
-const onSearchCallback = () => {
-  emit('search', search.value)
+const onSearchCallback = async () => {
+  await setQueryParam('search', search.value)
 
-  setQueryParam('search', search.value)
+  emit('search', search.value)
 }
 
 const setSearch = () => {
@@ -58,15 +58,15 @@ const setSearch = () => {
   }
 }
 
-const setQueryParam = (param: string, value: string | undefined) => {
+const setQueryParam = async (param: string, value: string | undefined) => {
   if (param.length > 0) {
-    router.replace({ query: { [param]: value } })
+    await router.replace({ query: { [param]: value } })
   }
 }
 
-const onClearCallback = () => {
+const onClearCallback = async () => {
   search.value = ''
-  onSearchCallback()
+  await onSearchCallback()
 }
 
 const handleInputChange = (value: string) => {
