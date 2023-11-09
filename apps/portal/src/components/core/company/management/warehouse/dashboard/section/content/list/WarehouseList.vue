@@ -18,7 +18,7 @@
 
     <a-list-no-results
       v-else
-      :text="$t('company.management.navigation.warehouses.list.noWarehouses')"
+      :text="$t('company.management.warehouse.preview.list.noWarehouses')"
     />
   </div>
 </template>
@@ -35,7 +35,7 @@ defineProps({
 })
 
 // Emits
-const emits = defineEmits(['search'])
+defineEmits(['search'])
 </script>
 
 <style scoped lang="scss">

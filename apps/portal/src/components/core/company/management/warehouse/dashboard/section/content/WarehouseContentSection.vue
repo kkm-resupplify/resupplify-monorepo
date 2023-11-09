@@ -21,5 +21,5 @@ defineProps({
 })
 
 // Emits
-const emits = defineEmits(['search'])
+defineEmits(['search'])
 </script>

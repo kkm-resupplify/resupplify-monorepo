@@ -27,6 +27,7 @@ defineProps({
     required: true
   }
 })
+
 // Emits
 const emit = defineEmits(['search'])
 

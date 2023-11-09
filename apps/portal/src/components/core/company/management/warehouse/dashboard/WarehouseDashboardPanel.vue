@@ -14,16 +14,22 @@ import WarehouseContentSection from '@/components/core/company/management/wareho
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { onBeforeMount, ref } from 'vue'
 import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import { useRoute } from 'vue-router'
 
 // Variables
 const warehouses = ref<Warehouse[]>([])
 const isLoading = ref(false)
+const route = useRoute()
 
 // Methods
 const handleFetchWarehouses = async () => {
   isLoading.value = true
 
-  const { data, success } = await WarehouseService.getWarehouses()
+  const {
+    query: { search }
+  } = route
+
+  const { data, success } = await WarehouseService.getWarehouses({ name: search })
 
   if (success) warehouses.value = data
 
