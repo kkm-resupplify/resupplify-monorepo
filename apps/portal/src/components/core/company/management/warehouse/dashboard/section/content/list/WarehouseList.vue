@@ -3,6 +3,7 @@
     <o-search-bar
       class="warehouse-list__search-bar"
       :placeholder="$t('company.management.warehouse.preview.content.search')"
+      @search="$emit('search')"
     />
 
     <a-line :height="2" color="secondary-2" />
@@ -17,7 +18,7 @@
 
     <a-list-no-results
       v-else
-      :text="$t('company.management.navigation.warehouses.list.noWarehouses')"
+      :text="$t('company.management.warehouse.preview.list.noWarehouses')"
     />
   </div>
 </template>
@@ -32,6 +33,9 @@ defineProps({
     type: Array as PropType<Warehouse[]>
   }
 })
+
+// Emits
+defineEmits(['search'])
 </script>
 
 <style scoped lang="scss">

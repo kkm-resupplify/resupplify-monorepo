@@ -94,6 +94,8 @@ const generateClasses = computed(() => {
 }
 
 .a-button {
+  cursor: pointer;
+
   align-items: flex-start;
 
   box-sizing: border-box;
@@ -138,6 +140,14 @@ const generateClasses = computed(() => {
 
     &-danger {
       @include gradient(var(--danger-gradient));
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &-warning {
+      @include gradient(var(--warning-gradient));
 
       &:hover {
         opacity: 0.8;

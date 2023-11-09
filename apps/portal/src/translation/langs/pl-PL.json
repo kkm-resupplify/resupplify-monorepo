@@ -15,7 +15,9 @@
     "search": "Szukaj",
     "update": "Aktualizuj",
     "cancel": "Anuluj",
-    "manage": "Zarządzaj"
+    "manage": "Zarządzaj",
+    "active": "Actywny",
+    "inactive": "Nieaktywny"
   },
 
   "payments": {
@@ -251,6 +253,12 @@
           "createSuccessTitle": "Nowy magazyn został dodany pomyślnie",
           "editSuccessTitle": "Nagazyn został pomyślnie zedytowany",
           "deleteSuccessTitle": "Magazyn został pomyślnie usunięty"
+        },
+
+        "needingAttention": {
+          "title": "Magazyny wymagające uwagi",
+          "buttonText": "Sprawdź szczegóły",
+          "noResults": "Wszystkie magazyny firmy są w dobrym stanie"
         },
 
         "preview": {

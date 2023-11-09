@@ -19,10 +19,7 @@
     </div>
 
     <edit-warehouse-product-dialog
-      :product-id="product.id"
-      :product-name="product.product.name"
-      :safe-quantity="product.safeQuantity"
-      :quantity="product.quantity"
+      :warehouse-product="product"
       @product-changed="$emit('product-changed')"
     />
   </a-list-item-wrapper>

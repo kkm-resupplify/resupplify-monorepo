@@ -1,12 +1,18 @@
 <template>
   <a-panel-section>
-    <warehouse-needing-attention />
-
-    <warehouse-statistics />
+    <warehouseneeding-attention-list :warehouses="warehouses" />
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import WarehouseNeedingAttention from '@/components/core/company/management/warehouse/dashboard/section/header/WarehouseNeedingAttention.vue'
-import WarehouseStatistics from '@/components/core/company/management/warehouse/dashboard/section/header/WarehouseStatistics.vue'
+import WarehouseneedingAttentionList from '@/components/core/company/management/warehouse/dashboard/section/header/list/WarehouseNeedingAttentionList.vue'
+import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import { type PropType } from 'vue'
+
+defineProps({
+  warehouses: {
+    type: Array as PropType<Warehouse[]>,
+    required: true
+  }
+})
 </script>

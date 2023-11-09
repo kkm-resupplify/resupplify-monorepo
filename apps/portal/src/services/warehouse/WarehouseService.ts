@@ -7,8 +7,8 @@ class WarehouseService extends BaseService {
   static WAREHOUSE_PRODUCT_SUFFIX = 'product'
   static WAREHOUSE_NOT_ASSIGNED_PRODUCTS = 'productNotAttached'
 
-  async getWarehouses() {
-    return await this.get({})
+  async getWarehouses(params?: any) {
+    return await this.get({ config: { params } })
   }
 
   async getWarehouse(id: number) {
@@ -56,6 +56,15 @@ class WarehouseService extends BaseService {
       suffix: `${WarehouseService.WAREHOUSE_PRODUCT_SUFFIX}/${productId}`,
       notificationTitle:
         'company.management.warehouse.preview.dialog.manageProduct.editSuccessTitle'
+    })
+  }
+
+  async removeWarehouseProduct(warehouseId: number, productId: number) {
+    return await this.delete({
+      id: warehouseId,
+      suffix: `${WarehouseService.WAREHOUSE_PRODUCT_SUFFIX}/${productId}`,
+      notificationTitle:
+        'company.management.warehouse.preview.dialog.manageProduct.removeSuccessTitle'
     })
   }
 

@@ -9,10 +9,14 @@ interface Endpoint {
   suffix?: string
 }
 
+interface Config {
+  params?: Record<string, any>
+}
+
 interface RequestConfig {
   id?: string | number
   data?: object
-  config?: object
+  config?: Config
   suffix?: string
   prefix?: string
   notificationTitle?: string
@@ -55,6 +59,13 @@ export default class BaseService {
     return endpoint
   }
 
+  mapParamNames(params: any) {
+    return Object.entries(params || {}).reduce((result, [key, value]) => {
+      result[`filter[${key}]`] = value
+      return result
+    }, {} as Record<string, any>)
+  }
+
   async get({
     id = '',
     config = {},
@@ -65,6 +76,10 @@ export default class BaseService {
     notificationDuration
   }: RequestConfig): Promise<any> {
     try {
+      if (config.params) {
+        config.params = this.mapParamNames(config.params)
+      }
+
       const response = await axiosInstance.get(this.getEndpoint({ id, suffix, prefix }), config)
 
       const generalNotification = useGeneralNotificationStore()

@@ -10,7 +10,7 @@
           :title="
             $t('company.management.warehouse.preview.dialog.addProduct.safeQuantityLabel') + ':'
           "
-          :subtitle="safeQuantity"
+          :subtitle="warehouseProduct.safeQuantity"
           variant="horizontal"
         />
 
@@ -18,7 +18,7 @@
           :title="
             $t('company.management.warehouse.preview.dialog.addProduct.currentSupplyLabel') + ':'
           "
-          :subtitle="quantity"
+          :subtitle="warehouseProduct.quantity"
           variant="horizontal"
         />
       </div>
@@ -27,7 +27,7 @@
 
       <a-title :title="$t('global.manage')" size="large" />
 
-      <o-form :submit-callback="handleSubmitEditWarehouseProduct">
+      <o-form :submit-callback="handleSubmitEditWarehouseProduct" :initial-values="initialValues">
         <template #body>
           <div class="edit-warehouse-product-dialog__input-group">
             <m-text-field
@@ -83,25 +83,18 @@
 import { computed, ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import ConfirmWarehouseProductRemovalDialog from './ConfirmWarehouseProductRemovalDialog.vue'
-import type { EditWarehouseProductFormData } from '@interfaces/warehouse/WarehouseProductInterface'
+import type {
+  EditWarehouseProductFormData,
+  WarehouseProduct
+} from '@interfaces/warehouse/WarehouseProductInterface'
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
+import type { PropType } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
-  productId: {
-    type: Number,
-    required: true
-  },
-  productName: {
-    type: String,
-    required: true
-  },
-  safeQuantity: {
-    type: Number,
-    required: true
-  },
-  quantity: {
-    type: Number,
+  warehouseProduct: {
+    type: Object as PropType<WarehouseProduct>,
     required: true
   }
 })
@@ -112,34 +105,59 @@ const emits = defineEmits(['product-changed'])
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 const route = useRoute()
+const { t } = useI18n()
 
 // Computed
 const warehouseId = computed(() => +route.params.id)
 
+const productName = computed(() => props.warehouseProduct.product.name)
+
+const productId = computed(() => props.warehouseProduct.id)
+
 const productStatusOptions = computed(() => {
   return [
-    { id: 0, text: 'Inactive' },
-    { id: 1, text: 'Active' }
+    { id: 0, text: t('global.inactive') },
+    { id: 1, text: t('global.active') }
   ]
 })
+
+const initialValues = computed(() => {
+  const { status, quantity, safeQuantity } = props.warehouseProduct
+
+  return {
+    quantity: quantity,
+    safeQuantity: safeQuantity,
+    status
+  }
+})
+
 // Methods
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
 
 const handleSubmitEditWarehouseProduct = async (formData: EditWarehouseProductFormData) => {
-  const { success, data } = await WarehouseService.editWarehouseProduct(
+  const { success } = await WarehouseService.editWarehouseProduct(
     warehouseId.value,
-    props.productId,
+    productId.value,
     formData
   )
-  if (success) {
-    emits('product-changed')
-    closeDialog()
-  }
+
+  if (success) handleWarehouseProductActionSuccess()
 }
 
-const handleSubmitRemoveWarehouseProduct = async () => {}
+const handleSubmitRemoveWarehouseProduct = async () => {
+  const { success } = await WarehouseService.removeWarehouseProduct(
+    warehouseId.value,
+    productId.value
+  )
+  if (success) handleWarehouseProductActionSuccess()
+}
+
+const handleWarehouseProductActionSuccess = () => {
+  emits('product-changed')
+  closeDialog()
+}
 </script>
 
 <style lang="scss" scoped>
