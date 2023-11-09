@@ -1,5 +1,7 @@
 <template>
-  <button :class="generateClasses" :type="buttonType" data-test="button">{{ text }}</button>
+  <button :class="generateClasses" :type="buttonType" data-test="button" :disabled="disabled">
+    {{ text }}
+  </button>
 </template>
 
 <script setup lang="ts">
@@ -37,7 +39,8 @@ const props = defineProps({
   buttonType: {
     type: String as PropType<'button' | 'submit' | 'reset' | undefined>,
     default: 'button'
-  }
+  },
+  disabled: Boolean
 })
 
 // Variables

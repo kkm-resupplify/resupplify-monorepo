@@ -12,8 +12,8 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 // Props
 const props = defineProps({
   variant: String,
-  color: { type: String, default: 'primary' },
-  height: { type: Number, default: 8 }
+  color: { type: String, default: 'secondary-2' },
+  height: { type: Number, default: 2 }
 })
 
 // Inits
