@@ -8,35 +8,30 @@
       />
     </template>
 
-    <o-form :submit-callback="handleSubmitRemoveWarehouse">
-      <template #body>
-        <div class="confirm-warehouse-removal-dialog__content">
-          <a-title
-            :title="$t('company.management.warehouse.delete.dialog.title')"
-            :subtitle="$t('company.management.warehouse.delete.dialog.subtitle')"
-            class="confirm-warehouse-removal-dialog__title"
-          />
+    <div class="confirm-warehouse-removal-dialog__content">
+      <a-title
+        :title="$t('company.management.warehouse.delete.dialog.title')"
+        :subtitle="$t('company.management.warehouse.delete.dialog.subtitle')"
+        class="confirm-warehouse-removal-dialog__title"
+      />
 
-          <div class="confirm-warehouse-removal-dialog__buttons">
-            <a-button :text="$t('global.cancel')" size="x-large" @click="closeDialog" />
+      <div class="confirm-warehouse-removal-dialog__buttons">
+        <a-button :text="$t('global.cancel')" size="x-large" @click="closeDialog" />
 
-            <a-button
-              button-type="submit"
-              :text="$t('global.delete')"
-              color="gradient-danger"
-              size="x-large"
-            />
-          </div>
-        </div>
-      </template>
-    </o-form>
+        <a-button
+          :text="$t('global.delete')"
+          color="gradient-danger"
+          size="x-large"
+          @click="handleSubmitRemoveWarehouse"
+        />
+      </div>
+    </div>
   </m-dialog>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
-import type { WarehouseFormData } from '@/interface/warehouse/WarehouseInterface'
 import WarehouseService from '@/services/warehouse/WarehouseService'
 
 // Variables
@@ -47,7 +42,7 @@ const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
 
-const handleSubmitRemoveWarehouse = async (formData: WarehouseFormData) => {
+const handleSubmitRemoveWarehouse = async () => {
   await WarehouseService.deleteWarehouse()
   closeDialog()
 }
