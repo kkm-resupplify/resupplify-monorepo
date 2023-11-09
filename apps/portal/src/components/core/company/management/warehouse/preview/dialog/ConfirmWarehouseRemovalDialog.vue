@@ -34,6 +34,8 @@ import { ref, computed } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
+import router from '@/routes/index'
+import { RouteNames } from '@/routes/index'
 
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
@@ -46,8 +48,12 @@ const closeDialog = () => {
 }
 
 const handleSubmitRemoveWarehouse = async () => {
-  await WarehouseService.deleteWarehouse(warehouseId.value)
-  closeDialog()
+  const { success } = await WarehouseService.deleteWarehouse(warehouseId.value)
+
+  if (success) {
+    await router.push({ name: RouteNames.COMPANY_WAREHOUSE_LIST })
+    closeDialog()
+  }
 }
 </script>
 
