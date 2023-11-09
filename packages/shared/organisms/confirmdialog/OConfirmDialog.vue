@@ -1,5 +1,5 @@
 <template>
-  <m-dialog :title="titleText">
+  <m-dialog ref="dialogRef" :title="titleText">
     <template #activator>
       <a-button :text="activatorName" :size="activatorSize" />
     </template>
@@ -8,7 +8,7 @@
       <span v-text="contentText" />
 
       <div class="o-confirm-dialog__buttons">
-        <a-button :text="$t('global.cancel')" size="x-large" />
+        <a-button :text="$t('global.cancel')" size="x-large" @click="closeDialog" />
 
         <a-button
           :text="$t('global.confirm')"
@@ -22,8 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 
 const props = defineProps({
   itemName: {
@@ -51,6 +52,7 @@ const props = defineProps({
 
 // Variables
 const { t } = useI18n()
+const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Computed
 const translationKeySuffix = computed(
@@ -71,8 +73,14 @@ const contentText = computed(() => {
 const emits = defineEmits(['confirmed'])
 
 // Methods
+const closeDialog = () => {
+  dialogRef.value?.closeDialog()
+}
+
 const handleConfirm = () => {
   emits('confirmed')
+
+  closeDialog()
 }
 </script>
 
