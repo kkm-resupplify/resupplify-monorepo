@@ -15,6 +15,7 @@
         <template #body>
           <div class="add-warehouse-product-dialog__form-body">
             <template v-if="isLoading">m-select options loader </template>
+
             <m-select
               v-else
               :label="$t('company.management.warehouse.preview.dialog.addProduct.selectProduct')"
