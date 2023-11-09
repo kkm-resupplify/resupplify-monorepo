@@ -3,6 +3,7 @@
     <o-search-bar
       class="warehouse-list__search-bar"
       :placeholder="$t('company.management.warehouse.preview.content.search')"
+      @search="$emit('search')"
     />
 
     <a-line :height="2" color="secondary-2" />
@@ -17,7 +18,7 @@
 
     <a-list-no-results
       v-else
-      :text="$t('company.management.navigation.warehouses.list.noWarehouses')"
+      :text="$t('company.management.warehouse.preview.list.noWarehouses')"
     />
   </div>
 </template>
@@ -25,13 +26,16 @@
 <script setup lang="ts">
 import WarehouseListItem from '@/components/core/company/management/warehouse/dashboard/section/content/list/WarehouseListItem.vue'
 import type { PropType } from 'vue'
-import type { Warehouse } from '@/interfaces/warehouse/WarehouseInterface'
+import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
 
 defineProps({
   warehouses: {
     type: Array as PropType<Warehouse[]>
   }
 })
+
+// Emits
+defineEmits(['search'])
 </script>
 
 <style scoped lang="scss">
@@ -49,6 +53,7 @@ defineProps({
     display: grid;
     grid-auto-flow: column;
     grid-gap: $global-spacing-100;
+    align-self: self-start;
 
     padding: $global-spacing-20;
   }

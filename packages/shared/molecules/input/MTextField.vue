@@ -45,7 +45,7 @@ import { computed, toRef, ref, watch } from 'vue'
 import { useField } from 'vee-validate'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
-const emits = defineEmits(['input-change'])
+const emits = defineEmits(['input-change', 'append-icon-click', 'prepend-icon-click'])
 
 // Props
 const props = defineProps({
@@ -220,11 +220,13 @@ const handleAppendIconClick = () => {
     if (inputType.value == 'password') inputType.value = 'text'
     else inputType.value = 'password'
   }
+  emits('append-icon-click')
 }
 
 const handlePrependIconClick = (event: Event) => {
   event.stopPropagation()
   props.prependIconCallbackOn()
+  emits('prepend-icon-click')
   prependIconState.value = !prependIconState.value
 }
 

@@ -1,11 +1,18 @@
 <template>
-  <m-tile :to="warehouseLink">
-    <div class="warehouse-list-item__header">
+  <router-link :to="warehouseLink" class="warehouse-needing-attention-list-item">
+    <a-list-item-wrapper>
       <a-status-indicator :status="warehouseStatus(warehouse)" />
-    </div>
 
-    <div class="warehouse-list-item__content" v-text="warehouse.name" />
-  </m-tile>
+      <span v-text="warehouse.name" />
+
+      <a-button
+        :text="$t('company.management.warehouse.needingAttention.buttonText')"
+        class="warehouse-needing-attention-list-item__button"
+        color="gradient-warning"
+        size="x-large"
+      />
+    </a-list-item-wrapper>
+  </router-link>
 </template>
 
 <script setup lang="ts">
@@ -18,7 +25,7 @@ const props = defineProps({
   warehouse: { type: Object as PropType<Warehouse>, required: true }
 })
 
-// Variable
+// Variables
 const { warehouseStatus } = useWarehouseStatus()
 
 // Computed
@@ -33,16 +40,11 @@ const warehouseLink = computed(() => {
 </script>
 
 <style scoped lang="scss">
-.warehouse-list-item {
-  &__header {
-    display: flex;
-    align-self: flex-end;
-  }
+.warehouse-needing-attention-list-item {
+  text-decoration: none;
 
-  &__content {
-    display: flex;
-    flex: 1;
-    align-items: center;
+  &__button {
+    margin-left: auto;
   }
 }
 </style>

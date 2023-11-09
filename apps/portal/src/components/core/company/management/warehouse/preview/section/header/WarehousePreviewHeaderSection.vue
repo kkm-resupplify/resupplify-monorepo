@@ -1,23 +1,36 @@
 <template>
   <a-panel-section class="warehouse-preview-header-section">
-    <a-title size="x-large" :title="warehouse.title" />
+    <a-title size="x-large" :title="warehouseName" />
 
     <div class="warehouse-preview-header-section__content">
-      <warehouse-preview-stats />
+      <warehouse-preview-stats :products="products" />
 
-      <add-warehouse-product-dialog />
+      <add-warehouse-product-dialog @fetch-warehouse="emitFetchWarehouse" />
     </div>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { type PropType } from 'vue'
 import WarehousePreviewStats from '@/components/core/company/management/warehouse/preview/section/header/WarehousePreviewStats.vue'
 import AddWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/AddWarehouseProductDialog.vue'
+import type { WarehouseProduct } from '@/interface/warehouse/WarehouseProductInterface'
 
-const warehouse = reactive({
-  title: 'Bread Warehouse'
+defineProps({
+  warehouseName: String,
+  products: {
+    type: Array as PropType<WarehouseProduct[]>,
+    required: true
+  }
 })
+
+// Emits
+const emits = defineEmits(['fetch-warehouse'])
+
+// Methods
+const emitFetchWarehouse = () => {
+  emits('fetch-warehouse')
+}
 </script>
 
 <style scoped lang="scss">

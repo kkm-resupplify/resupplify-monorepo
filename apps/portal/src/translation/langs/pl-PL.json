@@ -11,10 +11,13 @@
     "back": "Wstecz",
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
-    "delete": "Usuń",
+    "remove": "Usuń",
     "search": "Szukaj",
     "update": "Aktualizuj",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "manage": "Zarządzaj",
+    "active": "Actywny",
+    "inactive": "Nieaktywny"
   },
 
   "payments": {
@@ -238,11 +241,18 @@
           "create": "Utwórz"
         },
 
+        "needingAttention": {
+          "title": "Magazyny wymagające uwagi",
+          "buttonText": "Sprawdź szczegóły",
+          "noResults": "Wszystkie magazyny firmy są w dobrym stanie"
+        },
+
         "preview": {
           "header": {
             "totalProductsCount": "Produktów łącznie:",
             "belowSafeQuantityProductsCount": "Produkty poniżej bezpiecznego stanu:",
             "soldOutProductsCount": "Produkty wyprzedane:",
+            "inactiveProductsCount": "Nieaktywne produkty:",
             "reservedProductsCount": "Ilość zarezerwowanych produktów:",
             "addProduct": "Dodaj produkt"
           },
@@ -265,7 +275,14 @@
               "safeQuantityPlaceholder": "Wprowadź bezpieczną ilość",
               "currentSupplyLabel": "Aktualny stan",
               "currentSupplyPlaceholder": "Wprowadź aktualny stan",
-              "submit": "Dodaj produkt"
+              "submit": "Dodaj produkt",
+              "addSuccessTitle": "Produkt dodany do magazynu pomyślnie"
+            },
+
+            "manageProduct": {
+              "setQuantity": "Ustaw ilość",
+              "editSuccessTitle": "Produkt magazynowy edytowany pomyślnie",
+              "removeSuccessTitle": "Produkt magazynowo usunięty pomyślnie"
             },
 
             "deleteProduct": {

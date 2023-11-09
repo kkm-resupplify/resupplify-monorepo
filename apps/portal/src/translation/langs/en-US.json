@@ -10,11 +10,14 @@
     "back": "Back",
     "submit": "Submit",
     "imagePreview": "Image preview",
-    "delete": "Delete",
+    "remove": "Remove",
     "save": "Save",
     "search": "Search",
     "update": "Update",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "manage": "Manage",
+    "active": "Active",
+    "inactive": "Inactive"
   },
 
   "payments": {
@@ -236,7 +239,14 @@
           "descriptionLabel": "Description",
           "descriptionPlaceholder": "Enter description",
           "create": "Create",
-          "search": "Search warehouses"
+          "createSuccessTitle": "New warehouse created successfully",
+          "editSuccessTitle": "Warehouse edited successfully"
+        },
+
+        "needingAttention": {
+          "title": "Warehouses needing attention",
+          "buttonText": "Check details",
+          "noResults": "All of the company warehouses are in a good condition."
         },
 
         "preview": {
@@ -244,6 +254,7 @@
             "totalProductsCount": "Total products:",
             "belowSafeQuantityProductsCount": "Products below safe quantity:",
             "soldOutProductsCount": "Sold-out products:",
+            "inactiveProductsCount": "Inactive products:",
             "reservedProductsCount": "Reserved products:",
             "addProduct": "Add product"
           },
@@ -254,7 +265,8 @@
             "productCode": "Product code",
             "currentSupply": "Current supply",
             "safeQuantity": "Safe quantity",
-            "search": "Search products"
+            "search": "Search warehouses",
+            "companyWarehouses": "Company warehouses"
           },
 
           "dialog": {
@@ -266,7 +278,14 @@
               "safeQuantityPlaceholder": "Enter safe quantity",
               "currentSupplyLabel": "Current supply",
               "currentSupplyPlaceholder": "Enter current supply",
-              "submit": "Add product"
+              "submit": "Add product",
+              "addSuccessTitle": "Product added to the warehouse successfully"
+            },
+
+            "manageProduct": {
+              "setQuantity": "Set quantity",
+              "editSuccessTitle": "Warehouse product edited successfully",
+              "removeSuccessTitle": "Product removed from the warehouse successfully"
             },
 
             "deleteProduct": {
