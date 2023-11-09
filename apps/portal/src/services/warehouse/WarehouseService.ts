@@ -22,8 +22,9 @@ class WarehouseService extends BaseService {
     })
   }
 
-  async editWarehouse(formData: WarehouseFormData) {
+  async editWarehouse(id: number, formData: WarehouseFormData) {
     return await this.put({
+      id: id,
       data: formData,
       notificationTitle: 'company.management.warehouse.editor.editSuccessTitle'
     })

@@ -29,6 +29,7 @@ const props = defineProps({
 
 // Emits
 defineEmits(['product-changed'])
+
 // Computed
 const showList = computed(() => {
   return props.products.length > 0

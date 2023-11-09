@@ -9,8 +9,9 @@
         <add-warehouse-product-dialog @fetch-warehouse="emitFetchWarehouse" />
 
         <edit-warehouse-dialog
-          :warehouse-name="warehouseName"
-          :warehouse-description="warehouseDescription"
+          :name="warehouseName"
+          :description="warehouseDescription"
+          @fetch-warehouse="emitFetchWarehouse"
         />
 
         <confirm-warehouse-removal-dialog />
@@ -28,6 +29,10 @@ import EditWarehouseDialog from '@/components/core/company/management/warehouse/
 import ConfirmWarehouseRemovalDialog from '../../dialog/ConfirmWarehouseRemovalDialog.vue'
 
 defineProps({
+  warehouseId: {
+    type: String,
+    required: true
+  },
   warehouseName: String,
   warehouseDescription: String,
   products: {
@@ -60,7 +65,6 @@ const emitFetchWarehouse = () => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-40;
-
     white-space: nowrap;
   }
 }

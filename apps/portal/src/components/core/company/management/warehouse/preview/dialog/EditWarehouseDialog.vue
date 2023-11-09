@@ -14,7 +14,7 @@
           <a-title :title="$t('company.management.warehouse.edit')" size="x-large" />
 
           <m-text-field
-            name="warehouseName"
+            name="name"
             input-type="text"
             :label="$t('company.management.warehouse.editor.nameLabel')"
             :placeholder="$t('company.management.warehouse.editor.namePlaceholder')"
@@ -22,7 +22,7 @@
           />
 
           <m-text-area
-            name="warehouseDescription"
+            name="description"
             rules="required|min:16|max:255"
             :label="$t('company.management.warehouse.editor.descriptionLabel')"
             :placeholder="$t('company.management.warehouse.editor.descriptionPlaceholder')"
@@ -41,27 +41,38 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import type { WarehouseFormData } from '@/interface/warehouse/WarehouseInterface'
 import WarehouseService from '@/services/warehouse/WarehouseService'
+import { useRoute } from 'vue-router'
 
 const props = defineProps({
-  warehouseName: String,
-  warehouseDescription: String
+  name: String,
+  description: String
 })
 
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
+const route = useRoute()
+const warehouseId = computed(() => +route.params.id)
 
 // Methods
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
 
+// Emits
+const emits = defineEmits(['fetch-warehouse'])
+
 const handleEditWarehouse = async (formData: WarehouseFormData) => {
-  await WarehouseService.editWarehouse(formData)
-  closeDialog()
+  const { success } = await WarehouseService.editWarehouse(warehouseId.value, formData)
+
+  if (success) {
+    emits('fetch-warehouse')
+
+    closeDialog()
+  }
 }
 </script>
 
