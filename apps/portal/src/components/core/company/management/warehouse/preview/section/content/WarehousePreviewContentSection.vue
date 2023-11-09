@@ -2,29 +2,26 @@
   <a-panel-section class="warehouse-preview-content-section">
     <o-search-bar
       :placeholder="$t('company.management.warehouse.preview.content.search')"
+      :disabled="!hasProducts"
       @search="handleFetchWarehouseProducts"
     />
 
     <a-line />
 
-    <template v-if="hasProducts">
-      <template v-if="isLoading">implement-list-loader</template>
+    <template v-if="isLoading">implement-list-loader</template>
 
-      <template v-else>
-        <warehouse-product-list
-          v-if="showList"
-          :warehouse-products="warehouseProducts"
-          @product-changed="$emit('product-changed')"
-        />
+    <template v-else>
+      <warehouse-product-list
+        v-if="showList"
+        :warehouse-products="warehouseProducts"
+        @product-changed="$emit('product-changed')"
+      />
 
-        <a-list-no-results
-          v-else
-          :text="$t('company.management.warehouse.preview.list.noProductsMatchingFilter')"
-        />
-      </template>
+      <a-list-no-results
+        v-else
+        :text="$t(`company.management.warehouse.preview.list.${noResultsTranslationKey}`)"
+      />
     </template>
-
-    <a-list-no-results v-else :text="$t('company.management.warehouse.preview.list.noProducts')" />
   </a-panel-section>
 </template>
 
@@ -53,6 +50,10 @@ const warehouseId = computed(() => route.params.id)
 
 const showList = computed(() => {
   return warehouseProducts.value.length > 0
+})
+
+const noResultsTranslationKey = computed(() => {
+  return props.hasProducts ? 'noProductsMatchingFilter' : 'noProducts'
 })
 
 // Methods
