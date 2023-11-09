@@ -249,7 +249,8 @@
           "descriptionPlaceholder": "Enter description",
           "create": "Create",
           "createSuccessTitle": "New warehouse created successfully",
-          "editSuccessTitle": "Warehouse edited successfully"
+          "editSuccessTitle": "Warehouse edited successfully",
+          "deleteSuccessTitle": "Warehouse deleted successfully"
         },
 
         "preview": {

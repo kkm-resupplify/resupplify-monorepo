@@ -30,12 +30,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import WarehouseService from '@/services/warehouse/WarehouseService'
+import { useRoute } from 'vue-router'
 
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
+const route = useRoute()
+const warehouseId = computed(() => +route.params.id)
 
 // Methods
 const closeDialog = () => {
@@ -43,7 +46,7 @@ const closeDialog = () => {
 }
 
 const handleSubmitRemoveWarehouse = async () => {
-  await WarehouseService.deleteWarehouse()
+  await WarehouseService.deleteWarehouse(warehouseId.value)
   closeDialog()
 }
 </script>

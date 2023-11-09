@@ -30,7 +30,12 @@ class WarehouseService extends BaseService {
     })
   }
 
-  async deleteWarehouse() {}
+  async deleteWarehouse(id: number) {
+    return await this.delete({
+      id: id,
+      notificationTitle: 'company.management.warehouse.editor.deleteSuccessTitle'
+    })
+  }
 
   async addWarehouseProduct(formData: WarehouseProductFormData) {
     return await this.post({

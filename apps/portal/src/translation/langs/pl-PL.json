@@ -247,7 +247,10 @@
           "namePlaceholder": "Wprowadź nazwę",
           "descriptionLabel": "Opis",
           "descriptionPlaceholder": "Wprowadź opis",
-          "create": "Utwórz"
+          "create": "Utwórz",
+          "createSuccessTitle": "Nowy magazyn został dodany pomyślnie",
+          "editSuccessTitle": "Nagazyn został pomyślnie zedytowany",
+          "deleteSuccessTitle": "Magazyn został pomyślnie usunięty"
         },
 
         "preview": {
