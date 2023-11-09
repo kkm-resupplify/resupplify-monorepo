@@ -5,7 +5,7 @@
     </template>
 
     <div class="o-confirm-dialog__body">
-      <span v-text="contentText" />
+      <span class="o-confirm-dialog__content" v-text="contentText" />
 
       <div class="o-confirm-dialog__buttons">
         <a-button :text="$t('global.cancel')" size="x-large" @click="closeDialog" />
@@ -101,11 +101,16 @@ const handleConfirm = () => {
 
     min-width: 300px;
     min-height: 200px;
+    padding-inline: $global-spacing-80;
   }
 
   &__buttons {
     display: flex;
     gap: $global-spacing-70;
+  }
+
+  &__content {
+    font-size: $global-font-size-80;
   }
 }
 </style>

@@ -59,6 +59,7 @@ defineExpose({
 <style lang="scss" scoped>
 .m-dialog {
   display: flex;
+  z-index: 9;
 
   &__content-wrapper {
     position: absolute;
@@ -72,6 +73,7 @@ defineExpose({
   }
 
   &__content {
+    @include default-border-1;
     overflow: hidden;
     display: flex;
     flex-direction: column;
