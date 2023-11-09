@@ -58,13 +58,13 @@ const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 const route = useRoute()
 const warehouseId = computed(() => +route.params.id)
 
+// Emits
+const emits = defineEmits(['fetch-warehouse'])
+
 // Methods
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
-
-// Emits
-const emits = defineEmits(['fetch-warehouse'])
 
 const handleEditWarehouse = async (formData: WarehouseFormData) => {
   const { success } = await WarehouseService.editWarehouse(warehouseId.value, formData)
