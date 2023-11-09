@@ -1,7 +1,7 @@
 <template>
   <m-dialog :title="headerText">
     <template #activator>
-      <a-button :text="text" />
+      <a-button :text="text" :size="activatorSize" />
     </template>
 
     <div class="o-confirm-dialog__body">
@@ -31,13 +31,19 @@ const props = defineProps({
     required: true
   },
   type: {
+    type: String,
     validator(value: string) {
-      return ['add', 'update', 'delete'].includes(value)
-    }
+      return ['create', 'update', 'delete', 'remove'].includes(value)
+    },
+    required: true
   },
   text: {
     type: String,
     default: 'Title'
+  },
+  activatorSize: {
+    type: String,
+    default: 'large'
   }
 })
 
@@ -46,20 +52,15 @@ const { t } = useI18n()
 
 // Computed
 const headerText = computed(() => {
-  if (props.type === 'add') return t('confirm.dialog.titleCreate')
-  else if (props.type === 'update') return t('confirm.dialog.titleUpdate')
-  else if (props.type === 'delete') return t('confirm.dialog.titleDelete')
-  else return ''
+  const suffix = props.type.charAt(0).toUpperCase() + props.type.slice(1)
+
+  return t(`confirm.dialog.title${suffix}`)
 })
 
 const contentText = computed(() => {
-  let translationKey
-  if (props.type === 'add') translationKey = 'confirm.dialog.textCreate'
-  else if (props.type === 'update') translationKey = 'confirm.dialog.textUpdate'
-  else if (props.type === 'delete') translationKey = 'confirm.dialog.textDelete'
-  else return ''
+  const suffix = props.type.charAt(0).toUpperCase() + props.type.slice(1)
 
-  return t(translationKey, { item: props.itemName })
+  return t(`confirm.dialog.text${suffix}`, { item: props.itemName })
 })
 
 // Emits
