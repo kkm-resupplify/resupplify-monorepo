@@ -5,7 +5,7 @@
     </template>
 
     <div class="o-confirm-dialog__body">
-      <span class="o-confirm-dialog__content" v-text="contentText" />
+      <span v-text="contentText" />
 
       <div class="o-confirm-dialog__buttons">
         <a-button :text="$t('global.cancel')" size="x-large" />
