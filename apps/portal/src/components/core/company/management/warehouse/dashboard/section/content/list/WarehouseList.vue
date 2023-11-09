@@ -3,6 +3,7 @@
     <o-search-bar
       class="warehouse-list__search-bar"
       :placeholder="$t('company.management.warehouse.preview.content.search')"
+      @search="(v: string) => {console.log(v)}"
     />
 
     <a-line :height="2" color="secondary-2" />
