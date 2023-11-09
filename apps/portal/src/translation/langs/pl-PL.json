@@ -278,8 +278,7 @@
             "productCode": "Kod produktu",
             "currentSupply": "Aktualna ilość",
             "safeQuantity": "Bezpieczna ilość",
-            "search": "Szukaj magazynów",
-            "companyWarehouses": "Magazyny firmy"
+            "search": "Szukaj produktów"
           },
 
           "dialog": {
@@ -315,7 +314,8 @@
 
           "list": {
             "noWarehouses": "Twoja firma nie ma jeszcze żadnych magazynów.",
-            "noProducts": "Twoja firma nie ma jeszcze żadnych produktów przypisanych do tego magazynu."
+            "noProducts": "Twoja firma nie ma jeszcze żadnych produktów przypisanych do tego magazynu.",
+            "noProductsMatchingFilter": "Brak produktów dla podanych parametrów."
           }
         }
       }

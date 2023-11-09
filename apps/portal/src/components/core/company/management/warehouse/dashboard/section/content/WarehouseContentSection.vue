@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section>
+  <a-panel-section class="warehouse-content-section">
     <a-title
       :title="$t('company.management.warehouse.preview.content.companyWarehouses')"
       size="large"
@@ -23,3 +23,9 @@ defineProps({
 // Emits
 defineEmits(['search'])
 </script>
+
+<style scoped lang="scss">
+.warehouse-content-section {
+  overflow: auto;
+}
+</style>

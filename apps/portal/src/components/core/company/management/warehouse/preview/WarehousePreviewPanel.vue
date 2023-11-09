@@ -11,7 +11,7 @@
     <a-line :height="2" color="secondary-2" />
 
     <warehouse-preview-content-section
-      :products="warehouseProducts"
+      :has-products="hasProducts"
       @product-changed="handleFetchWarehouse"
     />
   </a-panel>
@@ -34,6 +34,7 @@ const warehouse = ref<Warehouse>()
 // Computed
 const warehouseId = computed(() => route.params.id as string)
 const warehouseProducts = computed(() => (warehouse.value ? warehouse.value.products : []))
+const hasProducts = computed(() => warehouseProducts.value.length > 0)
 
 // Methods
 const handleFetchWarehouse = async () => {

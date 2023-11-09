@@ -43,6 +43,7 @@ defineEmits(['search'])
   display: flex;
   flex-direction: column;
   gap: $global-spacing-40;
+  max-height: 100%;
 
   &__search-bar {
     max-width: 450px;
@@ -51,10 +52,12 @@ defineEmits(['search'])
   &__items {
     overflow-y: auto;
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: row; // Changed from column to row
     grid-gap: $global-spacing-100;
     align-self: self-start;
 
+    width: 100%;
+    max-height: 100%;
     padding: $global-spacing-20;
   }
 }

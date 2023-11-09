@@ -29,7 +29,7 @@ const handleFetchWarehouses = async () => {
     query: { search }
   } = route
 
-  const { data, success } = await WarehouseService.getWarehouses({ name: search })
+  const { data, success } = await WarehouseService.getWarehouses({ name: search as string })
 
   if (success) warehouses.value = data
 
