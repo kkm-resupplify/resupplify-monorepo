@@ -341,8 +341,8 @@
 
   "confirm": {
     "dialog": {
-      "titleRemove": "Potwierdzenie usunięcia",
-      "textRemove": "Czy na pewno chcesz usunąć {item}?",
+      "titleDelete": "Potwierdzenie usunięcia",
+      "textDelete": "Czy na pewno chcesz usunąć {item}?",
       "titleUpdate": "Potwierdzenie aktualizacji",
       "textUpdate": "Czy na pewno chcesz zaaktualizować {item}?",
       "titleCreate": "Potwierdzenie dodania",
