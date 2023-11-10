@@ -47,7 +47,7 @@ const generateClasses = computed(() => {
 
   text-align: center;
   text-decoration: none;
-  word-break: break;
+  word-break: break-word;
 
   background-color: var(--primary);
   border-radius: $global-border-radius-20;

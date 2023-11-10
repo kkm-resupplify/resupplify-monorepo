@@ -52,12 +52,12 @@ defineEmits(['search'])
   &__items {
     overflow-y: auto;
     display: grid;
-    grid-auto-flow: row; // Changed from column to row
+    grid-auto-flow: row;
     grid-gap: $global-spacing-100;
+    grid-template-columns: repeat(7, auto);
     align-self: self-start;
 
-    width: 100%;
-    max-height: 100%;
+    max-width: 100%;
     padding: $global-spacing-20;
   }
 }

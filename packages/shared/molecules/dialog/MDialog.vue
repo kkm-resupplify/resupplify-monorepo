@@ -63,6 +63,7 @@ defineExpose({
 
   &__content-wrapper {
     position: absolute;
+    z-index: 9;
     inset: 0;
 
     display: flex;
