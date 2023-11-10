@@ -97,7 +97,7 @@ defineExpose({
 
   &__close-icon {
     cursor: pointer;
-    align-self: flex-end;
+    align-self: center;
   }
 
   &__content-body {

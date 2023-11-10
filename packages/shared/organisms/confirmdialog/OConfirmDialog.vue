@@ -5,13 +5,15 @@
     </template>
 
     <div class="o-confirm-dialog__body">
-      <span class="o-confirm-dialog__content" v-text="contentText" />
+      <div class="o-confirm-dialog__content">
+        <span v-text="contentText" />
+      </div>
 
-      <div class="o-confirm-dialog__buttons">
+      <div class="o-confirm-dialog__actions">
         <a-button :text="$t('global.cancel')" size="x-large" @click="closeDialog" />
 
         <a-button
-          :text="$t('global.confirm')"
+          :text="confirmText"
           color="gradient-danger"
           size="x-large"
           @click="handleConfirm"
@@ -34,7 +36,7 @@ const props = defineProps({
   type: {
     type: String,
     validator(value: string) {
-      return ['create', 'update', 'remove'].includes(value)
+      return ['create', 'update', 'delete'].includes(value)
     },
     required: true
   },
@@ -50,6 +52,9 @@ const props = defineProps({
   }
 })
 
+// Emits
+const emits = defineEmits(['confirmed'])
+
 // Variables
 const { t } = useI18n()
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
@@ -60,23 +65,22 @@ const translationKeySuffix = computed(
 )
 
 const activatorVariant = computed(() =>
-  props.type === 'remove' ? 'gradient-danger' : 'gradient-primary'
+  props.type === 'delete' ? 'gradient-danger' : 'gradient-primary'
 )
 
-console.log(activatorVariant.value)
-
 const titleText = computed(() => {
-  return props.title || t(`confirm.dialog.title${translationKeySuffix.value}`)
+  return props.title ?? t(`confirm.dialog.title${translationKeySuffix.value}`)
 })
 
 const contentText = computed(() => {
   return (
-    props.content || t(`confirm.dialog.text${translationKeySuffix.value}`, { item: props.itemName })
+    props.content ?? t(`confirm.dialog.text${translationKeySuffix.value}`, { item: props.itemName })
   )
 })
 
-// Emits
-const emits = defineEmits(['confirmed'])
+const confirmText = computed(() => {
+  return t(`global.${props.type}`)
+})
 
 // Methods
 const closeDialog = () => {
@@ -95,22 +99,28 @@ const handleConfirm = () => {
   &__body {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: $global-spacing-50;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     min-width: 300px;
-    min-height: 200px;
-    padding-inline: $global-spacing-80;
-  }
-
-  &__buttons {
-    display: flex;
-    gap: $global-spacing-70;
+    min-height: 100px;
   }
 
   &__content {
-    font-size: $global-font-size-80;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
+    font-size: $global-font-size-50;
+    word-break: break-all;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 40px;
+    justify-content: space-evenly;
   }
 }
 </style>

@@ -11,7 +11,7 @@
         <edit-warehouse-dialog :warehouse="warehouse" @fetch-warehouse="emitFetchWarehouse" />
 
         <o-confirm-dialog
-          type="remove"
+          type="delete"
           :item-name="warehouse?.name"
           :activator-name="$t('company.management.warehouse.delete.title')"
           @confirmed="handleSubmitRemoveWarehouse"
