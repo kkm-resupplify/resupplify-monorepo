@@ -4,10 +4,7 @@
     :title="$t('company.management.warehouse.preview.dialog.addProduct.title')"
   >
     <template #activator>
-      <a-button
-        size="x-large"
-        :text="$t('company.management.warehouse.preview.header.addProduct')"
-      />
+      <a-button size="large" :text="$t('company.management.warehouse.preview.header.addProduct')" />
     </template>
 
     <div class="add-warehouse-product-dialog__content">
