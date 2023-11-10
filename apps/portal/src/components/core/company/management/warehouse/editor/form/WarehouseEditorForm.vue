@@ -44,11 +44,6 @@ const handleCreateWarehouse = async (formData: WarehouseFormData) => {
   }
 }
 
-const handleEditWarehouse = async (formData: WarehouseFormData) => {
-  const { data, success } = await WarehouseService.editWarehouse(formData)
-  if (success) console.log(data)
-}
-
 const handleFormSubmit = async (formData: WarehouseFormData) => {
   await handleCreateWarehouse(formData)
 }

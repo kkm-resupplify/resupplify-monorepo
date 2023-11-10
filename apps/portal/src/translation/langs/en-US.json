@@ -10,7 +10,7 @@
     "back": "Back",
     "submit": "Submit",
     "imagePreview": "Image preview",
-    "remove": "Remove",
+    "delete": "Delete",
     "save": "Save",
     "search": "Search",
     "update": "Update",
@@ -233,6 +233,17 @@
       },
 
       "warehouse": {
+        "edit": "Edit warehouse",
+
+        "delete": {
+          "title": "Delete warehouse",
+
+          "dialog": {
+            "title": "Confirm warehouse removal",
+            "subtitle": "Are you sure?"
+          }
+        },
+
         "editor": {
           "title": "New warehouse",
           "nameLabel": "Name",
@@ -241,7 +252,8 @@
           "descriptionPlaceholder": "Enter description",
           "create": "Create",
           "createSuccessTitle": "New warehouse created successfully",
-          "editSuccessTitle": "Warehouse edited successfully"
+          "editSuccessTitle": "Warehouse edited successfully",
+          "deleteSuccessTitle": "Warehouse deleted successfully"
         },
 
         "needingAttention": {
@@ -330,8 +342,8 @@
 
   "confirm": {
     "dialog": {
-      "titleRemove": "Remove confirmation",
-      "textRemove": "Are you sure you want to remove {item}?",
+      "titleDelete": "Remove confirmation",
+      "textDelete": "Are you sure you want to remove {item}?",
       "titleUpdate": "Update confirmation",
       "textUpdate": "Are you sure you want to update {item}?",
       "titleCreate": "Creation confirmation",

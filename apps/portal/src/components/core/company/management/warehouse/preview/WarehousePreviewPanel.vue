@@ -4,7 +4,7 @@
   <a-panel v-else class="warehouse-preview-panel">
     <warehouse-preview-header-section
       :products="warehouseProducts"
-      :warehouse-name="warehouse?.name"
+      :warehouse="warehouse"
       @fetch-warehouse="handleFetchWarehouse"
     />
 
@@ -32,7 +32,7 @@ const route = useRoute()
 const warehouse = ref<Warehouse>()
 
 // Computed
-const warehouseId = computed(() => route.params.id)
+const warehouseId = computed(() => route.params.id as string)
 const warehouseProducts = computed(() => (warehouse.value ? warehouse.value.products : []))
 const hasProducts = computed(() => warehouseProducts.value.length > 0)
 

@@ -11,7 +11,7 @@
     "back": "Wstecz",
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
-    "remove": "Usuń",
+    "delete": "Usuń",
     "search": "Szukaj",
     "update": "Aktualizuj",
     "cancel": "Anuluj",
@@ -233,13 +233,27 @@
       },
 
       "warehouse": {
+        "edit": "Edytuj magazyn",
+
+        "delete": {
+          "title": "Usuń magazyn",
+
+          "dialog": {
+            "title": "Potwierdź usunięcie magazynu",
+            "subtitle": "Czy na pewno?"
+          }
+        },
+
         "editor": {
           "title": "Nowy magazyn",
           "nameLabel": "Nazwa",
           "namePlaceholder": "Wprowadź nazwę",
           "descriptionLabel": "Opis",
           "descriptionPlaceholder": "Wprowadź opis",
-          "create": "Utwórz"
+          "create": "Utwórz",
+          "createSuccessTitle": "Nowy magazyn został dodany pomyślnie",
+          "editSuccessTitle": "Nagazyn został pomyślnie zedytowany",
+          "deleteSuccessTitle": "Magazyn został pomyślnie usunięty"
         },
 
         "needingAttention": {
@@ -327,8 +341,8 @@
 
   "confirm": {
     "dialog": {
-      "titleRemove": "Potwierdzenie usunięcia",
-      "textRemove": "Czy na pewno chcesz usunąć {item}?",
+      "titleDelete": "Potwierdzenie usunięcia",
+      "textDelete": "Czy na pewno chcesz usunąć {item}?",
       "titleUpdate": "Potwierdzenie aktualizacji",
       "textUpdate": "Czy na pewno chcesz zaaktualizować {item}?",
       "titleCreate": "Potwierdzenie dodania",

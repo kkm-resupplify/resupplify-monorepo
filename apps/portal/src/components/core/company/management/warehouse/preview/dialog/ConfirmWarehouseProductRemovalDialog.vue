@@ -1,7 +1,7 @@
 <template>
   <m-dialog ref="dialogRef">
     <template #activator>
-      <a-button :text="$t('global.remove')" color="gradient-danger" size="x-large" />
+      <a-button :text="$t('global.delete')" color="gradient-danger" size="x-large" />
     </template>
 
     <div class="confirm-warehouse-product-removal-dialog__content">

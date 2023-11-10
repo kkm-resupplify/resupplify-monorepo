@@ -58,6 +58,7 @@ defineExpose({
 
 <style lang="scss" scoped>
 .m-dialog {
+  z-index: 9;
   display: flex;
 
   &__content-wrapper {
@@ -73,6 +74,7 @@ defineExpose({
   }
 
   &__content {
+    @include default-border-1;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -95,7 +97,7 @@ defineExpose({
 
   &__close-icon {
     cursor: pointer;
-    align-self: flex-end;
+    align-self: center;
   }
 
   &__content-body {
