@@ -47,7 +47,7 @@ axiosInstance.interceptors.response.use(
 
 // Utility functions
 function getBaseUrl() {
-  return import.meta.env.VITE_API_URL
+  return import.meta.env.VITE_API_URL ?? 'https://api.resupplify.com/api'
 }
 
 function getAuthorizationHeader() {

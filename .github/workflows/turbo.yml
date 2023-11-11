@@ -2,7 +2,7 @@ name: Turbo CI
 
 on:
   push:
-    branches: ["develop"]
+    branches: ["main"]
   pull_request:
     types: [opened, synchronize]
 
