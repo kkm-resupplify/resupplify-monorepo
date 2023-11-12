@@ -1,7 +1,7 @@
 <template>
   <o-form class="product-editor-add-information-step">
     <template #body>
-      <div class="product-editor-add-information-step__inputs">
+      <div class="product-editor-add-information-step__body">
         <a-title :title="$t('company.management.products.editor.title')" size="xx-large" />
         <m-text-field
           name="name"
@@ -42,14 +42,33 @@
         />
       </div>
     </template>
+
     <template #footer>
       <div class="product-editor-add-information-step__buttons">
-        <a-button :text="$t('global.cancel')" />
+        <a-button :text="$t('global.cancel')" size="x-large" color="gradient-danger" />
 
-        <a-button :text="$t('global.next')" />
+        <a-button :text="$t('global.next')" size="x-large" />
       </div>
     </template>
   </o-form>
 </template>
 <script setup lang="ts"></script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.product-editor-add-information-step {
+  max-height: 650px;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-50;
+    min-width: 500px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $global-spacing-100;
+    justify-content: center;
+    width: 100%;
+  }
+}
+</style>
