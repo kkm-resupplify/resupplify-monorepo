@@ -318,6 +318,24 @@
             "noProductsMatchingFilter": "Brak produktów dla podanych parametrów."
           }
         }
+      },
+
+      "products": {
+        "editor": {
+          "title": "Wprowadź opis produktu",
+          "productNameLabel": "Nazwa produktu",
+          "productNamePlaceholder": "Wprowadź nazwę produktu",
+          "productCategoryLabel": "Kategoria produktu",
+          "productCategoryPlaceholder": "Wybierz kategorię produktu",
+          "productSubcategoryLabel": "Podkategoria produktu",
+          "productSubcategoryPlaceholder": "Wybierz podkategorię produktu",
+          "productUnitLabel": "Jednostka produktu",
+          "productUnitPlaceholder": "Wybierz jednostkę produktu",
+          "productTagsLabel": "Tagi produktu",
+          "productTagsPlaceholder": "Wybierz tagi produktu",
+          "productDescriptionLabel": "Opis produktu",
+          "productDescriptionPlaceholder": "Wprowadź opis produktu"
+        }
       }
     }
   },

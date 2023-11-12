@@ -319,6 +319,24 @@
             "noProductsMatchingFilter": "No products for given parameters."
           }
         }
+      },
+
+      "products": {
+        "editor": {
+          "title": "Enter product description",
+          "productNameLabel": "Product name",
+          "productNamePlaceholder": "Enter product name",
+          "productCategoryLabel": "Product category",
+          "productCategoryPlaceholder": "Select product category",
+          "productSubcategoryLabel": "Product subcategory",
+          "productSubcategoryPlaceholder": "Select product subcategory",
+          "productUnitLabel": "Product unit",
+          "productUnitPlaceholder": "Select product unit",
+          "productTagsLabel": "Product tags",
+          "productTagsPlaceholder": "Select product tags",
+          "productDescriptionLabel": "Product description",
+          "productDescriptionPlaceholder": "Select product description"
+        }
       }
     }
   },
