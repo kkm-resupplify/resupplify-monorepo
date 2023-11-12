@@ -339,10 +339,17 @@
           "productDescriptionLabel": "Product description",
           "productDescriptionPlaceholder": "Select product description",
 
-          "stepperInformationTitle": "Product",
-          "stepperInformationContent": "Product information",
-          "stepperTranslationsTitle": "Translations",
-          "stepperTranslationsContent": "Add {language} language translation"
+          "steps": {
+            "information": {
+              "title": "Product",
+              "content": "Product information"
+            },
+
+            "translation": {
+              "title": "Translations",
+              "content": "Add {language} language translation"
+            }
+          }
         }
       }
     }

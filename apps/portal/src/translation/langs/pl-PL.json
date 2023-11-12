@@ -338,10 +338,17 @@
           "productDescriptionLabel": "Opis produktu",
           "productDescriptionPlaceholder": "Wprowadź opis produktu",
 
-          "stepperInformationTitle": "Produkt",
-          "stepperInformationContent": "Informacje o produkcie",
-          "stepperTranslationsTitle": "Tłumaczenia",
-          "stepperTranslationsContent": "Dodaj tłumaczenia w języku: {language}"
+          "steps": {
+            "information": {
+              "title": "Produkt",
+              "content": "Informacje o produkcie"
+            },
+
+            "translation": {
+              "title": "Tłumaczenia",
+              "content": "Dodaj tłumaczenia w języku: {language}"
+            }
+          }
         }
       }
     }
