@@ -18,7 +18,8 @@
     "manage": "Manage",
     "active": "Active",
     "inactive": "Inactive",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "add": "Add"  
   },
 
   "payments": {

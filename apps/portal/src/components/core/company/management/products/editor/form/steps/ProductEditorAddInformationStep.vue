@@ -2,7 +2,10 @@
   <o-form class="product-editor-add-information-step">
     <template #body>
       <div class="product-editor-add-information-step__body">
-        <a-title :title="$t('company.management.products.editor.title')" size="xx-large" />
+        <a-title
+          :title="$t('company.management.products.editor.informationTitle')"
+          size="xx-large"
+        />
         <m-text-field
           name="name"
           input-type="text"

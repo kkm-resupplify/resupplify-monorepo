@@ -7,4 +7,3 @@
 // import ProductEditorAddInformationStep from './steps/ProductEditorAddInformationStep.vue'
 import ProductEditorAddTranslationStep from './steps/ProductEditorAddTranslationStep.vue'
 </script>
-<style scoped lang="scss"></style>
