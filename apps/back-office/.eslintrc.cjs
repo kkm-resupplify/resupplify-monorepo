@@ -18,7 +18,10 @@ module.exports = {
   overrides: [
     {
       files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'],
-      extends: ['plugin:cypress/recommended']
+      extends: ['plugin:cypress/recommended'],
+      rules: {
+        'no-undef': 'off'
+      }
     }
   ],
   parserOptions: {
@@ -30,6 +33,7 @@ module.exports = {
       {
         endOfLine: 'auto'
       }
-    ]
+    ],
+    'vue/require-default-prop': 'off'
   }
 }
