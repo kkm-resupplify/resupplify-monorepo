@@ -35,6 +35,11 @@ const tiles = computed(() => [
     title: t('navigation.tiles.product.subcategory'),
     icon: 'list',
     to: { name: RouteNames.ADMIN_PRODUCT_SUBCATEGORY }
+  },
+  {
+    title: t('navigation.tiles.product.unit'),
+    icon: 'list',
+    to: { name: RouteNames.ADMIN_PRODUCT_UNIT }
   }
 ])
 </script>

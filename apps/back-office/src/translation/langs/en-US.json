@@ -39,7 +39,8 @@
         "verify": "Verify products",
         "list": "Product list",
         "category": "Product categories",
-        "subcategory": "Product subcategories"
+        "subcategory": "Product subcategories",
+        "unit": "Product units"
       },
 
       "locale": {

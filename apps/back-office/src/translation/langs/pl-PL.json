@@ -38,7 +38,8 @@
         "verify": "Zweryfikuj produkty",
         "list": "Lista produktów",
         "category": "Kategorie produktów",
-        "subcategory": "Podkategorie produktów"
+        "subcategory": "Podkategorie produktów",
+        "unit": "Jednostki produktów"
       },
       "locale": {
         "country": "Lista krajów",
