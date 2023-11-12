@@ -8,6 +8,7 @@ import AdminLocaleRoutes from '@/routes/admin/locale/AdminLocaleRoutes'
 
 class AdminRouteEnum extends BaseEnum {
   static readonly HOME: string = 'HOME'
+  static readonly ADMIN_DASHBOARD: string = 'ADMIN_DASHBOARD'
 }
 
 const AdminRoutes: RouteRecordRaw[] = [
@@ -20,7 +21,10 @@ const AdminRoutes: RouteRecordRaw[] = [
       ...AdminCompanyRoutes,
       ...AdminProductRoutes,
       ...AdminLocaleRoutes
-    ]
+    ],
+    redirect: {
+      name: AdminRouteEnum.ADMIN_DASHBOARD
+    }
   }
 ]
 
