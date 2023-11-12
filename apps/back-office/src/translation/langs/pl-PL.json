@@ -27,6 +27,23 @@
       "companies": "Firmy",
       "products": "Produkty",
       "locales": "Lokalizacje"
+    },
+
+    "tiles": {
+      "company": {
+        "verify": "Zweryfikuj firmy",
+        "list": "Lista firm"
+      },
+      "product": {
+        "verify": "Zweryfikuj produkty",
+        "list": "Lista produktów",
+        "category": "Kategorie produktów",
+        "subcategory": "Podkategorie produktów"
+      },
+      "locale": {
+        "country": "Lista krajów",
+        "language": "Lista języków"
+      }
     }
   },
 

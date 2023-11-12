@@ -27,6 +27,25 @@
       "companies": "Companies",
       "products": "Products",
       "locales": "Locales"
+    },
+
+    "tiles": {
+      "company": {
+        "verify": "Verify companies",
+        "list": "Company list"
+      },
+
+      "product": {
+        "verify": "Verify products",
+        "list": "Product list",
+        "category": "Product categories",
+        "subcategory": "Product subcategories"
+      },
+
+      "locale": {
+        "country": "Country list",
+        "language": "Language list"
+      }
     }
   },
 
