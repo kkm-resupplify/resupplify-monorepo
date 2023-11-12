@@ -19,12 +19,22 @@ const tiles = computed(() => [
   {
     title: t('navigation.tiles.product.verify'),
     icon: 'verified',
-    to: { name: RouteNames.COMPANY_WAREHOUSE_LIST }
+    to: { name: RouteNames.ADMIN_PRODUCT_VERIFY }
   },
   {
     title: t('navigation.tiles.product.list'),
     icon: 'list',
-    to: { name: RouteNames.COMPANY_WAREHOUSE_EDITOR }
+    to: { name: RouteNames.ADMIN_PRODUCT_LIST }
+  },
+  {
+    title: t('navigation.tiles.product.category'),
+    icon: 'list',
+    to: { name: RouteNames.ADMIN_PRODUCT_CATEGORY }
+  },
+  {
+    title: t('navigation.tiles.product.subcategory'),
+    icon: 'list',
+    to: { name: RouteNames.ADMIN_PRODUCT_SUBCATEGORY }
   }
 ])
 </script>

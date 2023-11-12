@@ -33,7 +33,7 @@ const tabs = computed(() => [
     icon: 'apartment'
   },
   {
-    to: { name: RouteNames.ADMIN_COMPANY_PRODUCT_TILES },
+    to: { name: RouteNames.ADMIN_PRODUCT_TILES },
     title: t('navigation.menu.products'),
     icon: 'inventory_2'
   },
