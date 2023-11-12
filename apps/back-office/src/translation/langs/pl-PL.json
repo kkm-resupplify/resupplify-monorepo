@@ -21,6 +21,15 @@
     "confirm": "Potwierdź"
   },
 
+  "navigation": {
+    "menu": {
+      "dashboard": "Pulpit",
+      "companies": "Firmy",
+      "products": "Produkty",
+      "locales": "Lokalizacje"
+    }
+  },
+
   "auth": {
     "login": "Zaloguj się",
     "signup": "Zarejestruj się",

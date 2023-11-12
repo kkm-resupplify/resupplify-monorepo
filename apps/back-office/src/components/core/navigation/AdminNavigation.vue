@@ -3,7 +3,7 @@
     <router-link class="admin-navigation__header" :to="{ name: RouteNames.ADMIN_DASHBOARD }">
       <div class="admin-navigation__avatar">PH</div>
 
-      <a-title class="admin-navigation__company-name" title="Resupplify Admin" size="large" />
+      <a-title class="admin-navigation__company-name" title="Resupplify Back Office" size="large" />
     </router-link>
 
     <div class="admin-navigation__menu">
@@ -16,17 +16,15 @@
 import { computed } from 'vue'
 import { RouteNames } from '@/routes/index'
 import { useI18n } from 'vue-i18n'
-import { useUserStore } from '@/stores/user/useUserStore'
 
 // Variables
 const { t } = useI18n()
-const userStore = useUserStore()
 
 // Computed
 const tabs = computed(() => [
   {
     to: { name: RouteNames.ADMIN_DASHBOARD },
-    title: t('admin.dashboard.title'),
+    title: t('navigation.menu.dashboard'),
     icon: 'dashboard'
   }
 ])
@@ -76,6 +74,7 @@ const tabs = computed(() => [
     display: flex;
     flex-direction: column;
     gap: $global-spacing-40;
+    min-width: 240px;
   }
 }
 </style>
