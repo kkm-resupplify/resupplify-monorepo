@@ -322,7 +322,8 @@
 
       "products": {
         "editor": {
-          "title": "Wprowadź opis produktu",
+          "informationTitle": "Wprowadź opis produktu",
+          "translationTitle": "Tłumaczenia produktu w języku: {language}",
           "productNameLabel": "Nazwa produktu",
           "productNamePlaceholder": "Wprowadź nazwę produktu",
           "productCategoryLabel": "Kategoria produktu",
@@ -334,7 +335,12 @@
           "productTagsLabel": "Tagi produktu",
           "productTagsPlaceholder": "Wybierz tagi produktu",
           "productDescriptionLabel": "Opis produktu",
-          "productDescriptionPlaceholder": "Wprowadź opis produktu"
+          "productDescriptionPlaceholder": "Wprowadź opis produktu",
+
+          "stepperInformationTitle": "Produkt",
+          "stepperInformationContent": "Informacje o produkcie",
+          "stepperTranslationsTitle": "Tłumaczenia",
+          "stepperTranslationsContent": "Dodaj tłumaczenia w języku: {language}"
         }
       }
     }

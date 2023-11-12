@@ -323,7 +323,8 @@
 
       "products": {
         "editor": {
-          "title": "Enter product description",
+          "informationTitle": "Enter product description",
+          "translationTitle": "Product translations in {language}",
           "productNameLabel": "Product name",
           "productNamePlaceholder": "Enter product name",
           "productCategoryLabel": "Product category",
@@ -335,7 +336,12 @@
           "productTagsLabel": "Product tags",
           "productTagsPlaceholder": "Select product tags",
           "productDescriptionLabel": "Product description",
-          "productDescriptionPlaceholder": "Select product description"
+          "productDescriptionPlaceholder": "Select product description",
+
+          "stepperInformationTitle": "Product",
+          "stepperInformationContent": "Product information",
+          "stepperTranslationsTitle": "Translations",
+          "stepperTranslationsContent": "Add {language} language translation"
         }
       }
     }
