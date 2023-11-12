@@ -30,5 +30,3 @@ userStore.initializeLocale()
 
 app.use(registerGlobalComponentsPlugin)
 app.mount('#app')
-
-// export default router

@@ -1,9 +1,10 @@
 import AuthRoutes from './auth/AuthRoutes'
+import AdminRoutes from './admin/AdminRoutes'
 
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
-const routes = [...AuthRoutes]
+const routes = [...AuthRoutes, ...AdminRoutes]
 
 const router = createRouter({
   history: createWebHistory(),
