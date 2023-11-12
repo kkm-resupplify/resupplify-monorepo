@@ -19,7 +19,7 @@
         <a-button :text="$t('global.cancel')" size="x-large" @click="closeDialog" />
 
         <a-button
-          :text="$t('global.remove')"
+          :text="$t('global.delete')"
           color="gradient-danger"
           size="x-large"
           @click="handleConfirm"

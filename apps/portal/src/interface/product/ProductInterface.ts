@@ -7,6 +7,17 @@ export interface Product {
   status: number
   verificationStatus: number
   companyId: number
-  productTypeId: number
-  productSubcategoryId: number
+  productUnitId: number
+  productSubcategory: ProductSubcategory
+  productCategory: ProductCategory
+}
+
+export interface ProductSubcategory {
+  id: number
+  name: string
+}
+
+export interface ProductCategory {
+  id: number
+  name: string
 }
