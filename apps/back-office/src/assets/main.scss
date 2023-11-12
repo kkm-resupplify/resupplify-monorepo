@@ -1,0 +1,44 @@
+// Screen breakpoints
+@import '../../../../packages/shared/design-system/screen-breakpoints';
+
+// Icons
+@import 'material-icons/iconfont/material-icons.css';
+
+// Design tokens
+@import '../../../../packages/shared/design-system/tokens/variables';
+
+// Fonts
+@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Radio+Canada:wght@300&family=Saira:wght@100&display=swap&family=Poppins:wght@400&family=Syne&display=swap';
+
+// Themes
+@import './themes';
+
+// Shared Mixins are in vite.config.ts scss preporcessor
+
+* {
+  font-family: Poppins, sans-serif;
+  color: var(--font-primary);
+  transition: background-color 0.2s;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  @include custom-scrollbar;
+
+  overflow: auto;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

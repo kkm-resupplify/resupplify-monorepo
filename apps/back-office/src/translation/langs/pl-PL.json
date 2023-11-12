@@ -1,0 +1,460 @@
+{
+  "global": {
+    "welcome": "Witaj",
+    "goodbye": "Dowidzenia",
+    "actionSuccess": "Akcja zakończona sukcesem",
+    "errorOccured": "Wystąpił błąd",
+    "save": "Zapisz",
+    "edit": "Edytuj",
+    "noResults": "Brak wyników",
+    "next": "Dalej",
+    "back": "Wstecz",
+    "submit": "Zatwierdź",
+    "imagePreview": "Podgląd obrazu",
+    "delete": "Usuń",
+    "search": "Szukaj",
+    "update": "Aktualizuj",
+    "cancel": "Anuluj",
+    "manage": "Zarządzaj",
+    "active": "Actywny",
+    "inactive": "Nieaktywny",
+    "confirm": "Potwierdź"
+  },
+
+  "payments": {
+    "payNow": "Zapłać teraz"
+  },
+
+  "navigation": {
+    "menu": {
+      "settings": "Ustawienia",
+      "myCompany": "Moja firma",
+      "logout": "Wyloguj"
+    }
+  },
+
+  "pages": {
+    "home": "Strona główna",
+    "browse": "Przeglądaj",
+    "resources": "Zasoby"
+  },
+
+  "auth": {
+    "login": "Zaloguj się",
+    "signup": "Zarejestruj się",
+    "registerAgreement": "Rejestrując się akceptujesz {tos} oraz {privacyPolicy}",
+    "tos": "Warunki świadczenia usługi",
+    "privacyPolicy": "Politykę prywatności",
+    "alreadyRegistered": "Masz już konto? {login}",
+    "forgotPassword": "Nie pamiętasz hasła?",
+    "newUser": "Nie posiadasz konta? {signup}",
+    "logout": "Wyloguj się",
+
+    "form": {
+      "emailAddress": "Adres email",
+      "password": "Hasło",
+      "confirmPassword": "Potwierdź hasło",
+      "emailAddressPlaceholder": "Wprowadź swój adres e-mail",
+      "passwordPlaceholder": "Wprowadź swoje hasło",
+      "confirmPasswordPlaceholder": "Potwierdź swoje hasło"
+    },
+
+    "notification": {
+      "loginSuccessTitle": "Zalogowano",
+      "loginSuccessText": "Witaj z powrotem!",
+      "logoutSuccessTitle": "Wylogowano pomyślnie",
+      "logoutSuccessText": "Do zobaczenia w krótce.",
+      "registerSuccessTitle": "Zarejestrowano pomyślnie",
+      "registerSuccessText": "Poprosimy Cię teraz o podanie Twoich danych osobowych, a następnie o założenie lub dołączenie do istniejącej do firmy."
+    },
+
+    "slogan": {
+      "welcome": "Witaj ponownie",
+      "createAccount": "Załóż swoje konto",
+      "connectAndGrow": "Docieraj do nowych klientów i rozwijaj swoje możliwości"
+    }
+  },
+
+  "company": {
+    "register": {
+      "title": "Rejestracja firmy",
+      "description": "Proszę podać informacje o Twojej firmie",
+
+      "steps": {
+        "general": {
+          "title": "Ogólne",
+          "subtitle": "Ogólne informacje",
+          "description": "Ten etap zbiera podstawowe informacje o firmie."
+        },
+
+        "details": {
+          "title": "Szczegóły",
+          "subtitle": "Szczegóły firmy",
+          "description": "Szczegóły firmy, w tym numer identyfikacji podatkowej (NIP), adres, itp."
+        },
+
+        "contactInfo": {
+          "title": "Kontakt",
+          "subtitle": "Dane kontaktowe",
+          "description": "Ten krok skupia się na środkach kontaktu, w tym preferencje komunikacyjne."
+        },
+
+        "submit": {
+          "title": "Zatwierdź",
+          "subtitle": "Zatwierdź i kolejne kroki",
+          "description": "Złóż formularz rejestracji firmy.",
+          "content": {
+            "description": "To ostatni krok w procesie rejestracji. Po złożeniu formularza firma oczekuje na weryfikację. Zachęcamy jednak do eksploracji portalu i zapoznania się z dostępnymi opcjami podczas, gdy my dokonujemy weryfikacji. Nasza platforma oferuje wiele interesujących funkcji, więc zachęchamy w międzyczasie do zapoznanie się z nimi."
+          }
+        }
+      },
+
+      "form": {
+        "general": {
+          "companyNameLabel": "Nazwa",
+          "companyNamePlaceholder": "Wprowadź nazwę firmy",
+          "companyCountryLabel": "Kraj",
+          "companyCountryPlaceholder": "Wybierz kraj",
+          "companyDescriptionLabel": "Opis",
+          "companyDescriptionPlaceholder": "Wprowadź opis firmy",
+          "companyShortDescriptionLabel": "Krótki opis",
+          "companyShortDescriptionPlaceholder": "Wprowadź krótki opis firmy"
+        },
+
+        "details": {
+          "companyAddressLabel": "Adres firmy",
+          "companyAddressPlaceholder": "Wprowadź adres firmy",
+          "companyCategoryLabel": "Kateogria firmy",
+          "companyCategoryPlaceholder": "Wybierz kategorię firmy",
+          "companyLogoLabel": "Logo firmy",
+          "companyLogoPlaceholder": "Wprowadź logo firmy",
+          "companyTinLabel": "Numer identyfikacji podatkowej (NIP)",
+          "companyTinPlaceholder": "Wprowadź NIP"
+        },
+
+        "contactInfo": {
+          "contactPersonLabel": "Osoba kontaktowa",
+          "contactPersonPlaceholder": "Podaj osobę kontaktową",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Wprowadź adres email firmy",
+          "externalWebsiteLabel": "Strona główna firmy",
+          "externalWebsitePlaceholder": "Podaj stronę główną firmy",
+          "phoneNumberLabel": "Numer telefonu",
+          "phoneNumberPlaceholder": "Wprowadź numer telefonu firmy"
+        }
+      },
+
+      "notification": {
+        "registerCompanySuccessTitle": "Wniosek o rejestrację firmy został wysłany pomyślnie",
+        "registerCompanySuccessText": "Twoja firma oczekuje na weryfikację."
+      }
+    },
+
+    "invitation": {
+      "title": "Wprowadź liczbę tokenów do wygenerowania",
+      "invite": "Zaproś",
+      "generate": "Wygeneruj",
+      "inviteNew": "Zaproś nowych czlonków",
+
+      "notification": {
+        "createdInvitationTokenTitleSuccess": "Pomyślnie wygenerowano token zaproszenia"
+      }
+    },
+
+    "promotion": {
+      "ourPartners": "Nasi partnerzy",
+      "companiesThatChoseUs": "Firmy i biznesy, które nas wybrały"
+    },
+
+    "data": {
+      "generalInformation": "Informacje ogólne",
+      "companyDetails": "Dane firmy",
+      "contactInformation": "Informacje kontaktowe",
+      "name": "Nazwa",
+      "country": "Kraj",
+      "description": "Opis",
+      "shortDescription": "Krótki opis",
+      "address": "Adres firmy",
+      "category": "Kategoria firmy",
+      "logo": "Logo firmy",
+      "tin": "Numer identyfikacji podatkowej",
+      "contactPerson": "Osoba kontaktowa",
+      "email": "Email",
+      "externalWebsite": "Strona internetowa firmy",
+      "phoneNumber": "Numer telefonu"
+    },
+
+    "management": {
+      "navigation": {
+        "dashboard": {
+          "title": "Pulpit"
+        },
+
+        "offers": {
+          "title": "Oferty"
+        },
+
+        "deals": {
+          "title": "Umowy"
+        },
+
+        "products": {
+          "title": "Produkty"
+        },
+
+        "warehouses": {
+          "title": "Magazyny",
+
+          "tiles": {
+            "companyWarehouses": "Panel magazynów",
+            "newWarehouse": "Nowy magazyn"
+          }
+        },
+
+        "members": {
+          "title": "Pracownicy",
+          "tiles": {
+            "activeMembers": "Aktywni pracownicy",
+            "permissions": "Uprawnienia"
+          },
+
+          "activeMembers": {
+            "action": "Usuń pracownika"
+          }
+        },
+
+        "settings": {
+          "title": "Ustawienia"
+        },
+
+        "payments": {
+          "title": "Płatności"
+        }
+      },
+
+      "warehouse": {
+        "edit": "Edytuj magazyn",
+
+        "delete": {
+          "title": "Usuń magazyn",
+
+          "dialog": {
+            "title": "Potwierdź usunięcie magazynu",
+            "subtitle": "Czy na pewno?"
+          }
+        },
+
+        "editor": {
+          "title": "Nowy magazyn",
+          "nameLabel": "Nazwa",
+          "namePlaceholder": "Wprowadź nazwę",
+          "descriptionLabel": "Opis",
+          "descriptionPlaceholder": "Wprowadź opis",
+          "create": "Utwórz",
+          "createSuccessTitle": "Nowy magazyn został dodany pomyślnie",
+          "editSuccessTitle": "Nagazyn został pomyślnie zedytowany",
+          "deleteSuccessTitle": "Magazyn został pomyślnie usunięty"
+        },
+
+        "needingAttention": {
+          "title": "Magazyny wymagające uwagi",
+          "buttonText": "Sprawdź szczegóły",
+          "noResults": "Wszystkie magazyny firmy są w dobrym stanie"
+        },
+
+        "preview": {
+          "header": {
+            "totalProductsCount": "Produktów łącznie:",
+            "belowSafeQuantityProductsCount": "Produkty poniżej bezpiecznego stanu:",
+            "soldOutProductsCount": "Produkty wyprzedane:",
+            "inactiveProductsCount": "Nieaktywne produkty:",
+            "reservedProductsCount": "Ilość zarezerwowanych produktów:",
+            "addProduct": "Dodaj produkt"
+          },
+
+          "content": {
+            "warehouseProducts": "Produkty w magazynie",
+            "productName": "Nazwa produktu",
+            "productCode": "Kod produktu",
+            "currentSupply": "Aktualna ilość",
+            "safeQuantity": "Bezpieczna ilość",
+            "search": "Szukaj produktów"
+          },
+
+          "dialog": {
+            "addProduct": {
+              "title": "Dodaj produkt do magazynu",
+              "selectProduct": "Wybierz produkt",
+              "selectProductPlaceholder": "Wybierz produkt z listy",
+              "safeQuantityLabel": "Bezpieczna ilość",
+              "safeQuantityPlaceholder": "Wprowadź bezpieczną ilość",
+              "currentSupplyLabel": "Aktualny stan",
+              "currentSupplyPlaceholder": "Wprowadź aktualny stan",
+              "submit": "Dodaj produkt",
+              "addSuccessTitle": "Produkt dodany do magazynu pomyślnie"
+            },
+
+            "manageProduct": {
+              "setQuantity": "Ustaw ilość",
+              "editSuccessTitle": "Produkt magazynowy edytowany pomyślnie",
+              "removeSuccessTitle": "Produkt magazynowo usunięty pomyślnie"
+            },
+
+            "deleteProduct": {
+              "title": "Potwierdź usunięcie produktu",
+              "subtitle": "Czy jesteś pewny aby usunąć {product} z tego magazynu?"
+            }
+          },
+
+          "notification": {
+            "warehouseCreatedTitle": "Magazyn utworzony pomyślnie",
+            "warehouseUpdatedTitle": "Magazyn zaaktualizowany pomyślnie",
+            "warehouseDeletedTitle": "Magazyn usunięty pomyślnie"
+          },
+
+          "list": {
+            "noWarehouses": "Twoja firma nie ma jeszcze żadnych magazynów.",
+            "noProducts": "Twoja firma nie ma jeszcze żadnych produktów przypisanych do tego magazynu.",
+            "noProductsMatchingFilter": "Brak produktów dla podanych parametrów."
+          }
+        }
+      }
+    }
+  },
+
+  "product": {
+    "promotion": {
+      "bestsellers": "Bestsellery",
+      "topSellingProducts": "Nasze najlepiej sprzedające się produkty"
+    },
+
+    "unit": {
+      "pricePerUnit": "za {unit}"
+    }
+  },
+
+  "slogans": {
+    "expandYourClientBase": "Poszerz swoją bazę klientów",
+    "diversifyAndGrowClientele": "Dywersyfikuj i rozwijaj klientelę",
+    "increaseYourMarketShare": "Zwiększ swój udział w rynku"
+  },
+
+  "confirm": {
+    "dialog": {
+      "titleDelete": "Potwierdzenie usunięcia",
+      "textDelete": "Czy na pewno chcesz usunąć {item}?",
+      "titleUpdate": "Potwierdzenie aktualizacji",
+      "textUpdate": "Czy na pewno chcesz zaaktualizować {item}?",
+      "titleCreate": "Potwierdzenie dodania",
+      "textCreate": "Czy na pewno chcesz dodać {item}?"
+    }
+  },
+
+  "settings": {
+    "profile": {
+      "title": "Profil",
+
+      "details": {
+        "firstName": "Imię",
+        "lastName": "Nazwisko",
+        "email": "Adres e-mail",
+        "phoneNumber": "Numer telefonu",
+        "birthDate": "Data urodzenia",
+        "firstNamePlaceholder": "Podaj swoje imię",
+        "lastNamePlaceholder": "Podaj swoje nazwisko",
+        "phoneNumberPlaceholder": "Podaj swój numer telefonu",
+        "genderPlaceholder": "Wybierz płeć",
+        "enterUserDetailsTitle": "Wprowadź swoje dane osobowe",
+        "sex": "Płeć",
+
+        "gender": {
+          "male": "Mężczyzna",
+          "female": "Kobieta",
+          "preferNot": "Inna"
+        }
+      },
+
+      "notification": {
+        "updateSuccess": "Dane użytkownika zostały zaktualizowany pomyślnie"
+      }
+    },
+
+    "preferences": {
+      "title": "Preferencje",
+
+      "notification": {
+        "updateSuccess": "Preferencje użytkownika zostały zaktualizowany pomyślnie"
+      }
+    },
+
+    "myCompany": {
+      "title": "Moja firma",
+
+      "joinCompany": {
+        "title": "Dołącz do firmy",
+        "description": "Aby dołączyć do firmy, potrzebujesz najpierw tokena zaproszenia. Powinien on zostać udzielony przez twojego przełożonego lub osobę odpowiedzialną za zarządzanie zaproszeniami pracowników firmy w naszej platformie.",
+        "invitationToken": "Token zaproszenia",
+        "invitationTokenPlaceholder": "Wprowadź swój token zaproszenia",
+        "enterInvitationToken": "Proszę wprowadzić swój token zaproszenia",
+
+        "notification": {
+          "joinCompanySuccessTitle": "Company joined successfully"
+        }
+      },
+
+      "registerCompany": {
+        "title": "Zarejestruj firmę",
+        "description": "Możesz również chcieć zarejestrować swoją firmę. W takim przypadku możesz rozpocząć proces rejestracji, klikając poniższy przycisk - proces możesz anulować w dowolnym momencie.",
+        "registerNow": "Zarejestruj teraz"
+      }
+    }
+  },
+
+  "country": {
+    "al": "Albania",
+    "ad": "Andora",
+    "at": "Austria",
+    "by": "Białoruś",
+    "be": "Belgia",
+    "ba": "Bośnia i Hercegowina",
+    "bg": "Bułgaria",
+    "hr": "Chorwacja",
+    "cy": "Cypr",
+    "cz": "Czechy",
+    "dk": "Dania",
+    "ee": "Estonia",
+    "fi": "Finlandia",
+    "fr": "Francja",
+    "de": "Niemcy",
+    "gr": "Grecja",
+    "hu": "Węgry",
+    "is": "Islandia",
+    "ie": "Irlandia",
+    "it": "Włochy",
+    "lv": "Łotwa",
+    "li": "Liechtenstein",
+    "lt": "Litwa",
+    "lu": "Luksemburg",
+    "mk": "Macedonia, Była Jugosłowiańska Republika",
+    "mt": "Malta",
+    "md": "Mołdawia",
+    "mc": "Monako",
+    "me": "Czarnogóra",
+    "nl": "Holandia",
+    "no": "Norwegia",
+    "pl": "Polska",
+    "pt": "Portugalia",
+    "ro": "Rumunia",
+    "ru": "Rosja",
+    "sm": "San Marino",
+    "rs": "Serbia",
+    "sk": "Słowacja",
+    "si": "Słowenia",
+    "es": "Hiszpania",
+    "se": "Szwecja",
+    "ch": "Szwajcaria",
+    "ua": "Ukraina",
+    "gb": "Wielka Brytania",
+    "va": "Watykan"
+  }
+}

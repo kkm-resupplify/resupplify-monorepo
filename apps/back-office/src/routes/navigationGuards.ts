@@ -38,13 +38,3 @@ export class MustNotBeAuthenticatedNavigationGuard extends NavigationGuard {
     }
   }
 }
-
-export class MustBelongToCompanyNavigationGuard extends NavigationGuard {
-  static guard(): boolean | void {
-    const userStore = useUserStore()
-
-    if (userStore.hasCompany) {
-      return false
-    }
-  }
-}
