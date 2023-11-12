@@ -1,6 +1,6 @@
 import { useUserStore } from '@/stores/user/useUserStore'
 import BaseService from '../BaseService'
-import type { RegisterCompanyData } from '@/interfaces/company/RegisterCompanyInterface'
+import type { RegisterCompanyData } from '@interfaces/company/RegisterCompanyInterface'
 
 class RegisterCompanyFormDataDTO {
   name: string

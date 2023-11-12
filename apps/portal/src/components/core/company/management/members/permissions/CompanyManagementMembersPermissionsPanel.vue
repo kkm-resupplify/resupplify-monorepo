@@ -1,12 +1,10 @@
 <template>
-  <company-management-panel class="company-management-members-permissions-panel">
+  <a-panel class="company-management-members-permissions-panel">
     company-management-members-permissions-panel
-  </company-management-panel>
+  </a-panel>
 </template>
 
-<script setup lang="ts">
-import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .company-management-members-permissions-panel {

@@ -4,14 +4,21 @@
     "goodbye": "Goodbye",
     "actionSuccess": "Action completed successfully",
     "errorOccured": "An error occured",
-    "save": "Save",
     "edit": "Edit",
     "noResults": "No results",
     "next": "Next",
     "back": "Back",
     "submit": "Submit",
     "imagePreview": "Image preview",
-    "delete": "Delete"
+    "delete": "Delete",
+    "save": "Save",
+    "search": "Search",
+    "update": "Update",
+    "cancel": "Cancel",
+    "manage": "Manage",
+    "active": "Active",
+    "inactive": "Inactive",
+    "confirm": "Confirm"
   },
 
   "payments": {
@@ -196,7 +203,12 @@
         },
 
         "warehouses": {
-          "title": "Warehouses"
+          "title": "Warehouses",
+
+          "tiles": {
+            "companyWarehouses": "Warehouse dashboard",
+            "newWarehouse": "New warehouse"
+          }
         },
 
         "members": {
@@ -217,6 +229,95 @@
 
         "payments": {
           "title": "Payments"
+        }
+      },
+
+      "warehouse": {
+        "edit": "Edit warehouse",
+
+        "delete": {
+          "title": "Delete warehouse",
+
+          "dialog": {
+            "title": "Confirm warehouse removal",
+            "subtitle": "Are you sure?"
+          }
+        },
+
+        "editor": {
+          "title": "New warehouse",
+          "nameLabel": "Name",
+          "namePlaceholder": "Enter name",
+          "descriptionLabel": "Description",
+          "descriptionPlaceholder": "Enter description",
+          "create": "Create",
+          "createSuccessTitle": "New warehouse created successfully",
+          "editSuccessTitle": "Warehouse edited successfully",
+          "deleteSuccessTitle": "Warehouse deleted successfully"
+        },
+
+        "needingAttention": {
+          "title": "Warehouses needing attention",
+          "buttonText": "Check details",
+          "noResults": "All of the company warehouses are in a good condition."
+        },
+
+        "preview": {
+          "header": {
+            "totalProductsCount": "Total products:",
+            "belowSafeQuantityProductsCount": "Products below safe quantity:",
+            "soldOutProductsCount": "Sold-out products:",
+            "inactiveProductsCount": "Inactive products:",
+            "reservedProductsCount": "Reserved products:",
+            "addProduct": "Add product"
+          },
+
+          "content": {
+            "warehouseProducts": "Warehouse products",
+            "productName": "Product name",
+            "productCode": "Product code",
+            "currentSupply": "Current supply",
+            "safeQuantity": "Safe quantity",
+            "search": "Search warehouses",
+            "companyWarehouses": "Company warehouses"
+          },
+
+          "dialog": {
+            "addProduct": {
+              "title": "Add product to the warehouse",
+              "selectProduct": "Select product",
+              "selectProductPlaceholder": "Select product from the list",
+              "safeQuantityLabel": "Safe quantity",
+              "safeQuantityPlaceholder": "Enter safe quantity",
+              "currentSupplyLabel": "Current supply",
+              "currentSupplyPlaceholder": "Enter current supply",
+              "submit": "Add product",
+              "addSuccessTitle": "Product added to the warehouse successfully"
+            },
+
+            "manageProduct": {
+              "setQuantity": "Set quantity",
+              "editSuccessTitle": "Warehouse product edited successfully",
+              "removeSuccessTitle": "Product removed from the warehouse successfully"
+            },
+
+            "deleteProduct": {
+              "title": "Confirm warehouse product removal",
+              "subtitle": "Are you sure you want to remove {product} from this warehouse?"
+            }
+          },
+
+          "notification": {
+            "warehouseCreatedTitle": "Warehouse created successfully",
+            "warehouseUpdatedTitle": "Warehouse updated successfully",
+            "warehouseDeletedTitle": "Warehouse deleted successfully"
+          },
+
+          "list": {
+            "noWarehouses": "Your company does not have any warehouses yet.",
+            "noProducts": "Your company does not have any products assigned to this warehouse yet.",
+            "noProductsMatchingFilter": "No products for given parameters."
+          }
         }
       }
     }
@@ -239,6 +340,17 @@
     "increaseYourMarketShare": "Increase your market share"
   },
 
+  "confirm": {
+    "dialog": {
+      "titleDelete": "Remove confirmation",
+      "textDelete": "Are you sure you want to remove {item}?",
+      "titleUpdate": "Update confirmation",
+      "textUpdate": "Are you sure you want to update {item}?",
+      "titleCreate": "Creation confirmation",
+      "textCreate": "Are you sure you want to create {item}?"
+    }
+  },
+
   "settings": {
     "profile": {
       "title": "Profile",
@@ -259,7 +371,7 @@
         "gender": {
           "male": "Male",
           "female": "Female",
-          "preferNot": "Prefer not to say"
+          "preferNot": "Other"
         }
       },
 

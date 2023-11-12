@@ -19,23 +19,21 @@
     </template>
 
     <template #content>
-      <div class="navigation-bar-menu__dropdown-items">
-        <router-link
-          v-for="(dropdownItem, idx) in dropdownItems"
-          :key="idx"
-          :to="{ name: dropdownItem.link }"
-          class="navigation-bar-menu__dropdown-item"
-        >
-          <span v-text="dropdownItem.text" />
+      <router-link
+        v-for="(dropdownItem, idx) in dropdownItems"
+        :key="idx"
+        :to="{ name: dropdownItem.link }"
+        class="navigation-bar-menu__dropdown-item"
+      >
+        <span v-text="dropdownItem.text" />
 
-          <a-icon :icon="dropdownItem.icon" size="x-large" />
-        </router-link>
+        <a-icon :icon="dropdownItem.icon" size="x-large" />
+      </router-link>
 
-        <div class="navigation-bar-menu__dropdown-item" @click="handleLogoutClick">
-          <span v-text="$t('navigation.menu.logout')" />
+      <div class="navigation-bar-menu__dropdown-item" @click="handleLogoutClick">
+        <span v-text="$t('navigation.menu.logout')" />
 
-          <a-icon icon="logout" size="x-large" />
-        </div>
+        <a-icon icon="logout" size="x-large" />
       </div>
     </template>
   </a-dropdown>
@@ -103,19 +101,6 @@ const handleLogoutClick = async () => {
 
   &__user-avatar {
     display: flex;
-  }
-
-  &__dropdown-items {
-    @include boxshadow-primary-2;
-
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: $global-spacing-10;
-
-    padding: $global-spacing-20;
-
-    background-color: var(--primary);
   }
 
   &__dropdown-item {

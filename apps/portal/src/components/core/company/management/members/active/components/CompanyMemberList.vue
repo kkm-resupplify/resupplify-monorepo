@@ -1,5 +1,5 @@
 <template>
-  <div class="company-member-list">
+  <a-panel-section class="company-member-list">
     <div class="company-member-list__header">
       <a-title size="large" :title="$t('company.management.navigation.members.title')" />
 
@@ -20,7 +20,7 @@
         @delete-member="handleFetchCompanyMembers"
       />
     </div>
-  </div>
+  </a-panel-section>
 </template>
 
 <script setup lang="ts">
@@ -28,7 +28,7 @@ import CompanyMemberListItem from './CompanyMemberListItem.vue'
 import CompanyMemberInvitation from '../../invitation/CompanyMemberInvitation.vue'
 import { onBeforeMount, reactive } from 'vue'
 import CompanyMembersService from '@/services/company/CompanyMembersService'
-import type { CompanyMember } from '@/interfaces/company/CompanyMemberInterface'
+import type { CompanyMember } from '@interfaces/company/CompanyMemberInterface'
 
 // Variables
 const companyMembers: CompanyMember[] = reactive([])

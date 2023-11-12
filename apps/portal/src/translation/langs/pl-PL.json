@@ -11,7 +11,14 @@
     "back": "Wstecz",
     "submit": "Zatwierdź",
     "imagePreview": "Podgląd obrazu",
-    "delete": "Usuń"
+    "delete": "Usuń",
+    "search": "Szukaj",
+    "update": "Aktualizuj",
+    "cancel": "Anuluj",
+    "manage": "Zarządzaj",
+    "active": "Actywny",
+    "inactive": "Nieaktywny",
+    "confirm": "Potwierdź"
   },
 
   "payments": {
@@ -196,7 +203,12 @@
         },
 
         "warehouses": {
-          "title": "Magazyny"
+          "title": "Magazyny",
+
+          "tiles": {
+            "companyWarehouses": "Panel magazynów",
+            "newWarehouse": "Nowy magazyn"
+          }
         },
 
         "members": {
@@ -217,6 +229,94 @@
 
         "payments": {
           "title": "Płatności"
+        }
+      },
+
+      "warehouse": {
+        "edit": "Edytuj magazyn",
+
+        "delete": {
+          "title": "Usuń magazyn",
+
+          "dialog": {
+            "title": "Potwierdź usunięcie magazynu",
+            "subtitle": "Czy na pewno?"
+          }
+        },
+
+        "editor": {
+          "title": "Nowy magazyn",
+          "nameLabel": "Nazwa",
+          "namePlaceholder": "Wprowadź nazwę",
+          "descriptionLabel": "Opis",
+          "descriptionPlaceholder": "Wprowadź opis",
+          "create": "Utwórz",
+          "createSuccessTitle": "Nowy magazyn został dodany pomyślnie",
+          "editSuccessTitle": "Nagazyn został pomyślnie zedytowany",
+          "deleteSuccessTitle": "Magazyn został pomyślnie usunięty"
+        },
+
+        "needingAttention": {
+          "title": "Magazyny wymagające uwagi",
+          "buttonText": "Sprawdź szczegóły",
+          "noResults": "Wszystkie magazyny firmy są w dobrym stanie"
+        },
+
+        "preview": {
+          "header": {
+            "totalProductsCount": "Produktów łącznie:",
+            "belowSafeQuantityProductsCount": "Produkty poniżej bezpiecznego stanu:",
+            "soldOutProductsCount": "Produkty wyprzedane:",
+            "inactiveProductsCount": "Nieaktywne produkty:",
+            "reservedProductsCount": "Ilość zarezerwowanych produktów:",
+            "addProduct": "Dodaj produkt"
+          },
+
+          "content": {
+            "warehouseProducts": "Produkty w magazynie",
+            "productName": "Nazwa produktu",
+            "productCode": "Kod produktu",
+            "currentSupply": "Aktualna ilość",
+            "safeQuantity": "Bezpieczna ilość",
+            "search": "Szukaj produktów"
+          },
+
+          "dialog": {
+            "addProduct": {
+              "title": "Dodaj produkt do magazynu",
+              "selectProduct": "Wybierz produkt",
+              "selectProductPlaceholder": "Wybierz produkt z listy",
+              "safeQuantityLabel": "Bezpieczna ilość",
+              "safeQuantityPlaceholder": "Wprowadź bezpieczną ilość",
+              "currentSupplyLabel": "Aktualny stan",
+              "currentSupplyPlaceholder": "Wprowadź aktualny stan",
+              "submit": "Dodaj produkt",
+              "addSuccessTitle": "Produkt dodany do magazynu pomyślnie"
+            },
+
+            "manageProduct": {
+              "setQuantity": "Ustaw ilość",
+              "editSuccessTitle": "Produkt magazynowy edytowany pomyślnie",
+              "removeSuccessTitle": "Produkt magazynowo usunięty pomyślnie"
+            },
+
+            "deleteProduct": {
+              "title": "Potwierdź usunięcie produktu",
+              "subtitle": "Czy jesteś pewny aby usunąć {product} z tego magazynu?"
+            }
+          },
+
+          "notification": {
+            "warehouseCreatedTitle": "Magazyn utworzony pomyślnie",
+            "warehouseUpdatedTitle": "Magazyn zaaktualizowany pomyślnie",
+            "warehouseDeletedTitle": "Magazyn usunięty pomyślnie"
+          },
+
+          "list": {
+            "noWarehouses": "Twoja firma nie ma jeszcze żadnych magazynów.",
+            "noProducts": "Twoja firma nie ma jeszcze żadnych produktów przypisanych do tego magazynu.",
+            "noProductsMatchingFilter": "Brak produktów dla podanych parametrów."
+          }
         }
       }
     }
@@ -239,6 +339,17 @@
     "increaseYourMarketShare": "Zwiększ swój udział w rynku"
   },
 
+  "confirm": {
+    "dialog": {
+      "titleDelete": "Potwierdzenie usunięcia",
+      "textDelete": "Czy na pewno chcesz usunąć {item}?",
+      "titleUpdate": "Potwierdzenie aktualizacji",
+      "textUpdate": "Czy na pewno chcesz zaaktualizować {item}?",
+      "titleCreate": "Potwierdzenie dodania",
+      "textCreate": "Czy na pewno chcesz dodać {item}?"
+    }
+  },
+
   "settings": {
     "profile": {
       "title": "Profil",
@@ -259,7 +370,7 @@
         "gender": {
           "male": "Mężczyzna",
           "female": "Kobieta",
-          "preferNot": "Wolę nie mówić"
+          "preferNot": "Inna"
         }
       },
 

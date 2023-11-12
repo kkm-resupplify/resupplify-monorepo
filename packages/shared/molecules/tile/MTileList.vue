@@ -23,7 +23,7 @@ interface Tile {
   to: string | Route
 }
 
-const props = defineProps({
+defineProps({
   tiles: { type: Array as PropType<Tile[]>, required: true }
 })
 
@@ -39,6 +39,8 @@ const generateClasses = computed(() => {
 
 <style lang="scss" scoped>
 .m-tile-list {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: $global-spacing-100;
 }
 </style>

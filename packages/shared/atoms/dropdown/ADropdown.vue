@@ -66,13 +66,20 @@ onBeforeUnmount(() => {
   }
 
   &__content {
+    @include boxshadow-primary-2;
+
     position: absolute;
     z-index: 4;
 
     display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: $global-spacing-10;
 
     width: 100%;
-    padding: $global-spacing-10;
+    padding: $global-spacing-20;
+
+    background-color: var(--primary);
   }
 }
 

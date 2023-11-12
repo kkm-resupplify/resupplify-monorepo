@@ -1,7 +1,5 @@
 <template>
-  <company-management-panel> Products </company-management-panel>
+  <a-panel> Products </a-panel>
 </template>
 
-<script setup lang="ts">
-import CompanyManagementPanel from '@/components/core/company/panel/CompanyManagementPanel.vue'
-</script>
+<script setup lang="ts"></script>

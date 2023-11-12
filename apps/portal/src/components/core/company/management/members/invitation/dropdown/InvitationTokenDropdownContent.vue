@@ -48,7 +48,7 @@
 import InvitationCodeService from '@/services/company/InvitationCodeService'
 import { ref, computed } from 'vue'
 import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore'
-import type { CreateInvitationCodeData } from '@/interfaces/company/InvitationCodeInterface'
+import type { CreateInvitationCodeData } from '@interfaces/company/InvitationCodeInterface'
 
 // Variables
 const companyRoleStore = useCompanyRoleStore()

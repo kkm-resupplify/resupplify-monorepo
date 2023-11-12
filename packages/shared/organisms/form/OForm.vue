@@ -67,6 +67,7 @@ const handleSubmit = (values: any) => {
   display: flex;
   flex: 1;
   flex-direction: column;
+  gap: $global-spacing-40;
 
   &__body {
     display: flex;

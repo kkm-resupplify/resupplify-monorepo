@@ -12,7 +12,13 @@ import ATitle from '@sharedAtoms/title/ATitle.vue'
 import AImageInput from '@sharedAtoms/input/AImageInput.vue'
 import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
 import AImage from '@sharedAtoms/image/AImage.vue'
-import AExpansionPanel from '@sharedAtoms/expansion-panel/AExpansionPanel.vue'
+import AExpansionPanel from '@sharedAtoms/expansionPanel/AExpansionPanel.vue'
+import AStatusIndicator from '@sharedAtoms/indicator/AStatusIndicator.vue'
+import AListItemWrapper from '@sharedAtoms/list/AListItemWrapper.vue'
+import AListItemTitleSection from '@sharedAtoms/list/AListItemTitleSection.vue'
+import AListNoResults from '@sharedAtoms/list/AListNoResults.vue'
+import APanel from '@sharedAtoms/panel/APanel.vue'
+import APanelSection from '@sharedAtoms/panel/APanelSection.vue'
 
 const atoms = [
   AButton,
@@ -28,7 +34,13 @@ const atoms = [
   AImageInput,
   ADropdown,
   AImage,
-  AExpansionPanel
+  AExpansionPanel,
+  AStatusIndicator,
+  AListItemWrapper,
+  AListItemTitleSection,
+  AListNoResults,
+  APanel,
+  APanelSection
 ]
 
 // Molecules
@@ -44,6 +56,7 @@ import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
 import MNavigationTabsItem from '@sharedMolecules/tab/MNavigationTabsItem.vue'
 import MTile from '@sharedMolecules/tile/MTile.vue'
 import MTileList from '@sharedMolecules/tile/MTileList.vue'
+import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 
 const molecules = [
   MCardList,
@@ -57,13 +70,16 @@ const molecules = [
   MNavigationTabs,
   MNavigationTabsItem,
   MTile,
-  MTileList
+  MTileList,
+  MDialog
 ]
 
 // Organisms
 import OForm from '@sharedOrganisms/form/OForm.vue'
+import OSearchBar from '@sharedOrganisms/searchbar/OSearchBar.vue'
+import OConfirmDialog from '@sharedOrganisms/confirmdialog/OConfirmDialog.vue'
 
-const organisms = [OForm]
+const organisms = [OForm, OSearchBar, OConfirmDialog]
 
 // Vee-validate
 import { Field, Form, ErrorMessage } from 'vee-validate'
