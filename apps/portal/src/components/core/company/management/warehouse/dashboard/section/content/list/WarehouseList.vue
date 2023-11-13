@@ -40,10 +40,11 @@ defineEmits(['search'])
 
 <style scoped lang="scss">
 .warehouse-list {
+  overflow: auto;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: $global-spacing-40;
-  max-height: 100%;
 
   &__search-bar {
     max-width: 450px;

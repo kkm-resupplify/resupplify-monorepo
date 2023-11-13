@@ -26,6 +26,6 @@ defineEmits(['search'])
 
 <style scoped lang="scss">
 .warehouse-content-section {
-  overflow: hidden;
+  overflow-y: auto;
 }
 </style>
