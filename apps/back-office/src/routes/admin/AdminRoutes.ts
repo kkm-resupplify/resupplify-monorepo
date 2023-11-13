@@ -5,6 +5,7 @@ import AdminDashboardRoutes from '@/routes/admin/dashboard/AdminDashboardRoutes'
 import AdminProductRoutes from '@/routes/admin/product/AdminProductRoutes'
 import AdminCompanyRoutes from '@/routes/admin/company/AdminCompanyRoutes'
 import AdminLocaleRoutes from '@/routes/admin/locale/AdminLocaleRoutes'
+import { MustBeAuthenticatedNavigationGuard } from '@/routes/navigationGuards'
 
 class AdminRouteEnum extends BaseEnum {
   static readonly HOME: string = 'HOME'
@@ -24,6 +25,9 @@ const AdminRoutes: RouteRecordRaw[] = [
     ],
     redirect: {
       name: AdminRouteEnum.ADMIN_DASHBOARD
+    },
+    beforeEnter: () => {
+      return MustBeAuthenticatedNavigationGuard.guard()
     }
   }
 ]
