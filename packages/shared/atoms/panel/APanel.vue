@@ -24,6 +24,7 @@ const generateClasses = computed(() => {
   flex-direction: column;
   gap: $global-spacing-30;
 
+  width: 100%;
   max-height: 800px;
   padding: $global-spacing-40 $global-spacing-50;
 }
