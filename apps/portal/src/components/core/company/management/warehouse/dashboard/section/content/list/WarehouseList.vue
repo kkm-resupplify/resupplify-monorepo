@@ -8,13 +8,13 @@
 
     <a-line :height="2" color="secondary-2" />
 
-    <div v-if="warehouses?.length" class="warehouse-list__items">
+    <m-tile-list v-if="warehouses?.length">
       <warehouse-list-item
         v-for="(warehouse, idx) in warehouses"
         :key="idx"
         :warehouse="warehouse"
       />
-    </div>
+    </m-tile-list>
 
     <a-list-no-results
       v-else
@@ -47,18 +47,6 @@ defineEmits(['search'])
 
   &__search-bar {
     max-width: 450px;
-  }
-
-  &__items {
-    overflow-y: auto;
-    display: grid;
-    grid-auto-flow: row;
-    grid-gap: $global-spacing-100;
-    grid-template-columns: repeat(7, auto);
-    align-self: self-start;
-
-    max-width: 100%;
-    padding: $global-spacing-20;
   }
 }
 </style>
