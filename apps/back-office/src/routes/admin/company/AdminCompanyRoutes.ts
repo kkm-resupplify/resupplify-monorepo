@@ -1,6 +1,6 @@
 import AdminCompanyView from '@/views/Company/AdminCompanyView.vue'
-import CompanyVerifyPanel from '@/components/core/panel/company/CompanyVerifyPanel.vue'
-import CompanyListPanel from '@/components/core/panel/company/CompanyListPanel.vue'
+import CompanyVerifyPanel from '@/components/core/panel/company/verify/CompanyVerifyPanel.vue'
+import CompanyListPanel from '@/components/core/panel/company/list/CompanyListPanel.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 
