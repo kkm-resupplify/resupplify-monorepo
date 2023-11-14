@@ -53,14 +53,49 @@
           <div class="product-editor-add-information-step__buttons">
             <a-button :text="$t('global.cancel')" size="x-large" color="gradient-danger" />
 
-            <a-button :text="$t('global.next')" size="x-large" />
+            <a-button :text="$t('global.next')" size="x-large" @click="handleNextStep" />
           </div>
         </template>
       </o-form>
     </template>
   </m-stepper-step-content>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onBeforeMount, reactive } from 'vue'
+import type { ProductCategory } from '@/interface/product/ProductInterface'
+import ProductDescriptorsService from '@/services/product/ProductDescriptorsService'
+
+// Emits
+const emits = defineEmits(['next-step'])
+
+// Methods
+const handleNextStep = () => {
+  emits('next-step')
+}
+
+// Variables
+const productCategories: ProductCategory[] = reactive([])
+const productSubcategories: ProductCategory[] = reactive([])
+
+// Methods
+const handleFetchProductCategories = async () => {
+  const { success, data } = await ProductDescriptorsService.getCategories()
+  productCategories.length = 0
+  if (success && data) productCategories.push(...data)
+}
+
+const handleFetchProductSubcategories = async () => {
+  const { success, data } = await ProductDescriptorsService.getSubcategories()
+  productCategories.length = 0
+  if (success && data) productSubcategories.push(...data)
+}
+
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchProductCategories()
+  await handleFetchProductSubcategories()
+})
+</script>
 <style scoped lang="scss">
 .product-editor-add-information-step {
   max-height: 650px;

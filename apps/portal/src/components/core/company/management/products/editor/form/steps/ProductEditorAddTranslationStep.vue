@@ -27,15 +27,26 @@
 
         <template #footer>
           <div class="product-editor-add-translation-step__buttons">
-            <a-button :text="$t('global.back')" size="x-large" />
+            <a-button :text="$t('global.back')" size="x-large" @click="handlePreviousStep" />
 
-            <a-button :text="$t('global.add')" size="x-large" />
+            <a-button :text="$t('global.add')" size="x-large" @click="handleSubmit" />
           </div>
         </template>
       </o-form>
     </template>
   </m-stepper-step-content>
 </template>
+<script setup lang="ts">
+// Emits
+const emits = defineEmits(['previous-step'])
+
+// Methods
+const handlePreviousStep = () => {
+  emits('previous-step')
+}
+
+const handleSubmit = () => {}
+</script>
 <style scoped lang="scss">
 .product-editor-add-translation-step {
   max-height: 350px;

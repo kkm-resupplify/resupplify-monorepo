@@ -1,11 +1,14 @@
 <template>
-  <m-stepper :steps="steps" />
+  <m-stepper :steps="steps" @cancel="handleCancelRegister" />
 </template>
 <script setup lang="ts">
 import ProductEditorAddInformationStep from './steps/ProductEditorAddInformationStep.vue'
 import ProductEditorAddTranslationStep from './steps/ProductEditorAddTranslationStep.vue'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+
+// Emits
+const emits = defineEmits(['cancel'])
 
 // Variables
 const { t } = useI18n()
@@ -32,7 +35,12 @@ const steps = computed(() => [
   },
   {
     stepInfo: new AddProductStep('translation'),
-    stepContent: ProductEditorAddTranslationStep
+    component: ProductEditorAddTranslationStep
   }
 ])
+
+// Methods
+const handleCancelRegister = () => {
+  emits('cancel')
+}
 </script>
