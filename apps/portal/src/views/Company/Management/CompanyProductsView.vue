@@ -17,14 +17,19 @@ const { t } = useI18n()
 // Computed
 const tiles = computed(() => [
   {
-    title: t('company.management.navigation.warehouses.tiles.companyWarehouses'),
-    icon: 'warehouse',
-    to: { name: RouteNames.COMPANY_WAREHOUSE_LIST }
+    title: t('company.management.navigation.products.tiles.products'),
+    icon: 'nutrition',
+    to: { name: RouteNames.COMPANY_PRODUCT_LIST }
   },
   {
-    title: t('company.management.navigation.warehouses.tiles.newWarehouse'),
+    title: t('company.management.navigation.products.tiles.newProduct'),
     icon: 'add_box',
-    to: { name: RouteNames.COMPANY_WAREHOUSE_EDITOR }
+    to: { name: RouteNames.COMPANY_PRODUCT_EDITOR }
+  },
+  {
+    title: t('company.management.navigation.products.tiles.companyProductTags'),
+    icon: 'style',
+    to: { name: RouteNames.COMPANY_PRODUCT_EDITOR }
   }
 ])
 </script>
