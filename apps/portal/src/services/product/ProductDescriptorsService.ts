@@ -31,6 +31,36 @@ class ProductService extends BaseService {
 
     return response
   }
+
+  async getUnits() {
+    const response = await this.get({
+      suffix: 'productUnits'
+    })
+
+    if (response.success) {
+      const { data } = response
+
+      const productDescriptorsStore = useProductDescriptorsStore()
+      productDescriptorsStore.setProductUnits(data)
+    }
+
+    return response
+  }
+
+  async getTags() {
+    const response = await this.get({
+      suffix: 'productTags'
+    })
+
+    if (response.success) {
+      const { data } = response
+
+      const productDescriptorsStore = useProductDescriptorsStore()
+      productDescriptorsStore.setProductTags(data)
+    }
+
+    return response
+  }
 }
 
 export default new ProductService('')
