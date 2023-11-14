@@ -13,7 +13,7 @@ interface ProductDescriptorsState {
   productTags: ProductTag[]
 }
 
-export const useProductDescriptorsStore = defineStore({
+export const useStaticProductDescriptorsStore = defineStore({
   id: 'productDescriptors',
 
   state: (): ProductDescriptorsState => ({

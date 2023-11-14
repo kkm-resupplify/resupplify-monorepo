@@ -32,4 +32,6 @@ const tiles = computed(() => [
     to: { name: RouteNames.COMPANY_PRODUCT_EDITOR }
   }
 ])
+
+console.log(RouteNames)
 </script>

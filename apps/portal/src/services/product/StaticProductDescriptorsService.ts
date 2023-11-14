@@ -1,7 +1,7 @@
 import BaseService from '../BaseService'
-import { useProductDescriptorsStore } from '@/stores/product/useProductDescriptorsStore'
+import { useStaticProductDescriptorsStore } from '@/stores/product/useProductDescriptorsStore'
 
-class ProductService extends BaseService {
+class StaticProductDescriptorsService extends BaseService {
   async getCategories() {
     const response = await this.get({
       suffix: 'productCategory'
@@ -10,7 +10,7 @@ class ProductService extends BaseService {
     if (response.success) {
       const { data } = response
 
-      const productDescriptorsStore = useProductDescriptorsStore()
+      const productDescriptorsStore = useStaticProductDescriptorsStore()
       productDescriptorsStore.setProductCategories(data)
     }
 
@@ -25,7 +25,7 @@ class ProductService extends BaseService {
     if (response.success) {
       const { data } = response
 
-      const productDescriptorsStore = useProductDescriptorsStore()
+      const productDescriptorsStore = useStaticProductDescriptorsStore()
       productDescriptorsStore.setProductSubcategories(data)
     }
 
@@ -40,7 +40,7 @@ class ProductService extends BaseService {
     if (response.success) {
       const { data } = response
 
-      const productDescriptorsStore = useProductDescriptorsStore()
+      const productDescriptorsStore = useStaticProductDescriptorsStore()
       productDescriptorsStore.setProductUnits(data)
     }
 
@@ -55,7 +55,7 @@ class ProductService extends BaseService {
     if (response.success) {
       const { data } = response
 
-      const productDescriptorsStore = useProductDescriptorsStore()
+      const productDescriptorsStore = useStaticProductDescriptorsStore()
       productDescriptorsStore.setProductTags(data)
     }
 
@@ -63,4 +63,4 @@ class ProductService extends BaseService {
   }
 }
 
-export default new ProductService('')
+export default new StaticProductDescriptorsService('')

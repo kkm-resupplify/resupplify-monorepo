@@ -63,7 +63,7 @@
 <script setup lang="ts">
 import { onBeforeMount, reactive } from 'vue'
 import type { ProductCategory } from '@/interface/product/ProductInterface'
-import ProductDescriptorsService from '@/services/product/ProductDescriptorsService'
+import ProductDescriptorsService from '@/services/product/StaticProductDescriptorsService.js'
 
 // Emits
 const emits = defineEmits(['next-step'])
