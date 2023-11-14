@@ -27,7 +27,16 @@ export const useStaticProductDescriptorsStore = defineStore({
     getProductCategories: (state) => state.productCategories,
     getProductSubcategories: (state) => state.productSubcategories,
     getProductUnits: (state) => state.productUnits,
-    getProductTags: (state) => state.productTags
+    getProductTags: (state) => state.productTags,
+    getCategoryAndSubcategories: (state) => (categoryId: number) => {
+      const category = state.productCategories.find((cat) => cat.id === categoryId)
+
+      const subcategories = state.productSubcategories.filter(
+        (subcat) => subcat.category_id === categoryId
+      )
+
+      return { category, subcategories }
+    }
   },
 
   actions: {

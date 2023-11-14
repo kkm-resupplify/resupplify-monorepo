@@ -15,6 +15,7 @@ export interface Product {
 export interface ProductSubcategory {
   id: number
   name: string
+  category_id: number
 }
 
 export interface ProductCategory {
