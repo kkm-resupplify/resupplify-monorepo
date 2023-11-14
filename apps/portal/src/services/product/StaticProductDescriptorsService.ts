@@ -1,5 +1,5 @@
 import BaseService from '../BaseService'
-import { useStaticProductDescriptorsStore } from '@/stores/product/useProductDescriptorsStore'
+import { useStaticProductDescriptorsStore } from '@/stores/product/useStaticProductDescriptorsStore'
 
 class StaticProductDescriptorsService extends BaseService {
   async getCategories() {
