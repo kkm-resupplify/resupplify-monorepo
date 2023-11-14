@@ -9,6 +9,7 @@ import {
 } from '@/routes/navigationGuards'
 import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore'
 import CompanyRoleService from '@/services/company/CompanyRoleService'
+import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 
 class CompanyRouteEnum extends BaseEnum {
   static readonly COMPANY: string = 'COMPANY'
@@ -36,6 +37,11 @@ const CompanyRoutes: RouteRecordRaw[] = [
       if (roles) {
         companyRoleStore.setCompanyRoles(roles)
       }
+
+      await StaticProductDescriptorsService.getCategories()
+      await StaticProductDescriptorsService.getSubcategories()
+      await StaticProductDescriptorsService.getUnits()
+      await StaticProductDescriptorsService.getTags()
     }
   }
 ]
