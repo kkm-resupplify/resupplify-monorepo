@@ -8,7 +8,7 @@
 
         <a-list-item-title-section title="Phone number" :value="company.details.phoneNumber" />
 
-        <a-list-item-title-section title="Contanct person" :value="company.details.contactPerson" />
+        <a-list-item-title-section title="Contact person" :value="company.details.contactPerson" />
 
         <div class="company-verify-company-list-item__actions">
           <a-button text="Reject" color="gradient-danger" size="large" />
@@ -70,7 +70,6 @@ const companyDetailsContent = computed(() => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-30;
-    background-color: var(--secondary-1);
   }
 }
 </style>
