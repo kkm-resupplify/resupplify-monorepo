@@ -1,10 +1,10 @@
 <template>
   <div :class="generateClasses">
-    <div class="a-dropdown__activator" @click="toggleShowContent">
+    <div class="a-expansion-panel__activator" @click="toggleShowContent">
       <slot name="activator" />
     </div>
 
-    <div v-if="showContent" class="a-dropdown__content">
+    <div v-if="showContent" class="a-expansion-panel__content">
       <slot name="content" />
     </div>
   </div>
@@ -44,8 +44,12 @@ const toggleShowContent = () => {
   }
 
   &__content {
+    @include default-border-1;
+
     display: flex;
     width: 100%;
+    padding: $global-spacing-40;
+    border-top: 0;
   }
 }
 </style>
