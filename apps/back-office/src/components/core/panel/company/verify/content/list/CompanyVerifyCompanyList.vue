@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import CompanyVerifyCompanyListItem from '@/components/core/panel/company/verify/list/CompanyVerifyCompanyListItem.vue'
+import CompanyVerifyCompanyListItem from '@/components/core/panel/company/verify/content/list/CompanyVerifyCompanyListItem.vue'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import { type PropType } from 'vue'
 
