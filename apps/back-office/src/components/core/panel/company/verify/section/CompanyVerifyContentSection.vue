@@ -7,7 +7,11 @@
     <a-line />
     <template v-if="isLoading">implement-loader-here</template>
 
-    <company-verify-company-list v-else :companies="companies" />
+    <company-verify-company-list
+      v-else
+      :companies="companies"
+      @update-list="handleFetchCompanies"
+    />
   </a-panel-section>
 </template>
 
@@ -21,8 +25,8 @@ import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 const isLoading = ref(false)
 const companies = ref<CompanyData[]>([])
 
-// Hooks
-onBeforeMount(async () => {
+// Methods
+const handleFetchCompanies = async () => {
   isLoading.value = true
 
   const { success, data } = await CompanyVerificationService.getUnverifiedCompanies()
@@ -30,6 +34,11 @@ onBeforeMount(async () => {
   if (success) companies.value = data
 
   isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchCompanies()
 })
 </script>
 

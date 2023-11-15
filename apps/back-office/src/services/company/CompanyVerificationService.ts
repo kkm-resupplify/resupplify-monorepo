@@ -5,15 +5,16 @@ interface VerifyCompany {
 }
 
 class CompanyVerificationService extends BaseService {
-  static VERIFY_COMPANY_SUFFIX = 'login'
+  static VERIFY_COMPANY_SUFFIX = 'verify'
+  static REJECT_COMPANY_SUFFIX = 'reject'
 
   async getUnverifiedCompanies() {
-    return this.get({})
+    return this.get({ suffix: CompanyVerificationService.VERIFY_COMPANY_SUFFIX })
   }
 
   async verifyCompany({ companyId }: VerifyCompany) {
     const response = await this.put({
-      id: companyId,
+      suffix: `${CompanyVerificationService.VERIFY_COMPANY_SUFFIX}/${companyId}`,
       notificationTitle: 'company.verify.notification.verifyCompanySuccessTitle'
     })
 
@@ -22,7 +23,7 @@ class CompanyVerificationService extends BaseService {
 
   async rejectCompany({ companyId }: VerifyCompany) {
     const response = await this.put({
-      id: companyId,
+      suffix: `${CompanyVerificationService.REJECT_COMPANY_SUFFIX}/${companyId}`,
       notificationTitle: 'company.verify.notification.rejectCompanySuccessTitle'
     })
 
@@ -30,4 +31,4 @@ class CompanyVerificationService extends BaseService {
   }
 }
 
-export default new CompanyVerificationService('company/verify')
+export default new CompanyVerificationService('company')

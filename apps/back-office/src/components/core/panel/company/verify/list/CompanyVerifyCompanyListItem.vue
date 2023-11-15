@@ -11,9 +11,14 @@
         <a-list-item-title-section title="Contact person" :value="company.details.contactPerson" />
 
         <div class="company-verify-company-list-item__actions">
-          <a-button text="Reject" color="gradient-danger" size="large" />
+          <a-button
+            text="Reject"
+            color="gradient-danger"
+            size="large"
+            @click.stop="rejectCompany"
+          />
 
-          <a-button text="Verify" size="large" />
+          <a-button text="Verify" size="large" @click.stop="verifyCompany" />
         </div>
       </a-list-item-wrapper>
     </template>
@@ -35,6 +40,7 @@
 <script setup lang="ts">
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import { type PropType, computed } from 'vue'
+import CompanyVerificationService from '@/services/company/CompanyVerificationService'
 
 const { company } = defineProps({
   company: {
@@ -42,6 +48,9 @@ const { company } = defineProps({
     required: true
   }
 })
+
+// Emits
+const emits = defineEmits(['update-list'])
 
 // Computed
 const companyDetailsContent = computed(() => {
@@ -53,6 +62,21 @@ const companyDetailsContent = computed(() => {
     { title: 'Website', value: company.details.externalWebsite }
   ]
 })
+
+const companyId = computed(() => company.id)
+
+// Methods
+const verifyCompany = async () => {
+  const { success } = await CompanyVerificationService.verifyCompany({ companyId: companyId.value })
+
+  if (success) emits('update-list')
+}
+
+const rejectCompany = async () => {
+  const { success } = await CompanyVerificationService.rejectCompany({ companyId: companyId.value })
+
+  if (success) emits('update-list')
+}
 </script>
 
 <style lang="scss" scoped>

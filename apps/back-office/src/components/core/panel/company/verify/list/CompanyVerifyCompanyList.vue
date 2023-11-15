@@ -4,6 +4,7 @@
       v-for="(company, idx) in companies"
       :key="idx"
       :company="company"
+      @update-list="$emit('update-list')"
     />
   </div>
 
@@ -21,6 +22,9 @@ defineProps({
     required: true
   }
 })
+
+// Emits
+defineEmits(['update-list'])
 </script>
 
 <style lang="scss" scoped>
