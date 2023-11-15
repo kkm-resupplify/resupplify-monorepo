@@ -1,8 +1,13 @@
 <template>
   <a-panel-section class="company-verify-content-section">
-    <a-title title="Verify companies" />
+    <a-title title="Verify companies" size="large" />
 
-    <company-verify-company-list />
+    <span v-text="`Companies awaiting verification`" />
+
+    <a-line />
+    <template v-if="isLoading">implement-loader-here</template>
+
+    <company-verify-company-list v-else :companies="companies" />
   </a-panel-section>
 </template>
 
@@ -13,16 +18,24 @@ import { onBeforeMount, ref } from 'vue'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 
 // Variables
-const unverifiedCompanies = ref<CompanyData[]>([])
+const isLoading = ref(false)
+const companies = ref<CompanyData[]>([])
 
 // Hooks
 onBeforeMount(async () => {
-  unverifiedCompanies.value = await CompanyVerificationService.getUnverifiedCompanies()
+  isLoading.value = true
+
+  const { success, data } = await CompanyVerificationService.getUnverifiedCompanies()
+
+  if (success) companies.value = data
+
+  isLoading.value = false
 })
 </script>
 
 <style lang="scss" scoped>
 .company-verify-content-section {
   overflow-y: auto;
+  height: 100%;
 }
 </style>
