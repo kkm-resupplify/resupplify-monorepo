@@ -8,6 +8,13 @@
 import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
+const props = defineProps({
+  maxHeight: {
+    type: String,
+    default: '800px'
+  }
+})
+
 // Variables
 const baseClass = 'a-panel'
 const { generateClassNames } = useClassComposable()
@@ -15,6 +22,10 @@ const { generateClassNames } = useClassComposable()
 // Computed
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
+})
+
+const maxHeight = computed(() => {
+  return props.maxHeight
 })
 </script>
 
@@ -25,7 +36,7 @@ const generateClasses = computed(() => {
   gap: $global-spacing-30;
 
   width: 100%;
-  max-height: 800px;
+  max-height: v-bind(maxHeight);
   padding: $global-spacing-40 $global-spacing-50;
 }
 </style>
