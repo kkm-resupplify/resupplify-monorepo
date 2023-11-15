@@ -29,7 +29,7 @@
 import EditWarehouseProductDialog from '@/components/core/company/management/warehouse/preview/dialog/EditWarehouseProductDialog.vue'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
+import type { WarehouseProduct } from '@sharedInterfaces/warehouse/WarehouseProductInterface'
 import type { PropType } from 'vue'
 import { useWarehouseProductStatus } from '@composables/warehouse/useWarehouseProductStatus'
 

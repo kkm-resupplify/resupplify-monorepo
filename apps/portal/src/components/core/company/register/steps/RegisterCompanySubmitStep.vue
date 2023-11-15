@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import type { RegisterCompanyContactInfoStep } from '@interfaces/company/RegisterCompanyInterface'
+import type { RegisterCompanyContactInfoStep } from '@sharedInterfaces/company/RegisterCompanyInterface'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 import RegisterCompanyService from '@/services/company/RegisterCompanyService'
 
