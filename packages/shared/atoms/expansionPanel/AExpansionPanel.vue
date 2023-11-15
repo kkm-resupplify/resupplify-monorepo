@@ -47,8 +47,11 @@ const toggleShowContent = () => {
     @include default-border-1;
 
     display: flex;
+
     width: 100%;
     padding: $global-spacing-40;
+
+    background-color: var(--secondary-6);
     border-top: 0;
   }
 }
