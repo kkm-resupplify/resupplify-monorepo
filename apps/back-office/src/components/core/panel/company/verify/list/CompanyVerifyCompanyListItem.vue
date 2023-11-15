@@ -2,6 +2,7 @@
   <a-expansion-panel>
     <template #activator>
       <a-list-item-wrapper class="company-verify-company-list-item">
+        <a-status-indicator :status="company.status" />
         <a-list-item-title-section title="Company name" :value="company.name" />
 
         <a-list-item-title-section title="TIN" :value="company.details.tin" />
