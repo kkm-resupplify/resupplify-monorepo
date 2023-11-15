@@ -11,7 +11,7 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const props = defineProps({
   maxHeight: {
     type: String,
-    default: '800px'
+    default: '100%'
   }
 })
 
