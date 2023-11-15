@@ -10,8 +10,6 @@
 </template>
 
 <script setup lang="ts">
-// Components
-import AHeader from '@sharedAtoms/header/AHeader.vue'
 import ProductCardList from '@/components/core/product/card/ProductCardList.vue'
 
 // Mock data
@@ -49,6 +47,6 @@ const products = [
 
   padding: $global-spacing-30 $global-spacing-40;
 
-  background-color: $global-colors-grey-100;
+  border-radius: $global-border-radius-20;
 }
 </style>

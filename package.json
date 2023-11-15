@@ -6,11 +6,20 @@
     "serve": "turbo run serve",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "build:portal": "turbo run build --filter=portal",
+    "start:portal": "turbo run start --filter=portal",
+    "build:back-office": "turbo run build --filter=back-office",
+    "start:back-office": "turbo run start --filter=back-office",
+    "heroku-postbuild": "if [ $PORTAL_ENV ]; then npm run prod-portal; elif [ $BACK_OFFICE_ENV ]; then npm run prod-back-office; else echo no environment detected, please set PORTAL_ENV or BACK_OFFICE_ENV; fi",
+    "prod-portal": "npm run build:portal",
+    "prod-back-office": "npm run build:back-office"
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
+    "@types/luxon": "^3.3.3",
     "@types/node": "^20.4.4",
+    "@types/uuid": "^9.0.4",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "prettier": "^2.5.1",
@@ -29,7 +38,11 @@
   ],
   "dependencies": {
     "@coreui/vue": "^4.10.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "luxon": "^3.4.3",
+    "material-icons": "^1.13.12",
     "pinia-plugin-persist": "^1.0.0",
+    "pinia-plugin-persistedstate": "^3.2.0",
     "style-dictionary": "^3.8.0",
     "token-transformer": "^0.0.33",
     "vue-horizontal": "^1.0.2",

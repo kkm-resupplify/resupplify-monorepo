@@ -1,0 +1,16 @@
+@mixin text-gradient($gradient, $gradientHover: '') {
+  background: $gradient;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  @if $gradientHover {
+    &:hover,
+    &:focus {
+      background: $gradientHover;
+      background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

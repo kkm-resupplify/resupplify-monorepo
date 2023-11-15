@@ -9,6 +9,8 @@ module.exports = {
   root: true,
   extends: [
     'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-recommended',
+    'prettier',
     'eslint:recommended',
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier/skip-formatting'
@@ -16,7 +18,10 @@ module.exports = {
   overrides: [
     {
       files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'],
-      extends: ['plugin:cypress/recommended']
+      extends: ['plugin:cypress/recommended'],
+      rules: {
+        'no-undef': 'off'
+      }
     }
   ],
   parserOptions: {
@@ -28,6 +33,7 @@ module.exports = {
       {
         endOfLine: 'auto'
       }
-    ]
+    ],
+    'vue/require-default-prop': 'off'
   }
 }

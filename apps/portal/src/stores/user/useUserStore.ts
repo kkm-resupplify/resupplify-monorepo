@@ -1,42 +1,77 @@
 import { defineStore } from 'pinia'
+import { i18n } from '@/translation/index'
+import { setLocale } from '@vee-validate/i18n'
+import type { UserDetails, UserData } from '@interfaces/user/UserStoreDataInterface'
+import type { CompanyData } from '@interfaces/company/CompanyInterface'
 
-// TODO: theme, token
-export const useUserStore = defineStore('useUserStore', {
-  state: () => {
-    return {
-      email: 'user@email.com',
-      token: '',
-      theme: ''
-    }
-  },
+export interface UserStoreData {
+  email: string
+  token: string | null
+  details: UserDetails | null
+  type: number
+  createdAt: string
+  language: 'en-US' | 'pl-PL'
+  company: null | CompanyData
+}
+
+export const useUserStore = defineStore({
+  id: 'userStore',
+
+  state: (): UserStoreData => ({
+    email: '',
+    token: null,
+    type: 1,
+    details: null,
+    createdAt: '',
+    language: 'en-US',
+    company: null
+  }),
+
   getters: {
+    getUserData: (state) => state,
     getEmail: (state) => state.email,
     getToken: (state) => state.token,
-    getTheme: (state) => state.theme
+    getLanguage: (state) => state.language,
+    getUserDetails: (state) => state.details,
+    isAuthenticated: (state) => !!state.token,
+    hasUserDetails: (state) => !!state.details,
+    hasCompany: (state) => !!state.company,
+    getCompany: (state) => state.company
   },
+
   actions: {
-    setEmail(token: string) {
-      this.email = token
-    },
-
-    clearEmail() {
-      this.email = ''
-    },
-
-    setToken(token: string) {
+    setUserData(userData: UserData, token: string) {
+      this.email = userData.email
       this.token = token
+      this.type = userData.type
+      this.details = userData.details
+      this.company = userData.company
+      this.createdAt = userData.createdAt
     },
 
-    clearToken() {
-      this.token = ''
+    setUserDetails(userDetails: UserDetails) {
+      this.details = userDetails
     },
 
-    setTheme(theme: string) {
-      this.theme = theme
+    setUserCompany(company: CompanyData) {
+      this.company = company
     },
 
-    clearTheme() {
-      this.theme = ''
+    clearUser() {
+      this.$reset()
+    },
+
+    setLanguage(language: 'en-US' | 'pl-PL') {
+      this.language = language
+
+      this.initializeLocale()
+    },
+
+    initializeLocale() {
+      i18n.global.locale.value = this.language
+      setLocale(this.language)
     }
-  }
+  },
+
+  persist: true
 })

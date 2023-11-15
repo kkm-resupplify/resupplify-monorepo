@@ -1,24 +1,29 @@
 <template>
   <router-link :to="link" :class="generateClasses">
-    <span class="a-link__text">{{ text }}</span>
+    <span class="a-link__text" v-text="text" />
   </router-link>
 </template>
 
 <script setup lang="ts">
 // Vue
-import { computed } from 'vue'
+import { computed, type PropType } from 'vue'
 
 // Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const { generateClassNames } = useClassComposable()
 
+interface Route {
+  name: string
+}
+
 const props = defineProps({
   link: {
-    type: String,
+    type: [String, Object] as PropType<string | Route>,
     required: true
   },
   text: {
-    type: String
+    type: String,
+    default: ''
   },
   size: {
     type: String,
@@ -34,8 +39,10 @@ const props = defineProps({
   }
 })
 
+// Variables
 const baseClass = 'a-link'
 
+// Computed
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [
     props.size,
@@ -46,6 +53,8 @@ const generateClasses = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/mixins/text-gradient';
+
 @mixin size($fontSize) {
   font-size: $fontSize;
 }
@@ -60,6 +69,13 @@ const generateClasses = computed(() => {
   background-size: 100% 0.1em, 0 0.1em;
 
   transition: background-size 350ms;
+
+  :deep(.a-link__text) {
+    color: rgb(255 255 255 / 0%);
+    background: $textColor;
+    background-clip: text;
+    background-size: 200% 100%;
+  }
 
   &:hover,
   &:focus {
@@ -91,6 +107,10 @@ const generateClasses = computed(() => {
     @include size($button-font-size-md);
   }
 
+  &--x-medium {
+    @include size($global-size-600);
+  }
+
   &--large {
     @include size($button-font-size-lg);
   }
@@ -101,7 +121,11 @@ const generateClasses = computed(() => {
 
   // Text color
   &--text-primary {
-    @include color($global-colors-grey-100, $global-gradients-blue-primary-1);
+    @include color(var(--font-primary), var(--primary-gradient));
+  }
+
+  &--text-info {
+    @include color(var(--info-gradient), var(--info-gradient));
   }
 }
 </style>

@@ -23,43 +23,48 @@
 </template>
 
 <script setup lang="ts">
-//Vue
-import { ref } from 'vue'
-
-// Styles
+import { reactive, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
-// i18n
-import { useI18n } from 'vue-i18n'
-
-//Components
-import ALine from '@sharedAtoms/line/ALine.vue'
-import { Carousel, Slide } from 'vue3-carousel'
-
-// Inits
+// Variables
 const { t } = useI18n()
 
-const headerTextList = ref([
+// Computed
+const headerTextList = computed(() => [
   t('slogans.expandYourClientBase'),
   t('slogans.diversifyAndGrowClientele'),
   t('slogans.increaseYourMarketShare')
 ])
+
+const imageUrl = computed(() => `url(${imageUrlList[0]})`)
+
+const imageUrlList = reactive(['src/assets/images/hero_1.jpg'])
 </script>
 
 <style scoped lang="scss">
 .hero-section {
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
 
-  padding: $global-spacing-30;
+  height: 27vh;
+  margin: 0 $global-spacing-40;
+  padding: $global-spacing-30 $global-spacing-40;
 
-  background: $global-gradients-blue-primary-1;
+  background: var(--primary-gradient);
+  border-radius: $global-border-radius-20;
 
   &__image {
-    width: 400px;
-    height: 300px;
-    background: $global-gradients-blue-grayed-out;
+    width: 30%;
+    height: 100%;
+
+    background-image: v-bind(imageUrl);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
   &__carousel {

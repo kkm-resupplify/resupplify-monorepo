@@ -4,13 +4,12 @@
       :title="$t('company.promotion.ourPartners')"
       :subtitle="$t('company.promotion.companiesThatChoseUs')"
     />
+
     <company-card-list :companies="companies" />
   </div>
 </template>
 
 <script setup lang="ts">
-// Components
-import AHeader from '@sharedAtoms/header/AHeader.vue'
 import CompanyCardList from '@/components/core/company/card/CompanyCardList.vue'
 
 // Mock data
@@ -38,6 +37,6 @@ const companies = [
 
   padding: $global-spacing-30 $global-spacing-40;
 
-  background-color: $global-colors-grey-100;
+  border-radius: $global-border-radius-20;
 }
 </style>

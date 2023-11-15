@@ -13,7 +13,7 @@ import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const { generateClassNames } = useClassComposable()
 
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     required: true
@@ -36,6 +36,8 @@ const generateClasses = computed(() => {
   flex-direction: column;
   gap: $global-spacing-20;
   align-items: flex-start;
+
+  color: var(--font-primary);
 
   &__title {
     display: flex;

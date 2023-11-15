@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
 // Components
-import ACard from '@sharedAtoms/card/ACard.vue'
 import CompanyCardStats from '@/components/core/company/card/sections/CompanyCardStats.vue'
 
 // Props
@@ -37,7 +36,6 @@ defineProps({
   max-height: 84px;
   padding: 0 $global-spacing-20 $global-spacing-20 $global-spacing-20;
 
-  background-color: $global-colors-grey-100;
   border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
 
   &__description {

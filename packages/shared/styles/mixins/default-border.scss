@@ -1,0 +1,15 @@
+@mixin default-border-1 {
+  box-sizing: border-box;
+  border: 2px solid var(--secondary-2);
+  border-radius: $global-border-radius-10;
+}
+
+@mixin default-border-1-hover {
+  box-sizing: border-box;
+  border: 2px solid var(--secondary-2);
+  border-radius: $global-border-radius-10;
+
+  &:hover {
+    border-color: var(--info);
+  }
+}

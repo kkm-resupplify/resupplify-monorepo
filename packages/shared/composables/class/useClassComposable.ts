@@ -1,18 +1,18 @@
-function assignPrefix(baseClass: String, name: String) {
+function assignPrefix(baseClass: string, name: string) {
   return name ? `${baseClass}--${name}` : ''
 }
 
-function assignClassName(baseClass: String, propData: any): String {
+function assignClassName(baseClass: string, propData: any): string {
   return propData ? assignPrefix(baseClass, propData.newName ?? propData) : ''
 }
 
 export function useClassComposable() {
   return {
-    generateClassNames(baseClassName: String, propsData: any) {
-      const classesArray = [baseClassName]
+    generateClassNames(baseClass: string, propsData: any) {
+      const classesArray = [baseClass]
 
-      for (let i = 0; i < propsData.length; i++) {
-        classesArray.push(assignClassName(baseClassName, propsData[i]))
+      for (const element of propsData) {
+        classesArray.push(assignClassName(baseClass, element))
       }
 
       return classesArray.join(' ')

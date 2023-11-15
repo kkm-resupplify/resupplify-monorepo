@@ -1,20 +1,22 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": [
-    "env.d.ts",
-    "src/**/*",
-    "src/**/*.vue",
-    "src/**/*.json",
-    "../../packages/shared/**/*.vue",
-    "../../packages/shared/composables/**/*.ts",
-    "../../packages/shared/enums/**/*.ts",
-    "../../packages/shared/**/*.json",
-    "../../packages/shared/shims-vue.d.ts"
-  ],
   "exclude": [
     "src/**/__tests__/*",
     "../../packages/shared/**/__tests__/*",
-    "../portal/**/__tests__/*"
+    "../back-office/**/__tests__/*"
+  ],
+  "include": [
+    "env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "src/**/*.json",
+    "../../packages/shared/**/*.vue",
+    "../../packages/shared/**/*.json",
+    "../../packages/shared/composables/**/*.ts",
+    "../../packages/shared/interfaces/**/*.ts",
+    "../../packages/shared/stores/**/*.ts",
+    "../../packages/shared/enums/**/*.ts",
+    "../../packages/shared/shims-vue.d.ts"
   ],
   "compilerOptions": {
     "rootDir": "../../",
@@ -22,10 +24,16 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@interfaces/*": ["./src/interface/*"],
+      "@composables/*": ["./src/composable/*"],
       "@sharedAtoms/*": ["../../packages/shared/atoms/*"],
       "@sharedMolecules/*": ["../../packages/shared/molecules/*"],
+      "@sharedOrganisms/*": ["../../packages/shared/organisms/*"],
       "@sharedEnums/*": ["../../packages/shared/enums/*"],
-      "@sharedComposables/*": ["../../packages/shared/composables/*"]
+      "@sharedComposables/*": ["../../packages/shared/composables/*"],
+      "@sharedInterfaces/*": ["../../packages/shared/interfaces/*"],
+      "@sharedStyles/*": ["../../packages/shared/styles/*"],
+      "@sharedStores/*": ["../../packages/shared/stores/*"]
     }
   }
 }

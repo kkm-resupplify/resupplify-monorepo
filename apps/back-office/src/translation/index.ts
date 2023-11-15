@@ -1,16 +1,15 @@
 import { createI18n } from 'vue-i18n'
-import en from '@/translation/langs/en.json'
-import pl from '@/translation/langs/pl.json'
-
-// localStorage.setItem('marketify-lang', 'en')
-// TODO: move it to the store
-const userLang = localStorage.getItem('marketify-bo-lang')
+import enUS from '@/translation/langs/en-US.json'
+import plPL from '@/translation/langs/pl-PL.json'
 
 export const i18n = createI18n({
-  locale: userLang!,
-  fallbackLocale: 'en',
+  allowComposition: true,
+  locale: 'en-US',
+  fallbackLocale: 'en-US',
+  inheriteLocale: true,
+  legacy: false,
   messages: {
-    en: en,
-    pl: pl
+    'en-US': enUS,
+    'pl-PL': plPL
   }
 })

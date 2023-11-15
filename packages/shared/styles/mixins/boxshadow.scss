@@ -1,0 +1,4 @@
+@mixin boxshadow-primary-2 {
+  box-shadow: #{$global-boxshadow-primary-2-x} #{$global-boxshadow-primary-2-y} #{$global-boxshadow-primary-2-blur}
+    #{$global-boxshadow-primary-2-spread} #{$global-boxshadow-primary-2-color};
+}

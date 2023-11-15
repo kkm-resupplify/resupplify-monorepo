@@ -1,18 +1,14 @@
 <template>
-  <button :class="generateClasses" data-test="button">{{ text }}</button>
+  <button :class="generateClasses" :type="buttonType" data-test="button" :disabled="disabled">
+    {{ text }}
+  </button>
 </template>
 
 <script setup lang="ts">
-// Vue
-import { computed } from 'vue'
-
-// Enums
+import { computed, type PropType } from 'vue'
 import AButtonSizeEnum from '@sharedEnums/button/AButtonSizeEnum'
 import AButtonColorEnum from '@sharedEnums/button/AButtonColorEnum'
-
-// Composables
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
-const { generateClassNames } = useClassComposable()
 
 const props = defineProps({
   text: {
@@ -22,14 +18,14 @@ const props = defineProps({
   size: {
     type: String,
     default: 'medium',
-    validator(value: String) {
+    validator(value: string) {
       return AButtonSizeEnum.hasValue(value)
     }
   },
   color: {
     type: String,
     default: 'gradient-primary',
-    validator(value: String) {
+    validator(value: string) {
       return AButtonColorEnum.hasValue(value)
     }
   },
@@ -39,11 +35,21 @@ const props = defineProps({
   textColor: {
     type: String,
     default: 'white'
-  }
+  },
+  buttonType: {
+    type: String as PropType<'button' | 'submit' | 'reset' | undefined>,
+    default: 'button'
+  },
+  disabled: Boolean
 })
 
+// Variables
 const baseClass = 'a-button'
 
+// Composables
+const { generateClassNames } = useClassComposable()
+
+// Computed
 const generateClasses = computed(() => {
   const colorClass = props.outlined ? `outlined-${props.color}` : props.color
 
@@ -91,12 +97,11 @@ const generateClasses = computed(() => {
 }
 
 .a-button {
-  display: inline-flex;
+  cursor: pointer;
+
   align-items: flex-start;
 
   box-sizing: border-box;
-
-  color: #fff;
 
   border: 0;
   border-radius: 4px;
@@ -132,7 +137,23 @@ const generateClasses = computed(() => {
       @include gradient($button-gradient-primary-default);
 
       &:hover {
-        @include gradient($button-gradient-primary-hover);
+        opacity: 0.8;
+      }
+    }
+
+    &-danger {
+      @include gradient(var(--danger-gradient));
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &-warning {
+      @include gradient(var(--warning-gradient));
+
+      &:hover {
+        opacity: 0.8;
       }
     }
   }

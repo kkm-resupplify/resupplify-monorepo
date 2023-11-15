@@ -1,7 +1,7 @@
 <template>
   <div class="a-card">
     <div :class="headerClasses">
-      <img :src="props.headerImage" />
+      <a-image :src="props.headerImage" :width="300"/>
     </div>
 
     <div class="a-card__overlay a-card__overlay--right">
@@ -11,14 +11,14 @@
     <div :class="bodyClasses">
       <div
         v-if="slots['overlay-top']"
-        class="a-card__overlay a-card__overlay--top"
         ref="overlayTopRef"
+        class="a-card__overlay a-card__overlay--middle"
       >
         <slot name="overlay-top" />
       </div>
 
       <div class="a-card__main">
-        <div class="a-card__main-title" ref="titleRef">
+        <div ref="titleRef" class="a-card__main-title">
           <slot name="title" />
         </div>
 
@@ -92,7 +92,7 @@ $body-max-height: 150px;
   height: 210px;
 
   border-radius: $global-border-radius-20;
-  box-shadow: 4px 4px 4px 0 rgb(0 0 0 / 25%);
+  box-shadow: 0 8px 18px 0 rgb(0 0 0 / 10%);
 
   &:hover {
     .a-card__body {
@@ -105,7 +105,7 @@ $body-max-height: 150px;
         max-height: 120px;
       }
 
-      &--top {
+      &--middle {
         opacity: 1;
       }
     }
@@ -115,19 +115,14 @@ $body-max-height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 98%;
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+    height: 95%;
 
     &--bg-primary {
-      background: $global-gradients-blue-primary-1;
+      background: var(--primary-gradient);
     }
 
     &--bg-secondary {
-      background: $global-gradients-blue-grayed-out;
+      background: var(--secondary-gradient-1);
     }
   }
 
@@ -143,6 +138,8 @@ $body-max-height: 150px;
     width: 100%;
     max-height: v-bind(previewHeight);
 
+    color: var(--font-primary);
+
     transition: all 0.3s ease-in-out;
 
     &--extended {
@@ -151,7 +148,7 @@ $body-max-height: 150px;
   }
 
   &__main {
-    background-color: $global-colors-grey-100;
+    background-color: var(--secondary-1);
   }
 
   &__main-title {
@@ -179,13 +176,13 @@ $body-max-height: 150px;
 
       max-height: 0;
 
-      background: $global-gradients-blue-primary-1;
+      background: var(--primary-gradient);
       border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
 
       transition: all 0.3s ease-in-out;
     }
 
-    &--top {
+    &--middle {
       position: relative;
       bottom: 0;
       left: 0;

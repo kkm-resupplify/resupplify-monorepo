@@ -1,0 +1,1 @@
+web: cd apps/back-office && npm run start
