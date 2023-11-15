@@ -76,8 +76,8 @@ import { ref, computed, onBeforeMount } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import { useRoute } from 'vue-router'
 import WarehouseService from '@/services/warehouse/WarehouseService'
-import type { WarehouseProductFormData } from '@/interface/warehouse/WarehouseProductInterface'
-import type { Product } from '@/interface/product/ProductInterface'
+import type { WarehouseProductFormData } from '@sharedInterfaces/warehouse/WarehouseProductInterface'
+import type { Product } from '@sharedInterfaces/product/ProductInterface'
 
 // Emits
 const emits = defineEmits(['fetch-warehouse'])

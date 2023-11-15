@@ -1,4 +1,4 @@
-import type { WarehouseProductFormData } from '@/interface/warehouse/WarehouseProductInterface'
+import type { WarehouseProductFormData } from '@sharedInterfaces/warehouse/WarehouseProductInterface'
 import BaseService from '../BaseService'
 import type { WarehouseFormData } from '@sharedInterfaces/warehouse/WarehouseInterface'
 import type { EditWarehouseProductFormData } from '@sharedInterfaces/warehouse/WarehouseProductInterface'
