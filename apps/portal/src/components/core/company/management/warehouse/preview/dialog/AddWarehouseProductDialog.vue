@@ -106,7 +106,8 @@ const handleSubmitAddProduct = async (formData: Record<string, any>) => {
     productId: formData.productId,
     quantity: formData.quantity,
     safeQuantity: formData.safeQuantity,
-    warehouseId: +warehouseId.value
+    warehouseId: +warehouseId.value,
+    status: 1
   }
 
   const { success } = await WarehouseService.addWarehouseProduct(productData)
