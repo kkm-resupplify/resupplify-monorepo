@@ -18,7 +18,9 @@
     "manage": "Zarządzaj",
     "active": "Actywny",
     "inactive": "Nieaktywny",
-    "confirm": "Potwierdź"
+    "confirm": "Potwierdź",
+    "verifyAll": "Zweryfikuj wszystkie",
+    "rejectAll": "Odrzuć wszystkie"
   },
 
   "navigation": {
@@ -103,6 +105,8 @@
 
     "verify": {
       "noResults": "Żadna z firm nie oczekuje teraz na weryfikację.",
+      "companyVerification": "Weryfikacja firm",
+      "comapniesAwaitingVerification": "Firmy oczekujące na weryfikację",
 
       "stat": {
         "unverified": "Oczekujące na weryfikację",
@@ -110,8 +114,10 @@
       },
 
       "notification": {
-        "rejectCompanySuccessTitle": "Weryfikacja firmy odrzucona pomyślnie",
-        "verifyCompanySuccessTitle": "Firma zweryfikowana pomyślnie"
+        "rejectCompanySuccessTitle": "Firma pomyślnie odrzucona",
+        "verifyCompanySuccessTitle": "Firma pomyślnie zweryfikowana",
+        "rejectAllCompaniesSuccessTitle": "Wszystkie firmy pomyślnie odrzucone",
+        "verifyAllCompaniesSuccessTitle": "Wszystkie firmy pomyślnie zweryfikowane"
       }
     }
   },

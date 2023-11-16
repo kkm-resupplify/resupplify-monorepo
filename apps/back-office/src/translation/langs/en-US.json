@@ -18,7 +18,9 @@
     "manage": "Manage",
     "active": "Active",
     "inactive": "Inactive",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "verifyAll": "Verify all",
+    "rejectAll": "Reject all"
   },
 
   "navigation": {
@@ -105,6 +107,8 @@
 
     "verify": {
       "noResults": "No company awaits verification now.",
+      "companyVerification": "Company verification",
+      "companiesAwaitingVerification": "Companies awaiting verification",
 
       "stat": {
         "unverified": "Awaiting verification",
@@ -113,7 +117,9 @@
 
       "notification": {
         "rejectCompanySuccessTitle": "Company rejected successfully",
-        "verifyCompanySuccessTitle": "Company verified successfully"
+        "verifyCompanySuccessTitle": "Company verified successfully",
+        "rejectAllCompaniesSuccessTitle": "All companies rejected successfully",
+        "verifyAllCompaniesSuccessTitle": "All companies verified successfully"
       }
     }
   },
