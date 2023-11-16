@@ -56,7 +56,7 @@
 <script setup lang="ts">
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
-import type { RegisterCompanyContactInfoStep } from '@interfaces/company/RegisterCompanyInterface'
+import type { RegisterCompanyContactInfoStep } from '@sharedInterfaces/company/RegisterCompanyInterface'
 
 // Emits
 const emits = defineEmits(['next-step', 'previous-step'])

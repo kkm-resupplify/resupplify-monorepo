@@ -1,4 +1,4 @@
-import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 import { useWarehouseProductStatus } from '@/composable/warehouse/useWarehouseProductStatus'
 import WarehouseStatusEnum from '@sharedEnums/warehouse/WarehouseStatusEnum'
 

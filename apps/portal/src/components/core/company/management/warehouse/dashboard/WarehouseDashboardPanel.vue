@@ -13,7 +13,7 @@ import WarehouseHeaderSection from '@/components/core/company/management/warehou
 import WarehouseContentSection from '@/components/core/company/management/warehouse/dashboard/section/content/WarehouseContentSection.vue'
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { onBeforeMount, ref } from 'vue'
-import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 import { useRoute } from 'vue-router'
 
 // Variables

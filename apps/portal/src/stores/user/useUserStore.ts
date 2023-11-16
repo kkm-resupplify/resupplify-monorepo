@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { i18n } from '@/translation/index'
 import { setLocale } from '@vee-validate/i18n'
-import type { UserDetails, UserData } from '@interfaces/user/UserStoreDataInterface'
-import type { CompanyData } from '@interfaces/company/CompanyInterface'
+import type { UserDetails, UserData } from '@sharedInterfaces/user/UserStoreDataInterface'
+import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 
 export interface UserStoreData {
   email: string

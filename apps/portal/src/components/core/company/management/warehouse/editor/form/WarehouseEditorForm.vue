@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import WarehouseService from '@/services/warehouse/WarehouseService'
-import type { WarehouseFormData } from '@interfaces/warehouse/WarehouseInterface'
+import type { WarehouseFormData } from '@sharedInterfaces/warehouse/WarehouseInterface'
 import router, { RouteNames } from '@/routes/index'
 
 // Methods
