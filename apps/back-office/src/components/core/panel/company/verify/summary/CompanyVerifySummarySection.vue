@@ -17,5 +17,3 @@ defineProps({
   isLoading: { type: Boolean, required: true }
 })
 </script>
-
-<style lang="scss" scoped></style>
