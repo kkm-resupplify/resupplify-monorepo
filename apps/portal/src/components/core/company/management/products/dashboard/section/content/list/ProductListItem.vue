@@ -1,30 +1,30 @@
 <template>
-  <m-tile :to="productLink" class="product-list-item">
-    <div class="product-list-item__body">
-      <span class="product-list-item__name" v-text="product.name" />
+  <a-list-item-wrapper class="product-list-item">
+    <a-list-item-title-section :value="product.name" :basis="20" />
 
-      <div class="product-list-item__status">
-        <span class="product-list-item__status-title">Status</span>
+    <a-list-item-title-section title="Status" :value="status" :basis="25" />
+    <div class="product-list-item__tags">
+      <span>Tags:</span>
 
-        <span v-text="status" />
-      </div>
-
-      <div class="product-list-item__tags">
-        <span class="product-list-item__tags-title">Tags</span>
-
-        <div class="product-list-item__tags-items">
-            <span v-for="tag in tags" v-text="tag"/>
-        </div>
+      <div class="product-list-item__tags-items">
+        <a-list-item-title-section v-for="(tag, idx) in tags" :key="idx" :value="tag" :basis="25" />
       </div>
     </div>
-  </m-tile>
+
+    <edit-warehouse-product-dialog
+      :warehouse-product="product"
+      @product-changed="$emit('product-changed')"
+    />
+  </a-list-item-wrapper>
 </template>
 <script setup lang="ts">
 import type { Product } from '@/interface/product/ProductInterface'
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 import { RouteNames } from '@/routes'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const props = defineProps({
   product: { type: Object as PropType<Product>, required: true }
 })
@@ -44,27 +44,12 @@ const productLink = computed(() => {
 
 <style scoped lang="scss">
 .product-list-item {
+  justify-content: space-between;
   min-width: 600px;
 
-  &__body {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  &__name {
-    font-size: $global-font-size-80;
-  }
-
-  &__status {
+  &__tags {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-20;
-  }
-
-  &__status-title {
-    font-size: $global-font-size-60;
   }
 
   &__tags-items {
