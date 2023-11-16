@@ -18,7 +18,9 @@
     "manage": "Manage",
     "active": "Active",
     "inactive": "Inactive",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "verifyAll": "Verify all",
+    "rejectAll": "Reject all"
   },
 
   "navigation": {
@@ -101,6 +103,38 @@
       "email": "Email",
       "externalWebsite": "Company Website",
       "phoneNumber": "Phone Number"
+    },
+
+    "verify": {
+      "noResults": "No company awaits verification now.",
+      "companyVerification": "Company verification",
+      "companiesAwaitingVerification": "Companies awaiting verification",
+
+      "stat": {
+        "unverified": "Awaiting verification",
+        "rejected": "Rejected, awaiting re-verification"
+      },
+
+      "notification": {
+        "rejectCompanySuccessTitle": "Company rejected successfully",
+        "verifyCompanySuccessTitle": "Company verified successfully",
+        "rejectAllCompaniesSuccessTitle": "All companies rejected successfully",
+        "verifyAllCompaniesSuccessTitle": "All companies verified successfully"
+      }
+    },
+
+    "all": {
+      "noResults": "There are currently no registered companies in the service",
+      "companyList": "List of registered companies",
+      "companyListSubtitle": "All companies registered in the portal",
+
+      "stat": {
+        "verified": "Verified companies",
+        "unverified": "Pending verification",
+        "rejected": "Rejected companies",
+        "suspended": "Suspended companies",
+        "inactive": "Inactive companies"
+      }
     }
   },
 

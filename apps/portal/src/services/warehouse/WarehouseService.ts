@@ -1,7 +1,7 @@
-import type { WarehouseProductFormData } from '@/interface/warehouse/WarehouseProductInterface'
+import type { WarehouseProductFormData } from '@sharedInterfaces/warehouse/WarehouseProductInterface'
 import BaseService from '../BaseService'
-import type { WarehouseFormData } from '@interfaces/warehouse/WarehouseInterface'
-import type { EditWarehouseProductFormData } from '@interfaces/warehouse/WarehouseProductInterface'
+import type { WarehouseFormData } from '@sharedInterfaces/warehouse/WarehouseInterface'
+import type { EditWarehouseProductFormData } from '@sharedInterfaces/warehouse/WarehouseProductInterface'
 
 class WarehouseService extends BaseService {
   static WAREHOUSE_PRODUCT_SUFFIX = 'product'

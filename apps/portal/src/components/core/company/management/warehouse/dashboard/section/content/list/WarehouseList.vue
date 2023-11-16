@@ -8,13 +8,13 @@
 
     <a-line :height="2" color="secondary-2" />
 
-    <div v-if="warehouses?.length" class="warehouse-list__items">
+    <m-tile-list v-if="warehouses?.length">
       <warehouse-list-item
         v-for="(warehouse, idx) in warehouses"
         :key="idx"
         :warehouse="warehouse"
       />
-    </div>
+    </m-tile-list>
 
     <a-list-no-results
       v-else
@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import WarehouseListItem from '@/components/core/company/management/warehouse/dashboard/section/content/list/WarehouseListItem.vue'
 import type { PropType } from 'vue'
-import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 
 defineProps({
   warehouses: {
@@ -40,25 +40,14 @@ defineEmits(['search'])
 
 <style scoped lang="scss">
 .warehouse-list {
+  overflow: auto;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: $global-spacing-40;
-  max-height: 100%;
 
   &__search-bar {
     max-width: 450px;
-  }
-
-  &__items {
-    overflow-y: auto;
-    display: grid;
-    grid-auto-flow: row;
-    grid-gap: $global-spacing-100;
-    grid-template-columns: repeat(7, auto);
-    align-self: self-start;
-
-    max-width: 100%;
-    padding: $global-spacing-20;
   }
 }
 </style>

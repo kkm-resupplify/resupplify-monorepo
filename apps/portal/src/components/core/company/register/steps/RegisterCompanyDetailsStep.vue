@@ -52,7 +52,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { RegisterCompanyDetailsStep } from '@interfaces/company/RegisterCompanyInterface'
+import type { RegisterCompanyDetailsStep } from '@sharedInterfaces/company/RegisterCompanyInterface'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
 // Emits

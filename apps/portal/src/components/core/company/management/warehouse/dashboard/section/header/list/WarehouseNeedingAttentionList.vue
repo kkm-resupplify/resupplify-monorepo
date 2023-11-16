@@ -17,7 +17,7 @@ import WarehouseNeedingAttentionListItem from '@/components/core/company/managem
 import { computed, type PropType } from 'vue'
 
 import { useWarehouseStatus } from '@/composable/warehouse/useWarehouseStatus'
-import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 import WarehouseStatusEnum from '@sharedEnums/warehouse/WarehouseStatusEnum'
 
 const props = defineProps({

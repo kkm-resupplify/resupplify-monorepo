@@ -86,7 +86,7 @@ import ConfirmWarehouseProductRemovalDialog from './ConfirmWarehouseProductRemov
 import type {
   EditWarehouseProductFormData,
   WarehouseProduct
-} from '@interfaces/warehouse/WarehouseProductInterface'
+} from '@sharedInterfaces/warehouse/WarehouseProductInterface'
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'

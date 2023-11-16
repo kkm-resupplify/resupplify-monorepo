@@ -1,4 +1,6 @@
 export interface CompanyData {
+  id: number
+  status: number
   name: string
   description: string
   ownerId: number

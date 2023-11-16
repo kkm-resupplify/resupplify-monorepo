@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import WarehouseneedingAttentionList from '@/components/core/company/management/warehouse/dashboard/section/header/list/WarehouseNeedingAttentionList.vue'
-import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 import { type PropType } from 'vue'
 
 defineProps({

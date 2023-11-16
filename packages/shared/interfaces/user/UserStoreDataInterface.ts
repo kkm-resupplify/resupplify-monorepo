@@ -1,9 +1,12 @@
+import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
+
 export interface UserData {
   type: number
   createdAt: string
   email: string
   token: string
   details: UserDetails | null
+  company: null | CompanyData
 }
 
 export interface UserDetails {
