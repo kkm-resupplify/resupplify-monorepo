@@ -10,36 +10,26 @@
     <company-verify-company-list
       v-else
       :companies="companies"
-      @update-list="handleFetchCompanies"
+      @update-list="$emit('fetch-companies')"
     />
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
 import CompanyVerifyCompanyList from '@/components/core/panel/company/verify/content/list/CompanyVerifyCompanyList.vue'
-import CompanyVerificationService from '@/services/company/CompanyVerificationService'
-import { onBeforeMount, ref } from 'vue'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
+import { type PropType } from 'vue'
 
-// Variables
-const isLoading = ref(false)
-const companies = ref<CompanyData[]>([])
-
-// Methods
-const handleFetchCompanies = async () => {
-  isLoading.value = true
-
-  const { success, data } = await CompanyVerificationService.getUnverifiedCompanies()
-
-  if (success) companies.value = data
-
-  isLoading.value = false
-}
-
-// Hooks
-onBeforeMount(async () => {
-  await handleFetchCompanies()
+defineProps({
+  companies: {
+    type: Array as PropType<CompanyData[]>,
+    required: true
+  },
+  isLoading: { type: Boolean, required: true }
 })
+
+// Emits
+defineEmits(['fetch-companies'])
 </script>
 
 <style lang="scss" scoped>
