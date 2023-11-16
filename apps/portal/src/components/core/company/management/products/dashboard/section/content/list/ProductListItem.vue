@@ -2,44 +2,34 @@
   <a-list-item-wrapper class="product-list-item">
     <a-list-item-title-section :value="product.name" :basis="20" />
 
-    <a-list-item-title-section title="Status" :value="status" :basis="25" />
+    <a-list-item-title-section
+      :title="$t('company.management.navigation.products.preview.content.status')"
+      :value="status"
+      :basis="25"
+    />
     <div class="product-list-item__tags">
-      <span>Tags:</span>
+      <a-title :title="$t('company.management.navigation.products.preview.content.tags')" />
 
       <div class="product-list-item__tags-items">
         <a-list-item-title-section v-for="(tag, idx) in tags" :key="idx" :value="tag" :basis="25" />
       </div>
     </div>
 
-    <edit-warehouse-product-dialog
-      :warehouse-product="product"
-      @product-changed="$emit('product-changed')"
-    />
+    <edit-product-dialog :product="product" />
   </a-list-item-wrapper>
 </template>
 <script setup lang="ts">
 import type { Product } from '@/interface/product/ProductInterface'
 import type { PropType } from 'vue'
 import { computed } from 'vue'
-import { RouteNames } from '@/routes'
-import { useI18n } from 'vue-i18n'
+import EditProductDialog from '@/components/core/company/management/products/preview/dialog/EditProductDialog.vue'
 
-const { t } = useI18n()
-const props = defineProps({
+defineProps({
   product: { type: Object as PropType<Product>, required: true }
 })
 
 const status = computed(() => 'active')
 const tags = computed(() => ['bread', 'water', 'whatever'])
-
-const productLink = computed(() => {
-  return {
-    name: RouteNames.COMPANY_PRODUCT_PREVIEW,
-    params: {
-      id: props.product.id
-    }
-  }
-})
 </script>
 
 <style scoped lang="scss">

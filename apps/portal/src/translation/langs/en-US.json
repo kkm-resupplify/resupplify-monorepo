@@ -199,7 +199,19 @@
         },
 
         "products": {
-          "title": "Products"
+          "title": "Products",
+
+          "tiles": {
+            "products": "Products",
+            "newProduct": "Create new product",
+            "companyProductTags": "Company product tags"
+          },
+          "preview": {
+            "content": {
+              "status": "Status",
+              "tags": "Tags"
+            }
+          }
         },
 
         "warehouses": {

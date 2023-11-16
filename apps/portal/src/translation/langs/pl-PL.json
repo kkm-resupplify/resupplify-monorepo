@@ -199,7 +199,20 @@
         },
 
         "products": {
-          "title": "Produkty"
+          "title": "Produkty",
+
+          "tiles": {
+            "products": "Produkty",
+            "newProduct": "Utwórz nowy produkt",
+            "companyProductTags": "Firmowe znaczniki produktów"
+          },
+
+          "preview": {
+            "content": {
+              "status": "Status",
+              "tags": "Tagi"
+            }
+          }
         },
 
         "warehouses": {
