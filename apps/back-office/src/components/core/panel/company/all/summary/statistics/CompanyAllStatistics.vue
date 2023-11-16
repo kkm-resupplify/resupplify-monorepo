@@ -1,5 +1,5 @@
 <template>
-  <div class="company-list-statistics">
+  <div class="company-all-statistics">
     <a-title
       v-for="(stat, idx) in statList"
       :key="idx"
@@ -58,12 +58,12 @@ const statList = computed(() => {
 
 // Methods
 const getTranslationText = (key: string) => {
-  return t(`company.list.stat.${key}`)
+  return t(`company.all.stat.${key}`)
 }
 </script>
 
 <style scoped lang="scss">
-.company-list-statistics {
+.company-all-statistics {
   display: flex;
   flex-direction: column;
   width: 100%;

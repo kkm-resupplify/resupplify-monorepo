@@ -1,6 +1,6 @@
 <template>
   <div v-if="companies.length" class="company-list-company-list">
-    <company-list-company-list-item
+    <company-all-company-list-item
       v-for="(company, idx) in companies"
       :key="idx"
       :company="company"
@@ -8,11 +8,11 @@
     />
   </div>
 
-  <a-list-no-results v-else :text="$t('company.list.noResults')" />
+  <a-list-no-results v-else :text="$t('company.all.noResults')" />
 </template>
 
 <script setup lang="ts">
-import CompanyListCompanyListItem from '@/components/core/panel/company/list/content/list/CompanyListCompanyListItem.vue'
+import CompanyAllCompanyListItem from '@/components/core/panel/company/all/content/list/CompanyAllCompanyListItem.vue'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import { type PropType } from 'vue'
 

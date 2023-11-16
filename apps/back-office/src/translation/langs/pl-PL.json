@@ -121,7 +121,7 @@
       }
     },
 
-    "list": {
+    "all": {
       "noResults": "W serwisie nie ma jeszcze żadnych firm",
       "companyList": "Lista zarejestrowanych firm",
       "companyListSubtitle": "Wszystkie firmy zarejestrowane w portalu",

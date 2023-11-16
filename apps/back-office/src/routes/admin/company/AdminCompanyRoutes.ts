@@ -1,6 +1,6 @@
 import AdminCompanyView from '@/views/Company/AdminCompanyView.vue'
 import CompanyVerifyPanel from '@/components/core/panel/company/verify/CompanyVerifyPanel.vue'
-import CompanyListPanel from '@/components/core/panel/company/list/CompanyListPanel.vue'
+import CompanyAllPanel from '@/components/core/panel/company/all/CompanyAllPanel.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -24,7 +24,7 @@ const AdminCompanyRoutes: RouteRecordRaw[] = [
   {
     path: 'company/list',
     name: AdminCompanyRoutesEnum.ADMIN_COMPANY_LIST,
-    component: CompanyListPanel
+    component: CompanyAllPanel
   }
 ]
 

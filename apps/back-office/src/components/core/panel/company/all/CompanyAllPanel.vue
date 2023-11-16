@@ -1,14 +1,14 @@
 <template>
   <a-panel>
-    <company-list-summary-section :companies="companies" :is-loading="isLoading" />
+    <company-all-summary-section :companies="companies" :is-loading="isLoading" />
 
-    <company-list-content-section :companies="companies" :is-loading="isLoading" />
+    <company-all-content-section :companies="companies" :is-loading="isLoading" />
   </a-panel>
 </template>
 
 <script setup lang="ts">
-import CompanyListSummarySection from '@/components/core/panel/company/list/summary/CompanyListSummarySection.vue'
-import CompanyListContentSection from '@/components/core/panel/company/list/content/CompanyListContentSection.vue'
+import CompanyAllSummarySection from '@/components/core/panel/company/all/summary/CompanyAllSummarySection.vue'
+import CompanyAllContentSection from '@/components/core/panel/company/all/content/CompanyAllContentSection.vue'
 import CompanyVerificationService from '@/services/company/CompanyVerificationService'
 import { onBeforeMount, ref } from 'vue'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'

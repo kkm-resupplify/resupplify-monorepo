@@ -1,11 +1,11 @@
 <template>
   <a-panel-section>
-    <company-list-statistics :companies="companies" />
+    <company-all-statistics :companies="companies" />
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import CompanyListStatistics from '@/components/core/panel/company/list/summary/statistics/CompanyVerifyStatistics.vue'
+import CompanyAllStatistics from '@/components/core/panel/company/all/summary/statistics/CompanyAllStatistics.vue'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import { type PropType } from 'vue'
 

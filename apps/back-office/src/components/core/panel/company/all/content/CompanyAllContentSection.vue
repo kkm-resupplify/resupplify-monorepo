@@ -1,23 +1,19 @@
 <template>
-  <a-panel-section class="company-list-content-section">
-    <a-title :title="$t('company.list.companyList')" size="large" />
+  <a-panel-section class="company-all-content-section">
+    <a-title :title="$t('company.all.companyList')" size="large" />
 
-    <span v-text="$t('company.list.companyListSubtitle')" />
+    <span v-text="$t('company.all.companyListSubtitle')" />
 
     <a-line />
 
     <template v-if="isLoading">implement-loader-here</template>
 
-    <company-list-company-list
-      v-else
-      :companies="companies"
-      @update-list="$emit('fetch-companies')"
-    />
+    <company-all-company-list v-else :companies="companies" />
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import CompanyListCompanyList from '@/components/core/panel/company/list/content/list/CompanyListCompanyList.vue'
+import CompanyAllCompanyList from '@/components/core/panel/company/all/content/list/CompanyAllCompanyList.vue'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import { type PropType } from 'vue'
 
@@ -31,7 +27,7 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-.company-list-content-section {
+.company-all-content-section {
   overflow-y: auto;
   height: 100%;
 
