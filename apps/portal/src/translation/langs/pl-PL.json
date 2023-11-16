@@ -202,7 +202,6 @@
           "title": "Produkty",
 
           "tiles": {
-            "products": "Produkty",
             "newProduct": "Utwórz nowy produkt",
             "companyProductTags": "Firmowe znaczniki produktów"
           },
@@ -211,6 +210,10 @@
             "content": {
               "status": "Status",
               "tags": "Tagi"
+            },
+
+            "dialog": {
+              "setStatus": "Ustaw status"
             }
           }
         },

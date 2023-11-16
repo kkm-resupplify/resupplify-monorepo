@@ -210,6 +210,10 @@
             "content": {
               "status": "Status",
               "tags": "Tags"
+            },
+
+            "dialog": {
+              "setStatus": "Set status"
             }
           }
         },

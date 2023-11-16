@@ -5,25 +5,26 @@
     </template>
 
     <div class="edit-product-dialog__content">
-      <div class="edit-product-dialog__status-information">
-        <a-title title="Status:" subtitle="active" variant="horizontal" />
-      </div>
+      <a-title
+        :title="$t('company.management.navigation.products.preview.content.status')"
+        subtitle="active"
+        variant="horizontal"
+      />
 
       <a-line :height="2" color="secondary-2" />
 
       <a-title :title="$t('global.manage')" size="large" />
 
       <div class="edit-product-dialog__buttons">
-        <a-button text="Set status" size="x-large" class="edit-product-dialog__buttons-status" />
-
-        <a-button text="Update" size="x-large" class="edit-product-dialog__buttons-update" />
-
         <a-button
-          text="Remove"
-          color="gradient-danger"
+          :text="$t('company.management.navigation.products.preview.dialog.setStatus')"
           size="x-large"
-          class="edit-product-dialog__buttons-remove"
+          class="edit-product-dialog__buttons-status"
         />
+
+        <a-button :text="$t('global.update')" size="x-large" />
+
+        <a-button :text="$t('global.delete')" color="gradient-danger" size="x-large" />
       </div>
     </div>
   </m-dialog>
@@ -60,12 +61,6 @@ const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
     width: 400px;
 
     white-space: nowrap;
-  }
-
-  &__status-information {
-    display: flex;
-    flex-direction: column;
-    gap: $global-spacing-20;
   }
 
   &__buttons {
