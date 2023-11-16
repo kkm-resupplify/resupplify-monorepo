@@ -14,6 +14,10 @@ class CompanyVerificationService extends BaseService {
   static REJECT_COMPANY_SUFFIX = 'reject'
   static MASS_STATUS_UPDATE_SUFFIX = 'massStatusUpdate'
 
+  async getAllCompanies() {
+    return this.get({})
+  }
+
   async getUnverifiedCompanies() {
     return this.get({ suffix: CompanyVerificationService.VERIFY_COMPANY_SUFFIX })
   }

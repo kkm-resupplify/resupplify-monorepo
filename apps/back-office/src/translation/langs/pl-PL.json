@@ -119,6 +119,20 @@
         "rejectAllCompaniesSuccessTitle": "Wszystkie firmy pomyślnie odrzucone",
         "verifyAllCompaniesSuccessTitle": "Wszystkie firmy pomyślnie zweryfikowane"
       }
+    },
+
+    "list": {
+      "noResults": "W serwisie nie ma jeszcze żadnych firm",
+      "companyList": "Lista zarejestrowanych firm",
+      "companyListSubtitle": "Wszystkie firmy zarejestrowane w portalu",
+
+      "stat": {
+        "verified": "Zweryfikowane firmy",
+        "unverified": "Oczekujące na weryfikację",
+        "rejected": "Odrzucone, oczekujące na ponowną weryfikację",
+        "suspended": "Zawieszone firmy",
+        "inactive": "Nieaktywny firmy"
+      }
     }
   },
 

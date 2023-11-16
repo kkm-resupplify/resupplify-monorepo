@@ -121,6 +121,20 @@
         "rejectAllCompaniesSuccessTitle": "All companies rejected successfully",
         "verifyAllCompaniesSuccessTitle": "All companies verified successfully"
       }
+    },
+
+    "list": {
+      "noResults": "There are currently no registered companies in the service",
+      "companyList": "List of registered companies",
+      "companyListSubtitle": "All companies registered in the portal",
+
+      "stat": {
+        "verified": "Verified companies",
+        "unverified": "Pending verification",
+        "rejected": "Rejected, awaiting re-verification",
+        "suspended": "Suspended companies",
+        "inactive": "Inactive companies"
+      }
     }
   },
 
