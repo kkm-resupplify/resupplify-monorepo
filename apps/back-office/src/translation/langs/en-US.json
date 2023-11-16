@@ -131,7 +131,7 @@
       "stat": {
         "verified": "Verified companies",
         "unverified": "Pending verification",
-        "rejected": "Rejected, awaiting re-verification",
+        "rejected": "Rejected companies",
         "suspended": "Suspended companies",
         "inactive": "Inactive companies"
       }

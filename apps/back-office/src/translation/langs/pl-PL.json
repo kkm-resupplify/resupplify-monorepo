@@ -89,7 +89,7 @@
       "generalInformation": "Informacje ogólne",
       "companyDetails": "Dane firmy",
       "contactInformation": "Informacje kontaktowe",
-      "name": "Nazwa",
+      "name": "Nazwa firmy",
       "country": "Kraj",
       "description": "Opis",
       "shortDescription": "Krótki opis",
@@ -129,7 +129,7 @@
       "stat": {
         "verified": "Zweryfikowane firmy",
         "unverified": "Oczekujące na weryfikację",
-        "rejected": "Odrzucone, oczekujące na ponowną weryfikację",
+        "rejected": "Odrzucone firmy",
         "suspended": "Zawieszone firmy",
         "inactive": "Nieaktywny firmy"
       }

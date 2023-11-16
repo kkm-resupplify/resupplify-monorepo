@@ -3,13 +3,20 @@
     <template #activator>
       <a-list-item-wrapper class="company-list-company-list-item">
         <a-status-indicator :status="company.status" />
-        <a-list-item-title-section title="Company name" :value="company.name" />
 
-        <a-list-item-title-section title="TIN" :value="company.details.tin" />
+        <a-list-item-title-section :title="$t('company.data.name')" :value="company.name" />
 
-        <a-list-item-title-section title="Phone number" :value="company.details.phoneNumber" />
+        <a-list-item-title-section :title="$t('company.data.tin')" :value="company.details.tin" />
 
-        <a-list-item-title-section title="Contact person" :value="company.details.contactPerson" />
+        <a-list-item-title-section
+          :title="$t('company.data.phoneNumber')"
+          :value="company.details.phoneNumber"
+        />
+
+        <a-list-item-title-section
+          :title="$t('company.data.contactPerson')"
+          :value="company.details.contactPerson"
+        />
       </a-list-item-wrapper>
     </template>
 
@@ -30,6 +37,7 @@
 <script setup lang="ts">
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import { type PropType, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const { company } = defineProps({
   company: {
@@ -38,14 +46,17 @@ const { company } = defineProps({
   }
 })
 
+// Variables
+const { t } = useI18n()
+
 // Computed
 const companyDetailsContent = computed(() => {
   return [
-    { title: 'Short description', value: company.shortDescription },
-    { title: 'Description', value: company.description },
-    { title: 'Email', value: company.details.email },
-    { title: 'Address', value: company.details.address },
-    { title: 'Website', value: company.details.externalWebsite }
+    { title: t('company.data.shortDescription'), value: company.shortDescription },
+    { title: t('company.data.description'), value: company.description },
+    { title: t('company.data.email'), value: company.details.email },
+    { title: t('company.data.address'), value: company.details.address },
+    { title: t('company.data.externalWebsite'), value: company.details.externalWebsite }
   ]
 })
 </script>
