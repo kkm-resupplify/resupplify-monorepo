@@ -101,6 +101,20 @@
       "email": "Email",
       "externalWebsite": "Company Website",
       "phoneNumber": "Phone Number"
+    },
+
+    "verify": {
+      "noResults": "No company awaits verification now.",
+
+      "stat": {
+        "unverified": "Awaiting verification",
+        "rejected": "Rejected, awaiting re-verification"
+      },
+
+      "notification": {
+        "rejectCompanySuccessTitle": "Company rejected successfully",
+        "verifyCompanySuccessTitle": "Company verified successfully"
+      }
     }
   },
 

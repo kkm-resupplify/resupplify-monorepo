@@ -99,6 +99,20 @@
       "email": "Email",
       "externalWebsite": "Strona internetowa firmy",
       "phoneNumber": "Numer telefonu"
+    },
+
+    "verify": {
+      "noResults": "Żadna z firm nie oczekuje teraz na weryfikację.",
+
+      "stat": {
+        "unverified": "Oczekujące na weryfikację",
+        "rejected": "Odrzucone, oczekujące na ponowną weryfikację"
+      },
+
+      "notification": {
+        "rejectCompanySuccessTitle": "Weryfikacja firmy odrzucona pomyślnie",
+        "verifyCompanySuccessTitle": "Firma zweryfikowana pomyślnie"
+      }
     }
   },
 
