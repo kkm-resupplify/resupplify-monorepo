@@ -209,14 +209,16 @@
           "preview": {
             "content": {
               "status": "Status",
-              "tags": "Tagi"
+              "tags": "Tagi",
+              "category": "Kategoria",
+              "subcategory": "Podkategoria"
             },
 
             "dialog": {
               "edit": {
                 "setStatus": "Ustaw status"
               },
-              
+
               "delete": {
                 "title": "Potwierdź usunięcie produktu"
               },

@@ -209,7 +209,9 @@
           "preview": {
             "content": {
               "status": "Status",
-              "tags": "Tags"
+              "tags": "Tags",
+              "category": "Category",
+              "subcategory": "Subcategory"
             },
 
             "dialog": {

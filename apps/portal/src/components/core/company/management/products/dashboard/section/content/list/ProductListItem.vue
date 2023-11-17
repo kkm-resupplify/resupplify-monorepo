@@ -1,8 +1,20 @@
 <template>
   <a-list-item-wrapper class="product-list-item">
     <a-status-indicator :status="productStatus(product)" />
-    
+
     <a-list-item-title-section :value="product.name" :basis="20" />
+
+    <a-list-item-title-section
+      :title="$t('company.management.navigation.products.preview.content.category')"
+      :value="product.productCategory.name"
+      :basis="25"
+    />
+
+    <a-list-item-title-section
+      :title="$t('company.management.navigation.products.preview.content.subcategory')"
+      :value="product.productSubcategory.name"
+      :basis="25"
+    />
 
     <div class="product-list-item__tags">
       <a-list-item-title-section
