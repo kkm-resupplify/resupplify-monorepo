@@ -29,7 +29,7 @@ const tiles = computed(() => [
   {
     title: t('company.management.navigation.products.tiles.companyProductTags'),
     icon: 'style',
-    to: { name: RouteNames.COMPANY_PRODUCT_EDITOR }
+    to: { name: RouteNames.COMPANY_PRODUCT_TAGS }
   }
 ])
 </script>
