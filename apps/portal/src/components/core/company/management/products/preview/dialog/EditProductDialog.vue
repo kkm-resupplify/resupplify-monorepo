@@ -8,7 +8,7 @@
       <div class="edit-product-dialog__status">
         <a-title
           :title="$t('company.management.navigation.products.preview.content.status')"
-          :subtitle="product.status"
+          :subtitle="productStatusName(product)"
           variant="horizontal"
         />
       </div>
@@ -18,10 +18,7 @@
       <a-title :title="$t('global.manage')" size="large" />
 
       <div class="edit-product-dialog__buttons">
-        <update-product-status-dialog
-          :product="product"
-          class="edit-product-dialog__buttons-status"
-        />
+        <set-product-status-dialog :product="product" class="edit-product-dialog__buttons-status" />
 
         <a-button :text="$t('global.update')" size="x-large" />
 
@@ -42,7 +39,8 @@ import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
-import UpdateProductStatusDialog from './UpdateProductStatusDialog.vue'
+import SetProductStatusDialog from './SetProductStatusDialog.vue'
+import { useProductStatus } from '@composables/product/useProductStatus'
 
 defineProps({
   product: {
@@ -52,6 +50,7 @@ defineProps({
 })
 
 // Variables
+const { productStatusName } = useProductStatus()
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 </script>
 
