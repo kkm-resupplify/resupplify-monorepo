@@ -1,10 +1,8 @@
 <template>
   <a-panel class="warehouse-editor-panel">
-    <a-panel-section>
-      <product-tags-editor-form />
-    </a-panel-section>
+    <product-tags-editor-header />
   </a-panel>
 </template>
 <script setup lang="ts">
-import ProductTagsEditorForm from './editor/form/ProductTagsEditorForm.vue'
+import ProductTagsEditorHeader from './editor/section/header/ProductTagsEditorHeader.vue'
 </script>

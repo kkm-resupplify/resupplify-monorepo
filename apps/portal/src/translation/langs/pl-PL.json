@@ -210,7 +210,6 @@
           "tags": {
             "editor": {
               "title": "Firmowe znaczniki produktów",
-              "addNew": "Dodaj nowy znacznik",
               "productTagLabel": "Znacznik produktu",
               "productTagPlaceholder": "Wpisz nazwę znacznika produktu",
               "productTagLanguageLabel": "Znacznik produktu w języku: {language}",
@@ -218,12 +217,13 @@
               "productTagColorLabel": "Kolor znacznika produktu",
               "productTagColorPlaceholder": "Wybierz kolor",
 
-              "add": {
+              "addDialog": {
+                "activator": "Dodaj nowy znacznik",
                 "modalActivatorTitle": "Dodaj znacznik produktu",
                 "modalContent": "Zmień szczegóły znacznika o nazwie {name} poniżej"
               },
 
-              "update": {
+              "updateDialog": {
                 "title": "Zaaktualizuj znacznik produktu"
               }
             }
