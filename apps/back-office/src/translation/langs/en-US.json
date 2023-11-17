@@ -140,6 +140,40 @@
     }
   },
 
+  "product": {
+    "verify": {
+      "noResults": "No product awaits verification now.",
+      "productVerification": "Product verification",
+      "productsAwaitingVerification": "Products awaiting verification",
+
+      "stat": {
+        "unverified": "Awaiting verification",
+        "rejected": "Rejected, awaiting re-verification"
+      },
+
+      "notification": {
+        "rejectProductSuccessTitle": "Product rejected successfully",
+        "verifyProductSuccessTitle": "Product verified successfully",
+        "rejectAllProductsSuccessTitle": "All products rejected successfully",
+        "verifyAllProductsSuccessTitle": "All products verified successfully"
+      }
+    },
+
+    "all": {
+      "noResults": "There are currently no registered products in the service",
+      "productList": "List of registered products",
+      "productListSubtitle": "All products registered in the portal",
+
+      "stat": {
+        "verified": "Verified products",
+        "unverified": "Pending verification",
+        "rejected": "Rejected products",
+        "suspended": "Suspended products",
+        "inactive": "Inactive products"
+      }
+    }
+  },
+
   "confirm": {
     "dialog": {
       "titleDelete": "Remove confirmation",
