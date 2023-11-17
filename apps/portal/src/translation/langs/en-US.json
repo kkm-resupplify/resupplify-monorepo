@@ -214,6 +214,28 @@
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"
+          },
+
+          "tags": {
+            "editor": {
+              "title": "Company product tags",
+              "addNew": "Add new tag",
+              "productTagLabel": "Product tag",
+              "productTagPlaceholder": "Enter product tag",
+              "productTagLanguageLabel": "Product tag in {language} language",
+              "productTagLanguagePlaceholder": "Enter product tag",
+              "productTagColorLabel": "Product tag color",
+              "productTagColorPlaceholder": "Select color",
+
+              "add": {
+                "modalActivatorTitle": "Add product tag",
+                "modalContent": "Modify the details for the tag {name} below"
+              },
+
+              "update": {
+                "title": "Update product tag"
+              }
+            }
           }
         },
 

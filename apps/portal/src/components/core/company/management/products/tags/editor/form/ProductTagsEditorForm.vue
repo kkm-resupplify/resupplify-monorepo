@@ -1,1 +1,1 @@
-<template>Product tags editor form</template>
+<template></template>
