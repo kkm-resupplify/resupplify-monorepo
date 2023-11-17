@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import WarehouseProductList from '@/components/core/company/management/warehouse/preview/list/WarehouseProductList.vue'
 
-import type { WarehouseProduct } from '@interfaces/warehouse/WarehouseProductInterface'
+import type { WarehouseProduct } from '@sharedInterfaces/warehouse/WarehouseProductInterface'
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
 import { ref, computed, onBeforeMount } from 'vue'

@@ -61,33 +61,30 @@
   </m-stepper-step-content>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, reactive } from 'vue'
-import type { ProductCategory } from '@/interface/product/ProductInterface'
-import ProductDescriptorsService from '@/services/product/ProductDescriptorsService'
+import { onBeforeMount, ref } from 'vue'
+import ProductDescriptorsService from '@/services/product/StaticProductDescriptorsService.js'
+import type { ProductCategory } from '@sharedInterfaces/product/ProductInterface'
 
 // Emits
 const emits = defineEmits(['next-step'])
+
+// Variables
+const productCategories = ref<ProductCategory>()
+const productSubcategories = ref<ProductCategory>()
 
 // Methods
 const handleNextStep = () => {
   emits('next-step')
 }
 
-// Variables
-const productCategories: ProductCategory[] = reactive([])
-const productSubcategories: ProductCategory[] = reactive([])
-
-// Methods
 const handleFetchProductCategories = async () => {
   const { success, data } = await ProductDescriptorsService.getCategories()
-  productCategories.length = 0
-  if (success && data) productCategories.push(...data)
+  if (success && data) productCategories.value = data
 }
 
 const handleFetchProductSubcategories = async () => {
   const { success, data } = await ProductDescriptorsService.getSubcategories()
-  productCategories.length = 0
-  if (success && data) productSubcategories.push(...data)
+  if (success && data) productSubcategories.value = data
 }
 
 // Hooks

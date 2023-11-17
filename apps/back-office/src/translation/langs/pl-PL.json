@@ -1,0 +1,257 @@
+{
+  "global": {
+    "welcome": "Witaj",
+    "goodbye": "Dowidzenia",
+    "actionSuccess": "Akcja zakończona sukcesem",
+    "errorOccured": "Wystąpił błąd",
+    "save": "Zapisz",
+    "edit": "Edytuj",
+    "noResults": "Brak wyników",
+    "next": "Dalej",
+    "back": "Wstecz",
+    "submit": "Zatwierdź",
+    "imagePreview": "Podgląd obrazu",
+    "delete": "Usuń",
+    "search": "Szukaj",
+    "update": "Aktualizuj",
+    "cancel": "Anuluj",
+    "manage": "Zarządzaj",
+    "active": "Actywny",
+    "inactive": "Nieaktywny",
+    "confirm": "Potwierdź",
+    "verifyAll": "Zweryfikuj wszystkie",
+    "rejectAll": "Odrzuć wszystkie"
+  },
+
+  "navigation": {
+    "menu": {
+      "dashboard": "Pulpit",
+      "companies": "Firmy",
+      "products": "Produkty",
+      "locales": "Lokalizacje"
+    },
+
+    "tiles": {
+      "company": {
+        "verify": "Zweryfikuj firmy",
+        "list": "Lista firm"
+      },
+      "product": {
+        "verify": "Zweryfikuj produkty",
+        "list": "Lista produktów",
+        "category": "Kategorie produktów",
+        "subcategory": "Podkategorie produktów",
+        "unit": "Jednostki produktów"
+      },
+      "locale": {
+        "country": "Lista krajów",
+        "language": "Lista języków"
+      }
+    }
+  },
+
+  "auth": {
+    "login": "Zaloguj się",
+    "signup": "Zarejestruj się",
+    "registerAgreement": "Rejestrując się akceptujesz {tos} oraz {privacyPolicy}",
+    "tos": "Warunki świadczenia usługi",
+    "privacyPolicy": "Politykę prywatności",
+    "alreadyRegistered": "Masz już konto? {login}",
+    "forgotPassword": "Nie pamiętasz hasła?",
+    "newUser": "Nie posiadasz konta? {signup}",
+    "logout": "Wyloguj się",
+
+    "form": {
+      "emailAddress": "Adres email",
+      "password": "Hasło",
+      "confirmPassword": "Potwierdź hasło",
+      "emailAddressPlaceholder": "Wprowadź swój adres e-mail",
+      "passwordPlaceholder": "Wprowadź swoje hasło",
+      "confirmPasswordPlaceholder": "Potwierdź swoje hasło"
+    },
+
+    "notification": {
+      "loginSuccessTitle": "Zalogowano",
+      "loginSuccessText": "Witaj z powrotem!",
+      "logoutSuccessTitle": "Wylogowano pomyślnie",
+      "logoutSuccessText": "Do zobaczenia w krótce.",
+      "registerSuccessTitle": "Zarejestrowano pomyślnie",
+      "registerSuccessText": "Poprosimy Cię teraz o podanie Twoich danych osobowych, a następnie o założenie lub dołączenie do istniejącej do firmy."
+    },
+
+    "slogan": {
+      "welcome": "Witaj ponownie"
+    }
+  },
+
+  "company": {
+    "data": {
+      "generalInformation": "Informacje ogólne",
+      "companyDetails": "Dane firmy",
+      "contactInformation": "Informacje kontaktowe",
+      "name": "Nazwa firmy",
+      "country": "Kraj",
+      "description": "Opis",
+      "shortDescription": "Krótki opis",
+      "address": "Adres firmy",
+      "category": "Kategoria firmy",
+      "logo": "Logo firmy",
+      "tin": "Numer identyfikacji podatkowej",
+      "contactPerson": "Osoba kontaktowa",
+      "email": "Email",
+      "externalWebsite": "Strona internetowa firmy",
+      "phoneNumber": "Numer telefonu"
+    },
+
+    "verify": {
+      "noResults": "Żadna z firm nie oczekuje teraz na weryfikację.",
+      "companyVerification": "Weryfikacja firm",
+      "comapniesAwaitingVerification": "Firmy oczekujące na weryfikację",
+
+      "stat": {
+        "unverified": "Oczekujące na weryfikację",
+        "rejected": "Odrzucone, oczekujące na ponowną weryfikację"
+      },
+
+      "notification": {
+        "rejectCompanySuccessTitle": "Firma pomyślnie odrzucona",
+        "verifyCompanySuccessTitle": "Firma pomyślnie zweryfikowana",
+        "rejectAllCompaniesSuccessTitle": "Wszystkie firmy pomyślnie odrzucone",
+        "verifyAllCompaniesSuccessTitle": "Wszystkie firmy pomyślnie zweryfikowane"
+      }
+    },
+
+    "all": {
+      "noResults": "W serwisie nie ma jeszcze żadnych firm",
+      "companyList": "Lista zarejestrowanych firm",
+      "companyListSubtitle": "Wszystkie firmy zarejestrowane w portalu",
+
+      "stat": {
+        "verified": "Zweryfikowane firmy",
+        "unverified": "Oczekujące na weryfikację",
+        "rejected": "Odrzucone firmy",
+        "suspended": "Zawieszone firmy",
+        "inactive": "Nieaktywny firmy"
+      }
+    }
+  },
+
+  "confirm": {
+    "dialog": {
+      "titleDelete": "Potwierdzenie usunięcia",
+      "textDelete": "Czy na pewno chcesz usunąć {item}?",
+      "titleUpdate": "Potwierdzenie aktualizacji",
+      "textUpdate": "Czy na pewno chcesz zaaktualizować {item}?",
+      "titleCreate": "Potwierdzenie dodania",
+      "textCreate": "Czy na pewno chcesz dodać {item}?"
+    }
+  },
+
+  "settings": {
+    "profile": {
+      "title": "Profil",
+
+      "details": {
+        "firstName": "Imię",
+        "lastName": "Nazwisko",
+        "email": "Adres e-mail",
+        "phoneNumber": "Numer telefonu",
+        "birthDate": "Data urodzenia",
+        "firstNamePlaceholder": "Podaj swoje imię",
+        "lastNamePlaceholder": "Podaj swoje nazwisko",
+        "phoneNumberPlaceholder": "Podaj swój numer telefonu",
+        "genderPlaceholder": "Wybierz płeć",
+        "enterUserDetailsTitle": "Wprowadź swoje dane osobowe",
+        "sex": "Płeć",
+
+        "gender": {
+          "male": "Mężczyzna",
+          "female": "Kobieta",
+          "preferNot": "Inna"
+        }
+      },
+
+      "notification": {
+        "updateSuccess": "Dane użytkownika zostały zaktualizowany pomyślnie"
+      }
+    },
+
+    "preferences": {
+      "title": "Preferencje",
+
+      "notification": {
+        "updateSuccess": "Preferencje użytkownika zostały zaktualizowany pomyślnie"
+      }
+    },
+
+    "myCompany": {
+      "title": "Moja firma",
+
+      "joinCompany": {
+        "title": "Dołącz do firmy",
+        "description": "Aby dołączyć do firmy, potrzebujesz najpierw tokena zaproszenia. Powinien on zostać udzielony przez twojego przełożonego lub osobę odpowiedzialną za zarządzanie zaproszeniami pracowników firmy w naszej platformie.",
+        "invitationToken": "Token zaproszenia",
+        "invitationTokenPlaceholder": "Wprowadź swój token zaproszenia",
+        "enterInvitationToken": "Proszę wprowadzić swój token zaproszenia",
+
+        "notification": {
+          "joinCompanySuccessTitle": "Company joined successfully"
+        }
+      },
+
+      "registerCompany": {
+        "title": "Zarejestruj firmę",
+        "description": "Możesz również chcieć zarejestrować swoją firmę. W takim przypadku możesz rozpocząć proces rejestracji, klikając poniższy przycisk - proces możesz anulować w dowolnym momencie.",
+        "registerNow": "Zarejestruj teraz"
+      }
+    }
+  },
+
+  "country": {
+    "al": "Albania",
+    "ad": "Andora",
+    "at": "Austria",
+    "by": "Białoruś",
+    "be": "Belgia",
+    "ba": "Bośnia i Hercegowina",
+    "bg": "Bułgaria",
+    "hr": "Chorwacja",
+    "cy": "Cypr",
+    "cz": "Czechy",
+    "dk": "Dania",
+    "ee": "Estonia",
+    "fi": "Finlandia",
+    "fr": "Francja",
+    "de": "Niemcy",
+    "gr": "Grecja",
+    "hu": "Węgry",
+    "is": "Islandia",
+    "ie": "Irlandia",
+    "it": "Włochy",
+    "lv": "Łotwa",
+    "li": "Liechtenstein",
+    "lt": "Litwa",
+    "lu": "Luksemburg",
+    "mk": "Macedonia, Była Jugosłowiańska Republika",
+    "mt": "Malta",
+    "md": "Mołdawia",
+    "mc": "Monako",
+    "me": "Czarnogóra",
+    "nl": "Holandia",
+    "no": "Norwegia",
+    "pl": "Polska",
+    "pt": "Portugalia",
+    "ro": "Rumunia",
+    "ru": "Rosja",
+    "sm": "San Marino",
+    "rs": "Serbia",
+    "sk": "Słowacja",
+    "si": "Słowenia",
+    "es": "Hiszpania",
+    "se": "Szwecja",
+    "ch": "Szwajcaria",
+    "ua": "Ukraina",
+    "gb": "Wielka Brytania",
+    "va": "Watykan"
+  }
+}

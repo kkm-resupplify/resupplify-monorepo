@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import type { WarehouseProduct } from '@/interface/warehouse/WarehouseProductInterface'
+import type { WarehouseProduct } from '@sharedInterfaces/warehouse/WarehouseProductInterface'
 import { computed, type PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useWarehouseProductStatus } from '@composables/warehouse/useWarehouseProductStatus'

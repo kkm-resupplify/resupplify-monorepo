@@ -59,7 +59,7 @@
 
 <script setup lang="ts">
 import CountrySelect from '@/components/common/select/CountrySelect.vue'
-import type { RegisterCompanyGeneralStep } from '@interfaces/company/RegisterCompanyInterface'
+import type { RegisterCompanyGeneralStep } from '@sharedInterfaces/company/RegisterCompanyInterface'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 
 // Emits

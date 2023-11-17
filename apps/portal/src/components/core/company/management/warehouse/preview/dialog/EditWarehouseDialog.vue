@@ -43,11 +43,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
-import type { WarehouseFormData } from '@/interface/warehouse/WarehouseInterface'
+import type { WarehouseFormData } from '@sharedInterfaces/warehouse/WarehouseInterface'
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
-import type { Warehouse } from '@/interface/warehouse/WarehouseInterface'
+import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 
 const props = defineProps({
   warehouse: Object as PropType<Warehouse>

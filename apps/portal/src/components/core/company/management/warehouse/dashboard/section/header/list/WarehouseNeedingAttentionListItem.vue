@@ -19,7 +19,7 @@
 import { computed, type PropType } from 'vue'
 import { RouteNames } from '@/routes/index'
 import { useWarehouseStatus } from '@/composable/warehouse/useWarehouseStatus'
-import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 
 const props = defineProps({
   warehouse: { type: Object as PropType<Warehouse>, required: true }

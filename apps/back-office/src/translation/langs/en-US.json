@@ -1,0 +1,259 @@
+{
+  "global": {
+    "welcome": "Welcome",
+    "goodbye": "Goodbye",
+    "actionSuccess": "Action completed successfully",
+    "errorOccured": "An error occured",
+    "edit": "Edit",
+    "noResults": "No results",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit",
+    "imagePreview": "Image preview",
+    "delete": "Delete",
+    "save": "Save",
+    "search": "Search",
+    "update": "Update",
+    "cancel": "Cancel",
+    "manage": "Manage",
+    "active": "Active",
+    "inactive": "Inactive",
+    "confirm": "Confirm",
+    "verifyAll": "Verify all",
+    "rejectAll": "Reject all"
+  },
+
+  "navigation": {
+    "menu": {
+      "dashboard": "Dashboard",
+      "companies": "Companies",
+      "products": "Products",
+      "locales": "Locales"
+    },
+
+    "tiles": {
+      "company": {
+        "verify": "Verify companies",
+        "list": "Company list"
+      },
+
+      "product": {
+        "verify": "Verify products",
+        "list": "Product list",
+        "category": "Product categories",
+        "subcategory": "Product subcategories",
+        "unit": "Product units"
+      },
+
+      "locale": {
+        "country": "Country list",
+        "language": "Language list"
+      }
+    }
+  },
+
+  "auth": {
+    "login": "Log in",
+    "signup": "Sign up",
+    "registerAgreement": "By signing up you agree to the {tos} and {privacyPolicy}",
+    "tos": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "alreadyRegistered": "Already have an account? {login}",
+    "forgotPassword": "Forgot password?",
+    "newUser": "Don't have an account? {signup}",
+    "logout": "Log out",
+
+    "form": {
+      "emailAddress": "Email address",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "emailAddressPlaceholder": "Enter your email address",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPasswordPlaceholder": "Confirm your password"
+    },
+
+    "notification": {
+      "loginSuccessTitle": "Logged in successfully",
+      "loginSuccessText": "Welcome back!",
+      "logoutSuccessTitle": "Logged out successfully",
+      "logoutSuccessText": "See you soon.",
+      "registerSuccessTitle": "Registered successfully",
+      "registerSuccessText": "We will now ask you to fill in your personal information and then to register a new company or join already existing one."
+    },
+
+    "slogan": {
+      "welcome": "Welcome back"
+    }
+  },
+
+  "company": {
+    "data": {
+      "generalInformation": "General information",
+      "companyDetails": "Company details",
+      "contactInformation": "Contact information",
+      "name": "Name",
+      "country": "Country",
+      "description": "Description",
+      "shortDescription": "Short description",
+      "address": "Company address",
+      "category": "Company category",
+      "logo": "Company logo",
+      "tin": "Tax Identification Number",
+      "contactPerson": "Contact Person",
+      "email": "Email",
+      "externalWebsite": "Company Website",
+      "phoneNumber": "Phone Number"
+    },
+
+    "verify": {
+      "noResults": "No company awaits verification now.",
+      "companyVerification": "Company verification",
+      "companiesAwaitingVerification": "Companies awaiting verification",
+
+      "stat": {
+        "unverified": "Awaiting verification",
+        "rejected": "Rejected, awaiting re-verification"
+      },
+
+      "notification": {
+        "rejectCompanySuccessTitle": "Company rejected successfully",
+        "verifyCompanySuccessTitle": "Company verified successfully",
+        "rejectAllCompaniesSuccessTitle": "All companies rejected successfully",
+        "verifyAllCompaniesSuccessTitle": "All companies verified successfully"
+      }
+    },
+
+    "all": {
+      "noResults": "There are currently no registered companies in the service",
+      "companyList": "List of registered companies",
+      "companyListSubtitle": "All companies registered in the portal",
+
+      "stat": {
+        "verified": "Verified companies",
+        "unverified": "Pending verification",
+        "rejected": "Rejected companies",
+        "suspended": "Suspended companies",
+        "inactive": "Inactive companies"
+      }
+    }
+  },
+
+  "confirm": {
+    "dialog": {
+      "titleDelete": "Remove confirmation",
+      "textDelete": "Are you sure you want to remove {item}?",
+      "titleUpdate": "Update confirmation",
+      "textUpdate": "Are you sure you want to update {item}?",
+      "titleCreate": "Creation confirmation",
+      "textCreate": "Are you sure you want to create {item}?"
+    }
+  },
+
+  "settings": {
+    "profile": {
+      "title": "Profile",
+
+      "details": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email Address",
+        "phoneNumber": "Phone Number",
+        "birthDate": "Birth Date",
+        "firstNamePlaceholder": "Enter your first name",
+        "lastNamePlaceholder": "Enter your last name",
+        "phoneNumberPlaceholder": "Enter your phone number",
+        "genderPlaceholder": "Select your gender",
+        "enterUserDetailsTitle": "Enter your user details",
+        "sex": "Sex",
+
+        "gender": {
+          "male": "Male",
+          "female": "Female",
+          "preferNot": "Other"
+        }
+      },
+
+      "notification": {
+        "updateSuccess": "User details updated successfully"
+      }
+    },
+
+    "preferences": {
+      "title": "Preferences",
+
+      "notification": {
+        "updateSuccess": "Preferences updated successfully"
+      }
+    },
+
+    "myCompany": {
+      "title": "My company",
+
+      "joinCompany": {
+        "title": "Join a company",
+        "description": "To join a company, you need a invitation token first. It should have been given you to you by your suprior or a person responsible for handling company member invitations for your company on our platform.",
+        "invitationToken": "Invitation token",
+        "invitationTokenPlaceholder": "Enter your Invitation token",
+        "enterInvitationToken": "Please enter your invitation token",
+
+        "notification": {
+          "joinCompanySuccessTitle": "Company joined successfully"
+        }
+      },
+
+      "registerCompany": {
+        "title": "Register a company",
+        "description": "You might also want to register you company. In that case, you can begin the registration process by clicking the button below - you may cancel it at any time.",
+        "registerNow": "Register now"
+      }
+    }
+  },
+
+  "country": {
+    "al": "Albania",
+    "ad": "Andorra",
+    "at": "Austria",
+    "by": "Belarus",
+    "be": "Belgium",
+    "ba": "Bosnia and Herzegovina",
+    "bg": "Bulgaria",
+    "hr": "Croatia",
+    "cy": "Cyprus",
+    "cz": "Czech Republic",
+    "dk": "Denmark",
+    "ee": "Estonia",
+    "fi": "Finland",
+    "fr": "France",
+    "de": "Germany",
+    "gr": "Greece",
+    "hu": "Hungary",
+    "is": "Iceland",
+    "ie": "Ireland",
+    "it": "Italy",
+    "lv": "Latvia",
+    "li": "Liechtenstein",
+    "lt": "Lithuania",
+    "lu": "Luxembourg",
+    "mk": "Macedonia, The Former Yugoslav Republic of",
+    "mt": "Malta",
+    "md": "Moldova, Republic of",
+    "mc": "Monaco",
+    "me": "Montenegro",
+    "nl": "Netherlands",
+    "no": "Norway",
+    "pl": "Poland",
+    "pt": "Portugal",
+    "ro": "Romania",
+    "ru": "Russian Federation",
+    "sm": "San Marino",
+    "rs": "Serbia",
+    "sk": "Slovakia",
+    "si": "Slovenia",
+    "es": "Spain",
+    "se": "Sweden",
+    "ch": "Switzerland",
+    "ua": "Ukraine",
+    "gb": "United Kingdom",
+    "va": "Vatican City State"
+  }
+}
