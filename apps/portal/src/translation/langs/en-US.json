@@ -226,6 +226,10 @@
               "updateDialog": {
                 "title": "Update product tag"
               }
+            },
+
+            "listItem": {
+              "name": "Tag name"
             }
           }
         },

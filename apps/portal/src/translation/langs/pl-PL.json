@@ -226,6 +226,10 @@
               "updateDialog": {
                 "title": "Zaaktualizuj znacznik produktu"
               }
+            },
+
+            "listItem": {
+              "name": "Nazwa znacznika"
             }
           }
         },
