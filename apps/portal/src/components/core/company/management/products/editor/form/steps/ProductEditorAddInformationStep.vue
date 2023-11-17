@@ -20,6 +20,7 @@
               name="category"
               :label="$t('company.management.products.editor.productCategoryLabel')"
               :placeholder="$t('company.management.products.editor.productCategoryPlaceholder')"
+              :options="productCategories"
             />
 
             <m-select
@@ -62,8 +63,8 @@
 </template>
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue'
-import ProductDescriptorsService from '@/services/product/StaticProductDescriptorsService.js'
 import type { ProductCategory } from '@sharedInterfaces/product/ProductInterface'
+import { useStaticProductDescriptorsStore } from '../../../../../../../../stores/product/useStaticProductDescriptorsStore'
 
 // Emits
 const emits = defineEmits(['next-step'])
@@ -71,6 +72,7 @@ const emits = defineEmits(['next-step'])
 // Variables
 const productCategories = ref<ProductCategory>()
 const productSubcategories = ref<ProductCategory>()
+const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 
 // Methods
 const handleNextStep = () => {
@@ -78,14 +80,15 @@ const handleNextStep = () => {
 }
 
 const handleFetchProductCategories = async () => {
-  const { success, data } = await ProductDescriptorsService.getCategories()
-  if (success && data) productCategories.value = data
+  const categories = staticProductDescriptorsStore.getProductCategories.map((item) => ({
+    id: item.id,
+    text: item.name
+  }))
+
+  productCategories.value = categories
 }
 
-const handleFetchProductSubcategories = async () => {
-  const { success, data } = await ProductDescriptorsService.getSubcategories()
-  if (success && data) productSubcategories.value = data
-}
+const handleFetchProductSubcategories = async () => {}
 
 // Hooks
 onBeforeMount(async () => {
