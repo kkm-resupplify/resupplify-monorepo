@@ -3,7 +3,7 @@ import type {
   ProductSubcategory,
   ProductTag,
   ProductUnit
-} from '@/interface/product/ProductInterface'
+} from '@sharedInterfaces/product/ProductInterface'
 import { defineStore } from 'pinia'
 
 interface StaticProductDescriptorsState {
