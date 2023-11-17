@@ -27,6 +27,7 @@ export interface ProductUnit {
   id: number
   name: string
 }
+
 export interface ProductTag {
   id: number
   name: string
