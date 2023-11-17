@@ -213,7 +213,17 @@
             },
 
             "dialog": {
-              "setStatus": "Set status"
+              "edit": {
+                "setStatus": "Set status"
+              },
+
+              "delete": {
+                "title": "Confirm product removal"
+              },
+
+              "update": {
+                "title": "Update product status"
+              }
             }
           }
         },

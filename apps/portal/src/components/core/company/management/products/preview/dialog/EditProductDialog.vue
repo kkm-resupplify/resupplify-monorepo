@@ -5,26 +5,33 @@
     </template>
 
     <div class="edit-product-dialog__content">
-      <a-title
-        :title="$t('company.management.navigation.products.preview.content.status')"
-        subtitle="active"
-        variant="horizontal"
-      />
+      <div class="edit-product-dialog__status">
+        <a-title
+          :title="$t('company.management.navigation.products.preview.content.status')"
+          :subtitle="product.status"
+          variant="horizontal"
+        />
+      </div>
 
       <a-line :height="2" color="secondary-2" />
 
       <a-title :title="$t('global.manage')" size="large" />
 
       <div class="edit-product-dialog__buttons">
-        <a-button
-          :text="$t('company.management.navigation.products.preview.dialog.setStatus')"
-          size="x-large"
+        <update-product-status-dialog
+          :product="product"
           class="edit-product-dialog__buttons-status"
         />
 
         <a-button :text="$t('global.update')" size="x-large" />
 
-        <a-button :text="$t('global.delete')" color="gradient-danger" size="x-large" />
+        <o-confirm-dialog
+          :item-name="product.name"
+          type="delete"
+          :title="$t('company.management.navigation.products.preview.dialog.delete.title')"
+          :activator-name="$t('global.delete')"
+          activator-size="x-large"
+        />
       </div>
     </div>
   </m-dialog>
@@ -33,8 +40,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
-import type { Product } from '@/interface/product/ProductInterface'
+import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
+import UpdateProductStatusDialog from './UpdateProductStatusDialog.vue'
 
 defineProps({
   product: {
@@ -51,26 +59,42 @@ const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 .edit-product-dialog {
   &__content {
     @include respond-to('sm-and-up') {
-      width: 350px;
+      width: 300px;
     }
 
     display: flex;
     flex-direction: column;
     gap: $global-spacing-70;
 
-    width: 400px;
+    width: 350px;
+    margin-top: $global-spacing-60;
 
     white-space: nowrap;
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-50;
   }
 
   &__buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: $global-spacing-50;
+    align-self: center;
+
+    width: min-content;
   }
 
   &__buttons-status {
     grid-column: 1 / span 2;
+    :deep(.m-dialog__activator) {
+      width: 100%;
+    }
+    :deep(button) {
+      width: 100%;
+    }
   }
 }
 </style>

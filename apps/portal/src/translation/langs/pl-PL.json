@@ -213,7 +213,16 @@
             },
 
             "dialog": {
-              "setStatus": "Ustaw status"
+              "edit": {
+                "setStatus": "Ustaw status"
+              },
+              
+              "delete": {
+                "title": "Potwierdź usunięcie produktu"
+              },
+              "update": {
+                "title": "Potwierdź zaaktualizowanie produktu"
+              }
             }
           }
         },

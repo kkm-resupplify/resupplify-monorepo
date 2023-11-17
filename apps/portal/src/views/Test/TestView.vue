@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import ProductListItem from '@/components/core/company/management/products/dashboard/section/content/list/ProductListItem.vue'
-import type { Product } from '../../interface/product/ProductInterface'
+import type { Product } from '@sharedInterfaces/product/ProductInterface'
 
 const products: Product[] = [
   {

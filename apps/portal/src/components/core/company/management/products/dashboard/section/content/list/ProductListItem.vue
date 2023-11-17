@@ -4,7 +4,7 @@
 
     <a-list-item-title-section
       :title="$t('company.management.navigation.products.preview.content.status')"
-      :value="status"
+      :value="product.status"
       :basis="25"
     />
     <div class="product-list-item__tags">
@@ -15,11 +15,11 @@
       </div>
     </div>
 
-    <edit-product-dialog :product="product" />
+    <edit-product-dialog :product="product" status="active" />
   </a-list-item-wrapper>
 </template>
 <script setup lang="ts">
-import type { Product } from '@/interface/product/ProductInterface'
+import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 import EditProductDialog from '@/components/core/company/management/products/preview/dialog/EditProductDialog.vue'
@@ -27,8 +27,6 @@ import EditProductDialog from '@/components/core/company/management/products/pre
 defineProps({
   product: { type: Object as PropType<Product>, required: true }
 })
-
-const status = computed(() => 'active')
 const tags = computed(() => ['bread', 'water', 'whatever'])
 </script>
 
