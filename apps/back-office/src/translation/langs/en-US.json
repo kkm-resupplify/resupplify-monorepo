@@ -20,7 +20,9 @@
     "inactive": "Inactive",
     "confirm": "Confirm",
     "verifyAll": "Verify all",
-    "rejectAll": "Reject all"
+    "rejectAll": "Reject all",
+    "reject": "Reject",
+    "verify": "Verify"
   },
 
   "navigation": {

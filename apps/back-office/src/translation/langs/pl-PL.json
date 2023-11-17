@@ -20,7 +20,9 @@
     "inactive": "Nieaktywny",
     "confirm": "Potwierdź",
     "verifyAll": "Zweryfikuj wszystkie",
-    "rejectAll": "Odrzuć wszystkie"
+    "rejectAll": "Odrzuć wszystkie",
+    "reject": "Odrzuć",
+    "verify": "Zweryfikuj"
   },
 
   "navigation": {
