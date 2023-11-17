@@ -18,7 +18,9 @@
     "manage": "Zarządzaj",
     "active": "Actywny",
     "inactive": "Nieaktywny",
-    "confirm": "Potwierdź"
+    "confirm": "Potwierdź",
+    "verifyAll": "Zweryfikuj wszystkie",
+    "rejectAll": "Odrzuć wszystkie"
   },
 
   "navigation": {
@@ -87,7 +89,7 @@
       "generalInformation": "Informacje ogólne",
       "companyDetails": "Dane firmy",
       "contactInformation": "Informacje kontaktowe",
-      "name": "Nazwa",
+      "name": "Nazwa firmy",
       "country": "Kraj",
       "description": "Opis",
       "shortDescription": "Krótki opis",
@@ -99,6 +101,38 @@
       "email": "Email",
       "externalWebsite": "Strona internetowa firmy",
       "phoneNumber": "Numer telefonu"
+    },
+
+    "verify": {
+      "noResults": "Żadna z firm nie oczekuje teraz na weryfikację.",
+      "companyVerification": "Weryfikacja firm",
+      "comapniesAwaitingVerification": "Firmy oczekujące na weryfikację",
+
+      "stat": {
+        "unverified": "Oczekujące na weryfikację",
+        "rejected": "Odrzucone, oczekujące na ponowną weryfikację"
+      },
+
+      "notification": {
+        "rejectCompanySuccessTitle": "Firma pomyślnie odrzucona",
+        "verifyCompanySuccessTitle": "Firma pomyślnie zweryfikowana",
+        "rejectAllCompaniesSuccessTitle": "Wszystkie firmy pomyślnie odrzucone",
+        "verifyAllCompaniesSuccessTitle": "Wszystkie firmy pomyślnie zweryfikowane"
+      }
+    },
+
+    "all": {
+      "noResults": "W serwisie nie ma jeszcze żadnych firm",
+      "companyList": "Lista zarejestrowanych firm",
+      "companyListSubtitle": "Wszystkie firmy zarejestrowane w portalu",
+
+      "stat": {
+        "verified": "Zweryfikowane firmy",
+        "unverified": "Oczekujące na weryfikację",
+        "rejected": "Odrzucone firmy",
+        "suspended": "Zawieszone firmy",
+        "inactive": "Nieaktywny firmy"
+      }
     }
   },
 

@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { computed, ref, onBeforeMount } from 'vue'
-import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 import WarehousePreviewHeaderSection from '@/components/core/company/management/warehouse/preview/section/header/WarehousePreviewHeaderSection.vue'
 import WarehousePreviewContentSection from '@/components/core/company/management/warehouse/preview/section/content/WarehousePreviewContentSection.vue'
 import { useRoute } from 'vue-router'

@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import WarehouseList from '@/components/core/company/management/warehouse/dashboard/section/content/list/WarehouseList.vue'
 import type { PropType } from 'vue'
-import type { Warehouse } from '@interfaces/warehouse/WarehouseInterface'
+import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 
 defineProps({
   warehouses: {
@@ -26,6 +26,6 @@ defineEmits(['search'])
 
 <style scoped lang="scss">
 .warehouse-content-section {
-  overflow: hidden;
+  overflow-y: auto;
 }
 </style>

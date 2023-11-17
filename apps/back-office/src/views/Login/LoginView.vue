@@ -1,5 +1,7 @@
 <template>
   <div class="login-view">
+    <a-general-notification />
+
     <div class="login-view__content">
       <login-hero-section />
 
@@ -15,6 +17,13 @@ import LoginFormSection from './components/sections/LoginFormSection.vue'
 
 <style lang="scss" scoped>
 .login-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+
   &__content {
     @include boxshadow-primary-2;
 

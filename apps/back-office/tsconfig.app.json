@@ -24,8 +24,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@interfaces/*": ["./src/interface/*"],
-      "@composables/*": ["./src/composable/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@composables/*": ["./src/composables/*"],
       "@sharedAtoms/*": ["../../packages/shared/atoms/*"],
       "@sharedMolecules/*": ["../../packages/shared/molecules/*"],
       "@sharedOrganisms/*": ["../../packages/shared/organisms/*"],
