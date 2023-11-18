@@ -68,7 +68,7 @@ const { t } = useI18n()
 const productDetailsContent = computed(() => {
   return [
     { title: t('product.data.description'), value: props.product.description },
-    { title: t('product.data.unit'), value: props.product.productUnitId }
+    { title: t('product.data.unit'), value: props.product.productUnit.code }
   ]
 })
 
