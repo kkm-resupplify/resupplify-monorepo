@@ -31,5 +31,6 @@ export interface ProductUnit {
 export interface ProductTag {
   id: number
   name: string
+  differentLanguageName: string
   color: string
 }

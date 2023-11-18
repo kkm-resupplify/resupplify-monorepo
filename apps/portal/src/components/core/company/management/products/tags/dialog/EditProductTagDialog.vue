@@ -13,7 +13,7 @@
         "
       />
       <div class="edit-tag-dialog__buttons">
-        <a-button :text="$t('global.update')" size="x-large" />
+        <update-product-tag-dialog :tag="tag" />
 
         <o-confirm-dialog
           :activator-name="$t('global.delete')"
@@ -32,6 +32,7 @@ import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import type { ProductTag } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
+import UpdateProductTagDialog from './UpdateProductTagDialog.vue'
 
 defineProps({
   tag: Object as PropType<ProductTag>

@@ -58,7 +58,7 @@ defineExpose({
 
 <style lang="scss" scoped>
 .m-dialog {
-  z-index: 9;
+  // z-index: 9;
   display: flex;
 
   &__content-wrapper {

@@ -6,12 +6,12 @@
       :basis="20"
     />
 
-    <edit-tag-dialog :tag="tag" />
+    <edit-product-tag-dialog :tag="tag" />
   </a-list-item-wrapper>
 </template>
 <script setup lang="ts">
 import type { ProductTag } from '@sharedInterfaces/product/ProductInterface'
-import EditTagDialog from '../../../../dialog/EditTagDialog.vue'
+import EditProductTagDialog from '../../../../dialog/EditProductTagDialog.vue'
 import type { PropType } from 'vue'
 
 defineProps({

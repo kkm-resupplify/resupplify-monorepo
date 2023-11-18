@@ -11,7 +11,6 @@ import type { ProductTag } from '@sharedInterfaces/product/ProductInterface'
 const props = defineProps({
   tags: Array as PropType<ProductTag[]>
 })
-
 </script>
 <style scoped lang="scss">
 .product-tag-list {

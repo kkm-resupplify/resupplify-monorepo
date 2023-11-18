@@ -8,9 +8,9 @@ import type { ProductTag } from '@sharedInterfaces/product/ProductInterface'
 import ProductTagList from './list/ProductTagList.vue'
 
 const tags: ProductTag[] = [
-  { id: 1, name: 'bread', color: '#fff' },
-  { id: 2, name: 'water', color: '#fff' },
-  { id: 3, name: 'milk', color: '#fff' },
-  { id: 4, name: 'apple', color: '#fff' }
+  { id: 1, name: 'bread', differentLanguageName: 'chleb', color: '#fff' },
+  { id: 2, name: 'water', differentLanguageName: 'woda', color: '#fff' },
+  { id: 3, name: 'milk', differentLanguageName: 'mleko', color: '#fff' },
+  { id: 4, name: 'apple', differentLanguageName: 'jabłko', color: '#fff' }
 ]
 </script>
