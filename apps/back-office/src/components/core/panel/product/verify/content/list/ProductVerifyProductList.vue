@@ -4,7 +4,6 @@
       v-for="(product, idx) in products"
       :key="idx"
       :product="product"
-      @update-list="$emit('update-list')"
     />
   </div>
 
@@ -22,9 +21,6 @@ defineProps({
     required: true
   }
 })
-
-// Emits
-defineEmits(['update-list'])
 </script>
 
 <style lang="scss" scoped>

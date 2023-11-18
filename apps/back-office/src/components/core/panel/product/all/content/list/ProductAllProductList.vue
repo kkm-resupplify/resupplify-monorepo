@@ -1,6 +1,6 @@
 <template>
-  <div v-if="products.length" class="product-verify-product-list">
-    <product-verify-product-list-item
+  <div v-if="products.length" class="product-all-product-list">
+    <product-all-product-list-item
       v-for="(product, idx) in products"
       :key="idx"
       :product="product"
@@ -8,11 +8,11 @@
     />
   </div>
 
-  <a-list-no-results v-else :text="$t('product.verify.noResults')" />
+  <a-list-no-results v-else :text="$t('product.all.noResults')" />
 </template>
 
 <script setup lang="ts">
-import ProductVerifyProductListItem from '@/components/core/panel/product/verify/content/list/ProductVerifyProductListItem.vue'
+import ProductAllProductListItem from '@/components/core/panel/product/all/content/list/ProductAllProductListItem.vue'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import { type PropType } from 'vue'
 
@@ -28,7 +28,7 @@ defineEmits(['update-list'])
 </script>
 
 <style lang="scss" scoped>
-.product-verify-product-list {
+.product-all-product-list {
   overflow-y: auto;
   display: flex;
   flex-direction: column;

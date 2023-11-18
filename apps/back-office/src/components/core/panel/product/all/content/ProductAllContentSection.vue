@@ -1,6 +1,8 @@
 <template>
   <a-panel-section class="product-all-content-section">
-    <a-title :title="$t('product.all.productVerification')" size="large" />
+    <a-title :title="$t('product.all.productList')" size="large" />
+
+    <span v-text="$t('product.all.productListSubtitle')" />
 
     <a-line />
 

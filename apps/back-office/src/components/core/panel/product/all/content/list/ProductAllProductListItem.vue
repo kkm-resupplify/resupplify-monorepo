@@ -62,13 +62,6 @@ const productDetailsContent = computed(() => {
 .product-all-product-list-item {
   background-color: var(--primary);
 
-  &__actions {
-    display: flex;
-    flex: 1;
-    gap: $global-spacing-70;
-    justify-content: flex-end;
-  }
-
   &__content {
     display: flex;
     flex-direction: column;

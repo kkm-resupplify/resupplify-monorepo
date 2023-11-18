@@ -18,7 +18,7 @@ const products = ref<Product[]>([])
 const handleFetchProducts = async () => {
   isLoading.value = true
 
-  const { success, data } = await ProductVerificationService.getUnverifiedProducts()
+  const { success, data } = await ProductVerificationService.getAllProducts()
 
   if (success) products.value = data
 
