@@ -1,9 +1,9 @@
 import AdminProductView from '@/views/Product/AdminProductView.vue'
-import ProductVerifyPanel from '@/components/core/panel/product/ProductVerifyPanel.vue'
-import ProductListPanel from '@/components/core/panel/product/ProductListPanel.vue'
-import ProductCategoryListPanel from '@/components/core/panel/product/ProductCategoryListPanel.vue'
-import ProductSubcategoryListPanel from '@/components/core/panel/product/ProductSubcategoryListPanel.vue'
-import ProductUnitListPanel from '@/components/core/panel/product/ProductUnitListPanel.vue'
+import ProductVerifyPanel from '@/components/core/panel/product/verify/ProductVerifyPanel.vue'
+import ProductAllPanel from '@/components/core/panel/product/all/ProductAllPanel.vue'
+import ProductCategoryListPanel from '@/components/core/panel/product/category/ProductCategoryListPanel.vue'
+import ProductSubcategoryListPanel from '@/components/core/panel/product/subcategory/ProductSubcategoryListPanel.vue'
+import ProductUnitListPanel from '@/components/core/panel/product/unit/ProductUnitListPanel.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -30,7 +30,7 @@ const AdminProductRoutes: RouteRecordRaw[] = [
   {
     path: 'product/list',
     name: AdminProductRouteEnum.ADMIN_PRODUCT_LIST,
-    component: ProductListPanel
+    component: ProductAllPanel
   },
   {
     path: 'product/category',

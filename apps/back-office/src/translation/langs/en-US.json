@@ -20,7 +20,9 @@
     "inactive": "Inactive",
     "confirm": "Confirm",
     "verifyAll": "Verify all",
-    "rejectAll": "Reject all"
+    "rejectAll": "Reject all",
+    "reject": "Reject",
+    "verify": "Verify"
   },
 
   "navigation": {
@@ -34,12 +36,12 @@
     "tiles": {
       "company": {
         "verify": "Verify companies",
-        "list": "Company list"
+        "list": "All companies"
       },
 
       "product": {
         "verify": "Verify products",
-        "list": "Product list",
+        "list": "All products",
         "category": "Product categories",
         "subcategory": "Product subcategories",
         "unit": "Product units"
@@ -134,6 +136,49 @@
         "rejected": "Rejected companies",
         "suspended": "Suspended companies",
         "inactive": "Inactive companies"
+      }
+    }
+  },
+
+  "product": {
+    "data": {
+      "name": "Product name",
+      "code": "Product code",
+      "description": "Description",
+      "unit": "Unit",
+      "category": "Category",
+      "subcategory": "Subcategory"
+    },
+
+    "verify": {
+      "noResults": "No product awaits verification now.",
+      "productVerification": "Product verification",
+      "productsAwaitingVerification": "Products awaiting verification",
+
+      "stat": {
+        "unverified": "Awaiting verification",
+        "rejected": "Rejected, awaiting re-verification"
+      },
+
+      "notification": {
+        "rejectProductSuccessTitle": "Product rejected successfully",
+        "verifyProductSuccessTitle": "Product verified successfully",
+        "rejectAllProductsSuccessTitle": "All products rejected successfully",
+        "verifyAllProductsSuccessTitle": "All products verified successfully"
+      }
+    },
+
+    "all": {
+      "noResults": "There are currently no registered products in the service",
+      "productList": "List of registered products",
+      "productListSubtitle": "All products registered in the portal",
+
+      "stat": {
+        "verified": "Verified products",
+        "unverified": "Pending verification",
+        "rejected": "Rejected products",
+        "suspended": "Suspended products",
+        "inactive": "Inactive products"
       }
     }
   },
