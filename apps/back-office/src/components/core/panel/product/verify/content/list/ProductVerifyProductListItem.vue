@@ -6,15 +6,15 @@
 
         <a-list-item-title-section :title="$t('product.data.name')" :value="product.name" />
 
-        <a-list-item-title-section :title="$t('product.data.tin')" :value="product.code" />
+        <a-list-item-title-section :title="$t('product.data.code')" :value="product.code" />
 
         <a-list-item-title-section
-          :title="$t('product.data.phoneNumber')"
+          :title="$t('product.data.category')"
           :value="product.productCategory.name"
         />
 
         <a-list-item-title-section
-          :title="$t('product.data.contactPerson')"
+          :title="$t('product.data.subcategory')"
           :value="product.productSubcategory.name"
         />
 
@@ -68,7 +68,7 @@ const { t } = useI18n()
 const productDetailsContent = computed(() => {
   return [
     { title: t('product.data.description'), value: props.product.description },
-    { title: t('product.data.productUnitId'), value: props.product.productUnitId }
+    { title: t('product.data.unit'), value: props.product.productUnitId }
   ]
 })
 
