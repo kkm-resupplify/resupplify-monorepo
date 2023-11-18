@@ -36,12 +36,12 @@
     "tiles": {
       "company": {
         "verify": "Verify companies",
-        "list": "Company list"
+        "list": "All companies"
       },
 
       "product": {
         "verify": "Verify products",
-        "list": "Product list",
+        "list": "All products",
         "category": "Product categories",
         "subcategory": "Product subcategories",
         "unit": "Product units"

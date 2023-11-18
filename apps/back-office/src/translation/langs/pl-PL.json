@@ -36,15 +36,17 @@
     "tiles": {
       "company": {
         "verify": "Zweryfikuj firmy",
-        "list": "Lista firm"
+        "list": "Wszystkie firmy"
       },
+
       "product": {
         "verify": "Zweryfikuj produkty",
-        "list": "Lista produktów",
+        "list": "Wszystkie produkty",
         "category": "Kategorie produktów",
         "subcategory": "Podkategorie produktów",
         "unit": "Jednostki produktów"
       },
+
       "locale": {
         "country": "Lista krajów",
         "language": "Lista języków"
