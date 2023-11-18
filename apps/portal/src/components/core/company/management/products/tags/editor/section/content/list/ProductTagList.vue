@@ -1,15 +1,17 @@
 <template>
   <div class="product-tag-list">
-    <product-tag-list-item v-for="(tag, idx) in tags" :key="idx" :name="tag" />
+    <product-tag-list-item v-for="(tag, idx) in tags" :key="idx" :tag="tag" />
   </div>
 </template>
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import ProductTagListItem from './ProductTagListItem.vue'
+import type { ProductTag } from '@sharedInterfaces/product/ProductInterface'
 
-defineProps({
-  tags: Array as PropType<string[]>
+const props = defineProps({
+  tags: Array as PropType<ProductTag[]>
 })
+
 </script>
 <style scoped lang="scss">
 .product-tag-list {

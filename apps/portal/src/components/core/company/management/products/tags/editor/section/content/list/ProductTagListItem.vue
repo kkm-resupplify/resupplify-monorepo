@@ -2,14 +2,20 @@
   <a-list-item-wrapper class="product-list-item">
     <a-list-item-title-section
       :title="$t('company.management.navigation.products.tags.listItem.name')"
-      :value="name"
+      :value="tag?.name"
       :basis="20"
     />
+
+    <edit-tag-dialog :tag="tag" />
   </a-list-item-wrapper>
 </template>
 <script setup lang="ts">
+import type { ProductTag } from '@sharedInterfaces/product/ProductInterface'
+import EditTagDialog from '../../../../dialog/EditTagDialog.vue'
+import type { PropType } from 'vue'
+
 defineProps({
-  name: String
+  tag: Object as PropType<ProductTag>
 })
 </script>
 
