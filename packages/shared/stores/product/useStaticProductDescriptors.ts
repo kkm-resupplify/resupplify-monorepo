@@ -1,12 +1,12 @@
+import { defineStore } from 'pinia'
 import type {
   ProductCategory,
   ProductSubcategory,
   ProductTag,
   ProductUnit
 } from '@sharedInterfaces/product/ProductInterface'
-import { defineStore } from 'pinia'
 
-interface StaticProductDescriptorsState {
+interface StaticProductDescriptorsStore {
   productCategories: ProductCategory[]
   productSubcategories: ProductSubcategory[]
   productUnits: ProductUnit[]
@@ -16,7 +16,7 @@ interface StaticProductDescriptorsState {
 export const useStaticProductDescriptorsStore = defineStore({
   id: 'staticProductDescriptors',
 
-  state: (): StaticProductDescriptorsState => ({
+  state: (): StaticProductDescriptorsStore => ({
     productCategories: [],
     productSubcategories: [],
     productUnits: [],
