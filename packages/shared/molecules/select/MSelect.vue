@@ -22,7 +22,6 @@
         :rules="rules"
         :disabled="disabled"
         v-on="validationListeners"
-        @input="handleInputChange"
         @keydown.prevent
       />
 
@@ -144,6 +143,7 @@ const handleSelectOption = (option: MSelectItemData) => {
   showOptions.value = false
   appendIconState.value = !appendIconState.value
 
+  emits('input-change', inputValue.value)
   validate()
 }
 
@@ -152,11 +152,6 @@ const inputText = computed(() => {
 
   return null
 })
-
-const handleInputChange = () => {
-  optionsFilter.value = inputValue.value
-  emits('input-change', inputValue.value)
-}
 
 const {
   value: inputValue,
