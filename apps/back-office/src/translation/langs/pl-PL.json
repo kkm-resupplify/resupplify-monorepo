@@ -139,6 +139,15 @@
   },
 
   "product": {
+    "data": {
+      "name": "Nazwa produktu",
+      "code": "Kod produktu",
+      "description": "Opis",
+      "unit": "Jednostka",
+      "category": "Kategoria",
+      "subcategory": "Podkategoria"
+    },
+
     "verify": {
       "noResults": "Obecnie nie ma produktów oczekujących na weryfikację.",
       "productVerification": "Weryfikacja produktu",

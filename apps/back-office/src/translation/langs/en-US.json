@@ -141,6 +141,15 @@
   },
 
   "product": {
+    "data": {
+      "name": "Product name",
+      "code": "Product code",
+      "description": "Description",
+      "unit": "Unit",
+      "category": "Category",
+      "subcategory": "Subcategory"
+    },
+
     "verify": {
       "noResults": "No product awaits verification now.",
       "productVerification": "Product verification",
