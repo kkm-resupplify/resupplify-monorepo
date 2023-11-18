@@ -7,7 +7,7 @@ export interface Product {
   status: number
   verificationStatus: number
   companyId: number
-  productUnitId: number
+  productUnit: ProductUnit
   productSubcategory: ProductSubcategory
   productCategory: ProductCategory
 }
@@ -15,7 +15,7 @@ export interface Product {
 export interface ProductSubcategory {
   id: number
   name: string
-  category_id: number
+  categoryId: number
 }
 
 export interface ProductCategory {
@@ -25,7 +25,7 @@ export interface ProductCategory {
 
 export interface ProductUnit {
   id: number
-  name: string
+  code: string
 }
 
 export interface ProductTag {

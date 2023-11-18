@@ -30,17 +30,5 @@ defineProps({
 .company-all-content-section {
   overflow-y: auto;
   height: 100%;
-
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__mass-actions {
-    display: flex;
-    gap: $global-spacing-40;
-    align-items: center;
-  }
 }
 </style>
