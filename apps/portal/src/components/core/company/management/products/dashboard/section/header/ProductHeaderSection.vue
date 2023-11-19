@@ -6,11 +6,15 @@
 
         <a-title title="Total products" size="x-large" />
       </div>
-
-      <a-button text="Add product" size="x-large" class="product-header-section__button" />
+      <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
+        <a-button text="Add product" size="x-large" class="product-header-section__button" />
+      </router-link>
     </div>
   </a-panel-section>
 </template>
+<script setup lang="ts">
+import { RouteNames } from '@/routes'
+</script>
 <style scoped lang="scss">
 .product-header-section {
   display: flex;
