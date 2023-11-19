@@ -6,7 +6,10 @@
 
         <a-title
           :title="$t('company.management.navigation.products.dashboard.totalProducts')"
+          :subtitle="numberOfProducts"
           size="x-large"
+          variant="horizontal"
+          class="product-header-section__title"
         />
       </div>
       <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
@@ -23,6 +26,10 @@
 import { RouteNames } from '@/routes'
 import { useUserStore } from '@/stores/user/useUserStore'
 
+defineProps({
+  numberOfProducts: String
+})
+
 // Variables
 const userStore = useUserStore()
 </script>
@@ -31,5 +38,9 @@ const userStore = useUserStore()
   display: flex;
   justify-content: space-between;
   padding: $global-spacing-40;
+
+  &__title {
+    white-space: nowrap;
+  }
 }
 </style>

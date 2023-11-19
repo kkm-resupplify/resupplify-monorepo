@@ -209,7 +209,8 @@
 
           "dashboard": {
             "totalProducts": "Ilość produktów: ",
-            "addProduct": "Dodaj produkt"
+            "addProduct": "Dodaj produkt",
+            "filterProducts": "Filtruj produkty"
           }
         },
 

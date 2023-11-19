@@ -2,7 +2,7 @@
   <template v-if="isLoading"> implement-loader-here </template>
 
   <a-panel v-else>
-    <product-header-section />
+    <product-header-section :number-of-products="numberOfProducts" />
   </a-panel>
 </template>
 <script setup lang="ts">
@@ -14,6 +14,7 @@ import { useRoute } from 'vue-router'
 
 // Variables
 const products = ref<Product[]>([])
+const numberOfProducts = ref()
 const isLoading = ref(false)
 const route = useRoute()
 
@@ -24,13 +25,14 @@ const handleFetchProducts = async () => {
     query: { search }
   } = route
 
-  const { data, success } = await CompanyProductsService.getCompanyProducts({
+  const { data, success, pagination } = await CompanyProductsService.getCompanyProducts({
     page: search as string
   })
 
-  console.log(data, success)
-
-  if (success) products.value = data
+  if (success) {
+    products.value = data
+    numberOfProducts.value = pagination.totalRecords
+  }
 
   isLoading.value = false
 }
