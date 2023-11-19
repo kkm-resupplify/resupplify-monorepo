@@ -1,3 +1,4 @@
+import { useCompanyProductsStore } from '@/stores/product/useCompanyProductsStore'
 import BaseService from '../BaseService'
 
 class CompanyProductsService extends BaseService {
