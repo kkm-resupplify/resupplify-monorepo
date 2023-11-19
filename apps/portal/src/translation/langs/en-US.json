@@ -205,6 +205,11 @@
             "products": "Products",
             "newProduct": "Create new products",
             "companyProductTags": "Company product tags"
+          },
+
+          "dashboard": {
+            "totalProducts": "Total products: ",
+            "addProduct": "Add product"
           }
         },
 

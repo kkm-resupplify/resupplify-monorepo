@@ -205,6 +205,11 @@
             "products": "Produkty",
             "newProduct": "Utwórz nowy produkt",
             "companyProductTags": "Firmowe znaczniki produktów"
+          },
+
+          "dashboard": {
+            "totalProducts": "Ilość produktów: ",
+            "addProduct": "Dodaj produkt"
           }
         },
 
