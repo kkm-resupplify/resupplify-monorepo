@@ -33,8 +33,8 @@ const CompanyRoutes: RouteRecordRaw[] = [
       if (mustBelongToCompanyNavigationGuard) return mustBelongToCompanyNavigationGuard
 
       const roles = await CompanyRoleService.getRoles()
-
       const companyRoleStore = useCompanyRoleStore()
+
       if (roles) {
         companyRoleStore.setCompanyRoles(roles)
       }
@@ -43,9 +43,6 @@ const CompanyRoutes: RouteRecordRaw[] = [
       await StaticProductDescriptorsService.getSubcategories()
       await StaticProductDescriptorsService.getUnits()
       await StaticProductDescriptorsService.getTags()
-
-      const productDescriptorsStore = useStaticProductDescriptorsStore()
-      console.log(productDescriptorsStore.getCategoryAndSubcategories(1))
     }
   }
 ]
