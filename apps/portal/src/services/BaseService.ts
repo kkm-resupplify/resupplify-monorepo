@@ -61,7 +61,10 @@ export default class BaseService {
 
   mapParamNames(params: any) {
     return Object.entries(params || {}).reduce((result, [key, value]) => {
-      result[`filter[${key}]`] = value
+      if (key === 'page') {
+        result[key] = value
+      } else result[`filter[${key}]`] = value
+
       return result
     }, {} as Record<string, any>)
   }
