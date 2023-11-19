@@ -1,20 +1,11 @@
-import { useCompanyProductsStore } from '@/stores/product/useCompanyProductsStore'
 import BaseService from '../BaseService'
 
 class CompanyProductsService extends BaseService {
-  async getProducts() {
-    const response = await this.get({
+  async getCompanyProducts(params?: { page?: string }) {
+    return await this.get({
+      config: { params },
       suffix: 'product'
     })
-
-    if (response.success) {
-      const { data } = response
-
-      const companyProductsStore = useCompanyProductsStore()
-      companyProductsStore.setProducts(data)
-    }
-
-    return response
   }
 }
 
