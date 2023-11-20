@@ -20,7 +20,9 @@
     "inactive": "Nieaktywny",
     "confirm": "Potwierdź",
     "verifyAll": "Zweryfikuj wszystkie",
-    "rejectAll": "Odrzuć wszystkie"
+    "rejectAll": "Odrzuć wszystkie",
+    "reject": "Odrzuć",
+    "verify": "Zweryfikuj"
   },
 
   "navigation": {
@@ -34,15 +36,17 @@
     "tiles": {
       "company": {
         "verify": "Zweryfikuj firmy",
-        "list": "Lista firm"
+        "list": "Wszystkie firmy"
       },
+
       "product": {
         "verify": "Zweryfikuj produkty",
-        "list": "Lista produktów",
+        "list": "Wszystkie produkty",
         "category": "Kategorie produktów",
         "subcategory": "Podkategorie produktów",
         "unit": "Jednostki produktów"
       },
+
       "locale": {
         "country": "Lista krajów",
         "language": "Lista języków"
@@ -132,6 +136,49 @@
         "rejected": "Odrzucone firmy",
         "suspended": "Zawieszone firmy",
         "inactive": "Nieaktywny firmy"
+      }
+    }
+  },
+
+  "product": {
+    "data": {
+      "name": "Nazwa produktu",
+      "code": "Kod produktu",
+      "description": "Opis",
+      "unit": "Jednostka",
+      "category": "Kategoria",
+      "subcategory": "Podkategoria"
+    },
+
+    "verify": {
+      "noResults": "Obecnie nie ma produktów oczekujących na weryfikację.",
+      "productVerification": "Weryfikacja produktu",
+      "productsAwaitingVerification": "Produkty oczekujące na weryfikację",
+
+      "stat": {
+        "unverified": "Oczekuje na weryfikację",
+        "rejected": "Odrzucone, oczekuje na ponowną weryfikację"
+      },
+
+      "notification": {
+        "rejectProductSuccessTitle": "Produkt został pomyślnie odrzucony",
+        "verifyProductSuccessTitle": "Produkt został pomyślnie zweryfikowany",
+        "rejectAllProductsSuccessTitle": "Wszystkie produkty zostały pomyślnie odrzucone",
+        "verifyAllProductsSuccessTitle": "Wszystkie produkty zostały pomyślnie zweryfikowane"
+      }
+    },
+
+    "all": {
+      "noResults": "Obecnie nie ma zarejestrowanych produktów w usłudze",
+      "productList": "Lista zarejestrowanych produktów",
+      "productListSubtitle": "Wszystkie produkty zarejestrowane w portalu",
+
+      "stat": {
+        "verified": "Zweryfikowane produkty",
+        "unverified": "Oczekujące na weryfikację",
+        "rejected": "Odrzucone produkty",
+        "suspended": "Zawieszone produkty",
+        "inactive": "Nieaktywne produkty"
       }
     }
   },

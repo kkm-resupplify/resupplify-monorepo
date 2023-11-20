@@ -14,6 +14,7 @@
       <warehouse-product-list
         v-if="showList"
         :warehouse-products="warehouseProducts"
+        :pagination="paginationData"
         @product-changed="$emit('product-changed')"
       />
 
@@ -21,6 +22,8 @@
         v-else
         :text="$t(`company.management.warehouse.preview.list.${noResultsTranslationKey}`)"
       />
+
+      <o-pagination :pagination="paginationData" @page-changed="handleFetchWarehouseProducts" />
     </template>
   </a-panel-section>
 </template>
@@ -32,7 +35,7 @@ import type { WarehouseProduct } from '@sharedInterfaces/warehouse/WarehouseProd
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
 import { ref, computed, onBeforeMount } from 'vue'
-
+import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 const props = defineProps({
   hasProducts: Boolean
 })
@@ -44,6 +47,7 @@ defineEmits(['product-changed'])
 const isLoading = ref(false)
 const warehouseProducts = ref<WarehouseProduct[]>([])
 const route = useRoute()
+const paginationData = ref<Pagination>()
 
 // Computed
 const warehouseId = computed(() => route.params.id)
@@ -61,14 +65,21 @@ const handleFetchWarehouseProducts = async () => {
   isLoading.value = true
 
   const {
-    query: { search }
+    query: { search, page }
   } = route
 
-  const { data, success } = await WarehouseService.getWarehouseProducts(+warehouseId.value, {
-    name: search as string
-  })
+  const { data, success, pagination } = await WarehouseService.getWarehouseProducts(
+    +warehouseId.value,
+    {
+      name: search as string,
+      page: page as string
+    }
+  )
 
-  if (success) warehouseProducts.value = data
+  if (success) {
+    warehouseProducts.value = data
+    paginationData.value = pagination
+  }
 
   isLoading.value = false
 }

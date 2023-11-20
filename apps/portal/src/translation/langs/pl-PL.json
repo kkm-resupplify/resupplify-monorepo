@@ -18,7 +18,8 @@
     "manage": "Zarządzaj",
     "active": "Actywny",
     "inactive": "Nieaktywny",
-    "confirm": "Potwierdź"
+    "confirm": "Potwierdź",
+    "add": "Dodaj"
   },
 
   "payments": {
@@ -202,30 +203,9 @@
           "title": "Produkty",
 
           "tiles": {
+            "products": "Produkty",
             "newProduct": "Utwórz nowy produkt",
             "companyProductTags": "Firmowe znaczniki produktów"
-          },
-
-          "preview": {
-            "content": {
-              "status": "Status",
-              "tags": "Tagi",
-              "category": "Kategoria",
-              "subcategory": "Podkategoria"
-            },
-
-            "dialog": {
-              "edit": {
-                "setStatus": "Ustaw status"
-              },
-
-              "delete": {
-                "title": "Potwierdź usunięcie produktu"
-              },
-              "update": {
-                "title": "Potwierdź zaaktualizowanie produktu"
-              }
-            }
           }
         },
 
@@ -343,6 +323,37 @@
             "noWarehouses": "Twoja firma nie ma jeszcze żadnych magazynów.",
             "noProducts": "Twoja firma nie ma jeszcze żadnych produktów przypisanych do tego magazynu.",
             "noProductsMatchingFilter": "Brak produktów dla podanych parametrów."
+          }
+        }
+      },
+
+      "products": {
+        "editor": {
+          "informationTitle": "Wprowadź opis produktu",
+          "translationTitle": "Tłumaczenia produktu w języku: {language}",
+          "productNameLabel": "Nazwa produktu",
+          "productNamePlaceholder": "Wprowadź nazwę produktu",
+          "productCategoryLabel": "Kategoria produktu",
+          "productCategoryPlaceholder": "Wybierz kategorię produktu",
+          "productSubcategoryLabel": "Podkategoria produktu",
+          "productSubcategoryPlaceholder": "Wybierz podkategorię produktu",
+          "productUnitLabel": "Jednostka produktu",
+          "productUnitPlaceholder": "Wybierz jednostkę produktu",
+          "productTagsLabel": "Tagi produktu",
+          "productTagsPlaceholder": "Wybierz tagi produktu",
+          "productDescriptionLabel": "Opis produktu",
+          "productDescriptionPlaceholder": "Wprowadź opis produktu",
+
+          "steps": {
+            "information": {
+              "title": "Produkt",
+              "content": "Informacje o produkcie"
+            },
+
+            "translation": {
+              "title": "Tłumaczenia",
+              "content": "Dodaj tłumaczenia w języku: {language}"
+            }
           }
         }
       }
