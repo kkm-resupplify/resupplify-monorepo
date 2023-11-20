@@ -75,23 +75,23 @@ const totalPages = computed(() => {
 // Methods
 const initializePagination = async () => {
   if (!route.query.page) {
-    router.push({ query: { page: '1' } })
+    router.push({ query: { ...route.query, page: '1' } })
   }
 }
 
 const handleSubmit = (value: PaginationFormData) => {
-  router.push({ query: { page: value.pagination } })
+  router.push({ query: { ...route.query, page: value.pagination } })
 }
 
 const handlePreviousPage = async () => {
   if (currentPage.value > 1) {
-    await router.push({ query: { page: currentPage.value - 1 } })
+    await router.push({ query: { ...route.query, page: currentPage.value - 1 } })
   }
 }
 
 const handleNextPage = async () => {
   if (currentPage.value < totalPages.value)
-    await router.push({ query: { page: currentPage.value + 1 } })
+    await router.push({ query: { ...route.query, page: currentPage.value + 1 } })
 }
 
 // Watch
