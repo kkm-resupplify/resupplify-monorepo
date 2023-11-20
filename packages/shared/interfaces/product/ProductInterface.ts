@@ -10,7 +10,7 @@ export interface Product {
   productUnit: ProductUnit
   productSubcategory: ProductSubcategory
   productCategory: ProductCategory
-  productTags: ProductTags[]
+  productTags: ProductTag[]
 }
 
 export interface ProductSubcategory {
@@ -24,11 +24,6 @@ export interface ProductCategory {
   name: string
 }
 
-export interface ProductTags {
-  id: number
-  name: string
-}
-
 export interface ProductUnit {
   id: number
   code: string
@@ -37,6 +32,5 @@ export interface ProductUnit {
 export interface ProductTag {
   id: number
   name: string
-  differentLanguageName: string
   color: string
 }
