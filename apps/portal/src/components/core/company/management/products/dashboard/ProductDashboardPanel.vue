@@ -3,10 +3,13 @@
 
   <a-panel v-else>
     <product-header-section :number-of-products="numberOfProducts" />
+
+    <product-content-section />
   </a-panel>
 </template>
 <script setup lang="ts">
 import ProductHeaderSection from './section/header/ProductHeaderSection.vue'
+import ProductContentSection from './section/content/ProductContentSection.vue'
 import { ref, onBeforeMount } from 'vue'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import CompanyProductsService from '@/services/product/CompanyProductsService'

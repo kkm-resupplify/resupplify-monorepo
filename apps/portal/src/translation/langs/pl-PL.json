@@ -210,7 +210,11 @@
           "dashboard": {
             "totalProducts": "Ilość produktów: ",
             "addProduct": "Dodaj produkt",
-            "filterProducts": "Filtruj produkty"
+            "filterProducts": "Filtruj produkty",
+            "searchBarPlaceholder": "Podaj nazwę",
+            "category": "Kategoria",
+            "subcategory": "Podkategoria",
+            "status": "Status"
           }
         },
 
