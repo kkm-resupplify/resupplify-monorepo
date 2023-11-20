@@ -15,7 +15,10 @@ class WarehouseService extends BaseService {
     return await this.get({ id })
   }
 
-  async getWarehouseProducts(id: number, params?: { name?: string; status?: string }) {
+  async getWarehouseProducts(
+    id: number,
+    params?: { name?: string; status?: string; page?: string }
+  ) {
     return await this.get({
       id,
       config: { params },

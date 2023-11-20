@@ -42,6 +42,7 @@ class RegisterCompanyStepDTO {
     return t(`company.register.steps.${step}.${key}`)
   }
 }
+
 // Variables
 const { t } = useI18n()
 const registerCompanyStore = useRegisterCompanyStore()

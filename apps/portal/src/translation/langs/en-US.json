@@ -18,7 +18,8 @@
     "manage": "Manage",
     "active": "Active",
     "inactive": "Inactive",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "add": "Add"  
   },
 
   "payments": {
@@ -323,6 +324,37 @@
             "noWarehouses": "Your company does not have any warehouses yet.",
             "noProducts": "Your company does not have any products assigned to this warehouse yet.",
             "noProductsMatchingFilter": "No products for given parameters."
+          }
+        }
+      },
+
+      "products": {
+        "editor": {
+          "informationTitle": "Enter product description",
+          "translationTitle": "Product translations in {language}",
+          "productNameLabel": "Product name",
+          "productNamePlaceholder": "Enter product name",
+          "productCategoryLabel": "Product category",
+          "productCategoryPlaceholder": "Select product category",
+          "productSubcategoryLabel": "Product subcategory",
+          "productSubcategoryPlaceholder": "Select product subcategory",
+          "productUnitLabel": "Product unit",
+          "productUnitPlaceholder": "Select product unit",
+          "productTagsLabel": "Product tags",
+          "productTagsPlaceholder": "Select product tags",
+          "productDescriptionLabel": "Product description",
+          "productDescriptionPlaceholder": "Select product description",
+
+          "steps": {
+            "information": {
+              "title": "Product",
+              "content": "Product information"
+            },
+
+            "translation": {
+              "title": "Translations",
+              "content": "Add {language} language translation"
+            }
           }
         }
       }
