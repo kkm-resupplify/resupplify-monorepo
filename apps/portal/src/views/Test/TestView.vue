@@ -21,10 +21,14 @@ const products: Product[] = [
     status: 1,
     verificationStatus: 2,
     companyId: 101,
-    productUnitId: 201,
+    productUnit: {
+      id: 2,
+      code: 'KILOGRAMS'
+    },
     productSubcategory: {
       id: 301,
-      name: 'Subcategory 1'
+      name: 'Subcategory 1',
+      categoryId: 401
     },
     productCategory: {
       id: 401,
