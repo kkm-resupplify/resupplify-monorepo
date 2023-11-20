@@ -23,7 +23,12 @@
       />
 
       <div class="product-list-item__tags-items">
-        <a-list-item-title-section v-for="(tag, idx) in tags" :key="idx" :value="tag" :basis="25" />
+        <a-list-item-title-section
+          v-for="(tag, idx) in product.productTags"
+          :key="idx"
+          :value="tag.name"
+          :basis="25"
+        />
       </div>
     </div>
 
@@ -33,17 +38,15 @@
 <script setup lang="ts">
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
-import { computed } from 'vue'
 import EditProductDialog from '@/components/core/company/management/products/preview/dialog/EditProductDialog.vue'
 import { useProductStatus } from '@/composable/product/useProductStatus'
 
-defineProps({
+const props = defineProps({
   product: { type: Object as PropType<Product>, required: true }
 })
 
 // Variables
 const { productStatus } = useProductStatus()
-const tags = computed(() => ['bread', 'water', 'whatever'])
 </script>
 
 <style scoped lang="scss">
