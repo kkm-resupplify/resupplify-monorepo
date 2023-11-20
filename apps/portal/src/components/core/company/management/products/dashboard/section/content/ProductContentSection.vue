@@ -13,26 +13,25 @@
       <div class="product-content-section__selects">
         <m-select
           name="category"
-          rules="required"
           :placeholder="$t('company.management.navigation.products.dashboard.category')"
           :options="productCategories"
+          :validate="false"
           @input-change="handleProductCategoryChange"
         />
 
         <m-select
           ref="subcategoryRef"
           name="subcategory"
-          rules="required"
+          :validate="false"
           :placeholder="$t('company.management.navigation.products.dashboard.subcategory')"
           :options="productSubcategories"
         />
 
         <m-select
-          name="category"
-          rules="required"
+          name="status"
+          :validate="false"
           :placeholder="$t('company.management.navigation.products.dashboard.status')"
           :options="statuses"
-          @input-change="handleProductCategoryChange"
         />
       </div>
     </div>
@@ -64,10 +63,13 @@ const productSubcategories = ref<ProductSubcategorySelectItem[]>()
 
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
-const statuses = ref(() => [
+
+const statuses = ref([
   { id: 1, text: t('global.active') },
   { id: 2, text: t('global.inactive') }
 ])
+
+console.log(productSubcategories.value)
 
 const handleFetchProductCategories = async () => {
   const categories = staticProductDescriptorsStore.getProductCategories.map((item) => ({
@@ -90,6 +92,7 @@ const handleProductCategoryChange = (id: number) => {
   }))
 }
 
+// Hooks
 onBeforeMount(async () => {
   await handleFetchProductCategories()
 })

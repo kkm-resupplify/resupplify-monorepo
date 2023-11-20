@@ -261,6 +261,11 @@ const handlePrependIconClick = (event: Event) => {
   event.stopPropagation()
   prependIconState.value = !prependIconState.value
 }
+
+// Exposes
+defineExpose({
+  clearSelect
+})
 </script>
 
 <style lang="scss" scoped>
