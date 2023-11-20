@@ -23,11 +23,11 @@
       />
 
       <div class="product-list-item__tags-items">
-        <a-list-item-title-section
+        <product-tag-item
           v-for="(tag, idx) in product.productTags"
           :key="idx"
-          :value="tag.name"
-          :basis="25"
+          :name="tag.name"
+          :color="tag.color"
         />
       </div>
     </div>
@@ -35,13 +35,15 @@
     <edit-product-dialog :product="product" status="active" />
   </a-list-item-wrapper>
 </template>
+
 <script setup lang="ts">
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
 import EditProductDialog from '@/components/core/company/management/products/preview/dialog/EditProductDialog.vue'
 import { useProductStatus } from '@/composable/product/useProductStatus'
+import ProductTagItem from './ProductTagItem.vue'
 
-const props = defineProps({
+defineProps({
   product: { type: Object as PropType<Product>, required: true }
 })
 

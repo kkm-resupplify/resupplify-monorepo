@@ -88,9 +88,11 @@ const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
   &__buttons-status {
     grid-column: 1 / span 2;
+
     :deep(.m-dialog__activator) {
       width: 100%;
     }
+
     :deep(button) {
       width: 100%;
     }
