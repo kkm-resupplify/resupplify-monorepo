@@ -1,7 +1,7 @@
 import BaseService from '../BaseService'
 
 class CompanyProductsService extends BaseService {
-  async getCompanyProducts(params?: { page?: string }) {
+  async getCompanyProducts(params?: { page?: string; name?: string }) {
     return await this.get({
       config: { params },
       suffix: 'product'

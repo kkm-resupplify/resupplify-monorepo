@@ -8,6 +8,7 @@
 
       <o-search-bar
         :placeholder="$t('company.management.navigation.products.dashboard.searchBarPlaceholder')"
+        @search="$emit('search')"
       />
 
       <div class="product-content-section__selects">
@@ -69,8 +70,7 @@ const statuses = ref([
   { id: 2, text: t('global.inactive') }
 ])
 
-console.log(productSubcategories.value)
-
+// Methods
 const handleFetchProductCategories = async () => {
   const categories = staticProductDescriptorsStore.getProductCategories.map((item) => ({
     id: item.id,
@@ -91,6 +91,9 @@ const handleProductCategoryChange = (id: number) => {
     categoryId: item.categoryId
   }))
 }
+
+// Emits
+defineEmits(['search'])
 
 // Hooks
 onBeforeMount(async () => {
