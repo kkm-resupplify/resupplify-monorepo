@@ -40,8 +40,8 @@ export const useStaticProductDescriptorsStore = defineStore({
   },
 
   actions: {
-    setProductCategories(productCategories: ProductCategory[]) {
-      this.productCategories = productCategories
+    setProductCategories(productCategoriesd: ProductCategory[]) {
+      this.productCategories = productCategoriesd
     },
     setProductSubcategories(productSubcategories: ProductSubcategory[]) {
       this.productSubcategories = productSubcategories
@@ -52,7 +52,5 @@ export const useStaticProductDescriptorsStore = defineStore({
     setProductTags(productTags: ProductTag[]) {
       this.productTags = productTags
     }
-  },
-
-  persist: true
+  }
 })
