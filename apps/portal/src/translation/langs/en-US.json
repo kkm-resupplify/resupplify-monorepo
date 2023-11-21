@@ -367,6 +367,14 @@
             "tags": "Tags"
           },
 
+          "dialog": {
+            "status": "Status",
+            "setStatus": "Set status",
+            "delete": {
+              "title": "Potwierdź usunięcie produktu: {product}"
+            }
+          },
+
           "title": "Products",
 
           "tiles": {

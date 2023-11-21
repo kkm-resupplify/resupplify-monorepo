@@ -5,20 +5,20 @@
     <a-list-item-title-section :value="product.name" :basis="20" />
 
     <a-list-item-title-section
-      :title="$t('company.management.navigation.products.preview.content.category')"
+      :title="$t('company.management.products.preview.content.category')"
       :value="product.productCategory.name"
       :basis="25"
     />
 
     <a-list-item-title-section
-      :title="$t('company.management.navigation.products.preview.content.subcategory')"
+      :title="$t('company.management.products.preview.content.subcategory')"
       :value="product.productSubcategory.name"
       :basis="25"
     />
 
     <div class="product-list-item__tags">
       <a-list-item-title-section
-        :title="$t('company.management.navigation.products.preview.content.tags')"
+        :title="$t('company.management.products.preview.content.tags')"
         :basis="25"
       />
 
@@ -54,7 +54,6 @@ const { productStatus } = useProductStatus()
 <style scoped lang="scss">
 .product-list-item {
   justify-content: space-between;
-  min-width: 600px;
 
   &__tags {
     display: flex;

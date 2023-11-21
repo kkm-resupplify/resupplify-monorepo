@@ -42,19 +42,29 @@
           :options="verificationStatuses"
         />
       </div>
+
+      <product-list :products="products" />
     </div>
   </a-panel-section>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, type PropType } from 'vue'
 import { useStaticProductDescriptorsStore } from '@/stores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { onBeforeMount } from 'vue'
 import { useI18n } from 'vue-i18n'
+import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type {
   ProductCategorySelectItem,
   ProductSubcategorySelectItem
 } from '@sharedInterfaces/product/ProductInterface'
+import ProductList from './list/ProductList.vue'
+
+defineProps({
+  products: {
+    type: Array as PropType<Product[]>
+  }
+})
 
 // Variables
 const { t } = useI18n()

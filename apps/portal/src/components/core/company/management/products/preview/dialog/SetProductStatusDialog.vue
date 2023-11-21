@@ -1,12 +1,12 @@
 <template>
   <m-dialog
     ref="dialogRef"
-    :title="$t('company.management.navigation.products.preview.dialog.update.title')"
+    :title="$t('company.management.products.preview.dialog.setStatus')"
     class="edit-product-status-dialog"
   >
     <template #activator>
       <a-button
-        :text="$t('company.management.navigation.products.preview.dialog.edit.setStatus')"
+        :text="$t('company.management.products.preview.dialog.setStatus')"
         size="x-large"
         class="edit-product-status-dialog__activator"
       />
@@ -73,11 +73,11 @@ const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
   &__buttons {
     display: flex;
-    align-self: center;
     gap: $global-spacing-50;
-    margin-inline: auto;
+    align-self: center;
 
     width: min-content;
+    margin-inline: auto;
   }
 }
 </style>

@@ -366,6 +366,14 @@
             "tags": "Tagi"
           },
 
+          "dialog": {
+            "status": "Status",
+            "setStatus": "Ustaw status",
+            "delete": {
+              "title": "Confirm {product} removal"
+            }
+          },
+
           "title": "Produkty",
 
           "tiles": {

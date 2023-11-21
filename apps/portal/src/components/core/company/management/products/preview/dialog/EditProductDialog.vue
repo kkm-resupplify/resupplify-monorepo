@@ -7,7 +7,7 @@
     <div class="edit-product-dialog__content">
       <div class="edit-product-dialog__status">
         <a-title
-          :title="$t('company.management.navigation.products.preview.content.status')"
+          :title="$t('company.management.products.preview.dialog.status')"
           :subtitle="productStatusName(product)"
           variant="horizontal"
         />
@@ -25,7 +25,11 @@
         <o-confirm-dialog
           :item-name="product.name"
           type="delete"
-          :title="$t('company.management.navigation.products.preview.dialog.delete.title')"
+          :title="
+            $t('company.management.products.preview.dialog.delete.title', {
+              product: product.name
+            })
+          "
           :activator-name="$t('global.delete')"
           activator-size="x-large"
         />
