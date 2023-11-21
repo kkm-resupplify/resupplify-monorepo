@@ -377,10 +377,10 @@
 
           "dashboard": {
             "totalProductsCount": "Total products: ",
-            "pendingVerificationProductsCount": "Number of products awaiting verification: ",
-            "verifiedProductsCount": "Number of verified products: ",
-            "activeProductsCount": "Number of active products: ",
-            "inactiveProductsCount": "Number of inactive products: ",
+            "pendingVerificationProductsCount": "Products awaiting verification: ",
+            "verifiedProductsCount": "Verified products: ",
+            "activeProductsCount": "Active products: ",
+            "inactiveProductsCount": "Inactive products: ",
 
             "addProduct": "Add product",
             "filterProducts": "Filter products",
