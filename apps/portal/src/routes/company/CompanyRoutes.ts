@@ -10,7 +10,6 @@ import {
 import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore'
 import CompanyRoleService from '@/services/company/CompanyRoleService'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
-import { useStaticProductDescriptorsStore } from '@/stores/product/useStaticProductDescriptorsStore'
 
 class CompanyRouteEnum extends BaseEnum {
   static readonly COMPANY: string = 'COMPANY'
