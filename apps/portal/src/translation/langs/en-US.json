@@ -18,7 +18,9 @@
     "manage": "Manage",
     "active": "Active",
     "inactive": "Inactive",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "verified": "Verified",
+    "unverified": "Unverified"
   },
 
   "payments": {
@@ -214,7 +216,8 @@
             "searchBarPlaceholder": "Enter name",
             "category": "Category",
             "subcategory": "Subcategory",
-            "status": "Status"
+            "status": "Status",
+            "verificationStatus": "Verification Status"
           }
         },
 

@@ -18,7 +18,9 @@
     "manage": "Zarządzaj",
     "active": "Actywny",
     "inactive": "Nieaktywny",
-    "confirm": "Potwierdź"
+    "confirm": "Potwierdź",
+    "verified": "Zweryfikowany",
+    "unverified": "Niezweryfikowany"
   },
 
   "payments": {
@@ -214,7 +216,8 @@
             "searchBarPlaceholder": "Podaj nazwę",
             "category": "Kategoria",
             "subcategory": "Podkategoria",
-            "status": "Status"
+            "status": "Status",
+            "verificationStatus": "Status weryfikacji"
           }
         },
 

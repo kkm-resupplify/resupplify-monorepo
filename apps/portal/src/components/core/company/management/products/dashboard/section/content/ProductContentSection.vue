@@ -6,10 +6,10 @@
         size="x-large"
       />
 
-      <o-search-bar
+      <!-- <o-search-bar
         :placeholder="$t('company.management.navigation.products.dashboard.searchBarPlaceholder')"
         @search="$emit('search')"
-      />
+      /> -->
 
       <div class="product-content-section__selects">
         <m-select
@@ -33,6 +33,13 @@
           :validate="false"
           :placeholder="$t('company.management.navigation.products.dashboard.status')"
           :options="statuses"
+        />
+
+        <m-select
+          name="verificationStatus"
+          :validate="false"
+          :placeholder="$t('company.management.navigation.products.dashboard.verificationStatus')"
+          :options="verificationStatuses"
         />
       </div>
     </div>
@@ -70,6 +77,11 @@ const statuses = ref([
   { id: 2, text: t('global.inactive') }
 ])
 
+const verificationStatuses = ref([
+  { id: 1, text: t('global.verified') },
+  { id: 2, text: t('global.unverified') }
+])
+
 // Methods
 const handleFetchProductCategories = async () => {
   const categories = staticProductDescriptorsStore.getProductCategories.map((item) => ({
@@ -93,7 +105,7 @@ const handleProductCategoryChange = (id: number) => {
 }
 
 // Emits
-defineEmits(['search'])
+// defineEmits(['search'])
 
 // Hooks
 onBeforeMount(async () => {
