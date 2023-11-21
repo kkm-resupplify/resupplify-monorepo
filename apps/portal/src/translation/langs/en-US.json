@@ -330,6 +330,7 @@
 
       "products": {
         "editor": {
+          "title": "Product editor",
           "informationTitle": "Enter product description",
           "translationTitle": "Product translations in {language}",
           "productNameLabel": "Product name",
@@ -353,7 +354,7 @@
 
             "translation": {
               "title": "Translations",
-              "content": "Add {language} language translation"
+              "content": "Add translations"
             }
           }
         }
