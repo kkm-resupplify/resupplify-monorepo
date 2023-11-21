@@ -1,7 +1,7 @@
 import CompanyProductsView from '@/views/Company/Management/CompanyProductsView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
-import ProductDashboardPanel from '@/components/core/company/management/products/dashboard/section/ProductDashboardPanel.vue'
+import ProductDashboardPanel from '@/components/core/company/management/products/dashboard/ProductDashboardPanel.vue'
 import ProductEditorPanel from '@/components/core/company/management/products/editor/ProductEditorPanel.vue'
 import ProductPreviewPanel from '@/components/core/company/management/products/preview/ProductPreviewPanel.vue'
 

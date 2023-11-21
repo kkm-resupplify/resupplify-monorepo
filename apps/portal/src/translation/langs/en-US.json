@@ -19,7 +19,9 @@
     "active": "Active",
     "inactive": "Inactive",
     "confirm": "Confirm",
-    "add": "Add"  
+    "verified": "Verified",
+    "unverified": "Unverified",
+    "add": "Add"
   },
 
   "payments": {
@@ -199,30 +201,22 @@
           "title": "Deals"
         },
 
-        "products": {
-          "title": "Products",
-
-          "tiles": {
-            "products": "Products",
-            "newProduct": "Create new products",
-            "companyProductTags": "Company product tags"
-          },
-
-          "preview": {
-            "content": {
-              "category": "Category",
-              "subcategory": "Subcategory",
-              "tags": "Tags"
-            }
-          }
-        },
-
         "warehouses": {
           "title": "Warehouses",
 
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"
+          }
+        },
+
+        "products": {
+          "title": "Products",
+
+          "tiles": {
+            "products": "Products",
+            "newProduct": "Create new product",
+            "companyProductTags": "Company product tags"
           }
         },
 
@@ -363,6 +357,38 @@
               "title": "Translations",
               "content": "Add {language} language translation"
             }
+          }
+        },
+
+        "preview": {
+          "content": {
+            "category": "Category",
+            "subcategory": "Subcategory",
+            "tags": "Tags"
+          },
+
+          "title": "Products",
+
+          "tiles": {
+            "products": "Products",
+            "newProduct": "Create new products",
+            "companyProductTags": "Company product tags"
+          },
+
+          "dashboard": {
+            "totalProductsCount": "Total products: ",
+            "pendingVerificationProductsCount": "Products awaiting verification: ",
+            "verifiedProductsCount": "Verified products: ",
+            "activeProductsCount": "Active products: ",
+            "inactiveProductsCount": "Inactive products: ",
+
+            "addProduct": "Add product",
+            "filterProducts": "Filter products",
+            "searchBarPlaceholder": "Enter name",
+            "category": "Category",
+            "subcategory": "Subcategory",
+            "status": "Status",
+            "verificationStatus": "Verification Status"
           }
         }
       }

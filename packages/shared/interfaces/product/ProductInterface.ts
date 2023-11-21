@@ -34,3 +34,14 @@ export interface ProductTag {
   name: string
   color: string
 }
+
+export interface ProductCategorySelectItem {
+  id: number
+  text: string
+}
+
+export interface ProductSubcategorySelectItem {
+  id: number
+  text: string
+  categoryId: number
+}
