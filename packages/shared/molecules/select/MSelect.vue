@@ -106,7 +106,7 @@ const props = defineProps({
 })
 
 // Emits
-const emits = defineEmits(['input-change'])
+const emits = defineEmits(['input-change', 'input-clear'])
 
 // Variables
 const baseClass = 'm-select'
@@ -142,6 +142,7 @@ const handleSelectOption = (option: MSelectItemData) => {
 
   showOptions.value = false
   appendIconState.value = !appendIconState.value
+  emits('input-change', inputValue.value)
 
   emits('input-change', inputValue.value)
   validate()
@@ -152,6 +153,10 @@ const inputText = computed(() => {
 
   return null
 })
+
+const handleInputChange = () => {
+  optionsFilter.value = inputValue.value
+}
 
 const {
   value: inputValue,

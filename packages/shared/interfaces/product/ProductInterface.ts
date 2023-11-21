@@ -10,6 +10,7 @@ export interface Product {
   productUnit: ProductUnit
   productSubcategory: ProductSubcategory
   productCategory: ProductCategory
+  productTags: ProductTag[]
 }
 
 export interface ProductSubcategory {

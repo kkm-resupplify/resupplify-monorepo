@@ -14,7 +14,7 @@
 
         <a-button
           :text="confirmText"
-          color="gradient-danger"
+          :color="activatorVariant"
           size="x-large"
           @click="handleConfirm"
         />

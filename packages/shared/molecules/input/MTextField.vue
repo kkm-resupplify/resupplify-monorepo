@@ -25,6 +25,7 @@
         v-on="validationListeners"
         @input="handleInputChange"
         @keydown="handleKeydown"
+        @wheel.prevent="handleWheelScroll"
       />
 
       <a-icon
@@ -116,7 +117,9 @@ const props = defineProps({
   prependIconOn: String,
   prependIconOff: String,
   width: { type: String, default: '100%' },
-  preventInput: Boolean
+  preventInput: Boolean,
+  minValue: Number,
+  maxValue: Number
 })
 
 // Variables
@@ -147,7 +150,7 @@ const { generateClassNames } = useClassComposable()
 
 // Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.size])
+  return generateClassNames(baseClass, [props.size, props.variant])
 })
 
 const borderColor = computed(() => {
@@ -247,6 +250,17 @@ defineExpose({ manualValidate })
 const handleInputChange = () => {
   emits('input-change', inputValue.value)
 }
+
+const handleWheelScroll = (event: WheelEvent) => {
+  if (props.inputType === 'number') {
+    if (event.deltaY < 0) {
+      inputValue.value += 1
+    } else if (event.deltaY > 0) {
+      // @ts-ignore
+      if (+inputValue.value > (props.minValue ?? 0)) inputValue.value -= 1
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -281,14 +295,14 @@ const handleInputChange = () => {
   }
 
   &--sharp {
-    #{$self}__input {
+    #{$self}__input-wrapper {
       @include border(2px, $global-border-radius-10);
     }
   }
 
   &--rounded {
-    #{$self}__input {
-      @include border(0.25em, 24px);
+    #{$self}__input-wrapper {
+      @include border(2px, 12px);
     }
   }
 
@@ -354,6 +368,17 @@ const handleInputChange = () => {
     transition: background-color 9999s ease-in-out 0s;
 
     -webkit-text-fill-color: var(--font-primary);
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    margin: 0;
+    appearance: none;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    appearance: textfield;
   }
 }
 </style>

@@ -34,7 +34,7 @@ class StaticProductDescriptorsService extends BaseService {
 
   async getUnits() {
     const response = await this.get({
-      suffix: 'productUnits'
+      suffix: 'company/productUnit'
     })
 
     if (response.success) {
@@ -49,7 +49,7 @@ class StaticProductDescriptorsService extends BaseService {
 
   async getTags() {
     const response = await this.get({
-      suffix: 'productTags'
+      suffix: 'company/productTag'
     })
 
     if (response.success) {
