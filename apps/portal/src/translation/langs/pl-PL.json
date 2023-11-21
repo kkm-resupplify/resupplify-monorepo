@@ -206,6 +206,14 @@
             "products": "Produkty",
             "newProduct": "Utwórz nowy produkt",
             "companyProductTags": "Firmowe znaczniki produktów"
+          },
+
+          "preview": {
+            "content": {
+              "category": "Kategoria",
+              "subcategory": "Podkategoria",
+              "tags": "Tagi"
+            }
           }
         },
 

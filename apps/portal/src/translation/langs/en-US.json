@@ -206,6 +206,14 @@
             "products": "Products",
             "newProduct": "Create new products",
             "companyProductTags": "Company product tags"
+          },
+
+          "preview": {
+            "content": {
+              "category": "Category",
+              "subcategory": "Subcategory",
+              "tags": "Tags"
+            }
           }
         },
 
