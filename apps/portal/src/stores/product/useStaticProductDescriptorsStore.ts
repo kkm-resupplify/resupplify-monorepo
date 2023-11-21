@@ -32,7 +32,7 @@ export const useStaticProductDescriptorsStore = defineStore({
       const category = state.productCategories.find((cat) => cat.id === categoryId)
 
       const subcategories = state.productSubcategories.filter(
-        (subcat) => subcat.category_id === categoryId
+        (subcat) => subcat.categoryId === categoryId
       )
 
       return { category, subcategories }
