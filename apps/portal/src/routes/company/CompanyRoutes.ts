@@ -40,8 +40,8 @@ const CompanyRoutes: RouteRecordRaw[] = [
 
       await StaticProductDescriptorsService.getCategories()
       await StaticProductDescriptorsService.getSubcategories()
-      await StaticProductDescriptorsService.getUnits()
-      await StaticProductDescriptorsService.getTags()
+      await StaticProductDescriptorsService.getProductUnits()
+      // await StaticProductDescriptorsService.getTags()
     }
   }
 ]
