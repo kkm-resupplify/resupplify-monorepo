@@ -21,7 +21,7 @@
     "confirm": "Confirm",
     "verified": "Verified",
     "unverified": "Unverified",
-    "add": "Add"  
+    "add": "Add"
   },
 
   "payments": {
@@ -201,41 +201,22 @@
           "title": "Deals"
         },
 
-        "products": {
-          "title": "Products",
-
-          "tiles": {
-            "products": "Products",
-            "newProduct": "Create new products",
-            "companyProductTags": "Company product tags"
-          },
-
-          "dashboard": {
-            "totalProducts": "Total products: ",
-            "addProduct": "Add product",
-            "filterProducts": "Filter products",
-            "searchBarPlaceholder": "Enter name",
-            "category": "Category",
-            "subcategory": "Subcategory",
-            "status": "Status",
-            "verificationStatus": "Verification Status"
-          },
-
-          "preview": {
-            "content": {
-              "category": "Category",
-              "subcategory": "Subcategory",
-              "tags": "Tags"
-            }
-          }
-        },
-
         "warehouses": {
           "title": "Warehouses",
 
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"
+          }
+        },
+
+        "products": {
+          "title": "Products",
+
+          "tiles": {
+            "products": "Products",
+            "newProduct": "Create new product",
+            "companyProductTags": "Company product tags"
           }
         },
 
@@ -376,6 +357,38 @@
               "title": "Translations",
               "content": "Add {language} language translation"
             }
+          }
+        },
+
+        "preview": {
+          "content": {
+            "category": "Category",
+            "subcategory": "Subcategory",
+            "tags": "Tags"
+          },
+
+          "title": "Products",
+
+          "tiles": {
+            "products": "Products",
+            "newProduct": "Create new products",
+            "companyProductTags": "Company product tags"
+          },
+
+          "dashboard": {
+            "totalProductsCount": "Total products: ",
+            "pendingVerificationProductsCount": "Number of products awaiting verification: ",
+            "verifiedProductsCount": "Number of verified products: ",
+            "activeProductsCount": "Number of active products: ",
+            "inactiveProductsCount": "Number of inactive products: ",
+
+            "addProduct": "Add product",
+            "filterProducts": "Filter products",
+            "searchBarPlaceholder": "Enter name",
+            "category": "Category",
+            "subcategory": "Subcategory",
+            "status": "Status",
+            "verificationStatus": "Verification Status"
           }
         }
       }

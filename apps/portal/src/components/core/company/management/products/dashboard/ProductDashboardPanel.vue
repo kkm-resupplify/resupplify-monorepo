@@ -2,7 +2,7 @@
   <template v-if="isLoading"> implement-loader-here </template>
 
   <a-panel v-else>
-    <product-header-section :number-of-products="numberOfProducts" />
+    <product-header-section :products-count="numberOfProducts" :products="products" />
 
     <product-content-section @search="handleFetchProducts" />
   </a-panel>
@@ -21,6 +21,7 @@ const numberOfProducts = ref()
 const isLoading = ref(false)
 const route = useRoute()
 
+// Methods
 const handleFetchProducts = async () => {
   isLoading.value = true
 

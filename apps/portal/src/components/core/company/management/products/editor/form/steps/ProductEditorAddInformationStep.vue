@@ -74,7 +74,7 @@
 </template>
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue'
-import { useStaticProductDescriptorsStore } from '../../../../../../../../stores/product/useStaticProductDescriptorsStore'
+import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 
 // Interfaces

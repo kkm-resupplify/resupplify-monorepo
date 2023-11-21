@@ -2,7 +2,7 @@
   <a-panel-section>
     <div class="product-content-section">
       <a-title
-        :title="$t('company.management.navigation.products.dashboard.filterProducts')"
+        :title="$t('company.management.products.preview.dashboard.filterProducts')"
         size="x-large"
       />
 
@@ -14,7 +14,7 @@
       <div class="product-content-section__selects">
         <m-select
           name="category"
-          :placeholder="$t('company.management.navigation.products.dashboard.category')"
+          :placeholder="$t('company.management.products.preview.dashboard.category')"
           :options="productCategories"
           :validate="false"
           @input-change="handleProductCategoryChange"
@@ -24,21 +24,21 @@
           ref="subcategoryRef"
           name="subcategory"
           :validate="false"
-          :placeholder="$t('company.management.navigation.products.dashboard.subcategory')"
+          :placeholder="$t('company.management.products.preview.dashboard.subcategory')"
           :options="productSubcategories"
         />
 
         <m-select
           name="status"
           :validate="false"
-          :placeholder="$t('company.management.navigation.products.dashboard.status')"
+          :placeholder="$t('company.management.products.preview.dashboard.status')"
           :options="statuses"
         />
 
         <m-select
           name="verificationStatus"
           :validate="false"
-          :placeholder="$t('company.management.navigation.products.dashboard.verificationStatus')"
+          :placeholder="$t('company.management.products.preview.dashboard.verificationStatus')"
           :options="verificationStatuses"
         />
       </div>
@@ -51,18 +51,10 @@ import { useStaticProductDescriptorsStore } from '@/stores/product/useStaticProd
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { onBeforeMount } from 'vue'
 import { useI18n } from 'vue-i18n'
-
-// Interfaces
-interface ProductCategorySelectItem {
-  id: number
-  text: string
-}
-
-interface ProductSubcategorySelectItem {
-  id: number
-  text: string
-  categoryId: number
-}
+import type {
+  ProductCategorySelectItem,
+  ProductSubcategorySelectItem
+} from '@sharedInterfaces/product/ProductInterface'
 
 // Variables
 const { t } = useI18n()

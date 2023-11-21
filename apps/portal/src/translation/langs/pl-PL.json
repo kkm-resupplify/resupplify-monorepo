@@ -16,7 +16,7 @@
     "update": "Aktualizuj",
     "cancel": "Anuluj",
     "manage": "Zarządzaj",
-    "active": "Actywny",
+    "active": "Aktywny",
     "inactive": "Nieaktywny",
     "confirm": "Potwierdź",
     "verified": "Zweryfikowany",
@@ -207,25 +207,7 @@
           "tiles": {
             "products": "Produkty",
             "newProduct": "Utwórz nowy produkt",
-            "companyProductTags": "Firmowe znaczniki produktów"
-          },
-
-          "dashboard": {
-            "totalProducts": "Ilość produktów: ",
-            "addProduct": "Dodaj produkt",
-            "filterProducts": "Filtruj produkty",
-            "searchBarPlaceholder": "Podaj nazwę",
-            "category": "Kategoria",
-            "subcategory": "Podkategoria",
-            "status": "Status",
-            "verificationStatus": "Status weryfikacji"
-          },
-          "preview": {
-            "content": {
-              "category": "Kategoria",
-              "subcategory": "Podkategoria",
-              "tags": "Tagi"
-            }
+            "companyProductTags": "Tagi produktów firmy"
           }
         },
 
@@ -374,6 +356,38 @@
               "title": "Tłumaczenia",
               "content": "Dodaj tłumaczenia w języku: {language}"
             }
+          }
+        },
+
+        "preview": {
+          "content": {
+            "category": "Kategoria",
+            "subcategory": "Podkategoria",
+            "tags": "Tagi"
+          },
+
+          "title": "Produkty",
+
+          "tiles": {
+            "products": "Produkty",
+            "newProduct": "Utwórz nowy produkt",
+            "companyProductTags": "Tagi produktów firmy"
+          },
+
+          "dashboard": {
+            "totalProductsCount": "Razem produktów: ",
+            "pendingVerificationProductsCount": "Ilość produktów oczekujących weryfikacji: ",
+            "verifiedProductsCount": "Ilość zweryfikowanych produktów: ",
+            "activeProductsCount": "Ilość aktywnych produktów: ",
+            "inactiveProductsCount": "Ilość nieaktywnych produktów: ",
+
+            "addProduct": "Dodaj produkt",
+            "filterProducts": "Filtruj produkty",
+            "searchBarPlaceholder": "Wpisz imię",
+            "category": "Kategoria",
+            "subcategory": "Podkategoria",
+            "status": "Status",
+            "verificationStatus": "Status weryfikacji"
           }
         }
       }
