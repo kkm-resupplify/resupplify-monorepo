@@ -76,6 +76,7 @@
 import { onBeforeMount, ref } from 'vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
+import { useProductEditorStore } from '@stores/product/useProductEditorStore'
 
 // Interfaces
 interface ProductCategorySelectItem {
@@ -110,6 +111,7 @@ const productTags = ref<ProductTagsSelectItem[]>()
 
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
+const productEditorStore = useProductEditorStore()
 
 // Methods
 const handleNextStep = () => {

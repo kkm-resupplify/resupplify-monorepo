@@ -1,19 +1,21 @@
 <template>
-  <m-stepper :steps="steps" @cancel="handleCancelRegister" />
+  <m-stepper
+    :steps="steps"
+    :title="$t('company.management.products.editor.title')"
+    @cancel="handleCancelRegister"
+  />
 </template>
 <script setup lang="ts">
-import ProductEditorAddInformationStep from './steps/ProductEditorAddInformationStep.vue'
-import ProductEditorAddTranslationStep from './steps/ProductEditorAddTranslationStep.vue'
+import ProductEditorAddInformationStep from '@/components/core/company/management/products/editor/form/steps/ProductEditorAddInformationStep.vue'
+import ProductEditorAddTranslationStep from '@/components/core/company/management/products/editor/form/steps/ProductEditorAddTranslationStep.vue'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
 
 // Emits
 const emits = defineEmits(['cancel'])
 
-// Variables
-const { t } = useI18n()
-
-class AddProductStep {
+// DTO
+class AddProductStepDto {
   title: string
   subtitle: string
 
@@ -27,14 +29,17 @@ class AddProductStep {
   }
 }
 
+// Variables
+const { t } = useI18n()
+
 // Computed
 const steps = computed(() => [
   {
-    stepInfo: new AddProductStep('information'),
+    stepInfo: new AddProductStepDto('information'),
     component: ProductEditorAddInformationStep
   },
   {
-    stepInfo: new AddProductStep('translation'),
+    stepInfo: new AddProductStepDto('translation'),
     component: ProductEditorAddTranslationStep
   }
 ])
