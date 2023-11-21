@@ -345,6 +345,9 @@
           "productTagsPlaceholder": "Wybierz tagi produktu",
           "productDescriptionLabel": "Opis produktu",
           "productDescriptionPlaceholder": "Wprowadź opis produktu",
+          "deleteSuccessTitle": "Produkt usunięty pomyślnie",
+          "updateSuccessTitle": "Produkt zedytowany pomyślnie",
+          "addSuccessTitle": "Produkt dodany pomyślnie",
 
           "steps": {
             "information": {

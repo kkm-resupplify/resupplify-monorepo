@@ -346,6 +346,9 @@
           "productTagsPlaceholder": "Select product tags",
           "productDescriptionLabel": "Product description",
           "productDescriptionPlaceholder": "Select product description",
+          "deleteSuccessTitle": "Product removed successfully",
+          "updateSuccessTitle": "Product edited succesfully",
+          "addSuccessTitle": "Product added succesfully",
 
           "steps": {
             "information": {
