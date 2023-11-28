@@ -49,6 +49,7 @@
   </m-stepper-step-content>
 </template>
 <script setup lang="ts">
+import CompanyProductsService from '@/services/product/CompanyProductsService'
 import { useLanguageStore } from '@sharedStores/language/useLanguageStore'
 import { useProductEditorStore } from '@stores/product/useProductEditorStore'
 
@@ -64,8 +65,13 @@ const handleSaveTranslation = (values: any, languageId: number) => {
   productEditorStore.saveProductTranslation({ ...values, languageId })
 }
 
-const handleSaveProduct = () => {
-  console.log(productEditorStore.$state)
+const handleSaveProduct = async () => {
+  const { success } = await CompanyProductsService.createProduct(productEditorStore.$state)
+
+  if (success) {
+    emits('previous-step')
+    productEditorStore.$reset()
+  }
 }
 </script>
 <style scoped lang="scss">

@@ -4,7 +4,7 @@ import type {
   ProductTranslation
 } from '@sharedInterfaces/product/ProductEditorInterface'
 
-interface ProductEditorStoreState {
+export interface ProductEditorStoreState {
   productEditorFirstStepData: ProductEditorFirstStepData
   productEditorTranslationStepData: ProductTranslation[]
 }
