@@ -1,63 +1,43 @@
 <template>
   <m-stepper-step-content>
     <template #body>
-      <o-form class="product-editor-add-information-step">
+      <o-form
+        class="product-editor-add-information-step"
+        :initial-values="productEditorStore.productEditorFirstStepData"
+        :submit-callback="handleNextStep"
+      >
         <template #body>
           <div class="product-editor-add-information-step__body">
             <a-title
               :title="$t('company.management.products.editor.informationTitle')"
               rules="required"
-              size="xx-large"
-            />
-
-            <m-text-field
-              name="name"
-              input-type="text"
-              rules="required"
-              :label="$t('company.management.products.editor.productNameLabel')"
-              :placeholder="$t('company.management.products.editor.productNamePlaceholder')"
             />
 
             <m-select
-              name="category"
+              name="productCategoryId"
               rules="required"
               :label="$t('company.management.products.editor.productCategoryLabel')"
               :placeholder="$t('company.management.products.editor.productCategoryPlaceholder')"
-              :options="productCategories"
+              :options="staticProductDescriptorsStore.getProductCategories"
               @input-change="handleProductCategoryChange"
             />
 
             <m-select
               ref="subcategoryRef"
-              name="subcategory"
+              name="productSubcategoryId"
               rules="required"
               :label="$t('company.management.products.editor.productSubcategoryLabel')"
               :placeholder="$t('company.management.products.editor.productSubcategoryPlaceholder')"
-              :options="productSubcategories"
+              :options="productCategorySubcategories"
+              :disabled="disableProductSubcategorySelect"
             />
-
-            <m-select
+            <!-- <m-select
               name="unit"
               rules="required"
               :label="$t('company.management.products.editor.productUnitLabel')"
               :placeholder="$t('company.management.products.editor.productUnitPlaceholder')"
-              :options="productUnits"
-            />
-
-            <m-select
-              name="tags"
-              rules="required"
-              :label="$t('company.management.products.editor.productTagsLabel')"
-              :placeholder="$t('company.management.products.editor.productTagsPlaceholder')"
-              :options="productTags"
-            />
-
-            <m-text-area
-              name="description"
-              rules="required|min:16|max:255"
-              :label="$t('company.management.products.editor.productDescriptionLabel')"
-              :placeholder="$t('company.management.products.editor.productDescriptionPlaceholder')"
-            />
+              :options="staticProductDescriptorsStore.getProductUnits"
+            /> -->
           </div>
         </template>
 
@@ -65,7 +45,7 @@
           <div class="product-editor-add-information-step__buttons">
             <a-button :text="$t('global.cancel')" size="x-large" color="gradient-danger" />
 
-            <a-button :text="$t('global.next')" size="x-large" @click="handleNextStep" />
+            <a-button :text="$t('global.next')" size="x-large" type="submit" />
           </div>
         </template>
       </o-form>
@@ -73,95 +53,51 @@
   </m-stepper-step-content>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useProductEditorStore } from '@stores/product/useProductEditorStore'
-
-// Interfaces
-interface ProductCategorySelectItem {
-  id: number
-  text: string
-}
-
-interface ProductSubcategorySelectItem {
-  id: number
-  text: string
-  categoryId: number
-}
-
-interface ProductUnitSelectItem {
-  id: number
-  text: string
-}
-
-interface ProductTagsSelectItem {
-  id: number
-  text: string
-}
+import type { ProductEditorFirstStepData } from '@sharedInterfaces/product/ProductEditorInterface'
 
 // Emits
 const emits = defineEmits(['next-step'])
 
 // Variables
-const productCategories = ref<ProductCategorySelectItem[]>()
-const productSubcategories = ref<ProductSubcategorySelectItem[]>()
-const productUnits = ref<ProductUnitSelectItem[]>()
-const productTags = ref<ProductTagsSelectItem[]>()
-
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
 const productEditorStore = useProductEditorStore()
+const selectedCategoryId = ref<number | null>()
+
+// Computed
+const productCategorySubcategories = computed(() => {
+  return selectedCategoryId.value
+    ? staticProductDescriptorsStore.getProductSubcategories.filter(
+        (subcategory) => subcategory.categoryId === selectedCategoryId.value
+      )
+    : []
+})
+
+const disableProductSubcategorySelect = computed(() => {
+  return (
+    productCategorySubcategories.value.length === 0 &&
+    productEditorStore.getProductSubcategoryId === null
+  )
+})
 
 // Methods
-const handleNextStep = () => {
+const handleNextStep = (values: ProductEditorFirstStepData) => {
+  productEditorStore.setProductEditorFirstStepData(values)
   emits('next-step')
-}
-
-const handleFetchProductCategories = async () => {
-  const categories = staticProductDescriptorsStore.getProductCategories.map((item) => ({
-    id: item.id,
-    text: item.name
-  }))
-
-  productCategories.value = categories
-}
-
-const handleFetchProductUnits = async () => {
-  const units = staticProductDescriptorsStore.getProductUnits.map((item) => ({
-    id: item.id,
-    text: item.code
-  }))
-
-  productUnits.value = units
-}
-
-const handleFetchProductTags = async () => {
-  const tags = staticProductDescriptorsStore.getProductTags.map((item) => ({
-    id: item.id,
-    text: item.name
-  }))
-
-  productTags.value = tags
 }
 
 const handleProductCategoryChange = (id: number) => {
   subcategoryRef?.value?.clearSelect()
-
-  const subcategories = staticProductDescriptorsStore.getCategoryAndSubcategories(id)
-
-  productSubcategories.value = subcategories.subcategories.map((item) => ({
-    id: item.id,
-    text: item.name,
-    categoryId: item.categoryId
-  }))
+  selectedCategoryId.value = id
 }
 
 // Hooks
-onBeforeMount(async () => {
-  await handleFetchProductCategories()
-  await handleFetchProductUnits()
-  await handleFetchProductTags()
+onBeforeMount(() => {
+  selectedCategoryId.value = productEditorStore.getProductCategoryId
 })
 </script>
 <style scoped lang="scss">
