@@ -18,10 +18,12 @@ const emits = defineEmits(['cancel'])
 class AddProductStepDto {
   title: string
   subtitle: string
+  icon: string
 
-  constructor(step: string) {
+  constructor(step: string, icon: string) {
     this.title = this.getTranslation(step, 'title')
     this.subtitle = this.getTranslation(step, 'content')
+    this.icon = icon
   }
 
   getTranslation(step: string, key: string) {
@@ -35,11 +37,11 @@ const { t } = useI18n()
 // Computed
 const steps = computed(() => [
   {
-    stepInfo: new AddProductStepDto('information'),
+    stepInfo: new AddProductStepDto('information', 'inventory_2'),
     component: ProductEditorAddInformationStep
   },
   {
-    stepInfo: new AddProductStepDto('translation'),
+    stepInfo: new AddProductStepDto('translation', 'translate'),
     component: ProductEditorAddTranslationStep
   }
 ])
