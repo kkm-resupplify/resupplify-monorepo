@@ -338,6 +338,8 @@
           "productNamePlaceholder": "Wprowadź nazwę produktu",
           "productCodeLabel": "Kod produktu",
           "productCodePlaceholder": "Wprowadź kod produktu",
+          "productProducerLabel": "Producent produktu",
+          "productProducerPlaceholder": "Wprowadź producenta produktu",
           "productCategoryLabel": "Kategoria produktu",
           "productCategoryPlaceholder": "Wybierz kategorię produktu",
           "productSubcategoryLabel": "Podkategoria produktu",

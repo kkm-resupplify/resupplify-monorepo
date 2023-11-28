@@ -339,6 +339,8 @@
           "productNamePlaceholder": "Enter product name",
           "productCodeLabel": "Product code",
           "productCodePlaceholder": "Enter product code",
+          "productProducerLabel": "Product producer",
+          "productProducerPlaceholder": "Enter product producer",
           "productCategoryLabel": "Product category",
           "productCategoryPlaceholder": "Select product category",
           "productSubcategoryLabel": "Product subcategory",
