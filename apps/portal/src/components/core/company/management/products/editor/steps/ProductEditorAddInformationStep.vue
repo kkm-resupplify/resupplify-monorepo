@@ -16,6 +16,14 @@
               rules="required"
             />
 
+            <m-text-field
+              name="producer"
+              input-type="text"
+              :label="$t('company.management.products.editor.productProducerLabel')"
+              :placeholder="$t('company.management.products.editor.productProducerPlaceholder')"
+              rules="required"
+            />
+
             <m-select
               name="productCategoryId"
               rules="required"
@@ -35,13 +43,13 @@
               :disabled="disableProductSubcategorySelect"
             />
 
-            <!-- <m-select
-              name="unit"
+            <m-select
+              name="productUnitId"
               rules="required"
               :label="$t('company.management.products.editor.productUnitLabel')"
               :placeholder="$t('company.management.products.editor.productUnitPlaceholder')"
-              :options="staticProductDescriptorsStore.getProductUnits"
-            /> -->
+              :options="productUnitSelectOptions"
+            />
           </div>
         </template>
 
@@ -86,6 +94,12 @@ const disableProductSubcategorySelect = computed(() => {
     productCategorySubcategories.value.length === 0 &&
     productEditorStore.getProductSubcategoryId === null
   )
+})
+const productUnitSelectOptions = computed(() => {
+  return staticProductDescriptorsStore.getProductUnits.map((unit) => ({
+    id: unit.id,
+    text: unit.code
+  }))
 })
 
 // Methods
