@@ -9,8 +9,8 @@
 import ProductEditorAddInformationStep from '@/components/core/company/management/products/editor/form/steps/ProductEditorAddInformationStep.vue'
 import ProductEditorAddTranslationStep from '@/components/core/company/management/products/editor/form/steps/ProductEditorAddTranslationStep.vue'
 import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
-
+import { computed, onBeforeMount } from 'vue'
+import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 // Emits
 const emits = defineEmits(['cancel'])
 
@@ -50,4 +50,12 @@ const steps = computed(() => [
 const handleCancelRegister = () => {
   emits('cancel')
 }
+
+// Hooks
+
+onBeforeMount(async () => {
+  await StaticProductDescriptorsService.getCategories()
+  await StaticProductDescriptorsService.getSubcategories()
+  await StaticProductDescriptorsService.getProductUnits()
+})
 </script>
