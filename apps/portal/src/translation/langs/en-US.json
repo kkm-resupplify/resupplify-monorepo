@@ -332,11 +332,13 @@
 
       "products": {
         "editor": {
-          "title": "Product editor",
+          "title": "Product creator",
           "informationTitle": "Enter product descriptors",
           "translationTitle": "Product translations in {language}",
           "productNameLabel": "Product name",
           "productNamePlaceholder": "Enter product name",
+          "productCodeLabel": "Product code",
+          "productCodePlaceholder": "Enter product code",
           "productCategoryLabel": "Product category",
           "productCategoryPlaceholder": "Select product category",
           "productSubcategoryLabel": "Product subcategory",

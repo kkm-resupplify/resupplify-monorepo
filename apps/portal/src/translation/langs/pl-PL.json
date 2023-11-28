@@ -331,11 +331,13 @@
 
       "products": {
         "editor": {
-          "title": "Edytor produktu",
+          "title": "Kreator produktu",
           "informationTitle": "Wprowadź deskryptory produktu",
           "translationTitle": "Tłumaczenia produktu w języku: {language}",
           "productNameLabel": "Nazwa produktu",
           "productNamePlaceholder": "Wprowadź nazwę produktu",
+          "productCodeLabel": "Kod produktu",
+          "productCodePlaceholder": "Wprowadź kod produktu",
           "productCategoryLabel": "Kategoria produktu",
           "productCategoryPlaceholder": "Wybierz kategorię produktu",
           "productSubcategoryLabel": "Podkategoria produktu",
