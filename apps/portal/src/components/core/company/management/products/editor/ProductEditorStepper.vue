@@ -11,6 +11,10 @@ import ProductEditorAddTranslationStep from '@/components/core/company/managemen
 import { useI18n } from 'vue-i18n'
 import { computed, onBeforeMount } from 'vue'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
+
+// TODO
+// - product translation: previous step button
+// - product translation: actual language names (translations)
 // Emits
 const emits = defineEmits(['cancel'])
 
