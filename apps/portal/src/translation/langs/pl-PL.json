@@ -332,7 +332,7 @@
       "products": {
         "editor": {
           "title": "Edytor produktu",
-          "informationTitle": "Wprowadź opis produktu",
+          "informationTitle": "Wprowadź deskryptory produktu",
           "translationTitle": "Tłumaczenia produktu w języku: {language}",
           "productNameLabel": "Nazwa produktu",
           "productNamePlaceholder": "Wprowadź nazwę produktu",

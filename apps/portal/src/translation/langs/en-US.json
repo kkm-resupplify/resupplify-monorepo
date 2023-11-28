@@ -333,7 +333,7 @@
       "products": {
         "editor": {
           "title": "Product editor",
-          "informationTitle": "Enter product description",
+          "informationTitle": "Enter product descriptors",
           "translationTitle": "Product translations in {language}",
           "productNameLabel": "Product name",
           "productNamePlaceholder": "Enter product name",
