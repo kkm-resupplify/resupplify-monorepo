@@ -15,6 +15,8 @@ import StaticProductDescriptorsService from '@/services/product/StaticProductDes
 // TODO
 // - product translation: previous step button
 // - product translation: actual language names (translations)
+// - loader while fetching static data
+
 // Emits
 const emits = defineEmits(['cancel'])
 
