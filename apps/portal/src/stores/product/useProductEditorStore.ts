@@ -40,6 +40,16 @@ export const useProductEditorStore = defineStore({
       this.productEditorFirstStepData.productSubcategoryId =
         productEditorFirstStepData.productSubcategoryId
       this.productEditorFirstStepData.productTags = productEditorFirstStepData.productTags ?? []
+    },
+
+    saveProductTranslation(translationData: ProductTranslation) {
+      const existingLanguageIndex = this.productEditorTranslationStepData.findIndex(
+        (translation) => translation.languageId === translationData.languageId
+      )
+
+      if (existingLanguageIndex !== -1)
+        this.productEditorTranslationStepData[existingLanguageIndex] = translationData
+      else this.productEditorTranslationStepData.push(translationData)
     }
   }
 })

@@ -10,7 +10,10 @@
           </template>
 
           <template #content>
-            <o-form>
+            <o-form
+              :initial-values="productEditorStore.productEditorTranslationStepData[language.id - 1]"
+              :submit-callback="(v: any) => handleSaveTranslation(v, language.id)"
+            >
               <template #body>
                 <div class="product-editor-add-translation-step__form-body">
                   <m-text-field
@@ -33,31 +36,37 @@
 
               <template #footer>
                 <div class="product-editor-add-translation-step__buttons">
-                  <a-button :text="$t('global.save')" size="x-large" @click="handleSubmit" />
+                  <a-button :text="$t('global.save')" size="x-large" type="submit" />
                 </div>
               </template>
             </o-form>
           </template>
         </a-expansion-panel>
+
+        <a-button :text="$t('global.save')" size="x-large" @click="handleSaveProduct" />
       </div>
     </template>
   </m-stepper-step-content>
 </template>
 <script setup lang="ts">
 import { useLanguageStore } from '@sharedStores/language/useLanguageStore'
+import { useProductEditorStore } from '@stores/product/useProductEditorStore'
 
 // Variables
 const languagStore = useLanguageStore()
+const productEditorStore = useProductEditorStore()
 
 // Emits
 const emits = defineEmits(['previous-step'])
 
 // Methods
-const handlePreviousStep = () => {
-  emits('previous-step')
+const handleSaveTranslation = (values: any, languageId: number) => {
+  productEditorStore.saveProductTranslation({ ...values, languageId })
 }
 
-const handleSubmit = () => {}
+const handleSaveProduct = () => {
+  console.log(productEditorStore.$state)
+}
 </script>
 <style scoped lang="scss">
 .product-editor-add-translation-step {
@@ -80,12 +89,5 @@ const handleSubmit = () => {}
     gap: $global-spacing-50;
     min-width: 500px;
   }
-
-  // &__buttons {
-  //   display: flex;
-  //   gap: $global-spacing-100;
-  //   justify-content: center;
-  //   width: 100%;
-  // }
 }
 </style>
