@@ -46,10 +46,9 @@
   </a-panel-section>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useStaticProductDescriptorsStore } from '@/stores/product/useStaticProductDescriptorsStore'
+import { ref, onBeforeMount } from 'vue'
+import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
-import { onBeforeMount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type {
   ProductCategorySelectItem,
