@@ -1,18 +1,8 @@
 import { defineStore } from 'pinia'
-
-interface ProductTranslation {
-  languageId: number
-  name: string
-  description: string
-}
-
-interface ProductEditorFirstStepData {
-  producer: string | null
-  code: string | null
-  productUnitId: number | null
-  productSubcategoryId: number | null
-  productTags: number[]
-}
+import type {
+  ProductEditorFirstStepData,
+  ProductTranslation
+} from '@sharedInterfaces/product/ProductEditorInterface'
 
 interface ProductEditorStoreState {
   productEditorFirstStepData: ProductEditorFirstStepData
@@ -27,6 +17,7 @@ export const useProductEditorStore = defineStore({
       producer: null,
       code: null,
       productUnitId: null,
+      productCategoryId: null,
       productSubcategoryId: null,
       productTags: []
     },
@@ -34,7 +25,9 @@ export const useProductEditorStore = defineStore({
   }),
 
   getters: {
-    getProductEditor: (state) => state
+    getProductEditor: (state) => state,
+    getProductCategoryId: (state) => state.productEditorFirstStepData.productCategoryId,
+    getProductSubcategoryId: (state) => state.productEditorFirstStepData.productSubcategoryId
   },
 
   actions: {
@@ -42,9 +35,11 @@ export const useProductEditorStore = defineStore({
       this.productEditorFirstStepData.producer = productEditorFirstStepData.producer
       this.productEditorFirstStepData.code = productEditorFirstStepData.code
       this.productEditorFirstStepData.productUnitId = productEditorFirstStepData.productUnitId
+      this.productEditorFirstStepData.productCategoryId =
+        productEditorFirstStepData.productCategoryId
       this.productEditorFirstStepData.productSubcategoryId =
         productEditorFirstStepData.productSubcategoryId
-      this.productEditorFirstStepData.productTags = productEditorFirstStepData.productTags
+      this.productEditorFirstStepData.productTags = productEditorFirstStepData.productTags ?? []
     }
   }
 })
