@@ -354,13 +354,13 @@
 
           "steps": {
             "information": {
-              "title": "Product",
-              "content": "Product information"
+              "title": "Descriptors",
+              "content": "General information"
             },
 
             "translation": {
               "title": "Translations",
-              "content": "Add translations"
+              "content": "Name & description"
             }
           }
         },

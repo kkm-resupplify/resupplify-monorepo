@@ -353,13 +353,13 @@
 
           "steps": {
             "information": {
-              "title": "Produkt",
-              "content": "Informacje o produkcie"
+              "title": "Deskryptory",
+              "content": "Główne informacje"
             },
 
             "translation": {
               "title": "Tłumaczenia",
-              "content": "Dodaj tłumaczenia"
+              "content": "Nazwa i opis"
             }
           }
         },
