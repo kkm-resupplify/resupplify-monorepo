@@ -361,6 +361,13 @@
               "title": "Tłumaczenia",
               "content": "Nazwa i opis"
             }
+          },
+
+          "notification": {
+            "productCreatedTitle": "Produkt utworzony pomyślnie",
+            "productCreatedText": "Twój produkt oczekuje teraz na weryfikację",
+            "productUpdatedTitle": "Produkt zaaktualizowany pomyślnie",
+            "productDeletedTitle": "Produkt usunięty pomyślnie"
           }
         },
 

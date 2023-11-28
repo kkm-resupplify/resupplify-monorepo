@@ -362,6 +362,13 @@
               "title": "Translations",
               "content": "Name & description"
             }
+          },
+
+          "notification": {
+            "productCreatedTitle": "Product created successfully",
+            "productCreatedText": "Your product awaits verification now",
+            "productUpdatedTitle": "Product updated successfully",
+            "productDeletedTitle": "Product deleted successfully"
           }
         },
 
