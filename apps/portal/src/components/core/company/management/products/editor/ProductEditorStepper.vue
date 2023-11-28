@@ -6,8 +6,8 @@
   />
 </template>
 <script setup lang="ts">
-import ProductEditorAddInformationStep from '@/components/core/company/management/products/editor/form/steps/ProductEditorAddInformationStep.vue'
-import ProductEditorAddTranslationStep from '@/components/core/company/management/products/editor/form/steps/ProductEditorAddTranslationStep.vue'
+import ProductEditorAddInformationStep from '@/components/core/company/management/products/editor/steps/ProductEditorAddInformationStep.vue'
+import ProductEditorAddTranslationStep from '@/components/core/company/management/products/editor/steps/ProductEditorAddTranslationStep.vue'
 import { useI18n } from 'vue-i18n'
 import { computed, onBeforeMount } from 'vue'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'

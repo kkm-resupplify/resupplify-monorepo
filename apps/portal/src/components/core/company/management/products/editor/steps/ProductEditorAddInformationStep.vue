@@ -8,8 +8,11 @@
       >
         <template #body>
           <div class="product-editor-add-information-step__body">
-            <a-title
-              :title="$t('company.management.products.editor.informationTitle')"
+            <m-text-field
+              name="code"
+              input-type="text"
+              :label="$t('company.management.products.editor.productCodeLabel')"
+              :placeholder="$t('company.management.products.editor.productCodePlaceholder')"
               rules="required"
             />
 
@@ -31,6 +34,7 @@
               :options="productCategorySubcategories"
               :disabled="disableProductSubcategorySelect"
             />
+
             <!-- <m-select
               name="unit"
               rules="required"
