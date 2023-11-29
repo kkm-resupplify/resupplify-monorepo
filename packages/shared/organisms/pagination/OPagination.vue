@@ -98,7 +98,9 @@ const handleNextPage = async () => {
 watch(
   () => route.query.page,
   () => {
-    emits('page-changed')
+    if (route.query.page) {
+      emits('page-changed')
+    }
   }
 )
 
