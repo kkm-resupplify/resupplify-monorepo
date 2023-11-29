@@ -1,6 +1,11 @@
 <template>
   <div class="product-list">
-    <product-list-item v-for="(product, idx) in products" :key="idx" :product="product" />
+    <product-list-item
+      v-for="(product, idx) in products"
+      :key="idx"
+      :product="product"
+      @product-changed="handleProductChanged"
+    />
   </div>
 </template>
 
@@ -16,7 +21,11 @@ defineProps({
 })
 
 // Emits
-defineEmits(['search'])
+const emits = defineEmits(['search', 'product-changed'])
+
+const handleProductChanged = () => {
+  emits('product-changed')
+}
 </script>
 
 <style scoped lang="scss">

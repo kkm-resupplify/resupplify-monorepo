@@ -55,13 +55,27 @@ const props = defineProps({
   }
 })
 
+// Emits
+const emits = defineEmits(['product-changed'])
+
 // Variables
 const { productStatusName } = useProductStatus()
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Methods
 const handleDeleteProducts = async () => {
-  await CompanyProductsService.delete(props.product.id)
+  const { success } = await CompanyProductsService.deleteProduct(props.product.id)
+
+  if (success) handleWarehouseProductActionSuccess()
+}
+
+const handleWarehouseProductActionSuccess = () => {
+  emits('product-changed')
+  closeDialog()
+}
+
+const closeDialog = () => {
+  dialogRef.value?.closeDialog()
 }
 </script>
 

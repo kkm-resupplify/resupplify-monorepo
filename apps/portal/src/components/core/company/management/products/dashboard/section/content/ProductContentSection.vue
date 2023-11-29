@@ -43,7 +43,7 @@
         />
       </div>
 
-      <product-list :products="products" />
+      <product-list :products="products" @product-changed="handleProductChanged" />
     </div>
   </a-panel-section>
 </template>
@@ -65,6 +65,13 @@ defineProps({
     type: Array as PropType<Product[]>
   }
 })
+
+// Emits
+const emits = defineEmits(['product-changed'])
+
+const handleProductChanged = () => {
+  emits('product-changed')
+}
 
 // Variables
 const { t } = useI18n()

@@ -4,7 +4,11 @@
   <a-panel v-else>
     <product-header-section :products-count="numberOfProducts" :products="products" />
 
-    <product-content-section :products="products" @search="handleFetchProducts" />
+    <product-content-section
+      :products="products"
+      @search="handleFetchProducts"
+      @product-changed="handleFetchProducts"
+    />
   </a-panel>
 </template>
 <script setup lang="ts">

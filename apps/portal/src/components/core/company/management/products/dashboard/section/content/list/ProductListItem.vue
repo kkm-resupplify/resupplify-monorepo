@@ -32,7 +32,11 @@
       </div>
     </div>
 
-    <edit-product-dialog :product="product" status="active" />
+    <edit-product-dialog
+      :product="product"
+      status="active"
+      @product-changed="$emit('product-changed')"
+    />
   </a-list-item-wrapper>
 </template>
 
@@ -46,6 +50,9 @@ import ProductTagItem from './ProductTagItem.vue'
 defineProps({
   product: { type: Object as PropType<Product>, required: true }
 })
+
+// Emits
+defineEmits(['product-changed'])
 
 // Variables
 const { productStatus } = useProductStatus()
