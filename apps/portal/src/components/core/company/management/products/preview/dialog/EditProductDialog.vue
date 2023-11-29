@@ -32,6 +32,7 @@
           "
           :activator-name="$t('global.delete')"
           activator-size="x-large"
+          @confirmed="handleDeleteProducts"
         />
       </div>
     </div>
@@ -45,8 +46,9 @@ import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
 import SetProductStatusDialog from './SetProductStatusDialog.vue'
 import { useProductStatus } from '@composables/product/useProductStatus'
+import CompanyProductsService from '@/services/product/CompanyProductsService'
 
-defineProps({
+const props = defineProps({
   product: {
     type: Object as PropType<Product>,
     required: true
@@ -56,6 +58,11 @@ defineProps({
 // Variables
 const { productStatusName } = useProductStatus()
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
+
+// Methods
+const handleDeleteProducts = async () => {
+  await CompanyProductsService.delete(props.product.id)
+}
 </script>
 
 <style lang="scss" scoped>

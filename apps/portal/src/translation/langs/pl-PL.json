@@ -369,6 +369,10 @@
             "tags": "Tagi"
           },
 
+          "list": {
+            "noProducts":"Twoja firma nie ma żadnych produktów."
+          },
+
           "dialog": {
             "status": "Status",
             "setStatus": "Ustaw status",

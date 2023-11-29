@@ -370,6 +370,10 @@
             "tags": "Tags"
           },
 
+          "list": {
+            "noProducts":"Your company does not have any products."
+          },
+
           "dialog": {
             "status": "Status",
             "setStatus": "Set status",

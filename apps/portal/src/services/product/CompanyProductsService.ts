@@ -6,7 +6,7 @@ class CompanyProductsService extends BaseService {
   async getCompanyProducts(params?: { page?: string; name?: string }) {
     return await this.get({
       config: { params },
-      suffix: 'product'
+      suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX
     })
   }
 
@@ -16,7 +16,7 @@ class CompanyProductsService extends BaseService {
       suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX,
       notificationTitle: 'company.management.product.editor.deleteSuccessTitle'
     })
-  }
+   }
 }
 
 export default new CompanyProductsService('company')

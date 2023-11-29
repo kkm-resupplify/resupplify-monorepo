@@ -1,13 +1,6 @@
 <template>
   <div class="product-list">
-    <m-tile-list v-if="products?.length" class="product-list__content">
-      <product-list-item v-for="(product, idx) in products" :key="idx" :product="product" />
-    </m-tile-list>
-
-    <a-list-no-results
-      v-else
-      :text="$t('company.management.warehouse.preview.list.noWarehouses')"
-    />
+    <product-list-item v-for="(product, idx) in products" :key="idx" :product="product" />
   </div>
 </template>
 
@@ -28,10 +21,11 @@ defineEmits(['search'])
 
 <style scoped lang="scss">
 .product-list {
-  overflow: auto;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   gap: $global-spacing-40;
+
+  padding: $global-spacing-30;
 }
 </style>

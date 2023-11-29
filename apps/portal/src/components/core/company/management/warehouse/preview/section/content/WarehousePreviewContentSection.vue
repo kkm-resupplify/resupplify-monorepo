@@ -75,7 +75,6 @@ const handleFetchWarehouseProducts = async () => {
       page: page as string
     }
   )
-  console.log('xdd')
 
   if (success) {
     warehouseProducts.value = data
