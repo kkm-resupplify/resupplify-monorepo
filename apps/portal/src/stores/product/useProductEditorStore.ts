@@ -19,7 +19,7 @@ export const useProductEditorStore = defineStore({
       productUnitId: null,
       productCategoryId: null,
       productSubcategoryId: null,
-      productTags: []
+      productTagIds: []
     },
     productEditorTranslationStepData: []
   }),
@@ -27,7 +27,8 @@ export const useProductEditorStore = defineStore({
   getters: {
     getProductEditor: (state) => state,
     getProductCategoryId: (state) => state.productEditorFirstStepData.productCategoryId,
-    getProductSubcategoryId: (state) => state.productEditorFirstStepData.productSubcategoryId
+    getProductSubcategoryId: (state) => state.productEditorFirstStepData.productSubcategoryId,
+    getProductTagIds: (state) => state.productEditorFirstStepData.productTagIds
   },
 
   actions: {
@@ -39,7 +40,7 @@ export const useProductEditorStore = defineStore({
         productEditorFirstStepData.productCategoryId
       this.productEditorFirstStepData.productSubcategoryId =
         productEditorFirstStepData.productSubcategoryId
-      this.productEditorFirstStepData.productTags = productEditorFirstStepData.productTags ?? []
+      this.productEditorFirstStepData.productTagIds = productEditorFirstStepData.productTagIds ?? []
     },
 
     saveProductTranslation(translationData: ProductTranslation) {

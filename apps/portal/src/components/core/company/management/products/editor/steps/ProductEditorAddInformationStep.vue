@@ -98,7 +98,7 @@ const subcategoryRef = ref<typeof MSelect>()
 const productEditorStore = useProductEditorStore()
 const selectedCategoryId = ref<number | null>()
 const productTags = ref<ProductTag[]>([])
-const selectedProductTags = ref<ProductTag[]>([])
+const selectedProductTagIds = ref<number[]>([])
 const isLoading = ref(false)
 
 // Computed
@@ -136,7 +136,7 @@ const producTagSelectOptions = computed(() => {
 })
 // Methods
 const handleNextStep = (values: ProductEditorFirstStepData) => {
-  values.productTags = selectedProductTags.value.map((productTag) => productTag.id)
+  values.productTagIds = selectedProductTagIds.value
   productEditorStore.setProductEditorFirstStepData(values)
   emits('next-step')
 }
@@ -162,12 +162,24 @@ const handleFetchProductTags = async () => {
 const handleSelectProductTag = (id: number) => {
   console.log('handleSelectProductTag', id)
   const selectedProductTag = productTags.value.find((productTag) => productTag.id === id)
-  if (selectedProductTag) selectedProductTags.value.push(selectedProductTag)
+  if (selectedProductTag) selectedProductTagIds.value.push(id)
 }
+
+const setSelectedProductTags = () => {
+  selectedProductTagIds.value = productEditorStore.getProductTagIds
+}
+
+const selectedProductTags = computed(() => {
+  return productTags.value.filter((productTag) =>
+    selectedProductTagIds.value.includes(productTag.id)
+  )
+})
+
 // Hooks
 onBeforeMount(async () => {
   await handleFetchProductTags()
   setSelectedCategoryId()
+  setSelectedProductTags()
 })
 </script>
 

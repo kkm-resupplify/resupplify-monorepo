@@ -10,5 +10,5 @@ export interface ProductEditorFirstStepData {
   productUnitId: number | null
   productCategoryId: number | null
   productSubcategoryId: number | null
-  productTags: number[]
+  productTagIds: number[]
 }
