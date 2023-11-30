@@ -4,7 +4,7 @@ class CompanyProductDescriptorsService extends BaseService {
   static PRODUCT_TAGS_SUFFIX = 'productTag'
 
   async getProductTags() {
-    return await this.get({
+    return this.get({
       suffix: CompanyProductDescriptorsService.PRODUCT_TAGS_SUFFIX
     })
   }
