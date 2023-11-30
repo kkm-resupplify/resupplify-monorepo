@@ -10,6 +10,7 @@
       @search="handleFetchProducts"
       @product-changed="handleFetchProducts"
       @page-changed="handleFetchProducts"
+      @filter="handleFetchProducts"
     />
   </a-panel>
 </template>
@@ -34,11 +35,15 @@ const handleFetchProducts = async () => {
   isLoading.value = true
 
   const {
-    query: { search, page }
+    query: { page, categoryId, subcategoryId, status, verificationStatus }
   } = route
 
   const { data, success, pagination } = await CompanyProductsService.getProducts({
-    page: page as string
+    page: page as string,
+    categoryId: categoryId as string,
+    subcategoryId: subcategoryId as string,
+    status: status as string,
+    verificationStatus: verificationStatus as string
   })
 
   if (success) {

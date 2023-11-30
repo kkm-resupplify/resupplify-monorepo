@@ -11,7 +11,7 @@
       <template #body>
         <div class="product-content-section__selects">
           <m-select
-            name="category"
+            name="categoryId"
             :placeholder="$t('company.management.products.dashboard.category')"
             :options="productCategories"
             :validate="false"
@@ -20,7 +20,7 @@
 
           <m-select
             ref="subcategoryRef"
-            name="subcategory"
+            name="subcategoryId"
             :placeholder="$t('company.management.products.dashboard.subcategory')"
             :options="productSubcategories"
             :validate="false"
@@ -68,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type PropType, computed, onMounted, watch } from 'vue'
+import { ref, type PropType, computed, watch } from 'vue'
 import { useStaticProductDescriptorsStore } from '@/stores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { onBeforeMount } from 'vue'
@@ -93,8 +93,8 @@ const props = defineProps({
 
 // Interfaces
 interface QueryParams {
-  category?: number
-  subcategory?: number
+  categoryId?: number
+  subcategoryId?: number
   status?: number
   verificationStatus?: number
 }
@@ -133,14 +133,13 @@ const noResultsTranslationKey = computed(() => {
 })
 
 const initialFormValues = computed(() => {
-  const category = route.query.category && Number(route.query.category)
-  const subcategory = route.query.subcategory && Number(route.query.subcategory)
+  const categoryId = route.query.categoryId && Number(route.query.categoryId)
+  const subcategoryId = route.query.subcategoryId && Number(route.query.subcategoryId)
   const status = route.query.status && Number(route.query.status)
   const verificationStatus =
     route.query.verificationStatus && Number(route.query.verificationStatus)
-  console.log(category, subcategory, status, verificationStatus)
 
-  return { category, subcategory, status, verificationStatus }
+  return { categoryId, subcategoryId, status, verificationStatus }
 })
 
 // Methods
@@ -178,8 +177,7 @@ const handlePageChanged = () => {
 }
 
 const handleQuerySubmit = async (data: QueryParams) => {
-  console.log(data)
-  setQueryParam(data)
+  await setQueryParam(data)
 
   emits('filter', data)
 }
@@ -192,11 +190,11 @@ onBeforeMount(async () => {
 watch(
   () => route.query,
   (newQuery) => {
-    const category = newQuery.category && Number(newQuery.category)
-    const subcategory = newQuery.subcategory && Number(newQuery.subcategory)
+    const categoryId = newQuery.categoryId && Number(newQuery.categoryId)
+    const subcategoryId = newQuery.subcategoryId && Number(newQuery.subcategoryId)
 
-    if (category && subcategory && !subcategoryInitialized.value) {
-      handleProductCategoryChange(category)
+    if (categoryId && subcategoryId && !subcategoryInitialized.value) {
+      handleProductCategoryChange(categoryId)
       subcategoryInitialized.value = true
     }
   },

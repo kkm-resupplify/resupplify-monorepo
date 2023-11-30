@@ -9,7 +9,13 @@ class CompanyProductsService extends BaseService {
   static COMPANY_PRODUCTS_SUFFIX = 'product'
   static COMPANY_PRODUCTS_MASS_ASSIGN_SUFFIX = 'productMassAssign'
 
-  async getProducts(params?: { page?: string; name?: string }) {
+  async getProducts(params?: {
+    page?: string
+    categoryId?: string
+    subcategoryId?: string
+    status: string
+    verificationStatus: string
+  }) {
     return await this.get({
       config: { params },
       suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX
