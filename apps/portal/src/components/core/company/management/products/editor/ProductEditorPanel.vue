@@ -13,7 +13,11 @@ import ProductEditorStepper from '@/components/core/company/management/products/
 <style lang="scss" scoped>
 .warehouse-editor-panel {
   &__main-section {
-    width: fit-content;
+    width: 100%;
+  }
+
+  :deep(.a-panel-section) {
+    height: 100%;
   }
 }
 </style>

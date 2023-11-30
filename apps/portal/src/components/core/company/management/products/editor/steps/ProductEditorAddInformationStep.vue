@@ -84,6 +84,7 @@
     </template>
   </m-stepper-step-content>
 </template>
+
 <script setup lang="ts">
 import { ref, computed, onBeforeMount } from 'vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
@@ -196,8 +197,6 @@ onBeforeMount(async () => {
 
 <style scoped lang="scss">
 .product-editor-add-information-step {
-  max-height: 650px;
-
   &__body {
     display: flex;
     flex-direction: column;
@@ -207,8 +206,10 @@ onBeforeMount(async () => {
 
   &__buttons {
     display: flex;
-    gap: $global-spacing-100;
+    flex-direction: column;
+    gap: $global-spacing-40;
     justify-content: center;
+
     width: 100%;
   }
 }
