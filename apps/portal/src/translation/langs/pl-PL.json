@@ -362,49 +362,47 @@
           }
         },
 
-        "preview": {
-          "content": {
-            "category": "Kategoria",
-            "subcategory": "Podkategoria",
-            "tags": "Tagi"
-          },
+        "content": {
+          "category": "Kategoria",
+          "subcategory": "Podkategoria",
+          "tags": "Tagi"
+        },
 
-          "list": {
-            "noProducts": "Twoja firma nie ma żadnych produktów.",
-            "noProductsMatchingFilter": "Brak produktów dla podanych parametrów."
-          },
+        "list": {
+          "noProducts": "Twoja firma nie ma żadnych produktów.",
+          "noProductsMatchingFilter": "Brak produktów dla podanych parametrów."
+        },
 
-          "dialog": {
-            "status": "Status",
-            "setStatus": "Ustaw status",
-            "delete": {
-              "title": "Confirm {product} removal"
-            }
-          },
-
-          "title": "Produkty",
-
-          "tiles": {
-            "products": "Produkty",
-            "newProduct": "Utwórz nowy produkt",
-            "companyProductTags": "Tagi produktów firmy"
-          },
-
-          "dashboard": {
-            "totalProductsCount": "Razem produktów: ",
-            "pendingVerificationProductsCount": "Produkty oczekuje weryfikacji: ",
-            "verifiedProductsCount": "Zweryfikowane produkty: ",
-            "activeProductsCount": "Aktywne produkty: ",
-            "inactiveProductsCount": "Nieaktywne produkty: ",
-
-            "addProduct": "Dodaj produkt",
-            "filterProducts": "Filtruj produkty",
-            "searchBarPlaceholder": "Wpisz imię",
-            "category": "Kategoria",
-            "subcategory": "Podkategoria",
-            "status": "Status",
-            "verificationStatus": "Status weryfikacji"
+        "dialog": {
+          "status": "Status",
+          "setStatus": "Ustaw status",
+          "delete": {
+            "title": "Confirm {product} removal"
           }
+        },
+
+        "title": "Produkty",
+
+        "tiles": {
+          "products": "Produkty",
+          "newProduct": "Utwórz nowy produkt",
+          "companyProductTags": "Tagi produktów firmy"
+        },
+
+        "dashboard": {
+          "totalProductsCount": "Razem produktów: ",
+          "pendingVerificationProductsCount": "Produkty oczekuje weryfikacji: ",
+          "verifiedProductsCount": "Zweryfikowane produkty: ",
+          "activeProductsCount": "Aktywne produkty: ",
+          "inactiveProductsCount": "Nieaktywne produkty: ",
+
+          "addProduct": "Dodaj produkt",
+          "filterProducts": "Filtruj produkty",
+          "searchBarPlaceholder": "Wpisz imię",
+          "category": "Kategoria",
+          "subcategory": "Podkategoria",
+          "status": "Status",
+          "verificationStatus": "Status weryfikacji"
         }
       }
     }

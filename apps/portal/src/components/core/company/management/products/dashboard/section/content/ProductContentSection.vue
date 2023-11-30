@@ -1,9 +1,6 @@
 <template>
   <a-panel-section class="product-content-section">
-    <a-title
-      :title="$t('company.management.products.preview.dashboard.filterProducts')"
-      size="x-large"
-    />
+    <a-title :title="$t('company.management.products.dashboard.filterProducts')" size="x-large" />
 
     <!-- <o-search-bar
             :placeholder="$t('company.management.navigation.products.dashboard.searchBarPlaceholder')"
@@ -13,7 +10,7 @@
     <div class="product-content-section__selects">
       <m-select
         name="category"
-        :placeholder="$t('company.management.products.preview.dashboard.category')"
+        :placeholder="$t('company.management.products.dashboard.category')"
         :options="productCategories"
         :validate="false"
         @input-change="handleProductCategoryChange"
@@ -23,21 +20,21 @@
         ref="subcategoryRef"
         name="subcategory"
         :validate="false"
-        :placeholder="$t('company.management.products.preview.dashboard.subcategory')"
+        :placeholder="$t('company.management.products.dashboard.subcategory')"
         :options="productSubcategories"
       />
 
       <m-select
         name="status"
         :validate="false"
-        :placeholder="$t('company.management.products.preview.dashboard.status')"
+        :placeholder="$t('company.management.products.dashboard.status')"
         :options="statuses"
       />
 
       <m-select
         name="verificationStatus"
         :validate="false"
-        :placeholder="$t('company.management.products.preview.dashboard.verificationStatus')"
+        :placeholder="$t('company.management.products.dashboard.verificationStatus')"
         :options="verificationStatuses"
       />
     </div>
@@ -49,7 +46,7 @@
 
       <a-list-no-results
         v-else
-        :text="$t(`company.management.products.preview.list.${noResultsTranslationKey}`)"
+        :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
       />
 
       <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />

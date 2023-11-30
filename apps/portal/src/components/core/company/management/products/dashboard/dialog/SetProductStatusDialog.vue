@@ -13,10 +13,11 @@
     </template>
 
     <div class="edit-product-status-dialog__content">
-      <o-form :initial-values="{ ...props.product }">
+      <o-form :initial-values="props.product">
         <template #body>
           <m-select name="status" :options="statuses" />
         </template>
+
         <template #footer>
           <div class="edit-product-status-dialog__buttons">
             <a-button :text="$t('global.cancel')" size="x-large" />

@@ -2,9 +2,9 @@
   <template v-if="isLoading"> implement-loader-here </template>
 
   <a-panel v-else>
-    <product-preview-header-section :products-count="numberOfProducts" :products="products" />
+    <product-header-section :products-count="numberOfProducts" :products="products" />
 
-    <product-preview-content-section
+    <product-content-section
       :products="products"
       :pagination-data="paginationData"
       @search="handleFetchProducts"
@@ -14,8 +14,8 @@
   </a-panel>
 </template>
 <script setup lang="ts">
-import ProductPreviewHeaderSection from './section/header/ProductPreviewHeaderSection.vue'
-import ProductPreviewContentSection from './section/content/ProductPreviewContentSection.vue'
+import ProductHeaderSection from './section/header/ProductHeaderSection.vue'
+import ProductContentSection from './section/content/ProductContentSection.vue'
 import { ref, onBeforeMount } from 'vue'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import CompanyProductsService from '@/services/product/CompanyProductsService'
@@ -42,8 +42,6 @@ const handleFetchProducts = async () => {
   })
 
   if (success) {
-    console.log(pagination)
-
     products.value = data
     numberOfProducts.value = pagination.totalRecords
     paginationData.value = pagination
