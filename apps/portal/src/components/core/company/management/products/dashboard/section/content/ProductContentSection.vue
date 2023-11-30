@@ -7,37 +7,50 @@
             @search="$emit('search')"
           /> -->
 
-    <div class="product-content-section__selects">
-      <m-select
-        name="category"
-        :placeholder="$t('company.management.products.dashboard.category')"
-        :options="productCategories"
-        :validate="false"
-        @input-change="handleProductCategoryChange"
-      />
+    <o-form :submit-callback="handleQuerySubmit">
+      <template #body>
+        <div class="product-content-section__selects">
+          <m-select
+            name="category"
+            :placeholder="$t('company.management.products.dashboard.category')"
+            :options="productCategories"
+            :validate="false"
+            @input-change="handleProductCategoryChange"
+          />
 
-      <m-select
-        ref="subcategoryRef"
-        name="subcategory"
-        :validate="false"
-        :placeholder="$t('company.management.products.dashboard.subcategory')"
-        :options="productSubcategories"
-      />
+          <m-select
+            ref="subcategoryRef"
+            name="subcategory"
+            :validate="false"
+            :placeholder="$t('company.management.products.dashboard.subcategory')"
+            :options="productSubcategories"
+          />
 
-      <m-select
-        name="status"
-        :validate="false"
-        :placeholder="$t('company.management.products.dashboard.status')"
-        :options="statuses"
-      />
+          <m-select
+            name="status"
+            :validate="false"
+            :placeholder="$t('company.management.products.dashboard.status')"
+            :options="statuses"
+          />
 
-      <m-select
-        name="verificationStatus"
-        :validate="false"
-        :placeholder="$t('company.management.products.dashboard.verificationStatus')"
-        :options="verificationStatuses"
-      />
-    </div>
+          <m-select
+            name="verificationStatus"
+            :validate="false"
+            :placeholder="$t('company.management.products.dashboard.verificationStatus')"
+            :options="verificationStatuses"
+          />
+        </div>
+      </template>
+
+      <template #footer>
+        <a-button
+          button-type="submit"
+          :text="$t('global.showResults')"
+          size="x-large"
+          class="product-content-section__show-results"
+        />
+      </template>
+    </o-form>
 
     <template v-if="isLoading">implement-list-loader</template>
 
@@ -66,6 +79,7 @@ import type {
 } from '@sharedInterfaces/product/ProductInterface'
 import ProductList from './list/ProductList.vue'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
+import { useRoute, useRouter } from 'vue-router'
 
 const props = defineProps({
   products: {
@@ -76,25 +90,26 @@ const props = defineProps({
   }
 })
 
+// Interfaces
+interface QueryParams {
+  category?: number
+  status?: number
+  subcategory?: number
+  verificationStatus?: number
+}
+
 // Emits
-const emits = defineEmits(['product-changed', 'page-changed'])
-
-const handleProductChanged = () => {
-  emits('product-changed')
-}
-
-const handlePageChanged = () => {
-  emits('page-changed')
-}
+const emits = defineEmits(['product-changed', 'page-changed', 'search'])
 
 // Variables
 const { t } = useI18n()
 const productCategories = ref<ProductCategorySelectItem[]>()
 const productSubcategories = ref<ProductSubcategorySelectItem[]>()
 const isLoading = ref(false)
-
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
+const route = useRoute()
+const router = useRouter()
 
 const statuses = ref([
   { id: 1, text: t('global.active') },
@@ -137,6 +152,24 @@ const handleProductCategoryChange = (id: number) => {
   }))
 }
 
+const setQueryParam = async (data: QueryParams | undefined) => {
+  await router.replace({ query: { ...route.query, ...data } })
+}
+
+const handleProductChanged = () => {
+  emits('product-changed')
+}
+
+const handlePageChanged = () => {
+  emits('page-changed')
+}
+
+const handleQuerySubmit = async (data: QueryParams) => {
+  setQueryParam(data)
+
+  emits('search', data)
+}
+
 // Emits
 // defineEmits(['search'])
 
@@ -154,6 +187,11 @@ onBeforeMount(async () => {
   &__selects {
     display: flex;
     gap: $global-spacing-50;
+  }
+
+  &__show-results {
+    width: max-content;
+    margin-left: auto;
   }
 }
 </style>

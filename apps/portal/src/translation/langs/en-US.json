@@ -21,7 +21,8 @@
     "confirm": "Confirm",
     "verified": "Verified",
     "unverified": "Unverified",
-    "add": "Add"
+    "add": "Add",
+    "showResults": "Show results"
   },
 
   "payments": {
