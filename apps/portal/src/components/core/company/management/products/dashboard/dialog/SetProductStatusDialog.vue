@@ -15,7 +15,7 @@
     <div class="edit-product-status-dialog__content">
       <o-form :initial-values="props.product">
         <template #body>
-          <m-select name="status" :options="statuses" />
+          <m-select name="status" :options="statuses" :validate="false" />
         </template>
 
         <template #footer>
@@ -47,8 +47,8 @@ const props = defineProps({
 // Variables
 const { t } = useI18n()
 const statuses = computed(() => [
-  { id: 1, text: t('global.active') },
-  { id: 2, text: t('global.inactive') }
+  { id: 0, text: t('global.active') },
+  { id: 1, text: t('global.inactive') }
 ])
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 </script>
