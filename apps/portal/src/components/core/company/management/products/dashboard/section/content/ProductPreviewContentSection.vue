@@ -1,54 +1,61 @@
 <template>
-  <a-panel-section>
-    <div class="product-content-section">
-      <a-title
-        :title="$t('company.management.products.preview.dashboard.filterProducts')"
-        size="x-large"
+  <a-panel-section class="product-content-section">
+    <a-title
+      :title="$t('company.management.products.preview.dashboard.filterProducts')"
+      size="x-large"
+    />
+
+    <!-- <o-search-bar
+            :placeholder="$t('company.management.navigation.products.dashboard.searchBarPlaceholder')"
+            @search="$emit('search')"
+          /> -->
+
+    <div class="product-content-section__selects">
+      <m-select
+        name="category"
+        :placeholder="$t('company.management.products.preview.dashboard.category')"
+        :options="productCategories"
+        :validate="false"
+        @input-change="handleProductCategoryChange"
       />
 
-      <!-- <o-search-bar
-        :placeholder="$t('company.management.navigation.products.dashboard.searchBarPlaceholder')"
-        @search="$emit('search')"
-      /> -->
+      <m-select
+        ref="subcategoryRef"
+        name="subcategory"
+        :validate="false"
+        :placeholder="$t('company.management.products.preview.dashboard.subcategory')"
+        :options="productSubcategories"
+      />
 
-      <div class="product-content-section__selects">
-        <m-select
-          name="category"
-          :placeholder="$t('company.management.products.preview.dashboard.category')"
-          :options="productCategories"
-          :validate="false"
-          @input-change="handleProductCategoryChange"
-        />
+      <m-select
+        name="status"
+        :validate="false"
+        :placeholder="$t('company.management.products.preview.dashboard.status')"
+        :options="statuses"
+      />
 
-        <m-select
-          ref="subcategoryRef"
-          name="subcategory"
-          :validate="false"
-          :placeholder="$t('company.management.products.preview.dashboard.subcategory')"
-          :options="productSubcategories"
-        />
-
-        <m-select
-          name="status"
-          :validate="false"
-          :placeholder="$t('company.management.products.preview.dashboard.status')"
-          :options="statuses"
-        />
-
-        <m-select
-          name="verificationStatus"
-          :validate="false"
-          :placeholder="$t('company.management.products.preview.dashboard.verificationStatus')"
-          :options="verificationStatuses"
-        />
-      </div>
-
-      <product-list :products="products" @product-changed="handleProductChanged" />
+      <m-select
+        name="verificationStatus"
+        :validate="false"
+        :placeholder="$t('company.management.products.preview.dashboard.verificationStatus')"
+        :options="verificationStatuses"
+      />
     </div>
+
+    <template v-if="isLoading">implement-list-loader</template>
+
+    <template v-else>
+      <product-list v-if="showList" :products="products" @product-changed="handleProductChanged" />
+
+      <a-list-no-results
+        v-else
+        :text="$t(`company.management.products.preview.list.${noResultsTranslationKey}`)"
+      />
+    </template>
   </a-panel-section>
 </template>
 <script setup lang="ts">
-import { ref, type PropType } from 'vue'
+import { ref, type PropType, computed } from 'vue'
 import { useStaticProductDescriptorsStore } from '@/stores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { onBeforeMount } from 'vue'
@@ -60,7 +67,7 @@ import type {
 } from '@sharedInterfaces/product/ProductInterface'
 import ProductList from './list/ProductList.vue'
 
-defineProps({
+const props = defineProps({
   products: {
     type: Array as PropType<Product[]>
   }
@@ -77,6 +84,7 @@ const handleProductChanged = () => {
 const { t } = useI18n()
 const productCategories = ref<ProductCategorySelectItem[]>()
 const productSubcategories = ref<ProductSubcategorySelectItem[]>()
+const isLoading = ref(false)
 
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
@@ -90,6 +98,15 @@ const verificationStatuses = ref([
   { id: 1, text: t('global.verified') },
   { id: 2, text: t('global.unverified') }
 ])
+
+// Computed
+const showList = computed(() => {
+  return props.products?.length
+})
+
+const noResultsTranslationKey = computed(() => {
+  return props.products?.length ? 'noProductsMatchingFilter' : 'noProducts'
+})
 
 // Methods
 const handleFetchProductCategories = async () => {

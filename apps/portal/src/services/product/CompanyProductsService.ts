@@ -10,7 +10,7 @@ class CompanyProductsService extends BaseService {
   async deleteProduct(id: number) {
     return await this.delete({
       id: id,
-      notificationTitle: 'company.management.product.editor.deleteSuccessTitle'
+      notificationTitle: 'company.management.products.editor.deleteSuccessTitle'
     })
   }
 }

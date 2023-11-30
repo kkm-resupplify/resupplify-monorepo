@@ -371,7 +371,8 @@
           },
 
           "list": {
-            "noProducts":"Your company does not have any products."
+            "noProducts": "Your company does not have any products.",
+            "noProductsMatchingFilter": "No products for given parameters."
           },
 
           "dialog": {

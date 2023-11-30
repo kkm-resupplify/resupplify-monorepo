@@ -370,7 +370,8 @@
           },
 
           "list": {
-            "noProducts":"Twoja firma nie ma żadnych produktów."
+            "noProducts": "Twoja firma nie ma żadnych produktów.",
+            "noProductsMatchingFilter": "Brak produktów dla podanych parametrów."
           },
 
           "dialog": {
