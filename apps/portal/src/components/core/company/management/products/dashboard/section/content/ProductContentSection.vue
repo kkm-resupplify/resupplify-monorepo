@@ -7,7 +7,7 @@
             @search="$emit('search')"
           /> -->
 
-    <o-form :submit-callback="handleQuerySubmit">
+    <o-form :submit-callback="handleQuerySubmit" :initial-values="initialFormValues">
       <template #body>
         <div class="product-content-section__selects">
           <m-select
@@ -21,9 +21,9 @@
           <m-select
             ref="subcategoryRef"
             name="subcategory"
-            :validate="false"
             :placeholder="$t('company.management.products.dashboard.subcategory')"
             :options="productSubcategories"
+            :validate="false"
           />
 
           <m-select
@@ -66,8 +66,9 @@
     </template>
   </a-panel-section>
 </template>
+
 <script setup lang="ts">
-import { ref, type PropType, computed } from 'vue'
+import { ref, type PropType, computed, onMounted, watch } from 'vue'
 import { useStaticProductDescriptorsStore } from '@/stores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { onBeforeMount } from 'vue'
@@ -93,13 +94,13 @@ const props = defineProps({
 // Interfaces
 interface QueryParams {
   category?: number
-  status?: number
   subcategory?: number
+  status?: number
   verificationStatus?: number
 }
 
 // Emits
-const emits = defineEmits(['product-changed', 'page-changed', 'search'])
+const emits = defineEmits(['product-changed', 'page-changed', 'filter'])
 
 // Variables
 const { t } = useI18n()
@@ -110,15 +111,16 @@ const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
 const route = useRoute()
 const router = useRouter()
+const subcategoryInitialized = ref(false)
 
 const statuses = ref([
-  { id: 1, text: t('global.active') },
-  { id: 2, text: t('global.inactive') }
+  { id: 0, text: t('global.active') },
+  { id: 1, text: t('global.inactive') }
 ])
 
 const verificationStatuses = ref([
-  { id: 1, text: t('global.verified') },
-  { id: 2, text: t('global.unverified') }
+  { id: 0, text: t('global.verified') },
+  { id: 1, text: t('global.unverified') }
 ])
 
 // Computed
@@ -128,6 +130,17 @@ const showList = computed(() => {
 
 const noResultsTranslationKey = computed(() => {
   return props.products?.length ? 'noProductsMatchingFilter' : 'noProducts'
+})
+
+const initialFormValues = computed(() => {
+  const category = route.query.category && Number(route.query.category)
+  const subcategory = route.query.subcategory && Number(route.query.subcategory)
+  const status = route.query.status && Number(route.query.status)
+  const verificationStatus =
+    route.query.verificationStatus && Number(route.query.verificationStatus)
+  console.log(category, subcategory, status, verificationStatus)
+
+  return { category, subcategory, status, verificationStatus }
 })
 
 // Methods
@@ -165,18 +178,30 @@ const handlePageChanged = () => {
 }
 
 const handleQuerySubmit = async (data: QueryParams) => {
+  console.log(data)
   setQueryParam(data)
 
-  emits('search', data)
+  emits('filter', data)
 }
-
-// Emits
-// defineEmits(['search'])
 
 // Hooks
 onBeforeMount(async () => {
   await handleFetchProductCategories()
 })
+
+watch(
+  () => route.query,
+  (newQuery) => {
+    const category = newQuery.category && Number(newQuery.category)
+    const subcategory = newQuery.subcategory && Number(newQuery.subcategory)
+
+    if (category && subcategory && !subcategoryInitialized.value) {
+      handleProductCategoryChange(category)
+      subcategoryInitialized.value = true
+    }
+  },
+  { immediate: true }
+)
 </script>
 <style scoped lang="scss">
 .product-content-section {

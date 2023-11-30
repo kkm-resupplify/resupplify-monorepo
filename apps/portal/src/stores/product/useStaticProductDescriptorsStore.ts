@@ -36,6 +36,9 @@ export const useStaticProductDescriptorsStore = defineStore({
       )
 
       return { category, subcategories }
+    },
+    getProductCategoryById: (state) => (categoryId: number) => {
+      state.productCategories.find((cat) => cat.id === categoryId)
     }
   },
 
