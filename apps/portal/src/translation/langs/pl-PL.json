@@ -348,6 +348,7 @@
           "deleteSuccessTitle": "Produkt usunięty pomyślnie",
           "updateSuccessTitle": "Produkt zedytowany pomyślnie",
           "addSuccessTitle": "Produkt dodany pomyślnie",
+          "assignStatusSuccessTitle": "Status zmieniony pomyślnie",
 
           "steps": {
             "information": {

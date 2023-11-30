@@ -37,7 +37,7 @@ const handleFetchProducts = async () => {
     query: { search, page }
   } = route
 
-  const { data, success, pagination } = await CompanyProductsService.getCompanyProducts({
+  const { data, success, pagination } = await CompanyProductsService.getProducts({
     page: page as string
   })
 

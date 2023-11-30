@@ -349,6 +349,7 @@
           "deleteSuccessTitle": "Product removed successfully",
           "updateSuccessTitle": "Product edited succesfully",
           "addSuccessTitle": "Product added succesfully",
+          "assignStatusSuccessTitle": "Status changed succesfully",
 
           "steps": {
             "information": {

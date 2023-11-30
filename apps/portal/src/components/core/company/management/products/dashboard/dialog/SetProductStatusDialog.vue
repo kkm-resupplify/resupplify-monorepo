@@ -13,7 +13,7 @@
     </template>
 
     <div class="edit-product-status-dialog__content">
-      <o-form :initial-values="props.product">
+      <o-form :initial-values="props.product" :submit-callback="handleSubmitStatus">
         <template #body>
           <m-select name="status" :options="statuses" :validate="false" />
         </template>
@@ -36,6 +36,7 @@ import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
+import CompanyProductsService from '@/services/product/CompanyProductsService'
 
 const props = defineProps({
   product: {
@@ -51,6 +52,23 @@ const statuses = computed(() => [
   { id: 1, text: t('global.inactive') }
 ])
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
+
+// Methods
+
+const closeDialog = () => {
+  dialogRef.value?.closeDialog()
+}
+
+const handleSubmitStatus = async (formData: Product) => {
+  const { success } = await CompanyProductsService.setProductsStatus({
+    productIdList: [props.product.id],
+    status: formData.status
+  })
+
+  if (success) {
+    closeDialog()
+  }
+}
 </script>
 
 <style lang="scss" scoped>
