@@ -6,8 +6,10 @@
 
     <product-preview-content-section
       :products="products"
+      :pagination-data="paginationData"
       @search="handleFetchProducts"
       @product-changed="handleFetchProducts"
+      @page-changed="handleFetchProducts"
     />
   </a-panel>
 </template>
@@ -18,28 +20,33 @@ import { ref, onBeforeMount } from 'vue'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import { useRoute } from 'vue-router'
+import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 
 // Variables
 const products = ref<Product[]>([])
 const numberOfProducts = ref()
 const isLoading = ref(false)
 const route = useRoute()
+const paginationData = ref<Pagination>()
 
 // Methods
 const handleFetchProducts = async () => {
   isLoading.value = true
 
   const {
-    query: { search }
+    query: { search, page }
   } = route
 
   const { data, success, pagination } = await CompanyProductsService.getCompanyProducts({
-    page: search as string
+    page: page as string
   })
 
   if (success) {
+    console.log(pagination)
+
     products.value = data
     numberOfProducts.value = pagination.totalRecords
+    paginationData.value = pagination
   }
 
   isLoading.value = false

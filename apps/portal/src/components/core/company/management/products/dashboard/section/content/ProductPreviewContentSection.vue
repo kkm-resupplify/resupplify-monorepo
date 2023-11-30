@@ -51,6 +51,8 @@
         v-else
         :text="$t(`company.management.products.preview.list.${noResultsTranslationKey}`)"
       />
+
+      <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />
     </template>
   </a-panel-section>
 </template>
@@ -66,18 +68,26 @@ import type {
   ProductSubcategorySelectItem
 } from '@sharedInterfaces/product/ProductInterface'
 import ProductList from './list/ProductList.vue'
+import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 
 const props = defineProps({
   products: {
     type: Array as PropType<Product[]>
+  },
+  paginationData: {
+    type: Object as PropType<Pagination>
   }
 })
 
 // Emits
-const emits = defineEmits(['product-changed'])
+const emits = defineEmits(['product-changed', 'page-changed'])
 
 const handleProductChanged = () => {
   emits('product-changed')
+}
+
+const handlePageChanged = () => {
+  emits('page-changed')
 }
 
 // Variables
