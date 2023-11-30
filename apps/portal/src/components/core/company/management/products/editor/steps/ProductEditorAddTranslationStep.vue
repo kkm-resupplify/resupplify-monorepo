@@ -5,7 +5,7 @@
         <a-expansion-panel v-for="language in languagStore.getLanguages" :key="language.id">
           <template #activator>
             <a-list-item-wrapper class="product-editor-add-translation-step__panel-body-activator">
-              {{ language.code }}
+              <span v-text="getLanguageName(language.code)" />
             </a-list-item-wrapper>
           </template>
 
@@ -43,7 +43,14 @@
           </template>
         </a-expansion-panel>
 
-        <a-button :text="$t('global.save')" size="x-large" @click="handleSaveProduct" />
+        <a-button size="x-large" :text="$t('global.back')" @click="handlePreviousStep" />
+
+        <a-button
+          :text="$t('global.save')"
+          size="x-large"
+          :disabled="disableSaveButton"
+          @click="handleSaveProduct"
+        />
       </div>
     </template>
   </m-stepper-step-content>
@@ -52,14 +59,20 @@
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import { useLanguageStore } from '@sharedStores/language/useLanguageStore'
 import { useProductEditorStore } from '@stores/product/useProductEditorStore'
-
+import { useI18n } from 'vue-i18n'
+import { computed } from 'vue'
 // Variables
 const languagStore = useLanguageStore()
 const productEditorStore = useProductEditorStore()
+const { t } = useI18n()
 
 // Emits
 const emits = defineEmits(['previous-step'])
 
+// Computed
+const disableSaveButton = computed(() => {
+  return productEditorStore.productEditorTranslationStepData.length === 0
+})
 // Methods
 const handleSaveTranslation = (values: any, languageId: number) => {
   productEditorStore.saveProductTranslation({ ...values, languageId })
@@ -72,6 +85,12 @@ const handleSaveProduct = async () => {
     emits('previous-step')
     productEditorStore.$reset()
   }
+}
+
+const getLanguageName = (code: string) => t(`language.${code}`)
+
+const handlePreviousStep = () => {
+  emits('previous-step')
 }
 </script>
 <style scoped lang="scss">

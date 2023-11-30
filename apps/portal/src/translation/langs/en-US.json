@@ -24,6 +24,11 @@
     "add": "Add"
   },
 
+  "language": {
+    "en-US": "English (US)",
+    "pl-PL": "Polish"
+  },
+
   "payments": {
     "payNow": "Pay now"
   },

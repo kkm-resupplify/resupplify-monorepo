@@ -24,6 +24,11 @@
     "add": "Dodaj"
   },
 
+  "language": {
+    "en-US": "Angielski",
+    "pl-PL": "Polski"
+  },
+
   "payments": {
     "payNow": "Zapłać teraz"
   },
