@@ -58,7 +58,6 @@ const handleCancelRegister = () => {
 }
 
 // Hooks
-
 onBeforeMount(async () => {
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
