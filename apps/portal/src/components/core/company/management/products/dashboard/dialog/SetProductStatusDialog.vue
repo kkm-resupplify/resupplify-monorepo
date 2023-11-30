@@ -1,12 +1,12 @@
 <template>
   <m-dialog
     ref="dialogRef"
-    :title="$t('company.management.products.preview.dialog.setStatus')"
+    :title="$t('company.management.products.dialog.setStatus')"
     class="edit-product-status-dialog"
   >
     <template #activator>
       <a-button
-        :text="$t('company.management.products.preview.dialog.setStatus')"
+        :text="$t('company.management.products.dialog.setStatus')"
         size="x-large"
         class="edit-product-status-dialog__activator"
       />

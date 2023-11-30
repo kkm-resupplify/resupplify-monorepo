@@ -7,7 +7,7 @@
     <div class="edit-product-dialog__content">
       <div class="edit-product-dialog__status">
         <a-title
-          :title="$t('company.management.products.preview.dialog.status')"
+          :title="$t('company.management.products.dialog.status')"
           :subtitle="productStatusName(product)"
           variant="horizontal"
         />
@@ -26,7 +26,7 @@
           :item-name="product.name"
           type="delete"
           :title="
-            $t('company.management.products.preview.dialog.delete.title', {
+            $t('company.management.products.dialog.delete.title', {
               product: product.name
             })
           "
