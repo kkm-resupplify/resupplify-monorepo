@@ -1,7 +1,12 @@
 <template>
   <m-stepper-step-content>
     <template #body>
+      <div v-if="isLoading" class="product-editor-add-information-step__body">
+        implement-loader-here
+      </div>
+
       <o-form
+        v-else
         class="product-editor-add-information-step"
         :initial-values="productEditorStore.productEditorFirstStepData"
         :submit-callback="handleNextStep"
@@ -50,6 +55,17 @@
               :placeholder="$t('company.management.products.editor.productUnitPlaceholder')"
               :options="productUnitSelectOptions"
             />
+
+            <m-select
+              name="productTag"
+              :label="$t('company.management.products.editor.productTagsLabel')"
+              :placeholder="$t('company.management.products.editor.productTagsPlaceholder')"
+              :options="producTagSelectOptions"
+              :validate="false"
+              @input-change="handleSelectProductTag"
+            />
+
+            <product-tag-list :product-tags="selectedProductTags" />
           </div>
         </template>
 
@@ -70,7 +86,9 @@ import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStati
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useProductEditorStore } from '@stores/product/useProductEditorStore'
 import type { ProductEditorFirstStepData } from '@sharedInterfaces/product/ProductEditorInterface'
-
+import ProductTagList from '@/components/common/product/ProductTagList.vue'
+import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
+import CompanyProductDescriptorsService from '@/services/product/CompanyProductDescriptorsService'
 // Emits
 const emits = defineEmits(['next-step'])
 
@@ -79,6 +97,9 @@ const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
 const productEditorStore = useProductEditorStore()
 const selectedCategoryId = ref<number | null>()
+const productTags = ref<ProductTag[]>([])
+const selectedProductTags = ref<ProductTag[]>([])
+const isLoading = ref(false)
 
 // Computed
 const productCategorySubcategories = computed(() => {
@@ -95,6 +116,7 @@ const disableProductSubcategorySelect = computed(() => {
     productEditorStore.getProductSubcategoryId === null
   )
 })
+
 const productUnitSelectOptions = computed(() => {
   return staticProductDescriptorsStore.getProductUnits.map((unit) => ({
     id: unit.id,
@@ -102,8 +124,19 @@ const productUnitSelectOptions = computed(() => {
   }))
 })
 
+const producTagSelectOptions = computed(() => {
+  return productTags.value
+    .map((productTag) => ({ id: productTag.id, text: productTag.name }))
+    .filter(
+      (productTag) =>
+        !selectedProductTags.value.some(
+          (selectedProductTag) => productTag.id === selectedProductTag.id
+        )
+    )
+})
 // Methods
 const handleNextStep = (values: ProductEditorFirstStepData) => {
+  values.productTags = selectedProductTags.value.map((productTag) => productTag.id)
   productEditorStore.setProductEditorFirstStepData(values)
   emits('next-step')
 }
@@ -113,11 +146,31 @@ const handleProductCategoryChange = (id: number) => {
   selectedCategoryId.value = id
 }
 
-// Hooks
-onBeforeMount(() => {
+const setSelectedCategoryId = () => {
   selectedCategoryId.value = productEditorStore.getProductCategoryId
+}
+
+const handleFetchProductTags = async () => {
+  isLoading.value = true
+  const { success, data } = await CompanyProductDescriptorsService.getProductTags()
+
+  if (success) productTags.value = data
+
+  isLoading.value = false
+}
+
+const handleSelectProductTag = (id: number) => {
+  console.log('handleSelectProductTag', id)
+  const selectedProductTag = productTags.value.find((productTag) => productTag.id === id)
+  if (selectedProductTag) selectedProductTags.value.push(selectedProductTag)
+}
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchProductTags()
+  setSelectedCategoryId()
 })
 </script>
+
 <style scoped lang="scss">
 .product-editor-add-information-step {
   max-height: 650px;
