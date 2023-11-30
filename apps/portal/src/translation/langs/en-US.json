@@ -332,10 +332,15 @@
 
       "products": {
         "editor": {
-          "informationTitle": "Enter product description",
+          "title": "Product creator",
+          "informationTitle": "Enter product descriptors",
           "translationTitle": "Product translations in {language}",
           "productNameLabel": "Product name",
           "productNamePlaceholder": "Enter product name",
+          "productCodeLabel": "Product code",
+          "productCodePlaceholder": "Enter product code",
+          "productProducerLabel": "Product producer",
+          "productProducerPlaceholder": "Enter product producer",
           "productCategoryLabel": "Product category",
           "productCategoryPlaceholder": "Select product category",
           "productSubcategoryLabel": "Product subcategory",
@@ -349,14 +354,21 @@
 
           "steps": {
             "information": {
-              "title": "Product",
-              "content": "Product information"
+              "title": "Descriptors",
+              "content": "General information"
             },
 
             "translation": {
               "title": "Translations",
-              "content": "Add {language} language translation"
+              "content": "Name & description"
             }
+          },
+
+          "notification": {
+            "productCreatedTitle": "Product created successfully",
+            "productCreatedText": "Your product awaits verification now",
+            "productUpdatedTitle": "Product updated successfully",
+            "productDeletedTitle": "Product deleted successfully"
           }
         },
 

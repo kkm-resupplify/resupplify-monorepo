@@ -30,7 +30,7 @@
     <product-verify-product-list
       v-else
       :products="products"
-      @update-list="$emit('fetch-products')"
+      @fetch-products="$emit('fetch-products')"
     />
   </a-panel-section>
 </template>
