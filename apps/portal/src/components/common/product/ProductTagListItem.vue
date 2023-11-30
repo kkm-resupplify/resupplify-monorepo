@@ -1,5 +1,9 @@
 <template>
-  <span class="product-tag-list-item" v-text="name" />
+  <div class="product-tag-list-item">
+    <span class="product-tag-list-item__text" v-text="name" />
+
+    <m-icon v-if="showRemove" icon="close" size="small" hoverable @click="$emit('remove')" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -13,8 +17,12 @@ const props = defineProps({
   color: {
     type: String,
     default: '#00ff00'
-  }
+  },
+  showRemove: Boolean
 })
+
+// Emits
+defineEmits(['remove'])
 
 // Computed
 const colorStyle = computed(() => props.color)
@@ -24,6 +32,7 @@ const backgroundColorStyle = computed(() => `${props.color}10`)
 <style lang="scss" scoped>
 .product-tag-list-item {
   display: flex;
+  gap: $global-spacing-10;
   align-items: center;
   justify-content: center;
 
@@ -31,10 +40,13 @@ const backgroundColorStyle = computed(() => `${props.color}10`)
   padding: $global-spacing-10 $global-spacing-30;
 
   font-size: $global-font-size-30;
-  color: v-bind(colorStyle);
 
   background-color: v-bind(backgroundColorStyle);
   border: 1px solid v-bind(colorStyle);
   border-radius: $global-border-radius-30;
+
+  &__text {
+    color: v-bind(colorStyle);
+  }
 }
 </style>

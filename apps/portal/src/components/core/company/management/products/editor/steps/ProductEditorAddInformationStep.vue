@@ -65,7 +65,11 @@
               @input-change="handleSelectProductTag"
             />
 
-            <product-tag-list :product-tags="selectedProductTags" />
+            <product-tag-list
+              :product-tags="selectedProductTags"
+              show-remove
+              @remove="handleRemoveProductTag"
+            />
           </div>
         </template>
 
@@ -89,6 +93,7 @@ import type { ProductEditorFirstStepData } from '@sharedInterfaces/product/Produ
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
 import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 import CompanyProductDescriptorsService from '@/services/product/CompanyProductDescriptorsService'
+
 // Emits
 const emits = defineEmits(['next-step'])
 
@@ -134,6 +139,7 @@ const producTagSelectOptions = computed(() => {
         )
     )
 })
+
 // Methods
 const handleNextStep = (values: ProductEditorFirstStepData) => {
   values.productTagIds = selectedProductTagIds.value
@@ -175,6 +181,11 @@ const selectedProductTags = computed(() => {
   )
 })
 
+const handleRemoveProductTag = (id: number) => {
+  selectedProductTagIds.value = selectedProductTagIds.value.filter(
+    (selectedProductTagId) => selectedProductTagId !== id
+  )
+}
 // Hooks
 onBeforeMount(async () => {
   await handleFetchProductTags()

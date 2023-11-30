@@ -5,6 +5,8 @@
       :key="productTag.id"
       :name="productTag.name"
       :color="productTag.color"
+      :show-remove="showRemove"
+      @remove="$emit('remove', productTag.id)"
     />
   </div>
 </template>
@@ -18,8 +20,12 @@ defineProps({
   productTags: {
     type: Array as PropType<ProductTag[]>,
     default: () => []
-  }
+  },
+  showRemove: Boolean
 })
+
+// Emits
+defineEmits(['remove'])
 </script>
 
 <style lang="scss" scoped>
