@@ -15,7 +15,7 @@
         <m-select
           name="category"
           :placeholder="$t('company.management.products.preview.dashboard.category')"
-          :options="productCategories"
+          :options="staticProductDescriptorsStore.getProductCategories"
           :validate="false"
           @input-change="handleProductCategoryChange"
         />
@@ -25,7 +25,7 @@
           name="subcategory"
           :validate="false"
           :placeholder="$t('company.management.products.preview.dashboard.subcategory')"
-          :options="productSubcategories"
+          :options="staticProductDescriptorsStore.getProductSubcategories"
         />
 
         <m-select
@@ -57,8 +57,6 @@ import type {
 
 // Variables
 const { t } = useI18n()
-const productCategories = ref<ProductCategorySelectItem[]>()
-const productSubcategories = ref<ProductSubcategorySelectItem[]>()
 
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
@@ -74,34 +72,9 @@ const verificationStatuses = ref([
 ])
 
 // Methods
-const handleFetchProductCategories = async () => {
-  const categories = staticProductDescriptorsStore.getProductCategories.map((item) => ({
-    id: item.id,
-    text: item.name
-  }))
-
-  productCategories.value = categories
-}
-
 const handleProductCategoryChange = (id: number) => {
   subcategoryRef?.value?.clearSelect()
-
-  const subcategories = staticProductDescriptorsStore.getCategoryAndSubcategories(id)
-
-  productSubcategories.value = subcategories.subcategories.map((item) => ({
-    id: item.id,
-    text: item.name,
-    categoryId: item.categoryId
-  }))
 }
-
-// Emits
-// defineEmits(['search'])
-
-// Hooks
-onBeforeMount(async () => {
-  await handleFetchProductCategories()
-})
 </script>
 <style scoped lang="scss">
 .product-content-section {
