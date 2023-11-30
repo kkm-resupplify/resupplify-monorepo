@@ -45,16 +45,18 @@ const props = defineProps({
   }
 })
 
+// Emits
+const emits = defineEmits(['product-changed'])
+
 // Variables
 const { t } = useI18n()
 const statuses = computed(() => [
-  { id: 0, text: t('global.active') },
-  { id: 1, text: t('global.inactive') }
+  { id: 0, text: t('global.inactive') },
+  { id: 1, text: t('global.active') }
 ])
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Methods
-
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
@@ -66,6 +68,7 @@ const handleSubmitStatus = async (formData: Product) => {
   })
 
   if (success) {
+    emits('product-changed')
     closeDialog()
   }
 }

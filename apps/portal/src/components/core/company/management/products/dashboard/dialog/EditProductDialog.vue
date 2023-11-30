@@ -18,7 +18,11 @@
       <a-title :title="$t('global.manage')" size="large" />
 
       <div class="edit-product-dialog__buttons">
-        <set-product-status-dialog :product="product" class="edit-product-dialog__buttons-status" />
+        <set-product-status-dialog
+          :product="product"
+          class="edit-product-dialog__buttons-status"
+          @product-changed="handleProductChanged"
+        />
 
         <a-button :text="$t('global.update')" size="x-large" />
 
@@ -66,12 +70,16 @@ const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 const handleDeleteProducts = async () => {
   const { success } = await CompanyProductsService.deleteProduct(props.product.id)
 
-  if (success) handleWarehouseProductActionSuccess()
+  if (success) handleProductActionSuccess()
 }
 
-const handleWarehouseProductActionSuccess = () => {
+const handleProductActionSuccess = () => {
   emits('product-changed')
   closeDialog()
+}
+
+const handleProductChanged = () => {
+  emits('product-changed')
 }
 
 const closeDialog = () => {
