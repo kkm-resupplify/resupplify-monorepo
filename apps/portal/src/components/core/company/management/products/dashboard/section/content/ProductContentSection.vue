@@ -119,8 +119,8 @@ const statuses = ref([
 ])
 
 const verificationStatuses = ref([
-  { id: 0, text: t('global.verified') },
-  { id: 1, text: t('global.unverified') }
+  { id: 0, text: t('global.unverified') },
+  { id: 1, text: t('global.verified') }
 ])
 
 // Computed
