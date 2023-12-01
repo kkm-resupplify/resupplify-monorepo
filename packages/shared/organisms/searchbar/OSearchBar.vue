@@ -65,9 +65,7 @@ const setSearch = () => {
 }
 
 const setQueryParam = async (param: string, value: string | undefined) => {
-  if (param.length > 0) {
-    await router.replace({ query: { [param]: value } })
-  }
+  if (param.length > 0) await router.replace({ query: { ...route.query, [param]: value } })
 }
 
 const onClearCallback = async () => {

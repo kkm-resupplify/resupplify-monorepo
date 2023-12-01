@@ -5,6 +5,7 @@
     <company-verify-content-section
       :companies="companies"
       :is-loading="isLoading"
+      @fetch-companies="handleFetchCompanies"
       @verify-all="handleVerifyAllCompanies"
       @reject-all="handleRejectAllCompanies"
     />

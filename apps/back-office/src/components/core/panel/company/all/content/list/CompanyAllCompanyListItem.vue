@@ -39,7 +39,7 @@ import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import { type PropType, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const { company } = defineProps({
+const props = defineProps({
   company: {
     type: Object as PropType<CompanyData>,
     required: true
@@ -52,11 +52,11 @@ const { t } = useI18n()
 // Computed
 const companyDetailsContent = computed(() => {
   return [
-    { title: t('company.data.shortDescription'), value: company.shortDescription },
-    { title: t('company.data.description'), value: company.description },
-    { title: t('company.data.email'), value: company.details.email },
-    { title: t('company.data.address'), value: company.details.address },
-    { title: t('company.data.externalWebsite'), value: company.details.externalWebsite }
+    { title: t('company.data.shortDescription'), value: props.company.shortDescription },
+    { title: t('company.data.description'), value: props.company.description },
+    { title: t('company.data.email'), value: props.company.details.email },
+    { title: t('company.data.address'), value: props.company.details.address },
+    { title: t('company.data.externalWebsite'), value: props.company.details.externalWebsite }
   ]
 })
 </script>

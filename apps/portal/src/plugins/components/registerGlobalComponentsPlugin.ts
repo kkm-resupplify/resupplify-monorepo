@@ -78,8 +78,9 @@ const molecules = [
 import OForm from '@sharedOrganisms/form/OForm.vue'
 import OSearchBar from '@sharedOrganisms/searchbar/OSearchBar.vue'
 import OConfirmDialog from '@sharedOrganisms/confirmdialog/OConfirmDialog.vue'
+import OPagination from '@sharedOrganisms/pagination/OPagination.vue'
 
-const organisms = [OForm, OSearchBar, OConfirmDialog]
+const organisms = [OForm, OSearchBar, OConfirmDialog, OPagination]
 
 // Vee-validate
 import { Field, Form, ErrorMessage } from 'vee-validate'

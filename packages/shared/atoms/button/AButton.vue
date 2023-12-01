@@ -52,8 +52,14 @@ const { generateClassNames } = useClassComposable()
 // Computed
 const generateClasses = computed(() => {
   const colorClass = props.outlined ? `outlined-${props.color}` : props.color
+  const disabledClass = props.disabled ? 'disabled' : ''
 
-  return generateClassNames(baseClass, [props.size, colorClass, `text-${props.textColor}`])
+  return generateClassNames(baseClass, [
+    props.size,
+    colorClass,
+    `text-${props.textColor}`,
+    disabledClass
+  ])
 })
 </script>
 
@@ -156,6 +162,10 @@ const generateClasses = computed(() => {
         opacity: 0.8;
       }
     }
+  }
+
+  &--disabled {
+    @include gradient(var(--disabled-gradient));
   }
 
   &--text {

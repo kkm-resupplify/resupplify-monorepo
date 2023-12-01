@@ -16,9 +16,17 @@
     "update": "Aktualizuj",
     "cancel": "Anuluj",
     "manage": "Zarządzaj",
-    "active": "Actywny",
+    "active": "Aktywny",
     "inactive": "Nieaktywny",
-    "confirm": "Potwierdź"
+    "confirm": "Potwierdź",
+    "verified": "Zweryfikowany",
+    "unverified": "Niezweryfikowany",
+    "add": "Dodaj"
+  },
+
+  "language": {
+    "en-US": "Angielski",
+    "pl-PL": "Polski"
   },
 
   "payments": {
@@ -204,9 +212,9 @@
           "tiles": {
             "products": "Produkty",
             "newProduct": "Utwórz nowy produkt",
-            "companyProductTags": "Firmowe znaczniki produktów"
+            "companyProductTags": "Tagi produktów firmy"
           },
-
+          
           "tags": {
             "editor": {
               "title": "Firmowe znaczniki produktów",
@@ -231,7 +239,6 @@
             "listItem": {
               "name": "Nazwa znacznika"
             }
-          }
         },
 
         "warehouses": {
@@ -348,6 +355,81 @@
             "noWarehouses": "Twoja firma nie ma jeszcze żadnych magazynów.",
             "noProducts": "Twoja firma nie ma jeszcze żadnych produktów przypisanych do tego magazynu.",
             "noProductsMatchingFilter": "Brak produktów dla podanych parametrów."
+          }
+        }
+      },
+
+      "products": {
+        "editor": {
+          "title": "Kreator produktu",
+          "informationTitle": "Wprowadź deskryptory produktu",
+          "translationTitle": "Tłumaczenia produktu w języku: {language}",
+          "productNameLabel": "Nazwa produktu",
+          "productNamePlaceholder": "Wprowadź nazwę produktu",
+          "productCodeLabel": "Kod produktu",
+          "productCodePlaceholder": "Wprowadź kod produktu",
+          "productProducerLabel": "Producent produktu",
+          "productProducerPlaceholder": "Wprowadź producenta produktu",
+          "productCategoryLabel": "Kategoria produktu",
+          "productCategoryPlaceholder": "Wybierz kategorię produktu",
+          "productSubcategoryLabel": "Podkategoria produktu",
+          "productSubcategoryPlaceholder": "Wybierz podkategorię produktu",
+          "productUnitLabel": "Jednostka produktu",
+          "productUnitPlaceholder": "Wybierz jednostkę produktu",
+          "productTagsLabel": "Tagi produktu",
+          "productTagsPlaceholder": "Wybierz tagi produktu",
+          "productDescriptionLabel": "Opis produktu",
+          "productDescriptionPlaceholder": "Wprowadź opis produktu",
+
+          "steps": {
+            "information": {
+              "title": "Deskryptory",
+              "content": "Główne informacje"
+            },
+
+            "translation": {
+              "title": "Tłumaczenia",
+              "content": "Nazwa i opis"
+            }
+          },
+
+          "notification": {
+            "productCreatedTitle": "Produkt utworzony pomyślnie",
+            "productCreatedText": "Twój produkt oczekuje teraz na weryfikację",
+            "productUpdatedTitle": "Produkt zaaktualizowany pomyślnie",
+            "productDeletedTitle": "Produkt usunięty pomyślnie"
+          }
+        },
+
+        "preview": {
+          "content": {
+            "category": "Kategoria",
+            "subcategory": "Podkategoria",
+            "tags": "Tagi"
+          },
+
+          "title": "Produkty",
+
+          "tiles": {
+            "products": "Produkty",
+            "newProduct": "Utwórz nowy produkt",
+            "companyProductTags": "Tagi produktów firmy"
+          },
+
+          "dashboard": {
+            "totalProductsCount": "Razem produktów: ",
+            "pendingVerificationProductsCount": "Produkty oczekuje weryfikacji: ",
+            "verifiedProductsCount": "Zweryfikowane produkty: ",
+            "activeProductsCount": "Aktywne produkty: ",
+            "inactiveProductsCount": "Nieaktywne produkty: ",
+
+            "addProduct": "Dodaj produkt",
+            "filterProducts": "Filtruj produkty",
+            "searchBarPlaceholder": "Wpisz imię",
+            "category": "Kategoria",
+            "subcategory": "Podkategoria",
+            "status": "Status",
+            "verificationStatus": "Status weryfikacji"
           }
         }
       }
