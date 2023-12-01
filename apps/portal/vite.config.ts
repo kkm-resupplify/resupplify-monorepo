@@ -21,6 +21,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       '@interfaces': fileURLToPath(new URL('./src/interface', import.meta.url)),
       '@composables': fileURLToPath(new URL('./src/composable', import.meta.url)),
+      '@stores': fileURLToPath(new URL('./src/stores', import.meta.url)),
       '@sharedAtoms': fileURLToPath(new URL('../../packages/shared/atoms', import.meta.url)),
       '@sharedMolecules': fileURLToPath(
         new URL('../../packages/shared/molecules', import.meta.url)

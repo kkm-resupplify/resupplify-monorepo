@@ -144,7 +144,6 @@ const handleSelectOption = (option: MSelectItemData) => {
   appendIconState.value = !appendIconState.value
   emits('input-change', inputValue.value)
 
-  emits('input-change', inputValue.value)
   validate()
 }
 

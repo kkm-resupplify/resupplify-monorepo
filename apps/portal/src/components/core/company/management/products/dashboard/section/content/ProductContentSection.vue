@@ -62,16 +62,50 @@
         :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
       />
 
-      <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />
-    </template>
+      <!-- <o-search-bar
+        :placeholder="$t('company.management.navigation.products.dashboard.searchBarPlaceholder')"
+        @search="$emit('search')"
+      /> -->
+
+      <div class="product-content-section__selects">
+        <m-select
+          name="category"
+          :placeholder="$t('company.management.products.preview.dashboard.category')"
+          :options="staticProductDescriptorsStore.getProductCategories"
+          :validate="false"
+          @input-change="handleProductCategoryChange"
+        />
+
+        <m-select
+          ref="subcategoryRef"
+          name="subcategory"
+          :validate="false"
+          :placeholder="$t('company.management.products.preview.dashboard.subcategory')"
+          :options="staticProductDescriptorsStore.getProductSubcategories"
+        />
+
+        <m-select
+          name="status"
+          :validate="false"
+          :placeholder="$t('company.management.products.preview.dashboard.status')"
+          :options="statuses"
+        />
+
+        <m-select
+          name="verificationStatus"
+          :validate="false"
+          :placeholder="$t('company.management.products.preview.dashboard.verificationStatus')"
+          :options="verificationStatuses"
+        />
+      </div>
+    </div>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import { ref, type PropType, computed, watch } from 'vue'
-import { useStaticProductDescriptorsStore } from '@/stores/product/useStaticProductDescriptorsStore'
+import { ref, onBeforeMount } from 'vue'
+import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
-import { onBeforeMount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type {
@@ -101,13 +135,10 @@ interface QueryParams {
 
 // Emits
 const emits = defineEmits(['product-changed', 'page-changed', 'filter'])
-
+Changed
 // Variables
 const { t } = useI18n()
-const productCategories = ref<ProductCategorySelectItem[]>()
-const productSubcategories = ref<ProductSubcategorySelectItem[]>()
-const isLoading = ref(false)
-const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
+const staticProductDescriptorsSChangedtore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
 const route = useRoute()
 const router = useRouter()
@@ -143,25 +174,8 @@ const initialFormValues = computed(() => {
 })
 
 // Methods
-const handleFetchProductCategories = async () => {
-  const categories = staticProductDescriptorsStore.getProductCategories.map((item) => ({
-    id: item.id,
-    text: item.name
-  }))
-
-  productCategories.value = categories
-}
-
 const handleProductCategoryChange = (id: number) => {
   subcategoryRef?.value?.clearSelect()
-
-  const subcategories = staticProductDescriptorsStore.getCategoryAndSubcategories(id)
-
-  productSubcategories.value = subcategories.subcategories.map((item) => ({
-    id: item.id,
-    text: item.name,
-    categoryId: item.categoryId
-  }))
 }
 
 const setQueryParam = async (data: QueryParams | undefined) => {

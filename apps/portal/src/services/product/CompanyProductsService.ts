@@ -1,10 +1,31 @@
+import type { ProductTranslation } from '@sharedInterfaces/product/ProductEditorInterface'
 import BaseService from '../BaseService'
+import type { ProductEditorStoreState } from '@/stores/product/useProductEditorStore'
 
 interface AssignProductStatus {
   productIdList: Array<number>
   status: number
 }
 
+// DTO
+class CreateProductDto {
+  producer: string | null
+  code: string | null
+  productUnitId: number | null
+  productSubcategoryId: number | null
+  translations: ProductTranslation[]
+
+  constructor(productEditorData: ProductEditorStoreState) {
+    const { productEditorFirstStepData, productEditorTranslationStepData } = productEditorData
+    const { producer, code, productUnitId, productSubcategoryId } = productEditorFirstStepData
+
+    this.producer = producer
+    this.code = code
+    this.productUnitId = productUnitId
+    this.productSubcategoryId = productSubcategoryId
+    this.translations = productEditorTranslationStepData
+  }
+}
 class CompanyProductsService extends BaseService {
   static COMPANY_PRODUCTS_SUFFIX = 'product'
   static COMPANY_PRODUCTS_MASS_ASSIGN_SUFFIX = 'productMassAssign'
@@ -35,8 +56,17 @@ class CompanyProductsService extends BaseService {
       data: data,
       suffix: CompanyProductsService.COMPANY_PRODUCTS_MASS_ASSIGN_SUFFIX,
       notificationTitle: 'company.management.products.editor.assignStatusSuccessTitle'
+      config: { params }
+    })
+  }
+
+  async createProduct(productData: ProductEditorStoreState) {
+    return this.post({
+      data: new CreateProductDto(productData),
+      notificationTitle: 'company.management.products.editor.notification.productCreatedTitle',
+      notificationText: 'company.management.products.editor.notification.productCreatedText'
     })
   }
 }
 
-export default new CompanyProductsService('company')
+export default new CompanyProductsService('company/product')

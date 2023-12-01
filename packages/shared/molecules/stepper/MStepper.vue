@@ -40,7 +40,8 @@ const props = defineProps({
     type: String,
     required: true
   },
-  description: String
+  description: String,
+  alignSelf: { type: String, default: 'flex-start' }
 })
 
 // Emits
@@ -62,6 +63,8 @@ const generateClasses = computed(() => {
 const stepListItems = computed(() => {
   return props.steps.map((step) => step.stepInfo)
 })
+
+const selfAlignment = computed(() => props.alignSelf)
 
 // Methods
 const handleNextStep = () => {
@@ -98,7 +101,7 @@ defineExpose({
   display: flex;
   flex-direction: column;
   gap: $global-spacing-80;
-  align-self: center;
+  align-self: v-bind(selfAlignment);
 
   border-radius: $global-border-radius-20;
 

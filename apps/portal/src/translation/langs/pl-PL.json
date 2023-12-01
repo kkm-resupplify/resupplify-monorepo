@@ -25,6 +25,11 @@
     "showResults": "Pokaż wyniki"
   },
 
+  "language": {
+    "en-US": "Angielski",
+    "pl-PL": "Polski"
+  },
+
   "payments": {
     "payNow": "Zapłać teraz"
   },
@@ -332,10 +337,15 @@
 
       "products": {
         "editor": {
-          "informationTitle": "Wprowadź opis produktu",
+          "title": "Kreator produktu",
+          "informationTitle": "Wprowadź deskryptory produktu",
           "translationTitle": "Tłumaczenia produktu w języku: {language}",
           "productNameLabel": "Nazwa produktu",
           "productNamePlaceholder": "Wprowadź nazwę produktu",
+          "productCodeLabel": "Kod produktu",
+          "productCodePlaceholder": "Wprowadź kod produktu",
+          "productProducerLabel": "Producent produktu",
+          "productProducerPlaceholder": "Wprowadź producenta produktu",
           "productCategoryLabel": "Kategoria produktu",
           "productCategoryPlaceholder": "Wybierz kategorię produktu",
           "productSubcategoryLabel": "Podkategoria produktu",
@@ -353,14 +363,21 @@
 
           "steps": {
             "information": {
-              "title": "Produkt",
-              "content": "Informacje o produkcie"
+              "title": "Deskryptory",
+              "content": "Główne informacje"
             },
 
             "translation": {
               "title": "Tłumaczenia",
-              "content": "Dodaj tłumaczenia w języku: {language}"
+              "content": "Nazwa i opis"
             }
+          },
+
+          "notification": {
+            "productCreatedTitle": "Produkt utworzony pomyślnie",
+            "productCreatedText": "Twój produkt oczekuje teraz na weryfikację",
+            "productUpdatedTitle": "Produkt zaaktualizowany pomyślnie",
+            "productDeletedTitle": "Produkt usunięty pomyślnie"
           }
         },
 
