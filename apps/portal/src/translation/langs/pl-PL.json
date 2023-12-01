@@ -214,60 +214,35 @@
             "newProduct": "Utwórz nowy produkt",
             "companyProductTags": "Tagi produktów firmy"
           },
-          
-          "tags": {
-            "editor": {
-              "title": "Firmowe znaczniki produktów",
-              "productTagLabel": "Znacznik produktu",
-              "productTagPlaceholder": "Wpisz nazwę znacznika produktu",
-              "productTagLanguageLabel": "Znacznik produktu w języku: {language}",
-              "productTagLanguagePlaceholder": "Wpisz nazwę znacznika produktu",
-              "productTagColorLabel": "Kolor znacznika produktu",
-              "productTagColorPlaceholder": "Wybierz kolor",
 
-              "addDialog": {
-                "activator": "Dodaj nowy znacznik",
-                "modalActivatorTitle": "Dodaj znacznik produktu",
-                "modalContent": "Zmień szczegóły znacznika o nazwie {name} poniżej"
-              },
+          "warehouses": {
+            "title": "Magazyny",
 
-              "updateDialog": {
-                "title": "Zaaktualizuj znacznik produktu"
-              }
-            },
-
-            "listItem": {
-              "name": "Nazwa znacznika"
+            "tiles": {
+              "companyWarehouses": "Panel magazynów",
+              "newWarehouse": "Nowy magazyn"
             }
-        },
-
-        "warehouses": {
-          "title": "Magazyny",
-
-          "tiles": {
-            "companyWarehouses": "Panel magazynów",
-            "newWarehouse": "Nowy magazyn"
-          }
-        },
-
-        "members": {
-          "title": "Pracownicy",
-          "tiles": {
-            "activeMembers": "Aktywni pracownicy",
-            "permissions": "Uprawnienia"
           },
 
-          "activeMembers": {
-            "action": "Usuń pracownika"
+          "members": {
+            "title": "Pracownicy",
+            "tiles": {
+              "activeMembers": "Aktywni pracownicy",
+              "permissions": "Uprawnienia"
+            },
+
+            "activeMembers": {
+              "action": "Usuń pracownika"
+            }
+          },
+
+          "settings": {
+            "title": "Ustawienia"
+          },
+
+          "payments": {
+            "title": "Płatności"
           }
-        },
-
-        "settings": {
-          "title": "Ustawienia"
-        },
-
-        "payments": {
-          "title": "Płatności"
         }
       },
 
@@ -398,6 +373,32 @@
             "productCreatedText": "Twój produkt oczekuje teraz na weryfikację",
             "productUpdatedTitle": "Produkt zaaktualizowany pomyślnie",
             "productDeletedTitle": "Produkt usunięty pomyślnie"
+          }
+        },
+
+        "tags": {
+          "editor": {
+            "title": "Firmowe znaczniki produktów",
+            "productTagLabel": "Znacznik produktu",
+            "productTagPlaceholder": "Wpisz nazwę znacznika produktu",
+            "productTagLanguageLabel": "Znacznik produktu w języku: {language}",
+            "productTagLanguagePlaceholder": "Wpisz nazwę znacznika produktu",
+            "productTagColorLabel": "Kolor znacznika produktu",
+            "productTagColorPlaceholder": "Wybierz kolor",
+
+            "addDialog": {
+              "activator": "Dodaj nowy znacznik",
+              "modalActivatorTitle": "Dodaj znacznik produktu",
+              "modalContent": "Zmień szczegóły znacznika o nazwie {name} poniżej"
+            },
+
+            "updateDialog": {
+              "title": "Zaaktualizuj znacznik produktu"
+            }
+          },
+
+          "listItem": {
+            "name": "Nazwa znacznika"
           }
         },
 
