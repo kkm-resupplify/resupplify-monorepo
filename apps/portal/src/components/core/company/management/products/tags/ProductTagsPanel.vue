@@ -1,11 +1,12 @@
 <template>
   <a-panel class="warehouse-editor-panel">
-    <product-tags-editor-header />
+    <product-tags-header-section />
 
-    <product-tags-editor-content />
+    <product-tags-content-section />
   </a-panel>
 </template>
+
 <script setup lang="ts">
-import ProductTagsEditorContent from '@/components/core/company/management/products/tags/editor/ProductTagsEditorContent.vue'
-import ProductTagsEditorHeader from '@/components/core/company/management/products/tags/editor/ProductTagsEditorHeader.vue'
+import ProductTagsContentSection from '@/components/core/company/management/products/tags/section/ProductTagsContentSection.vue'
+import ProductTagsHeaderSection from '@/components/core/company/management/products/tags/section/ProductTagsHeaderSection.vue'
 </script>

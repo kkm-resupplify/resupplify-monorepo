@@ -9,7 +9,7 @@
 </template>
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import ProductTagEditorListItem from '@/components/core/company/management/products/tags/editor/list/ProductTagEditorListItem.vue'
+import ProductTagEditorListItem from '@/components/core/company/management/products/tags/section/list/ProductTagEditorListItem.vue'
 import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 
 defineProps({
