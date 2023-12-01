@@ -10,8 +10,8 @@
   </a-list-item-wrapper>
 </template>
 <script setup lang="ts">
-import type { ProductTag } from '@sharedInterfaces/product/ProductInterface'
-import EditProductTagDialog from '../../../../dialog/EditProductTagDialog.vue'
+import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
+import EditProductTagDialog from '@/components/core/company/management/products/tags/dialog/EditProductTagDialog.vue'
 import type { PropType } from 'vue'
 
 defineProps({

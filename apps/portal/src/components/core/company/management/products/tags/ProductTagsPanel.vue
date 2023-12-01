@@ -6,6 +6,6 @@
   </a-panel>
 </template>
 <script setup lang="ts">
-import ProductTagsEditorHeader from './editor/section/header/ProductTagsEditorHeader.vue'
-import ProductTagsEditorContent from './editor/section/content/ProductTagsEditorContent.vue'
+import ProductTagsEditorContent from '@/components/core/company/management/products/tags/editor/ProductTagsEditorContent.vue'
+import ProductTagsEditorHeader from '@/components/core/company/management/products/tags/editor/ProductTagsEditorHeader.vue'
 </script>

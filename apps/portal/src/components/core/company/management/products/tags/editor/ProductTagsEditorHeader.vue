@@ -8,9 +8,11 @@
     <add-product-tag-dialog />
   </a-panel-section>
 </template>
+
 <script setup lang="ts">
-import AddProductTagDialog from '../../../dialog/AddProductTagDialog.vue'
+import AddProductTagDialog from '@/components/core/company/management/products/tags/dialog/AddProductTagDialog.vue'
 </script>
+
 <style scoped lang="scss">
 .product-tags-editor-header {
   display: flex;
