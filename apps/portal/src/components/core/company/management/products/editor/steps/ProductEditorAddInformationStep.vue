@@ -167,7 +167,6 @@ const handleFetchProductTags = async () => {
 }
 
 const handleSelectProductTag = (id: number) => {
-  console.log('handleSelectProductTag', id)
   const selectedProductTag = productTags.value.find((productTag) => productTag.id === id)
   if (selectedProductTag) selectedProductTagIds.value.push(id)
 }

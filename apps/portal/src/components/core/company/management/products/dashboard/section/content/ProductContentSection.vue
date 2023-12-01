@@ -7,13 +7,17 @@
             @search="$emit('search')"
           /> -->
 
-    <o-form :submit-callback="handleQuerySubmit" :initial-values="initialFormValues">
+    <o-form
+      v-if="initialFormValues"
+      :submit-callback="handleQuerySubmit"
+      :initial-values="initialFormValues"
+    >
       <template #body>
         <div class="product-content-section__selects">
           <m-select
             name="categoryId"
             :placeholder="$t('company.management.products.dashboard.category')"
-            :options="productCategories"
+            :options="staticProductDescriptorsStore.getProductCategories"
             :validate="false"
             @input-change="handleProductCategoryChange"
           />
@@ -22,8 +26,9 @@
             ref="subcategoryRef"
             name="subcategoryId"
             :placeholder="$t('company.management.products.dashboard.subcategory')"
-            :options="productSubcategories"
             :validate="false"
+            :options="productCategorySubcategories"
+            :disabled="disableProductSubcategorySelect"
           />
 
           <m-select
@@ -52,69 +57,29 @@
       </template>
     </o-form>
 
-    <template v-if="isLoading">implement-list-loader</template>
+    <product-list v-if="showList" :products="products" @product-changed="handleProductChanged" />
 
-    <template v-else>
-      <product-list v-if="showList" :products="products" @product-changed="handleProductChanged" />
+    <a-list-no-results
+      v-else
+      :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
+    />
 
-      <a-list-no-results
-        v-else
-        :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
-      />
-
-      <!-- <o-search-bar
-        :placeholder="$t('company.management.navigation.products.dashboard.searchBarPlaceholder')"
-        @search="$emit('search')"
-      /> -->
-
-      <div class="product-content-section__selects">
-        <m-select
-          name="category"
-          :placeholder="$t('company.management.products.preview.dashboard.category')"
-          :options="staticProductDescriptorsStore.getProductCategories"
-          :validate="false"
-          @input-change="handleProductCategoryChange"
-        />
-
-        <m-select
-          ref="subcategoryRef"
-          name="subcategory"
-          :validate="false"
-          :placeholder="$t('company.management.products.preview.dashboard.subcategory')"
-          :options="staticProductDescriptorsStore.getProductSubcategories"
-        />
-
-        <m-select
-          name="status"
-          :validate="false"
-          :placeholder="$t('company.management.products.preview.dashboard.status')"
-          :options="statuses"
-        />
-
-        <m-select
-          name="verificationStatus"
-          :validate="false"
-          :placeholder="$t('company.management.products.preview.dashboard.verificationStatus')"
-          :options="verificationStatuses"
-        />
-      </div>
-    </div>
+    <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeMount } from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useI18n } from 'vue-i18n'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
-import type {
-  ProductCategorySelectItem,
-  ProductSubcategorySelectItem
-} from '@sharedInterfaces/product/ProductInterface'
 import ProductList from './list/ProductList.vue'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import { useRoute, useRouter } from 'vue-router'
+import type { PropType } from 'vue'
+import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
+import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 
 const props = defineProps({
   products: {
@@ -126,23 +91,25 @@ const props = defineProps({
 })
 
 // Interfaces
-interface QueryParams {
-  categoryId?: number
-  subcategoryId?: number
-  status?: number
-  verificationStatus?: number
+interface InitialQueryParams {
+  categoryId: number | null
+  subcategoryId: number | null
+  status: number | null
+  verificationStatus: number | null
 }
 
 // Emits
 const emits = defineEmits(['product-changed', 'page-changed', 'filter'])
-Changed
+
 // Variables
 const { t } = useI18n()
-const staticProductDescriptorsSChangedtore = useStaticProductDescriptorsStore()
+const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
+const selectedCategoryId = ref<number | null>()
 const route = useRoute()
 const router = useRouter()
-const subcategoryInitialized = ref(false)
+const productEditorStore = useProductEditorStore()
+const initialFormValues = ref<InitialQueryParams>()
 
 const statuses = ref([
   { id: 0, text: t('global.active') },
@@ -155,6 +122,21 @@ const verificationStatuses = ref([
 ])
 
 // Computed
+const productCategorySubcategories = computed(() => {
+  return selectedCategoryId.value
+    ? staticProductDescriptorsStore.getProductSubcategories.filter(
+        (subcategory) => subcategory.categoryId === selectedCategoryId.value
+      )
+    : []
+})
+
+const disableProductSubcategorySelect = computed(() => {
+  return (
+    productCategorySubcategories.value.length === 0 &&
+    productEditorStore.getProductSubcategoryId === null
+  )
+})
+
 const showList = computed(() => {
   return props.products?.length
 })
@@ -163,22 +145,24 @@ const noResultsTranslationKey = computed(() => {
   return props.products?.length ? 'noProductsMatchingFilter' : 'noProducts'
 })
 
-const initialFormValues = computed(() => {
-  const categoryId = route.query.categoryId && Number(route.query.categoryId)
-  const subcategoryId = route.query.subcategoryId && Number(route.query.subcategoryId)
-  const status = route.query.status && Number(route.query.status)
-  const verificationStatus =
-    route.query.verificationStatus && Number(route.query.verificationStatus)
-
-  return { categoryId, subcategoryId, status, verificationStatus }
-})
-
 // Methods
 const handleProductCategoryChange = (id: number) => {
   subcategoryRef?.value?.clearSelect()
+  selectedCategoryId.value = id
 }
 
-const setQueryParam = async (data: QueryParams | undefined) => {
+const setInitialFormValues = () => {
+  initialFormValues.value = {
+    categoryId: route.query.categoryId ? +route.query.categoryId : null,
+    subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : null,
+    status: route.query.status ? +route.query.status : null,
+    verificationStatus: route.query.verificationStatus ? +route.query.verificationStatus : null
+  }
+
+  selectedCategoryId.value = route.query.categoryId ? +route.query.categoryId : null
+}
+
+const setQueryParam = async (data: InitialQueryParams | undefined) => {
   await router.replace({ query: { ...route.query, ...data } })
 }
 
@@ -190,30 +174,17 @@ const handlePageChanged = () => {
   emits('page-changed')
 }
 
-const handleQuerySubmit = async (data: QueryParams) => {
+const handleQuerySubmit = async (data: InitialQueryParams) => {
   await setQueryParam(data)
 
   emits('filter', data)
 }
 
-// Hooks
 onBeforeMount(async () => {
-  await handleFetchProductCategories()
+  await StaticProductDescriptorsService.getCategories()
+  await StaticProductDescriptorsService.getSubcategories()
+  setInitialFormValues()
 })
-
-watch(
-  () => route.query,
-  (newQuery) => {
-    const categoryId = newQuery.categoryId && Number(newQuery.categoryId)
-    const subcategoryId = newQuery.subcategoryId && Number(newQuery.subcategoryId)
-
-    if (categoryId && subcategoryId && !subcategoryInitialized.value) {
-      handleProductCategoryChange(categoryId)
-      subcategoryInitialized.value = true
-    }
-  },
-  { immediate: true }
-)
 </script>
 <style scoped lang="scss">
 .product-content-section {

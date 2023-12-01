@@ -56,7 +56,6 @@ class CompanyProductsService extends BaseService {
       data: data,
       suffix: CompanyProductsService.COMPANY_PRODUCTS_MASS_ASSIGN_SUFFIX,
       notificationTitle: 'company.management.products.editor.assignStatusSuccessTitle'
-      config: { params }
     })
   }
 
@@ -69,4 +68,4 @@ class CompanyProductsService extends BaseService {
   }
 }
 
-export default new CompanyProductsService('company/product')
+export default new CompanyProductsService('company')
