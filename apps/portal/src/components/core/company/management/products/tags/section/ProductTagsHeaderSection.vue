@@ -2,7 +2,11 @@
   <a-panel-section class="product-tags-header-section">
     <a-title :title="$t('company.management.products.tags.title')" size="x-large" />
 
-    <add-product-tag-dialog />
+    <div class="product-tags-header-section__body">
+      <span v-text="$t('company.management.products.tags.description')" />
+
+      <add-product-tag-dialog />
+    </div>
   </a-panel-section>
 </template>
 
@@ -16,7 +20,10 @@ import AddProductTagDialog from '@/components/core/company/management/products/t
   flex-direction: row;
   justify-content: space-between;
 
-  padding-right: $global-spacing-100;
-  padding-block: $global-spacing-100;
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 </style>

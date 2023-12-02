@@ -4,11 +4,14 @@
     :title="$t('company.management.products.tags.dialog.add.modalActivatorTitle')"
   >
     <template #activator>
-      <a-button size="large" :text="$t('company.management.products.tags.dialog.add.activator')" />
+      <a-button
+        size="x-large"
+        :text="$t('company.management.products.tags.dialog.add.activator')"
+      />
     </template>
 
     <div class="add-product-tag-dialog__content">
-      <o-form>
+      <o-form :submit-callback="handleAddProductTag">
         <template #body>
           <div class="add-product-tag-dialog__form-body">
             <m-text-field
@@ -58,6 +61,8 @@ import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Methods
+const handleAddProductTag = async () => {}
+
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
