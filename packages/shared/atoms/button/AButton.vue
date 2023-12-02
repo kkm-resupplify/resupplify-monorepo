@@ -40,6 +40,7 @@ const props = defineProps({
     type: String as PropType<'button' | 'submit' | 'reset' | undefined>,
     default: 'button'
   },
+  fullWidth: Boolean,
   disabled: Boolean
 })
 
@@ -53,12 +54,14 @@ const { generateClassNames } = useClassComposable()
 const generateClasses = computed(() => {
   const colorClass = props.outlined ? `outlined-${props.color}` : props.color
   const disabledClass = props.disabled ? 'disabled' : ''
+  const fullWidthClass = props.fullWidth ? 'full-width' : ''
 
   return generateClassNames(baseClass, [
     props.size,
     colorClass,
     `text-${props.textColor}`,
-    disabledClass
+    disabledClass,
+    fullWidthClass
   ])
 })
 </script>
@@ -172,6 +175,10 @@ const generateClasses = computed(() => {
     &-white {
       color: $global-colors-grey-100;
     }
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }
 </style>
