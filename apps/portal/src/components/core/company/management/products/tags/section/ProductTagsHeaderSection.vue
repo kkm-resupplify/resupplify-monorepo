@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section class="product-tags-editor-header">
+  <a-panel-section class="product-tags-header-section">
     <a-title :title="$t('company.management.products.tags.title')" size="x-large" />
 
     <add-product-tag-dialog />
@@ -11,7 +11,7 @@ import AddProductTagDialog from '@/components/core/company/management/products/t
 </script>
 
 <style scoped lang="scss">
-.product-tags-editor-header {
+.product-tags-header-section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

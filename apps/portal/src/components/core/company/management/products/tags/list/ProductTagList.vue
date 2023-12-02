@@ -1,6 +1,6 @@
 <template>
   <div class="product-tag-list">
-    <product-tag-editor-list-item
+    <product-tag-list-item
       v-for="productTag in productTags"
       :key="productTag.id"
       :product-tag="productTag"
@@ -9,11 +9,11 @@
 </template>
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import ProductTagEditorListItem from '@/components/core/company/management/products/tags/section/list/ProductTagEditorListItem.vue'
+import ProductTagListItem from '@/components/core/company/management/products/tags/list/ProductTagListItem.vue'
 import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 
 defineProps({
-  productTags: Array as PropType<ProductTag[]>
+  productTags: { type: Array as PropType<ProductTag[]>, default: () => [] }
 })
 </script>
 <style scoped lang="scss">
