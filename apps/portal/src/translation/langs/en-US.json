@@ -207,22 +207,22 @@
           "title": "Deals"
         },
 
-        "products": {
-          "title": "Products",
-
-          "tiles": {
-            "products": "Products",
-            "newProduct": "Create new products",
-            "companyProductTags": "Company product tags"
-          }
-        },
-
         "warehouses": {
           "title": "Warehouses",
 
           "tiles": {
             "companyWarehouses": "Warehouse dashboard",
             "newWarehouse": "New warehouse"
+          }
+        },
+
+        "products": {
+          "title": "Products",
+
+          "tiles": {
+            "products": "Products",
+            "newProduct": "Create new product",
+            "companyProductTags": "Company product tags"
           }
         },
 
@@ -416,14 +416,13 @@
           "activeProductsCount": "Active products: ",
           "inactiveProductsCount": "Inactive products: ",
 
-            "addProduct": "Add product",
-            "filterProducts": "Filter products",
-            "searchBarPlaceholder": "Enter name",
-            "category": "Category",
-            "subcategory": "Subcategory",
-            "status": "Status",
-            "verificationStatus": "Verification Status"
-          }
+          "addProduct": "Add product",
+          "filterProducts": "Filter products",
+          "searchBarPlaceholder": "Enter name",
+          "category": "Category",
+          "subcategory": "Subcategory",
+          "status": "Status",
+          "verificationStatus": "Verification Status"
         },
 
         "tags": {

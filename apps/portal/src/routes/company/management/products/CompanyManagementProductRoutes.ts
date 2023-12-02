@@ -3,7 +3,6 @@ import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 import ProductDashboardPanel from '@/components/core/company/management/products/dashboard/ProductDashboardPanel.vue'
 import ProductEditorPanel from '@/components/core/company/management/products/editor/ProductEditorPanel.vue'
-import ProductPreviewPanel from '@/components/core/company/management/products/preview/ProductPreviewPanel.vue'
 import ProductTagsPanel from '@/components/core/company/management/products/tags/ProductTagsPanel.vue'
 
 class CompanyProductsRouteEnum extends BaseEnum {
@@ -29,11 +28,6 @@ const CompanyManagementProductRoutes: RouteRecordRaw[] = [
     path: 'products/new',
     name: CompanyProductsRouteEnum.COMPANY_PRODUCT_EDITOR,
     component: ProductEditorPanel
-  },
-  {
-    path: 'products/:id',
-    name: CompanyProductsRouteEnum.COMPANY_PRODUCT_PREVIEW,
-    component: ProductPreviewPanel
   },
   {
     path: 'products/tags',
