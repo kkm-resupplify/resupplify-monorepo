@@ -14,9 +14,9 @@ const productStatus = (product: Product) => {
 
 const productStatusName = (product: Product) => {
   const { t } = useI18n()
-  const { status, verificationStatus } = product
+  const { status } = product
 
-  if (status === 1 && verificationStatus === 1) {
+  if (status === 1) {
     return t('global.active')
   }
 

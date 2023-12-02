@@ -5,7 +5,7 @@
         <a-title :title="userStore.getCompany?.name" size="x-large" />
         <div class="product-header-section__content-titles">
           <a-title
-            :title="$t('company.management.products.preview.dashboard.totalProductsCount')"
+            :title="$t('company.management.products.dashboard.totalProductsCount')"
             :subtitle="productsCount"
             size="x-large"
             variant="horizontal"
@@ -13,30 +13,28 @@
           />
 
           <a-title
-            :title="
-              $t('company.management.products.preview.dashboard.pendingVerificationProductsCount')
-            "
+            :title="$t('company.management.products.dashboard.pendingVerificationProductsCount')"
             :subtitle="activatedProductsCount"
             variant="horizontal"
             class="product-header-section__title"
           />
 
           <a-title
-            :title="$t('company.management.products.preview.dashboard.verifiedProductsCount')"
+            :title="$t('company.management.products.dashboard.verifiedProductsCount')"
             :subtitle="deactivatedProductsCount"
             variant="horizontal"
             class="product-header-section__title"
           />
 
           <a-title
-            :title="$t('company.management.products.preview.dashboard.activeProductsCount')"
+            :title="$t('company.management.products.dashboard.activeProductsCount')"
             :subtitle="verifiedProductsCount"
             variant="horizontal"
             class="product-header-section__title"
           />
 
           <a-title
-            :title="$t('company.management.products.preview.dashboard.inactiveProductsCount')"
+            :title="$t('company.management.products.dashboard.inactiveProductsCount')"
             :subtitle="unverifiedProductsCount"
             variant="horizontal"
             class="product-header-section__title"
@@ -45,7 +43,7 @@
       </div>
       <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
         <a-button
-          :text="$t('company.management.products.preview.dashboard.addProduct')"
+          :text="$t('company.management.products.dashboard.addProduct')"
           size="x-large"
           class="product-header-section__button"
         />
