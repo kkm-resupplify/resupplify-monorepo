@@ -1,9 +1,6 @@
 <template>
   <a-panel-section class="product-tags-editor-header">
-    <a-title
-      :title="$t('company.management.navigation.products.tags.editor.title')"
-      size="x-large"
-    />
+    <a-title :title="$t('company.management.products.tags.title')" size="x-large" />
 
     <add-product-tag-dialog />
   </a-panel-section>

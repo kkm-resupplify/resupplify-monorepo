@@ -1,8 +1,10 @@
 <template>
   <a-panel-section class="product-tags-editor-header">
-    <product-tag-editor-list v-if="productTags.length" :product-tags="productTags" />
+    <div v-if="isLoading">implement-loader-here</div>
 
-    <a-list-no-results v-else :text="$t('')"/>
+    <product-tag-editor-list v-else-if="productTags.length" :product-tags="productTags" />
+
+    <a-list-no-results v-else :text="$t('company.management.products.tags.noResults')" />
   </a-panel-section>
 </template>
 <script setup lang="ts">

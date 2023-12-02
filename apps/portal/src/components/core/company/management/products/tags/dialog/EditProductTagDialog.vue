@@ -7,7 +7,7 @@
     <div class="edit-tag-dialog__content">
       <span
         v-text="
-          $t('company.management.navigation.products.tags.editor.addDialog.modalContent', {
+          $t('company.management.products.tags.dialog.edit.modalContent', {
             name: tag?.name
           })
         "
@@ -28,14 +28,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, type PropType } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
-import type { ProductTag } from '@sharedInterfaces/product/ProductInterface'
-import type { PropType } from 'vue'
+import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 import UpdateProductTagDialog from './UpdateProductTagDialog.vue'
 
 defineProps({
-  tag: Object as PropType<ProductTag>
+  tag: { type: Object as PropType<ProductTag>, required: true }
 })
 
 // Variables

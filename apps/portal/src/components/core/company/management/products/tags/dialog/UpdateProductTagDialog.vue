@@ -1,7 +1,7 @@
 <template>
   <m-dialog
     ref="dialogRef"
-    :title="$t('company.management.navigation.products.tags.editor.addDialog.modalActivatorTitle')"
+    :title="$t('company.management.products.tags.dialog.update.modalActivatorTitle')"
   >
     <template #activator>
       <a-button :text="$t('global.update')" size="x-large" />
@@ -15,23 +15,17 @@
               name="name"
               input-type="text"
               rules="required"
-              :label="$t('company.management.navigation.products.tags.editor.productTagLabel')"
-              :placeholder="
-                $t('company.management.navigation.products.tags.editor.productTagPlaceholder')
-              "
+              :label="$t('company.management.products.tags.editor.productTagLabel')"
+              :placeholder="$t('company.management.products.tags.editor.productTagPlaceholder')"
             />
 
             <m-text-field
               name="differentLanguageName"
               input-type="text"
               rules="required"
-              :label="
-                $t('company.management.navigation.products.tags.editor.productTagLanguageLabel')
-              "
+              :label="$t('company.management.products.tags.editor.productTagLanguageLabel')"
               :placeholder="
-                $t(
-                  'company.management.navigation.products.tags.editor.productTagLanguagePlaceholder'
-                )
+                $t('company.management.products.tags.editor.productTagLanguagePlaceholder')
               "
             />
 
@@ -39,7 +33,7 @@
               name="color"
               input-type="color"
               rules="required"
-              :label="$t('company.management.navigation.products.tags.editor.productTagColorLabel')"
+              :label="$t('company.management.products.tags.editor.productTagColorLabel')"
             />
           </div>
         </template>

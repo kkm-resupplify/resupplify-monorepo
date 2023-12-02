@@ -1,7 +1,7 @@
 <template>
   <a-list-item-wrapper class="product-list-item">
     <a-list-item-title-section
-      :title="$t('company.management.navigation.products.tags.listItem.name')"
+      :title="$t('company.management.products.tags.listItem.name')"
       :value="tag?.name"
       :basis="20"
     />

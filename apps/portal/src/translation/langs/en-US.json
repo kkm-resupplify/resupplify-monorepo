@@ -337,6 +337,8 @@
       },
 
       "products": {
+        "title": "Products",
+
         "editor": {
           "title": "Product creator",
           "informationTitle": "Enter product descriptors",
@@ -401,8 +403,6 @@
           }
         },
 
-        "title": "Products",
-
         "tiles": {
           "products": "Products",
           "newProduct": "Create new products",
@@ -426,8 +426,10 @@
         },
 
         "tags": {
+          "title": "Company product tags",
+          "noResults": "Your company doesn't have any product tags yet.",
+
           "editor": {
-            "title": "Company product tags",
             "productTagLabel": "Product tag",
             "productTagPlaceholder": "Enter product tag",
             "productTagLanguageLabel": "Product tag in {language} language",
