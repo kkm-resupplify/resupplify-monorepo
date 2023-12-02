@@ -48,7 +48,10 @@
       </template>
 
       <template #footer>
-        <mass-assign-product-status class="product-content-section__mass-assign" />
+        <mass-assign-product-status
+          class="product-content-section__mass-assign"
+          @set-status="handleSetStatus"
+        />
 
         <a-button
           button-type="submit"
@@ -102,7 +105,7 @@ interface InitialQueryParams {
 }
 
 // Emits
-const emits = defineEmits(['product-changed', 'page-changed', 'filter'])
+const emits = defineEmits(['product-changed', 'page-changed', 'filter', 'set-status'])
 
 // Variables
 const { t } = useI18n()
@@ -184,6 +187,11 @@ const handleQuerySubmit = async (data: InitialQueryParams) => {
   emits('filter', data)
 }
 
+const handleSetStatus = (value: number) => {
+  emits('set-status', value)
+}
+
+// Hooks
 onBeforeMount(async () => {
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()

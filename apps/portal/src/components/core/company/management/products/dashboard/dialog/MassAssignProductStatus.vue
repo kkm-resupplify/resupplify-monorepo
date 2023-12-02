@@ -8,13 +8,43 @@
       <span v-text="$t('company.management.products.dashboard.massActionContent')" />
 
       <div class="mass-assign-product-status__buttons">
-        <a-button :text="$t('global.activate')" size="x-large" />
+        <a-button :text="$t('global.activate')" size="x-large" @click="handleActivateProducts" />
 
-        <a-button :text="$t('global.deactivate')" size="x-large" color="gradient-danger" />
+        <a-button
+          :text="$t('global.deactivate')"
+          size="x-large"
+          color="gradient-danger"
+          @click="handleDeactivateProducts"
+        />
       </div>
     </div>
   </m-dialog>
 </template>
+<script setup lang="ts">
+import { ref } from 'vue'
+import MDialog from '@sharedMolecules/dialog/MDialog.vue'
+
+//Emits
+const emits = defineEmits(['setStatus'])
+
+// Variables
+const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
+
+//Methods
+const handleActivateProducts = () => {
+  emits('setStatus', 1)
+  closeDialog()
+}
+
+const handleDeactivateProducts = () => {
+  emits('setStatus', 0)
+  closeDialog()
+}
+
+const closeDialog = () => {
+  dialogRef.value?.closeDialog()
+}
+</script>
 <style scoped lang="scss">
 .mass-assign-product-status {
   display: flex;
@@ -24,8 +54,8 @@
 
   &__buttons {
     display: flex;
-    justify-content: center;
     gap: $global-spacing-50;
+    justify-content: center;
   }
 }
 </style>

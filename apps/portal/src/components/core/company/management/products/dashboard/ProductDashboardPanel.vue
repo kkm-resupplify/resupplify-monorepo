@@ -11,6 +11,7 @@
       @product-changed="handleFetchProducts"
       @page-changed="handleFetchProducts"
       @filter="handleFetchProducts"
+      @set-status="handleMassAssignProductStatus"
     />
   </a-panel>
 </template>
@@ -54,6 +55,19 @@ const handleFetchProducts = async () => {
   }
 
   isLoading.value = false
+}
+
+const handleMassAssignProductStatus = async (status: number) => {
+  const productIdList = products.value.map((product) => product.id)
+
+  const { success } = await CompanyProductsService.setProductsStatus({
+    productIdList: productIdList,
+    status: status
+  })
+
+  if (success) {
+    handleFetchProducts()
+  }
 }
 
 // Hooks
