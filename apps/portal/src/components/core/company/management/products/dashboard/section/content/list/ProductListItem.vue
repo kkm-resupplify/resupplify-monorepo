@@ -61,7 +61,6 @@ const { productStatus } = useProductStatus()
 <style scoped lang="scss">
 .product-list-item {
   justify-content: space-between;
-  background-color: var(--primary);
 
   &__tags {
     display: flex;
