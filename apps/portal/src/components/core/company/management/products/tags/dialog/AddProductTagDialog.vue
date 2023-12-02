@@ -20,16 +20,6 @@
             />
 
             <m-text-field
-              name="language-name"
-              input-type="text"
-              rules="required"
-              :label="$t('company.management.products.tags.editor.productTagLanguageLabel')"
-              :placeholder="
-                $t('company.management.products.tags.editor.productTagLanguagePlaceholder')
-              "
-            />
-
-            <m-text-field
               name="color"
               input-type="color"
               rules="required"
@@ -40,9 +30,7 @@
 
         <template #footer>
           <div class="add-product-tag-dialog__form-buttons">
-            <a-button :text="$t('global.cancel')" size="x-large" />
-
-            <a-button button-type="submit" :text="$t('global.save')" size="x-large" />
+            <a-button button-type="submit" :text="$t('global.save')" size="x-large" full-width />
           </div>
         </template>
       </o-form>
@@ -73,7 +61,7 @@ const closeDialog = () => {
     gap: $global-spacing-40;
     align-items: center;
 
-    padding: $global-spacing-100;
+    min-width: 450px;
   }
 
   &__form-buttons {

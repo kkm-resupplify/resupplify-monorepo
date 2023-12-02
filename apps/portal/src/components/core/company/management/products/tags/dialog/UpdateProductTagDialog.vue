@@ -71,7 +71,6 @@ const closeDialog = () => {
     align-items: center;
 
     min-width: 450px;
-    padding: $global-spacing-100;
   }
 
   &__form-buttons {
