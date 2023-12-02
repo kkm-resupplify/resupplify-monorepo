@@ -36,13 +36,16 @@ import CompanyNavigation from '@/components/core/company/navigation/CompanyNavig
   }
 
   &__body-wrapper {
+    display: flex;
+    flex: 1;
+    max-height: 100%;
     padding: $global-spacing-30 $global-spacing-40;
   }
 
   &__body {
     @include default-border-1;
     display: flex;
-    min-height: 800px;
+    flex: 1;
     background-color: var(--secondary-3);
   }
 }
