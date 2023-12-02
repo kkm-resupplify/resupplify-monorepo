@@ -50,6 +50,7 @@
       <template #footer>
         <mass-assign-product-status
           class="product-content-section__mass-assign"
+          :number-of-products="numberOfProducts"
           @set-status="handleSetStatus"
         />
 
@@ -118,8 +119,8 @@ const productEditorStore = useProductEditorStore()
 const initialFormValues = ref<InitialQueryParams>()
 
 const statuses = ref([
-  { id: 0, text: t('global.active') },
-  { id: 1, text: t('global.inactive') }
+  { id: 0, text: t('global.inactive') },
+  { id: 1, text: t('global.active') }
 ])
 
 const verificationStatuses = ref([
@@ -149,6 +150,10 @@ const showList = computed(() => {
 
 const noResultsTranslationKey = computed(() => {
   return props.products?.length ? 'noProductsMatchingFilter' : 'noProducts'
+})
+
+const numberOfProducts = computed(() => {
+  return props.products ? props.products.length : 0
 })
 
 // Methods

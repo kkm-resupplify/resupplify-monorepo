@@ -5,7 +5,13 @@
     </template>
 
     <div class="mass-assign-product-status">
-      <span v-text="$t('company.management.products.dashboard.massActionContent')" />
+      <span
+        v-text="
+          $t('company.management.products.dashboard.massActionContent', {
+            number: numberOfProducts
+          })
+        "
+      />
 
       <div class="mass-assign-product-status__buttons">
         <a-button :text="$t('global.activate')" size="x-large" @click="handleActivateProducts" />
@@ -23,6 +29,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
+
+defineProps({
+  numberOfProducts: {
+    type: Number,
+    required: true
+  }
+})
 
 //Emits
 const emits = defineEmits(['setStatus'])
