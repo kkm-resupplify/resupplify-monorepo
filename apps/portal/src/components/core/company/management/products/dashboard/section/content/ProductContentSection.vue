@@ -11,6 +11,7 @@
             class="product-content-section__name-search"
             :validate="false"
           />
+
           <div class="product-content-section__selects">
             <m-select
               name="categoryId"
@@ -47,6 +48,8 @@
       </template>
 
       <template #footer>
+        <mass-assign-product-status class="product-content-section__mass-assign" />
+
         <a-button
           button-type="submit"
           :text="$t('global.showResults')"
@@ -62,8 +65,7 @@
       v-else
       :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
     />
-
-    <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />
+    <o-pagination class="pagin" :pagination="paginationData" @page-changed="handlePageChanged" />
   </a-panel-section>
 </template>
 
@@ -79,6 +81,7 @@ import { useRoute, useRouter } from 'vue-router'
 import type { PropType } from 'vue'
 import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
+import MassAssignProductStatus from '../../dialog/MassAssignProductStatus.vue'
 
 const props = defineProps({
   products: {

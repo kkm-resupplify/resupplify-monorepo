@@ -22,7 +22,9 @@
     "verified": "Verified",
     "unverified": "Unverified",
     "add": "Add",
-    "showResults": "Show results"
+    "showResults": "Show results",
+    "activate": "Activate",
+    "deactivate": "Deactivate"
   },
 
   "language": {
@@ -422,7 +424,10 @@
           "category": "Category",
           "subcategory": "Subcategory",
           "status": "Status",
-          "verificationStatus": "Verification Status"
+          "verificationStatus": "Verification Status",
+          "massActions": "Mass actions",
+          "massActionsTitle": "Product mass actions",
+          "massActionContent": "{number} products will be selected for mass actions"
         }
       }
     }
