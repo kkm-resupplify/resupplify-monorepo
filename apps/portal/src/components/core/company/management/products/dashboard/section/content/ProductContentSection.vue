@@ -7,11 +7,7 @@
             @search="$emit('search')"
           /> -->
 
-    <o-form
-      v-if="initialFormValues"
-      :submit-callback="handleQuerySubmit"
-      :initial-values="initialFormValues"
-    >
+    <o-form :submit-callback="handleQuerySubmit" :initial-values="initialFormValues">
       <template #body>
         <div class="product-content-section__selects">
           <m-select
