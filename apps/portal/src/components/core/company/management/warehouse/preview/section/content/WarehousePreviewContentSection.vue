@@ -34,7 +34,7 @@ import WarehouseProductList from '@/components/core/company/management/warehouse
 import type { WarehouseProduct } from '@sharedInterfaces/warehouse/WarehouseProductInterface'
 import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
-import { ref, computed, onBeforeMount, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 const props = defineProps({
   hasProducts: Boolean
@@ -75,7 +75,6 @@ const handleFetchWarehouseProducts = async () => {
       page: page as string
     }
   )
-  console.log('xdd')
 
   if (success) {
     warehouseProducts.value = data

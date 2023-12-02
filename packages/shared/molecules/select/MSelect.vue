@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, toRef, onMounted, onBeforeUnmount, type PropType, watch } from 'vue'
+import { computed, ref, toRef, onMounted, onBeforeUnmount, type PropType } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MSelectItem from './items/MSelectItem.vue'
 import { useField } from 'vee-validate'
@@ -115,7 +115,6 @@ const selectRef = ref<HTMLElement | null>(null)
 const inputRef = ref<HTMLElement | null>(null)
 const optionsFilterRef = ref<HTMLElement | null>(null)
 const showOptions = ref(false)
-const selectedOption = ref<MSelectItemData | null>(null)
 const name = toRef(props, 'name')
 const width = toRef(props, 'width')
 const { generateClassNames } = useClassComposable()
@@ -137,8 +136,7 @@ const filteredOptions = computed(() => {
 const handleSelectOption = (option: MSelectItemData) => {
   optionsFilter.value = ''
 
-  selectedOption.value = option
-  inputValue.value = selectedOption.value.id
+  inputValue.value = option.id
 
   showOptions.value = false
   appendIconState.value = !appendIconState.value
@@ -151,6 +149,10 @@ const inputText = computed(() => {
   if (selectedOption.value) return selectedOption.value.text
 
   return null
+})
+
+const selectedOption = computed(() => {
+  return props.options.find((option) => option.id === inputValue.value)
 })
 
 const {
@@ -209,11 +211,6 @@ const prependIcon = computed(() => {
 })
 
 // Methods
-onMounted(() => {
-  handleOutsideValueChange()
-  document.addEventListener('click', clickOutsideEvent)
-})
-
 const handleOutsideValueChange = () => {
   if (props.value !== null || inputValue.value !== null) {
     const matchingOption = props.options.find(
@@ -221,24 +218,10 @@ const handleOutsideValueChange = () => {
     )
 
     if (matchingOption) {
-      selectedOption.value = matchingOption
       inputValue.value = matchingOption.id
     }
   }
 }
-
-watch(
-  () => props.options,
-  (value) => {
-    if (value !== null && inputValue.value !== null) {
-      handleOutsideValueChange()
-    }
-  }
-)
-
-onBeforeUnmount(() => {
-  document.removeEventListener('click', clickOutsideEvent)
-})
 
 const clickOutsideEvent = (event: any) => {
   if (!selectRef.value || !optionsFilterRef.value) return
@@ -258,7 +241,6 @@ const handleInputClick = () => {
 }
 
 const clearSelect = () => {
-  selectedOption.value = null
   optionsFilter.value = ''
   inputValue.value = null
 }
@@ -274,6 +256,15 @@ const handlePrependIconClick = (event: Event) => {
   prependIconState.value = !prependIconState.value
 }
 
+// Hooks
+onMounted(() => {
+  handleOutsideValueChange()
+  document.addEventListener('click', clickOutsideEvent)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', clickOutsideEvent)
+})
 // Exposes
 defineExpose({
   clearSelect

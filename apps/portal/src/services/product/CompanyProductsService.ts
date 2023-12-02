@@ -2,6 +2,11 @@ import type { ProductTranslation } from '@sharedInterfaces/product/ProductEditor
 import BaseService from '../BaseService'
 import type { ProductEditorStoreState } from '@/stores/product/useProductEditorStore'
 
+interface AssignProductStatus {
+  productIdList: Array<number>
+  status: number
+}
+
 // DTO
 class CreateProductDto {
   producer: string | null
@@ -22,9 +27,35 @@ class CreateProductDto {
   }
 }
 class CompanyProductsService extends BaseService {
-  async getCompanyProducts(params?: { page?: string; name?: string }) {
+  static COMPANY_PRODUCTS_SUFFIX = 'product'
+  static COMPANY_PRODUCTS_MASS_ASSIGN_SUFFIX = 'productMassAssign'
+
+  async getProducts(params?: {
+    page?: string
+    categoryId?: string
+    subcategoryId?: string
+    status: string
+    verificationStatus: string
+  }) {
     return await this.get({
-      config: { params }
+      config: { params },
+      suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX
+    })
+  }
+
+  async deleteProduct(id: number) {
+    return await this.delete({
+      id: id,
+      suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX,
+      notificationTitle: 'company.management.products.editor.deleteSuccessTitle'
+    })
+  }
+
+  async setProductsStatus(data: AssignProductStatus) {
+    return await this.post({
+      data: data,
+      suffix: CompanyProductsService.COMPANY_PRODUCTS_MASS_ASSIGN_SUFFIX,
+      notificationTitle: 'company.management.products.editor.assignStatusSuccessTitle'
     })
   }
 
@@ -37,4 +68,4 @@ class CompanyProductsService extends BaseService {
   }
 }
 
-export default new CompanyProductsService('company/product')
+export default new CompanyProductsService('company')
