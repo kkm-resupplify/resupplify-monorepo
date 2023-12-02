@@ -38,7 +38,7 @@ import CompanyNavigation from '@/components/core/company/navigation/CompanyNavig
   &__body-wrapper {
     display: flex;
     flex: 1;
-    max-height: 100%;
+    max-height: 800px;
     padding: $global-spacing-30 $global-spacing-40;
   }
 
