@@ -35,11 +35,12 @@ const handleFetchProducts = async () => {
   isLoading.value = true
 
   const {
-    query: { page, categoryId, subcategoryId, status, verificationStatus }
+    query: { page, name, categoryId, subcategoryId, status, verificationStatus }
   } = route
 
   const { data, success, pagination } = await CompanyProductsService.getProducts({
     page: page as string,
+    name: name as string,
     categoryId: categoryId as string,
     subcategoryId: subcategoryId as string,
     status: status as string,
