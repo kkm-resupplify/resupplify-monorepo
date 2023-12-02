@@ -33,3 +33,10 @@ onBeforeMount(async () => {
   await handleFetchProductTags()
 })
 </script>
+
+<style lang="scss" scoped>
+.product-tags-content-section {
+  overflow-y: auto;
+  height: 100%;
+}
+</style>

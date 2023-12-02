@@ -7,6 +7,7 @@
     />
   </div>
 </template>
+
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import ProductTagListItem from '@/components/core/company/management/products/tags/list/ProductTagListItem.vue'
@@ -16,6 +17,7 @@ defineProps({
   productTags: { type: Array as PropType<ProductTag[]>, default: () => [] }
 })
 </script>
+
 <style scoped lang="scss">
 .product-tag-list {
   overflow-y: auto;
