@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, toRef, onMounted, onBeforeUnmount, type PropType } from 'vue'
+import { computed, ref, toRef, onMounted, onBeforeUnmount, type PropType, watch } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import MSelectItem from './items/MSelectItem.vue'
 import { useField } from 'vee-validate'
@@ -153,10 +153,6 @@ const inputText = computed(() => {
   return null
 })
 
-const handleInputChange = () => {
-  optionsFilter.value = inputValue.value
-}
-
 const {
   value: inputValue,
   errors,
@@ -214,6 +210,11 @@ const prependIcon = computed(() => {
 
 // Methods
 onMounted(() => {
+  handleOutsideValueChange()
+  document.addEventListener('click', clickOutsideEvent)
+})
+
+const handleOutsideValueChange = () => {
   if (props.value !== null || inputValue.value !== null) {
     const matchingOption = props.options.find(
       (option) => option.id === (props.value ?? inputValue.value)
@@ -224,9 +225,16 @@ onMounted(() => {
       inputValue.value = matchingOption.id
     }
   }
+}
 
-  document.addEventListener('click', clickOutsideEvent)
-})
+watch(
+  () => props.options,
+  (value) => {
+    if (value !== null && inputValue.value !== null) {
+      handleOutsideValueChange()
+    }
+  }
+)
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', clickOutsideEvent)
