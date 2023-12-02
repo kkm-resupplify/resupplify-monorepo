@@ -13,7 +13,7 @@
     </template>
 
     <div class="edit-product-status-dialog__content">
-      <o-form :initial-values="props.product" :submit-callback="handleSubmitStatus">
+      <o-form :initial-values="product" :submit-callback="handleSubmitStatus">
         <template #body>
           <m-select name="status" :options="statuses" :validate="false" />
         </template>

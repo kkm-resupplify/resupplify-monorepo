@@ -92,10 +92,10 @@ const props = defineProps({
 
 // Interfaces
 interface InitialQueryParams {
-  categoryId: number | null
-  subcategoryId: number | null
-  status: number | null
-  verificationStatus: number | null
+  categoryId?: number
+  subcategoryId?: number
+  status?: number
+  verificationStatus?: number
 }
 
 // Emits
@@ -153,10 +153,10 @@ const handleProductCategoryChange = (id: number) => {
 
 const setInitialFormValues = () => {
   initialFormValues.value = {
-    categoryId: route.query.categoryId ? +route.query.categoryId : null,
-    subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : null,
-    status: route.query.status ? +route.query.status : null,
-    verificationStatus: route.query.verificationStatus ? +route.query.verificationStatus : null
+    categoryId: route.query.categoryId ? +route.query.categoryId : undefined,
+    subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined,
+    status: route.query.status ? +route.query.status : undefined,
+    verificationStatus: route.query.verificationStatus ? +route.query.verificationStatus : undefined
   }
 
   selectedCategoryId.value = route.query.categoryId ? +route.query.categoryId : null

@@ -1,8 +1,8 @@
 <template>
   <div class="product-list">
     <product-list-item
-      v-for="(product, idx) in products"
-      :key="idx"
+      v-for="product in products"
+      :key="product.id"
       :product="product"
       @product-changed="handleProductChanged"
     />
@@ -21,8 +21,9 @@ defineProps({
 })
 
 // Emits
-const emits = defineEmits(['search', 'product-changed'])
+const emits = defineEmits(['product-changed'])
 
+// Methods
 const handleProductChanged = () => {
   emits('product-changed')
 }

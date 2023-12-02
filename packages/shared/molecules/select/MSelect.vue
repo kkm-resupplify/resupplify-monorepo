@@ -260,7 +260,7 @@ const handleInputClick = () => {
 const clearSelect = () => {
   selectedOption.value = null
   optionsFilter.value = ''
-  inputValue.value = undefined
+  inputValue.value = null
 }
 
 const closeSelect = () => {
