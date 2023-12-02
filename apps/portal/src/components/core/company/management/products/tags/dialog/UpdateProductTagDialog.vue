@@ -1,32 +1,19 @@
 <template>
-  <m-dialog
-    ref="dialogRef"
-    :title="$t('company.management.products.tags.dialog.update.modalActivatorTitle')"
-  >
+  <m-dialog ref="dialogRef" :title="$t('company.management.products.tags.dialog.update.title')">
     <template #activator>
       <a-icon icon="more_vert" size="xx-large" hoverable />
     </template>
 
-    <div class="add-product-tag-dialog__content">
+    <div class="update-product-tag-dialog__content">
       <o-form :initial-values="productTag">
         <template #body>
-          <div class="add-product-tag-dialog__form-body">
+          <div class="update-product-tag-dialog__form-body">
             <m-text-field
               name="name"
               input-type="text"
               rules="required"
               :label="$t('company.management.products.tags.editor.productTagLabel')"
               :placeholder="$t('company.management.products.tags.editor.productTagPlaceholder')"
-            />
-
-            <m-text-field
-              name="differentLanguageName"
-              input-type="text"
-              rules="required"
-              :label="$t('company.management.products.tags.editor.productTagLanguageLabel')"
-              :placeholder="
-                $t('company.management.products.tags.editor.productTagLanguagePlaceholder')
-              "
             />
 
             <m-text-field
@@ -39,19 +26,17 @@
         </template>
 
         <template #footer>
-          <div class="add-product-tag-dialog__form-buttons">
-            <a-button :text="$t('global.cancel')" size="x-large" />
+          <div class="update-product-tag-dialog__form-buttons">
+            <o-confirm-dialog
+              :activator-name="$t('global.delete')"
+              activator-size="x-large"
+              type="delete"
+              color="gradient-danger"
+              :item-name="productTag.name"
+            />
 
             <a-button button-type="submit" :text="$t('global.save')" size="x-large" />
           </div>
-
-          <o-confirm-dialog
-            :activator-name="$t('global.delete')"
-            activator-size="x-large"
-            type="delete"
-            color="gradient-danger"
-            :item-name="productTag.name"
-          />
         </template>
       </o-form>
     </div>
@@ -78,13 +63,14 @@ const closeDialog = () => {
 </script>
 
 <style lang="scss" scoped>
-.add-product-tag-dialog {
+.update-product-tag-dialog {
   &__form-body {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-40;
     align-items: center;
 
+    min-width: 450px;
     padding: $global-spacing-100;
   }
 

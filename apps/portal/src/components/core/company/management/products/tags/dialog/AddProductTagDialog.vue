@@ -1,8 +1,5 @@
 <template>
-  <m-dialog
-    ref="dialogRef"
-    :title="$t('company.management.products.tags.dialog.add.modalActivatorTitle')"
-  >
+  <m-dialog ref="dialogRef" :title="$t('company.management.products.tags.dialog.add.title')">
     <template #activator>
       <a-button
         size="x-large"

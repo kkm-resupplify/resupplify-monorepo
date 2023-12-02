@@ -443,7 +443,7 @@
           "dialog": {
             "add": {
               "activator": "Add new tag",
-              "modalActivatorTitle": "Add product tag",
+              "title": "Add product tag",
               "modalContent": "Modify the details for the tag {name} below"
             },
 
