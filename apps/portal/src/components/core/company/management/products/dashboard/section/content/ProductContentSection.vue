@@ -7,10 +7,9 @@
         <div class="product-content-section__form-body">
           <m-text-field
             name="name"
-            :placeholder="
-              $t('company.management.navigation.products.dashboard.searchBarPlaceholder')
-            "
+            :placeholder="$t('company.management.products.dashboard.searchBarPlaceholder')"
             class="product-content-section__name-search"
+            :validate="false"
           />
           <div class="product-content-section__selects">
             <m-select
@@ -92,6 +91,7 @@ const props = defineProps({
 
 // Interfaces
 interface InitialQueryParams {
+  name?: string
   categoryId?: number
   subcategoryId?: number
   status?: number
@@ -153,6 +153,7 @@ const handleProductCategoryChange = (id: number) => {
 
 const setInitialFormValues = () => {
   initialFormValues.value = {
+    name: route.query.name ? route.query.name.toString() : undefined,
     categoryId: route.query.categoryId ? +route.query.categoryId : undefined,
     subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined,
     status: route.query.status ? +route.query.status : undefined,
@@ -195,7 +196,7 @@ onBeforeMount(async () => {
   &__form-body {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-50;
+    gap: $global-spacing-100;
   }
 
   &__selects {
@@ -204,7 +205,7 @@ onBeforeMount(async () => {
   }
 
   &__name-search {
-    max-width: 400px;
+    max-width: 500px;
   }
 
   &__show-results {

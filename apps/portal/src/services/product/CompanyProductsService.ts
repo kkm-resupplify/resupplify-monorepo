@@ -32,6 +32,7 @@ class CompanyProductsService extends BaseService {
 
   async getProducts(params?: {
     page?: string
+    name?: string
     categoryId?: string
     subcategoryId?: string
     status: string
