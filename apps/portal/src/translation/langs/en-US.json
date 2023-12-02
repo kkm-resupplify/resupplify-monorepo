@@ -22,7 +22,8 @@
     "verified": "Verified",
     "unverified": "Unverified",
     "add": "Add",
-    "showResults": "Show results"
+    "showResults": "Show results",
+    "preview": "Preview"
   },
 
   "language": {
@@ -449,6 +450,11 @@
             "update": {
               "title": "Update product tag"
             }
+          },
+
+          "list": {
+            "itemName": "Product tag name",
+            "colorValue": "Hex color value"
           }
         }
       }
