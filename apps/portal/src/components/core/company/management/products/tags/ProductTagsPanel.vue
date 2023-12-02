@@ -1,5 +1,5 @@
 <template>
-  <a-panel class="warehouse-editor-panel">
+  <a-panel>
     <product-tags-header-section />
 
     <product-tags-content-section />
