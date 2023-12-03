@@ -30,6 +30,9 @@ defineProps({
   title: String
 })
 
+// Emits
+const emits = defineEmits(['close', 'open'])
+
 // Variables
 const baseClass = 'm-dialog'
 const showContent = ref(false)
@@ -43,10 +46,12 @@ const generateClasses = computed(() => {
 // Methods
 const closeDialog = () => {
   showContent.value = false
+  emits('close')
 }
 
 const openDialog = () => {
   showContent.value = true
+  emits('open')
 }
 
 // Expose
@@ -61,7 +66,6 @@ defineExpose({
   display: flex;
 
   &__content-wrapper {
-    // z-index: 9;
     position: absolute;
     z-index: 9;
     inset: 0;

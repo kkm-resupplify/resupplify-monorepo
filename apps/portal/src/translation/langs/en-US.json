@@ -382,7 +382,7 @@
           "notification": {
             "productCreatedTitle": "Product created successfully",
             "productCreatedText": "Your product awaits verification now",
-            "productUpdatedTitle": "Product updated successfully",
+            "productEditedTitle": "Product edit successfully",
             "productDeletedTitle": "Product deleted successfully"
           }
         },

@@ -5,6 +5,7 @@ import type {
 } from '@sharedInterfaces/product/ProductEditorInterface'
 
 export interface ProductEditorStoreState {
+  editSuccess: boolean
   productEditorFirstStepData: ProductEditorFirstStepData
   productEditorTranslationStepData: ProductTranslation[]
 }
@@ -13,7 +14,9 @@ export const useProductEditorStore = defineStore({
   id: 'productEditor',
 
   state: (): ProductEditorStoreState => ({
+    editSuccess: false,
     productEditorFirstStepData: {
+      id: null,
       producer: null,
       code: null,
       productUnitId: null,
@@ -28,11 +31,13 @@ export const useProductEditorStore = defineStore({
     getProductEditor: (state) => state,
     getProductCategoryId: (state) => state.productEditorFirstStepData.productCategoryId,
     getProductSubcategoryId: (state) => state.productEditorFirstStepData.productSubcategoryId,
-    getProductTagIds: (state) => state.productEditorFirstStepData.productTagIds
+    getProductTagIds: (state) => state.productEditorFirstStepData.productTagIds,
+    isEditing: (state) => state.productEditorFirstStepData.id !== null
   },
 
   actions: {
     setProductEditorFirstStepData(productEditorFirstStepData: ProductEditorFirstStepData) {
+      this.productEditorFirstStepData.id = productEditorFirstStepData.id
       this.productEditorFirstStepData.producer = productEditorFirstStepData.producer
       this.productEditorFirstStepData.code = productEditorFirstStepData.code
       this.productEditorFirstStepData.productUnitId = productEditorFirstStepData.productUnitId
@@ -51,6 +56,14 @@ export const useProductEditorStore = defineStore({
       if (existingLanguageIndex !== -1)
         this.productEditorTranslationStepData[existingLanguageIndex] = translationData
       else this.productEditorTranslationStepData.push(translationData)
+    },
+
+    setProductTranslations(translationData: ProductTranslation[]) {
+      this.productEditorTranslationStepData = translationData
+    },
+
+    setEditedStatus(editSuccess: boolean) {
+      this.editSuccess = editSuccess
     }
   }
 })

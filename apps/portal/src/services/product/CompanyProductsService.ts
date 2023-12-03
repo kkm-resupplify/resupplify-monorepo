@@ -26,6 +26,7 @@ class CreateProductDto {
     this.translations = productEditorTranslationStepData
   }
 }
+
 class CompanyProductsService extends BaseService {
   static COMPANY_PRODUCTS_SUFFIX = 'product'
   static COMPANY_PRODUCTS_MASS_ASSIGN_SUFFIX = 'productMassAssign'
@@ -62,9 +63,18 @@ class CompanyProductsService extends BaseService {
 
   async createProduct(productData: ProductEditorStoreState) {
     return this.post({
+      suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX,
       data: new CreateProductDto(productData),
       notificationTitle: 'company.management.products.editor.notification.productCreatedTitle',
       notificationText: 'company.management.products.editor.notification.productCreatedText'
+    })
+  }
+
+  async editProduct(productData: ProductEditorStoreState) {
+    return this.put({
+      suffix: `${CompanyProductsService.COMPANY_PRODUCTS_SUFFIX}/${productData.productEditorFirstStepData.id}`,
+      data: new CreateProductDto(productData),
+      notificationTitle: 'company.management.products.editor.notification.productEditedTitle'
     })
   }
 }

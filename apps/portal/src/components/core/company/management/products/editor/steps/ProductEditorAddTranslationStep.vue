@@ -67,23 +67,29 @@ const productEditorStore = useProductEditorStore()
 const { t } = useI18n()
 
 // Emits
-const emits = defineEmits(['previous-step'])
+const emits = defineEmits(['previous-step', 'edited'])
 
 // Computed
 const disableSaveButton = computed(() => {
   return productEditorStore.productEditorTranslationStepData.length === 0
 })
+
 // Methods
 const handleSaveTranslation = (values: any, languageId: number) => {
   productEditorStore.saveProductTranslation({ ...values, languageId })
 }
 
 const handleSaveProduct = async () => {
-  const { success } = await CompanyProductsService.createProduct(productEditorStore.$state)
+  if (productEditorStore.isEditing) {
+    const { success } = await CompanyProductsService.editProduct(productEditorStore.$state)
+    if (success) productEditorStore.setEditedStatus(success)
+  } else {
+    const { success } = await CompanyProductsService.createProduct(productEditorStore.$state)
 
-  if (success) {
-    emits('previous-step')
-    productEditorStore.$reset()
+    if (success) {
+      emits('previous-step')
+      productEditorStore.$reset()
+    }
   }
 }
 
