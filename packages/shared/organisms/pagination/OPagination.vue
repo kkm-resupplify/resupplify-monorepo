@@ -37,7 +37,10 @@ import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import { useRouter, useRoute } from 'vue-router'
 
 const props = defineProps({
-  pagination: Object as PropType<Pagination>
+  pagination: {
+    type: Object as PropType<Pagination>,
+    default: () => ({ currentPage: 0, totalPages: 0, perPage: 0, countRecords: 0, totalRecords: 0 })
+  }
 })
 
 // Interface
@@ -60,18 +63,15 @@ const generateClasses = computed(() => {
 })
 
 const showPagination = computed(() => {
-  if (props.pagination) return props.pagination?.totalPages > 0
-  return false
+  return props.pagination.totalPages > 1
 })
 
 const currentPage = computed(() => {
-  if (props.pagination) return props.pagination.currentPage
-  return 1
+  return props.pagination.currentPage ?? 1
 })
 
 const totalPages = computed(() => {
-  if (props.pagination) return props.pagination.totalPages
-  return 0
+  return props.pagination.totalPages ?? 0
 })
 
 // Methods
@@ -131,6 +131,7 @@ onBeforeMount(async () => {
     display: flex;
     flex-direction: row;
     gap: $global-spacing-20;
+    align-items: center;
     align-self: center;
 
     margin-top: $global-spacing-30;
