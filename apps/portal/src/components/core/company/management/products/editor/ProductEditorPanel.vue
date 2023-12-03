@@ -1,6 +1,6 @@
 <template>
-  <a-panel class="warehouse-editor-panel">
-    <a-panel-section class="warehouse-editor-panel__main-section">
+  <a-panel class="product-editor-panel">
+    <a-panel-section class="product-editor-panel__main-section" overflow>
       <product-editor-stepper />
     </a-panel-section>
   </a-panel>
@@ -11,7 +11,7 @@ import ProductEditorStepper from '@/components/core/company/management/products/
 </script>
 
 <style lang="scss" scoped>
-.warehouse-editor-panel {
+.product-editor-panel {
   &__main-section {
     width: 100%;
   }

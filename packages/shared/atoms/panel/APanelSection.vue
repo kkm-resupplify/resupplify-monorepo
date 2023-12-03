@@ -8,13 +8,18 @@
 import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
+const props = defineProps({
+  overflow: Boolean
+})
 // Variables
 const baseClass = 'a-panel-section'
 const { generateClassNames } = useClassComposable()
 
 // Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [])
+  const overflowClass = props.overflow ? 'overflow' : ''
+
+  return generateClassNames(baseClass, [overflowClass])
 })
 </script>
 
@@ -29,5 +34,9 @@ const generateClasses = computed(() => {
   padding: $global-spacing-20 $global-spacing-30;
 
   background-color: var(--secondary-1);
+
+  &--overflow {
+    overflow: auto;
+  }
 }
 </style>
