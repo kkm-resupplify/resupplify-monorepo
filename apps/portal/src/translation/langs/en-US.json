@@ -428,7 +428,7 @@
           "verificationStatus": "Verification Status",
           "massActions": "Mass actions",
           "massActionsTitle": "Product mass actions",
-          "massActionContent": "{number} products will be selected for mass actions"
+          "massActionContent": "{number} products are selected for mass actions"
         },
 
         "tags": {
