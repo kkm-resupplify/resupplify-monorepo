@@ -41,7 +41,8 @@ const props = defineProps({
     default: 'button'
   },
   fullWidth: Boolean,
-  disabled: Boolean
+  disabled: Boolean,
+  isLoading: Boolean
 })
 
 // Variables
