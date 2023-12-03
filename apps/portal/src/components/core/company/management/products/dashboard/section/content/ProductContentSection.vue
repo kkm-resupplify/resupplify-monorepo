@@ -3,6 +3,7 @@
     <a-title :title="$t('company.management.products.dashboard.filterProducts')" size="x-large" />
 
     <o-form
+      ref="form"
       class="product-content-section__filter-form"
       :submit-callback="handleQuerySubmit"
       :initial-values="initialFormValues"
@@ -11,10 +12,12 @@
         <div class="product-content-section__filters">
           <div class="product-content-section__filters-row">
             <m-text-field
+              class="product-content-section__name-search"
               name="name"
               :placeholder="$t('company.management.products.dashboard.searchBarPlaceholder')"
               :validate="false"
-              class="product-content-section__name-search"
+              append-icon-on="close"
+              @append-icon-click="handleClearSearch"
             />
 
             <m-select
@@ -53,6 +56,8 @@
             />
 
             <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
+
+            <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
           </div>
         </div>
       </template>
@@ -89,6 +94,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 import CompanyProductsService from '@/services/product/CompanyProductsService'
+import OForm from '@sharedOrganisms/form/OForm.vue'
 
 // Interfaces
 interface InitialQueryParams {
@@ -111,6 +117,7 @@ const router = useRouter()
 const productEditorStore = useProductEditorStore()
 const initialFormValues = ref<InitialQueryParams>()
 const paginationData = ref<Pagination>()
+const form = ref<typeof OForm>()
 
 const statuses = ref([
   { id: 0, text: t('global.inactive') },
@@ -147,7 +154,7 @@ const filtersUsed = computed(() => {
     query: { name, categoryId, subcategoryId, status, verificationStatus }
   } = route
 
-  return !!(name || categoryId || subcategoryId || status || verificationStatus)
+  return !!(name ?? categoryId ?? subcategoryId ?? status ?? verificationStatus)
 })
 
 const noResultsTranslationKey = computed(() => {
@@ -206,6 +213,14 @@ const handleFetchProducts = async () => {
   }
 
   isLoading.value = false
+}
+
+const handleClearSearch = async () => {
+  await router.replace({ query: { ...route.query, name: '' } })
+}
+
+const handleResetFilters = async () => {
+  form.value?.handleReset()
 }
 
 // Hooks
