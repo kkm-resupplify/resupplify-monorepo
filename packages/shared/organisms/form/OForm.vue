@@ -23,7 +23,7 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 const props = defineProps({
   initialValues: {
-    type: Object as () => Record<string, [number, string]>,
+    type: Object as () => Record<string, any>,
     default: null
   },
   keepValues: Boolean,
@@ -60,6 +60,14 @@ const getInitialTouched = computed(() => {
 const handleSubmit = (values: any) => {
   props.submitCallback(values)
 }
+
+const handleReset = () => {
+  form.value?.resetForm()
+}
+
+defineExpose({
+  handleReset
+})
 </script>
 
 <style lang="scss" scoped>
