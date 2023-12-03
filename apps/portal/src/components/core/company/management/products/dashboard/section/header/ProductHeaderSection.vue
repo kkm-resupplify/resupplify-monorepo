@@ -39,15 +39,16 @@
         />
       </div>
 
-      <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
-        <a-button
-          :text="$t('company.management.products.dashboard.addProduct')"
-          size="x-large"
-          class="product-header-section__button"
-        />
-      </router-link>
+      <div class="product-header-section__actions">
+        <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
+          <a-button :text="$t('company.management.products.dashboard.addProduct')" size="x-large" />
+        </router-link>
 
-      <mass-assign-product-status :products="products" @fetch-products="$emit('fetch-products')" />
+        <mass-assign-product-status
+          :products="products"
+          @fetch-products="$emit('fetch-products')"
+        />
+      </div>
     </div>
   </a-panel-section>
 </template>
@@ -98,6 +99,13 @@ const unverifiedProductsCount = computed(() => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-30;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-30;
+    align-items: flex-end;
   }
 }
 </style>
