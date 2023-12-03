@@ -51,6 +51,10 @@ export const useProductEditorStore = defineStore({
       if (existingLanguageIndex !== -1)
         this.productEditorTranslationStepData[existingLanguageIndex] = translationData
       else this.productEditorTranslationStepData.push(translationData)
+    },
+
+    setProductTranslations(translationData: ProductTranslation[]) {
+      this.productEditorTranslationStepData = translationData
     }
   }
 })
