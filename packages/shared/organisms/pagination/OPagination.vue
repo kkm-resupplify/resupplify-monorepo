@@ -1,6 +1,8 @@
 <template>
   <o-form v-if="showPagination" :submit-callback="handleSubmit" :class="generateClasses">
     <template #body>
+      <a-line />
+
       <div class="o-pagination__body">
         <div class="o-pagination__previous" @click="handlePreviousPage">
           <m-icon icon="navigate_before" size="x-large" hoverable />
@@ -113,20 +115,25 @@ onBeforeMount(async () => {
 <style lang="scss" scoped>
 .o-pagination {
   display: flex;
-  flex: 1;
+  gap: 0;
   align-items: center;
-  justify-content: center;
 
   &__previous {
     display: flex;
     justify-content: center;
   }
 
+  :deep(.o-form__body) {
+    width: 100%;
+  }
+
   &__body {
     display: flex;
     flex-direction: row;
     gap: $global-spacing-20;
-    align-items: center;
+    align-self: center;
+
+    margin-top: $global-spacing-30;
   }
 
   &__content {
