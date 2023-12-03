@@ -14,6 +14,7 @@ export const useProductEditorStore = defineStore({
 
   state: (): ProductEditorStoreState => ({
     productEditorFirstStepData: {
+      id: null,
       producer: null,
       code: null,
       productUnitId: null,

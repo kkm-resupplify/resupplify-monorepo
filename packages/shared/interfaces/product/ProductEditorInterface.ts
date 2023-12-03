@@ -5,6 +5,7 @@ export interface ProductTranslation {
 }
 
 export interface ProductEditorFirstStepData {
+  id: number | null
   producer: string | null
   code: string | null
   productUnitId: number | null
