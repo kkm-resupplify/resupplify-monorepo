@@ -5,7 +5,7 @@
     </template>
 
     <div class="update-product-tag-dialog__content">
-      <o-form :initial-values="productTag">
+      <o-form :initial-values="productTag" :submit-callback="handleEditProductTag">
         <template #body>
           <div class="update-product-tag-dialog__form-body">
             <m-text-field
@@ -47,16 +47,33 @@
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import type { PropType } from 'vue'
-import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
+import type { ProductTag, ProductTagData } from '@sharedInterfaces/product/ProductTagInterface'
+import CompanyProductDescriptorsService from '@/services/product/CompanyProductDescriptorsService'
 
 defineProps({
   productTag: { type: Object as PropType<ProductTag>, required: true }
 })
+// Emits
+const emits = defineEmits(['fetch-product-tags'])
+
+// Variables
+const isLoading = ref(false)
 
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Methods
+const handleEditProductTag = async (ProductTagData: ProductTagData) => {
+  isLoading.value = true
+
+  const { success } = await CompanyProductDescriptorsService.editProductTag(ProductTagData)
+
+  if (success) emits('fetch-product-tags')
+
+  isLoading.value = false
+
+  closeDialog()
+}
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }

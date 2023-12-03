@@ -52,6 +52,7 @@ import type { ProductTagData } from '@sharedInterfaces/product/ProductTagInterfa
 
 // Emits
 const emits = defineEmits(['fetch-product-tags'])
+
 // Variables
 const isLoading = ref(false)
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
