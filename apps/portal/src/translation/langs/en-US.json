@@ -24,7 +24,8 @@
     "add": "Add",
     "showResults": "Show results",
     "activate": "Activate",
-    "deactivate": "Deactivate"
+    "deactivate": "Deactivate",
+    "preview": "Preview"
   },
 
   "language": {
@@ -339,6 +340,8 @@
       },
 
       "products": {
+        "title": "Products",
+
         "editor": {
           "title": "Product creator",
           "informationTitle": "Enter product descriptors",
@@ -403,8 +406,6 @@
           }
         },
 
-        "title": "Products",
-
         "tiles": {
           "products": "Products",
           "newProduct": "Create new products",
@@ -428,6 +429,45 @@
           "massActions": "Mass actions",
           "massActionsTitle": "Product mass actions",
           "massActionContent": "{number} products will be selected for mass actions"
+        },
+
+        "tags": {
+          "title": "Company product tags",
+          "noResults": "Your company doesn't have any product tags yet.",
+          "description": "Preview, add and edit product tags of your company. Tags are used to further categorize your products.",
+          "currentTags": "List of the company product tags",
+
+          "editor": {
+            "productTagLabel": "Product tag",
+            "productTagPlaceholder": "Enter product tag",
+            "productTagLanguageLabel": "Product tag in {language} language",
+            "productTagLanguagePlaceholder": "Enter product tag",
+            "productTagColorLabel": "Product tag color",
+            "productTagColorPlaceholder": "Select color"
+          },
+
+          "dialog": {
+            "add": {
+              "activator": "Add new tag",
+              "title": "Add product tag",
+              "modalContent": "Modify the details for the tag {name} below"
+            },
+
+            "update": {
+              "title": "Update product tag"
+            }
+          },
+
+          "notification": {
+            "addProductTagSuccessTitle": "Product tag added successfully",
+            "editProductTagSuccessTitle": "Product tag edited successfully",
+            "deleteProductTagSuccessTitle": "Product tag deleted successfully"
+          },
+
+          "list": {
+            "itemName": "Product tag name",
+            "colorValue": "Hex color value"
+          }
         }
       }
     }

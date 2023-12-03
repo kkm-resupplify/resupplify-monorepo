@@ -60,8 +60,6 @@ const productDetailsContent = computed(() => {
 
 <style lang="scss" scoped>
 .product-all-product-list-item {
-  background-color: var(--primary);
-
   &__content {
     display: flex;
     flex-direction: column;

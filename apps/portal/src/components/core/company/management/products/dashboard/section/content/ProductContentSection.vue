@@ -205,9 +205,12 @@ onBeforeMount(async () => {
 </script>
 <style scoped lang="scss">
 .product-content-section {
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: $global-spacing-100;
+
+  height: 100%;
 
   &__form-body {
     display: flex;
