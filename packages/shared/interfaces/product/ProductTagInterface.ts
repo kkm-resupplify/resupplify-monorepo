@@ -1,6 +1,9 @@
-export interface ProductTag {
+export interface ProductTag extends ProductTagData {
   id: number
+  slug: string
+}
+
+export interface ProductTagData {
   name: string
   color: string
-  slug: string
 }
