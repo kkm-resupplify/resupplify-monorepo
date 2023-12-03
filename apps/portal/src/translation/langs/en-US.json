@@ -430,6 +430,7 @@
           "title": "Company product tags",
           "noResults": "Your company doesn't have any product tags yet.",
           "description": "Preview, add and edit product tags of your company. Tags are used to further categorize your products.",
+          "currentTags": "List of the company product tags",
 
           "editor": {
             "productTagLabel": "Product tag",

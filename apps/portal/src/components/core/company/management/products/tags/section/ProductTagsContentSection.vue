@@ -1,5 +1,13 @@
 <template>
   <a-panel-section class="product-tags-content-section">
+    <div class="product-tags-content-section__header">
+      <a-title size="large" :title="$t('company.management.products.tags.currentTags')" />
+
+      <add-product-tag-dialog @fetch-product-tags="handleFetchProductTags" />
+    </div>
+
+    <a-line />
+
     <div v-if="isLoading">implement-loader-here</div>
 
     <product-tag-list v-else-if="productTags.length" :product-tags="productTags" />
@@ -12,6 +20,7 @@ import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 import ProductTagList from '@/components/core/company/management/products/tags/list/ProductTagList.vue'
 import { ref, onBeforeMount } from 'vue'
 import CompanyProductDescriptorsService from '@/services/product/CompanyProductDescriptorsService'
+import AddProductTagDialog from '@/components/core/company/management/products/tags/dialog/AddProductTagDialog.vue'
 
 // Variables
 const isLoading = ref(false)
@@ -38,5 +47,11 @@ onBeforeMount(async () => {
 .product-tags-content-section {
   overflow-y: auto;
   height: 100%;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 </style>
