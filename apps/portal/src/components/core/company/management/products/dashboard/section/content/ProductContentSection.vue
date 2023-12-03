@@ -145,8 +145,18 @@ const showList = computed(() => {
   return products.value.length
 })
 
+const filtersUsed = computed(() => {
+  const {
+    query: { name, categoryId, subcategoryId, status, verificationStatus }
+  } = route
+
+  return !!(name || categoryId || subcategoryId || status || verificationStatus)
+})
+
 const noResultsTranslationKey = computed(() => {
-  return products.value.length ? 'noProductsMatchingFilter' : 'noProducts'
+  return products.value.length === 0 && filtersUsed.value
+    ? 'noProductsMatchingFilter'
+    : 'noProducts'
 })
 
 // Methods
