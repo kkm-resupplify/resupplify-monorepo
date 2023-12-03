@@ -16,7 +16,7 @@
       :basis="25"
     />
 
-    <div class="product-list-item__tags">
+    <div v-if="product.productTags.length" class="product-list-item__tags">
       <a-list-item-title-section
         :title="$t('company.management.products.content.tags')"
         :basis="25"

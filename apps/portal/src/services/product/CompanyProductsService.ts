@@ -69,6 +69,14 @@ class CompanyProductsService extends BaseService {
       notificationText: 'company.management.products.editor.notification.productCreatedText'
     })
   }
+
+  async editProduct(productData: ProductEditorStoreState) {
+    return this.put({
+      suffix: `${CompanyProductsService.COMPANY_PRODUCTS_SUFFIX}/${productData.productEditorFirstStepData.id}`,
+      data: new CreateProductDto(productData),
+      notificationTitle: 'company.management.products.editor.notification.productEditedTitle'
+    })
+  }
 }
 
 export default new CompanyProductsService('company')

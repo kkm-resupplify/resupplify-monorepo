@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
-import { ref, type PropType, onBeforeMount, computed } from 'vue'
+import { ref, type PropType, computed } from 'vue'
 import { useProductStatus } from '@composables/product/useProductStatus'
 import ProductEditorStepper from '@/components/core/company/management/products/editor/ProductEditorStepper.vue'
 import { useProductEditorStore } from '@stores/product/useProductEditorStore'
@@ -32,7 +32,6 @@ const props = defineProps({
 const emits = defineEmits(['product-changed'])
 
 // Variables
-const { productStatusName } = useProductStatus()
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 const productEditorStore = useProductEditorStore()
 
