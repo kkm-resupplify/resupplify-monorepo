@@ -452,6 +452,12 @@
             }
           },
 
+          "notification": {
+            "addProductTagSuccessTitle": "Product tag added successfully",
+            "editProductTagSuccessTitle": "Product tag edited successfully",
+            "deleteProductTagSuccessTitle": "Product tag deleted successfully"
+          },
+
           "list": {
             "itemName": "Product tag name",
             "colorValue": "Hex color value"
