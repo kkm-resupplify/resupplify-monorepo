@@ -16,7 +16,10 @@
       <product-tag :product-tag="productTag" />
     </div>
 
-    <update-product-tag-dialog :product-tag="productTag" />
+    <update-product-tag-dialog
+      :product-tag="productTag"
+      @fetch-product-tags="$emit('fetch-product-tags')"
+    />
   </a-list-item-wrapper>
 </template>
 <script setup lang="ts">
@@ -28,6 +31,9 @@ import type { PropType } from 'vue'
 defineProps({
   productTag: { type: Object as PropType<ProductTagInterface>, required: true }
 })
+
+// Emits
+const emits = defineEmits(['fetch-product-tags'])
 </script>
 
 <style scoped lang="scss">

@@ -4,6 +4,7 @@
       v-for="productTag in productTags"
       :key="productTag.id"
       :product-tag="productTag"
+      @fetch-product-tags="$emit('fetch-product-tags')"
     />
   </div>
 </template>
@@ -16,6 +17,9 @@ import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 defineProps({
   productTags: { type: Array as PropType<ProductTag[]>, default: () => [] }
 })
+
+// Emits
+const emits = defineEmits(['fetch-product-tags'])
 </script>
 
 <style scoped lang="scss">

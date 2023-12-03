@@ -10,7 +10,11 @@
 
     <div v-if="isLoading">implement-loader-here</div>
 
-    <product-tag-list v-else-if="productTags.length" :product-tags="productTags" />
+    <product-tag-list
+      v-else-if="productTags.length"
+      :product-tags="productTags"
+      @fetch-product-tags="handleFetchProductTags"
+    />
 
     <a-list-no-results v-else :text="$t('company.management.products.tags.noResults')" />
   </a-panel-section>
