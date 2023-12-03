@@ -25,7 +25,8 @@
     "showResults": "Show results",
     "activate": "Activate",
     "deactivate": "Deactivate",
-    "preview": "Preview"
+    "preview": "Preview",
+    "reset": "Reset"
   },
 
   "language": {

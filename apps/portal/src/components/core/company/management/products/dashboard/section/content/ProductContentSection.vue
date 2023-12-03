@@ -2,17 +2,24 @@
   <a-panel-section class="product-content-section">
     <a-title :title="$t('company.management.products.dashboard.filterProducts')" size="x-large" />
 
-    <o-form :submit-callback="handleQuerySubmit" :initial-values="initialFormValues">
+    <o-form
+      ref="form"
+      class="product-content-section__filter-form"
+      :submit-callback="handleQuerySubmit"
+      :initial-values="initialFormValues"
+    >
       <template #body>
-        <div class="product-content-section__form-body">
-          <m-text-field
-            name="name"
-            :placeholder="$t('company.management.products.dashboard.searchBarPlaceholder')"
-            :validate="false"
-            class="product-content-section__name-search"
-          />
+        <div class="product-content-section__filters">
+          <div class="product-content-section__filters-row">
+            <m-text-field
+              class="product-content-section__name-search"
+              name="name"
+              :placeholder="$t('company.management.products.dashboard.searchBarPlaceholder')"
+              :validate="false"
+              append-icon-on="close"
+              @append-icon-click="handleClearSearch"
+            />
 
-          <div class="product-content-section__selects">
             <m-select
               name="categoryId"
               :placeholder="$t('company.management.products.dashboard.category')"
@@ -29,7 +36,11 @@
               :validate="false"
               :disabled="disableProductSubcategorySelect"
             />
+          </div>
 
+          <div
+            class="product-content-section__filters-row product-content-section__filters-row--short"
+          >
             <m-select
               name="status"
               :placeholder="$t('company.management.products.dashboard.status')"
@@ -43,32 +54,31 @@
               :options="verificationStatuses"
               :validate="false"
             />
+
+            <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
+
+            <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
           </div>
         </div>
       </template>
-
-      <template #footer>
-        <mass-assign-product-status
-          :number-of-products="numberOfProducts"
-          @product-status-mass-assignment="handleProductStatusMassAssignment"
-        />
-
-        <a-button
-          button-type="submit"
-          :text="$t('global.showResults')"
-          size="x-large"
-          class="product-content-section__show-results"
-        />
-      </template>
     </o-form>
 
-    <product-list v-if="showList" :products="products" @product-changed="handleProductChanged" />
+    <a-line />
+
+    <template v-if="isLoading">implement-loader-here</template>
+
+    <product-list
+      v-else-if="showList"
+      :products="products"
+      @product-changed="handleFetchProducts"
+    />
 
     <a-list-no-results
       v-else
       :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
     />
-    <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />
+
+    <o-pagination :pagination="paginationData" @page-changed="handleFetchProducts" />
   </a-panel-section>
 </template>
 
@@ -81,19 +91,10 @@ import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import ProductList from './list/ProductList.vue'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import { useRoute, useRouter } from 'vue-router'
-import type { PropType } from 'vue'
 import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
-import MassAssignProductStatus from '../../dialog/MassAssignProductStatus.vue'
-
-const props = defineProps({
-  products: {
-    type: Array as PropType<Product[]>
-  },
-  paginationData: {
-    type: Object as PropType<Pagination>
-  }
-})
+import CompanyProductsService from '@/services/product/CompanyProductsService'
+import OForm from '@sharedOrganisms/form/OForm.vue'
 
 // Interfaces
 interface InitialQueryParams {
@@ -104,15 +105,9 @@ interface InitialQueryParams {
   verificationStatus?: number
 }
 
-// Emits
-const emits = defineEmits([
-  'product-changed',
-  'page-changed',
-  'filter',
-  'product-status-mass-assignment'
-])
-
 // Variables
+const products = ref<Product[]>([])
+const isLoading = ref(false)
 const { t } = useI18n()
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
@@ -121,6 +116,8 @@ const route = useRoute()
 const router = useRouter()
 const productEditorStore = useProductEditorStore()
 const initialFormValues = ref<InitialQueryParams>()
+const paginationData = ref<Pagination>()
+const form = ref<typeof OForm>()
 
 const statuses = ref([
   { id: 0, text: t('global.inactive') },
@@ -149,15 +146,21 @@ const disableProductSubcategorySelect = computed(() => {
 })
 
 const showList = computed(() => {
-  return props.products?.length
+  return products.value.length
+})
+
+const filtersUsed = computed(() => {
+  const {
+    query: { name, categoryId, subcategoryId, status, verificationStatus }
+  } = route
+
+  return !!(name ?? categoryId ?? subcategoryId ?? status ?? verificationStatus)
 })
 
 const noResultsTranslationKey = computed(() => {
-  return props.products?.length ? 'noProductsMatchingFilter' : 'noProducts'
-})
-
-const numberOfProducts = computed(() => {
-  return props.products ? props.products.length : 0
+  return products.value.length === 0 && filtersUsed.value
+    ? 'noProductsMatchingFilter'
+    : 'noProducts'
 })
 
 // Methods
@@ -182,22 +185,43 @@ const setQueryParam = async (data: InitialQueryParams | undefined) => {
   await router.replace({ query: { ...route.query, ...data } })
 }
 
-const handleProductChanged = () => {
-  emits('product-changed')
-}
-
-const handlePageChanged = () => {
-  emits('page-changed')
-}
-
 const handleQuerySubmit = async (data: InitialQueryParams) => {
   await setQueryParam(data)
 
-  emits('filter', data)
+  handleFetchProducts()
 }
 
-const handleProductStatusMassAssignment = (value: number) => {
-  emits('product-status-mass-assignment', value)
+const handleFetchProducts = async () => {
+  isLoading.value = true
+
+  const {
+    query: { page, name, categoryId, subcategoryId, status, verificationStatus }
+  } = route
+
+  const { data, success, pagination } = await CompanyProductsService.getProducts({
+    page: page as string,
+    name: name as string,
+    categoryId: categoryId as string,
+    subcategoryId: subcategoryId as string,
+    status: status as string,
+    verificationStatus: verificationStatus as string
+  })
+
+  if (success) {
+    products.value = data
+    paginationData.value = pagination
+  }
+
+  isLoading.value = false
+}
+
+const handleClearSearch = async () => {
+  await router.replace({ query: { ...route.query, name: '' } })
+  form.value?.resetField('name')
+}
+
+const handleResetFilters = async () => {
+  form.value?.handleReset()
 }
 
 // Hooks
@@ -205,6 +229,8 @@ onBeforeMount(async () => {
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
   setInitialFormValues()
+
+  await handleFetchProducts()
 })
 </script>
 
@@ -217,24 +243,32 @@ onBeforeMount(async () => {
 
   height: 100%;
 
-  &__form-body {
-    display: flex;
-    flex-direction: column;
-    gap: $global-spacing-100;
+  :deep(.o-form__body) {
+    flex: 0;
   }
 
-  &__selects {
+  :deep(.o-form) {
+    flex: 0;
+  }
+
+  &__filters {
     display: flex;
-    gap: $global-spacing-50;
+    flex-direction: column;
+    gap: $global-spacing-30;
+  }
+
+  &__filters-row {
+    display: flex;
+    flex-direction: row;
+    gap: $global-spacing-30;
+
+    &--short {
+      width: 50%;
+    }
   }
 
   &__name-search {
     max-width: 500px;
-  }
-
-  &__show-results {
-    width: max-content;
-    margin-left: auto;
   }
 }
 </style>

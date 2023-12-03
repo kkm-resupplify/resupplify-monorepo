@@ -8,19 +8,23 @@
       <span
         v-text="
           $t('company.management.products.dashboard.massActionContent', {
-            number: numberOfProducts
+            number: products.length
           })
         "
       />
 
       <div class="mass-assign-product-status__buttons">
-        <a-button :text="$t('global.activate')" size="x-large" @click="handleActivateProducts" />
+        <a-button
+          :text="$t('global.activate')"
+          size="x-large"
+          @click="handleMassAssignProductStatus(ProductStatusEnum.ACTIVE)"
+        />
 
         <a-button
           :text="$t('global.deactivate')"
           size="x-large"
           color="gradient-danger"
-          @click="handleDeactivateProducts"
+          @click="handleMassAssignProductStatus(ProductStatusEnum.INACTIVE)"
         />
       </div>
     </div>
@@ -28,32 +32,39 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, type PropType } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import ProductStatusEnum from '@sharedEnums/product/ProductStatusEnum'
+import type { Product } from '@sharedInterfaces/product/ProductInterface'
+import CompanyProductsService from '@/services/product/CompanyProductsService'
 
-defineProps({
-  numberOfProducts: {
-    type: Number,
+const props = defineProps({
+  products: {
+    type: Array as PropType<Product[]>,
     required: true
   }
 })
 
 // Emits
-const emits = defineEmits(['product-status-mass-assignment'])
+const emits = defineEmits(['fetch-products'])
 
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Methods
-const handleActivateProducts = () => {
-  emits('product-status-mass-assignment', ProductStatusEnum.ACTIVE)
-  closeDialog()
-}
 
-const handleDeactivateProducts = () => {
-  emits('product-status-mass-assignment', ProductStatusEnum.INACTIVE)
-  closeDialog()
+const handleMassAssignProductStatus = async (status: number) => {
+  const productIdList = props.products.map((product) => product.id)
+
+  const { success } = await CompanyProductsService.setProductsStatus({
+    productIdList: productIdList,
+    status: status
+  })
+
+  if (success) {
+    emits('fetch-products')
+    closeDialog()
+  }
 }
 
 const closeDialog = () => {
