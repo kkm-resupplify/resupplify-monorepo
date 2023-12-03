@@ -2,44 +2,47 @@
   <a-panel-section class="product-content-section">
     <a-title :title="$t('company.management.products.dashboard.filterProducts')" size="x-large" />
 
-    <!-- <o-search-bar
-            :placeholder="$t('company.management.navigation.products.dashboard.searchBarPlaceholder')"
-            @search="$emit('search')"
-          /> -->
-
     <o-form :submit-callback="handleQuerySubmit" :initial-values="initialFormValues">
       <template #body>
-        <div class="product-content-section__selects">
-          <m-select
-            name="categoryId"
-            :placeholder="$t('company.management.products.dashboard.category')"
-            :options="staticProductDescriptorsStore.getProductCategories"
+        <div class="product-content-section__form-body">
+          <m-text-field
+            name="name"
+            :placeholder="$t('company.management.products.dashboard.searchBarPlaceholder')"
+            class="product-content-section__name-search"
             :validate="false"
-            @input-change="handleProductCategoryChange"
           />
+          <div class="product-content-section__selects">
+            <m-select
+              name="categoryId"
+              :placeholder="$t('company.management.products.dashboard.category')"
+              :options="staticProductDescriptorsStore.getProductCategories"
+              :validate="false"
+              @input-change="handleProductCategoryChange"
+            />
 
-          <m-select
-            ref="subcategoryRef"
-            name="subcategoryId"
-            :placeholder="$t('company.management.products.dashboard.subcategory')"
-            :validate="false"
-            :options="productCategorySubcategories"
-            :disabled="disableProductSubcategorySelect"
-          />
+            <m-select
+              ref="subcategoryRef"
+              name="subcategoryId"
+              :placeholder="$t('company.management.products.dashboard.subcategory')"
+              :validate="false"
+              :options="productCategorySubcategories"
+              :disabled="disableProductSubcategorySelect"
+            />
 
-          <m-select
-            name="status"
-            :validate="false"
-            :placeholder="$t('company.management.products.dashboard.status')"
-            :options="statuses"
-          />
+            <m-select
+              name="status"
+              :validate="false"
+              :placeholder="$t('company.management.products.dashboard.status')"
+              :options="statuses"
+            />
 
-          <m-select
-            name="verificationStatus"
-            :validate="false"
-            :placeholder="$t('company.management.products.dashboard.verificationStatus')"
-            :options="verificationStatuses"
-          />
+            <m-select
+              name="verificationStatus"
+              :validate="false"
+              :placeholder="$t('company.management.products.dashboard.verificationStatus')"
+              :options="verificationStatuses"
+            />
+          </div>
         </div>
       </template>
 
@@ -88,6 +91,7 @@ const props = defineProps({
 
 // Interfaces
 interface InitialQueryParams {
+  name?: string
   categoryId?: number
   subcategoryId?: number
   status?: number
@@ -149,6 +153,7 @@ const handleProductCategoryChange = (id: number) => {
 
 const setInitialFormValues = () => {
   initialFormValues.value = {
+    name: route.query.name ? route.query.name.toString() : undefined,
     categoryId: route.query.categoryId ? +route.query.categoryId : undefined,
     subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined,
     status: route.query.status ? +route.query.status : undefined,
@@ -191,9 +196,19 @@ onBeforeMount(async () => {
 
   height: 100%;
 
+  &__form-body {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-100;
+  }
+
   &__selects {
     display: flex;
     gap: $global-spacing-50;
+  }
+
+  &__name-search {
+    max-width: 500px;
   }
 
   &__show-results {
