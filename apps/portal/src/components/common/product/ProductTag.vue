@@ -1,23 +1,17 @@
 <template>
-  <div class="product-tag-list-item">
-    <span class="product-tag-list-item__text" v-text="name" />
+  <div class="product-tag">
+    <span class="product-tag__text" v-text="productTag.name" />
 
     <m-icon v-if="showRemove" icon="close" size="small" hoverable @click="$emit('remove')" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import type { ProductTag as ProductTagInterface } from '@sharedInterfaces/product/ProductTagInterface'
+import { computed, type PropType } from 'vue'
 
 const props = defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  color: {
-    type: String,
-    default: '#00ff00'
-  },
+  productTag: { type: Object as PropType<ProductTagInterface>, required: true },
   showRemove: Boolean
 })
 
@@ -25,12 +19,12 @@ const props = defineProps({
 defineEmits(['remove'])
 
 // Computed
-const colorStyle = computed(() => props.color)
-const backgroundColorStyle = computed(() => `${props.color}10`)
+const colorStyle = computed(() => props.productTag.color)
+const backgroundColorStyle = computed(() => `${props.productTag.color}10`)
 </script>
 
 <style lang="scss" scoped>
-.product-tag-list-item {
+.product-tag {
   display: flex;
   gap: $global-spacing-10;
   align-items: center;

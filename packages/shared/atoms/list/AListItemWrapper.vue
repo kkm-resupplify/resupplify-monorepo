@@ -30,6 +30,7 @@ const generateClasses = computed(() => {
   box-sizing: border-box;
   padding: $global-spacing-40;
 
+  background-color: var(--primary);
   border-radius: $global-border-radius-10;
 }
 </style>

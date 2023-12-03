@@ -1,10 +1,9 @@
 <template>
   <div class="product-tag-list">
-    <product-tag-list-item
+    <product-tag
       v-for="productTag in productTags"
       :key="productTag.id"
-      :name="productTag.name"
-      :color="productTag.color"
+      :product-tag="productTag"
       :show-remove="showRemove"
       @remove="$emit('remove', productTag.id)"
     />
@@ -12,13 +11,13 @@
 </template>
 
 <script setup lang="ts">
-import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
+import type { ProductTag as ProductTagInterface } from '@sharedInterfaces/product/ProductTagInterface'
 import { type PropType } from 'vue'
-import ProductTagListItem from '@/components/common/product/ProductTagListItem.vue'
+import ProductTag from '@/components/common/product/ProductTag.vue'
 
 defineProps({
   productTags: {
-    type: Array as PropType<ProductTag[]>,
+    type: Array as PropType<ProductTagInterface[]>,
     default: () => []
   },
   showRemove: Boolean

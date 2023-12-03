@@ -63,8 +63,6 @@ const companyDetailsContent = computed(() => {
 
 <style lang="scss" scoped>
 .company-list-company-list-item {
-  background-color: var(--primary);
-
   &__actions {
     display: flex;
     flex: 1;

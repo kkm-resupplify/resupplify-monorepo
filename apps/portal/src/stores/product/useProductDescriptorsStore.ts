@@ -1,9 +1,9 @@
 import type {
   ProductCategory,
   ProductSubcategory,
-  ProductTag,
   ProductUnit
 } from '@sharedInterfaces/product/ProductInterface'
+import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 import { defineStore } from 'pinia'
 
 interface ProductDescriptorsState {

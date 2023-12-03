@@ -38,11 +38,13 @@ const products: Product[] = [
       {
         id: 1,
         name: 'Sweet',
+        slug: 'sweet',
         color: '#333333'
       },
       {
         id: 2,
         name: 'Bread',
+        slug: 'bread',
         color: '#555555'
       }
     ]
