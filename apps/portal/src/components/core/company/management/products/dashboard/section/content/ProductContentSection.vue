@@ -65,7 +65,7 @@
     <product-list
       v-else-if="showList"
       :products="products"
-      @product-changed="handleProductChanged"
+      @product-changed="handleFetchProducts"
     />
 
     <a-list-no-results
@@ -73,7 +73,7 @@
       :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
     />
 
-    <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />
+    <o-pagination :pagination="paginationData" @page-changed="handleFetchProducts" />
   </a-panel-section>
 </template>
 
@@ -98,9 +98,6 @@ interface InitialQueryParams {
   status?: number
   verificationStatus?: number
 }
-
-// Emits
-const emits = defineEmits(['product-changed', 'page-changed', 'filter'])
 
 // Variables
 const products = ref<Product[]>([])
@@ -179,14 +176,6 @@ const setInitialFormValues = () => {
 
 const setQueryParam = async (data: InitialQueryParams | undefined) => {
   await router.replace({ query: { ...route.query, ...data } })
-}
-
-const handleProductChanged = () => {
-  emits('product-changed')
-}
-
-const handlePageChanged = () => {
-  emits('page-changed')
 }
 
 const handleQuerySubmit = async (data: InitialQueryParams) => {
