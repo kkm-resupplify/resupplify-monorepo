@@ -14,28 +14,28 @@
 
           <a-title
             :title="$t('company.management.products.dashboard.pendingVerificationProductsCount')"
-            :subtitle="activatedProductsCount"
+            :subtitle="unverifiedProductsCount"
             variant="horizontal"
             class="product-header-section__title"
           />
 
           <a-title
             :title="$t('company.management.products.dashboard.verifiedProductsCount')"
-            :subtitle="deactivatedProductsCount"
-            variant="horizontal"
-            class="product-header-section__title"
-          />
-
-          <a-title
-            :title="$t('company.management.products.dashboard.activeProductsCount')"
             :subtitle="verifiedProductsCount"
             variant="horizontal"
             class="product-header-section__title"
           />
 
           <a-title
+            :title="$t('company.management.products.dashboard.activeProductsCount')"
+            :subtitle="activatedProductsCount"
+            variant="horizontal"
+            class="product-header-section__title"
+          />
+
+          <a-title
             :title="$t('company.management.products.dashboard.inactiveProductsCount')"
-            :subtitle="unverifiedProductsCount"
+            :subtitle="deactivatedProductsCount"
             variant="horizontal"
             class="product-header-section__title"
           />
@@ -51,6 +51,7 @@
     </div>
   </a-panel-section>
 </template>
+
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
 import { useUserStore } from '@/stores/user/useUserStore'
@@ -95,9 +96,11 @@ const unverifiedProductsCount = computed(() => {
 
   return props.products.filter((product) => product.verificationStatus === 0).length
 })
+
 // Variables
 const userStore = useUserStore()
 </script>
+
 <style scoped lang="scss">
 .product-header-section {
   display: flex;

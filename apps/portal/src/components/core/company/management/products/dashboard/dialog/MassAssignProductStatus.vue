@@ -26,6 +26,7 @@
     </div>
   </m-dialog>
 </template>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
@@ -38,19 +39,19 @@ defineProps({
 })
 
 //Emits
-const emits = defineEmits(['setStatus'])
+const emits = defineEmits(['product-status-mass-assignment'])
 
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 //Methods
 const handleActivateProducts = () => {
-  emits('setStatus', 1)
+  emits('product-status-mass-assignment', 1)
   closeDialog()
 }
 
 const handleDeactivateProducts = () => {
-  emits('setStatus', 0)
+  emits('product-status-mass-assignment', 0)
   closeDialog()
 }
 
@@ -58,6 +59,7 @@ const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
 </script>
+
 <style scoped lang="scss">
 .mass-assign-product-status {
   display: flex;

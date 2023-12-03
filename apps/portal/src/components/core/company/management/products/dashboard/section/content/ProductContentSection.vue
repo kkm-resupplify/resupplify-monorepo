@@ -8,8 +8,8 @@
           <m-text-field
             name="name"
             :placeholder="$t('company.management.products.dashboard.searchBarPlaceholder')"
-            class="product-content-section__name-search"
             :validate="false"
+            class="product-content-section__name-search"
           />
 
           <div class="product-content-section__selects">
@@ -25,23 +25,23 @@
               ref="subcategoryRef"
               name="subcategoryId"
               :placeholder="$t('company.management.products.dashboard.subcategory')"
-              :validate="false"
               :options="productCategorySubcategories"
+              :validate="false"
               :disabled="disableProductSubcategorySelect"
             />
 
             <m-select
               name="status"
-              :validate="false"
               :placeholder="$t('company.management.products.dashboard.status')"
               :options="statuses"
+              :validate="false"
             />
 
             <m-select
               name="verificationStatus"
-              :validate="false"
               :placeholder="$t('company.management.products.dashboard.verificationStatus')"
               :options="verificationStatuses"
+              :validate="false"
             />
           </div>
         </div>
@@ -49,9 +49,8 @@
 
       <template #footer>
         <mass-assign-product-status
-          class="product-content-section__mass-assign"
           :number-of-products="numberOfProducts"
-          @set-status="handleSetStatus"
+          @product-status-mass-assignment="handleProductStatusMassAssignment"
         />
 
         <a-button
@@ -69,7 +68,7 @@
       v-else
       :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
     />
-    <o-pagination class="pagin" :pagination="paginationData" @page-changed="handlePageChanged" />
+    <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />
   </a-panel-section>
 </template>
 
@@ -106,7 +105,12 @@ interface InitialQueryParams {
 }
 
 // Emits
-const emits = defineEmits(['product-changed', 'page-changed', 'filter', 'set-status'])
+const emits = defineEmits([
+  'product-changed',
+  'page-changed',
+  'filter',
+  'product-status-mass-assignment'
+])
 
 // Variables
 const { t } = useI18n()
@@ -192,8 +196,8 @@ const handleQuerySubmit = async (data: InitialQueryParams) => {
   emits('filter', data)
 }
 
-const handleSetStatus = (value: number) => {
-  emits('set-status', value)
+const handleProductStatusMassAssignment = (value: number) => {
+  emits('product-status-mass-assignment', value)
 }
 
 // Hooks
@@ -203,6 +207,7 @@ onBeforeMount(async () => {
   setInitialFormValues()
 })
 </script>
+
 <style scoped lang="scss">
 .product-content-section {
   overflow-y: auto;

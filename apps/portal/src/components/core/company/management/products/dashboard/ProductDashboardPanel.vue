@@ -11,7 +11,7 @@
       @product-changed="handleFetchProducts"
       @page-changed="handleFetchProducts"
       @filter="handleFetchProducts"
-      @set-status="handleMassAssignProductStatus"
+      @product-status-mass-assignment="handleMassAssignProductStatus"
     />
   </a-panel>
 </template>
