@@ -65,8 +65,13 @@ const handleReset = () => {
   form.value?.resetForm()
 }
 
+const resetField = (key: string) => {
+  form.value?.setFieldValue(key, null)
+}
+
 defineExpose({
-  handleReset
+  handleReset,
+  resetField
 })
 </script>
 

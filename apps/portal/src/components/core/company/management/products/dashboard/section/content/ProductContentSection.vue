@@ -217,6 +217,7 @@ const handleFetchProducts = async () => {
 
 const handleClearSearch = async () => {
   await router.replace({ query: { ...route.query, name: '' } })
+  form.value?.resetField('name')
 }
 
 const handleResetFilters = async () => {
