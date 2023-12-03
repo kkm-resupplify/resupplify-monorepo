@@ -37,6 +37,7 @@ defineProps({
 
   &__preview {
     display: flex;
+    flex-basis: 20%;
     flex-direction: column;
     align-items: center;
   }
