@@ -225,6 +225,13 @@ const handleClearSearch = async () => {
 
 const handleResetFilters = async () => {
   form.value?.handleReset()
+  await handleQuerySubmit({
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined,
+    status: undefined,
+    verificationStatus: undefined
+  })
 }
 
 // Hooks
