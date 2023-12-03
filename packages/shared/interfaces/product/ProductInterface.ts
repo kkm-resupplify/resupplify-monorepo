@@ -4,7 +4,7 @@ export interface Product {
   id: number
   name: string
   description: string
-  producent: string
+  producer: string
   code: string
   status: number
   verificationStatus: number
@@ -13,6 +13,7 @@ export interface Product {
   productSubcategory: ProductSubcategory
   productCategory: ProductCategory
   productTags: ProductTag[]
+  translations: ProductTranslation[]
 }
 
 export interface ProductSubcategory {
@@ -40,4 +41,10 @@ export interface ProductSubcategorySelectItem {
   id: number
   text: string
   categoryId: number
+}
+
+export interface ProductTranslation {
+  languageId: number
+  name: string
+  description: string
 }
