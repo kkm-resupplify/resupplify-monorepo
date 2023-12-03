@@ -2,7 +2,11 @@
   <a-panel-section class="product-content-section">
     <a-title :title="$t('company.management.products.dashboard.filterProducts')" size="x-large" />
 
-    <o-form :submit-callback="handleQuerySubmit" :initial-values="initialFormValues">
+    <o-form
+      class="product-content-section__filter-form"
+      :submit-callback="handleQuerySubmit"
+      :initial-values="initialFormValues"
+    >
       <template #body>
         <div class="product-content-section__filters">
           <div class="product-content-section__filters-row">
@@ -74,7 +78,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeMount, computed, type PropType } from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useI18n } from 'vue-i18n'
@@ -223,6 +227,14 @@ onBeforeMount(async () => {
   gap: $global-spacing-100;
 
   height: 100%;
+
+  :deep(.o-form__body) {
+    flex: 0;
+  }
+
+  :deep(.o-form) {
+    flex: 0;
+  }
 
   &__filters {
     display: flex;
