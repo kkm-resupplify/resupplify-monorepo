@@ -26,10 +26,10 @@ class CompanyProductDescriptorsService extends BaseService {
     })
   }
 
-  async editProductTag(productTagData: ProductTagData) {
+  async editProductTag(productTag: ProductTag) {
     return this.put({
-      suffix: `${CompanyProductDescriptorsService.PRODUCT_TAGS_SUFFIX}/${productTagData.id}`,
-      data: productTagData,
+      suffix: `${CompanyProductDescriptorsService.PRODUCT_TAGS_SUFFIX}/${productTag.id}`,
+      data: productTag,
       notificationTitle: 'company.management.products.tags.notification.editProductTagSuccessTitle'
     })
   }

@@ -48,7 +48,7 @@
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import type { PropType } from 'vue'
-import type { ProductTag, ProductTagData } from '@sharedInterfaces/product/ProductTagInterface'
+import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 import CompanyProductDescriptorsService from '@/services/product/CompanyProductDescriptorsService'
 
 const props = defineProps({
@@ -64,10 +64,10 @@ const isLoading = ref(false)
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
 // Methods
-const handleEditProductTag = async (ProductTagData: ProductTagData) => {
+const handleEditProductTag = async (productTag: ProductTag) => {
   isLoading.value = true
 
-  const { success } = await CompanyProductDescriptorsService.editProductTag(ProductTagData)
+  const { success } = await CompanyProductDescriptorsService.editProductTag(productTag)
 
   if (success) emits('fetch-product-tags')
 
