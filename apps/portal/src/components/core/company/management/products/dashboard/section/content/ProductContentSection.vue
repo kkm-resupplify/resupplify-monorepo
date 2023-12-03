@@ -56,7 +56,13 @@
 
     <a-line />
 
-    <product-list v-if="showList" :products="products" @product-changed="handleProductChanged" />
+    <template v-if="isLoading">implement-loader-here</template>
+
+    <product-list
+      v-else-if="showList"
+      :products="products"
+      @product-changed="handleProductChanged"
+    />
 
     <a-list-no-results
       v-else
@@ -78,15 +84,7 @@ import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import { useRoute, useRouter } from 'vue-router'
 import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
-
-const props = defineProps({
-  products: {
-    type: Array as PropType<Product[]>
-  },
-  paginationData: {
-    type: Object as PropType<Pagination>
-  }
-})
+import CompanyProductsService from '@/services/product/CompanyProductsService'
 
 // Interfaces
 interface InitialQueryParams {
@@ -101,6 +99,8 @@ interface InitialQueryParams {
 const emits = defineEmits(['product-changed', 'page-changed', 'filter'])
 
 // Variables
+const products = ref<Product[]>([])
+const isLoading = ref(false)
 const { t } = useI18n()
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelect>()
@@ -109,6 +109,7 @@ const route = useRoute()
 const router = useRouter()
 const productEditorStore = useProductEditorStore()
 const initialFormValues = ref<InitialQueryParams>()
+const paginationData = ref<Pagination>()
 
 const statuses = ref([
   { id: 0, text: t('global.inactive') },
@@ -137,11 +138,11 @@ const disableProductSubcategorySelect = computed(() => {
 })
 
 const showList = computed(() => {
-  return props.products?.length
+  return products.value.length
 })
 
 const noResultsTranslationKey = computed(() => {
-  return props.products?.length ? 'noProductsMatchingFilter' : 'noProducts'
+  return products.value.length ? 'noProductsMatchingFilter' : 'noProducts'
 })
 
 // Methods
@@ -177,7 +178,31 @@ const handlePageChanged = () => {
 const handleQuerySubmit = async (data: InitialQueryParams) => {
   await setQueryParam(data)
 
-  emits('filter', data)
+  handleFetchProducts()
+}
+
+const handleFetchProducts = async () => {
+  isLoading.value = true
+
+  const {
+    query: { page, name, categoryId, subcategoryId, status, verificationStatus }
+  } = route
+
+  const { data, success, pagination } = await CompanyProductsService.getProducts({
+    page: page as string,
+    name: name as string,
+    categoryId: categoryId as string,
+    subcategoryId: subcategoryId as string,
+    status: status as string,
+    verificationStatus: verificationStatus as string
+  })
+
+  if (success) {
+    products.value = data
+    paginationData.value = pagination
+  }
+
+  isLoading.value = false
 }
 
 // Hooks
@@ -185,6 +210,8 @@ onBeforeMount(async () => {
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
   setInitialFormValues()
+
+  await handleFetchProducts()
 })
 </script>
 
