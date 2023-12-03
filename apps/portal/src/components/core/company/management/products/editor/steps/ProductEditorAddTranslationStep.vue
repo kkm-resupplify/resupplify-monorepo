@@ -81,8 +81,8 @@ const handleSaveTranslation = (values: any, languageId: number) => {
 
 const handleSaveProduct = async () => {
   if (productEditorStore.isEditing) {
-    await CompanyProductsService.editProduct(productEditorStore.$state)
-    emits('edited')
+    const { success } = await CompanyProductsService.editProduct(productEditorStore.$state)
+    if (success) productEditorStore.setEditedStatus(success)
   } else {
     const { success } = await CompanyProductsService.createProduct(productEditorStore.$state)
 

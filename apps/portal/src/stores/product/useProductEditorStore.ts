@@ -5,6 +5,7 @@ import type {
 } from '@sharedInterfaces/product/ProductEditorInterface'
 
 export interface ProductEditorStoreState {
+  editSuccess: boolean
   productEditorFirstStepData: ProductEditorFirstStepData
   productEditorTranslationStepData: ProductTranslation[]
 }
@@ -13,6 +14,7 @@ export const useProductEditorStore = defineStore({
   id: 'productEditor',
 
   state: (): ProductEditorStoreState => ({
+    editSuccess: false,
     productEditorFirstStepData: {
       id: null,
       producer: null,
@@ -58,6 +60,10 @@ export const useProductEditorStore = defineStore({
 
     setProductTranslations(translationData: ProductTranslation[]) {
       this.productEditorTranslationStepData = translationData
+    },
+
+    setEditedStatus(editSuccess: boolean) {
+      this.editSuccess = editSuccess
     }
   }
 })

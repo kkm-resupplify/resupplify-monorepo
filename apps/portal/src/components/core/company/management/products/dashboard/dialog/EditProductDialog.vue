@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
-import { ref, type PropType, computed } from 'vue'
+import { ref, type PropType, computed, watch } from 'vue'
 import { useProductStatus } from '@composables/product/useProductStatus'
 import ProductEditorStepper from '@/components/core/company/management/products/editor/ProductEditorStepper.vue'
 import { useProductEditorStore } from '@stores/product/useProductEditorStore'
@@ -55,7 +55,19 @@ const setProductEditorData = () => {
   productEditorStore.setProductEditorFirstStepData(productEditorFirstStepData.value)
   productEditorStore.setProductTranslations(props.product.translations)
 }
+
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }
+
+// Watch
+watch(
+  () => productEditorStore.editSuccess,
+  (value: boolean) => {
+    if (value) {
+      closeDialog()
+      emits('product-changed')
+    }
+  }
+)
 </script>
