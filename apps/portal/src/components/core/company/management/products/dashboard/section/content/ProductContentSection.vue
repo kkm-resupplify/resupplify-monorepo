@@ -52,11 +52,6 @@
       </template>
 
       <template #footer>
-        <mass-assign-product-status
-          :number-of-products="numberOfProducts"
-          @product-status-mass-assignment="handleProductStatusMassAssignment"
-        />
-
         <a-button
           button-type="submit"
           :text="$t('global.showResults')"
@@ -80,7 +75,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeMount, computed } from 'vue'
+import { ref, onBeforeMount, computed, type PropType } from 'vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useI18n } from 'vue-i18n'
@@ -88,10 +83,8 @@ import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import ProductList from './list/ProductList.vue'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import { useRoute, useRouter } from 'vue-router'
-import type { PropType } from 'vue'
 import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
-import MassAssignProductStatus from '../../dialog/MassAssignProductStatus.vue'
 
 const props = defineProps({
   products: {
@@ -112,12 +105,7 @@ interface InitialQueryParams {
 }
 
 // Emits
-const emits = defineEmits([
-  'product-changed',
-  'page-changed',
-  'filter',
-  'product-status-mass-assignment'
-])
+const emits = defineEmits(['product-changed', 'page-changed', 'filter'])
 
 // Variables
 const { t } = useI18n()
@@ -201,10 +189,6 @@ const handleQuerySubmit = async (data: InitialQueryParams) => {
   await setQueryParam(data)
 
   emits('filter', data)
-}
-
-const handleProductStatusMassAssignment = (value: number) => {
-  emits('product-status-mass-assignment', value)
 }
 
 // Hooks

@@ -2,7 +2,11 @@
   <template v-if="isLoading"> implement-loader-here </template>
 
   <a-panel v-else>
-    <product-header-section :products-count="numberOfProducts" :products="products" />
+    <product-header-section
+      :products="products"
+      :products-total="productsTotal"
+      @fetch-products="handleFetchProducts"
+    />
 
     <product-content-section
       :products="products"
@@ -11,7 +15,6 @@
       @product-changed="handleFetchProducts"
       @page-changed="handleFetchProducts"
       @filter="handleFetchProducts"
-      @product-status-mass-assignment="handleMassAssignProductStatus"
     />
   </a-panel>
 </template>
@@ -19,7 +22,7 @@
 <script setup lang="ts">
 import ProductHeaderSection from './section/header/ProductHeaderSection.vue'
 import ProductContentSection from './section/content/ProductContentSection.vue'
-import { ref, onBeforeMount } from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import { useRoute } from 'vue-router'
@@ -27,7 +30,6 @@ import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 
 // Variables
 const products = ref<Product[]>([])
-const numberOfProducts = ref()
 const isLoading = ref(false)
 const route = useRoute()
 const paginationData = ref<Pagination>()
@@ -51,23 +53,19 @@ const handleFetchProducts = async () => {
 
   if (success) {
     products.value = data
-    numberOfProducts.value = pagination.totalRecords
     paginationData.value = pagination
   }
 
   isLoading.value = false
 }
 
-const handleMassAssignProductStatus = async (status: number) => {
-  const productIdList = products.value.map((product) => product.id)
-
-  const { success } = await CompanyProductsService.setProductsStatus({
-    productIdList: productIdList,
-    status: status
-  })
-
-  if (success) handleFetchProducts()
-}
+// Computed
+const productsTotal = computed(() => {
+  if (paginationData.value?.totalRecords) {
+    return paginationData.value.totalRecords
+  }
+  return '0'
+})
 
 // Hooks
 onBeforeMount(async () => {

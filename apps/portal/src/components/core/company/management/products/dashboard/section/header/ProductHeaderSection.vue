@@ -4,7 +4,7 @@
       <div class="product-header-section__content-titles">
         <a-title
           :title="$t('company.management.products.dashboard.totalProductsCount')"
-          :subtitle="productsCount"
+          :subtitle="productsTotal"
           size="x-large"
           variant="horizontal"
           class="product-header-section__title"
@@ -46,57 +46,43 @@
           class="product-header-section__button"
         />
       </router-link>
+
+      <mass-assign-product-status :products="products" @fetch-products="$emit('fetch-products')" />
     </div>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
-import { useUserStore } from '@/stores/user/useUserStore'
 import type { PropType } from 'vue'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import { computed } from 'vue'
+import MassAssignProductStatus from '@/components/core/company/management/products/dashboard/dialog/MassAssignProductStatus.vue'
 
 const props = defineProps({
-  products: Object as PropType<Product[]>,
-  productsCount: String
+  products: { type: Object as PropType<Product[]>, required: true },
+  productsTotal: { type: [String, Number], required: true }
 })
+
+// Emits
+defineEmits(['fetch-products'])
 
 // Computed
 const activatedProductsCount = computed(() => {
-  if (!props.products) {
-    return 0
-  }
-
   return props.products.filter((product) => product.status === 1).length
 })
 
 const deactivatedProductsCount = computed(() => {
-  if (!props.products) {
-    return 0
-  }
-
   return props.products.filter((product) => product.status === 0).length
 })
 
 const verifiedProductsCount = computed(() => {
-  if (!props.products) {
-    return 0
-  }
-
   return props.products.filter((product) => product.verificationStatus === 1).length
 })
 
 const unverifiedProductsCount = computed(() => {
-  if (!props.products) {
-    return 0
-  }
-
   return props.products.filter((product) => product.verificationStatus === 0).length
 })
-
-// Variables
-const userStore = useUserStore()
 </script>
 
 <style scoped lang="scss">
