@@ -1,6 +1,10 @@
 <template>
   <a-panel-section class="product-content-section">
-    <a-title :title="$t('company.management.products.dashboard.filterProducts')" size="x-large" />
+    <div class="product-content-section__header">
+      <a-title :title="$t('company.management.products.dashboard.productList')" size="x-large" />
+
+      <mass-assign-product-status :products="products" @fetch-products="handleFetchProducts" />
+    </div>
 
     <o-form
       ref="form"
@@ -38,14 +42,13 @@
             />
           </div>
 
-          <div
-            class="product-content-section__filters-row product-content-section__filters-row--short"
-          >
+          <div class="product-content-section__filters-row">
             <m-select
               name="status"
               :placeholder="$t('company.management.products.dashboard.status')"
               :options="statuses"
               :validate="false"
+              width="20%"
             />
 
             <m-select
@@ -53,9 +56,10 @@
               :placeholder="$t('company.management.products.dashboard.verificationStatus')"
               :options="verificationStatuses"
               :validate="false"
+              width="20%"
             />
 
-            <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
+            <a-button button-type="submit" :text="$t('global.search')" size="large" />
 
             <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
           </div>
@@ -95,6 +99,7 @@ import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import OForm from '@sharedOrganisms/form/OForm.vue'
+import MassAssignProductStatus from '@/components/core/company/management/products/dashboard/dialog/MassAssignProductStatus.vue'
 
 // Interfaces
 interface InitialQueryParams {
@@ -251,6 +256,12 @@ onBeforeMount(async () => {
     flex: 0;
   }
 
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &__filters {
     display: flex;
     flex-direction: column;
@@ -259,12 +270,7 @@ onBeforeMount(async () => {
 
   &__filters-row {
     display: flex;
-    flex-direction: row;
     gap: $global-spacing-30;
-
-    &--short {
-      width: 50%;
-    }
   }
 
   &__name-search {

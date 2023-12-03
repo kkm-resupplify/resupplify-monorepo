@@ -29,6 +29,7 @@ class CreateProductDto {
 
 class CompanyProductsService extends BaseService {
   static COMPANY_PRODUCTS_SUFFIX = 'product'
+  static COMPANY_PRODUCT_STATS_SUFFIX = 'product/stats'
   static COMPANY_PRODUCTS_MASS_ASSIGN_SUFFIX = 'productMassAssign'
 
   async getProducts(params?: {
@@ -42,6 +43,12 @@ class CompanyProductsService extends BaseService {
     return await this.get({
       config: { params },
       suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX
+    })
+  }
+
+  async getProductStats() {
+    return await this.get({
+      suffix: CompanyProductsService.COMPANY_PRODUCT_STATS_SUFFIX
     })
   }
 

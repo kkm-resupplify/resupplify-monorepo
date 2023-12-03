@@ -77,7 +77,6 @@ const closeDialog = () => {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-100;
-  margin-top: $global-spacing-60;
 
   &__buttons {
     display: flex;

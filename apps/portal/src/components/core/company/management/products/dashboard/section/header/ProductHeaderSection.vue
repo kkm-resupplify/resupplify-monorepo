@@ -4,36 +4,36 @@
       <div class="product-header-section__content-titles">
         <a-title
           :title="$t('company.management.products.dashboard.totalProductsCount')"
-          :subtitle="productsTotal"
+          :subtitle="productStats.productsTotal"
           size="x-large"
           variant="horizontal"
           class="product-header-section__title"
         />
 
         <a-title
-          :title="$t('company.management.products.dashboard.pendingVerificationProductsCount')"
-          :subtitle="unverifiedProductsCount"
+          :title="$t('company.management.products.dashboard.activeProductsCount')"
+          :subtitle="productStats.activeProducts"
           variant="horizontal"
           class="product-header-section__title"
         />
 
         <a-title
           :title="$t('company.management.products.dashboard.verifiedProductsCount')"
-          :subtitle="verifiedProductsCount"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
-
-        <a-title
-          :title="$t('company.management.products.dashboard.activeProductsCount')"
-          :subtitle="activatedProductsCount"
+          :subtitle="productStats.verifiedProducts"
           variant="horizontal"
           class="product-header-section__title"
         />
 
         <a-title
           :title="$t('company.management.products.dashboard.inactiveProductsCount')"
-          :subtitle="deactivatedProductsCount"
+          :subtitle="productStats.inactiveProducts"
+          variant="horizontal"
+          class="product-header-section__title"
+        />
+
+        <a-title
+          :title="$t('company.management.products.dashboard.pendingVerificationProductsCount')"
+          :subtitle="productStats.productsAwaitingVerification"
           variant="horizontal"
           class="product-header-section__title"
         />
@@ -43,11 +43,6 @@
         <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
           <a-button :text="$t('company.management.products.dashboard.addProduct')" size="x-large" />
         </router-link>
-
-        <mass-assign-product-status
-          :products="products"
-          @fetch-products="$emit('fetch-products')"
-        />
       </div>
     </div>
   </a-panel-section>
@@ -55,34 +50,47 @@
 
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
-import type { PropType } from 'vue'
-import type { Product } from '@sharedInterfaces/product/ProductInterface'
-import { computed } from 'vue'
-import MassAssignProductStatus from '@/components/core/company/management/products/dashboard/dialog/MassAssignProductStatus.vue'
+import type { ProductStatsInterface } from '@sharedInterfaces/product/ProductStatsInterface'
+import { ref, onBeforeMount, computed } from 'vue'
 
-const props = defineProps({
-  products: { type: Object as PropType<Product[]>, required: true },
-  productsTotal: { type: [String, Number], required: true }
+import CompanyProductsService from '@/services/product/CompanyProductsService'
+
+// Variables
+const productStats = ref<ProductStatsInterface>({
+  productsTotal: 0,
+  productsAwaitingVerification: 0,
+  verifiedProducts: 0,
+  rejectedProducts: 0,
+  activeProducts: 0,
+  inactiveProducts: 0
 })
+const isLoading = ref(false)
 
-// Emits
-defineEmits(['fetch-products'])
+// Methods
+const handleFetchProductStats = async () => {
+  isLoading.value = true
+
+  const { data, success } = await CompanyProductsService.getProductStats()
+
+  if (success) productStats.value = data
+
+  isLoading.value = false
+}
 
 // Computed
-const activatedProductsCount = computed(() => {
-  return props.products.filter((product) => product.status === 1).length
+const productsTotal = computed(() => {
+  return (
+    productStats.value.productsAwaitingVerification +
+    productStats.value.activeProducts +
+    productStats.value.verifiedProducts +
+    productStats.value.inactiveProducts +
+    productStats.value.rejectedProducts
+  )
 })
 
-const deactivatedProductsCount = computed(() => {
-  return props.products.filter((product) => product.status === 0).length
-})
-
-const verifiedProductsCount = computed(() => {
-  return props.products.filter((product) => product.verificationStatus === 1).length
-})
-
-const unverifiedProductsCount = computed(() => {
-  return props.products.filter((product) => product.verificationStatus === 0).length
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchProductStats()
 })
 </script>
 

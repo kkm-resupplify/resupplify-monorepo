@@ -421,7 +421,7 @@
           "inactiveProductsCount": "Inactive products: ",
 
           "addProduct": "Add product",
-          "filterProducts": "Filter products",
+          "productList": "Product list",
           "searchBarPlaceholder": "Enter name",
           "category": "Category",
           "subcategory": "Subcategory",
