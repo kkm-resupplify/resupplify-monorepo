@@ -65,9 +65,7 @@ const handleMassAssignProductStatus = async (status: number) => {
     status: status
   })
 
-  if (success) {
-    handleFetchProducts()
-  }
+  if (success) handleFetchProducts()
 }
 
 // Hooks

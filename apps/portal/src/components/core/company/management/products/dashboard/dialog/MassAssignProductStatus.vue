@@ -30,6 +30,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
+import ProductStatusEnum from '@sharedEnums/product/ProductStatusEnum';
 
 defineProps({
   numberOfProducts: {
@@ -38,20 +39,20 @@ defineProps({
   }
 })
 
-//Emits
+// Emits
 const emits = defineEmits(['product-status-mass-assignment'])
 
 // Variables
 const dialogRef = ref<null | InstanceType<typeof MDialog>>(null)
 
-//Methods
+// Methods
 const handleActivateProducts = () => {
-  emits('product-status-mass-assignment', 1)
+  emits('product-status-mass-assignment', ProductStatusEnum.ACTIVE)
   closeDialog()
 }
 
 const handleDeactivateProducts = () => {
-  emits('product-status-mass-assignment', 0)
+  emits('product-status-mass-assignment', ProductStatusEnum.INACTIVE)
   closeDialog()
 }
 
