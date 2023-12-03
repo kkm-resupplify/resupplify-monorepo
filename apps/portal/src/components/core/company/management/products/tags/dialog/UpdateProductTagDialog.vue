@@ -33,6 +33,7 @@
               type="delete"
               color="gradient-danger"
               :item-name="productTag.name"
+              @confirmed="handleDeleteProductTag"
             />
 
             <a-button button-type="submit" :text="$t('global.save')" size="x-large" />
@@ -50,7 +51,7 @@ import type { PropType } from 'vue'
 import type { ProductTag, ProductTagData } from '@sharedInterfaces/product/ProductTagInterface'
 import CompanyProductDescriptorsService from '@/services/product/CompanyProductDescriptorsService'
 
-defineProps({
+const props = defineProps({
   productTag: { type: Object as PropType<ProductTag>, required: true }
 })
 // Emits
@@ -74,6 +75,19 @@ const handleEditProductTag = async (ProductTagData: ProductTagData) => {
 
   closeDialog()
 }
+
+const handleDeleteProductTag = async () => {
+  isLoading.value = true
+
+  const { success } = await CompanyProductDescriptorsService.deleteProductTag(props.productTag.id)
+
+  if (success) emits('fetch-product-tags')
+
+  isLoading.value = false
+
+  closeDialog()
+}
+
 const closeDialog = () => {
   dialogRef.value?.closeDialog()
 }

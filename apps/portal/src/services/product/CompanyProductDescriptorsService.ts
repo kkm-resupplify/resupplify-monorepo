@@ -20,8 +20,7 @@ class CompanyProductDescriptorsService extends BaseService {
 
   async deleteProductTag(id: number) {
     return this.delete({
-      id: id,
-      suffix: CompanyProductDescriptorsService.PRODUCT_TAGS_SUFFIX,
+      suffix: `${CompanyProductDescriptorsService.PRODUCT_TAGS_SUFFIX}/${id}`,
       notificationTitle:
         'company.management.products.tags.notification.deleteProductTagSuccessTitle'
     })

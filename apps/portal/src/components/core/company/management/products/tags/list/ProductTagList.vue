@@ -19,7 +19,7 @@ defineProps({
 })
 
 // Emits
-const emits = defineEmits(['fetch-product-tags'])
+defineEmits(['fetch-product-tags'])
 </script>
 
 <style scoped lang="scss">
