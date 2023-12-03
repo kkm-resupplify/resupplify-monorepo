@@ -47,17 +47,10 @@
               :options="verificationStatuses"
               :validate="false"
             />
+
+            <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
           </div>
         </div>
-      </template>
-
-      <template #footer>
-        <a-button
-          button-type="submit"
-          :text="$t('global.showResults')"
-          size="x-large"
-          class="product-content-section__show-results"
-        />
       </template>
     </o-form>
 
@@ -151,10 +144,6 @@ const noResultsTranslationKey = computed(() => {
   return props.products?.length ? 'noProductsMatchingFilter' : 'noProducts'
 })
 
-const numberOfProducts = computed(() => {
-  return props.products ? props.products.length : 0
-})
-
 // Methods
 const handleProductCategoryChange = (id: number) => {
   subcategoryRef?.value?.clearSelect()
@@ -226,11 +215,6 @@ onBeforeMount(async () => {
 
   &__name-search {
     max-width: 500px;
-  }
-
-  &__show-results {
-    width: max-content;
-    margin-left: auto;
   }
 }
 </style>
