@@ -1,46 +1,44 @@
 <template>
   <a-panel-section>
     <div class="product-header-section">
-      <div class="product-header-section__titles">
-        <a-title :title="userStore.getCompany?.name" size="x-large" />
-        <div class="product-header-section__content-titles">
-          <a-title
-            :title="$t('company.management.products.dashboard.totalProductsCount')"
-            :subtitle="productsCount"
-            size="x-large"
-            variant="horizontal"
-            class="product-header-section__title"
-          />
+      <div class="product-header-section__content-titles">
+        <a-title
+          :title="$t('company.management.products.dashboard.totalProductsCount')"
+          :subtitle="productsCount"
+          size="x-large"
+          variant="horizontal"
+          class="product-header-section__title"
+        />
 
-          <a-title
-            :title="$t('company.management.products.dashboard.pendingVerificationProductsCount')"
-            :subtitle="unverifiedProductsCount"
-            variant="horizontal"
-            class="product-header-section__title"
-          />
+        <a-title
+          :title="$t('company.management.products.dashboard.pendingVerificationProductsCount')"
+          :subtitle="unverifiedProductsCount"
+          variant="horizontal"
+          class="product-header-section__title"
+        />
 
-          <a-title
-            :title="$t('company.management.products.dashboard.verifiedProductsCount')"
-            :subtitle="verifiedProductsCount"
-            variant="horizontal"
-            class="product-header-section__title"
-          />
+        <a-title
+          :title="$t('company.management.products.dashboard.verifiedProductsCount')"
+          :subtitle="verifiedProductsCount"
+          variant="horizontal"
+          class="product-header-section__title"
+        />
 
-          <a-title
-            :title="$t('company.management.products.dashboard.activeProductsCount')"
-            :subtitle="activatedProductsCount"
-            variant="horizontal"
-            class="product-header-section__title"
-          />
+        <a-title
+          :title="$t('company.management.products.dashboard.activeProductsCount')"
+          :subtitle="activatedProductsCount"
+          variant="horizontal"
+          class="product-header-section__title"
+        />
 
-          <a-title
-            :title="$t('company.management.products.dashboard.inactiveProductsCount')"
-            :subtitle="deactivatedProductsCount"
-            variant="horizontal"
-            class="product-header-section__title"
-          />
-        </div>
+        <a-title
+          :title="$t('company.management.products.dashboard.inactiveProductsCount')"
+          :subtitle="deactivatedProductsCount"
+          variant="horizontal"
+          class="product-header-section__title"
+        />
       </div>
+
       <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
         <a-button
           :text="$t('company.management.products.dashboard.addProduct')"
@@ -105,7 +103,6 @@ const userStore = useUserStore()
 .product-header-section {
   display: flex;
   justify-content: space-between;
-  padding: $global-spacing-40;
 
   &__title {
     white-space: nowrap;
@@ -115,7 +112,6 @@ const userStore = useUserStore()
     display: flex;
     flex-direction: column;
     gap: $global-spacing-30;
-    margin-top: $global-spacing-50;
   }
 }
 </style>
