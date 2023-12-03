@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
-import ProductStatusEnum from '@sharedEnums/product/ProductStatusEnum';
+import ProductStatusEnum from '@sharedEnums/product/ProductStatusEnum'
 
 defineProps({
   numberOfProducts: {
