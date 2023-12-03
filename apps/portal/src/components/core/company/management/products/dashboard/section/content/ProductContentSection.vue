@@ -8,9 +8,10 @@
           <m-text-field
             name="name"
             :placeholder="$t('company.management.products.dashboard.searchBarPlaceholder')"
-            class="product-content-section__name-search"
             :validate="false"
+            class="product-content-section__name-search"
           />
+
           <div class="product-content-section__selects">
             <m-select
               name="categoryId"
@@ -24,29 +25,34 @@
               ref="subcategoryRef"
               name="subcategoryId"
               :placeholder="$t('company.management.products.dashboard.subcategory')"
-              :validate="false"
               :options="productCategorySubcategories"
+              :validate="false"
               :disabled="disableProductSubcategorySelect"
             />
 
             <m-select
               name="status"
-              :validate="false"
               :placeholder="$t('company.management.products.dashboard.status')"
               :options="statuses"
+              :validate="false"
             />
 
             <m-select
               name="verificationStatus"
-              :validate="false"
               :placeholder="$t('company.management.products.dashboard.verificationStatus')"
               :options="verificationStatuses"
+              :validate="false"
             />
           </div>
         </div>
       </template>
 
       <template #footer>
+        <mass-assign-product-status
+          :number-of-products="numberOfProducts"
+          @product-status-mass-assignment="handleProductStatusMassAssignment"
+        />
+
         <a-button
           button-type="submit"
           :text="$t('global.showResults')"
@@ -62,7 +68,6 @@
       v-else
       :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
     />
-
     <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />
   </a-panel-section>
 </template>
@@ -79,6 +84,7 @@ import { useRoute, useRouter } from 'vue-router'
 import type { PropType } from 'vue'
 import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
+import MassAssignProductStatus from '../../dialog/MassAssignProductStatus.vue'
 
 const props = defineProps({
   products: {
@@ -99,7 +105,12 @@ interface InitialQueryParams {
 }
 
 // Emits
-const emits = defineEmits(['product-changed', 'page-changed', 'filter'])
+const emits = defineEmits([
+  'product-changed',
+  'page-changed',
+  'filter',
+  'product-status-mass-assignment'
+])
 
 // Variables
 const { t } = useI18n()
@@ -112,8 +123,8 @@ const productEditorStore = useProductEditorStore()
 const initialFormValues = ref<InitialQueryParams>()
 
 const statuses = ref([
-  { id: 0, text: t('global.active') },
-  { id: 1, text: t('global.inactive') }
+  { id: 0, text: t('global.inactive') },
+  { id: 1, text: t('global.active') }
 ])
 
 const verificationStatuses = ref([
@@ -143,6 +154,10 @@ const showList = computed(() => {
 
 const noResultsTranslationKey = computed(() => {
   return props.products?.length ? 'noProductsMatchingFilter' : 'noProducts'
+})
+
+const numberOfProducts = computed(() => {
+  return props.products ? props.products.length : 0
 })
 
 // Methods
@@ -181,12 +196,18 @@ const handleQuerySubmit = async (data: InitialQueryParams) => {
   emits('filter', data)
 }
 
+const handleProductStatusMassAssignment = (value: number) => {
+  emits('product-status-mass-assignment', value)
+}
+
+// Hooks
 onBeforeMount(async () => {
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
   setInitialFormValues()
 })
 </script>
+
 <style scoped lang="scss">
 .product-content-section {
   overflow-y: auto;

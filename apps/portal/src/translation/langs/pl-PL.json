@@ -22,7 +22,9 @@
     "verified": "Zweryfikowany",
     "unverified": "Niezweryfikowany",
     "add": "Dodaj",
-    "showResults": "Pokaż wyniki"
+    "showResults": "Pokaż wyniki",
+    "activate": "Aktywuj",
+    "deactivate": "Dezaktywuj"
   },
 
   "language": {
@@ -447,7 +449,10 @@
           "category": "Kategoria",
           "subcategory": "Podkategoria",
           "status": "Status",
-          "verificationStatus": "Status weryfikacji"
+          "verificationStatus": "Status weryfikacji",
+          "massActions": "Akcje masowe",
+          "massActionsTitle": "Działania masowe na produktach",
+          "massActionContent": "Ilość produktów wybranych do działań masowych: {number}"
         }
       }
     }

@@ -23,6 +23,8 @@
     "unverified": "Unverified",
     "add": "Add",
     "showResults": "Show results",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
     "preview": "Preview"
   },
 
@@ -423,7 +425,10 @@
           "category": "Category",
           "subcategory": "Subcategory",
           "status": "Status",
-          "verificationStatus": "Verification Status"
+          "verificationStatus": "Verification Status",
+          "massActions": "Mass actions",
+          "massActionsTitle": "Product mass actions",
+          "massActionContent": "{number} products are selected for mass actions"
         },
 
         "tags": {
