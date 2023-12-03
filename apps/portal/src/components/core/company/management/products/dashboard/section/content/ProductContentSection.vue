@@ -4,15 +4,15 @@
 
     <o-form :submit-callback="handleQuerySubmit" :initial-values="initialFormValues">
       <template #body>
-        <div class="product-content-section__form-body">
-          <m-text-field
-            name="name"
-            :placeholder="$t('company.management.products.dashboard.searchBarPlaceholder')"
-            :validate="false"
-            class="product-content-section__name-search"
-          />
+        <div class="product-content-section__filters">
+          <div class="product-content-section__filters-row">
+            <m-text-field
+              name="name"
+              :placeholder="$t('company.management.products.dashboard.searchBarPlaceholder')"
+              :validate="false"
+              class="product-content-section__name-search"
+            />
 
-          <div class="product-content-section__selects">
             <m-select
               name="categoryId"
               :placeholder="$t('company.management.products.dashboard.category')"
@@ -29,7 +29,11 @@
               :validate="false"
               :disabled="disableProductSubcategorySelect"
             />
+          </div>
 
+          <div
+            class="product-content-section__filters-row product-content-section__filters-row--short"
+          >
             <m-select
               name="status"
               :placeholder="$t('company.management.products.dashboard.status')"
@@ -62,12 +66,15 @@
       </template>
     </o-form>
 
+    <a-line />
+
     <product-list v-if="showList" :products="products" @product-changed="handleProductChanged" />
 
     <a-list-no-results
       v-else
       :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
     />
+
     <o-pagination :pagination="paginationData" @page-changed="handlePageChanged" />
   </a-panel-section>
 </template>
@@ -217,15 +224,20 @@ onBeforeMount(async () => {
 
   height: 100%;
 
-  &__form-body {
+  &__filters {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-100;
+    gap: $global-spacing-30;
   }
 
-  &__selects {
+  &__filters-row {
     display: flex;
-    gap: $global-spacing-50;
+    flex-direction: row;
+    gap: $global-spacing-30;
+
+    &--short {
+      width: 50%;
+    }
   }
 
   &__name-search {
