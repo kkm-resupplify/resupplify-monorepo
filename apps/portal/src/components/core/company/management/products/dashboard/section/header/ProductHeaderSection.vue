@@ -51,7 +51,7 @@
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
 import type { ProductStatsInterface } from '@sharedInterfaces/product/ProductStatsInterface'
-import { ref, onBeforeMount, computed } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 
@@ -76,17 +76,6 @@ const handleFetchProductStats = async () => {
 
   isLoading.value = false
 }
-
-// Computed
-const productsTotal = computed(() => {
-  return (
-    productStats.value.productsAwaitingVerification +
-    productStats.value.activeProducts +
-    productStats.value.verifiedProducts +
-    productStats.value.inactiveProducts +
-    productStats.value.rejectedProducts
-  )
-})
 
 // Hooks
 onBeforeMount(async () => {

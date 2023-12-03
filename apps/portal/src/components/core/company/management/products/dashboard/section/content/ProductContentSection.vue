@@ -71,16 +71,14 @@
 
     <template v-if="isLoading">implement-loader-here</template>
 
-    <product-list
-      v-else-if="showList"
-      :products="products"
-      @product-changed="handleFetchProducts"
-    />
+    <template v-else>
+      <product-list v-if="showList" :products="products" @product-changed="handleFetchProducts" />
 
-    <a-list-no-results
-      v-else
-      :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
-    />
+      <a-list-no-results
+        v-else
+        :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
+      />
+    </template>
 
     <o-pagination :pagination="paginationData" @page-changed="handleFetchProducts" />
   </a-panel-section>
@@ -156,10 +154,10 @@ const showList = computed(() => {
 
 const filtersUsed = computed(() => {
   const {
-    query: { name, categoryId, subcategoryId, status, verificationStatus }
+    query: { page, name, categoryId, subcategoryId, status, verificationStatus }
   } = route
 
-  return !!(name ?? categoryId ?? subcategoryId ?? status ?? verificationStatus)
+  return !!(page !== '1' || (name ?? categoryId ?? subcategoryId ?? status ?? verificationStatus))
 })
 
 const noResultsTranslationKey = computed(() => {
@@ -231,11 +229,10 @@ const handleResetFilters = async () => {
 
 // Hooks
 onBeforeMount(async () => {
+  await handleFetchProducts()
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
   setInitialFormValues()
-
-  await handleFetchProducts()
 })
 </script>
 
