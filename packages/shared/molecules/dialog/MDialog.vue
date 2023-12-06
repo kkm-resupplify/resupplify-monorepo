@@ -65,6 +65,10 @@ defineExpose({
 .m-dialog {
   display: flex;
 
+  &__activator {
+    width: 100%;
+  }
+
   &__content-wrapper {
     position: fixed;
     z-index: 9;
