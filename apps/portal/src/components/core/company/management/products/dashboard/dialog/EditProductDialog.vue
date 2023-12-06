@@ -6,7 +6,7 @@
     @close="productEditorStore.$reset()"
   >
     <template #activator>
-      <a-icon icon="more_vert" size="xx-large" hoverable />
+      <span v-text="$t('company.management.products.dialog.edit.title')" />
     </template>
 
     <product-editor-stepper />

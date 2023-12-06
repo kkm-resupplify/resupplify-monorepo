@@ -32,11 +32,24 @@
       </div>
     </div>
 
-    <edit-product-dialog
-      :product="product"
-      status="active"
-      @product-changed="$emit('product-changed')"
-    />
+    <a-dropdown>
+      <template #activator>
+        <div style="display: flex; justify-content: flex-end; min-width: 120px">
+          <a-icon icon="more_vert" size="xx-large" hoverable />
+        </div>
+      </template>
+
+      <template #content>
+        <div class="product-list-item__dropdown-item">
+          <edit-product-dialog
+            :product="product"
+            status="active"
+            @product-changed="$emit('product-changed')"
+          />
+        </div>
+        <div class="product-list-item__dropdown-item">Delete</div>
+      </template>
+    </a-dropdown>
   </a-list-item-wrapper>
 </template>
 
@@ -75,6 +88,27 @@ const { productStatus } = useProductStatus()
   &__status-section {
     display: flex;
     gap: $global-spacing-50;
+  }
+
+  &__dropdown-item {
+    cursor: pointer;
+
+    display: flex;
+    gap: $global-spacing-20;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: $global-spacing-10 $global-spacing-20;
+
+    font-size: $global-text-medium-font-size;
+    color: var(--white);
+    text-decoration: none;
+
+    border-radius: $global-border-radius-10;
+
+    &:hover {
+      background-color: var(--secondary-2);
+    }
   }
 }
 </style>

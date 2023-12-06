@@ -186,6 +186,7 @@ const handleRemoveProductTag = (id: number) => {
     (selectedProductTagId) => selectedProductTagId !== id
   )
 }
+
 // Hooks
 onBeforeMount(async () => {
   await handleFetchProductTags()
