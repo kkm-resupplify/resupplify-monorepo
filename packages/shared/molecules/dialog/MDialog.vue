@@ -66,10 +66,13 @@ defineExpose({
   display: flex;
 
   &__activator {
+    cursor: pointer;
     width: 100%;
   }
 
   &__content-wrapper {
+    cursor: initial;
+
     position: fixed;
     z-index: 9;
     inset: 0;
