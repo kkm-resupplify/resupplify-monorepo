@@ -66,7 +66,7 @@ defineExpose({
   display: flex;
 
   &__content-wrapper {
-    position: absolute;
+    position: fixed;
     z-index: 9;
     inset: 0;
 
@@ -79,13 +79,17 @@ defineExpose({
 
   &__content {
     @include default-border-1;
+    position: fixed;
+    inset: 0;
+
     overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
 
-    margin-right: auto;
-    margin-left: auto;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
     padding: $global-spacing-30 $global-spacing-40;
 
     background-color: var(--secondary-1);
