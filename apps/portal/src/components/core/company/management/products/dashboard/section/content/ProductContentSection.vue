@@ -101,6 +101,7 @@ import MassAssignProductStatus from '@/components/core/company/management/produc
 
 // Interfaces
 interface InitialQueryParams {
+  page?: string
   name?: string
   categoryId?: number
   subcategoryId?: number
@@ -220,12 +221,13 @@ const handleFetchProducts = async () => {
 
 const handleClearSearch = async () => {
   await router.replace({ query: { ...route.query, name: '' } })
-  form.value?.resetField('name')
+  form.value?.resetField('name', null)
 }
 
 const handleResetFilters = async () => {
   form.value?.handleReset()
   await handleQuerySubmit({
+    page: '1',
     name: undefined,
     categoryId: undefined,
     subcategoryId: undefined,
