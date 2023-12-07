@@ -14,12 +14,17 @@ class CreateProductDto {
   productUnitId: number | null
   productSubcategoryId: number | null
   translations: ProductTranslation[]
+  status: number | null
+  productTagsId: number[]
 
   constructor(productEditorData: ProductEditorStoreState) {
     const { productEditorFirstStepData, productEditorTranslationStepData } = productEditorData
-    const { producer, code, productUnitId, productSubcategoryId } = productEditorFirstStepData
+    const { producer, code, productUnitId, productSubcategoryId, status, productTagIds } =
+      productEditorFirstStepData
 
     this.producer = producer
+    this.status = status
+    this.productTagsId = productTagIds
     this.code = code
     this.productUnitId = productUnitId
     this.productSubcategoryId = productSubcategoryId

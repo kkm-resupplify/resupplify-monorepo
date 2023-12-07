@@ -40,6 +40,7 @@ const productEditorFirstStepData = computed(() => {
 
   return {
     id: product.id,
+    status: product.status,
     producer: product.producer,
     code: product.code,
     productUnitId: product.productUnit.id,
