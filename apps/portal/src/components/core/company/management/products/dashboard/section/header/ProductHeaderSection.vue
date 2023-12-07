@@ -1,45 +1,18 @@
 <template>
   <a-panel-section>
     <div class="product-header-section">
-      <div class="product-header-section__content-titles">
-        <a-title
-          :title="$t('company.management.products.dashboard.totalProductsCount')"
-          :subtitle="productStats.productsTotal"
-          size="x-large"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
+      <a-title :title="$t('company.management.products.dashboard.title')" size="x-large" />
 
-        <a-title
-          :title="$t('company.management.products.dashboard.activeProductsCount')"
-          :subtitle="productStats.activeProducts"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
+      <div class="product-header-section__main">
+        <a-list-item-wrapper>
+          <a-list-item-title-section
+            v-for="statSection in statSections"
+            :key="statSection.title"
+            :title="$t(statSection.title)"
+            :value="statSection.value"
+          />
+        </a-list-item-wrapper>
 
-        <a-title
-          :title="$t('company.management.products.dashboard.verifiedProductsCount')"
-          :subtitle="productStats.verifiedProducts"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
-
-        <a-title
-          :title="$t('company.management.products.dashboard.inactiveProductsCount')"
-          :subtitle="productStats.inactiveProducts"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
-
-        <a-title
-          :title="$t('company.management.products.dashboard.pendingVerificationProductsCount')"
-          :subtitle="productStats.productsAwaitingVerification"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
-      </div>
-
-      <div class="product-header-section__actions">
         <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
           <a-button :text="$t('company.management.products.dashboard.addProduct')" size="x-large" />
         </router-link>
@@ -51,7 +24,7 @@
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
 import type { ProductStatsInterface } from '@sharedInterfaces/product/ProductStatsInterface'
-import { ref, onBeforeMount } from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 
@@ -65,6 +38,30 @@ const productStats = ref<ProductStatsInterface>({
   inactiveProducts: 0
 })
 const isLoading = ref(false)
+
+// Computed
+const statSections = computed(() => [
+  {
+    title: 'company.management.products.dashboard.totalProductsCount',
+    value: productStats.value.productsTotal
+  },
+  {
+    title: 'company.management.products.dashboard.activeProductsCount',
+    value: productStats.value.activeProducts
+  },
+  {
+    title: 'company.management.products.dashboard.verifiedProductsCount',
+    value: productStats.value.verifiedProducts
+  },
+  {
+    title: 'company.management.products.dashboard.inactiveProductsCount',
+    value: productStats.value.inactiveProducts
+  },
+  {
+    title: 'company.management.products.dashboard.pendingVerificationProductsCount',
+    value: productStats.value.productsAwaitingVerification
+  }
+])
 
 // Methods
 const handleFetchProductStats = async () => {
@@ -86,23 +83,18 @@ onBeforeMount(async () => {
 <style scoped lang="scss">
 .product-header-section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: $global-spacing-30;
 
   &__title {
     white-space: nowrap;
   }
 
-  &__content-titles {
+  &__main {
     display: flex;
-    flex-direction: column;
-    gap: $global-spacing-30;
-  }
-
-  &__actions {
-    display: flex;
-    flex-direction: column;
-    gap: $global-spacing-30;
-    align-items: flex-end;
+    gap: $global-spacing-50;
+    align-items: center;
+    justify-content: space-around;
   }
 }
 </style>

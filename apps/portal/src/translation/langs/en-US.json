@@ -419,6 +419,7 @@
         },
 
         "dashboard": {
+          "title": "Company product dashboard",
           "totalProductsCount": "Total products: ",
           "pendingVerificationProductsCount": "Products awaiting verification: ",
           "verifiedProductsCount": "Verified products: ",
