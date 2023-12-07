@@ -24,7 +24,9 @@
     "add": "Dodaj",
     "showResults": "Pokaż wyniki",
     "activate": "Aktywuj",
-    "deactivate": "Dezaktywuj"
+    "deactivate": "Dezaktywuj",
+    "preview": "Podgląd",
+    "reset": "Resetuj"
   },
 
   "language": {
@@ -209,6 +211,15 @@
           "title": "Umowy"
         },
 
+        "warehouses": {
+          "title": "Magazyny",
+
+          "tiles": {
+            "companyWarehouses": "Panel magazynów",
+            "newWarehouse": "Nowy magazyn"
+          }
+        },
+
         "products": {
           "title": "Produkty",
 
@@ -225,27 +236,28 @@
               "companyWarehouses": "Panel magazynów",
               "newWarehouse": "Nowy magazyn"
             }
-          },
-
-          "members": {
-            "title": "Pracownicy",
-            "tiles": {
-              "activeMembers": "Aktywni pracownicy",
-              "permissions": "Uprawnienia"
-            },
-
-            "activeMembers": {
-              "action": "Usuń pracownika"
-            }
-          },
-
-          "settings": {
-            "title": "Ustawienia"
-          },
-
-          "payments": {
-            "title": "Płatności"
           }
+        },
+
+        "members": {
+          "title": "Pracownicy",
+
+          "tiles": {
+            "activeMembers": "Aktywni pracownicy",
+            "permissions": "Uprawnienia"
+          },
+
+          "activeMembers": {
+            "action": "Usuń pracownika"
+          }
+        },
+
+        "settings": {
+          "title": "Ustawienia"
+        },
+
+        "payments": {
+          "title": "Płatności"
         }
       },
 
