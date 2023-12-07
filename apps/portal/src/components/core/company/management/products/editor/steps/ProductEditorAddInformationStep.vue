@@ -67,7 +67,7 @@
 
             <m-select
               name="status"
-              :label="$t('company.management.products.editor.productStatus')"
+              :label="$t('company.management.products.editor.productStatusLabel')"
               :placeholder="$t('company.management.products.editor.productStatusPlaceholder')"
               :options="productStatusSelectOptions"
               rules="required"

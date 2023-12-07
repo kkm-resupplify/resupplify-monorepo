@@ -353,6 +353,8 @@
           "productCodePlaceholder": "Enter product code",
           "productProducerLabel": "Product producer",
           "productProducerPlaceholder": "Enter product producer",
+          "productStatusLabel": "Product status",
+          "productStatusPlaceholder": "Select product status",
           "productCategoryLabel": "Product category",
           "productCategoryPlaceholder": "Select product category",
           "productSubcategoryLabel": "Product subcategory",
