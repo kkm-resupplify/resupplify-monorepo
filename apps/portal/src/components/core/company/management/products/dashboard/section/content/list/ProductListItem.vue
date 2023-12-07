@@ -41,7 +41,18 @@
           />
         </div>
 
-        <div class="product-list-item__dropdown-item">Delete</div>
+        <div class="product-list-item__dropdown-item">
+          <o-confirm-dialog
+            :activator-name="$t('global.delete')"
+            activator-size="x-large"
+            type="delete"
+            color="gradient-danger"
+            :item-name="product.name"
+            @confirmed="handleDeleteProduct"
+          >
+            <template #activator>{{ $t('global.delete') }}</template>
+          </o-confirm-dialog>
+        </div>
       </template>
     </a-dropdown>
   </a-list-item-wrapper>
@@ -53,15 +64,24 @@ import type { PropType } from 'vue'
 import EditProductDialog from '../../../dialog/EditProductDialog.vue'
 import { useProductStatus } from '@/composable/product/useProductStatus'
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
-defineProps({
+import CompanyProductsService from '@/services/product/CompanyProductsService'
+
+const props = defineProps({
   product: { type: Object as PropType<Product>, required: true }
 })
 
 // Emits
-defineEmits(['product-changed'])
+const emits = defineEmits(['product-changed'])
 
 // Variables
 const { productStatus } = useProductStatus()
+
+// Methods
+const handleDeleteProduct = async () => {
+  const { success } = await CompanyProductsService.deleteProduct(props.product.id)
+
+  if (success) emits('product-changed')
+}
 </script>
 
 <style scoped lang="scss">
