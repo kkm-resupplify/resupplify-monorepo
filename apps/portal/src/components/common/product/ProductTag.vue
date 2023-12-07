@@ -2,7 +2,7 @@
   <div class="product-tag">
     <span class="product-tag__text" v-text="productTag.name" />
 
-    <m-icon v-if="showRemove" icon="close" size="small" hoverable @click="$emit('remove')" />
+    <m-icon v-if="showRemove" icon="close" size="small" hoverable @click.stop="$emit('remove')" />
   </div>
 </template>
 

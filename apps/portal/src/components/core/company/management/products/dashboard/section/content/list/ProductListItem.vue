@@ -47,6 +47,7 @@
             @product-changed="$emit('product-changed')"
           />
         </div>
+
         <div class="product-list-item__dropdown-item">Delete</div>
       </template>
     </a-dropdown>
