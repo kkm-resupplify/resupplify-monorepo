@@ -6,10 +6,10 @@
     @close="productEditorStore.$reset()"
   >
     <template #activator>
-      <a-icon icon="more_vert" size="xx-large" hoverable />
+      <span v-text="$t('company.management.products.dialog.edit.title')" />
     </template>
 
-    <product-editor-stepper />
+    <product-editor-stepper @cancel="closeDialog" />
   </m-dialog>
 </template>
 
@@ -40,6 +40,7 @@ const productEditorFirstStepData = computed(() => {
 
   return {
     id: product.id,
+    status: product.status,
     producer: product.producer,
     code: product.code,
     productUnitId: product.productUnit.id,

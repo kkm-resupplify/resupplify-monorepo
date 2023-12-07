@@ -57,6 +57,14 @@
             />
 
             <m-select
+              name="status"
+              :label="$t('company.management.products.editor.productStatusLabel')"
+              :placeholder="$t('company.management.products.editor.productStatusPlaceholder')"
+              :options="productStatusSelectOptions"
+              rules="required"
+            />
+
+            <m-select
               name="productTag"
               :label="$t('company.management.products.editor.productTagsLabel')"
               :placeholder="$t('company.management.products.editor.productTagsPlaceholder')"
@@ -75,7 +83,12 @@
 
         <template #footer>
           <div class="product-editor-add-information-step__buttons">
-            <a-button :text="$t('global.cancel')" size="x-large" color="gradient-danger" />
+            <a-button
+              :text="$t('global.cancel')"
+              size="x-large"
+              color="gradient-danger"
+              @click="$emit('previous-step')"
+            />
 
             <a-button :text="$t('global.next')" size="x-large" type="submit" />
           </div>
@@ -94,9 +107,11 @@ import type { ProductEditorFirstStepData } from '@sharedInterfaces/product/Produ
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
 import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 import CompanyProductDescriptorsService from '@/services/product/CompanyProductDescriptorsService'
+import ProductStatusEnum from '@sharedEnums/product/ProductStatusEnum'
+import { useI18n } from 'vue-i18n'
 
 // Emits
-const emits = defineEmits(['next-step'])
+const emits = defineEmits(['next-step', 'previous-step'])
 
 // Variables
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
@@ -106,6 +121,7 @@ const selectedCategoryId = ref<number | null>()
 const productTags = ref<ProductTag[]>([])
 const selectedProductTagIds = ref<number[]>([])
 const isLoading = ref(false)
+const { t } = useI18n()
 
 // Computed
 const productCategorySubcategories = computed(() => {
@@ -141,6 +157,12 @@ const producTagSelectOptions = computed(() => {
     )
 })
 
+const productStatusSelectOptions = computed(() => {
+  return [
+    { id: ProductStatusEnum.ACTIVE, text: t('global.active') },
+    { id: ProductStatusEnum.INACTIVE, text: t('global.inactive') }
+  ]
+})
 // Methods
 const handleNextStep = (values: ProductEditorFirstStepData) => {
   values.productTagIds = selectedProductTagIds.value
@@ -186,6 +208,7 @@ const handleRemoveProductTag = (id: number) => {
     (selectedProductTagId) => selectedProductTagId !== id
   )
 }
+
 // Hooks
 onBeforeMount(async () => {
   await handleFetchProductTags()

@@ -46,6 +46,7 @@ const flexBasis = computed(() => {
 
   &__value {
     font-size: $global-font-size-50;
+    text-align: center;
   }
 }
 </style>

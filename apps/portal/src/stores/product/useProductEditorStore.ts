@@ -17,6 +17,7 @@ export const useProductEditorStore = defineStore({
     editSuccess: false,
     productEditorFirstStepData: {
       id: null,
+      status: null,
       producer: null,
       code: null,
       productUnitId: null,
@@ -38,6 +39,7 @@ export const useProductEditorStore = defineStore({
   actions: {
     setProductEditorFirstStepData(productEditorFirstStepData: ProductEditorFirstStepData) {
       this.productEditorFirstStepData.id = productEditorFirstStepData.id
+      this.productEditorFirstStepData.status = productEditorFirstStepData.status
       this.productEditorFirstStepData.producer = productEditorFirstStepData.producer
       this.productEditorFirstStepData.code = productEditorFirstStepData.code
       this.productEditorFirstStepData.productUnitId = productEditorFirstStepData.productUnitId

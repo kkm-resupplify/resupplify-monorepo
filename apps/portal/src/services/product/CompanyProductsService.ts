@@ -14,12 +14,17 @@ class CreateProductDto {
   productUnitId: number | null
   productSubcategoryId: number | null
   translations: ProductTranslation[]
+  status: number | null
+  productTagsId: number[]
 
   constructor(productEditorData: ProductEditorStoreState) {
     const { productEditorFirstStepData, productEditorTranslationStepData } = productEditorData
-    const { producer, code, productUnitId, productSubcategoryId } = productEditorFirstStepData
+    const { producer, code, productUnitId, productSubcategoryId, status, productTagIds } =
+      productEditorFirstStepData
 
     this.producer = producer
+    this.status = status
+    this.productTagsId = productTagIds
     this.code = code
     this.productUnitId = productUnitId
     this.productSubcategoryId = productSubcategoryId
@@ -29,6 +34,7 @@ class CreateProductDto {
 
 class CompanyProductsService extends BaseService {
   static COMPANY_PRODUCTS_SUFFIX = 'product'
+  static COMPANY_PRODUCT_STATS_SUFFIX = 'product/stats'
   static COMPANY_PRODUCTS_MASS_ASSIGN_SUFFIX = 'productMassAssign'
 
   async getProducts(params?: {
@@ -45,10 +51,15 @@ class CompanyProductsService extends BaseService {
     })
   }
 
+  async getProductStats() {
+    return await this.get({
+      suffix: CompanyProductsService.COMPANY_PRODUCT_STATS_SUFFIX
+    })
+  }
+
   async deleteProduct(id: number) {
     return await this.delete({
-      id: id,
-      suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX,
+      suffix: `${CompanyProductsService.COMPANY_PRODUCTS_SUFFIX}/${id}`,
       notificationTitle: 'company.management.products.editor.deleteSuccessTitle'
     })
   }

@@ -24,7 +24,9 @@
     "add": "Dodaj",
     "showResults": "Pokaż wyniki",
     "activate": "Aktywuj",
-    "deactivate": "Dezaktywuj"
+    "deactivate": "Dezaktywuj",
+    "preview": "Podgląd",
+    "reset": "Resetuj"
   },
 
   "language": {
@@ -209,6 +211,15 @@
           "title": "Umowy"
         },
 
+        "warehouses": {
+          "title": "Magazyny",
+
+          "tiles": {
+            "companyWarehouses": "Panel magazynów",
+            "newWarehouse": "Nowy magazyn"
+          }
+        },
+
         "products": {
           "title": "Produkty",
 
@@ -225,27 +236,28 @@
               "companyWarehouses": "Panel magazynów",
               "newWarehouse": "Nowy magazyn"
             }
-          },
-
-          "members": {
-            "title": "Pracownicy",
-            "tiles": {
-              "activeMembers": "Aktywni pracownicy",
-              "permissions": "Uprawnienia"
-            },
-
-            "activeMembers": {
-              "action": "Usuń pracownika"
-            }
-          },
-
-          "settings": {
-            "title": "Ustawienia"
-          },
-
-          "payments": {
-            "title": "Płatności"
           }
+        },
+
+        "members": {
+          "title": "Pracownicy",
+
+          "tiles": {
+            "activeMembers": "Aktywni pracownicy",
+            "permissions": "Uprawnienia"
+          },
+
+          "activeMembers": {
+            "action": "Usuń pracownika"
+          }
+        },
+
+        "settings": {
+          "title": "Ustawienia"
+        },
+
+        "payments": {
+          "title": "Płatności"
         }
       },
 
@@ -338,16 +350,20 @@
       },
 
       "products": {
+        "title": "Produkty",
+
         "editor": {
           "title": "Kreator produktu",
           "informationTitle": "Wprowadź deskryptory produktu",
-          "translationTitle": "Tłumaczenia produktu w języku: {language}",
+          "translationTitle": "Tłumaczenia produktu w języku {language}",
           "productNameLabel": "Nazwa produktu",
           "productNamePlaceholder": "Wprowadź nazwę produktu",
           "productCodeLabel": "Kod produktu",
           "productCodePlaceholder": "Wprowadź kod produktu",
           "productProducerLabel": "Producent produktu",
           "productProducerPlaceholder": "Wprowadź producenta produktu",
+          "productStatusLabel": "Status produktu",
+          "productStatusPlaceholder": "Wybierz status produktu",
           "productCategoryLabel": "Kategoria produktu",
           "productCategoryPlaceholder": "Wybierz kategorię produktu",
           "productSubcategoryLabel": "Podkategoria produktu",
@@ -357,16 +373,16 @@
           "productTagsLabel": "Tagi produktu",
           "productTagsPlaceholder": "Wybierz tagi produktu",
           "productDescriptionLabel": "Opis produktu",
-          "productDescriptionPlaceholder": "Wprowadź opis produktu",
-          "deleteSuccessTitle": "Produkt usunięty pomyślnie",
-          "updateSuccessTitle": "Produkt zedytowany pomyślnie",
-          "addSuccessTitle": "Produkt dodany pomyślnie",
-          "assignStatusSuccessTitle": "Status zmieniony pomyślnie",
+          "productDescriptionPlaceholder": "Wybierz opis produktu",
+          "deleteSuccessTitle": "Produkt pomyślnie usunięty",
+          "updateSuccessTitle": "Produkt pomyślnie edytowany",
+          "addSuccessTitle": "Produkt pomyślnie dodany",
+          "assignStatusSuccessTitle": "Zmiana statusu produktu pomyślna",
 
           "steps": {
             "information": {
               "title": "Deskryptory",
-              "content": "Główne informacje"
+              "content": "Informacje ogólne"
             },
 
             "translation": {
@@ -378,34 +394,8 @@
           "notification": {
             "productCreatedTitle": "Produkt utworzony pomyślnie",
             "productCreatedText": "Twój produkt oczekuje teraz na weryfikację",
-            "productUpdatedTitle": "Produkt zaaktualizowany pomyślnie",
+            "productEditedTitle": "Produkt edytowany pomyślnie",
             "productDeletedTitle": "Produkt usunięty pomyślnie"
-          }
-        },
-
-        "tags": {
-          "editor": {
-            "title": "Firmowe znaczniki produktów",
-            "productTagLabel": "Znacznik produktu",
-            "productTagPlaceholder": "Wpisz nazwę znacznika produktu",
-            "productTagLanguageLabel": "Znacznik produktu w języku: {language}",
-            "productTagLanguagePlaceholder": "Wpisz nazwę znacznika produktu",
-            "productTagColorLabel": "Kolor znacznika produktu",
-            "productTagColorPlaceholder": "Wybierz kolor",
-
-            "addDialog": {
-              "activator": "Dodaj nowy znacznik",
-              "modalActivatorTitle": "Dodaj znacznik produktu",
-              "modalContent": "Zmień szczegóły znacznika o nazwie {name} poniżej"
-            },
-
-            "updateDialog": {
-              "title": "Zaaktualizuj znacznik produktu"
-            }
-          },
-
-          "listItem": {
-            "name": "Nazwa znacznika"
           }
         },
 
@@ -424,35 +414,76 @@
           "status": "Status",
           "setStatus": "Ustaw status",
           "delete": {
-            "title": "Confirm {product} removal"
+            "title": "Potwierdź usunięcie produktu: {product}"
+          },
+          "edit": {
+            "title": "Edytuj produkt"
           }
         },
 
-        "title": "Produkty",
-
         "tiles": {
           "products": "Produkty",
-          "newProduct": "Utwórz nowy produkt",
+          "newProduct": "Utwórz nowe produkty",
           "companyProductTags": "Tagi produktów firmy"
         },
 
         "dashboard": {
-          "totalProductsCount": "Razem produktów: ",
-          "pendingVerificationProductsCount": "Produkty oczekuje weryfikacji: ",
+          "title": "Panel produktów firmy",
+          "totalProductsCount": "Łącznie produktów: ",
+          "pendingVerificationProductsCount": "Produkty oczekujące na weryfikację: ",
           "verifiedProductsCount": "Zweryfikowane produkty: ",
           "activeProductsCount": "Aktywne produkty: ",
           "inactiveProductsCount": "Nieaktywne produkty: ",
 
           "addProduct": "Dodaj produkt",
-          "filterProducts": "Filtruj produkty",
-          "searchBarPlaceholder": "Wpisz imię",
+          "productList": "Lista produktów",
+          "searchBarPlaceholder": "Wprowadź nazwę",
           "category": "Kategoria",
           "subcategory": "Podkategoria",
           "status": "Status",
           "verificationStatus": "Status weryfikacji",
-          "massActions": "Akcje masowe",
-          "massActionsTitle": "Działania masowe na produktach",
-          "massActionContent": "Ilość produktów wybranych do działań masowych: {number}"
+          "massActions": "Masaowe działania",
+          "massActionsTitle": "Masaowe działania produktów",
+          "massActionContent": "{number} produktów jest wybranych do masowych działań"
+        },
+
+        "tags": {
+          "title": "Tagi produktów firmy",
+          "noResults": "Twoja firma nie ma jeszcze żadnych tagów produktów.",
+          "description": "Podgląd, dodawanie i edycja tagów produktów twojej firmy. Tagi są używane do dalszej kategoryzacji produktów.",
+          "currentTags": "Lista tagów produktów firmy",
+
+          "editor": {
+            "productTagLabel": "Tag produktu",
+            "productTagPlaceholder": "Wprowadź tag produktu",
+            "productTagLanguageLabel": "Tag produktu w języku {language}",
+            "productTagLanguagePlaceholder": "Wprowadź tag produktu",
+            "productTagColorLabel": "Kolor tagu produktu",
+            "productTagColorPlaceholder": "Wybierz kolor"
+          },
+
+          "dialog": {
+            "add": {
+              "activator": "Dodaj nowy tag",
+              "title": "Dodaj tag produktu",
+              "modalContent": "Zmodyfikuj szczegóły tagu {name} poniżej"
+            },
+
+            "update": {
+              "title": "Zaktualizuj tag produktu"
+            }
+          },
+
+          "notification": {
+            "addProductTagSuccessTitle": "Tag produktu dodany pomyślnie",
+            "editProductTagSuccessTitle": "Tag produktu pomyślnie edytowany",
+            "deleteProductTagSuccessTitle": "Tag produktu pomyślnie usunięty"
+          },
+
+          "list": {
+            "itemName": "Nazwa tagu produktu",
+            "colorValue": "Wartość koloru hex"
+          }
         }
       }
     }

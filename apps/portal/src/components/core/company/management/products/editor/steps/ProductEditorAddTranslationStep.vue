@@ -43,11 +43,12 @@
           </template>
         </a-expansion-panel>
 
-        <a-button size="x-large" :text="$t('global.back')" @click="handlePreviousStep" />
+        <a-button size="x-large" :text="$t('global.back')" @click.stop="handlePreviousStep" />
 
         <a-button
           :text="$t('global.save')"
           size="x-large"
+          type="submit"
           :disabled="disableSaveButton"
           @click="handleSaveProduct"
         />

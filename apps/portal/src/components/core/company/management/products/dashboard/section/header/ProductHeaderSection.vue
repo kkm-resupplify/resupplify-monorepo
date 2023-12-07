@@ -1,53 +1,21 @@
 <template>
   <a-panel-section>
     <div class="product-header-section">
-      <div class="product-header-section__content-titles">
-        <a-title
-          :title="$t('company.management.products.dashboard.totalProductsCount')"
-          :subtitle="productsTotal"
-          size="x-large"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
+      <a-title :title="$t('company.management.products.dashboard.title')" size="x-large" />
 
-        <a-title
-          :title="$t('company.management.products.dashboard.pendingVerificationProductsCount')"
-          :subtitle="unverifiedProductsCount"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
+      <div class="product-header-section__main">
+        <a-list-item-wrapper>
+          <a-list-item-title-section
+            v-for="statSection in statSections"
+            :key="statSection.title"
+            :title="$t(statSection.title)"
+            :value="statSection.value"
+          />
+        </a-list-item-wrapper>
 
-        <a-title
-          :title="$t('company.management.products.dashboard.verifiedProductsCount')"
-          :subtitle="verifiedProductsCount"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
-
-        <a-title
-          :title="$t('company.management.products.dashboard.activeProductsCount')"
-          :subtitle="activatedProductsCount"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
-
-        <a-title
-          :title="$t('company.management.products.dashboard.inactiveProductsCount')"
-          :subtitle="deactivatedProductsCount"
-          variant="horizontal"
-          class="product-header-section__title"
-        />
-      </div>
-
-      <div class="product-header-section__actions">
         <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
           <a-button :text="$t('company.management.products.dashboard.addProduct')" size="x-large" />
         </router-link>
-
-        <mass-assign-product-status
-          :products="products"
-          @fetch-products="$emit('fetch-products')"
-        />
       </div>
     </div>
   </a-panel-section>
@@ -55,57 +23,78 @@
 
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
-import type { PropType } from 'vue'
-import type { Product } from '@sharedInterfaces/product/ProductInterface'
-import { computed } from 'vue'
-import MassAssignProductStatus from '@/components/core/company/management/products/dashboard/dialog/MassAssignProductStatus.vue'
+import type { ProductStatsInterface } from '@sharedInterfaces/product/ProductStatsInterface'
+import { ref, onBeforeMount, computed } from 'vue'
 
-const props = defineProps({
-  products: { type: Object as PropType<Product[]>, required: true },
-  productsTotal: { type: [String, Number], required: true }
+import CompanyProductsService from '@/services/product/CompanyProductsService'
+
+// Variables
+const productStats = ref<ProductStatsInterface>({
+  productsTotal: 0,
+  productsAwaitingVerification: 0,
+  verifiedProducts: 0,
+  rejectedProducts: 0,
+  activeProducts: 0,
+  inactiveProducts: 0
 })
-
-// Emits
-defineEmits(['fetch-products'])
+const isLoading = ref(false)
 
 // Computed
-const activatedProductsCount = computed(() => {
-  return props.products.filter((product) => product.status === 1).length
-})
+const statSections = computed(() => [
+  {
+    title: 'company.management.products.dashboard.totalProductsCount',
+    value: productStats.value.productsTotal
+  },
+  {
+    title: 'company.management.products.dashboard.activeProductsCount',
+    value: productStats.value.activeProducts
+  },
+  {
+    title: 'company.management.products.dashboard.verifiedProductsCount',
+    value: productStats.value.verifiedProducts
+  },
+  {
+    title: 'company.management.products.dashboard.inactiveProductsCount',
+    value: productStats.value.inactiveProducts
+  },
+  {
+    title: 'company.management.products.dashboard.pendingVerificationProductsCount',
+    value: productStats.value.productsAwaitingVerification
+  }
+])
 
-const deactivatedProductsCount = computed(() => {
-  return props.products.filter((product) => product.status === 0).length
-})
+// Methods
+const handleFetchProductStats = async () => {
+  isLoading.value = true
 
-const verifiedProductsCount = computed(() => {
-  return props.products.filter((product) => product.verificationStatus === 1).length
-})
+  const { data, success } = await CompanyProductsService.getProductStats()
 
-const unverifiedProductsCount = computed(() => {
-  return props.products.filter((product) => product.verificationStatus === 0).length
+  if (success) productStats.value = data
+
+  isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchProductStats()
 })
 </script>
 
 <style scoped lang="scss">
 .product-header-section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: $global-spacing-30;
 
   &__title {
     white-space: nowrap;
   }
 
-  &__content-titles {
+  &__main {
     display: flex;
-    flex-direction: column;
-    gap: $global-spacing-30;
-  }
-
-  &__actions {
-    display: flex;
-    flex-direction: column;
-    gap: $global-spacing-30;
-    align-items: flex-end;
+    gap: $global-spacing-50;
+    align-items: center;
+    justify-content: space-around;
   }
 }
 </style>

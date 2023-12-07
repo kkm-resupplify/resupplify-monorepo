@@ -1,6 +1,10 @@
 <template>
   <a-panel-section class="product-content-section">
-    <a-title :title="$t('company.management.products.dashboard.filterProducts')" size="x-large" />
+    <div class="product-content-section__header">
+      <a-title :title="$t('company.management.products.dashboard.productList')" size="x-large" />
+
+      <mass-assign-product-status :products="products" @fetch-products="handleFetchProducts" />
+    </div>
 
     <o-form
       ref="form"
@@ -25,6 +29,7 @@
               :placeholder="$t('company.management.products.dashboard.category')"
               :options="staticProductDescriptorsStore.getProductCategories"
               :validate="false"
+              width="20%"
               @input-change="handleProductCategoryChange"
             />
 
@@ -35,17 +40,15 @@
               :options="productCategorySubcategories"
               :validate="false"
               :disabled="disableProductSubcategorySelect"
+              width="20%"
             />
-          </div>
 
-          <div
-            class="product-content-section__filters-row product-content-section__filters-row--short"
-          >
             <m-select
               name="status"
               :placeholder="$t('company.management.products.dashboard.status')"
               :options="statuses"
               :validate="false"
+              width="20%"
             />
 
             <m-select
@@ -53,9 +56,12 @@
               :placeholder="$t('company.management.products.dashboard.verificationStatus')"
               :options="verificationStatuses"
               :validate="false"
+              width="20%"
             />
+          </div>
 
-            <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
+          <div class="product-content-section__filters-row">
+            <a-button button-type="submit" :text="$t('global.search')" size="large" />
 
             <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
           </div>
@@ -67,16 +73,14 @@
 
     <template v-if="isLoading">implement-loader-here</template>
 
-    <product-list
-      v-else-if="showList"
-      :products="products"
-      @product-changed="handleFetchProducts"
-    />
+    <template v-else>
+      <product-list v-if="showList" :products="products" @product-changed="handleFetchProducts" />
 
-    <a-list-no-results
-      v-else
-      :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
-    />
+      <a-list-no-results
+        v-else
+        :text="$t(`company.management.products.list.${noResultsTranslationKey}`)"
+      />
+    </template>
 
     <o-pagination :pagination="paginationData" @page-changed="handleFetchProducts" />
   </a-panel-section>
@@ -95,9 +99,11 @@ import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import OForm from '@sharedOrganisms/form/OForm.vue'
+import MassAssignProductStatus from '@/components/core/company/management/products/dashboard/dialog/MassAssignProductStatus.vue'
 
 // Interfaces
 interface InitialQueryParams {
+  page?: string
   name?: string
   categoryId?: number
   subcategoryId?: number
@@ -151,10 +157,10 @@ const showList = computed(() => {
 
 const filtersUsed = computed(() => {
   const {
-    query: { name, categoryId, subcategoryId, status, verificationStatus }
+    query: { page, name, categoryId, subcategoryId, status, verificationStatus }
   } = route
 
-  return !!(name ?? categoryId ?? subcategoryId ?? status ?? verificationStatus)
+  return !!(page !== '1' || (name ?? categoryId ?? subcategoryId ?? status ?? verificationStatus))
 })
 
 const noResultsTranslationKey = computed(() => {
@@ -217,20 +223,27 @@ const handleFetchProducts = async () => {
 
 const handleClearSearch = async () => {
   await router.replace({ query: { ...route.query, name: '' } })
-  form.value?.resetField('name')
+  form.value?.resetField('name', null)
 }
 
 const handleResetFilters = async () => {
   form.value?.handleReset()
+  await handleQuerySubmit({
+    page: '1',
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined,
+    status: undefined,
+    verificationStatus: undefined
+  })
 }
 
 // Hooks
 onBeforeMount(async () => {
+  await handleFetchProducts()
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
   setInitialFormValues()
-
-  await handleFetchProducts()
 })
 </script>
 
@@ -251,6 +264,12 @@ onBeforeMount(async () => {
     flex: 0;
   }
 
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &__filters {
     display: flex;
     flex-direction: column;
@@ -259,12 +278,7 @@ onBeforeMount(async () => {
 
   &__filters-row {
     display: flex;
-    flex-direction: row;
     gap: $global-spacing-30;
-
-    &--short {
-      width: 50%;
-    }
   }
 
   &__name-search {

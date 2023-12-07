@@ -36,6 +36,7 @@ const handleProductChanged = () => {
   flex-direction: column;
   gap: $global-spacing-40;
 
+  height: 100%;
   padding: $global-spacing-30;
 }
 </style>
