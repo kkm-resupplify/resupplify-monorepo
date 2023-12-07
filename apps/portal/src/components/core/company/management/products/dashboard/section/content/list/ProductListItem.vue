@@ -16,20 +16,13 @@
       :basis="25"
     />
 
-    <div v-if="product.productTags.length" class="product-list-item__tags">
+    <div class="product-list-item__tags">
       <a-list-item-title-section
+        v-if="product.productTags.length"
         :title="$t('company.management.products.content.tags')"
-        :basis="25"
       />
 
-      <div class="product-list-item__tags-items">
-        <product-tag-item
-          v-for="(tag, idx) in product.productTags"
-          :key="idx"
-          :name="tag.name"
-          :color="tag.color"
-        />
-      </div>
+      <product-tag-list :product-tags="product.productTags" />
     </div>
 
     <a-dropdown>
@@ -59,8 +52,7 @@ import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
 import EditProductDialog from '../../../dialog/EditProductDialog.vue'
 import { useProductStatus } from '@/composable/product/useProductStatus'
-import ProductTagItem from './ProductTagItem.vue'
-
+import ProductTagList from '@/components/common/product/ProductTagList.vue'
 defineProps({
   product: { type: Object as PropType<Product>, required: true }
 })
@@ -78,12 +70,9 @@ const { productStatus } = useProductStatus()
 
   &__tags {
     display: flex;
+    flex-basis: 25%;
     flex-direction: column;
-  }
-
-  &__tags-items {
-    display: flex;
-    gap: $global-spacing-30;
+    align-items: center;
   }
 
   &__status-section {
