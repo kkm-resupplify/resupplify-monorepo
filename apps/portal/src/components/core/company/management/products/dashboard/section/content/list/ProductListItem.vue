@@ -87,6 +87,7 @@ const handleDeleteProduct = async () => {
 <style scoped lang="scss">
 .product-list-item {
   justify-content: space-between;
+  max-height: 60px;
 
   &__tags {
     display: flex;

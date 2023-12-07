@@ -29,6 +29,7 @@
               :placeholder="$t('company.management.products.dashboard.category')"
               :options="staticProductDescriptorsStore.getProductCategories"
               :validate="false"
+              width="20%"
               @input-change="handleProductCategoryChange"
             />
 
@@ -39,10 +40,9 @@
               :options="productCategorySubcategories"
               :validate="false"
               :disabled="disableProductSubcategorySelect"
+              width="20%"
             />
-          </div>
 
-          <div class="product-content-section__filters-row">
             <m-select
               name="status"
               :placeholder="$t('company.management.products.dashboard.status')"
@@ -58,7 +58,9 @@
               :validate="false"
               width="20%"
             />
+          </div>
 
+          <div class="product-content-section__filters-row">
             <a-button button-type="submit" :text="$t('global.search')" size="large" />
 
             <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
