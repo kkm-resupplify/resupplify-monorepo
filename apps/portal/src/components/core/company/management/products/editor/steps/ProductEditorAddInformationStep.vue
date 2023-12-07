@@ -83,7 +83,12 @@
 
         <template #footer>
           <div class="product-editor-add-information-step__buttons">
-            <a-button :text="$t('global.cancel')" size="x-large" color="gradient-danger" />
+            <a-button
+              :text="$t('global.cancel')"
+              size="x-large"
+              color="gradient-danger"
+              @click="$emit('previous-step')"
+            />
 
             <a-button :text="$t('global.next')" size="x-large" type="submit" />
           </div>
@@ -106,7 +111,7 @@ import ProductStatusEnum from '@sharedEnums/product/ProductStatusEnum'
 import { useI18n } from 'vue-i18n'
 
 // Emits
-const emits = defineEmits(['next-step'])
+const emits = defineEmits(['next-step', 'previous-step'])
 
 // Variables
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()

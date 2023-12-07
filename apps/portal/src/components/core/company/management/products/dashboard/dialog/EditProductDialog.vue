@@ -9,7 +9,7 @@
       <span v-text="$t('company.management.products.dialog.edit.title')" />
     </template>
 
-    <product-editor-stepper />
+    <product-editor-stepper @cancel="closeDialog" />
   </m-dialog>
 </template>
 
