@@ -3,6 +3,7 @@
     <product-verify-content-section
       :products="products"
       :is-loading="isLoading"
+      @fetch-products="handleFetchProducts"
       @verify-all="handleVerifyAllProducts"
       @reject-all="handleRejectAllProducts"
     />

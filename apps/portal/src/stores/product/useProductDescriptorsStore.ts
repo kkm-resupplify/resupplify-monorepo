@@ -1,22 +1,22 @@
-import { defineStore } from 'pinia'
 import type {
   ProductCategory,
   ProductSubcategory,
-  ProductTag,
   ProductUnit
 } from '@sharedInterfaces/product/ProductInterface'
+import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
+import { defineStore } from 'pinia'
 
-interface StaticProductDescriptorsStore {
+interface ProductDescriptorsState {
   productCategories: ProductCategory[]
   productSubcategories: ProductSubcategory[]
   productUnits: ProductUnit[]
   productTags: ProductTag[]
 }
 
-export const useStaticProductDescriptorsStore = defineStore({
-  id: 'staticProductDescriptors',
+export const useProductDescriptorsStore = defineStore({
+  id: 'productDescriptors',
 
-  state: (): StaticProductDescriptorsStore => ({
+  state: (): ProductDescriptorsState => ({
     productCategories: [],
     productSubcategories: [],
     productUnits: [],
@@ -27,16 +27,7 @@ export const useStaticProductDescriptorsStore = defineStore({
     getProductCategories: (state) => state.productCategories,
     getProductSubcategories: (state) => state.productSubcategories,
     getProductUnits: (state) => state.productUnits,
-    getProductTags: (state) => state.productTags,
-    getCategoryAndSubcategories: (state) => (categoryId: number) => {
-      const category = state.productCategories.find((cat) => cat.id === categoryId)
-
-      const subcategories = state.productSubcategories.filter(
-        (subcat) => subcat.categoryId === categoryId
-      )
-
-      return { category, subcategories }
-    }
+    getProductTags: (state) => state.productTags
   },
 
   actions: {

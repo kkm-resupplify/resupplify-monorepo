@@ -106,7 +106,7 @@ const props = defineProps({
 })
 
 // Emits
-const emits = defineEmits(['input-change'])
+const emits = defineEmits(['input-change', 'input-clear'])
 
 // Variables
 const baseClass = 'm-select'
@@ -115,7 +115,6 @@ const selectRef = ref<HTMLElement | null>(null)
 const inputRef = ref<HTMLElement | null>(null)
 const optionsFilterRef = ref<HTMLElement | null>(null)
 const showOptions = ref(false)
-const selectedOption = ref<MSelectItemData | null>(null)
 const name = toRef(props, 'name')
 const width = toRef(props, 'width')
 const { generateClassNames } = useClassComposable()
@@ -137,13 +136,12 @@ const filteredOptions = computed(() => {
 const handleSelectOption = (option: MSelectItemData) => {
   optionsFilter.value = ''
 
-  selectedOption.value = option
-  inputValue.value = selectedOption.value.id
+  inputValue.value = option.id
 
   showOptions.value = false
   appendIconState.value = !appendIconState.value
-
   emits('input-change', inputValue.value)
+
   validate()
 }
 
@@ -151,6 +149,10 @@ const inputText = computed(() => {
   if (selectedOption.value) return selectedOption.value.text
 
   return null
+})
+
+const selectedOption = computed(() => {
+  return props.options.find((option) => option.id === inputValue.value)
 })
 
 const {
@@ -209,24 +211,17 @@ const prependIcon = computed(() => {
 })
 
 // Methods
-onMounted(() => {
+const handleOutsideValueChange = () => {
   if (props.value !== null || inputValue.value !== null) {
     const matchingOption = props.options.find(
       (option) => option.id === (props.value ?? inputValue.value)
     )
 
     if (matchingOption) {
-      selectedOption.value = matchingOption
       inputValue.value = matchingOption.id
     }
   }
-
-  document.addEventListener('click', clickOutsideEvent)
-})
-
-onBeforeUnmount(() => {
-  document.removeEventListener('click', clickOutsideEvent)
-})
+}
 
 const clickOutsideEvent = (event: any) => {
   if (!selectRef.value || !optionsFilterRef.value) return
@@ -246,7 +241,6 @@ const handleInputClick = () => {
 }
 
 const clearSelect = () => {
-  selectedOption.value = null
   optionsFilter.value = ''
   inputValue.value = null
 }
@@ -261,6 +255,20 @@ const handlePrependIconClick = (event: Event) => {
   event.stopPropagation()
   prependIconState.value = !prependIconState.value
 }
+
+// Hooks
+onMounted(() => {
+  handleOutsideValueChange()
+  document.addEventListener('click', clickOutsideEvent)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', clickOutsideEvent)
+})
+// Exposes
+defineExpose({
+  clearSelect
+})
 </script>
 
 <style lang="scss" scoped>

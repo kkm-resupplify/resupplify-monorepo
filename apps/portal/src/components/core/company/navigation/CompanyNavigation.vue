@@ -44,7 +44,7 @@ const tabs = computed(() => [
     icon: 'price_change'
   },
   {
-    to: { name: RouteNames.COMPANY_PRODUCTS },
+    to: { name: RouteNames.COMPANY_PRODUCT_TILES },
     title: t('company.management.navigation.products.title'),
     icon: 'inventory_2'
   },

@@ -1,8 +1,10 @@
+import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
+
 export interface Product {
   id: number
   name: string
   description: string
-  producent: string
+  producer: string
   code: string
   status: number
   verificationStatus: number
@@ -10,6 +12,8 @@ export interface Product {
   productUnit: ProductUnit
   productSubcategory: ProductSubcategory
   productCategory: ProductCategory
+  productTags: ProductTag[]
+  translations: ProductTranslation[]
 }
 
 export interface ProductSubcategory {
@@ -28,8 +32,19 @@ export interface ProductUnit {
   code: string
 }
 
-export interface ProductTag {
+export interface ProductCategorySelectItem {
   id: number
+  text: string
+}
+
+export interface ProductSubcategorySelectItem {
+  id: number
+  text: string
+  categoryId: number
+}
+
+export interface ProductTranslation {
+  languageId: number
   name: string
-  color: string
+  description: string
 }

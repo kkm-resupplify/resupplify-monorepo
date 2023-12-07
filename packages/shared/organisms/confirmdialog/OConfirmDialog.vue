@@ -1,7 +1,9 @@
 <template>
   <m-dialog ref="dialogRef" :title="titleText">
     <template #activator>
-      <a-button :text="activatorName" :size="activatorSize" :color="activatorVariant" />
+      <slot name="activator">
+        <a-button :text="activatorName" :size="activatorSize" :color="activatorVariant" />
+      </slot>
     </template>
 
     <div class="o-confirm-dialog__body">
@@ -14,7 +16,7 @@
 
         <a-button
           :text="confirmText"
-          color="gradient-danger"
+          :color="activatorVariant"
           size="x-large"
           @click="handleConfirm"
         />

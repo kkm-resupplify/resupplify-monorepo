@@ -8,6 +8,7 @@
     :country="iconValue"
     :library="library"
     :variant="variant"
+    :hoverable="hoverable"
   />
 </template>
 
@@ -38,7 +39,8 @@ const props = defineProps({
     type: String,
     default: 'outlined'
   },
-  country: Boolean
+  country: Boolean,
+  hoverable: Boolean
 })
 
 // Variables
@@ -64,5 +66,3 @@ const iconComponent = computed(() => {
   return isCountryIcon.value ? CountryFlag : AIcon
 })
 </script>
-
-=

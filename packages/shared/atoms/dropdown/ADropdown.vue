@@ -38,7 +38,7 @@ const toggleShowContent = () => {
 }
 
 const closeContent = (event: Event) => {
-  if (!dropdown?.value?.contains(event.target as Node)) {
+  if (!dropdown?.value?.contains(event.target as Node) && showContent.value) {
     showContent.value = false
     emits('toggle', showContent.value)
   }

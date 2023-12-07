@@ -26,6 +26,7 @@
       "@/*": ["./src/*"],
       "@interfaces/*": ["./src/interface/*"],
       "@composables/*": ["./src/composable/*"],
+      "@stores/*": ["./src/stores/*"],
       "@sharedAtoms/*": ["../../packages/shared/atoms/*"],
       "@sharedMolecules/*": ["../../packages/shared/molecules/*"],
       "@sharedOrganisms/*": ["../../packages/shared/organisms/*"],

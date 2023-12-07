@@ -1,6 +1,6 @@
 <template>
   <basic-view-layout class="test-view">
-    <template #body> </template>
+    <template #body> NIE UZYWAC CHYBA ZE NA SERIO NIE MA MIEJSCA </template>
   </basic-view-layout>
 </template>
 

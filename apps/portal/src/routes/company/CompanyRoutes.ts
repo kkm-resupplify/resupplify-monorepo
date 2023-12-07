@@ -31,11 +31,9 @@ const CompanyRoutes: RouteRecordRaw[] = [
       if (mustBelongToCompanyNavigationGuard) return mustBelongToCompanyNavigationGuard
 
       const roles = await CompanyRoleService.getRoles()
-
       const companyRoleStore = useCompanyRoleStore()
-      if (roles) {
-        companyRoleStore.setCompanyRoles(roles)
-      }
+
+      if (roles) companyRoleStore.setCompanyRoles(roles)
     }
   }
 ]

@@ -28,7 +28,6 @@ import WarehouseService from '@/services/warehouse/WarehouseService'
 // Variables
 const isLoading = ref(false)
 const route = useRoute()
-
 const warehouse = ref<Warehouse>()
 
 // Computed

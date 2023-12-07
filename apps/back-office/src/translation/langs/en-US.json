@@ -185,7 +185,7 @@
 
   "confirm": {
     "dialog": {
-      "titleDelete": "Remove confirmation",
+      "titleDelete": "Delete confirmation",
       "textDelete": "Are you sure you want to remove {item}?",
       "titleUpdate": "Update confirmation",
       "textUpdate": "Are you sure you want to update {item}?",
