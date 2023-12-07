@@ -57,20 +57,20 @@
             />
 
             <m-select
+              name="status"
+              :label="$t('company.management.products.editor.productStatusLabel')"
+              :placeholder="$t('company.management.products.editor.productStatusPlaceholder')"
+              :options="productStatusSelectOptions"
+              rules="required"
+            />
+
+            <m-select
               name="productTag"
               :label="$t('company.management.products.editor.productTagsLabel')"
               :placeholder="$t('company.management.products.editor.productTagsPlaceholder')"
               :options="producTagSelectOptions"
               :validate="false"
               @input-change="handleSelectProductTag"
-            />
-
-            <m-select
-              name="status"
-              :label="$t('company.management.products.editor.productStatusLabel')"
-              :placeholder="$t('company.management.products.editor.productStatusPlaceholder')"
-              :options="productStatusSelectOptions"
-              rules="required"
             />
 
             <product-tag-list
