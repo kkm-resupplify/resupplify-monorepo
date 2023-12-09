@@ -3,6 +3,7 @@ import { RouteNames } from '@/routes/index'
 
 interface Route {
   name: string
+  hash?: string
 }
 
 abstract class NavigationGuard {
@@ -40,11 +41,13 @@ export class MustNotBeAuthenticatedNavigationGuard extends NavigationGuard {
 }
 
 export class MustBelongToCompanyNavigationGuard extends NavigationGuard {
-  static guard(): boolean | void {
+  static guard(): boolean | Route {
     const userStore = useUserStore()
 
     if (userStore.hasCompany) {
       return false
     }
+
+    return { name: RouteNames.SETTINGS, hash: '#my-company' }
   }
 }
