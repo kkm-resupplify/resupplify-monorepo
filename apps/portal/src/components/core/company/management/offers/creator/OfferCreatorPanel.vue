@@ -1,5 +1,7 @@
 <template>
-  <div>OfferCreatorPanel</div>
+  <a-panel class="offer-creator-panel">
+    <a-panel-section>offer-creator-panel</a-panel-section>
+  </a-panel>
 </template>
 
 <script setup lang="ts"></script>
