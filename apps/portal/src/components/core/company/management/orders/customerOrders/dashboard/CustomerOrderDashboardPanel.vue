@@ -1,1 +1,0 @@
-<template>CustomerOrderDashboardPanel</template>
