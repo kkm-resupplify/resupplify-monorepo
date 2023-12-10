@@ -1,8 +1,6 @@
 <template>
   <a-panel>
-    <a-panel-section>
-      <m-tile-list :tiles="tiles" />
-    </a-panel-section>
+    <a-panel-section> company-order-view </a-panel-section>
   </a-panel>
 </template>
 
@@ -15,16 +13,4 @@ import { RouteNames } from '@/routes/index'
 const { t } = useI18n()
 
 // Computed
-const tiles = computed(() => [
-  {
-    title: t('company.management.navigation.offers.tiles.ourPurchases'),
-    icon: 'shopping_cart',
-    to: { name: RouteNames.COMPANY_ORDER_LIST }
-  },
-  {
-    title: t('company.management.navigation.offers.tiles.customerOrders'),
-    icon: 'order_approve',
-    to: { name: RouteNames.COMPANY_CUSTOMER_ORDER_LIST }
-  }
-])
 </script>
