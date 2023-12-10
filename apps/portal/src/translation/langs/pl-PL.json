@@ -262,7 +262,12 @@
         },
 
         "payments": {
-          "title": "Płatności"
+          "title": "Płatności",
+
+          "tiles": {
+            "paymentsDashboard": "Panel płatności",
+            "manageBalance": "Zarządzanie stanem konta"
+          }
         }
       },
 

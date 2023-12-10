@@ -256,7 +256,12 @@
         },
 
         "payments": {
-          "title": "Payments"
+          "title": "Payments",
+
+          "tiles": {
+            "paymentsDashboard": "Payments Dashboard",
+            "manageBalance": "Manage Balance"
+          }
         }
       },
 
