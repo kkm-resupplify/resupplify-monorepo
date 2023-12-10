@@ -19,12 +19,12 @@ const tiles = computed(() => [
   {
     title: t('company.management.navigation.offers.tiles.ourPurchases'),
     icon: 'shopping_cart',
-    to: { name: RouteNames.COMPANY_PRODUCT_LIST }
+    to: { name: RouteNames.COMPANY_ORDERS_LIST }
   },
   {
     title: t('company.management.navigation.offers.tiles.customerOrders'),
     icon: 'order_approve',
-    to: { name: RouteNames.COMPANY_PRODUCT_EDITOR }
+    to: { name: RouteNames.COMPANY_CUSTOMER_ORDER_LIST }
   }
 ])
 </script>
