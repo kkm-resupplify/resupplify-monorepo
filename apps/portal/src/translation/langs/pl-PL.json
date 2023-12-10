@@ -212,8 +212,8 @@
           }
         },
 
-        "deals": {
-          "title": "Umowy"
+        "orders": {
+          "title": "Zamówienia"
         },
 
         "warehouses": {
