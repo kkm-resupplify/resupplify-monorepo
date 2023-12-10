@@ -204,7 +204,12 @@
         },
 
         "offers": {
-          "title": "Oferty"
+          "title": "Oferty",
+
+          "tiles": {
+            "dashboard": "Panel ofert",
+            "creator": "Kreator ofert"
+          }
         },
 
         "deals": {

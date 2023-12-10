@@ -8,6 +8,7 @@ import BaseEnum from '@sharedEnums/BaseEnum'
 import CompanyManagementMembersRoutes from './members/CompanyManagementMembersRoutes'
 import CompanyManagementWarehouseRoutes from './warehouses/CompanyManagementWarehouseRoutes'
 import CompanyManagementProductRoutes from './products/CompanyManagementProductRoutes'
+import CompanyManagementOffersRoutes from './offers/CompanyManagementOffersRoutes'
 
 class CompanyProfileRouteEnum extends BaseEnum {
   static readonly COMPANY_DASHBOARD: string = 'COMPANY_DASHBOARD'
@@ -21,6 +22,7 @@ const CompanyManagementRoutes: RouteRecordRaw[] = [
   ...CompanyManagementProductRoutes,
   ...CompanyManagementMembersRoutes,
   ...CompanyManagementWarehouseRoutes,
+  ...CompanyManagementOffersRoutes,
   {
     path: '/company/dashboard',
     name: CompanyProfileRouteEnum.COMPANY_DASHBOARD,

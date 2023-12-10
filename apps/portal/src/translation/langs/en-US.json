@@ -204,11 +204,20 @@
         },
 
         "offers": {
-          "title": "Offers"
+          "title": "Offers",
+
+          "tiles": {
+            "dashboard": "Offers dashboard",
+            "creator": "Offer creator"
+          }
         },
 
         "deals": {
           "title": "Deals"
+        },
+
+        "orders": {
+          "title": "Orders"
         },
 
         "warehouses": {
