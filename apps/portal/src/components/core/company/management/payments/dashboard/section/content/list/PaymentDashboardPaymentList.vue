@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import PaymentDashboardPaymentListItem from './PaymentDashboardPaymentListItem.vue'
+import PaymentDashboardPaymentListItem from '@/components/core/company/management/payments/dashboard/section/content/list/PaymentDashboardPaymentListItem.vue'
 </script>
 
 <style lang="scss" scoped>
