@@ -57,6 +57,7 @@ import MNavigationTabsItem from '@sharedMolecules/tab/MNavigationTabsItem.vue'
 import MTile from '@sharedMolecules/tile/MTile.vue'
 import MTileList from '@sharedMolecules/tile/MTileList.vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
+import MAlert from '@sharedMolecules/alert/MAlert.vue'
 
 const molecules = [
   MCardList,
@@ -71,7 +72,8 @@ const molecules = [
   MNavigationTabsItem,
   MTile,
   MTileList,
-  MDialog
+  MDialog,
+  MAlert
 ]
 
 // Organisms
