@@ -1,0 +1,1 @@
+<template>PaymentDashboardPaymentListItem</template>
