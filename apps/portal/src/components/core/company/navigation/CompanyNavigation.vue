@@ -34,19 +34,14 @@ const tabs = computed(() => [
     icon: 'dashboard'
   },
   {
-    to: { name: RouteNames.COMPANY_OFFERS },
+    to: { name: RouteNames.COMPANY_OFFERS_TILES },
     title: t('company.management.navigation.offers.title'),
     icon: 'sell'
   },
   {
-    to: { name: RouteNames.COMPANY_DEALS },
-    title: t('company.management.navigation.deals.title'),
-    icon: 'price_change'
-  },
-  {
     to: { name: RouteNames.COMPANY_ORDER_TILES },
     title: t('company.management.navigation.orders.title'),
-    icon: 'shop_two'
+    icon: 'package_2'
   },
   {
     to: { name: RouteNames.COMPANY_PRODUCT_TILES },
