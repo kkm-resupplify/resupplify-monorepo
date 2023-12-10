@@ -1,5 +1,5 @@
-import PaymentsManageBalancePanel from '@/components/core/company/management/payments/balance/PaymentsManageBalancePanel.vue'
-import PaymentsDashboardPanel from '@/components/core/company/management/payments/dashboard/PaymentsDashboardPanel.vue'
+import PaymentManageBalancePanel from '@/components/core/company/management/payments/balance/PaymentManageBalancePanel.vue'
+import PaymentDashboardPanel from '@/components/core/company/management/payments/dashboard/PaymentDashboardPanel.vue'
 import CompanyPaymentsView from '@/views/Company/Management/CompanyPaymentsView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
@@ -19,12 +19,12 @@ const CompanyManagementPaymentsRoutes: RouteRecordRaw[] = [
   {
     path: 'payments/dashboard',
     name: CompanyPaymentsRouteEnum.COMPANY_PAYMENTS_DASHBOARD,
-    component: PaymentsDashboardPanel
+    component: PaymentDashboardPanel
   },
   {
     path: 'payments/balance',
     name: CompanyPaymentsRouteEnum.COMPANY_PAYMENTS_MANAGE_BALANCE,
-    component: PaymentsManageBalancePanel
+    component: PaymentManageBalancePanel
   }
 ]
 
