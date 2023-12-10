@@ -19,6 +19,7 @@
                   <m-text-field
                     name="name"
                     input-type="text"
+                    rules="required"
                     :label="$t('company.management.products.editor.productNameLabel')"
                     :placeholder="$t('company.management.products.editor.productNamePlaceholder')"
                   />
@@ -62,6 +63,7 @@ import { useLanguageStore } from '@sharedStores/language/useLanguageStore'
 import { useProductEditorStore } from '@stores/product/useProductEditorStore'
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+
 // Variables
 const languagStore = useLanguageStore()
 const productEditorStore = useProductEditorStore()

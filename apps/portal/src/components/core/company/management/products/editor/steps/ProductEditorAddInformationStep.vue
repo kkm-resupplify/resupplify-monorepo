@@ -163,10 +163,18 @@ const productStatusSelectOptions = computed(() => {
     { id: ProductStatusEnum.INACTIVE, text: t('global.inactive') }
   ]
 })
+
+const selectedProductTags = computed(() => {
+  return productTags.value.filter((productTag) =>
+    selectedProductTagIds.value.includes(productTag.id)
+  )
+})
+
 // Methods
 const handleNextStep = (values: ProductEditorFirstStepData) => {
   values.productTagIds = selectedProductTagIds.value
   productEditorStore.setProductEditorFirstStepData(values)
+
   emits('next-step')
 }
 
@@ -196,12 +204,6 @@ const handleSelectProductTag = (id: number) => {
 const setSelectedProductTags = () => {
   selectedProductTagIds.value = productEditorStore.getProductTagIds
 }
-
-const selectedProductTags = computed(() => {
-  return productTags.value.filter((productTag) =>
-    selectedProductTagIds.value.includes(productTag.id)
-  )
-})
 
 const handleRemoveProductTag = (id: number) => {
   selectedProductTagIds.value = selectedProductTagIds.value.filter(

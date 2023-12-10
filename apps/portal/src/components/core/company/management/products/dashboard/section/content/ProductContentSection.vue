@@ -39,7 +39,6 @@
               :placeholder="$t('company.management.products.dashboard.subcategory')"
               :options="productCategorySubcategories"
               :validate="false"
-              :disabled="disableProductSubcategorySelect"
               width="20%"
             />
 
@@ -95,7 +94,6 @@ import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import ProductList from './list/ProductList.vue'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import { useRoute, useRouter } from 'vue-router'
-import { useProductEditorStore } from '@/stores/product/useProductEditorStore'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import OForm from '@sharedOrganisms/form/OForm.vue'
@@ -111,6 +109,9 @@ interface InitialQueryParams {
   verificationStatus?: number
 }
 
+// Emits
+const emits = defineEmits(['update-stats'])
+
 // Variables
 const products = ref<Product[]>([])
 const isLoading = ref(false)
@@ -120,7 +121,6 @@ const subcategoryRef = ref<typeof MSelect>()
 const selectedCategoryId = ref<number | null>()
 const route = useRoute()
 const router = useRouter()
-const productEditorStore = useProductEditorStore()
 const initialFormValues = ref<InitialQueryParams>()
 const paginationData = ref<Pagination>()
 const form = ref<typeof OForm>()
@@ -141,14 +141,7 @@ const productCategorySubcategories = computed(() => {
     ? staticProductDescriptorsStore.getProductSubcategories.filter(
         (subcategory) => subcategory.categoryId === selectedCategoryId.value
       )
-    : []
-})
-
-const disableProductSubcategorySelect = computed(() => {
-  return (
-    productCategorySubcategories.value.length === 0 &&
-    productEditorStore.getProductSubcategoryId === null
-  )
+    : staticProductDescriptorsStore.getProductSubcategories
 })
 
 const showList = computed(() => {
@@ -216,6 +209,7 @@ const handleFetchProducts = async () => {
   if (success) {
     products.value = data
     paginationData.value = pagination
+    emits('update-stats')
   }
 
   isLoading.value = false
