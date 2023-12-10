@@ -8,11 +8,13 @@ import BaseEnum from '@sharedEnums/BaseEnum'
 import CompanyManagementMembersRoutes from './members/CompanyManagementMembersRoutes'
 import CompanyManagementWarehouseRoutes from './warehouses/CompanyManagementWarehouseRoutes'
 import CompanyManagementProductRoutes from './products/CompanyManagementProductRoutes'
+import CompanyOrdersView from '@/views/Company/Management/CompanyOrdersView.vue'
 
 class CompanyProfileRouteEnum extends BaseEnum {
   static readonly COMPANY_DASHBOARD: string = 'COMPANY_DASHBOARD'
   static readonly COMPANY_OFFERS: string = 'COMPANY_OFFERS'
   static readonly COMPANY_DEALS: string = 'COMPANY_DEALS'
+  static readonly COMPANY_ORDERS: string = 'COMPANY_ORDERS'
   static readonly COMPANY_SETTINGS: string = 'COMPANY_SETTINGS'
   static readonly COMPANY_PAYMENTS: string = 'COMPANY_PAYMENTS'
 }
@@ -30,6 +32,11 @@ const CompanyManagementRoutes: RouteRecordRaw[] = [
     path: '/company/offers',
     name: CompanyProfileRouteEnum.COMPANY_OFFERS,
     component: CompanyOffersView
+  },
+  {
+    path: '/company/orders',
+    name: CompanyProfileRouteEnum.COMPANY_ORDERS,
+    component: CompanyOrdersView
   },
   {
     path: '/company/deals',
