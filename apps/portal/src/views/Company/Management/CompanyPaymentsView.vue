@@ -19,12 +19,12 @@ const tiles = computed(() => [
   {
     title: t('company.management.navigation.payments.tiles.paymentsDashboard'),
     icon: 'universal_currency_alt',
-    to: { name: RouteNames.COMPANY_PAYMENTS }
+    to: { name: RouteNames.COMPANY_PAYMENTS_DASHBOARD }
   },
   {
     title: t('company.management.navigation.payments.tiles.manageBalance'),
     icon: 'account_balance_wallet',
-    to: { name: RouteNames.COMPANY_BALANCE }
+    to: { name: RouteNames.COMPANY_PAYMENTS_MANAGE_BALANCE }
   }
 ])
 </script>
