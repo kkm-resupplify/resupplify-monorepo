@@ -44,6 +44,11 @@ const tabs = computed(() => [
     icon: 'price_change'
   },
   {
+    to: { name: RouteNames.COMPANY_ORDER_TILES },
+    title: t('company.management.navigation.orders.title'),
+    icon: 'shop_two'
+  },
+  {
     to: { name: RouteNames.COMPANY_PRODUCT_TILES },
     title: t('company.management.navigation.products.title'),
     icon: 'inventory_2'

@@ -216,6 +216,10 @@
           "title": "Deals"
         },
 
+        "orders": {
+          "title": "Orders"
+        },
+
         "warehouses": {
           "title": "Warehouses",
 

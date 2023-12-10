@@ -19,7 +19,7 @@ const tiles = computed(() => [
   {
     title: t('company.management.navigation.offers.tiles.ourPurchases'),
     icon: 'shopping_cart',
-    to: { name: RouteNames.COMPANY_ORDERS_LIST }
+    to: { name: RouteNames.COMPANY_ORDER_LIST }
   },
   {
     title: t('company.management.navigation.offers.tiles.customerOrders'),
