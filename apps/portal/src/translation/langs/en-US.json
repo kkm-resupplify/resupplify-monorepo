@@ -259,8 +259,8 @@
           "title": "Payments",
 
           "tiles": {
-            "paymentsDashboard": "Payments Dashboard",
-            "manageBalance": "Manage Balance"
+            "dashboard": "Payments dashboard",
+            "manage": "Manage balance"
           }
         }
       },

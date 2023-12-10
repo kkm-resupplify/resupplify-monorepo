@@ -265,8 +265,8 @@
           "title": "Płatności",
 
           "tiles": {
-            "paymentsDashboard": "Panel płatności",
-            "manageBalance": "Zarządzanie stanem konta"
+            "dashboard": "Panel płatności",
+            "manage": "Zarządzanie stanem konta"
           }
         }
       },
