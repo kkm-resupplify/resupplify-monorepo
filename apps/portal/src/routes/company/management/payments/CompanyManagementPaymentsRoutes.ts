@@ -1,4 +1,4 @@
-import ManageBalancePanel from '@/components/core/company/management/payments/balance/ManageBalancePanel.vue'
+import PaymentsManageBalancePanel from '@/components/core/company/management/payments/balance/PaymentsManageBalancePanel.vue'
 import PaymentsDashboardPanel from '@/components/core/company/management/payments/dashboard/PaymentsDashboardPanel.vue'
 import CompanyPaymentsView from '@/views/Company/Management/CompanyPaymentsView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
@@ -24,7 +24,7 @@ const CompanyManagementPaymentsRoutes: RouteRecordRaw[] = [
   {
     path: 'payments/balance',
     name: CompanyPaymentsRouteEnum.COMPANY_PAYMENTS_MANAGE_BALANCE,
-    component: ManageBalancePanel
+    component: PaymentsManageBalancePanel
   }
 ]
 
