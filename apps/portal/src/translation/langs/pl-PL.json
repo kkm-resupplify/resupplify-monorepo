@@ -212,8 +212,8 @@
           }
         },
 
-        "deals": {
-          "title": "Umowy"
+        "orders": {
+          "title": "Zamówienia"
         },
 
         "warehouses": {
@@ -262,7 +262,12 @@
         },
 
         "payments": {
-          "title": "Płatności"
+          "title": "Płatności",
+
+          "tiles": {
+            "dashboard": "Panel płatności",
+            "manage": "Zarządzanie stanem konta"
+          }
         }
       },
 

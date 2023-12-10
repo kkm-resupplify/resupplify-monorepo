@@ -2,13 +2,13 @@ import type { RouteRecordRaw } from 'vue-router'
 import CompanyDashboardView from '@/views/Company/Management/CompanyDashboardView.vue'
 import CompanyDealsView from '@/views/Company/Management/CompanyDealsView.vue'
 import CompanyOffersView from '@/views/Company/Management/CompanyOffersView.vue'
-import CompanyPaymentsView from '@/views/Company/Management/CompanyPaymentsView.vue'
 import CompanySettingsView from '@/views/Company/Management/CompanySettingsView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import CompanyManagementMembersRoutes from './members/CompanyManagementMembersRoutes'
 import CompanyManagementWarehouseRoutes from './warehouses/CompanyManagementWarehouseRoutes'
 import CompanyManagementProductRoutes from './products/CompanyManagementProductRoutes'
 import CompanyManagementOffersRoutes from './offers/CompanyManagementOffersRoutes'
+import CompanyManagementPaymentsRoutes from './payments/CompanyManagementPaymentsRoutes'
 
 class CompanyProfileRouteEnum extends BaseEnum {
   static readonly COMPANY_DASHBOARD: string = 'COMPANY_DASHBOARD'
@@ -23,6 +23,7 @@ const CompanyManagementRoutes: RouteRecordRaw[] = [
   ...CompanyManagementMembersRoutes,
   ...CompanyManagementWarehouseRoutes,
   ...CompanyManagementOffersRoutes,
+  ...CompanyManagementPaymentsRoutes,
   {
     path: '/company/dashboard',
     name: CompanyProfileRouteEnum.COMPANY_DASHBOARD,
@@ -42,11 +43,6 @@ const CompanyManagementRoutes: RouteRecordRaw[] = [
     path: '/company/settings',
     name: CompanyProfileRouteEnum.COMPANY_SETTINGS,
     component: CompanySettingsView
-  },
-  {
-    path: '/company/payments',
-    name: CompanyProfileRouteEnum.COMPANY_PAYMENTS,
-    component: CompanyPaymentsView
   }
 ]
 
