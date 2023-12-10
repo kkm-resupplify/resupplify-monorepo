@@ -17,12 +17,12 @@ const { t } = useI18n()
 // Computed
 const tiles = computed(() => [
   {
-    title: t('company.management.navigation.payments.tiles.paymentsDashboard'),
+    title: t('company.management.navigation.payments.tiles.dashboard'),
     icon: 'universal_currency_alt',
     to: { name: RouteNames.COMPANY_PAYMENTS_DASHBOARD }
   },
   {
-    title: t('company.management.navigation.payments.tiles.manageBalance'),
+    title: t('company.management.navigation.payments.tiles.manage'),
     icon: 'account_balance_wallet',
     to: { name: RouteNames.COMPANY_PAYMENTS_MANAGE_BALANCE }
   }
