@@ -109,6 +109,9 @@ interface InitialQueryParams {
   verificationStatus?: number
 }
 
+// Emits
+const emits = defineEmits(['update-stats'])
+
 // Variables
 const products = ref<Product[]>([])
 const isLoading = ref(false)
@@ -206,6 +209,7 @@ const handleFetchProducts = async () => {
   if (success) {
     products.value = data
     paginationData.value = pagination
+    emits('update-stats')
   }
 
   isLoading.value = false
