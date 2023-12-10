@@ -88,8 +88,6 @@ generalNotificationStore.$subscribe(() => {
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/mixins/animated-border';
-
 .a-general-notification {
   $self: &;
 
