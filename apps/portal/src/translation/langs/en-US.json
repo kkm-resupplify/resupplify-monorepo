@@ -265,7 +265,14 @@
 
           "manageBalance": {
             "title": "Manage company balance",
-            "currentBalance": "Current balance"
+            "currentBalance": "Current balance",
+            "deposit": "Deposit",
+            "withdraw": "Withdraw",
+            "operationTypeLabel": "Operation type",
+            "operationTypePlaceholder": "Select operation type",
+            "amountLabel": "Amount",
+            "amountPlaceholder": "Enter amount",
+            "depositFunds": "Deposit funds"
           }
         }
       },
