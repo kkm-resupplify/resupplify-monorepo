@@ -34,7 +34,8 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  gradient: Boolean
+  gradient: Boolean,
+  moveBackground: Boolean
 })
 
 // Variables
@@ -47,9 +48,10 @@ const { generateClassNames } = useClassComposable()
 const generateClasses = computed(() => {
   const hoverable = props.hoverable ? 'hoverable' : null
   const gradient = props.gradient ? 'gradient' : null
+  const moveBackground = props.moveBackground ? 'move-background' : null
 
   return (
-    generateClassNames(baseClass, [props.color, props.size, hoverable, gradient]) +
+    generateClassNames(baseClass, [props.color, props.size, hoverable, gradient, moveBackground]) +
     ` material-${props.library}-${props.variant}`
   )
 })
@@ -99,8 +101,6 @@ const iconColor = computed(() => {
 
   // Color variants
   &--gradient {
-    @include move-background-animation;
-
     color: rgb(255 255 255 / 0%);
     text-decoration: none;
 
@@ -109,6 +109,10 @@ const iconColor = computed(() => {
     background-position: 100% 100%, 0 100%;
     background-clip: text;
     background-size: 200% 100%;
+  }
+
+  &--move-background {
+    @include move-background-animation;
   }
 
   &--hoverable {
