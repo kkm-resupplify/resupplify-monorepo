@@ -58,8 +58,8 @@ const { t } = useI18n()
 const selectedOperationTypeId = ref<number | null>(null)
 
 const operationTypes = ref([
-  { id: 1, text: t('company.management.navigation.payments.manageBalance.withdraw') },
-  { id: 2, text: t('company.management.navigation.payments.manageBalance.deposit') }
+  { id: 1, text: t('company.management.balance.manage.withdraw') },
+  { id: 2, text: t('company.management.balance.manage.deposit') }
 ])
 
 // Computed
