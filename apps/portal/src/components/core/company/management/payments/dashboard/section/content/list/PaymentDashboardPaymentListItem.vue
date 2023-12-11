@@ -33,9 +33,9 @@ const props = defineProps({
 // DTO
 class ActivatorSectionDto {
   title: string
-  value: string | number | Date
+  value: string | number
 
-  constructor(title: string, value: string | number | Date) {
+  constructor(title: string, value: string | number) {
     this.title = this.getTranslationValue(title)
     this.value = value
   }

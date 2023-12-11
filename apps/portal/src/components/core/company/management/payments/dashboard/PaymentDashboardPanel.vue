@@ -20,7 +20,7 @@ const payments = ref<Payment[]>([
     currency: 'EURO',
     type: 1,
     status: 1,
-    date: new Date(),
+    date: '16-03-2023',
     sender: {
       name: 'Sender Company Inc.',
       email: 'sender-company@gmail.com',
@@ -38,7 +38,7 @@ const payments = ref<Payment[]>([
     currency: 'EURO',
     type: 2,
     status: 1,
-    date: new Date(),
+    date: '16-03-2023',
     sender: {
       name: 'Sender Company Inc.',
       email: 'sender-company@gmail.com',
@@ -56,7 +56,7 @@ const payments = ref<Payment[]>([
     currency: 'EURO',
     type: 3,
     status: 1,
-    date: new Date(),
+    date: '16-03-2023',
     sender: {
       name: 'Sender Company Inc.',
       email: 'sender-company@gmail.com',
@@ -74,7 +74,7 @@ const payments = ref<Payment[]>([
     currency: 'EURO',
     type: 4,
     status: 1,
-    date: new Date(),
+    date: '16-03-2023',
     sender: {
       name: 'Sender Company Inc.',
       email: 'sender-company@gmail.com',
