@@ -34,8 +34,17 @@
     "pl-PL": "Polish"
   },
 
-  "payments": {
-    "payNow": "Pay now"
+  "payment": {
+    "payNow": "Pay now",
+    "receiver": "Payment receiver",
+    "sender": "Payment sender",
+
+    "type": {
+      "withdrawal": "Withdrawal",
+      "deposit": "Deposit",
+      "sale": "Sale",
+      "purchase": "Purchase"
+    }
   },
 
   "navigation": {
@@ -488,6 +497,18 @@
           "list": {
             "itemName": "Product tag name",
             "colorValue": "Hex color value"
+          }
+        }
+      },
+
+      "balance": {
+        "dashboard": {
+          "payment": {
+            "section": {
+              "amount": "Amount",
+              "type": "Transaction type",
+              "date": "Transaction date"
+            }
           }
         }
       }

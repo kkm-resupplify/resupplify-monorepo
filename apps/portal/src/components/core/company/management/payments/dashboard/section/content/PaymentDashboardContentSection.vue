@@ -27,5 +27,6 @@ defineProps({
 <style lang="scss" scoped>
 .payment-dashboard-content-section {
   display: flex;
+  height: 100%;
 }
 </style>
