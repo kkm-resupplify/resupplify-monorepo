@@ -1,17 +1,15 @@
 <template>
   <div class="payment-manage-balance-panel">
     <div class="payment-manage-balance-panel__header">
-      <a-title
-        :title="$t('company.management.navigation.payments.manageBalance.title')"
-        size="x-large"
-      />
+      <a-title :title="$t('company.management.balance.manage.title')" size="x-large" />
 
       <a-title
-        :title="$t('company.management.navigation.payments.manageBalance.currentBalance')"
+        :title="$t('company.management.balance.manage.currentBalance')"
         :subtitle="formattedBalance"
         variant="horizontal"
         class="payment-manage-balance-panel__current-balance"
         size="large"
+        append-colon
       />
     </div>
 
@@ -21,10 +19,8 @@
           <m-select
             name="type"
             rules="required"
-            :label="$t('company.management.navigation.payments.manageBalance.operationTypeLabel')"
-            :placeholder="
-              $t('company.management.navigation.payments.manageBalance.operationTypePlaceholder')
-            "
+            :label="$t('company.management.balance.manage.operationTypeLabel')"
+            :placeholder="$t('company.management.balance.manage.operationTypePlaceholder')"
             :options="operationTypes"
             @input-change="handleSelectOperationTypeChange"
           />
@@ -33,10 +29,8 @@
             name="amount"
             input-type="number"
             rules="required"
-            :label="$t('company.management.navigation.payments.manageBalance.amountLabel')"
-            :placeholder="
-              $t('company.management.navigation.payments.manageBalance.amountPlaceholder')
-            "
+            :label="$t('company.management.balance.manage.amountLabel')"
+            :placeholder="$t('company.management.balance.manage.amountPlaceholder')"
             :options="operationTypes"
           />
         </div>
@@ -70,17 +64,15 @@ const operationTypes = ref([
 
 // Computed
 const formattedBalance = computed(() => {
-  return `: €${balance.value}`
+  return `€${balance.value}`
 })
 
 const submitButtonText = computed(() => {
-  if (selectedOperationTypeId.value === 0) {
-    return t('company.management.navigation.payments.manageBalance.deposit')
-  }
-  if (selectedOperationTypeId.value === 1) {
-    return t('company.management.navigation.payments.manageBalance.withdraw')
-  }
-  return t('company.management.navigation.payments.manageBalance.selectOperationType')
+  if (selectedOperationTypeId.value === 0) return t('company.management.balance.manage.deposit')
+
+  if (selectedOperationTypeId.value === 1) return t('company.management.balance.manage.withdraw')
+
+  return t('company.management.balance.manage.selectOperationType')
 })
 
 // Methods
