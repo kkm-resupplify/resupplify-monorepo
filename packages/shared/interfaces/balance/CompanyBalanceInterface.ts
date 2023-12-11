@@ -3,18 +3,18 @@ export interface CompanyBalance {
   currency: string
 }
 
-export interface Transaction {
+export interface Payment {
   id: number
   amount: number
   currency: string
   type: number
   status: number
   data: Date
-  sender: TransactionEntity
-  receiver: TransactionEntity
+  sender: PaymentEntity
+  receiver: PaymentEntity
 }
 
-export interface TransactionEntity {
+export interface PaymentEntity {
   name: string
   email: string
   contactPerson: string
