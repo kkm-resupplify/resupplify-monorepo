@@ -41,7 +41,7 @@
 import { type PropType, computed } from 'vue'
 import type { Payment } from '@sharedInterfaces/balance/CompanyBalanceInterface'
 import { useI18n } from 'vue-i18n'
-import PaymentTypeEnum from '@sharedEnums/Payment/PaymentTypeEnum'
+import PaymentTypeEnum from '@sharedEnums/payment/PaymentTypeEnum'
 
 const props = defineProps({
   payment: {
