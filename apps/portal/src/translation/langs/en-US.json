@@ -272,7 +272,8 @@
             "operationTypePlaceholder": "Select operation type",
             "amountLabel": "Amount",
             "amountPlaceholder": "Enter amount",
-            "depositFunds": "Deposit funds"
+            "depositFunds": "Deposit funds",
+            "selectOperationType": "Select operation type"
           }
         }
       },

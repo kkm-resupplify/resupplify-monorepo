@@ -15,26 +15,36 @@
       />
     </div>
 
-    <div class="payment-manage-balance-panel__content">
-      <m-select
-        name="type"
-        rules="required"
-        :label="$t('company.management.navigation.payments.manageBalance.operationTypeLabel')"
-        :placeholder="
-          $t('company.management.navigation.payments.manageBalance.operationTypePlaceholder')
-        "
-        :options="operationTypes"
-      />
+    <o-form :submit-callback="handleFormSubmit" class="payment-manage-balance-panel__form">
+      <template #body>
+        <div class="payment-manage-balance-panel__form-content">
+          <m-select
+            name="type"
+            rules="required"
+            :label="$t('company.management.navigation.payments.manageBalance.operationTypeLabel')"
+            :placeholder="
+              $t('company.management.navigation.payments.manageBalance.operationTypePlaceholder')
+            "
+            :options="operationTypes"
+            @input-change="handleSelectOperationTypeChange"
+          />
 
-      <m-text-field
-        name="amount"
-        input-type="number"
-        rules="required"
-        :label="$t('company.management.navigation.payments.manageBalance.amountLabel')"
-        :placeholder="$t('company.management.navigation.payments.manageBalance.amountPlaceholder')"
-        :options="operationTypes"
-      />
-    </div>
+          <m-text-field
+            name="amount"
+            input-type="number"
+            rules="required"
+            :label="$t('company.management.navigation.payments.manageBalance.amountLabel')"
+            :placeholder="
+              $t('company.management.navigation.payments.manageBalance.amountPlaceholder')
+            "
+            :options="operationTypes"
+          />
+        </div>
+      </template>
+      <template #footer>
+        <a-button button-type="submit" :text="submitButtonText" size="x-large" />
+      </template>
+    </o-form>
   </div>
 </template>
 
@@ -42,9 +52,16 @@
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+// Interfaces
+interface FormData {
+  type: string
+  amount: string
+}
+
 // Variables
 const balance = ref(1410)
 const { t } = useI18n()
+const selectedOperationTypeId = ref<number | null>(null)
 
 const operationTypes = ref([
   { id: 0, text: t('company.management.navigation.payments.manageBalance.deposit') },
@@ -55,6 +72,25 @@ const operationTypes = ref([
 const formattedBalance = computed(() => {
   return `: $${balance.value}`
 })
+
+const submitButtonText = computed(() => {
+  if (selectedOperationTypeId.value === 0) {
+    return t('company.management.navigation.payments.manageBalance.deposit')
+  }
+  if (selectedOperationTypeId.value === 1) {
+    return t('company.management.navigation.payments.manageBalance.withdraw')
+  }
+  return t('company.management.navigation.payments.manageBalance.selectOperationType')
+})
+
+// Methods
+const handleSelectOperationTypeChange = (id: number) => {
+  selectedOperationTypeId.value = id
+}
+
+const handleFormSubmit = (data: FormData) => {
+  console.log(data)
+}
 </script>
 
 <style scoped lang="scss">
@@ -74,7 +110,11 @@ const formattedBalance = computed(() => {
     white-space: nowrap;
   }
 
-  &__content {
+  &__form {
+    max-height: 190px;
+  }
+
+  &__form-content {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-60;

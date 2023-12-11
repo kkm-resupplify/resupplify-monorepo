@@ -278,7 +278,8 @@
             "operationTypePlaceholder": "Wybierz typ operacji",
             "amountLabel": "Ilość",
             "amountPlaceholder": "Wprowadź ilość",
-            "depositFunds": "Wpłać kwotę"
+            "depositFunds": "Wpłać kwotę",
+            "selectOperationType": "Wybierz rodzaj operacji"
           }
         }
       },
