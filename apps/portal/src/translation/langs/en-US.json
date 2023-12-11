@@ -34,8 +34,15 @@
     "pl-PL": "Polish"
   },
 
-  "payments": {
-    "payNow": "Pay now"
+  "payment": {
+    "payNow": "Pay now",
+
+    "type": {
+      "withdrawal": "Withdrawal",
+      "deposit": "Deposit",
+      "sale": "Sale",
+      "purchase": "Purchase"
+    }
   },
 
   "navigation": {

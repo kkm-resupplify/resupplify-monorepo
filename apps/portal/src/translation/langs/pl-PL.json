@@ -34,8 +34,15 @@
     "pl-PL": "Polski"
   },
 
-  "payments": {
-    "payNow": "Zapłać teraz"
+  "payment": {
+    "payNow": "Zapłać teraz",
+
+    "type": {
+      "withdrawal": "Wypłata",
+      "deposit": "Depozyt",
+      "sale": "Sprzedaż",
+      "purchase": "Zakup"
+    }
   },
 
   "navigation": {
