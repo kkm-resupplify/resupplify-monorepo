@@ -497,6 +497,18 @@
             "colorValue": "Hex color value"
           }
         }
+      },
+
+      "balance": {
+        "dashboard": {
+          "payment": {
+            "section": {
+              "amount": "Amount",
+              "type": "Transaction type",
+              "date": "Transaction date"
+            }
+          }
+        }
       }
     }
   },
