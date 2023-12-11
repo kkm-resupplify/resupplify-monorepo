@@ -267,6 +267,11 @@
           "tiles": {
             "dashboard": "Panel płatności",
             "manage": "Zarządzanie stanem konta"
+          },
+
+          "manageBalance": {
+            "title": "Zarządzaj saldem firmy",
+            "currentBalance": "Aktualne saldo"
           }
         }
       },

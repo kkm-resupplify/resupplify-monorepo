@@ -261,6 +261,11 @@
           "tiles": {
             "dashboard": "Payments dashboard",
             "manage": "Manage balance"
+          },
+
+          "manageBalance": {
+            "title": "Manage company balance",
+            "currentBalance": "Current balance"
           }
         }
       },
