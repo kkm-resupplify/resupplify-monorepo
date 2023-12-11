@@ -2,6 +2,8 @@
   <a-expansion-panel class="payment-dashboard-payment-list-item">
     <template #activator>
       <a-list-item-wrapper class="payment-dashboard-payment-list-item__activator">
+        <m-icon :icon="paymentIcon" size="xx-large" :color="paymentIconColor" />
+
         <a-list-item-title-section
           v-for="(activatorSection, idx) in activatorSections"
           :key="idx"
@@ -51,8 +53,8 @@ const { t } = useI18n()
 // Computed
 const activatorSections = computed(() => {
   return [
-    new ActivatorSectionDto('amount', props.payment.amount),
     new ActivatorSectionDto('type', getTransactionType(props.payment.type)),
+    new ActivatorSectionDto('amount', `${props.payment.amount}€`),
     new ActivatorSectionDto('date', props.payment.date)
   ]
 })
@@ -60,6 +62,27 @@ const activatorSections = computed(() => {
 const getTransactionType = (key: number) => {
   return t(`payment.type.${PaymentTypeEnum.getFieldName(key)?.toLowerCase()}`)
 }
+
+const paymentIcon = computed(() => {
+  return [PaymentTypeEnum.PURCHASE, PaymentTypeEnum.WITHDRAWAL].includes(props.payment.type)
+    ? 'trending_down'
+    : 'trending_up'
+})
+
+const paymentIconColor = computed(() => {
+  switch (props.payment.type) {
+    case PaymentTypeEnum.WITHDRAWAL:
+      return 'info'
+    case PaymentTypeEnum.DEPOSIT:
+      return 'disabled'
+    case PaymentTypeEnum.SALE:
+      return 'success'
+    case PaymentTypeEnum.PURCHASE:
+      return 'danger'
+    default:
+      return 'info'
+  }
+})
 </script>
 
 <style lang="scss" scoped>
