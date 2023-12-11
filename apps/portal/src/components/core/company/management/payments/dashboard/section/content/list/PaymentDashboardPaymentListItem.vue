@@ -14,7 +14,25 @@
     </template>
 
     <template #content>
-      <div class="payment-dashboard-payment-list-item__content"></div>
+      <div class="payment-dashboard-payment-list-item__content">
+        <a-title
+          v-if="payment.sender"
+          :title="$t('payment.sender')"
+          :subtitle="payment.sender.email"
+          variant="horizontal"
+          basis="50%"
+          append-colon
+        />
+
+        <a-title
+          v-if="payment.receiver"
+          :title="$t('payment.receiver')"
+          :subtitle="payment.receiver.email"
+          variant="horizontal"
+          basis="50%"
+          append-colon
+        />
+      </div>
     </template>
   </a-expansion-panel>
 </template>

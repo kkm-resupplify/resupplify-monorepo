@@ -36,6 +36,8 @@
 
   "payment": {
     "payNow": "Zapłać teraz",
+    "receiver": "Odbiorca płatności",
+    "sender": "Nadawca płatności",
 
     "type": {
       "withdrawal": "Wypłata",

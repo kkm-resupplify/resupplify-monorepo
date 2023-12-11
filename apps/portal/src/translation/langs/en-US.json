@@ -36,6 +36,8 @@
 
   "payment": {
     "payNow": "Pay now",
+    "receiver": "Payment receiver",
+    "sender": "Payment sender",
 
     "type": {
       "withdrawal": "Withdrawal",
