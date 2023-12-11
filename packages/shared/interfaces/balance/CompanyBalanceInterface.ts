@@ -9,7 +9,7 @@ export interface Payment {
   currency: string
   type: number
   status: number
-  data: Date
+  date: Date
   sender: PaymentEntity
   receiver: PaymentEntity
 }
