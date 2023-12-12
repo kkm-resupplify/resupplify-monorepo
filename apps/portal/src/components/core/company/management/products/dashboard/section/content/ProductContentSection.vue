@@ -60,7 +60,7 @@
           </div>
 
           <div class="product-content-section__filters-row">
-            <a-button button-type="submit" :text="$t('global.search')" size="large" />
+            <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
 
             <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
           </div>
@@ -125,17 +125,17 @@ const initialFormValues = ref<InitialQueryParams>()
 const paginationData = ref<Pagination>()
 const form = ref<typeof OForm>()
 
-const statuses = ref([
+// Computed
+const statuses = computed(() => [
   { id: 0, text: t('global.inactive') },
   { id: 1, text: t('global.active') }
 ])
 
-const verificationStatuses = ref([
+const verificationStatuses = computed(() => [
   { id: 0, text: t('global.unverified') },
   { id: 1, text: t('global.verified') }
 ])
 
-// Computed
 const productCategorySubcategories = computed(() => {
   return selectedCategoryId.value
     ? staticProductDescriptorsStore.getProductSubcategories.filter(
@@ -222,6 +222,14 @@ const handleClearSearch = async () => {
 
 const handleResetFilters = async () => {
   form.value?.handleReset()
+  initialFormValues.value = {
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined,
+    status: undefined,
+    verificationStatus: undefined
+  }
+
   await handleQuerySubmit({
     page: '1',
     name: undefined,
