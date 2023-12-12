@@ -384,7 +384,7 @@ defineExpose({
 
     position: absolute;
     z-index: 10;
-    transform: translateY(calc(v-bind(inputHeight) + $global-spacing-30));
+    transform: translateY(calc(v-bind(inputHeight)));
 
     overflow-y: auto;
     display: flex;
