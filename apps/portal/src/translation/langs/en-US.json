@@ -503,6 +503,12 @@
 
       "balance": {
         "dashboard": {
+          "transactionHistory": "Transaction history",
+
+          "filter": {
+            "typePlaceholder": "Select transaction type"
+          },
+
           "payment": {
             "section": {
               "amount": "Amount",
