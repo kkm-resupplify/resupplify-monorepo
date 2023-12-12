@@ -17,6 +17,8 @@ export default class BaseEnum {
   }
 
   static getAllFields(): string[] {
-    return Object.getOwnPropertyNames(this)
+    return Object.getOwnPropertyNames(this).filter(
+      (key) => !['length', 'name', 'prototype'].includes(key)
+    )
   }
 }
