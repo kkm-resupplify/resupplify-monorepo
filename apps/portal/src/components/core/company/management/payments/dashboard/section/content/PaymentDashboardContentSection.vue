@@ -156,6 +156,10 @@ const handleQuerySubmit = async (data: TransactionHistoryFilterParams) => {
 const handleFetchTransactions = async () => {
   isLoading.value = true
 
+  const {
+    query: { page, type }
+  } = route
+
   isLoading.value = false
 }
 
