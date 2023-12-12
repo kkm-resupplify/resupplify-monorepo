@@ -1,11 +1,6 @@
 import type { OfferProduct } from './OfferProduct'
 
 export interface Offer {
-  status: OfferStatus
+  status: number
   product: OfferProduct
-}
-
-enum OfferStatus {
-  Active,
-  Inactive
 }
