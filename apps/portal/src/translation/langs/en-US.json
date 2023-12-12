@@ -510,6 +510,19 @@
               "date": "Transaction date"
             }
           }
+        },
+
+        "manage": {
+          "title": "Manage company balance",
+          "currentBalance": "Current balance",
+          "deposit": "Deposit",
+          "withdraw": "Withdraw",
+          "operationTypeLabel": "Operation type",
+          "operationTypePlaceholder": "Select operation type",
+          "amountLabel": "Amount",
+          "amountPlaceholder": "Enter amount",
+          "depositFunds": "Deposit funds",
+          "selectOperationType": "Select operation type"
         }
       }
     }

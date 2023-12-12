@@ -515,6 +515,19 @@
               "date": "Data transakcji"
             }
           }
+        },
+
+        "manage": {
+          "title": "Zarządzaj saldem firmy",
+          "currentBalance": "Aktualne saldo",
+          "deposit": "Wpłać",
+          "withdraw": "Wypłać",
+          "operationTypeLabel": "Typ operacji",
+          "operationTypePlaceholder": "Wybierz typ operacji",
+          "amountLabel": "Ilość",
+          "amountPlaceholder": "Wprowadź ilość",
+          "depositFunds": "Wpłać kwotę",
+          "selectOperationType": "Wybierz rodzaj operacji"
         }
       }
     }

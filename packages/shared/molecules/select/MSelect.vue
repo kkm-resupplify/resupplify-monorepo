@@ -243,6 +243,7 @@ const handleInputClick = () => {
 const clearSelect = () => {
   optionsFilter.value = ''
   inputValue.value = null
+  emits('input-change', inputValue.value)
 }
 
 const closeSelect = () => {
