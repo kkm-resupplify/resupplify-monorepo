@@ -508,6 +508,12 @@
 
       "balance": {
         "dashboard": {
+          "transactionHistory": "Historia transakcji",
+
+          "filter": {
+            "typePlaceholder": "Wybierz typ transakcji"
+          },
+
           "payment": {
             "section": {
               "amount": "Ilość",
