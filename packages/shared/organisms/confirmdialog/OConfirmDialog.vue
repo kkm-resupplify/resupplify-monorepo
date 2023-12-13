@@ -38,7 +38,7 @@ const props = defineProps({
   type: {
     type: String,
     validator(value: string) {
-      return ['create', 'update', 'delete'].includes(value)
+      return ['create', 'update', 'delete', 'activate', 'deactivate'].includes(value)
     },
     required: true
   },

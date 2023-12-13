@@ -20,7 +20,18 @@
 
           <template #content>
             <div class="offer-dashboard-offer-list-item__dropdown-content">
-              <a-title :title="$t('global.activate')" />
+              <o-confirm-dialog
+                :activator-name="$t(`global.${operationType}`)"
+                activator-size="small"
+                color="gradient-danger"
+                :type="operationType"
+                :title="
+                  $t('company.management.balance.dashboard.offer.section.dialog.titleActivation')
+                "
+                :content="
+                  $t('company.management.balance.dashboard.offer.section.dialog.contentActivation')
+                "
+              />
 
               <a-title :title="$t('global.delete')" />
             </div>
@@ -83,6 +94,8 @@ const contentSectionsTitles = computed(() => {
     new ActivatorSectionDto('productProducer', props.offer.product.producer)
   ]
 })
+
+const operationType = computed(() => (props.offer.status === 0 ? 'deactivate' : 'activate'))
 </script>
 
 <style scoped lang="scss">
@@ -91,6 +104,15 @@ const contentSectionsTitles = computed(() => {
     display: flex;
     justify-content: flex-end;
     min-width: 120px;
+  }
+
+  &__dropdown-content {
+    display: flex;
+    flex-direction: column;
+
+    :deep(button) {
+      width: 100%;
+    }
   }
 }
 </style>

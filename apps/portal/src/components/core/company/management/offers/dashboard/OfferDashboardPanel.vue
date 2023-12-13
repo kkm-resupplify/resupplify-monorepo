@@ -128,7 +128,7 @@ const offers = ref<Offer[]>([
   },
   {
     id: 3,
-    status: 2,
+    status: 1,
     product: {
       id: 3,
       name: 'Product 3',
