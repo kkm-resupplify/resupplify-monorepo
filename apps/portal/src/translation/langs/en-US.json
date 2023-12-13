@@ -524,11 +524,11 @@
 
               "dialog": {
                 "titleActivation": "Confirm activation",
-                "contentActivation": "Are you sure you want to activate this offer",
+                "contentActivation": "Are you sure you want to activate this offer?",
                 "titleDeactivation": "Confirm deactivation",
-                "contentDeactivation": "Are you sure you want to deactivate this offer",
+                "contentDeactivation": "Are you sure you want to deactivate this offer?",
                 "titleDeletion": "Confirm deletion",
-                "contentDeletion": "Are you sure you want to activate this offer"
+                "contentDeletion": "Are you sure you want to activate this offer?"
               }
             }
           }
