@@ -50,7 +50,42 @@
     </template>
 
     <template #content>
-      <div class="offer-dashboard-offer-list-item__content"></div>
+      <div class="offer-dashboard-offer-list-item__content">
+        <a-title
+          :title="$t('company.management.balance.dashboard.offer.section.productCode')"
+          :subtitle="offer.product.code"
+          variant="horizontal"
+          size="large"
+          append-colon
+        />
+
+        <a-title
+          :title="$t('company.management.balance.dashboard.offer.section.productDescription')"
+          :subtitle="offer.product.description"
+          variant="horizontal"
+          size="large"
+          append-colon
+        />
+
+        <a-title
+          :title="$t('company.management.balance.dashboard.offer.section.productProducer')"
+          :subtitle="offer.product.producer"
+          variant="horizontal"
+          size="large"
+          append-colon
+        />
+
+        <div class="offer-dashboard-offer-list-item__content-tags">
+          <a-title
+            v-if="offer.product.productTags.length"
+            :title="$t('company.management.balance.dashboard.offer.section.productTags')"
+            size="large"
+            append-colon
+          />
+
+          <product-tag-list :product-tags="offer.product.productTags" />
+        </div>
+      </div>
     </template>
   </a-expansion-panel>
 </template>
@@ -60,6 +95,7 @@ import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import ProductTagList from '@/components/common/product/ProductTagList.vue'
 
 const props = defineProps({
   offer: {
@@ -96,14 +132,6 @@ const activatorSections = computed(() => {
   ]
 })
 
-const contentSectionsTitles = computed(() => {
-  return [
-    new ExpansionPanelSectionDto('productCode', props.offer.product.code),
-    new ExpansionPanelSectionDto('productDescription', props.offer.product.description),
-    new ExpansionPanelSectionDto('productProducer', props.offer.product.producer)
-  ]
-})
-
 const activationType = computed(() => (props.offer.status === 0 ? 'deactivate' : 'activate'))
 
 const activationTypeTitle = computed(() =>
@@ -134,6 +162,18 @@ const activationTypeContent = computed(() =>
     :deep(button) {
       width: 100%;
     }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-40;
+    white-space: nowrap;
+  }
+
+  &__content-tags {
+    display: flex;
+    gap: $global-spacing-40;
   }
 }
 </style>
