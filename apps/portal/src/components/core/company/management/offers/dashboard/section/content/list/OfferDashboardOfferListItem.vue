@@ -2,6 +2,14 @@
   <a-expansion-panel class="offer-dashboard-offer-list-item">
     <template #activator>
       <a-list-item-wrapper class="offer-dashboard-offer-list-item__activator">
+        <a-title :title="offer.product.name" />
+
+        <a-list-item-title-section
+          v-for="(activatorSection, idx) in activatorSections"
+          :key="idx"
+          :title="activatorSection.title"
+          :value="activatorSection.value"
+        />
       </a-list-item-wrapper>
     </template>
 
@@ -45,7 +53,7 @@ const { t } = useI18n()
 // Computed
 const activatorSections = computed(() => {
   return [
-    new ActivatorSectionDto('netPrice', props.offer.product.netPrice),
+    new ActivatorSectionDto('netPrice', `${props.offer.product.netPrice}$`),
     new ActivatorSectionDto('unit', props.offer.product.productUnit.code),
     new ActivatorSectionDto('supply', props.offer.product.supply),
     new ActivatorSectionDto('quantity', props.offer.product.quantity)
