@@ -60,7 +60,7 @@ const props = defineProps({
 })
 
 // DTO
-class ActivatorSectionDto {
+class ExpansionPanelSectionDto {
   title: string
   value: string | number
 
@@ -80,18 +80,18 @@ const { t } = useI18n()
 // Computed
 const activatorSections = computed(() => {
   return [
-    new ActivatorSectionDto('netPrice', `${props.offer.product.netPrice}$`),
-    new ActivatorSectionDto('unit', props.offer.product.productUnit.code),
-    new ActivatorSectionDto('supply', props.offer.product.supply),
-    new ActivatorSectionDto('quantity', props.offer.product.quantity)
+    new ExpansionPanelSectionDto('netPrice', `${props.offer.product.netPrice}$`),
+    new ExpansionPanelSectionDto('unit', props.offer.product.productUnit.code),
+    new ExpansionPanelSectionDto('supply', props.offer.product.supply),
+    new ExpansionPanelSectionDto('quantity', props.offer.product.quantity)
   ]
 })
 
 const contentSectionsTitles = computed(() => {
   return [
-    new ActivatorSectionDto('productCode', props.offer.product.code),
-    new ActivatorSectionDto('productDescription', props.offer.product.description),
-    new ActivatorSectionDto('productProducer', props.offer.product.producer)
+    new ExpansionPanelSectionDto('productCode', props.offer.product.code),
+    new ExpansionPanelSectionDto('productDescription', props.offer.product.description),
+    new ExpansionPanelSectionDto('productProducer', props.offer.product.producer)
   ]
 })
 
