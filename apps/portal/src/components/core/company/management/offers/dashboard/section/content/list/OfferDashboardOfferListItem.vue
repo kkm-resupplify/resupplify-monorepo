@@ -10,6 +10,22 @@
           :title="activatorSection.title"
           :value="activatorSection.value"
         />
+
+        <a-dropdown @click.stop>
+          <template #activator>
+            <div class="offer-dashboard-offer-list-item__dropdown-activator">
+              <a-icon icon="more_vert" size="xx-large" hoverable />
+            </div>
+          </template>
+
+          <template #content>
+            <div class="offer-dashboard-offer-list-item__dropdown-content">
+              <a-title :title="$t('global.activate')" />
+
+              <a-title :title="$t('global.delete')" />
+            </div>
+          </template>
+        </a-dropdown>
       </a-list-item-wrapper>
     </template>
 
@@ -68,3 +84,13 @@ const contentSectionsTitles = computed(() => {
   ]
 })
 </script>
+
+<style scoped lang="scss">
+.offer-dashboard-offer-list-item {
+  &__dropdown-activator {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 120px;
+  }
+}
+</style>
