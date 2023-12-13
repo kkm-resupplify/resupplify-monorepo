@@ -21,13 +21,14 @@
           <template #content>
             <div class="offer-dashboard-offer-list-item__dropdown-content">
               <o-confirm-dialog
-                :activator-name="$t(`global.${activationType}`)"
-                activator-size="small"
-                color="gradient-danger"
                 :type="activationType"
                 :title="activationTypeTitle"
                 :content="activationTypeContent"
-              />
+              >
+                <template #activator>
+                  <span v-text="$t(`global.${activationType}`)" />
+                </template>
+              </o-confirm-dialog>
 
               <a-title :title="$t('global.delete')" />
             </div>
