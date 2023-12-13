@@ -30,7 +30,19 @@
                 </template>
               </o-confirm-dialog>
 
-              <a-title :title="$t('global.delete')" />
+              <o-confirm-dialog
+                type="delete"
+                :title="
+                  $t('company.management.balance.dashboard.offer.section.dialog.titleDeletion')
+                "
+                :content="
+                  $t('company.management.balance.dashboard.offer.section.dialog.contentDeletion')
+                "
+              >
+                <template #activator>
+                  <span v-text="$t(`global.delete`)" />
+                </template>
+              </o-confirm-dialog>
             </div>
           </template>
         </a-dropdown>
