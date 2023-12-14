@@ -47,7 +47,7 @@
           <div class="offer-dashboard-content-section__filters-row">
             <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
 
-            <a-button :text="$t('global.reset')" size="x-large" />
+            <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
           </div>
         </div>
       </template>
@@ -133,6 +133,24 @@ const setQueryParam = async (data: InitialQueryParams | undefined) => {
 
 const handleQuerySubmit = async (data: InitialQueryParams) => {
   await setQueryParam(data)
+}
+
+const handleResetFilters = async () => {
+  form.value?.handleReset()
+  initialFormValues.value = {
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined,
+    status: undefined
+  }
+
+  await handleQuerySubmit({
+    page: '1',
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined,
+    status: undefined
+  })
 }
 
 // Hooks
