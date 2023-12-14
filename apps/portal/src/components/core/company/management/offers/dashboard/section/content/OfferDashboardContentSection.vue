@@ -16,13 +16,16 @@
             <m-select
               name="categoryId"
               :placeholder="$t('company.management.offer.dashboard.productCategoryPlaceholder')"
+              :options="staticProductDescriptorsStore.getProductCategories"
               :validate="false"
               width="25%"
+              @input-change="handleProductCategoryChange"
             />
 
             <m-select
               name="subcategoryId"
               :placeholder="$t('company.management.offer.dashboard.productSubcategoryPlaceholder')"
+              :options="productCategorySubcategories"
               :validate="false"
               width="25%"
             />
@@ -31,6 +34,7 @@
               name="status"
               :placeholder="$t('company.management.offer.dashboard.offerStatusPlaceholder')"
               :validate="false"
+              :options="statuses"
               width="25%"
             />
           </div>
@@ -60,6 +64,12 @@ import type { PropType } from 'vue'
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import OForm from '@sharedOrganisms/form/OForm.vue'
+import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
+import { computed } from 'vue'
+import { onBeforeMount } from 'vue'
+import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
+import MSelect from '@sharedMolecules/select/MSelect.vue'
+import { useI18n } from 'vue-i18n'
 
 defineProps({
   offers: {
@@ -72,12 +82,41 @@ defineProps({
 // Variables
 const route = useRoute()
 const form = ref<typeof OForm>()
+const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
+const selectedCategoryId = ref<number | null>()
+const subcategoryRef = ref<typeof MSelect>()
+const { t } = useI18n()
+
+// Computed
+const productCategorySubcategories = computed(() => {
+  return selectedCategoryId.value
+    ? staticProductDescriptorsStore.getProductSubcategories.filter(
+        (subcategory) => subcategory.categoryId === selectedCategoryId.value
+      )
+    : staticProductDescriptorsStore.getProductSubcategories
+})
+
+const statuses = computed(() => [
+  { id: 0, text: t('global.inactive') },
+  { id: 1, text: t('global.active') }
+])
 
 // Methods
 const handleClearSearch = async () => {
   await router.replace({ query: { ...route.query, name: '' } })
   form.value?.resetField('name', null)
 }
+
+const handleProductCategoryChange = (id: number) => {
+  subcategoryRef?.value?.clearSelect()
+  selectedCategoryId.value = id
+}
+
+// Hooks
+onBeforeMount(async () => {
+  await StaticProductDescriptorsService.getCategories()
+  await StaticProductDescriptorsService.getSubcategories()
+})
 </script>
 
 <style lang="scss" scoped>
