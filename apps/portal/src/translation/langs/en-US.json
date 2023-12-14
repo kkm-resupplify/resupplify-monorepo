@@ -26,7 +26,8 @@
     "activate": "Activate",
     "deactivate": "Deactivate",
     "preview": "Preview",
-    "reset": "Reset"
+    "reset": "Reset",
+    "withdraw": "Withdraw"
   },
 
   "language": {
@@ -532,9 +533,28 @@
         }
       },
 
-      "offer": {
-        "companyOffers": "Company offers",
-        "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet."
+      "offer": {        
+        "dashboard": {
+          "companyOffers": "Company offers",
+          "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet.",
+          "netPrice": "Net price",
+          "unit": "Unit",
+          "supply": "Supply",
+          "quantity": "Quantity",
+          "productCode": "Product code",
+          "productDescription": "Product description",
+          "productProducer": "Product producer",
+          "productTags": "Product tags",
+
+          "dialog": {
+            "titleActivation": "Confirm activation",
+            "contentActivation": "Are you sure you want to activate this offer?",
+            "titleWithdrawal": "Confirm withdrawal",
+            "contentWithdrawal": "Are you sure you want to withdraw this offer?",
+            "titleDeletion": "Confirm deletion",
+            "contentDeletion": "Are you sure you want to activate this offer?"
+          }
+        }
       }
     }
   },
