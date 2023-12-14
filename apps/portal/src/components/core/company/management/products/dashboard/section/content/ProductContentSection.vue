@@ -69,7 +69,7 @@
     </o-form>
 
     <router-link :to="{ name: RouteNames.COMPANY_OFFERS_CREATOR }" style="margin-left: auto">
-      <a-button :text="$t('company.management.offer.creator.addOffer')" size="x-large" />
+      <a-button :text="$t('company.management.offer.creator.createOffer')" size="x-large" />
     </router-link>
 
     <a-line />
