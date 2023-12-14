@@ -1,6 +1,11 @@
 <template>
   <a-panel-section class="offer-dashboard-content-section">
-    <o-form ref="form" class="product-content-section__filter-form">
+    <o-form
+      ref="form"
+      class="product-content-section__filter-form"
+      :submit-callback="handleQuerySubmit"
+      :initial-values="initialFormValues"
+    >
       <template #body>
         <div class="offer-dashboard-content-section__filters">
           <div class="offer-dashboard-content-section__filters-row">
@@ -79,11 +84,21 @@ defineProps({
   isLoading: Boolean
 })
 
+// Interfaces
+interface InitialQueryParams {
+  page?: string
+  name?: string
+  categoryId?: number
+  subcategoryId?: number
+  status?: number
+}
+
 // Variables
 const route = useRoute()
 const form = ref<typeof OForm>()
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const selectedCategoryId = ref<number | null>()
+const initialFormValues = ref<InitialQueryParams>()
 const subcategoryRef = ref<typeof MSelect>()
 const { t } = useI18n()
 
@@ -110,6 +125,14 @@ const handleClearSearch = async () => {
 const handleProductCategoryChange = (id: number) => {
   subcategoryRef?.value?.clearSelect()
   selectedCategoryId.value = id
+}
+
+const setQueryParam = async (data: InitialQueryParams | undefined) => {
+  await router.replace({ query: { ...route.query, ...data } })
+}
+
+const handleQuerySubmit = async (data: InitialQueryParams) => {
+  await setQueryParam(data)
 }
 
 // Hooks
