@@ -1,10 +1,12 @@
 <template>
   <a-panel-section class="offer-dashboard-header-section">
-    <a-title :title="$t('company.management.offer.companyOffers')" size="x-large" />
+    <a-title :title="$t('company.management.offer.dashboard.companyOffers')" size="x-large" />
 
-    <m-alert v-if="isCompanyNotVerified" variant="danger">
-      <span v-text="$t('company.management.offer.companyOffersNotVisible')" />
-    </m-alert>
+    <m-alert
+      v-if="isCompanyNotVerified"
+      variant="danger"
+      :text="$t('company.management.offer.dashboard.companyOffersNotVisible')"
+    />
   </a-panel-section>
 </template>
 
