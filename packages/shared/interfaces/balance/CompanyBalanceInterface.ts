@@ -17,7 +17,9 @@ export interface Payment {
 export interface PaymentEntity {
   name: string
   email: string
+  phoneNumber: string
   contactPerson: string
+  address: string
 }
 
 export interface BalanceOperation {
