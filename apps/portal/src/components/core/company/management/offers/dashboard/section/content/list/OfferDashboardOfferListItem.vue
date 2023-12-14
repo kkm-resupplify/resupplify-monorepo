@@ -2,6 +2,8 @@
   <a-expansion-panel class="offer-dashboard-offer-list-item">
     <template #activator>
       <a-list-item-wrapper class="offer-dashboard-offer-list-item__activator">
+        <a-status-indicator :status="offerStatus(offer)" />
+
         <a-title :title="offer.product.name" />
 
         <a-list-item-title-section
@@ -96,6 +98,7 @@ import type { PropType } from 'vue'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
+import { useOfferStatus } from '@/composable/offer/useOfferStatus'
 
 const props = defineProps({
   offer: {
@@ -121,6 +124,7 @@ class ExpansionPanelSectionDto {
 
 // Variables
 const { t } = useI18n()
+const { offerStatus } = useOfferStatus()
 
 // Computed
 const activatorSections = computed(() => {
