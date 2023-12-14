@@ -1,16 +1,10 @@
 <template>
   <a-panel-section class="warehouse-preview-content-section">
-    <div class="warehouse-preview-content-section__controlls">
-      <o-search-bar
-        :placeholder="$t('company.management.warehouse.preview.content.search')"
-        :disabled="!hasProducts"
-        @search="handleFetchWarehouseProducts"
-      />
-
-      <router-link :to="{ name: RouteNames.COMPANY_OFFERS_CREATOR }">
-        <a-button :text="$t('company.management.offer.creator.addOffer')" size="x-large" />
-      </router-link>
-    </div>
+    <o-search-bar
+      :placeholder="$t('company.management.warehouse.preview.content.search')"
+      :disabled="!hasProducts"
+      @search="handleFetchWarehouseProducts"
+    />
 
     <a-line />
 
@@ -42,7 +36,6 @@ import WarehouseService from '@/services/warehouse/WarehouseService'
 import { useRoute } from 'vue-router'
 import { ref, computed, onMounted } from 'vue'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
-import { RouteNames } from '@/routes'
 const props = defineProps({
   hasProducts: Boolean
 })
