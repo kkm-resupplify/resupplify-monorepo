@@ -509,8 +509,29 @@
       "balance": {
         "dashboard": {
           "transactionHistory": "Historia transakcji",
-          "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
-          "noTransactionsMatchingFilter": "Brak transakcji dla podanych parametrów.",
+
+          "list": {
+            "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
+            "noTransactionsMatchingFilter": "Brak transakcji dla podanych parametrów.",
+
+            "item": {
+              "receiver": {
+                "name": "Nazwa odbiorcy",
+                "email": "Email odbiorcy",
+                "phone": "Telefon odbiorcy",
+                "contactPerson": "Osoba kontaktowa",
+                "address": "Adres odbiorcy"
+              },
+
+              "sender": {
+                "name": "Nazwa nadawcy",
+                "email": "Email nadawcy",
+                "phone": "Telefon nadawcy",
+                "contactPerson": "Osoba kontaktowa",
+                "address": "Adres nadawcy"
+              }
+            }
+          },
 
           "filter": {
             "typePlaceholder": "Wybierz typ transakcji"
