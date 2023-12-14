@@ -1,6 +1,49 @@
 <template>
   <a-panel-section class="offer-dashboard-content-section">
-    <div>Filters</div>
+    <o-form class="product-content-section__filter-form">
+      <template #body>
+        <div class="offer-dashboard-content-section__filters">
+          <div class="offer-dashboard-content-section__filters-row">
+            <m-text-field
+              class="offer-dashboard-content-section__name-search"
+              name="name"
+              :placeholder="$t('company.management.offer.dashboard.searchBarPlaceholder')"
+              :validate="false"
+              append-icon-on="close"
+            />
+
+            <m-select
+              name="categoryId"
+              :placeholder="$t('company.management.offer.dashboard.productCategoryPlaceholder')"
+              :validate="false"
+              width="25%"
+            />
+
+            <m-select
+              name="subcategoryId"
+              :placeholder="$t('company.management.offer.dashboard.productSubcategoryPlaceholder')"
+              :validate="false"
+              width="25%"
+            />
+
+            <m-select
+              name="status"
+              :placeholder="$t('company.management.offer.dashboard.offerStatusPlaceholder')"
+              :validate="false"
+              width="25%"
+            />
+          </div>
+
+          <div class="offer-dashboard-content-section__filters-row">
+            <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
+
+            <a-button :text="$t('global.reset')" size="x-large" />
+          </div>
+        </div>
+      </template>
+    </o-form>
+
+    <a-line />
 
     <template v-if="isLoading">implement-loader-here</template>
 
@@ -24,6 +67,40 @@ defineProps({
 
 <style lang="scss" scoped>
 .offer-dashboard-content-section {
+  overflow-y: auto;
   display: flex;
+  flex-direction: column;
+  gap: $global-spacing-100;
+
+  height: 100%;
+
+  :deep(.o-form__body) {
+    flex: 0;
+  }
+
+  :deep(.o-form) {
+    flex: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__filters {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-30;
+  }
+
+  &__filters-row {
+    display: flex;
+    gap: $global-spacing-30;
+  }
+
+  &__name-search {
+    max-width: 500px;
+  }
 }
 </style>
