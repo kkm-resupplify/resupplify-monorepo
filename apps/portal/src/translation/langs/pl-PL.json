@@ -535,6 +535,18 @@
           "depositFunds": "Wpłać kwotę",
           "selectOperationType": "Wybierz rodzaj operacji"
         }
+      },
+
+      "offer": {
+        "creator": {
+          "selectProductLabel": "Produkt",
+          "selectProductPlaceholder": "Wybierz produkt",
+          "selectQuantityLabel": "Ilość",
+          "selectQuantityPlaceholder": "Wybierz ilość",
+          "selectNetPriceLabel": "Cena netto",
+          "selectNetPricePlaceholder": "Podaj cenę netto za sztukę",
+          "addOffer": "Dodaj ofertę"
+        }
       }
     }
   },
