@@ -7,16 +7,19 @@
         size="x-large"
       />
 
-      <a-button
-        :text="$t('global.manage')"
-        size="x-large"
-        class="payment-dashboard-header-section__manage"
-      />
+      <router-link :to="{ name: RouteNames.COMPANY_PAYMENTS_MANAGE_BALANCE }">
+        <a-button
+          :text="$t('global.manage')"
+          size="x-large"
+          class="payment-dashboard-header-section__manage"
+        />
+      </router-link>
     </div>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
+import { RouteNames } from '@/routes'
 import { ref, computed } from 'vue'
 
 // Variables
