@@ -38,7 +38,7 @@ const props = defineProps({
   type: {
     type: String,
     validator(value: string) {
-      return ['create', 'update', 'delete'].includes(value)
+      return ['create', 'update', 'delete', 'activate', 'withdraw'].includes(value)
     },
     required: true
   },
@@ -67,7 +67,7 @@ const translationKeySuffix = computed(
 )
 
 const activatorVariant = computed(() =>
-  props.type === 'delete' ? 'gradient-danger' : 'gradient-primary'
+  props.type === 'delete' || props.type === 'withdraw' ? 'gradient-danger' : 'gradient-primary'
 )
 
 const titleText = computed(() => {

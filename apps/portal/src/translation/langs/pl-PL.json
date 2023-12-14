@@ -26,7 +26,8 @@
     "activate": "Aktywuj",
     "deactivate": "Dezaktywuj",
     "preview": "Podgląd",
-    "reset": "Resetuj"
+    "reset": "Resetuj",
+    "withdraw": "Wycofaj"
   },
 
   "language": {
@@ -538,6 +539,26 @@
       },
 
       "offer": {
+        "dashboard": {
+          "netPrice": "Cena netto",
+          "unit": "Jednostka",
+          "supply": "Zaopatrzenie",
+          "quantity": "Ilość",
+          "productCode": "Kod productu",
+          "productDescription": "Opis produktu",
+          "productProducer": "Producent produktu",
+          "productTags": "Tagi produktu",
+
+          "dialog": {
+            "titleActivation": "Potwierdzenie aktywacji",
+            "contentActivation": "Czy na pewno chcesz aktywować tę ofertę?",
+            "titleWithdrawal": "Potwierdzenie wycofania",
+            "contentWithdrawal": "Czy na pewno chcesz wycofać tę ofertę?",
+            "titleDeletion": "Potwierdzenie usunięcia",
+            "contentDeletion": "Czy na pewno chcesz usunąć tę ofertę?"
+          }
+        },
+
         "creator": {
           "selectProductLabel": "Produkt",
           "selectProductPlaceholder": "Wybierz produkt",
