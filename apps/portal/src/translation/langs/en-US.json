@@ -506,6 +506,7 @@
       "balance": {
         "dashboard": {
           "transactionHistory": "Transaction history",
+          "companyBalance": "Company balance",
 
           "filter": {
             "typePlaceholder": "Select transaction type"

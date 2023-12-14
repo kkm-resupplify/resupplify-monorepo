@@ -511,6 +511,7 @@
       "balance": {
         "dashboard": {
           "transactionHistory": "Historia transakcji",
+          "companyBalance": "Saldo firmy",
 
           "filter": {
             "typePlaceholder": "Wybierz typ transakcji"
