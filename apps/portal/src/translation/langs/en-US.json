@@ -546,6 +546,10 @@
           "productDescription": "Product description",
           "productProducer": "Product producer",
           "productTags": "Product tags",
+          "searchOffers": "Search offers",
+          "productCategory": "Product category",
+          "productSubcategory": "Product subcategory",
+          "offerStatus": "Offer status",
 
           "dialog": {
             "titleActivation": "Confirm activation",

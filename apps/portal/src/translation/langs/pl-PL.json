@@ -551,6 +551,10 @@
           "productDescription": "Opis produktu",
           "productProducer": "Producent produktu",
           "productTags": "Tagi produktu",
+          "searchOffers": "Szukaj ofert",
+          "productCategory": "Kategoria produktu",
+          "productSubcategory": "Podkategoria produktu",
+          "offerStatus": "Status oferty",
 
           "dialog": {
             "titleActivation": "Potwierdzenie aktywacji",
