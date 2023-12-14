@@ -540,6 +540,8 @@
 
       "offer": {
         "dashboard": {
+          "companyOffers": "Oferty firmy",
+          "companyOffersNotVisible": "Oferty nie są widoczne dla innych, ponieważ Twoja firma nie została jeszcze zweryfikowana.",
           "netPrice": "Cena netto",
           "unit": "Jednostka",
           "supply": "Zaopatrzenie",

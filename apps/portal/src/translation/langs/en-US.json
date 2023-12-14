@@ -533,8 +533,10 @@
         }
       },
 
-      "offer": {
+      "offer": {        
         "dashboard": {
+          "companyOffers": "Company offers",
+          "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet.",
           "netPrice": "Net price",
           "unit": "Unit",
           "supply": "Supply",
