@@ -132,17 +132,17 @@ const activatorSections = computed(() => {
   ]
 })
 
-const activationType = computed(() => (props.offer.status === 0 ? 'deactivate' : 'activate'))
+const activationType = computed(() => (props.offer.status === 0 ? 'withdraw' : 'activate'))
 
 const activationTypeTitle = computed(() =>
   props.offer.status === 0
-    ? t('company.management.offer.dashboard.dialog.titleDeactivation')
+    ? t('company.management.offer.dashboard.dialog.titleWithdrawal')
     : t('company.management.offer.dashboard.dialog.titleActivation')
 )
 
 const activationTypeContent = computed(() =>
   props.offer.status === 0
-    ? t('company.management.offer.dashboard.dialog.contentDeactivation')
+    ? t('company.management.offer.dashboard.dialog.contentWithdrawal')
     : t('company.management.offer.dashboard.dialog.contentActivation')
 )
 </script>

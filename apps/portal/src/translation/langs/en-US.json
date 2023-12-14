@@ -26,7 +26,8 @@
     "activate": "Activate",
     "deactivate": "Deactivate",
     "preview": "Preview",
-    "reset": "Reset"
+    "reset": "Reset",
+    "withdraw": "Withdraw"
   },
 
   "language": {
@@ -546,8 +547,8 @@
           "dialog": {
             "titleActivation": "Confirm activation",
             "contentActivation": "Are you sure you want to activate this offer?",
-            "titleDeactivation": "Confirm deactivation",
-            "contentDeactivation": "Are you sure you want to deactivate this offer?",
+            "titleWithdrawal": "Confirm withdrawal",
+            "contentWithdrawal": "Are you sure you want to withdraw this offer?",
             "titleDeletion": "Confirm deletion",
             "contentDeletion": "Are you sure you want to activate this offer?"
           }

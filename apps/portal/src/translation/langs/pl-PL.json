@@ -26,7 +26,8 @@
     "activate": "Aktywuj",
     "deactivate": "Dezaktywuj",
     "preview": "Podgląd",
-    "reset": "Resetuj"
+    "reset": "Resetuj",
+    "withdraw": "Wycofaj"
   },
 
   "language": {
@@ -551,8 +552,8 @@
           "dialog": {
             "titleActivation": "Potwierdzenie aktywacji",
             "contentActivation": "Czy na pewno chcesz aktywować tę ofertę?",
-            "titleDeactivation": "Potwierdzenie deaktywacji",
-            "contentDeactivation": "Czy na pewno chcesz deaktywować tę ofertę?",
+            "titleWithdrawal": "Potwierdzenie wycofania",
+            "contentWithdrawal": "Czy na pewno chcesz wycofać tę ofertę?",
             "titleDeletion": "Potwierdzenie usunięcia",
             "contentDeletion": "Czy na pewno chcesz usunąć tę ofertę?"
           }
