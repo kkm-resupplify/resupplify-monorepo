@@ -35,7 +35,7 @@
 
       <a-list-no-results
         v-else
-        :text="$t(`company.management.balance.dashboard.${noResultsTranslationKey}`)"
+        :text="$t(`company.management.balance.dashboard.list.${noResultsTranslationKey}`)"
       />
 
       <o-pagination :pagination="paginationData" @page-changed="handleFetchTransactions" />

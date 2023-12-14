@@ -15,23 +15,35 @@
 
     <template #content>
       <div class="payment-dashboard-payment-list-item__content">
-        <a-title
-          v-if="payment.sender"
-          :title="$t('payment.sender')"
-          :subtitle="payment.sender.email"
-          variant="horizontal"
-          basis="50%"
-          append-colon
-        />
+        <div v-if="payment.receiver" class="payment-dashboard-payment-list-item__content-column">
+          <a-title v-if="payment.receiver" :title="$t('payment.receiver')" variant="horizontal" />
 
-        <a-title
-          v-if="payment.receiver"
-          :title="$t('payment.receiver')"
-          :subtitle="payment.receiver.email"
-          variant="horizontal"
-          basis="50%"
-          append-colon
-        />
+          <div class="payment-dashboard-payment-list-item__content-column-item-data">
+            <a-title
+              v-for="(item, idx) in receiverEntityData"
+              :key="idx"
+              :title="item.title"
+              :subtitle="item.subtitle"
+              variant="horizontal"
+              append-colon
+            />
+          </div>
+        </div>
+
+        <div v-if="payment.sender" class="payment-dashboard-payment-list-item__content-column">
+          <a-title :title="$t('payment.receiver')" variant="horizontal" />
+
+          <div class="payment-dashboard-payment-list-item__content-column-item-data">
+            <a-title
+              v-for="(item, idx) in senderEntityData"
+              :key="idx"
+              :title="item.title"
+              :subtitle="item.subtitle"
+              variant="horizontal"
+              append-colon
+            />
+          </div>
+        </div>
       </div>
     </template>
   </a-expansion-panel>
@@ -101,6 +113,52 @@ const paymentIconColor = computed(() => {
       return 'info'
   }
 })
+
+const receiverEntityData = computed(() => [
+  {
+    title: t('company.management.balance.dashboard.list.item.receiver.name'),
+    subtitle: props.payment.receiver.name
+  },
+  {
+    title: t('company.management.balance.dashboard.list.item.receiver.email'),
+    subtitle: props.payment.receiver.email
+  },
+  {
+    title: t('company.management.balance.dashboard.list.item.receiver.phone'),
+    subtitle: props.payment.receiver.phoneNumber
+  },
+  {
+    title: t('company.management.balance.dashboard.list.item.receiver.contactPerson'),
+    subtitle: props.payment.receiver.contactPerson
+  },
+  {
+    title: t('company.management.balance.dashboard.list.item.receiver.address'),
+    subtitle: props.payment.receiver.address
+  }
+])
+
+const senderEntityData = computed(() => [
+  {
+    title: t('company.management.balance.dashboard.list.item.sender.name'),
+    subtitle: props.payment.receiver.name
+  },
+  {
+    title: t('company.management.balance.dashboard.list.item.sender.email'),
+    subtitle: props.payment.receiver.email
+  },
+  {
+    title: t('company.management.balance.dashboard.list.item.sender.phone'),
+    subtitle: props.payment.receiver.phoneNumber
+  },
+  {
+    title: t('company.management.balance.dashboard.list.item.sender.contactPerson'),
+    subtitle: props.payment.receiver.contactPerson
+  },
+  {
+    title: t('company.management.balance.dashboard.list.item.sender.address'),
+    subtitle: props.payment.receiver.address
+  }
+])
 </script>
 
 <style lang="scss" scoped>
@@ -112,8 +170,21 @@ const paymentIconColor = computed(() => {
 
   &__content {
     display: flex;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  &__content-column {
+    display: flex;
+    flex: 1;
     flex-direction: column;
-    gap: $global-spacing-30;
+    gap: $global-spacing-20;
+  }
+
+  &__content-column-item-data {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-20;
   }
 }
 </style>
