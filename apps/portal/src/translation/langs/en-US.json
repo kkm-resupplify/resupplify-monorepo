@@ -530,6 +530,11 @@
           "depositFunds": "Deposit funds",
           "selectOperationType": "Select operation type"
         }
+      },
+
+      "offer": {
+        "companyOffers": "Company offers",
+        "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet."
       }
     }
   },

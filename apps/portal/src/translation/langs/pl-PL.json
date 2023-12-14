@@ -535,6 +535,11 @@
           "depositFunds": "Wpłać kwotę",
           "selectOperationType": "Wybierz rodzaj operacji"
         }
+      },
+
+      "offer": {
+        "companyOffers": "Oferty firmy",
+        "companyOffersNotVisible": "Oferty nie są widoczne dla innych, ponieważ Twoja firma nie została jeszcze zweryfikowana."
       }
     }
   },
