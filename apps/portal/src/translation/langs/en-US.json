@@ -546,10 +546,10 @@
           "productDescription": "Product description",
           "productProducer": "Product producer",
           "productTags": "Product tags",
-          "searchOffers": "Search offers",
-          "productCategory": "Product category",
-          "productSubcategory": "Product subcategory",
-          "offerStatus": "Offer status",
+          "searchBarPlaceholder": "Search offers",
+          "productCategoryPlaceholder": "Product category",
+          "productSubcategoryPlaceholder": "Product subcategory",
+          "offerStatusPlaceholder": "Offer status",
 
           "dialog": {
             "titleActivation": "Confirm activation",

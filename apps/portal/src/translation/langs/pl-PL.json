@@ -551,10 +551,10 @@
           "productDescription": "Opis produktu",
           "productProducer": "Producent produktu",
           "productTags": "Tagi produktu",
-          "searchOffers": "Szukaj ofert",
-          "productCategory": "Kategoria produktu",
-          "productSubcategory": "Podkategoria produktu",
-          "offerStatus": "Status oferty",
+          "searchBarPlaceholder": "Szukaj ofert",
+          "productCategoryPlaceholder": "Kategoria produktu",
+          "productSubcategoryPlaceholder": "Podkategoria produktu",
+          "offerStatusPlaceholder": "Status oferty",
 
           "dialog": {
             "titleActivation": "Potwierdzenie aktywacji",
