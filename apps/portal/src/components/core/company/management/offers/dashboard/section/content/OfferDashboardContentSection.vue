@@ -1,6 +1,6 @@
 <template>
   <a-panel-section class="offer-dashboard-content-section">
-    <o-form class="product-content-section__filter-form">
+    <o-form ref="form" class="product-content-section__filter-form">
       <template #body>
         <div class="offer-dashboard-content-section__filters">
           <div class="offer-dashboard-content-section__filters-row">
@@ -10,6 +10,7 @@
               :placeholder="$t('company.management.offer.dashboard.searchBarPlaceholder')"
               :validate="false"
               append-icon-on="close"
+              @append-icon-click="handleClearSearch"
             />
 
             <m-select
@@ -53,8 +54,12 @@
 
 <script setup lang="ts">
 import OfferDashboardOfferList from '@/components/core/company/management/offers/dashboard/section/content/list/OfferDashboardOfferList.vue'
+import router from '@/routes'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import type { PropType } from 'vue'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+import OForm from '@sharedOrganisms/form/OForm.vue'
 
 defineProps({
   offers: {
@@ -63,6 +68,16 @@ defineProps({
   },
   isLoading: Boolean
 })
+
+// Variables
+const route = useRoute()
+const form = ref<typeof OForm>()
+
+// Methods
+const handleClearSearch = async () => {
+  await router.replace({ query: { ...route.query, name: '' } })
+  form.value?.resetField('name', null)
+}
 </script>
 
 <style lang="scss" scoped>
