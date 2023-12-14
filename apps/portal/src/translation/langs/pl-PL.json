@@ -520,28 +520,6 @@
               "type": "Typ transakcji",
               "date": "Data transakcji"
             }
-          },
-
-          "offer": {
-            "section": {
-              "netPrice": "Cena netto",
-              "unit": "Jednostka",
-              "supply": "Zaopatrzenie",
-              "quantity": "Ilość",
-              "productCode": "Kod productu",
-              "productDescription": "Opis produktu",
-              "productProducer": "Producent produktu",
-              "productTags": "Tagi produktu",
-
-              "dialog": {
-                "titleActivation": "Potwierdzenie aktywacji",
-                "contentActivation": "Czy na pewno chcesz aktywować tę ofertę?",
-                "titleDeactivation": "Potwierdzenie deaktywacji",
-                "contentDeactivation": "Czy na pewno chcesz deaktywować tę ofertę?",
-                "titleDeletion": "Potwierdzenie usunięcia",
-                "contentDeletion": "Czy na pewno chcesz usunąć tę ofertę?"
-              }
-            }
           }
         },
 
@@ -556,6 +534,28 @@
           "amountPlaceholder": "Wprowadź ilość",
           "depositFunds": "Wpłać kwotę",
           "selectOperationType": "Wybierz rodzaj operacji"
+        }
+      },
+
+      "offer": {
+        "dashboard": {
+          "netPrice": "Cena netto",
+          "unit": "Jednostka",
+          "supply": "Zaopatrzenie",
+          "quantity": "Ilość",
+          "productCode": "Kod productu",
+          "productDescription": "Opis produktu",
+          "productProducer": "Producent produktu",
+          "productTags": "Tagi produktu",
+
+          "dialog": {
+            "titleActivation": "Potwierdzenie aktywacji",
+            "contentActivation": "Czy na pewno chcesz aktywować tę ofertę?",
+            "titleDeactivation": "Potwierdzenie deaktywacji",
+            "contentDeactivation": "Czy na pewno chcesz deaktywować tę ofertę?",
+            "titleDeletion": "Potwierdzenie usunięcia",
+            "contentDeletion": "Czy na pewno chcesz usunąć tę ofertę?"
+          }
         }
       }
     }

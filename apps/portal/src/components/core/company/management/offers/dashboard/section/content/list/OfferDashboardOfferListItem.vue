@@ -34,12 +34,8 @@
 
               <o-confirm-dialog
                 type="delete"
-                :title="
-                  $t('company.management.balance.dashboard.offer.section.dialog.titleDeletion')
-                "
-                :content="
-                  $t('company.management.balance.dashboard.offer.section.dialog.contentDeletion')
-                "
+                :title="$t('company.management.offer.dashboard.dialog.titleDeletion')"
+                :content="$t('company.management.offer.dashboard.dialog.contentDeletion')"
               >
                 <template #activator>
                   <span v-text="$t(`global.delete`)" />
@@ -54,7 +50,7 @@
     <template #content>
       <div class="offer-dashboard-offer-list-item__content">
         <a-title
-          :title="$t('company.management.balance.dashboard.offer.section.productCode')"
+          :title="$t('company.management.offer.dashboard.productCode')"
           :subtitle="offer.product.code"
           variant="horizontal"
           size="large"
@@ -62,7 +58,7 @@
         />
 
         <a-title
-          :title="$t('company.management.balance.dashboard.offer.section.productDescription')"
+          :title="$t('company.management.offer.dashboard.productDescription')"
           :subtitle="offer.product.description"
           variant="horizontal"
           size="large"
@@ -70,7 +66,7 @@
         />
 
         <a-title
-          :title="$t('company.management.balance.dashboard.offer.section.productProducer')"
+          :title="$t('company.management.offer.dashboard.productProducer')"
           :subtitle="offer.product.producer"
           variant="horizontal"
           size="large"
@@ -80,7 +76,7 @@
         <div class="offer-dashboard-offer-list-item__content-tags">
           <a-title
             v-if="offer.product.productTags.length"
-            :title="$t('company.management.balance.dashboard.offer.section.productTags')"
+            :title="$t('company.management.offer.dashboard.productTags')"
             size="large"
             append-colon
           />
@@ -118,7 +114,7 @@ class ExpansionPanelSectionDto {
   }
 
   getTranslationValue(key: string): string {
-    return t(`company.management.balance.dashboard.offer.section.${key}`)
+    return t(`company.management.offer.dashboard.${key}`)
   }
 }
 
@@ -140,14 +136,14 @@ const activationType = computed(() => (props.offer.status === 0 ? 'deactivate' :
 
 const activationTypeTitle = computed(() =>
   props.offer.status === 0
-    ? t('company.management.balance.dashboard.offer.section.dialog.titleDeactivation')
-    : t('company.management.balance.dashboard.offer.section.dialog.titleActivation')
+    ? t('company.management.offer.dashboard.dialog.titleDeactivation')
+    : t('company.management.offer.dashboard.dialog.titleActivation')
 )
 
 const activationTypeContent = computed(() =>
   props.offer.status === 0
-    ? t('company.management.balance.dashboard.offer.section.dialog.contentDeactivation')
-    : t('company.management.balance.dashboard.offer.section.dialog.contentActivation')
+    ? t('company.management.offer.dashboard.dialog.contentDeactivation')
+    : t('company.management.offer.dashboard.dialog.contentActivation')
 )
 </script>
 
