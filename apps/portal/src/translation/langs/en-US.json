@@ -27,7 +27,8 @@
     "deactivate": "Deactivate",
     "preview": "Preview",
     "reset": "Reset",
-    "withdraw": "Withdraw"
+    "withdraw": "Withdraw",
+    "create": "Create"
   },
 
   "language": {
@@ -554,6 +555,16 @@
             "titleDeletion": "Confirm deletion",
             "contentDeletion": "Are you sure you want to activate this offer?"
           }
+        },
+
+        "creator": {
+          "selectProductLabel": "Product",
+          "selectProductPlaceholder": "Select a product",
+          "selectQuantityLabel": "Quantity",
+          "selectQuantityPlaceholder": "Select quantity",
+          "selectNetPriceLabel": "Net price",
+          "selectNetPricePlaceholder": "Enter the net price per item",
+          "createOffer": "Create an offer"
         }
       }
     }

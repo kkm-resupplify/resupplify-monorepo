@@ -27,7 +27,8 @@
     "deactivate": "Dezaktywuj",
     "preview": "Podgląd",
     "reset": "Resetuj",
-    "withdraw": "Wycofaj"
+    "withdraw": "Wycofaj",
+    "create": "Utwórz"
   },
 
   "language": {
@@ -559,6 +560,16 @@
             "titleDeletion": "Potwierdzenie usunięcia",
             "contentDeletion": "Czy na pewno chcesz usunąć tę ofertę?"
           }
+        },
+
+        "creator": {
+          "selectProductLabel": "Produkt",
+          "selectProductPlaceholder": "Wybierz produkt",
+          "selectQuantityLabel": "Ilość",
+          "selectQuantityPlaceholder": "Wybierz ilość",
+          "selectNetPriceLabel": "Cena netto",
+          "selectNetPricePlaceholder": "Podaj cenę netto za sztukę",
+          "createOffer": "Utwórz ofertę"
         }
       }
     }

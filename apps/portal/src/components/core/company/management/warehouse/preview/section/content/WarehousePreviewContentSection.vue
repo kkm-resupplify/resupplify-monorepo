@@ -93,5 +93,10 @@ onMounted(async () => {
 <style scoped lang="scss">
 .warehouse-preview-content-section {
   overflow: hidden;
+
+  &__controlls {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>
