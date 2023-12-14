@@ -85,7 +85,7 @@ const activatorSections = computed(() => {
   return [
     new ActivatorSectionDto('type', getTransactionType(props.payment.type)),
     new ActivatorSectionDto('amount', `${props.payment.amount}€`),
-    new ActivatorSectionDto('date', props.payment.date)
+    new ActivatorSectionDto('date', props.payment.createdAt)
   ]
 })
 
