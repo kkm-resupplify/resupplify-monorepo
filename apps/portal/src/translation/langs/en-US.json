@@ -27,7 +27,8 @@
     "deactivate": "Deactivate",
     "preview": "Preview",
     "reset": "Reset",
-    "withdraw": "Withdraw"
+    "withdraw": "Withdraw",
+    "create": "Create"
   },
 
   "language": {
@@ -561,7 +562,7 @@
           "selectQuantityPlaceholder": "Select quantity",
           "selectNetPriceLabel": "Net price",
           "selectNetPricePlaceholder": "Enter the net price per item",
-          "addOffer": "Add an offer"
+          "createOffer": "Create an offer"
         }
       }
     }

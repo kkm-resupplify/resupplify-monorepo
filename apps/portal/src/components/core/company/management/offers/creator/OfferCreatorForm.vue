@@ -2,7 +2,7 @@
   <o-form class="offer-creator-form">
     <template #body>
       <div class="offer-creator-form__body">
-        <a-title :title="$t('company.management.offer.creator.addOffer')" size="x-large" />
+        <a-title :title="$t('company.management.offer.creator.createOffer')" size="x-large" />
 
         <m-select
           name="product"
@@ -34,7 +34,7 @@
       <a-button
         class="offer-creator-form__button"
         button-type="submit"
-        :text="$t('global.add')"
+        :text="$t('global.create')"
         size="x-large"
       />
     </template>
@@ -72,7 +72,7 @@ const mapProductsToOptions = (products: Product[]) => {
 }
 
 // Hooks
-onBeforeMount(() => {
+onBeforeMount(async () => {
   handleFetchProducts()
 })
 </script>
