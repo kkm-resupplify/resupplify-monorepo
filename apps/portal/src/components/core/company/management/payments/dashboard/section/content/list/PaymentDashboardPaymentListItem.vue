@@ -140,23 +140,23 @@ const receiverEntityData = computed(() => [
 const senderEntityData = computed(() => [
   {
     title: t('company.management.balance.dashboard.list.item.sender.name'),
-    subtitle: props.payment.receiver.name
+    subtitle: props.payment.sender.name
   },
   {
     title: t('company.management.balance.dashboard.list.item.sender.email'),
-    subtitle: props.payment.receiver.email
+    subtitle: props.payment.sender.email
   },
   {
     title: t('company.management.balance.dashboard.list.item.sender.phone'),
-    subtitle: props.payment.receiver.phoneNumber
+    subtitle: props.payment.sender.phoneNumber
   },
   {
     title: t('company.management.balance.dashboard.list.item.sender.contactPerson'),
-    subtitle: props.payment.receiver.contactPerson
+    subtitle: props.payment.sender.contactPerson
   },
   {
     title: t('company.management.balance.dashboard.list.item.sender.address'),
-    subtitle: props.payment.receiver.address
+    subtitle: props.payment.sender.address
   }
 ])
 </script>
