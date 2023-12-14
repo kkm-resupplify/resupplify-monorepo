@@ -509,6 +509,8 @@
       "balance": {
         "dashboard": {
           "transactionHistory": "Historia transakcji",
+          "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
+          "noTransactionsMatchingFilter": "Brak transakcji dla podanych parametrów.",
 
           "filter": {
             "typePlaceholder": "Wybierz typ transakcji"
