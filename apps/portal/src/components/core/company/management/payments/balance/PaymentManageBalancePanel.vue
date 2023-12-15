@@ -4,7 +4,9 @@
       <div class="payment-manage-balance-panel__header">
         <a-title :title="$t('company.management.balance.manage.title')" size="x-large" />
 
+        <template v-if="isLoading">implement-loader-here</template>
         <a-title
+          v-else
           :title="$t('company.management.balance.manage.currentBalance')"
           :subtitle="formattedBalance"
           variant="horizontal"
@@ -42,6 +44,7 @@
             :text="submitButtonText"
             size="x-large"
             style="width: 100%"
+            :disabled="isLoading"
           />
         </template>
       </o-form>
@@ -50,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import CompanyBalanceService from '@/services/company/CompanyBalanceService'
 import PaymentTypeEnum from '@sharedEnums/payment/PaymentTypeEnum'
@@ -96,15 +99,34 @@ const handleFormSubmit = async (data: FormData) => {
   isLoading.value = true
 
   if (selectedOperationTypeId.value === PaymentTypeEnum.WITHDRAWAL) {
-    await CompanyBalanceService.withdrawBalance(data.amount)
+    const { success } = await CompanyBalanceService.withdrawBalance(data.amount)
+
+    if (success) await handleFetchBalance()
   }
 
   if (selectedOperationTypeId.value === PaymentTypeEnum.DEPOSIT) {
-    await CompanyBalanceService.depositBalance(data.amount)
+    const { success } = await CompanyBalanceService.depositBalance(data.amount)
+
+    if (success) await handleFetchBalance()
   }
 
   isLoading.value = false
 }
+
+const handleFetchBalance = async () => {
+  isLoading.value = true
+
+  const { success, data } = await CompanyBalanceService.getCompanyBalance()
+
+  if (success) balance.value = data.balance
+
+  isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchBalance()
+})
 </script>
 
 <style scoped lang="scss">
