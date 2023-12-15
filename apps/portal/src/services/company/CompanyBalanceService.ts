@@ -24,7 +24,8 @@ class CompanyBalanceService extends BaseService {
         status: 1,
         currency: 'Euro',
         paymentMethodId: PaymentMethodEnum.BALANCE
-      }
+      },
+      notificationTitle: 'company.management.balance.manage.notification.withdrawFundsSuccessTitle'
     })
   }
 
@@ -36,7 +37,8 @@ class CompanyBalanceService extends BaseService {
         status: 1,
         currency: 'Euro',
         paymentMethodId: PaymentMethodEnum.BALANCE
-      }
+      },
+      notificationTitle: 'company.management.balance.manage.notification.depositFundsSuccessTitle'
     })
   }
 }

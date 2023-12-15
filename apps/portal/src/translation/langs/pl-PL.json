@@ -556,7 +556,12 @@
           "amountLabel": "Ilość",
           "amountPlaceholder": "Wprowadź ilość",
           "depositFunds": "Wpłać kwotę",
-          "selectOperationType": "Wybierz rodzaj operacji"
+          "selectOperationType": "Wybierz rodzaj operacji",
+
+          "notification": {
+            "depositFundsSuccessTitle": "Środki zostały zdeponowane pomyślnie",
+            "withdrawFundsSuccessTitle": "Środki zostały wypłacone pomyślnie"
+          }
         }
       }
     }

@@ -551,7 +551,12 @@
           "amountLabel": "Amount",
           "amountPlaceholder": "Enter amount",
           "depositFunds": "Deposit funds",
-          "selectOperationType": "Select operation type"
+          "selectOperationType": "Select operation type",
+
+          "notification": {
+            "depositFundsSuccessTitle": "The funds have been deposited successfully",
+            "withdrawFundsSuccessTitle": "The funds have been withdrawn successfully"
+          }
         }
       }
     }
