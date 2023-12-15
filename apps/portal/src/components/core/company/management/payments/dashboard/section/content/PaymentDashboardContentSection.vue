@@ -7,7 +7,12 @@
         size="large"
       />
 
-      <o-form ref="form" :initial-values="initialFilterParams" :submit-callback="handleQuerySubmit">
+      <o-form
+        ref="form"
+        :initial-values="initialFilterParams"
+        :submit-callback="handleQuerySubmit"
+        class="payment-dashboard-content-section__filter-form"
+      >
         <template #body>
           <m-select
             name="type"
@@ -37,9 +42,9 @@
         v-else
         :text="$t(`company.management.balance.dashboard.list.${noResultsTranslationKey}`)"
       />
-
-      <o-pagination :pagination="paginationData" @page-changed="handleFetchTransactions" />
     </template>
+
+    <o-pagination :pagination="paginationData" @page-changed="handleFetchTransactions" />
   </a-panel-section>
 </template>
 
@@ -111,12 +116,15 @@ const handleFetchTransactions = async () => {
     query: { page, type }
   } = route
 
-  const { success, data } = await CompanyBalanceService.getCompanyTransactions({
+  const { success, data, pagination } = await CompanyBalanceService.getCompanyTransactions({
     page: page as string,
     type: type as string
   })
 
-  if (success) payments.value = data
+  if (success) {
+    payments.value = data
+    paginationData.value = pagination
+  }
 
   isLoading.value = false
 }
@@ -150,7 +158,6 @@ onBeforeMount(async () => {
 
 <style lang="scss" scoped>
 .payment-dashboard-content-section {
-  display: flex;
   height: 100%;
 
   &__header {
@@ -170,10 +177,12 @@ onBeforeMount(async () => {
     gap: 0;
   }
 
-  :deep(.o-form__body) {
-    flex-direction: row;
-    gap: $global-spacing-30;
-    justify-content: flex-end;
+  &__filter-form {
+    :deep(.o-form__body) {
+      flex-direction: row;
+      gap: $global-spacing-30;
+      justify-content: flex-end;
+    }
   }
 }
 </style>
