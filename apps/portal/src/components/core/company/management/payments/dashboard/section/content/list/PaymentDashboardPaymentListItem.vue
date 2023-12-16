@@ -12,7 +12,6 @@
         />
 
         <a-currency
-          :title="$t('company.management.balance.dashboard.payment.section.value')"
           :value="payment.amount"
           vertical
           :sign="transactionSign"
@@ -170,7 +169,7 @@ const senderEntityData = computed(() => [
 const transactionSign = computed(() => {
   return [PaymentTypeEnum.WITHDRAWAL, PaymentTypeEnum.PURCHASE].includes(props.payment.type)
     ? '-'
-    : '+'
+    : ''
 })
 </script>
 
