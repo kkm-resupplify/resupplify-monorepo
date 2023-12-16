@@ -20,6 +20,7 @@ import AListItemTitleSection from '@sharedAtoms/list/AListItemTitleSection.vue'
 import AListNoResults from '@sharedAtoms/list/AListNoResults.vue'
 import APanel from '@sharedAtoms/panel/APanel.vue'
 import APanelSection from '@sharedAtoms/panel/APanelSection.vue'
+import ACurrency from '@sharedAtoms/currency/ACurrency.vue'
 
 const atoms = [
   AButton,
@@ -42,7 +43,8 @@ const atoms = [
   AListItemTitleSection,
   AListNoResults,
   APanel,
-  APanelSection
+  APanelSection,
+  ACurrency
 ]
 
 // Molecules
