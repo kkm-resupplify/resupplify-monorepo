@@ -57,7 +57,14 @@
 
     <template v-if="isLoading">implement-loader-here</template>
 
-    <offer-dashboard-offer-list v-else :offers="offers" />
+    <template v-else>
+      <offer-dashboard-offer-list v-if="showList" :offers="offers" />
+
+      <a-list-no-results
+        v-else
+        :text="$t(`company.management.offer.dashboard.list.${noResultsTranslationKey}`)"
+      />
+    </template>
   </a-panel-section>
 </template>
 
@@ -77,7 +84,7 @@ import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useI18n } from 'vue-i18n'
 import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 
-defineProps({
+const props = defineProps({
   offers: {
     type: Array as PropType<Offer[]>,
     required: true
@@ -113,10 +120,26 @@ const productCategorySubcategories = computed(() => {
     : staticProductDescriptorsStore.getProductSubcategories
 })
 
+const showList = computed(() => {
+  return props.offers.length > 0
+})
+
 const statuses = computed(() => [
   { id: 0, text: t('global.inactive') },
   { id: 1, text: t('global.active') }
 ])
+
+const filtersUsed = computed(() => {
+  const {
+    query: { page, name, categoryId, subcategoryId, status }
+  } = route
+
+  return !!(page !== '1' || name || categoryId || subcategoryId || status)
+})
+
+const noResultsTranslationKey = computed(() => {
+  return props.offers.length === 0 && filtersUsed.value ? 'noOffersMatchingFilter' : 'noOffers'
+})
 
 // Methods
 const handleClearSearch = async () => {

@@ -562,8 +562,13 @@
         }
       },
 
-      "offer": {        
+      "offer": {
         "dashboard": {
+          "list": {
+            "noOffers": "Your company does not have any ofers yet.",
+            "noOffersMatchingFilter": "No offers for given parameters."
+          },
+
           "companyOffers": "Company offers",
           "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet.",
           "netPrice": "Net price",
