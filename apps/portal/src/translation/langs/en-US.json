@@ -28,7 +28,8 @@
     "preview": "Preview",
     "reset": "Reset",
     "withdraw": "Withdraw",
-    "create": "Create"
+    "create": "Create",
+    "refresh": "Refresh"
   },
 
   "language": {
@@ -506,6 +507,8 @@
       "balance": {
         "dashboard": {
           "transactionHistory": "Transaction history",
+          "companyBalance": "Company balance",
+          "currentBalance": "Current balance",
 
           "list": {
             "noTransactions": "Your company does not have any transactions yet.",
@@ -536,7 +539,7 @@
 
           "payment": {
             "section": {
-              "amount": "Amount",
+              "value": "Value",
               "type": "Transaction type",
               "date": "Transaction date"
             }
@@ -562,7 +565,7 @@
         }
       },
 
-      "offer": {        
+      "offer": {
         "dashboard": {
           "companyOffers": "Company offers",
           "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet.",
@@ -592,7 +595,7 @@
           "selectQuantityPlaceholder": "Select quantity",
           "selectNetPriceLabel": "Net price",
           "selectNetPricePlaceholder": "Enter the net price per item",
-          "createOffer": "Create an offer"
+          "createOffer": "Create offer"
         }
       }
     }
