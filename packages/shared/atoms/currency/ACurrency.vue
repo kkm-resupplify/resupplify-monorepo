@@ -1,8 +1,8 @@
 <template>
   <div :class="generateClasses">
-    <a-title :size="size" :title="title" />
+    <a-title v-if="title" :size="size" :title="title" append-colon />
 
-    <i18n-n tag="span" :value="value" format="currency" />
+    <a-title :size="size" :title="$n(value, 'currency')" />
   </div>
 </template>
 
@@ -32,5 +32,7 @@ const generateClasses = computed(() => {
 <style lang="scss" scoped>
 .a-currency {
   display: flex;
+  gap: $global-spacing-20;
+  align-items: flex-end;
 }
 </style>
