@@ -1,33 +1,71 @@
 <template>
   <a-panel-section class="payment-dashboard-header-section">
     <div class="payment-dashboard-header-section__wrapper">
-      <a-title
-        :title="$t('company.management.balance.dashboard.companyBalance')"
-        :subtitle="formattedBalance"
-        size="x-large"
-      />
+      <div class="payment-dashboard-header-section__header">
+        <a-title
+          :title="$t('company.management.balance.dashboard.companyBalance')"
+          size="x-large"
+        />
 
-      <router-link :to="{ name: RouteNames.COMPANY_PAYMENTS_MANAGE_BALANCE }">
+        <div class="payment-dashboard-header-section__balance">
+          <a-title
+            :title="$t('company.management.balance.dashboard.currentBalance')"
+            size="large"
+            append-colon
+          />
+
+          <template v-if="isLoading">implement-loader-here</template>
+
+          <a-currency v-else :value="balance" size="large" />
+        </div>
+      </div>
+
+      <div class="payment-dashboard-header-section__actions">
         <a-button
+          :to="{ name: RouteNames.COMPANY_PAYMENTS_MANAGE_BALANCE }"
           :text="$t('global.manage')"
           size="x-large"
-          class="payment-dashboard-header-section__manage"
         />
-      </router-link>
+
+        <a-button
+          size="x-large"
+          :text="$t('global.refresh')"
+          :is-loading="isLoading"
+          @click="handleFetchCompanyBalance"
+        />
+      </div>
     </div>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
-import { ref, computed } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
+import CompanyBalanceService from '@/services/company/CompanyBalanceService'
 
 // Variables
-const balance = ref(999999)
+const isLoading = ref(false)
+const balance = ref(0)
 
 // Computed
 const formattedBalance = computed(() => {
-  return `${balance.value}$`
+  return `€${balance.value}`
+})
+
+// Methods
+const handleFetchCompanyBalance = async () => {
+  isLoading.value = true
+
+  const { success, data } = await CompanyBalanceService.getCompanyBalance()
+
+  if (success) balance.value = data.balance
+
+  isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchCompanyBalance()
 })
 </script>
 
@@ -38,8 +76,22 @@ const formattedBalance = computed(() => {
     justify-content: space-between;
   }
 
-  &__manage {
-    height: fit-content;
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__balance {
+    display: flex;
+    gap: $global-spacing-20;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-30;
+    align-self: flex-end;
   }
 }
 </style>
