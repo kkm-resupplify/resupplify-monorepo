@@ -544,7 +544,7 @@
 
           "payment": {
             "section": {
-              "amount": "Ilość",
+              "value": "Wartość",
               "type": "Typ transakcji",
               "date": "Data transakcji"
             }
