@@ -4,7 +4,7 @@
       ref="form"
       class="product-content-section__filter-form"
       :submit-callback="handleQuerySubmit"
-      :initial-values="initialFormValues"
+      :initial-values="initialFilterParams"
     >
       <template #body>
         <div class="offer-dashboard-content-section__filters">
@@ -75,6 +75,7 @@ import { onBeforeMount } from 'vue'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useI18n } from 'vue-i18n'
+import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 
 defineProps({
   offers: {
@@ -98,7 +99,8 @@ const route = useRoute()
 const form = ref<typeof OForm>()
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const selectedCategoryId = ref<number | null>()
-const initialFormValues = ref<OfferFiltersParams>()
+const { setQueryParam } = useQueryFilter()
+const initialFilterParams = ref<OfferFiltersParams>()
 const subcategoryRef = ref<typeof MSelect>()
 const { t } = useI18n()
 
@@ -127,17 +129,22 @@ const handleProductCategoryChange = (id: number) => {
   selectedCategoryId.value = id
 }
 
-const setQueryParam = async (data: OfferFiltersParams | undefined) => {
-  await router.replace({ query: { ...route.query, ...data } })
+const setInitialFormValues = () => {
+  initialFilterParams.value = {
+    name: route.query.name ? route.query.name.toString() : undefined,
+    categoryId: route.query.categoryId ? Number(route.query.categoryId) : undefined,
+    subcategoryId: route.query.subcategoryId ? Number(route.query.subcategoryId) : undefined,
+    status: route.query.status ? Number(route.query.status) : undefined
+  }
 }
 
 const handleQuerySubmit = async (data: OfferFiltersParams) => {
-  await setQueryParam(data)
+  await setQueryParam(route, data)
 }
 
 const handleResetFilters = async () => {
   form.value?.handleReset()
-  initialFormValues.value = {
+  initialFilterParams.value = {
     name: undefined,
     categoryId: undefined,
     subcategoryId: undefined,
@@ -155,6 +162,7 @@ const handleResetFilters = async () => {
 
 // Hooks
 onBeforeMount(async () => {
+  setInitialFormValues()
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
 })
