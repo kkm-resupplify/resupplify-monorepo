@@ -68,9 +68,11 @@
       </template>
     </o-form>
 
-    <router-link :to="{ name: RouteNames.COMPANY_OFFERS_CREATOR }" style="margin-left: auto">
-      <a-button :text="$t('company.management.offer.creator.createOffer')" size="x-large" />
-    </router-link>
+    <a-button
+      :to="{ name: RouteNames.COMPANY_OFFERS_CREATOR }"
+      :text="$t('company.management.offer.creator.createOffer')"
+      size="x-large"
+    />
 
     <a-line />
 
@@ -102,8 +104,7 @@ import StaticProductDescriptorsService from '@/services/product/StaticProductDes
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import OForm from '@sharedOrganisms/form/OForm.vue'
 import MassAssignProductStatus from '@/components/core/company/management/products/dashboard/dialog/MassAssignProductStatus.vue'
-import { RouteNames } from '@/routes'
-
+import { RouteNames } from '@/routes/index'
 // Interfaces
 interface InitialQueryParams {
   page?: string
