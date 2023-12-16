@@ -67,7 +67,7 @@ const { generateClassNames } = useClassComposable()
 // Computed
 const generateClasses = computed(() => {
   const colorClass = props.outlined ? `outlined-${props.color}` : props.color
-  const disabledClass = props.disabled ? 'disabled' : ''
+  const disabledClass = isDisabled.value ? 'disabled' : ''
   const fullWidthClass = props.fullWidth ? 'full-width' : ''
 
   return generateClassNames(baseClass, [
