@@ -297,7 +297,7 @@ const filtersUsed = computed(() => {
     query: { page, name, categoryId, subcategoryId, status }
   } = route
 
-  return !!(page !== '1' || name || categoryId || subcategoryId || status)
+  return !!(page !== '1' || (name ?? categoryId ?? subcategoryId ?? status))
 })
 
 const noResultsTranslationKey = computed(() => {
