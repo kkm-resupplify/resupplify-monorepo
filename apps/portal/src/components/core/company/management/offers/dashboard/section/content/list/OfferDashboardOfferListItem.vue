@@ -50,7 +50,7 @@
     <template #content>
       <div class="offer-dashboard-offer-list-item__content">
         <a-title
-          :title="$t('company.management.offer.dashboard.productCode')"
+          :title="$t('company.management.offer.dashboard.list.item.productCode')"
           :subtitle="offer.product.code"
           variant="horizontal"
           size="large"
@@ -58,7 +58,7 @@
         />
 
         <a-title
-          :title="$t('company.management.offer.dashboard.productDescription')"
+          :title="$t('company.management.offer.dashboard.list.item.productDescription')"
           :subtitle="offer.product.description"
           variant="horizontal"
           size="large"
@@ -66,7 +66,7 @@
         />
 
         <a-title
-          :title="$t('company.management.offer.dashboard.productProducer')"
+          :title="$t('company.management.offer.dashboard.list.item.productProducer')"
           :subtitle="offer.product.producer"
           variant="horizontal"
           size="large"
@@ -76,7 +76,7 @@
         <div class="offer-dashboard-offer-list-item__content-tags">
           <a-title
             v-if="offer.product.productTags.length"
-            :title="$t('company.management.offer.dashboard.productTags')"
+            :title="$t('company.management.offer.dashboard.list.item.productTags')"
             size="large"
             append-colon
           />
@@ -114,7 +114,7 @@ class ExpansionPanelSectionDto {
   }
 
   getTranslationValue(key: string): string {
-    return t(`company.management.offer.dashboard.${key}`)
+    return t(`company.management.offer.dashboard.list.item.${key}`)
   }
 }
 

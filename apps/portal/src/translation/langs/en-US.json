@@ -564,25 +564,28 @@
 
       "offer": {
         "dashboard": {
-          "list": {
-            "noOffers": "Your company does not have any ofers yet.",
-            "noOffersMatchingFilter": "No offers for given parameters."
-          },
-
           "companyOffers": "Company offers",
           "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet.",
-          "netPrice": "Net price",
-          "unit": "Unit",
-          "supply": "Supply",
-          "quantity": "Quantity",
-          "productCode": "Product code",
-          "productDescription": "Product description",
-          "productProducer": "Product producer",
-          "productTags": "Product tags",
           "searchBarPlaceholder": "Search offers",
           "productCategoryPlaceholder": "Product category",
           "productSubcategoryPlaceholder": "Product subcategory",
           "offerStatusPlaceholder": "Offer status",
+
+          "list": {
+            "noOffers": "Your company does not have any ofers yet.",
+            "noOffersMatchingFilter": "No offers for given parameters.",
+
+            "item": {
+              "netPrice": "Net price",
+              "unit": "Unit",
+              "supply": "Supply",
+              "quantity": "Quantity",
+              "productCode": "Product code",
+              "productDescription": "Product description",
+              "productProducer": "Product producer",
+              "productTags": "Product tags"
+            }
+          },
 
           "dialog": {
             "titleActivation": "Confirm activation",

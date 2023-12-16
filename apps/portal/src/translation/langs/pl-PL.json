@@ -571,18 +571,26 @@
         "dashboard": {
           "companyOffers": "Oferty firmy",
           "companyOffersNotVisible": "Oferty nie są widoczne dla innych, ponieważ Twoja firma nie została jeszcze zweryfikowana.",
-          "netPrice": "Cena netto",
-          "unit": "Jednostka",
-          "supply": "Zaopatrzenie",
-          "quantity": "Ilość",
-          "productCode": "Kod productu",
-          "productDescription": "Opis produktu",
-          "productProducer": "Producent produktu",
-          "productTags": "Tagi produktu",
           "searchBarPlaceholder": "Szukaj ofert",
           "productCategoryPlaceholder": "Kategoria produktu",
           "productSubcategoryPlaceholder": "Podkategoria produktu",
           "offerStatusPlaceholder": "Status oferty",
+
+          "list": {
+            "noOffers": "Twoja firma nie posiada jeszcze żadnych ofert.",
+            "noOffersMatchingFilter": "Brak ofert na podane parametry.",
+
+            "item": {
+              "netPrice": "Cena netto",
+              "unit": "Jednostka",
+              "supply": "Zaopatrzenie",
+              "quantity": "Ilość",
+              "productCode": "Kod productu",
+              "productDescription": "Opis produktu",
+              "productProducer": "Producent produktu",
+              "productTags": "Tagi produktu"
+            }
+          },
 
           "dialog": {
             "titleActivation": "Potwierdzenie aktywacji",
