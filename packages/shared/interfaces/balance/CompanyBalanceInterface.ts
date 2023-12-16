@@ -9,7 +9,8 @@ export interface Payment {
   currency: string
   type: number
   status: number
-  date: string
+  createdAt: string
+  updatedAt: string
   sender: PaymentEntity
   receiver: PaymentEntity
 }
@@ -17,7 +18,9 @@ export interface Payment {
 export interface PaymentEntity {
   name: string
   email: string
+  phoneNumber: string
   contactPerson: string
+  address: string
 }
 
 export interface BalanceOperation {

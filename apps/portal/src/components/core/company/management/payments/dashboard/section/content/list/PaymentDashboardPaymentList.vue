@@ -1,11 +1,11 @@
 <template>
-  <div class="payment-dashboard-payment-list">
+  <a-list>
     <payment-dashboard-payment-list-item
       v-for="payment in payments"
       :key="payment.id"
       :payment="payment"
     />
-  </div>
+  </a-list>
 </template>
 
 <script setup lang="ts">
@@ -19,14 +19,3 @@ defineProps({
   }
 })
 </script>
-
-<style lang="scss" scoped>
-.payment-dashboard-payment-list {
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: $global-spacing-40;
-
-  height: 100%;
-}
-</style>

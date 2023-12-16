@@ -512,6 +512,29 @@
         "dashboard": {
           "transactionHistory": "Historia transakcji",
 
+          "list": {
+            "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
+            "noTransactionsMatchingFilter": "Brak transakcji dla podanych parametrów.",
+
+            "item": {
+              "receiver": {
+                "name": "Nazwa odbiorcy",
+                "email": "Email odbiorcy",
+                "phone": "Telefon odbiorcy",
+                "contactPerson": "Osoba kontaktowa",
+                "address": "Adres odbiorcy"
+              },
+
+              "sender": {
+                "name": "Nazwa nadawcy",
+                "email": "Email nadawcy",
+                "phone": "Telefon nadawcy",
+                "contactPerson": "Osoba kontaktowa",
+                "address": "Adres nadawcy"
+              }
+            }
+          },
+
           "filter": {
             "typePlaceholder": "Wybierz typ transakcji"
           },
@@ -535,7 +558,12 @@
           "amountLabel": "Ilość",
           "amountPlaceholder": "Wprowadź ilość",
           "depositFunds": "Wpłać kwotę",
-          "selectOperationType": "Wybierz rodzaj operacji"
+          "selectOperationType": "Wybierz rodzaj operacji",
+
+          "notification": {
+            "depositFundsSuccessTitle": "Środki zostały zdeponowane pomyślnie",
+            "withdrawFundsSuccessTitle": "Środki zostały wypłacone pomyślnie"
+          }
         }
       },
 
