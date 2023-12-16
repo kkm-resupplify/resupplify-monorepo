@@ -29,7 +29,8 @@
     "reset": "Reset",
     "withdraw": "Withdraw",
     "create": "Create",
-    "refresh": "Refresh"
+    "refresh": "Refresh",
+    "rejected": "Rejected"
   },
 
   "language": {

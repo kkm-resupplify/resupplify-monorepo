@@ -139,7 +139,8 @@ const statuses = computed(() => [
 
 const verificationStatuses = computed(() => [
   { id: 0, text: t('global.unverified') },
-  { id: 1, text: t('global.verified') }
+  { id: 1, text: t('global.verified') },
+  { id: 2, text: t('global.rejected') }
 ])
 
 const productCategorySubcategories = computed(() => {
