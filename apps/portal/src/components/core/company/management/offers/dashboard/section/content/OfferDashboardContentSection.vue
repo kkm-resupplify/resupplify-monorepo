@@ -85,7 +85,7 @@ defineProps({
 })
 
 // Interfaces
-interface InitialQueryParams {
+interface OfferFiltersParams {
   page?: string
   name?: string
   categoryId?: number
@@ -98,7 +98,7 @@ const route = useRoute()
 const form = ref<typeof OForm>()
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const selectedCategoryId = ref<number | null>()
-const initialFormValues = ref<InitialQueryParams>()
+const initialFormValues = ref<OfferFiltersParams>()
 const subcategoryRef = ref<typeof MSelect>()
 const { t } = useI18n()
 
@@ -127,11 +127,11 @@ const handleProductCategoryChange = (id: number) => {
   selectedCategoryId.value = id
 }
 
-const setQueryParam = async (data: InitialQueryParams | undefined) => {
+const setQueryParam = async (data: OfferFiltersParams | undefined) => {
   await router.replace({ query: { ...route.query, ...data } })
 }
 
-const handleQuerySubmit = async (data: InitialQueryParams) => {
+const handleQuerySubmit = async (data: OfferFiltersParams) => {
   await setQueryParam(data)
 }
 
