@@ -1,6 +1,7 @@
 import { createI18n } from 'vue-i18n'
 import enUS from '@/translation/langs/en-US.json'
 import plPL from '@/translation/langs/pl-PL.json'
+import numberFormats from '@/translation/numberFormats'
 
 export const i18n = createI18n({
   allowComposition: true,
@@ -11,5 +12,6 @@ export const i18n = createI18n({
   messages: {
     'en-US': enUS,
     'pl-PL': plPL
-  }
+  },
+  numberFormats
 })
