@@ -185,9 +185,10 @@ const handleResetFilters = async () => {
 
 // Hooks
 onBeforeMount(async () => {
-  setInitialFormValues()
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
+
+  setInitialFormValues()
 })
 </script>
 
