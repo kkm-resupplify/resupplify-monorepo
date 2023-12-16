@@ -508,6 +508,7 @@
         "dashboard": {
           "transactionHistory": "Transaction history",
           "companyBalance": "Company balance",
+          "currentBalance": "Current balance",
 
           "list": {
             "noTransactions": "Your company does not have any transactions yet.",
@@ -564,7 +565,7 @@
         }
       },
 
-      "offer": {        
+      "offer": {
         "dashboard": {
           "companyOffers": "Company offers",
           "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet.",

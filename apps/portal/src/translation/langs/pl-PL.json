@@ -513,6 +513,7 @@
         "dashboard": {
           "transactionHistory": "Historia transakcji",
           "companyBalance": "Saldo firmy",
+          "currentBalance":"Aktualne saldo",
 
           "list": {
             "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
