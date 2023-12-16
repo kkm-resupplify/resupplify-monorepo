@@ -10,6 +10,14 @@
           :title="activatorSection.title"
           :value="activatorSection.value"
         />
+
+        <a-currency
+          :title="$t('company.management.balance.dashboard.payment.section.value')"
+          :value="payment.amount"
+          vertical
+          :sign="transactionSign"
+          style="flex-basis: 12%"
+        />
       </a-list-item-wrapper>
     </template>
 
@@ -84,7 +92,6 @@ const { t } = useI18n()
 const activatorSections = computed(() => {
   return [
     new ActivatorSectionDto('type', getTransactionType(props.payment.type)),
-    new ActivatorSectionDto('amount', `${props.payment.amount}€`),
     new ActivatorSectionDto('date', props.payment.createdAt)
   ]
 })
@@ -159,6 +166,12 @@ const senderEntityData = computed(() => [
     subtitle: props.payment.sender.address
   }
 ])
+
+const transactionSign = computed(() => {
+  return [PaymentTypeEnum.WITHDRAWAL, PaymentTypeEnum.PURCHASE].includes(props.payment.type)
+    ? '-'
+    : '+'
+})
 </script>
 
 <style lang="scss" scoped>
