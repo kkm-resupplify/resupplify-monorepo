@@ -4,7 +4,7 @@
     :class="generateClasses"
     :type="buttonType"
     data-test="button"
-    :disabled="disabled"
+    :disabled="isDisabled"
     :to="to"
   >
     <slot>
@@ -82,6 +82,8 @@ const generateClasses = computed(() => {
 const buttonElement = computed(() => {
   return props.to ? RouterLink : 'button'
 })
+
+const isDisabled = computed(() => props.disabled || props.isLoading)
 </script>
 
 <style lang="scss" scoped>
