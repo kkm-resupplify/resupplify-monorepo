@@ -508,6 +508,29 @@
           "transactionHistory": "Transaction history",
           "companyBalance": "Company balance",
 
+          "list": {
+            "noTransactions": "Your company does not have any transactions yet.",
+            "noTransactionsMatchingFilter": "No transactions for given parameters.",
+
+            "item": {
+              "receiver": {
+                "name": "Receiver name",
+                "email": "Receiver email",
+                "phone": "Receiver phone",
+                "contactPerson": "Contact person",
+                "address": "Receiver address"
+              },
+
+              "sender": {
+                "name": "Sender name",
+                "email": "Sender email",
+                "phone": "Sender phone",
+                "contactPerson": "Contact person",
+                "address": "Sender address"
+              }
+            }
+          },
+
           "filter": {
             "typePlaceholder": "Select transaction type"
           },
@@ -531,7 +554,12 @@
           "amountLabel": "Amount",
           "amountPlaceholder": "Enter amount",
           "depositFunds": "Deposit funds",
-          "selectOperationType": "Select operation type"
+          "selectOperationType": "Select operation type",
+
+          "notification": {
+            "depositFundsSuccessTitle": "The funds have been deposited successfully",
+            "withdrawFundsSuccessTitle": "The funds have been withdrawn successfully"
+          }
         }
       },
 

@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section class="payment-dashboard-content-section">
+  <a-panel-section class="payment-dashboard-content-section" overflow>
     <div class="payment-dashboard-content-section__header">
       <a-title
         class="payment-dashboard-content-section__header-title"
@@ -7,7 +7,12 @@
         size="large"
       />
 
-      <o-form ref="form" :initial-values="initialFilterParams" :submit-callback="handleQuerySubmit">
+      <o-form
+        ref="form"
+        :initial-values="initialFilterParams"
+        :submit-callback="handleQuerySubmit"
+        class="payment-dashboard-content-section__filter-form"
+      >
         <template #body>
           <m-select
             name="type"
@@ -31,10 +36,15 @@
     <template v-if="isLoading">implement-loader-here</template>
 
     <template v-else>
-      <payment-dashboard-payment-list :payments="payments" />
+      <payment-dashboard-payment-list v-if="showList" :payments="payments" />
 
-      <o-pagination :pagination="paginationData" @page-changed="handleFetchTransactions" />
+      <a-list-no-results
+        v-else
+        :text="$t(`company.management.balance.dashboard.list.${noResultsTranslationKey}`)"
+      />
     </template>
+
+    <o-pagination :pagination="paginationData" @page-changed="handleFetchTransactions" />
   </a-panel-section>
 </template>
 
@@ -48,6 +58,7 @@ import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 import OForm from '@sharedOrganisms/form/OForm.vue'
 import { useRoute } from 'vue-router'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
+import CompanyBalanceService from '@/services/company/CompanyBalanceService'
 
 // Interfaces
 interface TransactionHistoryFilterParams {
@@ -63,80 +74,7 @@ const initialFilterParams = ref<TransactionHistoryFilterParams>()
 const { setQueryParam } = useQueryFilter()
 const route = useRoute()
 const paginationData = ref<Pagination>()
-const payments = ref<Payment[]>([
-  {
-    id: 1,
-    amount: 189.82,
-    currency: 'EURO',
-    type: 1,
-    status: 1,
-    date: '16-03-2023',
-    sender: {
-      name: 'Sender Company Inc.',
-      email: 'sender-company@gmail.com',
-      contactPerson: 'John Senderson'
-    },
-    receiver: {
-      name: 'Receiver Company Inc.',
-      email: 'receiver-company@gmail.com',
-      contactPerson: 'Juliet Receiverson'
-    }
-  },
-  {
-    id: 2,
-    amount: 212.02,
-    currency: 'EURO',
-    type: 2,
-    status: 1,
-    date: '16-03-2023',
-    sender: {
-      name: 'Sender Company Inc.',
-      email: 'sender-company@gmail.com',
-      contactPerson: 'John Senderson'
-    },
-    receiver: {
-      name: 'Receiver Company Inc.',
-      email: 'receiver-company@gmail.com',
-      contactPerson: 'Juliet Receiverson'
-    }
-  },
-  {
-    id: 3,
-    amount: 583.58,
-    currency: 'EURO',
-    type: 3,
-    status: 1,
-    date: '16-03-2023',
-    sender: {
-      name: 'Sender Company Inc.',
-      email: 'sender-company@gmail.com',
-      contactPerson: 'John Senderson'
-    },
-    receiver: {
-      name: 'Receiver Company Inc.',
-      email: 'receiver-company@gmail.com',
-      contactPerson: 'Juliet Receiverson'
-    }
-  },
-  {
-    id: 4,
-    amount: 483.3,
-    currency: 'EURO',
-    type: 4,
-    status: 1,
-    date: '16-03-2023',
-    sender: {
-      name: 'Sender Company Inc.',
-      email: 'sender-company@gmail.com',
-      contactPerson: 'John Senderson'
-    },
-    receiver: {
-      name: 'Receiver Company Inc.',
-      email: 'receiver-company@gmail.com',
-      contactPerson: 'Juliet Receiverson'
-    }
-  }
-])
+const payments = ref<Payment[]>([])
 
 // Computed
 const typeFilterOptions = computed(() =>
@@ -145,6 +83,24 @@ const typeFilterOptions = computed(() =>
     text: t(`payment.type.${typeName.toLowerCase()}`)
   }))
 )
+
+const showList = computed(() => {
+  return payments.value.length > 0
+})
+
+const filtersUsed = computed(() => {
+  const {
+    query: { page, type }
+  } = route
+
+  return !!(page !== '1' || type)
+})
+
+const noResultsTranslationKey = computed(() => {
+  return payments.value.length === 0 && filtersUsed.value
+    ? 'noTransactionsMatchingFilter'
+    : 'noTransactions'
+})
 
 // Methods
 const handleQuerySubmit = async (data: TransactionHistoryFilterParams) => {
@@ -159,6 +115,16 @@ const handleFetchTransactions = async () => {
   const {
     query: { page, type }
   } = route
+
+  const { success, data, pagination } = await CompanyBalanceService.getCompanyTransactions({
+    page: page as string,
+    type: type as string
+  })
+
+  if (success) {
+    payments.value = data
+    paginationData.value = pagination
+  }
 
   isLoading.value = false
 }
@@ -192,7 +158,6 @@ onBeforeMount(async () => {
 
 <style lang="scss" scoped>
 .payment-dashboard-content-section {
-  display: flex;
   height: 100%;
 
   &__header {
@@ -212,10 +177,12 @@ onBeforeMount(async () => {
     gap: 0;
   }
 
-  :deep(.o-form__body) {
-    flex-direction: row;
-    gap: $global-spacing-30;
-    justify-content: flex-end;
+  &__filter-form {
+    :deep(.o-form__body) {
+      flex-direction: row;
+      gap: $global-spacing-30;
+      justify-content: flex-end;
+    }
   }
 }
 </style>
