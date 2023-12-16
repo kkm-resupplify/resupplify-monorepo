@@ -40,17 +40,12 @@
 
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
-import { ref, computed, onBeforeMount } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import CompanyBalanceService from '@/services/company/CompanyBalanceService'
 
 // Variables
 const isLoading = ref(false)
 const balance = ref(0)
-
-// Computed
-const formattedBalance = computed(() => {
-  return `€${balance.value}`
-})
 
 // Methods
 const handleFetchCompanyBalance = async () => {

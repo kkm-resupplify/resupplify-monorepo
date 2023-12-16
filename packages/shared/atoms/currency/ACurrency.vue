@@ -10,7 +10,7 @@
 import { computed } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
-const props = defineProps({
+defineProps({
   title: String,
   value: {
     type: Number,
