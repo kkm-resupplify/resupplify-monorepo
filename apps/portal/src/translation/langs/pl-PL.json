@@ -43,6 +43,12 @@
       "settings": "Ustawienia",
       "myCompany": "Moja firma",
       "logout": "Wyloguj"
+    },
+
+    "browse": {
+      "offers": "Oferty",
+      "companies": "Firmy",
+      "products": "Produkty"
     }
   },
 

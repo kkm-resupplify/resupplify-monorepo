@@ -43,6 +43,12 @@
       "settings": "Settings",
       "myCompany": "My company",
       "logout": "Logout"
+    },
+
+    "browse": {
+      "offers": "Offers",
+      "companies": "Companies",
+      "products": "Products"
     }
   },
 
