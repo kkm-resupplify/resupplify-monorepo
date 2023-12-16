@@ -5,6 +5,7 @@
         v-for="buttonLinkItem in buttonLinkList"
         :key="buttonLinkItem.link"
         :to="buttonLinkItem.link"
+        style="text-decoration: none"
       >
         <a-button :text="buttonLinkItem.text" :outlined="buttonLinkItem.outlined" size="x-large" />
       </router-link>
