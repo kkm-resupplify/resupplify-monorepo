@@ -11,5 +11,5 @@ import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import CompanyPreviewOfferList from './list/CompanyPreviewOfferList.vue'
 import { ref } from 'vue'
 
-const offers = ref<Offer>([])
+const offers = ref<Offer[]>([])
 </script>
