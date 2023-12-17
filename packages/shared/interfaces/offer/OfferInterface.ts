@@ -15,7 +15,7 @@ export interface Offer {
 export interface OfferFiltersParams {
   page?: string
   name?: string
-  categoryId?: number
-  subcategoryId?: number
-  status?: number
+  categoryId?: string | number
+  subcategoryId?: string | number
+  status?: string | number
 }
