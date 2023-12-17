@@ -500,6 +500,14 @@
     }
   },
 
+  "offers": {
+    "filters": {
+      "namePlaceholder": "Wpisz nazwę",
+      "categoryPlaceholder": "Kategoria",
+      "subcategoryPlaceholder": "Podkategoria"
+    }
+  },
+
   "product": {
     "promotion": {
       "bestsellers": "Bestsellery",
