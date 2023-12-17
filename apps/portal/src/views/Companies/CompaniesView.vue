@@ -1,7 +1,11 @@
 <template>
   <basic-view-layout>
     <template #body>
-      <div>companies-view</div>
+      <div>company-header</div>
+
+      <div>company-filters</div>
+
+      <div>company-list</div>
     </template>
   </basic-view-layout>
 </template>
