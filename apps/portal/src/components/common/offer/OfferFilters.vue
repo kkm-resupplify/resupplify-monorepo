@@ -108,7 +108,7 @@ const setInitialFormValues = () => {
 const handleQuerySubmit = async (data: OfferFilterValues) => {
   await setQueryParam(route, data)
 
-  console.log(data)
+  emits('filter', data)
 }
 
 // Hooks
