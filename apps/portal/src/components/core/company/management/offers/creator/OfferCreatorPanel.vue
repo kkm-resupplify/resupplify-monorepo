@@ -1,17 +1,20 @@
 <template>
   <a-panel class="offer-creator-panel">
-    <a-panel-section>
-      <offer-creator-form />
-    </a-panel-section>
+    <offer-creator-form-section />
+
+    <offer-creator-side-panel-section />
   </a-panel>
 </template>
 
 <script setup lang="ts">
-import OfferCreatorForm from './OfferCreatorForm.vue'
+import OfferCreatorFormSection from './OfferCreatorFormSection.vue'
+import OfferCreatorSidePanelSection from './OfferCreatorSidePanelSection.vue'
 </script>
 
 <style lang="scss" scoped>
 .offer-creator-panel {
   display: flex;
+  flex: 1;
+  flex-direction: row !important;
 }
 </style>
