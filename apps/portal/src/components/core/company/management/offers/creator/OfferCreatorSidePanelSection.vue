@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section class="offer-creator-side-panel-section">
+  <a-panel-section class="offer-creator-side-panel-section" overflow>
     <div class="offer-creator-side-panel-section__header">
       <a-title :title="$t('company.management.offer.creator.sidePanel.title')" size="x-large" />
     </div>
@@ -11,6 +11,8 @@
       />
 
       <div class="offer-creator-side-panel-section__details">
+        <a-title :title="getTranslationValue('generalData')" size="large" />
+
         <div class="offer-creator-side-panel-section__details-row">
           <div class="offer-creator-side-panel-section__details-column">
             <a-title
@@ -50,6 +52,31 @@
               append-colon
               class="offer-creator-side-panel-section__details-description"
             />
+          </div>
+        </div>
+
+        <a-line />
+        <a-title :title="$t('company.management.offer.creator.sidePanel.datesActive')" />
+        <div
+          class="offer-creator-side-panel-section__details-row"
+          style="overflow: auto; max-height: 100%"
+        >
+          <div class="offer-creator-side-panel-section__details-column">
+            <a-list>
+              <a-list-item-wrapper v-for="(date, idx) in stockItem?.datesActive" :key="idx">
+                <a-list-item-title-section
+                  :title="$t('global.dateStart')"
+                  :value="date.startDate"
+                  :basis="50"
+                />
+
+                <a-list-item-title-section
+                  :title="$t('global.dateEnd')"
+                  :value="date.endDate"
+                  :basis="50"
+                />
+              </a-list-item-wrapper>
+            </a-list>
           </div>
         </div>
       </div>
@@ -145,13 +172,17 @@ const getProductVerificationStatusTranslation = (status: number) => {
   width: 100%;
 
   &__content {
+    overflow: clip;
     display: flex;
     flex: 1;
+    max-height: 100%;
   }
 
   &__details {
     display: flex;
     flex: 1;
+    flex-direction: column;
+    gap: $global-spacing-20;
   }
 
   &__details-column {
