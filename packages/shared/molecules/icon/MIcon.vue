@@ -9,6 +9,8 @@
     :library="library"
     :variant="variant"
     :hoverable="hoverable"
+    :gradient="gradient"
+    :move-background="moveBackground"
   />
 </template>
 
@@ -40,7 +42,9 @@ const props = defineProps({
     default: 'outlined'
   },
   country: Boolean,
-  hoverable: Boolean
+  hoverable: Boolean,
+  gradient: Boolean,
+  moveBackground: Boolean
 })
 
 // Variables

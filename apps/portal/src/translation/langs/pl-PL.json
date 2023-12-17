@@ -26,7 +26,11 @@
     "activate": "Aktywuj",
     "deactivate": "Dezaktywuj",
     "preview": "Podgląd",
-    "reset": "Resetuj"
+    "reset": "Resetuj",
+    "withdraw": "Wycofaj",
+    "create": "Utwórz",
+    "refresh": "Odśwież",
+    "rejected": "Odrzucony"
   },
 
   "language": {
@@ -34,8 +38,17 @@
     "pl-PL": "Polski"
   },
 
-  "payments": {
-    "payNow": "Zapłać teraz"
+  "payment": {
+    "payNow": "Zapłać teraz",
+    "receiver": "Odbiorca płatności",
+    "sender": "Nadawca płatności",
+
+    "type": {
+      "withdrawal": "Wypłata",
+      "deposit": "Depozyt",
+      "sale": "Sprzedaż",
+      "purchase": "Zakup"
+    }
   },
 
   "navigation": {
@@ -495,6 +508,113 @@
             "itemName": "Nazwa tagu produktu",
             "colorValue": "Wartość koloru hex"
           }
+        }
+      },
+
+      "balance": {
+        "dashboard": {
+          "transactionHistory": "Historia transakcji",
+          "companyBalance": "Saldo firmy",
+          "currentBalance":"Aktualne saldo",
+
+          "list": {
+            "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
+            "noTransactionsMatchingFilter": "Brak transakcji dla podanych parametrów.",
+
+            "item": {
+              "receiver": {
+                "name": "Nazwa odbiorcy",
+                "email": "Email odbiorcy",
+                "phone": "Telefon odbiorcy",
+                "contactPerson": "Osoba kontaktowa",
+                "address": "Adres odbiorcy"
+              },
+
+              "sender": {
+                "name": "Nazwa nadawcy",
+                "email": "Email nadawcy",
+                "phone": "Telefon nadawcy",
+                "contactPerson": "Osoba kontaktowa",
+                "address": "Adres nadawcy"
+              }
+            }
+          },
+
+          "filter": {
+            "typePlaceholder": "Wybierz typ transakcji"
+          },
+
+          "payment": {
+            "section": {
+              "value": "Wartość",
+              "type": "Typ transakcji",
+              "date": "Data transakcji"
+            }
+          }
+        },
+
+        "manage": {
+          "title": "Zarządzaj saldem firmy",
+          "currentBalance": "Aktualne saldo",
+          "deposit": "Wpłać",
+          "withdraw": "Wypłać",
+          "operationTypeLabel": "Typ operacji",
+          "operationTypePlaceholder": "Wybierz typ operacji",
+          "amountLabel": "Ilość",
+          "amountPlaceholder": "Wprowadź ilość",
+          "depositFunds": "Wpłać kwotę",
+          "selectOperationType": "Wybierz rodzaj operacji",
+
+          "notification": {
+            "depositFundsSuccessTitle": "Środki zostały zdeponowane pomyślnie",
+            "withdrawFundsSuccessTitle": "Środki zostały wypłacone pomyślnie"
+          }
+        }
+      },
+
+      "offer": {
+        "dashboard": {
+          "companyOffers": "Oferty firmy",
+          "companyOffersNotVisible": "Oferty nie są widoczne dla innych, ponieważ Twoja firma nie została jeszcze zweryfikowana.",
+          "searchBarPlaceholder": "Szukaj ofert",
+          "productCategoryPlaceholder": "Kategoria produktu",
+          "productSubcategoryPlaceholder": "Podkategoria produktu",
+          "offerStatusPlaceholder": "Status oferty",
+
+          "list": {
+            "noOffers": "Twoja firma nie posiada jeszcze żadnych ofert.",
+            "noOffersMatchingFilter": "Brak ofert na podane parametry.",
+
+            "item": {
+              "netPrice": "Cena netto",
+              "unit": "Jednostka",
+              "supply": "Zaopatrzenie",
+              "quantity": "Ilość",
+              "productCode": "Kod productu",
+              "productDescription": "Opis produktu",
+              "productProducer": "Producent produktu",
+              "productTags": "Tagi produktu"
+            }
+          },
+
+          "dialog": {
+            "titleActivation": "Potwierdzenie aktywacji",
+            "contentActivation": "Czy na pewno chcesz aktywować tę ofertę?",
+            "titleWithdrawal": "Potwierdzenie wycofania",
+            "contentWithdrawal": "Czy na pewno chcesz wycofać tę ofertę?",
+            "titleDeletion": "Potwierdzenie usunięcia",
+            "contentDeletion": "Czy na pewno chcesz usunąć tę ofertę?"
+          }
+        },
+
+        "creator": {
+          "selectProductLabel": "Produkt",
+          "selectProductPlaceholder": "Wybierz produkt",
+          "selectQuantityLabel": "Ilość",
+          "selectQuantityPlaceholder": "Wybierz ilość",
+          "selectNetPriceLabel": "Cena netto",
+          "selectNetPricePlaceholder": "Podaj cenę netto za sztukę",
+          "createOffer": "Utwórz ofertę"
         }
       }
     }

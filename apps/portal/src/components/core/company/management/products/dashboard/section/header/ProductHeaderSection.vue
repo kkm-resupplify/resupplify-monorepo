@@ -15,9 +15,21 @@
           />
         </a-list-item-wrapper>
 
-        <router-link :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }">
-          <a-button :text="$t('company.management.products.dashboard.addProduct')" size="x-large" />
-        </router-link>
+        <div class="product-header-section__actions">
+          <a-button
+            :text="$t('company.management.products.dashboard.addProduct')"
+            size="x-large"
+            :to="{ name: RouteNames.COMPANY_PRODUCT_EDITOR }"
+            full-width
+          />
+
+          <a-button
+            :to="{ name: RouteNames.COMPANY_OFFERS_CREATOR }"
+            :text="$t('company.management.offer.creator.createOffer')"
+            size="x-large"
+            full-width
+          />
+        </div>
       </div>
     </div>
   </a-panel-section>
@@ -55,6 +67,14 @@ defineProps({
     display: flex;
     gap: $global-spacing-50;
     align-items: center;
+    justify-content: space-around;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-20;
+    align-items: flex-end;
     justify-content: space-around;
   }
 }
