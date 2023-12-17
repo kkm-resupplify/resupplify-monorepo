@@ -1,5 +1,10 @@
 <template>
-  <o-form ref="form" class="offer-filters" :submit-callback="handleQuerySubmit">
+  <o-form
+    ref="form"
+    class="offer-filters"
+    :submit-callback="handleQuerySubmit"
+    :initial-values="initialFilterParams"
+  >
     <template #body>
       <div class="offer-filters__inputs">
         <m-text-field
@@ -26,6 +31,7 @@
         />
       </div>
     </template>
+
     <template #footer>
       <a-button button-type="submit" text="search" size="x-large" />
     </template>
@@ -41,12 +47,14 @@ import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 import { onBeforeMount } from 'vue'
+import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
+import { useRoute } from 'vue-router'
 
 // Interfaces
-interface filterData {
-  name: string
-  categoryId: number
-  subcategoryId: number
+interface OfferFilterValues {
+  name?: string
+  categoryId?: number
+  subcategoryId?: number
 }
 
 // Emits
@@ -57,6 +65,9 @@ const products = ref<Product[]>([])
 const subcategoryRef = ref<typeof MSelect>()
 const selectedCategoryId = ref<number | null>()
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
+const initialFilterParams = ref<OfferFilterValues>()
+const route = useRoute()
+const { setQueryParam } = useQueryFilter()
 const isLoading = ref(false)
 
 // Computed
@@ -86,7 +97,17 @@ const handleFetchProducts = async () => {
   isLoading.value = false
 }
 
-const handleQuerySubmit = async (data: filterData) => {
+const setInitialFormValues = () => {
+  initialFilterParams.value = {
+    name: route.query.name ? route.query.name.toString() : undefined,
+    categoryId: route.query.categoryId ? +route.query.categoryId : undefined,
+    subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined
+  }
+}
+
+const handleQuerySubmit = async (data: OfferFilterValues) => {
+  await setQueryParam(route, data)
+
   console.log(data)
 }
 
@@ -95,6 +116,8 @@ onBeforeMount(async () => {
   await handleFetchProducts()
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
+
+  setInitialFormValues()
 })
 </script>
 
