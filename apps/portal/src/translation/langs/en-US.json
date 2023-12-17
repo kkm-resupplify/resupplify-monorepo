@@ -30,7 +30,8 @@
     "withdraw": "Withdraw",
     "create": "Create",
     "refresh": "Refresh",
-    "rejected": "Rejected"
+    "rejected": "Rejected",
+    "pricePerUnit": "Price per unit"
   },
 
   "language": {

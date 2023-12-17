@@ -30,7 +30,8 @@
     "withdraw": "Wycofaj",
     "create": "Utwórz",
     "refresh": "Odśwież",
-    "rejected": "Odrzucony"
+    "rejected": "Odrzucony",
+    "pricePerUnit": "Cena za jednostkę"
   },
 
   "language": {
