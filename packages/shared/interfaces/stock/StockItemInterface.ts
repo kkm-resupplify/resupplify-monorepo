@@ -5,5 +5,10 @@ export interface StockItem {
   product: Product
   warehouseName: string
   warehouseQuantity: number
-  datesActive: string[]
+  datesActive: StockItemDate[]
+}
+
+export interface StockItemDate {
+  startDate: string
+  endDate: string
 }
