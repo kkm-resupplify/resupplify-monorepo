@@ -8,7 +8,7 @@ class CompanyPreviewRouteEnum extends BaseEnum {
 
 const CompanyPreviewOfferRoutes: RouteRecordRaw[] = [
   {
-    path: 'company/:company-name',
+    path: 'company/:slug',
     name: CompanyPreviewRouteEnum.COMPANY_PREVIEW_OFFERS,
     component: CompanyPreviewDashboardPanelVue
   }
