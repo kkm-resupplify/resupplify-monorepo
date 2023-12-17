@@ -17,7 +17,15 @@ const selectedStockItem = ref<StockItem>({
   id: 1,
   warehouseName: 'Warehouse 1',
   warehouseQuantity: 100,
-  datesActive: [],
+  datesActive: [
+    { startDate: '17-12-2023 19:17:21', endDate: '17-12-2023 19:17:21' },
+    { startDate: '17-12-2023 19:17:21', endDate: '17-12-2023 19:17:21' },
+    { startDate: '17-12-2023 19:17:21', endDate: '17-12-2023 19:17:21' },
+    { startDate: '17-12-2023 19:17:21', endDate: '17-12-2023 19:17:21' },
+    { startDate: '17-12-2023 19:17:21', endDate: '17-12-2023 19:17:21' },
+    { startDate: '17-12-2023 19:17:21', endDate: '17-12-2023 19:17:21' },
+    { startDate: '17-12-2023 19:17:21', endDate: '17-12-2023 19:17:21' }
+  ],
   product: {
     id: 51,
     name: 'Product name',
