@@ -43,18 +43,13 @@
       "settings": "Settings",
       "myCompany": "My company",
       "logout": "Logout"
-    },
-
-    "browse": {
-      "offers": "Offers",
-      "companies": "Companies",
-      "products": "Products"
     }
   },
 
   "pages": {
     "home": "Home",
-    "browse": "Browse",
+    "offers": "Offers",
+    "companies": "Companies",
     "resources": "Resources"
   },
 

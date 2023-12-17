@@ -43,19 +43,14 @@
       "settings": "Ustawienia",
       "myCompany": "Moja firma",
       "logout": "Wyloguj"
-    },
-
-    "browse": {
-      "offers": "Oferty",
-      "companies": "Firmy",
-      "products": "Produkty"
     }
   },
 
   "pages": {
     "home": "Strona główna",
-    "browse": "Przeglądaj",
-    "resources": "Zasoby"
+    "offers": "Oferty",
+    "companies": "Firmy",
+    "resources": "Resources"
   },
 
   "auth": {
