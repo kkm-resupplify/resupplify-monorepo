@@ -1,7 +1,7 @@
 <template>
-  <div class="offer-list">
+  <a-list class="offer-list">
     <offer-list-item v-for="offer in offers" :key="offer.id" :offer="offer" />
-  </div>
+  </a-list>
 </template>
 
 <script setup lang="ts">
@@ -21,5 +21,6 @@ defineProps({
 .offer-list {
   display: flex;
   flex-direction: column;
+  gap: $global-spacing-20;
 }
 </style>

@@ -19,6 +19,5 @@ defineProps({
 <style scoped lang="scss">
 .offer-list-item {
   display: flex;
-  flex-direction: column;
 }
 </style>
