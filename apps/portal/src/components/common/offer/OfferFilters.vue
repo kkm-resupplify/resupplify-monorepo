@@ -35,6 +35,8 @@
 
     <template #footer>
       <a-button button-type="submit" text="search" size="x-large" />
+
+      <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
     </template>
   </o-form>
 </template>
@@ -55,6 +57,7 @@ import type OForm from '@sharedOrganisms/form/OForm.vue'
 
 // Interfaces
 interface OfferFilterValues {
+  page?: string
   name?: string
   categoryId?: number
   subcategoryId?: number
@@ -112,6 +115,22 @@ const setInitialFormValues = () => {
     categoryId: route.query.categoryId ? +route.query.categoryId : undefined,
     subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined
   }
+}
+
+const handleResetFilters = async () => {
+  form.value?.handleReset()
+  initialFilterParams.value = {
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined
+  }
+
+  await handleQuerySubmit({
+    page: '1',
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined
+  })
 }
 
 const handleQuerySubmit = async (data: OfferFilterValues) => {
