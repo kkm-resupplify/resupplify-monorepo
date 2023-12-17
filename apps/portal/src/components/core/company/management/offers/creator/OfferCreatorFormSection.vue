@@ -38,7 +38,7 @@
           />
 
           <m-text-field
-            name="dateStart"
+            name="endStart"
             input-type="date"
             :label="$t('company.management.offer.creator.enterEndDateLabel')"
             :placeholder="$t('company.management.offer.creator.enterEndDatePlaceholder')"
