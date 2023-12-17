@@ -1,11 +1,12 @@
-import type { OfferProduct } from './OfferProduct'
+import type { Product } from '@sharedInterfaces/product/ProductInterface'
 
 export interface Offer {
   id: number
   status: number
   price: number
   productQuantity: number
-  product: OfferProduct
+  warehouseQuantity: number
+  product: Product
   createdAt: string
   updatedAt: string
   startsAt: string
