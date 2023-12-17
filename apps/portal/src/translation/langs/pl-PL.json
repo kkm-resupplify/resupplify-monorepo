@@ -515,7 +515,7 @@
         "dashboard": {
           "transactionHistory": "Historia transakcji",
           "companyBalance": "Saldo firmy",
-          "currentBalance":"Aktualne saldo",
+          "currentBalance": "Aktualne saldo",
 
           "list": {
             "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
@@ -619,6 +619,24 @@
           "enterEndDateLabel": "Data zakończenia oferty",
           "enterEndDatePlaceholder": "Wybierz datę zakończenia oferty",
           "createOffer": "Utwórz ofertę",
+
+          "sidePanel": {
+            "title": "Szczegóły pozycji magazynowej",
+            "description": "Wybierz pozycję magazynową, aby zobaczyć jej szczegóły.",
+            "productName": "Nazwa produktu",
+            "productCode": "Kod produktu",
+            "productProducer": "Producent produktu",
+            "productStatus": "Status produktu",
+            "productVerificationStatus": "Status weryfikacji",
+            "productCategory": "Kategoria produktu",
+            "productSubcategory": "Podkategoria produktu",
+            "productUnit": "Jednostka produktu",
+            "productTags": "Tagi produktu",
+            "productDescription": "Opis produktu",
+            "warehouseName": "Nazwa magazynu",
+            "warehouseQuantity": "Ilość w magazynie",
+            "datesActive": "Daty dostępności oferty"
+          },
 
           "alert": {
             "offerSameDate": "Wybrana pozycja magazynowa ma już aktywną ofertę."
