@@ -34,9 +34,11 @@
     </template>
 
     <template #footer>
-      <a-button button-type="submit" text="search" size="x-large" />
+      <div class="offer-filters__buttons">
+        <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
 
-      <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
+        <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
+      </div>
     </template>
   </o-form>
 </template>
@@ -153,6 +155,12 @@ onBeforeMount(async () => {
 .offer-filters {
   &__inputs {
     display: flex;
+    gap: $global-spacing-30;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $global-spacing-30;
   }
 }
 </style>
