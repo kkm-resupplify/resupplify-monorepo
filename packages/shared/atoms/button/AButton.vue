@@ -1,7 +1,16 @@
 <template>
-  <button :class="generateClasses" :type="buttonType" data-test="button" :disabled="disabled">
-    {{ text }}
-  </button>
+  <component
+    :is="buttonElement"
+    :class="generateClasses"
+    :type="buttonType"
+    data-test="button"
+    :disabled="isDisabled"
+    :to="to"
+  >
+    <slot>
+      {{ text }}
+    </slot>
+  </component>
 </template>
 
 <script setup lang="ts">
@@ -9,12 +18,15 @@ import { computed, type PropType } from 'vue'
 import AButtonSizeEnum from '@sharedEnums/button/AButtonSizeEnum'
 import AButtonColorEnum from '@sharedEnums/button/AButtonColorEnum'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+import { RouterLink } from 'vue-router'
+
+// Interfaces
+interface PropTo {
+  name: string
+}
 
 const props = defineProps({
-  text: {
-    type: String,
-    required: true
-  },
+  text: String,
   size: {
     type: String,
     default: 'medium',
@@ -40,6 +52,7 @@ const props = defineProps({
     type: String as PropType<'button' | 'submit' | 'reset' | undefined>,
     default: 'button'
   },
+  to: Object as PropType<PropTo>,
   fullWidth: Boolean,
   disabled: Boolean,
   isLoading: Boolean
@@ -54,7 +67,7 @@ const { generateClassNames } = useClassComposable()
 // Computed
 const generateClasses = computed(() => {
   const colorClass = props.outlined ? `outlined-${props.color}` : props.color
-  const disabledClass = props.disabled ? 'disabled' : ''
+  const disabledClass = isDisabled.value ? 'disabled' : ''
   const fullWidthClass = props.fullWidth ? 'full-width' : ''
 
   return generateClassNames(baseClass, [
@@ -65,6 +78,12 @@ const generateClasses = computed(() => {
     fullWidthClass
   ])
 })
+
+const buttonElement = computed(() => {
+  return props.to ? RouterLink : 'button'
+})
+
+const isDisabled = computed(() => props.disabled || props.isLoading)
 </script>
 
 <style lang="scss" scoped>
@@ -109,9 +128,14 @@ const generateClasses = computed(() => {
 .a-button {
   cursor: pointer;
 
-  align-items: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   box-sizing: border-box;
+
+  font-size: 0.8em;
+  text-decoration: none !important;
 
   border: 0;
   border-radius: 4px;

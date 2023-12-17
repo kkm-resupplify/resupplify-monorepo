@@ -26,7 +26,11 @@
     "activate": "Activate",
     "deactivate": "Deactivate",
     "preview": "Preview",
-    "reset": "Reset"
+    "reset": "Reset",
+    "withdraw": "Withdraw",
+    "create": "Create",
+    "refresh": "Refresh",
+    "rejected": "Rejected"
   },
 
   "language": {
@@ -34,8 +38,17 @@
     "pl-PL": "Polish"
   },
 
-  "payments": {
-    "payNow": "Pay now"
+  "payment": {
+    "payNow": "Pay now",
+    "receiver": "Payment receiver",
+    "sender": "Payment sender",
+
+    "type": {
+      "withdrawal": "Withdrawal",
+      "deposit": "Deposit",
+      "sale": "Sale",
+      "purchase": "Purchase"
+    }
   },
 
   "navigation": {
@@ -490,6 +503,113 @@
             "itemName": "Product tag name",
             "colorValue": "Hex color value"
           }
+        }
+      },
+
+      "balance": {
+        "dashboard": {
+          "transactionHistory": "Transaction history",
+          "companyBalance": "Company balance",
+          "currentBalance": "Current balance",
+
+          "list": {
+            "noTransactions": "Your company does not have any transactions yet.",
+            "noTransactionsMatchingFilter": "No transactions for given parameters.",
+
+            "item": {
+              "receiver": {
+                "name": "Receiver name",
+                "email": "Receiver email",
+                "phone": "Receiver phone",
+                "contactPerson": "Contact person",
+                "address": "Receiver address"
+              },
+
+              "sender": {
+                "name": "Sender name",
+                "email": "Sender email",
+                "phone": "Sender phone",
+                "contactPerson": "Contact person",
+                "address": "Sender address"
+              }
+            }
+          },
+
+          "filter": {
+            "typePlaceholder": "Select transaction type"
+          },
+
+          "payment": {
+            "section": {
+              "value": "Value",
+              "type": "Transaction type",
+              "date": "Transaction date"
+            }
+          }
+        },
+
+        "manage": {
+          "title": "Manage company balance",
+          "currentBalance": "Current balance",
+          "deposit": "Deposit",
+          "withdraw": "Withdraw",
+          "operationTypeLabel": "Operation type",
+          "operationTypePlaceholder": "Select operation type",
+          "amountLabel": "Amount",
+          "amountPlaceholder": "Enter amount",
+          "depositFunds": "Deposit funds",
+          "selectOperationType": "Select operation type",
+
+          "notification": {
+            "depositFundsSuccessTitle": "The funds have been deposited successfully",
+            "withdrawFundsSuccessTitle": "The funds have been withdrawn successfully"
+          }
+        }
+      },
+
+      "offer": {
+        "dashboard": {
+          "companyOffers": "Company offers",
+          "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet.",
+          "searchBarPlaceholder": "Search offers",
+          "productCategoryPlaceholder": "Product category",
+          "productSubcategoryPlaceholder": "Product subcategory",
+          "offerStatusPlaceholder": "Offer status",
+
+          "list": {
+            "noOffers": "Your company does not have any ofers yet.",
+            "noOffersMatchingFilter": "No offers for given parameters.",
+
+            "item": {
+              "netPrice": "Net price",
+              "unit": "Unit",
+              "supply": "Supply",
+              "quantity": "Quantity",
+              "productCode": "Product code",
+              "productDescription": "Product description",
+              "productProducer": "Product producer",
+              "productTags": "Product tags"
+            }
+          },
+
+          "dialog": {
+            "titleActivation": "Confirm activation",
+            "contentActivation": "Are you sure you want to activate this offer?",
+            "titleWithdrawal": "Confirm withdrawal",
+            "contentWithdrawal": "Are you sure you want to withdraw this offer?",
+            "titleDeletion": "Confirm deletion",
+            "contentDeletion": "Are you sure you want to activate this offer?"
+          }
+        },
+
+        "creator": {
+          "selectProductLabel": "Product",
+          "selectProductPlaceholder": "Select a product",
+          "selectQuantityLabel": "Quantity",
+          "selectQuantityPlaceholder": "Select quantity",
+          "selectNetPriceLabel": "Net price",
+          "selectNetPricePlaceholder": "Enter the net price per item",
+          "createOffer": "Create offer"
         }
       }
     }
