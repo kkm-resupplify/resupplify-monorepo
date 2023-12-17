@@ -603,13 +603,21 @@
         },
 
         "creator": {
-          "selectProductLabel": "Product",
-          "selectProductPlaceholder": "Select a product",
-          "selectQuantityLabel": "Quantity",
-          "selectQuantityPlaceholder": "Select quantity",
-          "selectNetPriceLabel": "Net price",
-          "selectNetPricePlaceholder": "Enter the net price per item",
-          "createOffer": "Create offer"
+          "selectStockItemLabel": "Stock item",
+          "selectStockItemPlaceholder": "Select stock item",
+          "enterQuantityLabel": "Quantity for sale",
+          "enterQuantityPlaceholder": "Enter quantity for sale",
+          "enterNetPriceLabel": "Net Price",
+          "enterNetPricePlaceholder": "Enter net price per unit",
+          "enterStartDateLabel": "Offer start date",
+          "enterStartDatePlaceholder": "Select offer start date",
+          "enterEndDateLabel": "Offer end date",
+          "enterEndDatePlaceholder": "Select offer end date",
+          "createOffer": "Create offer",
+
+          "alert": {
+            "offerSameDate": "The selected stock item already has an active offer."
+          }
         }
       }
     }
