@@ -1,4 +1,4 @@
-import CompanyPreviewView from '@/views/Company/Management/CompanyPreviewView.vue'
+import CompanyPreviewView from '@/views/Preview/CompanyPreviewView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 
@@ -6,12 +6,12 @@ class CompanyPreviewRouteEnum extends BaseEnum {
   static readonly COMPANY_PREVIEW: string = 'COMPANY_PREVIEW'
 }
 
-const CompanyPreviewOfferRoutes: RouteRecordRaw[] = [
+const CompanyPreviewRoutes: RouteRecordRaw[] = [
   {
-    path: 'company/:slug',
+    path: '/preview/company/:slug',
     name: CompanyPreviewRouteEnum.COMPANY_PREVIEW,
     component: CompanyPreviewView
   }
 ]
 
-export default CompanyPreviewOfferRoutes
+export default CompanyPreviewRoutes

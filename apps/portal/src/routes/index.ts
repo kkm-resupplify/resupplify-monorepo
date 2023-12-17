@@ -9,6 +9,7 @@ import Settings from './settings/SettingsRoutes'
 import TestRoutes from './test/TestRoutes'
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+import PreviewRoutes from './preview/PreviewRoutes'
 
 const routes = [
   ...HomeRoutes,
@@ -16,6 +17,7 @@ const routes = [
   ...Settings,
   ...ResourcesRoutes,
   ...OffersRoutes,
+  ...PreviewRoutes,
   ...CompaniesRoutes,
   ...UserRoutes,
   ...CompanyRoutes,

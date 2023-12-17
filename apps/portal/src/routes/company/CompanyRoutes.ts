@@ -9,7 +9,6 @@ import {
 } from '@/routes/navigationGuards'
 import { useCompanyRoleStore } from '@/stores/company/useCompanyRoleStore'
 import CompanyRoleService from '@/services/company/CompanyRoleService'
-import CompanyPreviewRoutes from './preview/CompanyPreviewRoutes'
 
 class CompanyRouteEnum extends BaseEnum {
   static readonly COMPANY: string = 'COMPANY'
@@ -37,11 +36,6 @@ const CompanyRoutes: RouteRecordRaw[] = [
 
       if (roles) companyRoleStore.setCompanyRoles(roles)
     }
-  },
-  {
-    path: '/preview',
-    name: CompanyRouteEnum.PREVIEW,
-    children: [...CompanyPreviewRoutes]
   }
 ]
 
