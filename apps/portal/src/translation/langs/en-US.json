@@ -31,7 +31,9 @@
     "create": "Create",
     "refresh": "Refresh",
     "rejected": "Rejected",
-    "pricePerUnit": "Price per unit"
+    "pricePerUnit": "Price per unit",
+    "dateStart": "Start date",
+    "dateEnd": "End date"
   },
 
   "language": {
@@ -630,7 +632,8 @@
             "productDescription": "Product description",
             "warehouseName": "Warehouse name",
             "warehouseQuantity": "Quantity in warehouse",
-            "datesActive": "Offer availability dates"
+            "datesActive": "Stock item availability periods",
+            "generalData": "General data"
           },
 
           "alert": {
