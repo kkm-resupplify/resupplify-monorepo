@@ -1,8 +1,8 @@
 <template>
-  <a-panel-section>
-    <o-form class="offer-creator-form">
+  <a-panel-section class="offer-creator-form-section-section">
+    <o-form class="offer-creator-form-section__form">
       <template #body>
-        <div class="offer-creator-form__body">
+        <div class="offer-creator-form-section__form-body">
           <a-title :title="$t('company.management.offer.creator.createOffer')" size="x-large" />
 
           <m-select
@@ -49,7 +49,7 @@
 
       <template #footer>
         <a-button
-          class="offer-creator-form__button"
+          class="offer-creator-form-section__form-button"
           button-type="submit"
           :text="$t('global.create')"
           size="x-large"
@@ -95,17 +95,17 @@ onBeforeMount(async () => {
 </script>
 
 <style scoped lang="scss">
-.offer-creator-form {
+.offer-creator-form-section {
   padding: $global-spacing-20;
 
-  &__body {
+  &__form-body {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-50;
     min-width: 500px;
   }
 
-  &__button {
+  &__form-button {
     width: 100%;
     margin-top: $global-spacing-30;
   }
