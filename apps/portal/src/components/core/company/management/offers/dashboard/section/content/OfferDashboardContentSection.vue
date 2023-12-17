@@ -71,7 +71,7 @@
 <script setup lang="ts">
 import OfferDashboardOfferList from '@/components/core/company/management/offers/dashboard/section/content/list/OfferDashboardOfferList.vue'
 import router from '@/routes'
-import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
+import type { Offer, OfferFiltersParams } from '@sharedInterfaces/offer/OfferInterface'
 import { useRoute } from 'vue-router'
 import OForm from '@sharedOrganisms/form/OForm.vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
@@ -80,15 +80,6 @@ import StaticProductDescriptorsService from '@/services/product/StaticProductDes
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useI18n } from 'vue-i18n'
 import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
-
-// Interfaces
-interface OfferFiltersParams {
-  page?: string
-  name?: string
-  categoryId?: number
-  subcategoryId?: number
-  status?: number
-}
 
 // Variables
 const route = useRoute()

@@ -11,3 +11,12 @@ export interface Offer {
   startsAt: string
   endsAt: string
 }
+
+
+export interface OfferFiltersParams {
+  page?: string
+  name?: string
+  categoryId?: number
+  subcategoryId?: number
+  status?: number
+}
