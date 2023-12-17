@@ -12,6 +12,7 @@
           :placeholder="$t('offers.filters.namePlaceholder')"
           :validate="false"
           append-icon-on="close"
+          @append-icon-click="handleClearSearch"
         />
 
         <m-select
@@ -49,6 +50,8 @@ import StaticProductDescriptorsService from '@/services/product/StaticProductDes
 import { onBeforeMount } from 'vue'
 import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 import { useRoute } from 'vue-router'
+import router from '@/routes'
+import type OForm from '@sharedOrganisms/form/OForm.vue'
 
 // Interfaces
 interface OfferFilterValues {
@@ -69,6 +72,7 @@ const initialFilterParams = ref<OfferFilterValues>()
 const route = useRoute()
 const { setQueryParam } = useQueryFilter()
 const isLoading = ref(false)
+const form = ref<typeof OForm>()
 
 // Computed
 const productCategorySubcategories = computed(() => {
@@ -83,6 +87,11 @@ const productCategorySubcategories = computed(() => {
 const handleProductCategoryChange = (id: number) => {
   subcategoryRef?.value?.clearSelect()
   selectedCategoryId.value = id
+}
+
+const handleClearSearch = async () => {
+  await router.replace({ query: { ...route.query, name: '' } })
+  form.value?.resetField('name', null)
 }
 
 const handleFetchProducts = async () => {
