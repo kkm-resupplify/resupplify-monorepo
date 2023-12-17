@@ -48,8 +48,9 @@
 
   "pages": {
     "home": "Strona główna",
-    "browse": "Przeglądaj",
-    "resources": "Zasoby"
+    "offers": "Oferty",
+    "companies": "Firmy",
+    "resources": "Resources"
   },
 
   "auth": {

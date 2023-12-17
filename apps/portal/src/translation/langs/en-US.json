@@ -48,7 +48,8 @@
 
   "pages": {
     "home": "Home",
-    "browse": "Browse",
+    "offers": "Offers",
+    "companies": "Companies",
     "resources": "Resources"
   },
 
