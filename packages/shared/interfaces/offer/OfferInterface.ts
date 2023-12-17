@@ -12,7 +12,6 @@ export interface Offer {
   endsAt: string
 }
 
-
 export interface OfferFiltersParams {
   page?: string
   name?: string
