@@ -80,6 +80,8 @@ import StaticProductDescriptorsService from '@/services/product/StaticProductDes
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useI18n } from 'vue-i18n'
 import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
+import CompanyOffersService from '@/services/company/CompanyOffersService'
+import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 
 // Variables
 const route = useRoute()
@@ -91,7 +93,7 @@ const { setQueryParam } = useQueryFilter()
 const initialFilterParams = ref<OfferFiltersParams>()
 const subcategoryRef = ref<typeof MSelect>()
 const { t } = useI18n()
-
+const paginationData = ref<Pagination>()
 const offers = ref<Offer[]>([])
 
 // Computed
@@ -166,12 +168,36 @@ const handleResetFilters = async () => {
   })
 }
 
+const handleFetchOffers = async () => {
+  isLoading.value = true
+
+  const {
+    query: { page, name, categoryId, subcategoryId, status }
+  } = route
+
+  const { data, success, pagination } = await CompanyOffersService.getOffers({
+    page: page as string,
+    name: name as string,
+    categoryId: categoryId as string,
+    subcategoryId: subcategoryId as string,
+    status: status as string
+  })
+
+  if (success) {
+    offers.value = data
+    paginationData.value = pagination
+  }
+
+  isLoading.value = false
+}
+
 // Hooks
 onBeforeMount(async () => {
+  setInitialFormValues()
+
+  await handleFetchOffers()
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
-
-  setInitialFormValues()
 })
 </script>
 
