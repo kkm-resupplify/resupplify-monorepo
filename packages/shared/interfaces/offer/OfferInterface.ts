@@ -20,3 +20,12 @@ export interface OfferFiltersParams {
   subcategoryId?: string | number
   status?: string | number
 }
+
+export interface CreateOffer {
+  stockItemId: number
+  status: number
+  price: number
+  startDate: string
+  endDate: string
+  productQuantity: number
+}
