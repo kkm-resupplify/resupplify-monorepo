@@ -56,7 +56,12 @@
         </div>
 
         <a-line />
-        <a-title :title="$t('company.management.offer.creator.sidePanel.datesActive')" />
+
+        <a-title
+          :title="$t('company.management.offer.creator.sidePanel.datesActive')"
+          size="large"
+        />
+
         <div
           class="offer-creator-side-panel-section__details-row"
           style="overflow: auto; max-height: 100%"
