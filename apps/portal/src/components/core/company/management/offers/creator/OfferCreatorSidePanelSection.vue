@@ -62,28 +62,7 @@
           size="large"
         />
 
-        <div
-          class="offer-creator-side-panel-section__details-row"
-          style="overflow: auto; max-height: 100%"
-        >
-          <div class="offer-creator-side-panel-section__details-column">
-            <a-list>
-              <a-list-item-wrapper v-for="(date, idx) in stockItem?.datesActive" :key="idx">
-                <a-list-item-title-section
-                  :title="$t('global.dateStart')"
-                  :value="date.startDate"
-                  :basis="50"
-                />
-
-                <a-list-item-title-section
-                  :title="$t('global.dateEnd')"
-                  :value="date.endDate"
-                  :basis="50"
-                />
-              </a-list-item-wrapper>
-            </a-list>
-          </div>
-        </div>
+        <offer-creator-availability-periods :dates="stockItem?.datesActive" />
       </div>
     </div>
   </a-panel-section>
@@ -94,7 +73,7 @@ import ProductTagList from '@/components/common/product/ProductTagList.vue'
 import type { StockItem } from '@sharedInterfaces/stock/StockItemInterface'
 import { type PropType, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-
+import OfferCreatorAvailabilityPeriods from './OfferCreatorAvailabilityPeriods.vue'
 const props = defineProps({
   stockItem: Object as PropType<StockItem>
 })
