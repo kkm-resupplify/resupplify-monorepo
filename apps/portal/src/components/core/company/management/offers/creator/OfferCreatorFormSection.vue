@@ -11,6 +11,7 @@
             :label="$t('company.management.offer.creator.selectStockItemLabel')"
             :placeholder="$t('company.management.offer.creator.selectStockItemPlaceholder')"
             rules="required"
+            @input-change="handleStockItemChange"
           />
 
           <m-text-field
@@ -60,37 +61,48 @@
 </template>
 
 <script setup lang="ts">
-import CompanyProductsService from '@/services/product/CompanyProductsService'
-import type { Product } from '@sharedInterfaces/product/ProductInterface'
+import CompanyOffersService from '@/services/company/CompanyOffersService'
 import { ref, onBeforeMount, computed } from 'vue'
+import type { StockItem } from '@sharedInterfaces/stock/StockItemInterface'
+
+// Emits
+const emits = defineEmits(['stock-item-change'])
 
 // Variables
-const products = ref<Product[]>([])
+const stockItems = ref<StockItem[]>([])
 
 // Computed
 const selectProductOptions = computed(() => {
-  return mapProductsToOptions(products.value)
+  return mapStockItemsToOptions(stockItems.value)
 })
 
 // Methods
-const handleFetchProducts = async () => {
-  const { data, success } = await CompanyProductsService.getProducts()
+const handleFetchStockItems = async () => {
+  const { data, success } = await CompanyOffersService.getStockItems()
 
   if (success) {
-    products.value = data
+    stockItems.value = data
   }
 }
 
-const mapProductsToOptions = (products: Product[]) => {
-  return products.map((product) => ({
-    id: product.id,
-    text: product.name
+const mapStockItemsToOptions = (stockItems: StockItem[]) => {
+  return stockItems.map((stockItem) => ({
+    id: stockItem.id,
+    text: stockItem.product.name
   }))
+}
+
+const getSelectedStockItem = (id: number) => {
+  return stockItems.value.find((stockItem) => stockItem.id === id)
+}
+
+const handleStockItemChange = (v: number) => {
+  emits('stock-item-change', getSelectedStockItem(v))
 }
 
 // Hooks
 onBeforeMount(async () => {
-  handleFetchProducts()
+  handleFetchStockItems()
 })
 </script>
 

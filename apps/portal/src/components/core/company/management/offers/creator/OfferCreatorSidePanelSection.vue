@@ -10,7 +10,7 @@
         :title="$t('company.management.offer.creator.sidePanel.description')"
       />
 
-      <div class="offer-creator-side-panel-section__details">
+      <div v-else class="offer-creator-side-panel-section__details">
         <a-title :title="getTranslationValue('generalData')" size="large" />
 
         <div class="offer-creator-side-panel-section__details-row">
