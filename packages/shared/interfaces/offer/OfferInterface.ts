@@ -4,6 +4,6 @@ export interface Offer {
   id: number
   status: number
   product: OfferProduct
-  startedAt: string
-  endedAt: string
+  startedAt?: string
+  endedAt?: string
 }
