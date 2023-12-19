@@ -30,7 +30,8 @@
     "withdraw": "Withdraw",
     "create": "Create",
     "refresh": "Refresh",
-    "rejected": "Rejected"
+    "rejected": "Rejected",
+    "addToCart": "Add to cart"
   },
 
   "language": {
@@ -611,6 +612,22 @@
           "selectNetPricePlaceholder": "Enter the net price per item",
           "createOffer": "Create offer"
         }
+      }
+    }
+  },
+
+  "preview": {
+    "company": {
+      "offer": {
+        "product": {
+          "name": "Name",
+          "category": "Category",
+          "subcategory": "Subcategory"
+        },
+
+        "price": "Price",
+        "available": "Available",
+        "ends": "Ends"
       }
     }
   },

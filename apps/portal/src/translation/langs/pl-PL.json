@@ -30,7 +30,8 @@
     "withdraw": "Wycofaj",
     "create": "Utwórz",
     "refresh": "Odśwież",
-    "rejected": "Odrzucony"
+    "rejected": "Odrzucony",
+    "addToCard": "Dodaj do koszyka"
   },
 
   "language": {
@@ -515,7 +516,7 @@
         "dashboard": {
           "transactionHistory": "Historia transakcji",
           "companyBalance": "Saldo firmy",
-          "currentBalance":"Aktualne saldo",
+          "currentBalance": "Aktualne saldo",
 
           "list": {
             "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
@@ -616,6 +617,22 @@
           "selectNetPricePlaceholder": "Podaj cenę netto za sztukę",
           "createOffer": "Utwórz ofertę"
         }
+      }
+    }
+  },
+
+  "preview": {
+    "company": {
+      "offer": {
+        "product": {
+          "name": "Nazwa",
+          "category": "Kategoria",
+          "subcategory": "Podkategoria"
+        },
+
+        "price": "Cena",
+        "available": "Dostępne",
+        "ends": "Kończy się"
       }
     }
   },
