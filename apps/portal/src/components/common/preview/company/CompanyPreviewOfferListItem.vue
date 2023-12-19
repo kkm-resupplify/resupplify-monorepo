@@ -29,12 +29,11 @@
       </div>
 
       <div class="company-preview-offer-list-item__order-information">
-        <a-title
-          :title="$t('preview.company.offer.price')"
-          :subtitle="offer.product.netPrice"
-          variant="horizontal"
-          append-colon
-        />
+        <div class="company-preview-offer-list-item__order-price">
+          <a-title :title="$t('preview.company.offer.price')" variant="horizontal" append-colon />
+
+          <a-currency :value="offer.product.netPrice" size="small" />
+        </div>
 
         <a-title
           :title="$t('preview.company.offer.available')"
@@ -88,6 +87,11 @@ defineProps({
   &__order-information {
     display: flex;
     flex-direction: column;
+    gap: $global-spacing-30;
+  }
+
+  &__order-price {
+    display: flex;
     gap: $global-spacing-30;
   }
 }
