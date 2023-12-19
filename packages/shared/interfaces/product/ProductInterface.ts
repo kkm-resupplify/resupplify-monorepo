@@ -5,6 +5,7 @@ export interface Product {
   name: string
   description: string
   producer: string
+  logo?: string
   code: string
   status: number
   verificationStatus: number
