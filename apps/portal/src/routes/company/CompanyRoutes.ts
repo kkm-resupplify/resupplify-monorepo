@@ -12,7 +12,6 @@ import CompanyRoleService from '@/services/company/CompanyRoleService'
 
 class CompanyRouteEnum extends BaseEnum {
   static readonly COMPANY: string = 'COMPANY'
-  static readonly PREVIEW: string = 'PREVIEW'
 }
 
 const CompanyRoutes: RouteRecordRaw[] = [
