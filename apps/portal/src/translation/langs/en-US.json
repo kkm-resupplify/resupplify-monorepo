@@ -633,6 +633,7 @@
             "warehouseName": "Warehouse name",
             "warehouseQuantity": "Quantity in warehouse",
             "datesActive": "Stock item's offer availability periods",
+            "noDatesActive": "This stock item does not have any offer availability periods.",
             "generalData": "General data"
           },
 

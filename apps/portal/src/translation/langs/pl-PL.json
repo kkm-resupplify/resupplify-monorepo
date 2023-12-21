@@ -638,7 +638,7 @@
             "warehouseName": "Nazwa magazynu",
             "warehouseQuantity": "Ilość w magazynie",
             "datesActive": "Okresy dostępności oferty pozycji magazynowych",
-            "noDatesActive": "Ta pozycja magazynowa nie ma jeszcze przedziałów dat, w których jest dostępna",
+            "noDatesActive": "Ta pozycja magazynowa nie ma jeszcze okresów dostępności.",
             "generalData": "Dane ogólne"
           },
 
