@@ -1,6 +1,6 @@
 <template>
   <a-panel class="offer-creator-panel">
-    <offer-creator-form-section @stock-item-change="handleStockItemChange"/>
+    <offer-creator-form-section @stock-item-change="handleStockItemChange" />
 
     <offer-creator-side-panel-section :stock-item="selectedStockItem" />
   </a-panel>

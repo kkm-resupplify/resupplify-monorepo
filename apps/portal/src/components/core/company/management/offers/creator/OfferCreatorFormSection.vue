@@ -62,6 +62,7 @@
           button-type="submit"
           :text="$t('global.create')"
           size="x-large"
+          :is-loading="isLoading"
         />
       </template>
     </o-form>
@@ -89,8 +90,8 @@ const selectProductOptions = computed(() => {
 })
 
 const statuses = computed(() => [
-  { id: 0, text: t('global.inactive') },
-  { id: 1, text: t('global.active') }
+  { id: 1, text: t('global.active') },
+  { id: 0, text: t('global.inactive') }
 ])
 
 // Methods
@@ -120,10 +121,13 @@ const handleStockItemChange = (v: number) => {
 const handleCreateOffer = async (offerData: CreateOffer) => {
   isLoading.value = true
 
-  const { success } = await CompanyOffersService.createOffer(offerData)
+  const { success, data } = await CompanyOffersService.createOffer(offerData)
 
   if (success) {
-    console.log('succes')
+    let stockItem = getSelectedStockItem(offerData.stockItemId)
+    stockItem?.datesActive.push({ startsAt: data.startsAt, endsAt: data.endsAt })
+
+    emits('stock-item-change', stockItem)
   }
 
   isLoading.value = true

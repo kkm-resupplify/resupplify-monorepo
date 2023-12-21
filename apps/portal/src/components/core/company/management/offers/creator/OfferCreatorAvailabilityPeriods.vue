@@ -1,7 +1,7 @@
 <template>
   <div class="offer-creator-availability-periods">
     <div class="offer-creator-availability-periods__wrapper">
-      <a-list>
+      <a-list v-if="dates?.length">
         <a-list-item-wrapper v-for="(date, idx) in dates" :key="idx">
           <a-list-item-title-section
             :title="$t('global.dateStart')"
@@ -16,6 +16,11 @@
           />
         </a-list-item-wrapper>
       </a-list>
+
+      <a-list-no-results
+        v-else
+        :text="$t('company.management.offer.creator.sidePanel.noDatesActive')"
+      />
     </div>
   </div>
 </template>

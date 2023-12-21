@@ -110,8 +110,8 @@ const showList = computed(() => {
 })
 
 const statuses = computed(() => [
-  { id: 0, text: t('global.inactive') },
-  { id: 1, text: t('global.active') }
+  { id: 1, text: t('global.active') },
+  { id: 0, text: t('global.inactive') }
 ])
 
 const filtersUsed = computed(() => {
