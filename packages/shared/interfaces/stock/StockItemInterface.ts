@@ -9,6 +9,6 @@ export interface StockItem {
 }
 
 export interface StockItemDate {
-  startDate: string
-  endDate: string
+  startsAt: string
+  endsAt: string
 }

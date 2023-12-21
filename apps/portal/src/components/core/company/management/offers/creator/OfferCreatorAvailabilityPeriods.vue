@@ -5,13 +5,13 @@
         <a-list-item-wrapper v-for="(date, idx) in dates" :key="idx">
           <a-list-item-title-section
             :title="$t('global.dateStart')"
-            :value="date.startDate"
+            :value="date.startsAt"
             :basis="50"
           />
 
           <a-list-item-title-section
             :title="$t('global.dateEnd')"
-            :value="date.endDate"
+            :value="date.endsAt"
             :basis="50"
           />
         </a-list-item-wrapper>
