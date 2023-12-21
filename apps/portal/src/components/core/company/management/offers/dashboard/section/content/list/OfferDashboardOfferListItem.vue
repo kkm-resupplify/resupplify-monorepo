@@ -4,7 +4,7 @@
       <a-list-item-wrapper class="offer-dashboard-offer-list-item__activator">
         <a-status-indicator :status="offerStatus(offer)" />
 
-        <a-title :title="offer.product.name" />
+        <a-list-item-title-section :value="offer.product.name" />
 
         <a-list-item-title-section
           v-for="(activatorSection, idx) in activatorSections"
