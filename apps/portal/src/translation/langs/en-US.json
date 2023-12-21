@@ -632,7 +632,7 @@
             "productDescription": "Product description",
             "warehouseName": "Warehouse name",
             "warehouseQuantity": "Quantity in warehouse",
-            "datesActive": "Stock item availability periods",
+            "datesActive": "Stock item's offer availability periods",
             "generalData": "General data"
           },
 
