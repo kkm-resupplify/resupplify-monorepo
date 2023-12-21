@@ -636,6 +636,10 @@
             "generalData": "General data"
           },
 
+          "notification": {
+            "createOfferSuccessTitle": "Offer created successfully"
+          },
+
           "alert": {
             "offerSameDate": "The selected stock item already has an active offer."
           }

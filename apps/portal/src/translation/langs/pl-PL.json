@@ -642,6 +642,10 @@
             "generalData": "Dane ogólne"
           },
 
+          "notification": {
+            "createOfferSuccessTitle": "Oferta utworzona pomyślnie"
+          },
+
           "alert": {
             "offerSameDate": "Wybrana pozycja magazynowa ma już aktywną ofertę."
           }
