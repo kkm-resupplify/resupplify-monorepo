@@ -74,6 +74,7 @@ import type { StockItem } from '@sharedInterfaces/stock/StockItemInterface'
 import { type PropType, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import OfferCreatorAvailabilityPeriods from './OfferCreatorAvailabilityPeriods.vue'
+
 const props = defineProps({
   stockItem: Object as PropType<StockItem>
 })
