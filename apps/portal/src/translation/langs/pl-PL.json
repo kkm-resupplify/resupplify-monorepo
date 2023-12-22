@@ -686,7 +686,7 @@
   },
 
   "common": {
-    "offers": {
+    "offer": {
       "filters": {
         "nameLabel": "Nazwa produktu",
         "namePlaceholder": "Podaj nazwę produktu",

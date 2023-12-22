@@ -9,8 +9,8 @@
       <div class="offer-filters__inputs">
         <m-text-field
           name="name"
-          :label="$t('common.offers.filters.nameLabel')"
-          :placeholder="$t('common.offers.filters.namePlaceholder')"
+          :label="$t('common.offer.filters.nameLabel')"
+          :placeholder="$t('common.offer.filters.namePlaceholder')"
           :validate="false"
           append-icon-on="close"
           @append-icon-click="() => handleClearSearch('name')"
@@ -18,8 +18,8 @@
 
         <m-select
           name="categoryId"
-          :label="$t('common.offers.filters.categoryLabel')"
-          :placeholder="$t('common.offers.filters.categoryPlaceholder')"
+          :label="$t('common.offer.filters.categoryLabel')"
+          :placeholder="$t('common.offer.filters.categoryPlaceholder')"
           :options="staticProductDescriptorsStore.getProductCategories"
           :validate="false"
           @input-change="handleProductCategoryChange"
@@ -28,16 +28,16 @@
         <m-select
           ref="subcategoryRef"
           name="subcategoryId"
-          :label="$t('common.offers.filters.subcategoryLabel')"
-          :placeholder="$t('common.offers.filters.subcategoryPlaceholder')"
+          :label="$t('common.offer.filters.subcategoryLabel')"
+          :placeholder="$t('common.offer.filters.subcategoryPlaceholder')"
           :options="productCategorySubcategories"
           :validate="false"
         />
 
         <m-select
           name="status"
-          :label="$t('common.offers.filters.statusLabel')"
-          :placeholder="$t('common.offers.filters.statusPlaceholder')"
+          :label="$t('common.offer.filters.statusLabel')"
+          :placeholder="$t('common.offer.filters.statusPlaceholder')"
           :options="statusFilters"
           :validate="false"
         />
@@ -45,7 +45,7 @@
         <m-text-field
           name="endedAt"
           input-type="date"
-          :label="$t('common.offers.filters.endingDateLabel')"
+          :label="$t('common.offer.filters.endingDateLabel')"
           :validate="false"
           append-icon-on="close"
           @append-icon-click="() => handleClearSearch('endedAt')"
@@ -53,8 +53,8 @@
 
         <m-select
           name="price"
-          :label="$t('common.offers.filters.priceLabel')"
-          :placeholder="$t('common.offers.filters.pricePlaceholder')"
+          :label="$t('common.offer.filters.priceLabel')"
+          :placeholder="$t('common.offer.filters.pricePlaceholder')"
           :options="priceFilters"
           :validate="false"
         />
