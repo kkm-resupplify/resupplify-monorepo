@@ -698,7 +698,12 @@
         "statusPlaceholder": "Wybierz status oferty",
         "endingDateLabel": "Aż do daty",
         "priceLabel": "Cena oferty",
-        "pricePlaceholder": "Pogrupuj według ceny"
+        "pricePlaceholder": "Pogrupuj według ceny",
+
+        "status": {
+          "deactivated": "Dezaktywowane",
+          "activated": "Aktywowane"
+        }
       }
     }
   },

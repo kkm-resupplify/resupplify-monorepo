@@ -84,6 +84,7 @@ import router from '@/routes'
 import type OForm from '@sharedOrganisms/form/OForm.vue'
 import { useI18n } from 'vue-i18n'
 import type { OfferFiltersParams } from '@sharedInterfaces/offer/OfferInterface'
+import OfferStatusEnum from '@sharedEnums/offer/OfferStatusEnum'
 
 // Emits
 const emits = defineEmits(['filter'])
@@ -99,10 +100,12 @@ const form = ref<typeof OForm>()
 const { t } = useI18n()
 
 // Computed
-const statusFilters = computed(() => [
-  { id: 0, text: t('global.inactive') },
-  { id: 1, text: t('global.active') }
-])
+const statusFilters = computed(() =>
+  OfferStatusEnum.getAllFields().map((typeName) => ({
+    id: `${OfferStatusEnum[typeName as keyof OfferStatusEnum]}`,
+    text: t(`common.offer.filters.status.${typeName.toLowerCase()}`)
+  }))
+)
 
 const priceFilters = computed(() => [
   { id: 'asc', text: t('global.ascending') },
