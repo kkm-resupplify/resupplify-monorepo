@@ -33,9 +33,7 @@
     "rejected": "Rejected",
     "pricePerUnit": "Price per unit",
     "dateStart": "Start date",
-    "dateEnd": "End date",
-    "ascending": "Ascending",
-    "descending": "Descending"
+    "dateEnd": "End date"
   },
 
   "language": {
@@ -698,6 +696,11 @@
         "status": {
           "deactivated": "Deactivated",
           "activated": "Activated"
+        },
+
+        "price": {
+          "ascending": "Ascending",
+          "descending": "Descending"
         }
       }
     }
