@@ -616,22 +616,6 @@
     }
   },
 
-  "preview": {
-    "company": {
-      "offer": {
-        "product": {
-          "name": "Name",
-          "category": "Category",
-          "subcategory": "Subcategory"
-        },
-
-        "price": "Price",
-        "available": "Available",
-        "ends": "Ends"
-      }
-    }
-  },
-
   "product": {
     "promotion": {
       "bestsellers": "Bestsellers",
@@ -657,6 +641,24 @@
       "textUpdate": "Are you sure you want to update {item}?",
       "titleCreate": "Creation confirmation",
       "textCreate": "Are you sure you want to create {item}?"
+    }
+  },
+
+  "common": {
+    "offer": {
+      "list": {
+        "item": {
+          "product": {
+            "name": "Name",
+            "category": "Category",
+            "subcategory": "Subcategory"
+          },
+
+          "price": "Price",
+          "available": "Available",
+          "ends": "Ends"
+        }
+      }
     }
   },
 

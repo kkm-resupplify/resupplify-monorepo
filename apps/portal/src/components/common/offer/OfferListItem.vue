@@ -1,25 +1,25 @@
 <template>
-  <a-list-item-wrapper class="company-preview-offer-list-item">
+  <a-list-item-wrapper class="offer-list-item">
     <a-image :src="offer.product.logoSrc" :width="120" :height="120" />
 
-    <div class="company-preview-offer-list-item__information">
-      <div class="company-preview-offer-list-item__product-information">
+    <div class="offer-list-item__information">
+      <div class="offer-list-item__product-information">
         <a-title
-          :title="$t('preview.company.offer.product.name')"
+          :title="$t('common.offer.list.item.product.name')"
           :subtitle="offer.product.name"
           variant="horizontal"
           append-colon
         />
 
         <a-title
-          :title="$t('preview.company.offer.product.category')"
+          :title="$t('common.offer.list.item.product.category')"
           :subtitle="offer.product.productCategory.name"
           variant="horizontal"
           append-colon
         />
 
         <a-title
-          :title="$t('preview.company.offer.product.subcategory')"
+          :title="$t('common.offer.list.item.product.subcategory')"
           :subtitle="offer.product.productSubcategory.name"
           variant="horizontal"
           append-colon
@@ -28,22 +28,22 @@
         <product-tag-list :product-tags="offer.product.productTags" />
       </div>
 
-      <div class="company-preview-offer-list-item__order-information">
-        <div class="company-preview-offer-list-item__order-price">
-          <a-title :title="$t('preview.company.offer.price')" variant="horizontal" append-colon />
+      <div class="offer-list-item__order-information">
+        <div class="offer-list-item__order-price">
+          <a-title :title="$t('common.offer.list.item.price')" variant="horizontal" append-colon />
 
           <a-currency :value="offer.product.netPrice" size="small" />
         </div>
 
         <a-title
-          :title="$t('preview.company.offer.available')"
+          :title="$t('common.offer.list.item.available')"
           :subtitle="offer.product.quantity"
           variant="horizontal"
           append-colon
         />
 
         <a-title
-          :title="$t('preview.company.offer.ends')"
+          :title="$t('common.offer.list.item.ends')"
           :subtitle="offer.endedAt"
           variant="horizontal"
           append-colon
@@ -57,7 +57,7 @@
 
 <script setup lang="ts">
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
-import ProductTagList from '../../product/ProductTagList.vue'
+import ProductTagList from '../product/ProductTagList.vue'
 import type { PropType } from 'vue'
 
 defineProps({

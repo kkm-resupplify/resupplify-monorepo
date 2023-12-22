@@ -621,22 +621,6 @@
     }
   },
 
-  "preview": {
-    "company": {
-      "offer": {
-        "product": {
-          "name": "Nazwa",
-          "category": "Kategoria",
-          "subcategory": "Podkategoria"
-        },
-
-        "price": "Cena",
-        "available": "Dostępne",
-        "ends": "Kończy się"
-      }
-    }
-  },
-
   "product": {
     "promotion": {
       "bestsellers": "Bestsellery",
@@ -662,6 +646,24 @@
       "textUpdate": "Czy na pewno chcesz zaaktualizować {item}?",
       "titleCreate": "Potwierdzenie dodania",
       "textCreate": "Czy na pewno chcesz dodać {item}?"
+    }
+  },
+
+  "common": {
+    "offer": {
+      "list": {
+        "item": {
+          "product": {
+            "name": "Nazwa",
+            "category": "Kategoria",
+            "subcategory": "Podkategoria"
+          },
+
+          "price": "Cena",
+          "available": "Dostępne",
+          "ends": "Kończy się"
+        }
+      }
     }
   },
 
