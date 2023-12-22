@@ -26,7 +26,14 @@
     "activate": "Aktywuj",
     "deactivate": "Dezaktywuj",
     "preview": "Podgląd",
-    "reset": "Resetuj"
+    "reset": "Resetuj",
+    "withdraw": "Wycofaj",
+    "create": "Utwórz",
+    "refresh": "Odśwież",
+    "rejected": "Odrzucony",
+    "pricePerUnit": "Cena za jednostkę",
+    "dateStart": "Data rozpoczęcia",
+    "dateEnd": "Data zakończenia"
   },
 
   "language": {
@@ -34,8 +41,17 @@
     "pl-PL": "Polski"
   },
 
-  "payments": {
-    "payNow": "Zapłać teraz"
+  "payment": {
+    "payNow": "Zapłać teraz",
+    "receiver": "Odbiorca płatności",
+    "sender": "Nadawca płatności",
+
+    "type": {
+      "withdrawal": "Wypłata",
+      "deposit": "Depozyt",
+      "sale": "Sprzedaż",
+      "purchase": "Zakup"
+    }
   },
 
   "navigation": {
@@ -493,6 +509,145 @@
           "list": {
             "itemName": "Nazwa tagu produktu",
             "colorValue": "Wartość koloru hex"
+          }
+        }
+      },
+
+      "balance": {
+        "dashboard": {
+          "transactionHistory": "Historia transakcji",
+          "companyBalance": "Saldo firmy",
+          "currentBalance": "Aktualne saldo",
+
+          "list": {
+            "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
+            "noTransactionsMatchingFilter": "Brak transakcji dla podanych parametrów.",
+
+            "item": {
+              "receiver": {
+                "name": "Nazwa odbiorcy",
+                "email": "Email odbiorcy",
+                "phone": "Telefon odbiorcy",
+                "contactPerson": "Osoba kontaktowa",
+                "address": "Adres odbiorcy"
+              },
+
+              "sender": {
+                "name": "Nazwa nadawcy",
+                "email": "Email nadawcy",
+                "phone": "Telefon nadawcy",
+                "contactPerson": "Osoba kontaktowa",
+                "address": "Adres nadawcy"
+              }
+            }
+          },
+
+          "filter": {
+            "typePlaceholder": "Wybierz typ transakcji"
+          },
+
+          "payment": {
+            "section": {
+              "value": "Wartość",
+              "type": "Typ transakcji",
+              "date": "Data transakcji"
+            }
+          }
+        },
+
+        "manage": {
+          "title": "Zarządzaj saldem firmy",
+          "currentBalance": "Aktualne saldo",
+          "deposit": "Wpłać",
+          "withdraw": "Wypłać",
+          "operationTypeLabel": "Typ operacji",
+          "operationTypePlaceholder": "Wybierz typ operacji",
+          "amountLabel": "Ilość",
+          "amountPlaceholder": "Wprowadź ilość",
+          "depositFunds": "Wpłać kwotę",
+          "selectOperationType": "Wybierz rodzaj operacji",
+
+          "notification": {
+            "depositFundsSuccessTitle": "Środki zostały zdeponowane pomyślnie",
+            "withdrawFundsSuccessTitle": "Środki zostały wypłacone pomyślnie"
+          }
+        }
+      },
+
+      "offer": {
+        "dashboard": {
+          "companyOffers": "Oferty firmy",
+          "companyOffersNotVisible": "Oferty nie są widoczne dla innych, ponieważ Twoja firma nie została jeszcze zweryfikowana.",
+          "searchBarPlaceholder": "Szukaj ofert",
+          "productCategoryPlaceholder": "Kategoria produktu",
+          "productSubcategoryPlaceholder": "Podkategoria produktu",
+          "offerStatusPlaceholder": "Status oferty",
+
+          "list": {
+            "noOffers": "Twoja firma nie posiada jeszcze żadnych ofert.",
+            "noOffersMatchingFilter": "Brak ofert na podane parametry.",
+
+            "item": {
+              "netPrice": "Cena netto",
+              "unit": "Jednostka",
+              "supply": "Zaopatrzenie",
+              "quantity": "Ilość",
+              "productCode": "Kod productu",
+              "productDescription": "Opis produktu",
+              "productProducer": "Producent produktu",
+              "productTags": "Tagi produktu"
+            }
+          },
+
+          "dialog": {
+            "titleActivation": "Potwierdzenie aktywacji",
+            "contentActivation": "Czy na pewno chcesz aktywować tę ofertę?",
+            "titleWithdrawal": "Potwierdzenie wycofania",
+            "contentWithdrawal": "Czy na pewno chcesz wycofać tę ofertę?",
+            "titleDeletion": "Potwierdzenie usunięcia",
+            "contentDeletion": "Czy na pewno chcesz usunąć tę ofertę?"
+          }
+        },
+
+        "creator": {
+          "selectStockItemLabel": "Pozycja magazynowa",
+          "selectStockItemPlaceholder": "Wybierz pozycję magazynową",
+          "enterQuantityLabel": "Ilość na sprzedaż",
+          "enterQuantityPlaceholder": "Podaj ilość na sprzedaż",
+          "enterNetPriceLabel": "Cena netto",
+          "enterNetPricePlaceholder": "Podaj cenę netto za sztukę",
+          "enterStartDateLabel": "Data rozpoczęcia oferty",
+          "enterStartDatePlaceholder": "Wybierz datę rozpoczęcia oferty",
+          "enterEndDateLabel": "Data zakończenia oferty",
+          "enterEndDatePlaceholder": "Wybierz datę zakończenia oferty",
+          "createOffer": "Utwórz ofertę",
+
+          "sidePanel": {
+            "title": "Szczegóły pozycji magazynowej",
+            "description": "Wybierz pozycję magazynową, aby zobaczyć jej szczegóły.",
+            "productName": "Nazwa produktu",
+            "productCode": "Kod produktu",
+            "productProducer": "Producent produktu",
+            "productStatus": "Status produktu",
+            "productVerificationStatus": "Status weryfikacji",
+            "productCategory": "Kategoria produktu",
+            "productSubcategory": "Podkategoria produktu",
+            "productUnit": "Jednostka produktu",
+            "productTags": "Tagi produktu",
+            "productDescription": "Opis produktu",
+            "warehouseName": "Nazwa magazynu",
+            "warehouseQuantity": "Ilość w magazynie",
+            "datesActive": "Okresy dostępności oferty pozycji magazynowych",
+            "noDatesActive": "Ta pozycja magazynowa nie ma jeszcze okresów dostępności.",
+            "generalData": "Dane ogólne"
+          },
+
+          "notification": {
+            "createOfferSuccessTitle": "Oferta utworzona pomyślnie"
+          },
+
+          "alert": {
+            "offerSameDate": "Wybrana pozycja magazynowa ma już aktywną ofertę."
           }
         }
       }

@@ -14,11 +14,13 @@ import ADropdown from '@sharedAtoms/dropdown/ADropdown.vue'
 import AImage from '@sharedAtoms/image/AImage.vue'
 import AExpansionPanel from '@sharedAtoms/expansionPanel/AExpansionPanel.vue'
 import AStatusIndicator from '@sharedAtoms/indicator/AStatusIndicator.vue'
+import AList from '@sharedAtoms/list/AList.vue'
 import AListItemWrapper from '@sharedAtoms/list/AListItemWrapper.vue'
 import AListItemTitleSection from '@sharedAtoms/list/AListItemTitleSection.vue'
 import AListNoResults from '@sharedAtoms/list/AListNoResults.vue'
 import APanel from '@sharedAtoms/panel/APanel.vue'
 import APanelSection from '@sharedAtoms/panel/APanelSection.vue'
+import ACurrency from '@sharedAtoms/currency/ACurrency.vue'
 
 const atoms = [
   AButton,
@@ -36,11 +38,13 @@ const atoms = [
   AImage,
   AExpansionPanel,
   AStatusIndicator,
+  AList,
   AListItemWrapper,
   AListItemTitleSection,
   AListNoResults,
   APanel,
-  APanelSection
+  APanelSection,
+  ACurrency
 ]
 
 // Molecules
