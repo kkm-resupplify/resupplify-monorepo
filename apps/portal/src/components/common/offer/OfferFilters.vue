@@ -9,6 +9,7 @@
       <div class="offer-filters__inputs">
         <m-text-field
           name="name"
+          :label="$t('common.offers.filters.nameLabel')"
           :placeholder="$t('common.offers.filters.namePlaceholder')"
           :validate="false"
           append-icon-on="close"
@@ -17,6 +18,7 @@
 
         <m-select
           name="categoryId"
+          :label="$t('common.offers.filters.categoryLabel')"
           :placeholder="$t('common.offers.filters.categoryPlaceholder')"
           :options="staticProductDescriptorsStore.getProductCategories"
           :validate="false"
@@ -26,6 +28,7 @@
         <m-select
           ref="subcategoryRef"
           name="subcategoryId"
+          :label="$t('common.offers.filters.subcategoryLabel')"
           :placeholder="$t('common.offers.filters.subcategoryPlaceholder')"
           :options="productCategorySubcategories"
           :validate="false"
@@ -33,6 +36,7 @@
 
         <m-select
           name="status"
+          :label="$t('common.offers.filters.statusLabel')"
           :placeholder="$t('common.offers.filters.statusPlaceholder')"
           :options="statusFilters"
           :validate="false"
@@ -41,7 +45,7 @@
         <m-text-field
           name="endedAt"
           input-type="date"
-          :placeholder="$t('common.offers.filters.endingDatePlaceholder')"
+          :label="$t('common.offers.filters.endingDateLabel')"
           :validate="false"
           append-icon-on="close"
           @append-icon-click="() => handleClearSearch('endedAt')"
@@ -49,6 +53,7 @@
 
         <m-select
           name="price"
+          :label="$t('common.offers.filters.priceLabel')"
           :placeholder="$t('common.offers.filters.pricePlaceholder')"
           :options="priceFilters"
           :validate="false"
