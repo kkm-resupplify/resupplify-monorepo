@@ -30,7 +30,10 @@
     "withdraw": "Wycofaj",
     "create": "Utwórz",
     "refresh": "Odśwież",
-    "rejected": "Odrzucony"
+    "rejected": "Odrzucony",
+    "pricePerUnit": "Cena za jednostkę",
+    "dateStart": "Data rozpoczęcia",
+    "dateEnd": "Data zakończenia"
   },
 
   "language": {
@@ -515,7 +518,7 @@
         "dashboard": {
           "transactionHistory": "Historia transakcji",
           "companyBalance": "Saldo firmy",
-          "currentBalance":"Aktualne saldo",
+          "currentBalance": "Aktualne saldo",
 
           "list": {
             "noTransactions": "Twoja firma nie ma jeszcze żadnych transakcji.",
@@ -608,13 +611,45 @@
         },
 
         "creator": {
-          "selectProductLabel": "Produkt",
-          "selectProductPlaceholder": "Wybierz produkt",
-          "selectQuantityLabel": "Ilość",
-          "selectQuantityPlaceholder": "Wybierz ilość",
-          "selectNetPriceLabel": "Cena netto",
-          "selectNetPricePlaceholder": "Podaj cenę netto za sztukę",
-          "createOffer": "Utwórz ofertę"
+          "selectStockItemLabel": "Pozycja magazynowa",
+          "selectStockItemPlaceholder": "Wybierz pozycję magazynową",
+          "enterQuantityLabel": "Ilość na sprzedaż",
+          "enterQuantityPlaceholder": "Podaj ilość na sprzedaż",
+          "enterNetPriceLabel": "Cena netto",
+          "enterNetPricePlaceholder": "Podaj cenę netto za sztukę",
+          "enterStartDateLabel": "Data rozpoczęcia oferty",
+          "enterStartDatePlaceholder": "Wybierz datę rozpoczęcia oferty",
+          "enterEndDateLabel": "Data zakończenia oferty",
+          "enterEndDatePlaceholder": "Wybierz datę zakończenia oferty",
+          "createOffer": "Utwórz ofertę",
+
+          "sidePanel": {
+            "title": "Szczegóły pozycji magazynowej",
+            "description": "Wybierz pozycję magazynową, aby zobaczyć jej szczegóły.",
+            "productName": "Nazwa produktu",
+            "productCode": "Kod produktu",
+            "productProducer": "Producent produktu",
+            "productStatus": "Status produktu",
+            "productVerificationStatus": "Status weryfikacji",
+            "productCategory": "Kategoria produktu",
+            "productSubcategory": "Podkategoria produktu",
+            "productUnit": "Jednostka produktu",
+            "productTags": "Tagi produktu",
+            "productDescription": "Opis produktu",
+            "warehouseName": "Nazwa magazynu",
+            "warehouseQuantity": "Ilość w magazynie",
+            "datesActive": "Okresy dostępności oferty pozycji magazynowych",
+            "noDatesActive": "Ta pozycja magazynowa nie ma jeszcze okresów dostępności.",
+            "generalData": "Dane ogólne"
+          },
+
+          "notification": {
+            "createOfferSuccessTitle": "Oferta utworzona pomyślnie"
+          },
+
+          "alert": {
+            "offerSameDate": "Wybrana pozycja magazynowa ma już aktywną ofertę."
+          }
         }
       }
     }

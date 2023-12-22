@@ -4,13 +4,20 @@
       <a-list-item-wrapper class="offer-dashboard-offer-list-item__activator">
         <a-status-indicator :status="offerStatus(offer)" />
 
-        <a-title :title="offer.product.name" />
+        <a-list-item-title-section :value="offer.product.name" />
 
         <a-list-item-title-section
           v-for="(activatorSection, idx) in activatorSections"
           :key="idx"
           :title="activatorSection.title"
           :value="activatorSection.value"
+        />
+
+        <a-currency
+          :title="$t('global.pricePerUnit')"
+          :value="offer.price"
+          vertical
+          style="flex-basis: 30%"
         />
 
         <a-dropdown @click.stop>
@@ -53,7 +60,6 @@
           :title="$t('company.management.offer.dashboard.list.item.productCode')"
           :subtitle="offer.product.code"
           variant="horizontal"
-          size="large"
           append-colon
         />
 
@@ -61,7 +67,6 @@
           :title="$t('company.management.offer.dashboard.list.item.productDescription')"
           :subtitle="offer.product.description"
           variant="horizontal"
-          size="large"
           append-colon
         />
 
@@ -69,7 +74,6 @@
           :title="$t('company.management.offer.dashboard.list.item.productProducer')"
           :subtitle="offer.product.producer"
           variant="horizontal"
-          size="large"
           append-colon
         />
 
@@ -77,7 +81,6 @@
           <a-title
             v-if="offer.product.productTags.length"
             :title="$t('company.management.offer.dashboard.list.item.productTags')"
-            size="large"
             append-colon
           />
 
@@ -125,10 +128,9 @@ const { offerStatus } = useOfferStatus()
 // Computed
 const activatorSections = computed(() => {
   return [
-    new ExpansionPanelSectionDto('netPrice', `${props.offer.product.netPrice}$`),
     new ExpansionPanelSectionDto('unit', props.offer.product.productUnit.code),
-    new ExpansionPanelSectionDto('supply', props.offer.product.supply),
-    new ExpansionPanelSectionDto('quantity', props.offer.product.quantity)
+    new ExpansionPanelSectionDto('supply', props.offer.warehouseQuantity),
+    new ExpansionPanelSectionDto('quantity', props.offer.productQuantity)
   ]
 })
 

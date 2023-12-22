@@ -30,7 +30,10 @@
     "withdraw": "Withdraw",
     "create": "Create",
     "refresh": "Refresh",
-    "rejected": "Rejected"
+    "rejected": "Rejected",
+    "pricePerUnit": "Price per unit",
+    "dateStart": "Start date",
+    "dateEnd": "End date"
   },
 
   "language": {
@@ -603,13 +606,45 @@
         },
 
         "creator": {
-          "selectProductLabel": "Product",
-          "selectProductPlaceholder": "Select a product",
-          "selectQuantityLabel": "Quantity",
-          "selectQuantityPlaceholder": "Select quantity",
-          "selectNetPriceLabel": "Net price",
-          "selectNetPricePlaceholder": "Enter the net price per item",
-          "createOffer": "Create offer"
+          "selectStockItemLabel": "Stock item",
+          "selectStockItemPlaceholder": "Select stock item",
+          "enterQuantityLabel": "Quantity for sale",
+          "enterQuantityPlaceholder": "Enter quantity for sale",
+          "enterNetPriceLabel": "Net Price",
+          "enterNetPricePlaceholder": "Enter net price per unit",
+          "enterStartDateLabel": "Offer start date",
+          "enterStartDatePlaceholder": "Select offer start date",
+          "enterEndDateLabel": "Offer end date",
+          "enterEndDatePlaceholder": "Select offer end date",
+          "createOffer": "Create offer",
+
+          "sidePanel": {
+            "title": "Stock item details",
+            "description": "Select a stock item to view its details.",
+            "productName": "Product name",
+            "productCode": "Product code",
+            "productProducer": "Product producer",
+            "productStatus": "Product status",
+            "productVerificationStatus": "Verification status",
+            "productCategory": "Product category",
+            "productSubcategory": "Product subcategory",
+            "productUnit": "Product unit",
+            "productTags": "Product tags",
+            "productDescription": "Product description",
+            "warehouseName": "Warehouse name",
+            "warehouseQuantity": "Quantity in warehouse",
+            "datesActive": "Stock item's offer availability periods",
+            "noDatesActive": "This stock item does not have any offer availability periods.",
+            "generalData": "General data"
+          },
+
+          "notification": {
+            "createOfferSuccessTitle": "Offer created successfully"
+          },
+
+          "alert": {
+            "offerSameDate": "The selected stock item already has an active offer."
+          }
         }
       }
     }
