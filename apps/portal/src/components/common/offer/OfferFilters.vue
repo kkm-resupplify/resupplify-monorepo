@@ -85,6 +85,7 @@ import type OForm from '@sharedOrganisms/form/OForm.vue'
 import { useI18n } from 'vue-i18n'
 import type { OfferFiltersParams } from '@sharedInterfaces/offer/OfferInterface'
 import OfferStatusEnum from '@sharedEnums/offer/OfferStatusEnum'
+import PriceOrderEnum from '@sharedEnums/offer/PriceOrderEnum'
 
 // Emits
 const emits = defineEmits(['filter'])
@@ -107,10 +108,12 @@ const statusFilters = computed(() =>
   }))
 )
 
-const priceFilters = computed(() => [
-  { id: 'asc', text: t('global.ascending') },
-  { id: 'desc', text: t('global.descending') }
-])
+const priceFilters = computed(() =>
+  PriceOrderEnum.getAllFields().map((typeName) => ({
+    id: `${PriceOrderEnum[typeName as keyof PriceOrderEnum]}`,
+    text: t(`common.offer.filters.price.${typeName.toLowerCase()}`)
+  }))
+)
 
 const productCategorySubcategories = computed(() => {
   return selectedCategoryId.value
