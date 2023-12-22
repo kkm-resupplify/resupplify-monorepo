@@ -48,8 +48,6 @@ import { ref } from 'vue'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import { computed } from 'vue'
-import type { Product } from '@sharedInterfaces/product/ProductInterface'
-import CompanyProductsService from '@/services/product/CompanyProductsService'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 import { onBeforeMount } from 'vue'
 import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
@@ -69,14 +67,12 @@ interface OfferFilterValues {
 const emits = defineEmits(['filter'])
 
 // Variables
-const products = ref<Product[]>([])
 const subcategoryRef = ref<typeof MSelect>()
 const selectedCategoryId = ref<number | null>()
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const initialFilterParams = ref<OfferFilterValues>()
 const route = useRoute()
 const { setQueryParam } = useQueryFilter()
-const isLoading = ref(false)
 const form = ref<typeof OForm>()
 
 // Computed
@@ -97,18 +93,6 @@ const handleProductCategoryChange = (id: number) => {
 const handleClearSearch = async () => {
   await router.replace({ query: { ...route.query, name: '' } })
   form.value?.resetField('name', null)
-}
-
-const handleFetchProducts = async () => {
-  isLoading.value = true
-
-  const { data, success } = await CompanyProductsService.getProducts()
-
-  if (success) {
-    products.value = data
-  }
-
-  isLoading.value = false
 }
 
 const setInitialFormValues = () => {
@@ -143,7 +127,6 @@ const handleQuerySubmit = async (data: OfferFilterValues) => {
 
 // Hooks
 onBeforeMount(async () => {
-  await handleFetchProducts()
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
 
