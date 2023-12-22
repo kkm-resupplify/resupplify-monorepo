@@ -33,7 +33,9 @@
     "rejected": "Odrzucony",
     "pricePerUnit": "Cena za jednostkę",
     "dateStart": "Data rozpoczęcia",
-    "dateEnd": "Data zakończenia"
+    "dateEnd": "Data zakończenia",
+    "ascending": "Rosnąco",
+    "descending": "Malejąco"
   },
 
   "language": {
@@ -655,14 +657,6 @@
     }
   },
 
-  "offers": {
-    "filters": {
-      "namePlaceholder": "Wpisz nazwę",
-      "categoryPlaceholder": "Kategoria",
-      "subcategoryPlaceholder": "Podkategoria"
-    }
-  },
-
   "product": {
     "promotion": {
       "bestsellers": "Bestsellery",
@@ -688,6 +682,19 @@
       "textUpdate": "Czy na pewno chcesz zaaktualizować {item}?",
       "titleCreate": "Potwierdzenie dodania",
       "textCreate": "Czy na pewno chcesz dodać {item}?"
+    }
+  },
+
+  "common": {
+    "offers": {
+      "filters": {
+        "namePlaceholder": "Podaj nazwę produktu",
+        "categoryPlaceholder": "Kategoria",
+        "subcategoryPlaceholder": "Podkategoria",
+        "statusPlaceholder": "Status oferty",
+        "endingDatePlaceholder": "Data zakończenia oferty",
+        "pricePlaceholder": "Cena"
+      }
     }
   },
 

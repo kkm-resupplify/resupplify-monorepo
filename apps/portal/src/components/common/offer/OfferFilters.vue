@@ -9,15 +9,15 @@
       <div class="offer-filters__inputs">
         <m-text-field
           name="name"
-          :placeholder="$t('offers.filters.namePlaceholder')"
+          :placeholder="$t('common.offers.filters.namePlaceholder')"
           :validate="false"
           append-icon-on="close"
-          @append-icon-click="handleClearSearch"
+          @append-icon-click="() => handleClearSearch('name')"
         />
 
         <m-select
           name="categoryId"
-          :placeholder="$t('offers.filters.categoryPlaceholder')"
+          :placeholder="$t('common.offers.filters.categoryPlaceholder')"
           :options="staticProductDescriptorsStore.getProductCategories"
           :validate="false"
           @input-change="handleProductCategoryChange"
@@ -26,8 +26,31 @@
         <m-select
           ref="subcategoryRef"
           name="subcategoryId"
-          :placeholder="$t('offers.filters.subcategoryPlaceholder')"
+          :placeholder="$t('common.offers.filters.subcategoryPlaceholder')"
           :options="productCategorySubcategories"
+          :validate="false"
+        />
+
+        <m-select
+          name="status"
+          :placeholder="$t('common.offers.filters.statusPlaceholder')"
+          :options="statusFilters"
+          :validate="false"
+        />
+
+        <m-text-field
+          name="endedAt"
+          input-type="date"
+          :placeholder="$t('common.offers.filters.endingDatePlaceholder')"
+          :validate="false"
+          append-icon-on="close"
+          @append-icon-click="() => handleClearSearch('endedAt')"
+        />
+
+        <m-select
+          name="price"
+          :placeholder="$t('common.offers.filters.pricePlaceholder')"
+          :options="priceFilters"
           :validate="false"
         />
       </div>
@@ -54,6 +77,7 @@ import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 import { useRoute } from 'vue-router'
 import router from '@/routes'
 import type OForm from '@sharedOrganisms/form/OForm.vue'
+import { useI18n } from 'vue-i18n'
 
 // Interfaces
 interface OfferFilterValues {
@@ -61,6 +85,9 @@ interface OfferFilterValues {
   name?: string
   categoryId?: number
   subcategoryId?: number
+  status?: number
+  endedBefore?: string
+  price?: string
 }
 
 // Emits
@@ -74,8 +101,19 @@ const initialFilterParams = ref<OfferFilterValues>()
 const route = useRoute()
 const { setQueryParam } = useQueryFilter()
 const form = ref<typeof OForm>()
+const { t } = useI18n()
 
 // Computed
+const statusFilters = computed(() => [
+  { id: 0, text: t('global.inactive') },
+  { id: 1, text: t('global.active') }
+])
+
+const priceFilters = computed(() => [
+  { id: 'asc', text: t('global.ascending') },
+  { id: 'desc', text: t('global.descending') }
+])
+
 const productCategorySubcategories = computed(() => {
   return selectedCategoryId.value
     ? staticProductDescriptorsStore.getProductSubcategories.filter(
@@ -90,16 +128,19 @@ const handleProductCategoryChange = (id: number) => {
   selectedCategoryId.value = id
 }
 
-const handleClearSearch = async () => {
-  await router.replace({ query: { ...route.query, name: '' } })
-  form.value?.resetField('name', null)
+const handleClearSearch = async (fieldName: string) => {
+  await router.replace({ query: { ...route.query, [fieldName]: '' } })
+  form.value?.resetField(fieldName, null)
 }
 
 const setInitialFormValues = () => {
   initialFilterParams.value = {
     name: route.query.name ? route.query.name.toString() : undefined,
     categoryId: route.query.categoryId ? +route.query.categoryId : undefined,
-    subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined
+    subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined,
+    status: route.query.status ? +route.query.status : undefined,
+    endedBefore: route.query.endedBefore ? route.query.endedBefore.toString() : undefined,
+    price: route.query.price ? route.query.price.toString() : undefined
   }
 }
 
@@ -108,14 +149,20 @@ const handleResetFilters = async () => {
   initialFilterParams.value = {
     name: undefined,
     categoryId: undefined,
-    subcategoryId: undefined
+    subcategoryId: undefined,
+    status: undefined,
+    endedBefore: undefined,
+    price: undefined
   }
 
   await handleQuerySubmit({
     page: '1',
     name: undefined,
     categoryId: undefined,
-    subcategoryId: undefined
+    subcategoryId: undefined,
+    status: undefined,
+    endedBefore: undefined,
+    price: undefined
   })
 }
 
