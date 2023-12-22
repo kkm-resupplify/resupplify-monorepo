@@ -6,12 +6,12 @@
     :initial-touched="getInitialTouched"
     @submit="handleSubmit"
   >
-    <div class="o-form__body">
-      <slot v-if="$slots.body" name="body" />
+    <div v-if="$slots.body" class="o-form__body">
+      <slot name="body" />
     </div>
 
-    <div class="o-form__footer">
-      <slot v-if="$slots.footer" name="footer" />
+    <div v-if="$slots.footer" class="o-form__footer">
+      <slot name="footer" />
     </div>
   </v-form>
 </template>

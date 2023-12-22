@@ -150,9 +150,9 @@ const setInitialFormValues = () => {
 
 // Hooks
 onBeforeMount(async () => {
-  await handleFetchTransactions()
-
   setInitialFormValues()
+
+  await handleFetchTransactions()
 })
 </script>
 
