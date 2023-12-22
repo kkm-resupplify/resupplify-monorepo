@@ -688,12 +688,17 @@
   "common": {
     "offers": {
       "filters": {
+        "nameLabel": "Nazwa produktu",
         "namePlaceholder": "Podaj nazwę produktu",
-        "categoryPlaceholder": "Kategoria",
-        "subcategoryPlaceholder": "Podkategoria",
-        "statusPlaceholder": "Status oferty",
-        "endingDatePlaceholder": "Data zakończenia oferty",
-        "pricePlaceholder": "Cena"
+        "categoryLabel": "Kategoria produktu",
+        "categoryPlaceholder": "Wybierz kategorię produktu",
+        "subcategoryLabel": "Podkategoria produktu",
+        "subcategoryPlaceholder": "Wybierz kategorię produktu",
+        "statusLabel": "Status oferty",
+        "statusPlaceholder": "Wybierz status oferty",
+        "endingDateLabel": "Aż do daty",
+        "priceLabel": "Cena oferty",
+        "pricePlaceholder": "Pogrupuj według ceny"
       }
     }
   },

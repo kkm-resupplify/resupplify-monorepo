@@ -683,12 +683,17 @@
   "common": {
     "offers": {
       "filters": {
+        "nameLabel": "Nazwa produktu",
         "namePlaceholder": "Enter product name",
-        "categoryPlaceholder": "Category",
-        "subcategoryPlaceholder": "Subcategory",
-        "statusPlaceholder": "Offer status",
-        "endingDatePlaceholder": "Offer end date",
-        "pricePlaceholder": "Price"
+        "categoryLabel": "Product category",
+        "categoryPlaceholder": "Select product category",
+        "subcategoryLabel": "Product subcategory",
+        "subcategoryPlaceholder": "Select product subcategory",
+        "statusLabel": "Offer status",
+        "statusPlaceholder": "Select offer status",
+        "endingDateLabel": "Until the date",
+        "priceLabel": "Offer price",
+        "pricePlaceholder": "Select price order"
       }
     }
   },
