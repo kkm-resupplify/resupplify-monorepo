@@ -69,7 +69,7 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-.company-preview-offer-list-item {
+.offer-list-item {
   &__information {
     display: flex;
     justify-content: space-between;
