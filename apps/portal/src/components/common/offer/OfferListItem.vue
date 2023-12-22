@@ -32,19 +32,19 @@
         <div class="offer-list-item__order-price">
           <a-title :title="$t('common.offer.list.item.price')" variant="horizontal" append-colon />
 
-          <a-currency :value="offer.product.netPrice" size="small" />
+          <a-currency :value="offer.price" size="small" />
         </div>
 
         <a-title
           :title="$t('common.offer.list.item.available')"
-          :subtitle="offer.product.quantity"
+          :subtitle="offer.productQuantity"
           variant="horizontal"
           append-colon
         />
 
         <a-title
           :title="$t('common.offer.list.item.ends')"
-          :subtitle="offer.endedAt"
+          :subtitle="offer.endsAt"
           variant="horizontal"
           append-colon
         />
