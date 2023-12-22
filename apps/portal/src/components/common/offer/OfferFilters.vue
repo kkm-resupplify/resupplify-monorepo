@@ -38,7 +38,7 @@
           name="status"
           :label="$t('common.offer.filters.statusLabel')"
           :placeholder="$t('common.offer.filters.statusPlaceholder')"
-          :options="statusFilters"
+          :options="statusFiltersOptions"
           :validate="false"
         />
 
@@ -55,7 +55,7 @@
           name="price"
           :label="$t('common.offer.filters.priceLabel')"
           :placeholder="$t('common.offer.filters.pricePlaceholder')"
-          :options="priceFilters"
+          :options="priceFiltersOptions"
           :validate="false"
         />
       </div>
@@ -101,14 +101,14 @@ const form = ref<typeof OForm>()
 const { t } = useI18n()
 
 // Computed
-const statusFilters = computed(() =>
+const statusFiltersOptions = computed(() =>
   OfferStatusEnum.getAllFields().map((typeName) => ({
     id: `${OfferStatusEnum[typeName as keyof OfferStatusEnum]}`,
     text: t(`common.offer.filters.status.${typeName.toLowerCase()}`)
   }))
 )
 
-const priceFilters = computed(() =>
+const priceFiltersOptions = computed(() =>
   PriceOrderEnum.getAllFields().map((typeName) => ({
     id: `${PriceOrderEnum[typeName as keyof PriceOrderEnum]}`,
     text: t(`common.offer.filters.price.${typeName.toLowerCase()}`)
