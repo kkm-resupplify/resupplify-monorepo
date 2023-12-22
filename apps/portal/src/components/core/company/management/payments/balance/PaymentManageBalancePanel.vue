@@ -5,14 +5,12 @@
         <a-title :title="$t('company.management.balance.manage.title')" size="x-large" />
 
         <template v-if="isLoading">implement-loader-here</template>
-        <a-title
+
+        <a-currency
           v-else
           :title="$t('company.management.balance.manage.currentBalance')"
-          :subtitle="formattedBalance"
-          variant="horizontal"
-          class="payment-manage-balance-panel__current-balance"
+          :value="balance"
           size="large"
-          append-colon
         />
       </div>
 
@@ -38,6 +36,7 @@
             />
           </div>
         </template>
+
         <template #footer>
           <a-button
             button-type="submit"
@@ -75,10 +74,6 @@ const operationTypes = computed(() => [
   { id: PaymentTypeEnum.WITHDRAWAL, text: t('company.management.balance.manage.withdraw') },
   { id: PaymentTypeEnum.DEPOSIT, text: t('company.management.balance.manage.deposit') }
 ])
-
-const formattedBalance = computed(() => {
-  return `€${balance.value}`
-})
 
 const submitButtonText = computed(() => {
   if (selectedOperationTypeId.value === PaymentTypeEnum.DEPOSIT)
