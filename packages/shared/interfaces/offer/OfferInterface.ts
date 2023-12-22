@@ -19,6 +19,8 @@ export interface OfferFiltersParams {
   categoryId?: string | number
   subcategoryId?: string | number
   status?: string | number
+  endedBefore?: string
+  price?: string | number
 }
 
 export interface CreateOffer {
