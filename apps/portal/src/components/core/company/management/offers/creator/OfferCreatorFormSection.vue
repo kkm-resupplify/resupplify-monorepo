@@ -49,9 +49,9 @@
           <m-select
             name="status"
             :placeholder="$t('company.management.offer.dashboard.offerStatusPlaceholder')"
-            :validate="false"
             :options="statuses"
             width="50%"
+            rules="required"
           />
         </div>
       </template>
