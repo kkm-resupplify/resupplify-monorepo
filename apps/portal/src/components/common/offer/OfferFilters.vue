@@ -83,17 +83,7 @@ import { useRoute } from 'vue-router'
 import router from '@/routes'
 import type OForm from '@sharedOrganisms/form/OForm.vue'
 import { useI18n } from 'vue-i18n'
-
-// Interfaces
-interface OfferFilterValues {
-  page?: string
-  name?: string
-  categoryId?: number
-  subcategoryId?: number
-  status?: number
-  endedBefore?: string
-  price?: string
-}
+import type { OfferFiltersParams } from '@sharedInterfaces/offer/OfferInterface'
 
 // Emits
 const emits = defineEmits(['filter'])
@@ -102,7 +92,7 @@ const emits = defineEmits(['filter'])
 const subcategoryRef = ref<typeof MSelect>()
 const selectedCategoryId = ref<number | null>()
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
-const initialFilterParams = ref<OfferFilterValues>()
+const initialFilterParams = ref<OfferFiltersParams>()
 const route = useRoute()
 const { setQueryParam } = useQueryFilter()
 const form = ref<typeof OForm>()
@@ -171,7 +161,7 @@ const handleResetFilters = async () => {
   })
 }
 
-const handleQuerySubmit = async (filters: OfferFilterValues) => {
+const handleQuerySubmit = async (filters: OfferFiltersParams) => {
   await setQueryParam(route, filters)
 
   emits('filter', filters)
