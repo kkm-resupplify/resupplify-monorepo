@@ -171,10 +171,10 @@ const handleResetFilters = async () => {
   })
 }
 
-const handleQuerySubmit = async (data: OfferFilterValues) => {
-  await setQueryParam(route, data)
+const handleQuerySubmit = async (filters: OfferFilterValues) => {
+  await setQueryParam(route, filters)
 
-  emits('filter', data)
+  emits('filter', filters)
 }
 
 // Hooks
