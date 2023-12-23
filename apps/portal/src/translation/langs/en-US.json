@@ -681,7 +681,7 @@
   "common": {
     "offer": {
       "filters": {
-        "nameLabel": "Nazwa produktu",
+        "nameLabel": "Product name",
         "namePlaceholder": "Enter product name",
         "categoryLabel": "Product category",
         "categoryPlaceholder": "Select product category",
