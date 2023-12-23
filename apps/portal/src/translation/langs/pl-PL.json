@@ -33,7 +33,9 @@
     "rejected": "Odrzucony",
     "pricePerUnit": "Cena za jednostkę",
     "dateStart": "Data rozpoczęcia",
-    "dateEnd": "Data zakończenia"
+    "dateEnd": "Data zakończenia",
+    "ascending": "Rosnąco",
+    "descending": "Malejąco"
   },
 
   "language": {
