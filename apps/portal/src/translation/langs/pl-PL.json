@@ -696,7 +696,8 @@
         "subcategoryPlaceholder": "Wybierz kategorię produktu",
         "statusLabel": "Status oferty",
         "statusPlaceholder": "Wybierz status oferty",
-        "endingDateLabel": "Aż do daty",
+        "endDateLabel": "Data zakończenia oferty",
+        "endDatePlaceholder": "Pogrupuj według daty zakończenia",
         "priceLabel": "Cena oferty",
         "pricePlaceholder": "Pogrupuj według ceny",
 

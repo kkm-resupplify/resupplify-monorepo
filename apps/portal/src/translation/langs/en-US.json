@@ -691,7 +691,8 @@
         "subcategoryPlaceholder": "Select product subcategory",
         "statusLabel": "Offer status",
         "statusPlaceholder": "Select offer status",
-        "endingDateLabel": "Until the date",
+        "endDateLabel": "Offer end date",
+        "endDatePlaceholder": "Select ending date order",
         "priceLabel": "Offer price",
         "pricePlaceholder": "Select price order",
 

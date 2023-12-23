@@ -13,7 +13,7 @@
           :placeholder="$t('common.offer.filters.namePlaceholder')"
           :validate="false"
           append-icon-on="close"
-          @append-icon-click="() => handleClearSearch('name')"
+          @append-icon-click="handleClearSearch"
         />
 
         <m-select
@@ -42,13 +42,12 @@
           :validate="false"
         />
 
-        <m-text-field
+        <m-select
           name="endedAt"
-          input-type="date"
-          :label="$t('common.offer.filters.endingDateLabel')"
+          :label="$t('common.offer.filters.endDateLabel')"
+          :placeholder="$t('common.offer.filters.endDatePlaceholder')"
+          :options="endDateFiltersOptions"
           :validate="false"
-          append-icon-on="close"
-          @append-icon-click="() => handleClearSearch('endedAt')"
         />
 
         <m-select
@@ -86,6 +85,7 @@ import { useI18n } from 'vue-i18n'
 import type { OfferFiltersParams } from '@sharedInterfaces/offer/OfferInterface'
 import OfferStatusEnum from '@sharedEnums/offer/OfferStatusEnum'
 import PriceOrderEnum from '@sharedEnums/offer/PriceOrderEnum'
+import OfferEndDateOrderEnum from '../../../../../../packages/shared/enums/offer/OfferEndDateOrderEnum'
 
 // Emits
 const emits = defineEmits(['filter'])
@@ -115,6 +115,13 @@ const priceFiltersOptions = computed(() =>
   }))
 )
 
+const endDateFiltersOptions = computed(() =>
+  OfferEndDateOrderEnum.getAllFields().map((typeName) => ({
+    id: `${OfferEndDateOrderEnum[typeName as keyof OfferEndDateOrderEnum]}`,
+    text: t(`global.${typeName.toLowerCase()}`)
+  }))
+)
+
 const productCategorySubcategories = computed(() => {
   return selectedCategoryId.value
     ? staticProductDescriptorsStore.getProductSubcategories.filter(
@@ -129,9 +136,9 @@ const handleProductCategoryChange = (id: number) => {
   selectedCategoryId.value = id
 }
 
-const handleClearSearch = async (fieldName: string) => {
-  await router.replace({ query: { ...route.query, [fieldName]: '' } })
-  form.value?.resetField(fieldName, null)
+const handleClearSearch = async () => {
+  await router.replace({ query: { ...route.query, name: '' } })
+  form.value?.resetField('name', null)
 }
 
 const setInitialFormValues = () => {
