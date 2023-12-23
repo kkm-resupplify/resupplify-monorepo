@@ -111,7 +111,7 @@ const statusFiltersOptions = computed(() =>
 const priceFiltersOptions = computed(() =>
   PriceOrderEnum.getAllFields().map((typeName) => ({
     id: `${PriceOrderEnum[typeName as keyof PriceOrderEnum]}`,
-    text: t(`common.offer.filters.price.${typeName.toLowerCase()}`)
+    text: t(`global.${typeName.toLowerCase()}`)
   }))
 )
 
