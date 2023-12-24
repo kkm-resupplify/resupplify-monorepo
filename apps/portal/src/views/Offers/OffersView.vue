@@ -8,7 +8,7 @@
         </a-panel-section>
 
         <a-panel-section>
-          <div>offer-filters</div>
+          <offer-filters />
 
           <a-line />
 
@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
+import OfferFilters from '@/components/common/offer/OfferFilters.vue'
 import OfferList from '@/components/common/offer/OfferList.vue'
 import { ref } from 'vue'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'

@@ -34,7 +34,9 @@
     "addToCart": "Add to cart",
     "pricePerUnit": "Price per unit",
     "dateStart": "Start date",
-    "dateEnd": "End date"
+    "dateEnd": "End date",
+    "ascending": "Ascending",
+    "descending": "Descending"
   },
 
   "language": {
@@ -703,6 +705,26 @@
           "available": "Available",
           "ends": "Ends"
         }
+      },
+
+      "filters": {
+        "nameLabel": "Product name",
+        "namePlaceholder": "Enter product name",
+        "categoryLabel": "Product category",
+        "categoryPlaceholder": "Select product category",
+        "subcategoryLabel": "Product subcategory",
+        "subcategoryPlaceholder": "Select product subcategory",
+        "statusLabel": "Offer status",
+        "statusPlaceholder": "Select offer status",
+        "endDateLabel": "Offer end date",
+        "endDatePlaceholder": "Select ending date order",
+        "priceLabel": "Offer price",
+        "pricePlaceholder": "Select price order",
+
+        "status": {
+          "deactivated": "Deactivated",
+          "activated": "Activated"
+        }
       }
     }
   },
@@ -738,7 +760,6 @@
 
     "preferences": {
       "title": "Preferences",
-
       "notification": {
         "updateSuccess": "Preferences updated successfully"
       }
