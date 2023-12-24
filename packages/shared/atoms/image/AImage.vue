@@ -1,10 +1,5 @@
 <template>
-  <div v-if="isLoading || isError" class="a-image__placeholder">
-    <a-icon icon="no_photography" size="xx-large" />
-  </div>
-
   <img
-    v-else
     ref="imageRef"
     :src="src"
     :alt="alt"
@@ -13,6 +8,10 @@
     @error="imageError"
     @load="handleImageLoaded"
   />
+
+  <div v-if="isLoading || isError" class="a-image__placeholder">
+    <a-icon icon="no_photography" size="xx-large" />
+  </div>
 </template>
 
 <script setup lang="ts">
