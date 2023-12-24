@@ -722,9 +722,9 @@
         "statusLabel": "Status oferty",
         "statusPlaceholder": "Wybierz status oferty",
         "endDateLabel": "Data zakończenia oferty",
-        "endDatePlaceholder": "Pogrupuj według daty zakończenia",
+        "endDatePlaceholder": "Sortuj według daty zakończenia",
         "priceLabel": "Cena oferty",
-        "pricePlaceholder": "Pogrupuj według ceny",
+        "pricePlaceholder": "Sortuj według ceny",
 
         "status": {
           "deactivated": "Dezaktywowane",

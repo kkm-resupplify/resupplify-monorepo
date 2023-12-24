@@ -717,9 +717,9 @@
         "statusLabel": "Offer status",
         "statusPlaceholder": "Select offer status",
         "endDateLabel": "Offer end date",
-        "endDatePlaceholder": "Select ending date order",
+        "endDatePlaceholder": "Sort by end date",
         "priceLabel": "Offer price",
-        "pricePlaceholder": "Select price order",
+        "pricePlaceholder": "Sort by price",
 
         "status": {
           "deactivated": "Deactivated",
