@@ -243,6 +243,7 @@ const handleInputClick = () => {
 const clearSelect = () => {
   optionsFilter.value = ''
   inputValue.value = null
+  emits('input-change', inputValue.value)
 }
 
 const closeSelect = () => {
@@ -384,7 +385,7 @@ defineExpose({
 
     position: absolute;
     z-index: 10;
-    transform: translateY(calc(v-bind(inputHeight) + $global-spacing-30));
+    transform: translateY(calc(v-bind(inputHeight)));
 
     overflow-y: auto;
     display: flex;

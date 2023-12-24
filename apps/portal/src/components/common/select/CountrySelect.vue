@@ -37,6 +37,7 @@ const countries = computed(() => {
 
   const data = countryCodes.map((code: any, index: number) => {
     return {
+      //@ts-ignore
       text: (i18n.global.messages.value[i18n.global.locale.value ?? 'en-US'].country as any)[code],
       id: index,
       iconPrepend: { name: `_${code}`, size: 'small' }

@@ -31,6 +31,7 @@
               :color="iconColor"
               size="xx-large"
               gradient
+              move-background
             />
           </div>
         </div>

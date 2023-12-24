@@ -60,13 +60,19 @@
           </div>
 
           <div class="product-content-section__filters-row">
-            <a-button button-type="submit" :text="$t('global.search')" size="large" />
+            <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
 
             <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
           </div>
         </div>
       </template>
     </o-form>
+
+    <a-button
+      :to="{ name: RouteNames.COMPANY_OFFERS_CREATOR }"
+      :text="$t('company.management.offer.creator.createOffer')"
+      size="x-large"
+    />
 
     <a-line />
 
@@ -98,7 +104,7 @@ import StaticProductDescriptorsService from '@/services/product/StaticProductDes
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import OForm from '@sharedOrganisms/form/OForm.vue'
 import MassAssignProductStatus from '@/components/core/company/management/products/dashboard/dialog/MassAssignProductStatus.vue'
-
+import { RouteNames } from '@/routes/index'
 // Interfaces
 interface InitialQueryParams {
   page?: string
@@ -125,17 +131,18 @@ const initialFormValues = ref<InitialQueryParams>()
 const paginationData = ref<Pagination>()
 const form = ref<typeof OForm>()
 
-const statuses = ref([
+// Computed
+const statuses = computed(() => [
   { id: 0, text: t('global.inactive') },
   { id: 1, text: t('global.active') }
 ])
 
-const verificationStatuses = ref([
+const verificationStatuses = computed(() => [
   { id: 0, text: t('global.unverified') },
-  { id: 1, text: t('global.verified') }
+  { id: 1, text: t('global.verified') },
+  { id: 2, text: t('global.rejected') }
 ])
 
-// Computed
 const productCategorySubcategories = computed(() => {
   return selectedCategoryId.value
     ? staticProductDescriptorsStore.getProductSubcategories.filter(
@@ -222,6 +229,14 @@ const handleClearSearch = async () => {
 
 const handleResetFilters = async () => {
   form.value?.handleReset()
+  initialFormValues.value = {
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined,
+    status: undefined,
+    verificationStatus: undefined
+  }
+
   await handleQuerySubmit({
     page: '1',
     name: undefined,
@@ -234,10 +249,11 @@ const handleResetFilters = async () => {
 
 // Hooks
 onBeforeMount(async () => {
+  setInitialFormValues()
+
   await handleFetchProducts()
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
-  setInitialFormValues()
 })
 </script>
 

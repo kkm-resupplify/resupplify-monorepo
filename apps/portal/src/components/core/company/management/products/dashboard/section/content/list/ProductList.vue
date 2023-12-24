@@ -1,12 +1,12 @@
 <template>
-  <div class="product-list">
+  <a-list>
     <product-list-item
       v-for="product in products"
       :key="product.id"
       :product="product"
       @product-changed="handleProductChanged"
     />
-  </div>
+  </a-list>
 </template>
 
 <script setup lang="ts">
@@ -28,15 +28,3 @@ const handleProductChanged = () => {
   emits('product-changed')
 }
 </script>
-
-<style scoped lang="scss">
-.product-list {
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: $global-spacing-40;
-
-  height: 100%;
-  padding: $global-spacing-30;
-}
-</style>

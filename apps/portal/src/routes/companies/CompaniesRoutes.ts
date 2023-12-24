@@ -7,7 +7,11 @@ class CompaniesRouteEnum extends BaseEnum {
 }
 
 const routes: RouteRecordRaw[] = [
-  { path: '/companies', name: CompaniesRouteEnum.COMPANIES, component: CompaniesView }
+  {
+    path: '/companies',
+    name: CompaniesRouteEnum.COMPANIES,
+    component: CompaniesView
+  }
 ]
 
 export default routes
