@@ -1,5 +1,6 @@
 <template>
   <img
+    v-show="!isLoading && !isError"
     ref="imageRef"
     :src="src"
     :alt="alt"
@@ -82,16 +83,20 @@ const imageError = () => {
 
 <style scoped lang="scss">
 .a-image {
-  width: v-bind(width);
-  height: v-bind(height);
+  min-width: v-bind(width);
+  max-width: v-bind(width);
+  min-height: v-bind(height);
+  max-height: v-bind(height);
 
   &__placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: v-bind(width);
-    height: v-bind(height);
+    min-width: v-bind(width);
+    max-width: v-bind(width);
+    min-height: v-bind(height);
+    max-height: v-bind(height);
 
     background-color: var(--disabled);
     border-radius: $global-border-radius-30;
