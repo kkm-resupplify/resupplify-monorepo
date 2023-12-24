@@ -5,6 +5,7 @@
       :width="120"
       :height="120"
       :alt="$t('common.offer.list.item.imageAlt')"
+      variant="rounded"
     />
 
     <div class="offer-list-item__information">
