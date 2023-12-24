@@ -15,7 +15,9 @@
           <template v-if="isLoading">implement-loader-here</template>
 
           <template v-else>
-            <offer-list :offers="offers" />
+            <offer-list v-if="showList" :offers="offers" />
+
+            <a-list-no-results v-else :text="$t(`common.offer.list.${noResultsTranslationKey}`)" />
           </template>
 
           <o-pagination :pagination="paginationData" @page-changed="handleFetchOffers" />
@@ -29,7 +31,7 @@
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import OfferFilters from '@/components/common/offer/OfferFilters.vue'
 import OfferList from '@/components/common/offer/OfferList.vue'
-import { ref, onBeforeMount } from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import CompanyOffersService from '@/services/company/CompanyOffersService'
@@ -40,6 +42,23 @@ const isLoading = ref(false)
 const route = useRoute()
 const paginationData = ref<Pagination>()
 const offers = ref<Offer[]>([])
+
+// Computed
+const showList = computed(() => {
+  return offers.value.length > 0
+})
+
+const noResultsTranslationKey = computed(() => {
+  return offers.value.length === 0 && filtersUsed.value ? 'noOffersMatchingFilter' : 'noOffers'
+})
+
+const filtersUsed = computed(() => {
+  const {
+    query: { page, name, categoryId, subcategoryId, status, price, dateEnd }
+  } = route
+
+  return !!(page !== '1' || (name ?? categoryId ?? subcategoryId ?? status ?? price ?? dateEnd))
+})
 
 // Methods
 const handleFetchOffers = async () => {

@@ -584,7 +584,7 @@
 
           "list": {
             "noOffers": "Your company does not have any ofers yet.",
-            "noOffersMatchingFilter": "No offers for given parameters.",
+            "noOffersMatchingFilter": "No offers found for given parameters.",
 
             "item": {
               "netPrice": "Net price",
@@ -692,6 +692,9 @@
   "common": {
     "offer": {
       "list": {
+        "noOffers": "Could not find any offers.",
+        "noOffersMatchingFilter": "No offers found for given parameters.",
+
         "item": {
           "imageAlt": "Offer image",
 

@@ -589,7 +589,7 @@
 
           "list": {
             "noOffers": "Twoja firma nie posiada jeszcze żadnych ofert.",
-            "noOffersMatchingFilter": "Brak ofert na podane parametry.",
+            "noOffersMatchingFilter": "Brak ofert dla podanych parametry.",
 
             "item": {
               "netPrice": "Cena netto",
@@ -697,6 +697,9 @@
   "common": {
     "offer": {
       "list": {
+        "noOffers": "Nie znaleziono żadnych ofert.",
+        "noOffersMatchingFilter": "Brak ofert dla podanych parametrów.",
+
         "item": {
           "imageAlt": "Zdjęcie oferty",
 
