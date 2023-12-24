@@ -31,6 +31,7 @@
     "create": "Utwórz",
     "refresh": "Odśwież",
     "rejected": "Odrzucony",
+    "addToCard": "Dodaj do koszyka",
     "pricePerUnit": "Cena za jednostkę",
     "dateStart": "Data rozpoczęcia",
     "dateEnd": "Data zakończenia",
@@ -657,6 +658,14 @@
     }
   },
 
+  "offers": {
+    "header": {},
+
+    "list": {
+      "title": "Przeglądaj oferty"
+    }
+  },
+
   "product": {
     "promotion": {
       "bestsellers": "Bestsellery",
@@ -687,6 +696,22 @@
 
   "common": {
     "offer": {
+      "list": {
+        "item": {
+          "imageAlt": "Zdjęcie oferty",
+
+          "product": {
+            "name": "Nazwa",
+            "category": "Kategoria",
+            "subcategory": "Podkategoria"
+          },
+
+          "price": "Cena",
+          "available": "Dostępne",
+          "ends": "Kończy się"
+        }
+      },
+
       "filters": {
         "nameLabel": "Nazwa produktu",
         "namePlaceholder": "Podaj nazwę produktu",

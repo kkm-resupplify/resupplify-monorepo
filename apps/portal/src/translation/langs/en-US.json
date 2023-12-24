@@ -31,6 +31,7 @@
     "create": "Create",
     "refresh": "Refresh",
     "rejected": "Rejected",
+    "addToCart": "Add to cart",
     "pricePerUnit": "Price per unit",
     "dateStart": "Start date",
     "dateEnd": "End date",
@@ -652,6 +653,14 @@
     }
   },
 
+  "offers": {
+    "header": {},
+
+    "list": {
+      "title": "Browse offers"
+    }
+  },
+
   "product": {
     "promotion": {
       "bestsellers": "Bestsellers",
@@ -682,6 +691,22 @@
 
   "common": {
     "offer": {
+      "list": {
+        "item": {
+          "imageAlt": "Offer image",
+
+          "product": {
+            "name": "Name",
+            "category": "Category",
+            "subcategory": "Subcategory"
+          },
+
+          "price": "Price",
+          "available": "Available",
+          "ends": "Ends"
+        }
+      },
+
       "filters": {
         "nameLabel": "Product name",
         "namePlaceholder": "Enter product name",
