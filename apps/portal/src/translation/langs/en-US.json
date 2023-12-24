@@ -650,6 +650,14 @@
     }
   },
 
+  "offers": {
+    "header": {},
+
+    "list": {
+      "title": "Browse offers"
+    }
+  },
+
   "product": {
     "promotion": {
       "bestsellers": "Bestsellers",
