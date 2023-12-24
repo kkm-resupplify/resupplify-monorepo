@@ -656,6 +656,14 @@
     }
   },
 
+  "offers": {
+    "header": {},
+
+    "list": {
+      "title": "Przeglądaj oferty"
+    }
+  },
+
   "product": {
     "promotion": {
       "bestsellers": "Bestsellery",
