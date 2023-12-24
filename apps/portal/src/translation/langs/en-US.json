@@ -31,6 +31,7 @@
     "create": "Create",
     "refresh": "Refresh",
     "rejected": "Rejected",
+    "addToCart": "Add to cart",
     "pricePerUnit": "Price per unit",
     "dateStart": "Start date",
     "dateEnd": "End date"
@@ -683,6 +684,26 @@
       "textUpdate": "Are you sure you want to update {item}?",
       "titleCreate": "Creation confirmation",
       "textCreate": "Are you sure you want to create {item}?"
+    }
+  },
+
+  "common": {
+    "offer": {
+      "list": {
+        "item": {
+          "imageAlt": "Offer image",
+
+          "product": {
+            "name": "Name",
+            "category": "Category",
+            "subcategory": "Subcategory"
+          },
+
+          "price": "Price",
+          "available": "Available",
+          "ends": "Ends"
+        }
+      }
     }
   },
 
