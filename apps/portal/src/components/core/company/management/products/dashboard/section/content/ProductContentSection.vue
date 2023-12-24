@@ -68,12 +68,6 @@
       </template>
     </o-form>
 
-    <a-button
-      :to="{ name: RouteNames.COMPANY_OFFERS_CREATOR }"
-      :text="$t('company.management.offer.creator.createOffer')"
-      size="x-large"
-    />
-
     <a-line />
 
     <template v-if="isLoading">implement-loader-here</template>
