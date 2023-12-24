@@ -1,6 +1,11 @@
 <template>
   <a-list-item-wrapper class="offer-list-item">
-    <a-image :src="offer.product.logoSrc" :width="120" :height="120" />
+    <a-image
+      :src="offer.product.logoSrc"
+      :width="120"
+      :height="120"
+      :alt="$t('common.offer.list.item.imageAlt')"
+    />
 
     <div class="offer-list-item__information">
       <div class="offer-list-item__product-information">
@@ -57,7 +62,7 @@
 
 <script setup lang="ts">
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
-import ProductTagList from '../product/ProductTagList.vue'
+import ProductTagList from '@/components/common/product/ProductTagList.vue'
 import type { PropType } from 'vue'
 
 defineProps({
@@ -80,19 +85,18 @@ defineProps({
   &__product-information {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-30;
-    margin-left: $global-spacing-50;
+    gap: $global-spacing-20;
   }
 
   &__order-information {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-30;
+    gap: $global-spacing-20;
   }
 
   &__order-price {
     display: flex;
-    gap: $global-spacing-30;
+    gap: $global-spacing-20;
   }
 }
 </style>

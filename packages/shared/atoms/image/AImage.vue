@@ -1,5 +1,10 @@
 <template>
+  <div v-if="isLoading || isError" class="a-image__placeholder">
+    <a-icon icon="no_photography" size="xx-large" />
+  </div>
+
   <img
+    v-else
     ref="imageRef"
     :src="src"
     :alt="alt"
@@ -8,8 +13,6 @@
     @error="imageError"
     @load="handleImageLoaded"
   />
-
-  <a-icon v-if="isLoading || isError" icon="no_photography" size="xx-large" />
 </template>
 
 <script setup lang="ts">
@@ -82,6 +85,18 @@ const imageError = () => {
 .a-image {
   width: v-bind(width);
   height: v-bind(height);
+
+  &__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: v-bind(width);
+    height: v-bind(height);
+
+    background-color: var(--disabled);
+    border-radius: $global-border-radius-30;
+  }
 
   &--rounded {
     border-radius: $global-border-radius-30;

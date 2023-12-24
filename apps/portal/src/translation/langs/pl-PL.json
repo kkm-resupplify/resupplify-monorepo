@@ -696,6 +696,8 @@
     "offer": {
       "list": {
         "item": {
+          "imageAlt": "Zdjęcie oferty",
+
           "product": {
             "name": "Nazwa",
             "category": "Kategoria",
