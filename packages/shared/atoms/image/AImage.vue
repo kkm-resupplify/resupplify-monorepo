@@ -99,11 +99,11 @@ const imageError = () => {
     max-height: v-bind(height);
 
     background-color: var(--disabled);
-    border-radius: $global-border-radius-30;
+    border-radius: $global-border-radius-20;
   }
 
   &--rounded {
-    border-radius: $global-border-radius-30;
+    border-radius: $global-border-radius-20;
   }
 
   &--circle {
