@@ -61,7 +61,7 @@ const offers = ref<Offer[]>([
         id: 2,
         name: 'Coffee and tea'
       },
-      logoSrc: 'https://via.placeholder.com/150',
+      logoSrc: 'https://via.placeholder.com/120',
       productTags: [],
       translations: [
         {
@@ -109,7 +109,7 @@ const offers = ref<Offer[]>([
         id: 2,
         name: 'Coffee and tea'
       },
-      logoSrc: 'https://via.placeholder.com/150',
+      logoSrc: 'https://via.placeholder.com/120',
       productTags: [],
       translations: [
         {
@@ -157,7 +157,7 @@ const offers = ref<Offer[]>([
         id: 2,
         name: 'Coffee and tea'
       },
-      logoSrc: 'https://via.placeholder.com/150',
+      logoSrc: 'https://via.placeholder.com/120',
       productTags: [],
       translations: [
         {
