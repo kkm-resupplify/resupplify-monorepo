@@ -71,12 +71,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
-import { computed } from 'vue'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
-import { onBeforeMount } from 'vue'
 import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 import { useRoute } from 'vue-router'
 import router from '@/routes'
@@ -85,7 +83,7 @@ import { useI18n } from 'vue-i18n'
 import type { OfferFiltersParams } from '@sharedInterfaces/offer/OfferInterface'
 import OfferStatusEnum from '@sharedEnums/offer/OfferStatusEnum'
 import OfferPriceOrderEnum from '@sharedEnums/offer/OfferPriceOrderEnum'
-import OfferEndDateOrderEnum from '../../../../../../packages/shared/enums/offer/OfferEndDateOrderEnum'
+import OfferEndDateOrderEnum from '@sharedEnums/offer/OfferEndDateOrderEnum'
 
 // Emits
 const emits = defineEmits(['filter'])
