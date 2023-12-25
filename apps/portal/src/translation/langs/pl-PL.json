@@ -69,7 +69,8 @@
     "home": "Strona główna",
     "offers": "Oferty",
     "companies": "Firmy",
-    "resources": "Resources"
+    "resources": "Zasoby",
+    "cart": "Koszyk"
   },
 
   "auth": {

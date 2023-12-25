@@ -69,7 +69,8 @@
     "home": "Home",
     "offers": "Offers",
     "companies": "Companies",
-    "resources": "Resources"
+    "resources": "Resources",
+    "cart": "Cart"
   },
 
   "auth": {
