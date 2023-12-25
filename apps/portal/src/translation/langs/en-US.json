@@ -509,6 +509,12 @@
             "itemName": "Product tag name",
             "colorValue": "Hex color value"
           }
+        },
+
+        "preview": {
+          "email": "Email",
+          "phone": "Phone number",
+          "address": "Address"
         }
       },
 
@@ -650,6 +656,12 @@
           }
         }
       }
+    },
+
+    "preview": {
+      "email": "Email",
+      "phone": "Phone number",
+      "address": "Address"
     }
   },
 
@@ -659,6 +671,8 @@
       "description": "Browse offers from companies registered on our platform. Each product on Resupplify undergoes thorough verification, ensuring the credibility of offers provided by businesses. Shop with confidence, knowing that our commitment to excellence serves your company"
     }
   },
+
+  
 
   "product": {
     "promotion": {
