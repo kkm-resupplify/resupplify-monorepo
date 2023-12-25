@@ -1,7 +1,10 @@
 import { defineStore } from 'pinia'
 import type { CartCompanyGroup, CartItem } from '@sharedInterfaces/cart/CartInterface'
+import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 
-export const useUserCartStore = defineStore('userCart', {
+export const useUserCartStore = defineStore({
+  id: 'userCart',
+
   state: () => ({
     cartItems: [] as CartItem[]
   }),
@@ -31,8 +34,8 @@ export const useUserCartStore = defineStore('userCart', {
   },
 
   actions: {
-    addToCart(item: CartItem) {
-      this.cartItems.push(item)
+    addToCart(offer: Offer) {
+      this.cartItems.push({ offer, quantity: 1 })
     },
 
     removeFromCart(offerId: number) {
@@ -46,5 +49,7 @@ export const useUserCartStore = defineStore('userCart', {
     clearCart() {
       this.cartItems = []
     }
-  }
+  },
+
+  persist: true
 })
