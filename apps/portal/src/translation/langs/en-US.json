@@ -32,6 +32,7 @@
     "refresh": "Refresh",
     "rejected": "Rejected",
     "addToCart": "Add to cart",
+    "removeFromCart": "Remove from cart",
     "pricePerUnit": "Price per unit",
     "dateStart": "Start date",
     "dateEnd": "End date",
@@ -69,7 +70,8 @@
     "home": "Home",
     "offers": "Offers",
     "companies": "Companies",
-    "resources": "Resources"
+    "resources": "Resources",
+    "cart": "Cart"
   },
 
   "auth": {
@@ -672,8 +674,6 @@
     }
   },
 
-  
-
   "product": {
     "promotion": {
       "bestsellers": "Bestsellers",
@@ -710,6 +710,7 @@
 
         "item": {
           "imageAlt": "Offer image",
+          "company": "Company",
 
           "product": {
             "name": "Name",
@@ -800,6 +801,21 @@
         "title": "Register a company",
         "description": "You might also want to register you company. In that case, you can begin the registration process by clicking the button below - you may cancel it at any time.",
         "registerNow": "Register now"
+      }
+    }
+  },
+
+  "cart": {
+    "main": {
+      "title": "Shopping cart",
+      "description": "Effortlessly manage multiple offers from various companies in your cart. Our system intelligently organizes these by company, allowing you to efficiently place separate orders for each without any difficulties.",
+
+      "content": {
+        "title": "Offers grouped by companies",
+
+        "groups": {
+          "noItems": "Your cart is empty."
+        }
       }
     }
   },
