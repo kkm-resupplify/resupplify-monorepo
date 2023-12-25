@@ -1,9 +1,11 @@
 <template>
   <basic-view-layout>
     <template #body>
-      <div>cart-header</div>
+      <a-panel width="auto">
+        <div>cart-header</div>
 
-      <div>cart-company-group-list</div>
+        <div>cart-company-group-list</div>
+      </a-panel>
     </template>
   </basic-view-layout>
 </template>
