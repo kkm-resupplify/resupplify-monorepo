@@ -18,6 +18,13 @@
         />
 
         <a-title
+          :title="$t('common.offer.list.item.company')"
+          :subtitle="offer.company.name"
+          variant="horizontal"
+          append-colon
+        />
+
+        <a-title
           :title="$t('common.offer.list.item.product.category')"
           :subtitle="offer.product.productCategory.name"
           variant="horizontal"

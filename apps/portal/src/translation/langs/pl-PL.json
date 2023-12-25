@@ -707,6 +707,7 @@
 
         "item": {
           "imageAlt": "Zdjęcie oferty",
+          "company": "Firma",
 
           "product": {
             "name": "Nazwa",
