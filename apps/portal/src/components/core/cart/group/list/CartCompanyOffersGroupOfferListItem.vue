@@ -4,14 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'CartCompanyOffersGroupOfferListItem'
-  // Your component options here
-})
-</script>
+<script lang="ts"></script>
 
 <style lang="scss" scoped>
 .cart-company-offers-group-offer-list-item {
