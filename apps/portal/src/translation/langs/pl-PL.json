@@ -810,7 +810,11 @@
   "cart": {
     "main": {
       "title": "Koszyk zakupowy",
-      "description": "Bezproblemowo zarządzaj wieloma ofertami różnych firm w swoim koszyku. Nasz system inteligentnie organizuje je według firm, umożliwiając Ci efektywne składanie oddzielnych zamówień bez żadnych trudności."
+      "description": "Bezproblemowo zarządzaj wieloma ofertami różnych firm w swoim koszyku. Nasz system inteligentnie organizuje je według firm, umożliwiając Ci efektywne składanie oddzielnych zamówień bez żadnych trudności.",
+
+      "content": {
+        "title": "Oferty pogrupowane według firm"
+      }
     }
   },
 

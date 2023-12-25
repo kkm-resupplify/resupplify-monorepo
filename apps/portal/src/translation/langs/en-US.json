@@ -805,7 +805,11 @@
   "cart": {
     "main": {
       "title": "Shopping cart",
-      "description": "Effortlessly manage multiple offers from various companies in your cart. Our system intelligently organizes these by company, allowing you to efficiently place separate orders for each without any difficulties."
+      "description": "Effortlessly manage multiple offers from various companies in your cart. Our system intelligently organizes these by company, allowing you to efficiently place separate orders for each without any difficulties.",
+      
+      "content": {
+        "title": "Offers grouped by companies"
+      }
     }
   },
 
