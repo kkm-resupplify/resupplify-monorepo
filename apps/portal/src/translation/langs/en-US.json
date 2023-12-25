@@ -814,7 +814,14 @@
         "title": "Offers grouped by companies",
 
         "groups": {
-          "noItems": "Your cart is empty."
+          "noItems": "Your cart is empty.",
+
+          "list": {
+            "item": {
+              "imageAlt": "Offer image",
+              "quantity": "Quantity"
+            }
+          }
         }
       }
     }

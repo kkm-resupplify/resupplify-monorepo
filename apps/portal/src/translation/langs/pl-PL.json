@@ -819,7 +819,14 @@
         "title": "Oferty pogrupowane według firm",
 
         "groups": {
-          "noItems": "Twój koszyk jest pusty."
+          "noItems": "Twój koszyk jest pusty.",
+
+          "list": {
+            "item": {
+              "imageAlt": "Zdjęcie oferty",
+              "quantity": "Ilość"
+            }
+          }
         }
       }
     }
