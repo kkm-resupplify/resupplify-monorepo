@@ -11,23 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
-
-// Interfaces
-export interface CartCompanyGroup {
-  companyName: string
-  cartItems: CartItem[]
-}
-
-export interface CartItem {
-  offer: Offer
-  quantity: number
-}
+import { ref, computed, type PropType } from 'vue'
+import type { CartCompanyGroup } from '@sharedInterfaces/cart/CartInterface'
 
 const props = defineProps({
   groupData: {
-    type: Object as any
+    type: Object as PropType<CartCompanyGroup>
   }
 })
 </script>
