@@ -8,13 +8,35 @@
         variant="rounded"
       />
       <div class="company-preview-header-section__info">
-        <a-title title="Company name" size="x-large" />
+        <a-title
+          title="Company name"
+          size="x-large"
+          class="company-preview-header-section__info-title"
+        />
 
-        <a-title :title="$t('company.preview.email')" variant="horizontal" append-colon />
+        <a-title
+          :title="$t('company.preview.email')"
+          subtitle="company email"
+          variant="horizontal"
+          append-colon
+          class="company-preview-header-section__info-title"
+        />
 
-        <a-title :title="$t('company.preview.phone')" variant="horizontal" append-colon />
+        <a-title
+          :title="$t('company.preview.phone')"
+          subtitle="phone number"
+          variant="horizontal"
+          append-colon
+          class="company-preview-header-section__info-title"
+        />
 
-        <a-title :title="$t('company.preview.address')" variant="horizontal" append-colon />
+        <a-title
+          :title="$t('company.preview.address')"
+          subtitle="address"
+          variant="horizontal"
+          append-colon
+          class="company-preview-header-section__info-title"
+        />
       </div>
     </div>
   </a-panel-section>
@@ -33,6 +55,10 @@
   &__info {
     display: flex;
     flex-direction: column;
+  }
+
+  &__info-title {
+    width: max-content;
   }
 }
 </style>
