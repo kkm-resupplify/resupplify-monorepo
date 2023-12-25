@@ -1,8 +1,6 @@
 <template>
   <div class="cart-company-offers-group">
-    <div>company-name</div>
-
-    <a-line />
+    <a-title size="large" :title="groupData.companyName" /> <a-line />
 
     <div>company-offer-item-list</div>
 
@@ -16,7 +14,8 @@ import type { CartCompanyGroup } from '@sharedInterfaces/cart/CartInterface'
 
 const props = defineProps({
   groupData: {
-    type: Object as PropType<CartCompanyGroup>
+    type: Object as PropType<CartCompanyGroup>,
+    required: true
   }
 })
 </script>
