@@ -3,8 +3,9 @@
     <template #body>
       <div class="offers-view__content">
         <a-panel-section>
-          <a-title :title="$t('offers.list.title')" size="x-large" />
-          <div>offer-header</div>
+          <a-title :title="$t('offers.header.title')" size="x-large" />
+
+          <a-title :title="$t('offers.header.description')" />
         </a-panel-section>
 
         <a-panel-section>

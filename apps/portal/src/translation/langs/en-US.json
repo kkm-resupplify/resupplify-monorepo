@@ -654,10 +654,9 @@
   },
 
   "offers": {
-    "header": {},
-
-    "list": {
-      "title": "Browse offers"
+    "header": {
+      "title": "Browse offers",
+      "description": "Browse offers from companies registered on our platform. Each product on Resupplify undergoes thorough verification, ensuring the credibility of offers provided by businesses. Shop with confidence, knowing that our commitment to excellence serves your company"
     }
   },
 

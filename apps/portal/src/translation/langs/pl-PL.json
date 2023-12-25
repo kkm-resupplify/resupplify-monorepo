@@ -659,10 +659,9 @@
   },
 
   "offers": {
-    "header": {},
-
-    "list": {
-      "title": "Przeglądaj oferty"
+    "header": {
+      "title": "Przeglądaj oferty",
+      "description": "Przeglądaj oferty firm zarejestrowanych w naszej platformie. Każda produkt na Resupplify przechodzi szczegółową weryfikację, zapewniając wiarygodność ofert wystawianych przez firmy. Kupuj z pewnością, wiedząc, że nasze zaangażowanie w doskonałość służy Twojej firmie."
     }
   },
 
