@@ -1,8 +1,6 @@
 <template>
   <company-preview-header-section />
 
-  <br />
-
   <company-preview-content-section />
 </template>
 <script setup lang="ts">

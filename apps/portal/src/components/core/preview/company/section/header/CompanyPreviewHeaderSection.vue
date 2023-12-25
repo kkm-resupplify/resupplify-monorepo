@@ -7,6 +7,7 @@
         :alt="$t('common.offer.list.item.imageAlt')"
         variant="rounded"
       />
+
       <div class="company-preview-header-section__info">
         <a-title
           title="Company name"
