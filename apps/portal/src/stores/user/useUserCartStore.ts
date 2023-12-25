@@ -30,7 +30,12 @@ export const useUserCartStore = defineStore({
       })
 
       return companyGroups
-    }
+    },
+    isOfferInCart:
+      (state) =>
+      (offer: Offer): boolean => {
+        return state.cartItems.some((item: CartItem) => item.offer.id === offer.id)
+      }
   },
 
   actions: {
