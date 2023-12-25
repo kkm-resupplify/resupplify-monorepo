@@ -656,6 +656,12 @@
           }
         }
       }
+    },
+
+    "preview": {
+      "email": "Email",
+      "phone": "Phone number",
+      "address": "Address"
     }
   },
 

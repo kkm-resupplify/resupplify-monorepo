@@ -514,12 +514,6 @@
             "itemName": "Nazwa tagu produktu",
             "colorValue": "Wartość koloru hex"
           }
-        },
-
-        "preview": {
-          "email": "Email",
-          "phone": "Numer kontaktowy",
-          "address": "Adres"
         }
       },
 
@@ -661,6 +655,12 @@
           }
         }
       }
+    },
+
+    "preview": {
+      "email": "Email",
+      "phone": "Numer kontaktowy",
+      "address": "Adres"
     }
   },
 
