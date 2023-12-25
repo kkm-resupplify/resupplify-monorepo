@@ -3,6 +3,7 @@ import UserRoutes from './user/UserRoutes'
 import ResourcesRoutes from './resources/ResourcesRoutes'
 import OffersRoutes from './offers/OffersRoutes'
 import CompaniesRoutes from './companies/CompaniesRoutes'
+import CartRoutes from './cart/CartRoutes'
 import CompanyRoutes from './company/CompanyRoutes'
 import HomeRoutes from './home/HomeRoutes'
 import Settings from './settings/SettingsRoutes'
@@ -19,6 +20,7 @@ const routes = [
   ...OffersRoutes,
   ...PreviewRoutes,
   ...CompaniesRoutes,
+  ...CartRoutes,
   ...UserRoutes,
   ...CompanyRoutes,
   ...TestRoutes
