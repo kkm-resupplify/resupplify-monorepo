@@ -589,7 +589,7 @@
 
           "list": {
             "noOffers": "Twoja firma nie posiada jeszcze żadnych ofert.",
-            "noOffersMatchingFilter": "Brak ofert na podane parametry.",
+            "noOffersMatchingFilter": "Brak ofert dla podanych parametry.",
 
             "item": {
               "netPrice": "Cena netto",
@@ -659,10 +659,9 @@
   },
 
   "offers": {
-    "header": {},
-
-    "list": {
-      "title": "Przeglądaj oferty"
+    "header": {
+      "title": "Przeglądaj oferty",
+      "description": "Przeglądaj oferty firm zarejestrowanych w naszej platformie. Każda produkt na Resupplify przechodzi szczegółową weryfikację, zapewniając wiarygodność ofert wystawianych przez firmy. Kupuj z pewnością, wiedząc, że nasze zaangażowanie w doskonałość służy Twojej firmie."
     }
   },
 
@@ -697,6 +696,9 @@
   "common": {
     "offer": {
       "list": {
+        "noOffers": "Nie znaleziono żadnych ofert.",
+        "noOffersMatchingFilter": "Brak ofert dla podanych parametrów.",
+
         "item": {
           "imageAlt": "Zdjęcie oferty",
 
@@ -722,9 +724,9 @@
         "statusLabel": "Status oferty",
         "statusPlaceholder": "Wybierz status oferty",
         "endDateLabel": "Data zakończenia oferty",
-        "endDatePlaceholder": "Pogrupuj według daty zakończenia",
+        "endDatePlaceholder": "Sortuj według daty zakończenia",
         "priceLabel": "Cena oferty",
-        "pricePlaceholder": "Pogrupuj według ceny",
+        "pricePlaceholder": "Sortuj według ceny",
 
         "status": {
           "deactivated": "Dezaktywowane",

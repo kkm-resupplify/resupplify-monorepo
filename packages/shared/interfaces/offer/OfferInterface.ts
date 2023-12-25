@@ -19,7 +19,7 @@ export interface OfferFiltersParams {
   categoryId?: string | number
   subcategoryId?: string | number
   status?: string | number
-  endedBefore?: string
+  dateEnd?: string
   price?: string | number
 }
 

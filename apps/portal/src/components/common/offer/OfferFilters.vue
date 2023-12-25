@@ -145,7 +145,7 @@ const setInitialFormValues = () => {
     categoryId: route.query.categoryId ? +route.query.categoryId : undefined,
     subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined,
     status: route.query.status ? +route.query.status : undefined,
-    endedBefore: route.query.endedBefore ? route.query.endedBefore.toString() : undefined,
+    dateEnd: route.query.dateEnd ? route.query.dateEnd.toString() : undefined,
     price: route.query.price ? route.query.price.toString() : undefined
   }
 }
@@ -157,7 +157,7 @@ const handleResetFilters = async () => {
     categoryId: undefined,
     subcategoryId: undefined,
     status: undefined,
-    endedBefore: undefined,
+    dateEnd: undefined,
     price: undefined
   }
 
@@ -167,7 +167,7 @@ const handleResetFilters = async () => {
     categoryId: undefined,
     subcategoryId: undefined,
     status: undefined,
-    endedBefore: undefined,
+    dateEnd: undefined,
     price: undefined
   })
 }

@@ -584,7 +584,7 @@
 
           "list": {
             "noOffers": "Your company does not have any ofers yet.",
-            "noOffersMatchingFilter": "No offers for given parameters.",
+            "noOffersMatchingFilter": "No offers found for given parameters.",
 
             "item": {
               "netPrice": "Net price",
@@ -654,10 +654,9 @@
   },
 
   "offers": {
-    "header": {},
-
-    "list": {
-      "title": "Browse offers"
+    "header": {
+      "title": "Browse offers",
+      "description": "Browse offers from companies registered on our platform. Each product on Resupplify undergoes thorough verification, ensuring the credibility of offers provided by businesses. Shop with confidence, knowing that our commitment to excellence serves your company"
     }
   },
 
@@ -692,6 +691,9 @@
   "common": {
     "offer": {
       "list": {
+        "noOffers": "Could not find any offers.",
+        "noOffersMatchingFilter": "No offers found for given parameters.",
+
         "item": {
           "imageAlt": "Offer image",
 
@@ -717,9 +719,9 @@
         "statusLabel": "Offer status",
         "statusPlaceholder": "Select offer status",
         "endDateLabel": "Offer end date",
-        "endDatePlaceholder": "Select ending date order",
+        "endDatePlaceholder": "Sort by end date",
         "priceLabel": "Offer price",
-        "pricePlaceholder": "Select price order",
+        "pricePlaceholder": "Sort by price",
 
         "status": {
           "deactivated": "Deactivated",
