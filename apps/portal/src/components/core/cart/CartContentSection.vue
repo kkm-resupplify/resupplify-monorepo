@@ -10,7 +10,7 @@
       />
     </a-list>
 
-    <a-list-no-results :text="$t('cart.main.content.groups.noItems')" />
+    <a-list-no-results v-else :text="$t('cart.main.content.groups.noItems')" />
   </a-panel-section>
 </template>
 
