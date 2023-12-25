@@ -12,6 +12,10 @@ const props = defineProps({
   maxHeight: {
     type: String,
     default: '100%'
+  },
+  width: {
+    type: String,
+    default: '100%'
   }
 })
 
@@ -27,6 +31,10 @@ const generateClasses = computed(() => {
 const maxHeight = computed(() => {
   return props.maxHeight
 })
+
+const width = computed(() => {
+  return props.width
+})
 </script>
 
 <style lang="scss" scoped>
@@ -35,7 +43,7 @@ const maxHeight = computed(() => {
   flex-direction: column;
   gap: $global-spacing-30;
 
-  width: 100%;
+  width: v-bind(width);
   max-height: v-bind(maxHeight);
   padding: $global-spacing-40 $global-spacing-50;
 }
