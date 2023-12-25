@@ -1,6 +1,6 @@
 <template>
   <div class="cart-company-offers-group">
-    <a-title size="large" :title="groupData.companyName" /> <a-line />
+    <a-title :title="groupData.companyName" /> <a-line />
 
     <div>company-offer-item-list</div>
 
