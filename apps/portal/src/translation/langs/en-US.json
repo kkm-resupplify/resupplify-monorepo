@@ -509,6 +509,12 @@
             "itemName": "Product tag name",
             "colorValue": "Hex color value"
           }
+        },
+
+        "preview": {
+          "email": "Email",
+          "phone": "Phone number",
+          "address": "Address"
         }
       },
 
@@ -630,7 +636,7 @@
             "productStatus": "Product status",
             "productVerificationStatus": "Verification status",
             "productCategory": "Product category",
-            "productSubcategory": "Product subcategory",
+            "prcompanoductSubcategory": "Product subcategory",
             "productUnit": "Product unit",
             "productTags": "Product tags",
             "productDescription": "Product description",
@@ -659,6 +665,8 @@
       "description": "Browse offers from companies registered on our platform. Each product on Resupplify undergoes thorough verification, ensuring the credibility of offers provided by businesses. Shop with confidence, knowing that our commitment to excellence serves your company"
     }
   },
+
+  
 
   "product": {
     "promotion": {
