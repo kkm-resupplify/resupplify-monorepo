@@ -2,7 +2,7 @@
   <basic-view-layout>
     <template #body>
       <a-panel width="auto">
-        <div>cart-header</div>
+        <cart-header-section />
 
         <div>cart-company-group-list</div>
       </a-panel>
@@ -12,4 +12,5 @@
 
 <script setup lang="ts">
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
+import CartHeaderSection from '@/components/core/cart/CartHeaderSection.vue'
 </script>
