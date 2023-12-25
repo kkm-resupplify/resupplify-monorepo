@@ -1,9 +1,7 @@
 <template>
-  Filters
+  <div>Offer filters</div>
 
-  <br />
-
-  List
+  <div>Offer list</div>
 </template>
 
 <script setup lang="ts">
