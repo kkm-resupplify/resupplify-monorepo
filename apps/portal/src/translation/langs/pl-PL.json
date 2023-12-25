@@ -815,7 +815,11 @@
       "description": "Bezproblemowo zarządzaj wieloma ofertami różnych firm w swoim koszyku. Nasz system inteligentnie organizuje je według firm, umożliwiając Ci efektywne składanie oddzielnych zamówień bez żadnych trudności.",
 
       "content": {
-        "title": "Oferty pogrupowane według firm"
+        "title": "Oferty pogrupowane według firm",
+
+        "groups": {
+          "noItems": "Twój koszyk jest pusty."
+        }
       }
     }
   },
