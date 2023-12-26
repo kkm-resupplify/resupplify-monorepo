@@ -20,3 +20,9 @@ defineProps({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.cart-company-offers-group-offer-list {
+  padding-right: 0 !important;
+}
+</style>
