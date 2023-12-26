@@ -254,6 +254,9 @@ const manualValidate = () => {
 defineExpose({ manualValidate })
 
 const handleInputChange = () => {
+  if (props.inputType === 'number' && +inputValue.value > props.maxValue)
+    inputValue.value = props.maxValue
+
   emits('input-change', inputValue.value)
 }
 
