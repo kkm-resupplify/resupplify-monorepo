@@ -827,6 +827,11 @@
               "quantity": "Ilość",
               "totalPrice": "Cena łącznie"
             }
+          },
+
+          "footer": {
+            "totalCost": "Koszt łącznie",
+            "placeOrder": "Złóż zamówienie"
           }
         }
       }

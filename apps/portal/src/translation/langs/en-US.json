@@ -822,6 +822,11 @@
               "quantity": "Quantity",
               "totalPrice": "Total price"
             }
+          },
+
+          "footer": {
+            "totalCost": "Total cost",
+            "placeOrder": "Place order"
           }
         }
       }
