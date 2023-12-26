@@ -239,7 +239,12 @@
         },
 
         "orders": {
-          "title": "Orders"
+          "title": "Orders",
+
+          "tiles": {
+            "sales": "Sales",
+            "purchases": "Purchases"
+          }
         },
 
         "warehouses": {
