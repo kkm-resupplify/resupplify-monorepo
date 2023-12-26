@@ -26,7 +26,8 @@ const props = defineProps({
   valueSize: {
     type: String,
     default: 'medium'
-  }
+  },
+  alignEnd: Boolean
 })
 
 // Variables
@@ -37,8 +38,9 @@ const { n } = useI18n()
 // Computed
 const generateClasses = computed(() => {
   const verticalClass = props.vertical ? 'vertical' : ''
+  const alignEndClass = props.alignEnd ? 'align-end' : ''
 
-  return generateClassNames(baseClass, [verticalClass])
+  return generateClassNames(baseClass, [verticalClass, alignEndClass])
 })
 
 const valueText = computed(() => {
@@ -55,6 +57,10 @@ const valueText = computed(() => {
   &--vertical {
     flex-direction: column;
     align-items: center;
+  }
+
+  &--align-end {
+    align-items: flex-end !important;
   }
 }
 </style>
