@@ -1,8 +1,8 @@
 import BaseService from '@/services/BaseService'
 
 class CompanyPreviewService extends BaseService {
-  async getCompanyInformation({ slug }: { slug: string }) {
-    return await this.get({ slug })
+  async getCompanyInformation(id: string | number) {
+    return await this.get({ id })
   }
 }
 
