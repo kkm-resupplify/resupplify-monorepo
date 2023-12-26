@@ -68,7 +68,7 @@ const isLoading = ref(false)
 const slug = router.currentRoute.value.params.slug as string
 
 // Methods
-const fetchCompanyInformation = async () => {
+const handleFetchCompanyInformation = async () => {
   isLoading.value = true
 
   const { data, success } = await CompanyPreviewService.getCompanyInformation(slug)
@@ -95,7 +95,7 @@ const fetchCompanyInformation = async () => {
 
 // Hooks
 onBeforeMount(async () => {
-  fetchCompanyInformation()
+  handleFetchCompanyInformation()
 })
 </script>
 
