@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section class="offer-dashboard-header-section">
+  <a-panel-section>
     <a-title :title="$t('company.management.offer.dashboard.companyOffers')" size="x-large" />
 
     <m-alert
@@ -22,9 +22,3 @@ const isCompanyNotVerified = computed(() => {
   return userStore.getCompany?.status === 0
 })
 </script>
-
-<style lang="scss" scoped>
-.offer-dashboard-header-section {
-  display: flex;
-}
-</style>
