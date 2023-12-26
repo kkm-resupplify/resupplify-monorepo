@@ -119,7 +119,10 @@ const props = defineProps({
   width: { type: String, default: '100%' },
   preventInput: Boolean,
   minValue: Number,
-  maxValue: Number,
+  maxValue: {
+    type: Number,
+    default: Infinity
+  },
   textCenter: Boolean
 })
 
@@ -256,7 +259,7 @@ const handleInputChange = () => {
 
 const handleWheelScroll = (event: WheelEvent) => {
   if (props.inputType === 'number') {
-    if (event.deltaY < 0) {
+    if (event.deltaY < 0 && +inputValue.value <= props.maxValue - 1) {
       inputValue.value = +inputValue.value + 1
     } else if (event.deltaY > 0) {
       // @ts-ignore
