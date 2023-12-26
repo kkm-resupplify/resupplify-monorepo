@@ -28,6 +28,10 @@ const props = defineProps({
   basis: {
     type: Number,
     default: 30
+  },
+  lineHeight: {
+    type: String,
+    default: 'auto'
   }
 })
 
@@ -47,6 +51,8 @@ const titleText = computed(() => {
 const flexBasisValue = computed(() => {
   return `${props.basis}%`
 })
+
+const lineHeightClass = computed(() => props.lineHeight)
 </script>
 
 <style scoped lang="scss">
@@ -79,11 +85,11 @@ const flexBasisValue = computed(() => {
 
   display: flex;
   gap: $global-spacing-30;
-  align-content: center;
 
   &__title {
     display: flex;
     flex-basis: v-bind(flexBasisValue);
+    line-height: v-bind(lineHeightClass);
   }
 
   &--vertical {
