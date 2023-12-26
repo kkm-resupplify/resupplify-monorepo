@@ -6,21 +6,21 @@
         <a-image
           :width="120"
           :height="120"
-          :src="companyInformation?.logo"
+          :src="companyPreviewGeneralInformation?.logo"
           :alt="$t('common.offer.list.item.imageAlt')"
           variant="rounded"
         />
 
         <div class="company-preview-header-section__info">
           <a-title
-            :title="companyInformation?.name"
+            :title="companyPreviewGeneralInformation?.name"
             size="x-large"
             class="company-preview-header-section__info-title"
           />
 
           <a-title
             :title="$t('company.preview.email')"
-            :subtitle="companyInformation?.email"
+            :subtitle="companyPreviewGeneralInformation?.email"
             variant="horizontal"
             append-colon
             class="company-preview-header-section__info-title"
@@ -28,7 +28,7 @@
 
           <a-title
             :title="$t('company.preview.phone')"
-            :subtitle="companyInformation?.phoneNumber"
+            :subtitle="companyPreviewGeneralInformation?.phoneNumber"
             variant="horizontal"
             append-colon
             class="company-preview-header-section__info-title"
@@ -36,7 +36,7 @@
 
           <a-title
             :title="$t('company.preview.address')"
-            :subtitle="companyInformation?.address"
+            :subtitle="companyPreviewGeneralInformation?.address"
             variant="horizontal"
             append-colon
             class="company-preview-header-section__info-title"
@@ -54,7 +54,7 @@ import router from '@/routes'
 import { onBeforeMount } from 'vue'
 
 // Interfaces
-interface CompanyPreviewHeaderInformation {
+interface CompanyPreviewGeneralInformation {
   name: string
   email: string
   phoneNumber: string
@@ -63,7 +63,7 @@ interface CompanyPreviewHeaderInformation {
 }
 
 // Variables
-const companyInformation = ref<CompanyPreviewHeaderInformation>()
+const companyPreviewGeneralInformation = ref<CompanyPreviewGeneralInformation>()
 const isLoading = ref(false)
 const slug = router.currentRoute.value.params.slug as string
 
@@ -87,7 +87,7 @@ const fetchCompanyInformation = async () => {
       logo
     }
 
-    companyInformation.value = information
+    companyPreviewGeneralInformation.value = information
   }
 
   isLoading.value = false
