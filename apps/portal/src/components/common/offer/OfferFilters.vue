@@ -162,7 +162,8 @@ const handleQuerySubmit = async (filters: OfferFiltersParams) => {
   } = route
   await setQueryParam(route, filters)
 
-  emits('filter', { page, ...filters })
+  if (page) emits('filter', { page, ...filters })
+  else emits('filter', { page: '1', ...filters })
 }
 
 // Hooks
