@@ -10,14 +10,14 @@
 
       <div class="company-preview-header-section__info">
         <a-title
-          title="Company name"
+          :title="companyInformation?.name"
           size="x-large"
           class="company-preview-header-section__info-title"
         />
 
         <a-title
           :title="$t('company.preview.email')"
-          subtitle="company email"
+          :subtitle="companyInformation?.email"
           variant="horizontal"
           append-colon
           class="company-preview-header-section__info-title"
@@ -25,7 +25,7 @@
 
         <a-title
           :title="$t('company.preview.phone')"
-          subtitle="phone number"
+          :subtitle="companyInformation?.phoneNumber"
           variant="horizontal"
           append-colon
           class="company-preview-header-section__info-title"
@@ -33,7 +33,7 @@
 
         <a-title
           :title="$t('company.preview.address')"
-          subtitle="address"
+          :subtitle="companyInformation?.address"
           variant="horizontal"
           append-colon
           class="company-preview-header-section__info-title"
@@ -42,6 +42,54 @@
     </div>
   </a-panel-section>
 </template>
+
+<script setup lang="ts">
+import CompanyPreviewService from '@/services/preview/company/CompanyPreviewService'
+import { ref } from 'vue'
+import router from '@/routes'
+import { onBeforeMount } from 'vue'
+
+// Interfaces
+interface CompanyPreviewHeaderInformation {
+  name: string
+  email: string
+  phoneNumber: string
+  address: string
+}
+
+// Variables
+const companyInformation = ref<CompanyPreviewHeaderInformation>()
+const isLoading = ref(false)
+const slug = router.currentRoute.value.params.slug as string
+
+// Methods
+const fetchCompanyInformation = async () => {
+  isLoading.value = true
+
+  const { data, success } = await CompanyPreviewService.getCompanyInformation(slug)
+
+  if (success) {
+    const {
+      name,
+      details: { email, phoneNumber, address }
+    } = data
+
+    const information = {
+      name,
+      email,
+      phoneNumber,
+      address
+    }
+
+    companyInformation.value = information
+  }
+}
+
+// Hooks
+onBeforeMount(async () => {
+  fetchCompanyInformation()
+})
+</script>
 
 <style scoped lang="scss">
 .company-preview-header-section {
