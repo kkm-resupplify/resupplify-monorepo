@@ -51,7 +51,7 @@ const emits = defineEmits(['input-change', 'append-icon-click', 'prepend-icon-cl
 // Props
 const props = defineProps({
   autocomplete: String,
-  value: String,
+  value: [String, Number],
   label: String,
   disabled: Boolean,
   name: { type: String, required: true },
@@ -257,11 +257,13 @@ const handleInputChange = () => {
 const handleWheelScroll = (event: WheelEvent) => {
   if (props.inputType === 'number') {
     if (event.deltaY < 0) {
-      inputValue.value += 1
+      inputValue.value = +inputValue.value + 1
     } else if (event.deltaY > 0) {
       // @ts-ignore
       if (+inputValue.value > (props.minValue ?? 0)) inputValue.value -= 1
     }
+
+    handleInputChange()
   }
 }
 </script>
