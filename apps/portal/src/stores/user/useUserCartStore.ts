@@ -43,7 +43,7 @@ export const useUserCartStore = defineStore({
       this.cartItems.push({ offer, quantity: 1 })
     },
 
-    removeFromCart(offerId: number) {
+    removeCartItem(offerId: number) {
       const index = this.cartItems.findIndex((item: CartItem) => item.offer.id === offerId)
 
       if (index !== -1) {
