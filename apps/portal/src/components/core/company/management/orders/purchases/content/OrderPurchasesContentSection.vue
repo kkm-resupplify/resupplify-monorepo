@@ -1,5 +1,9 @@
 <template>
-  <a-panel-section>OrderPurchasesContentSection</a-panel-section>
+  <a-panel-section>
+    <order-list />
+  </a-panel-section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import OrderList from '@/components/core/company/management/orders/list/OrderList.vue'
+</script>
