@@ -29,9 +29,9 @@ const { n } = useI18n()
 
 // Computed
 const generateClasses = computed(() => {
-  const horizontalClass = props.vertical ? 'vertical' : ''
+  const verticalClass = props.vertical ? 'vertical' : ''
 
-  return generateClassNames(baseClass, [horizontalClass])
+  return generateClassNames(baseClass, [verticalClass])
 })
 
 const valueText = computed(() => {
