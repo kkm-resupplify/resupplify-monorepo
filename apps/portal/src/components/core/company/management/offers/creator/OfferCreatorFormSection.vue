@@ -130,7 +130,7 @@ const handleCreateOffer = async (offerData: CreateOffer) => {
     emits('stock-item-change', stockItem)
   }
 
-  isLoading.value = true
+  isLoading.value = false
 }
 
 // Hooks
