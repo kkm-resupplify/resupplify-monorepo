@@ -6,4 +6,4 @@ class CompanyPreviewService extends BaseService {
   }
 }
 
-export default new CompanyPreviewService('/company')
+export default new CompanyPreviewService('/preview/company')
