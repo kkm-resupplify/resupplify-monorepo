@@ -9,26 +9,33 @@
       />
 
       <div class="cart-company-offers-group-offer-list-item__header-descriptors">
-        <a-title :title="cartItem.offer.product.name" />
+        <a-title :title="cartItem.offer.product.name" line-height="1" />
 
         <product-tag-list :product-tags="cartItem.offer.product.productTags" font-size="10px" />
       </div>
     </div>
 
-    <div class="cart-company-offers-group-offer-list-item__content"></div>
+    <div class="cart-company-offers-group-offer-list-item__content">
+      <a-currency :value="pricePerUnit" :title="$t('global.pricePerUnit')" vertical />
+    </div>
   </a-list-item-wrapper>
 </template>
 
 <script setup lang="ts">
-import { type PropType } from 'vue'
+import { type PropType, computed } from 'vue'
 import type { CartItem } from '@sharedInterfaces/cart/CartInterface'
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
 
-defineProps({
+const props = defineProps({
   cartItem: {
     type: Object as PropType<CartItem>,
     required: true
   }
+})
+
+// Computed
+const pricePerUnit = computed(() => {
+  return props.cartItem.offer.price
 })
 </script>
 
@@ -36,8 +43,10 @@ defineProps({
 .cart-company-offers-group-offer-list-item {
   &__header {
     display: flex;
+    flex: 1;
     gap: $global-spacing-30;
     align-items: center;
+
     height: 100%;
   }
 
