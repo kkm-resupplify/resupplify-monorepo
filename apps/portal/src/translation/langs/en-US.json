@@ -819,7 +819,8 @@
           "list": {
             "item": {
               "imageAlt": "Offer image",
-              "quantity": "Quantity"
+              "quantity": "Quantity",
+              "totalPrice": "Total price"
             }
           }
         }

@@ -824,7 +824,8 @@
           "list": {
             "item": {
               "imageAlt": "Zdjęcie oferty",
-              "quantity": "Ilość"
+              "quantity": "Ilość",
+              "totalPrice": "Cena łącznie"
             }
           }
         }
