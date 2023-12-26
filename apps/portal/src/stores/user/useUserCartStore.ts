@@ -53,6 +53,14 @@ export const useUserCartStore = defineStore({
 
     clearCart() {
       this.cartItems = []
+    },
+
+    updateCartItemQuantity(offerId: number, quantity: number) {
+      const index = this.cartItems.findIndex((item: CartItem) => item.offer.id === offerId)
+
+      if (index !== -1) {
+        this.cartItems[index].quantity = quantity
+      }
     }
   },
 

@@ -34,6 +34,9 @@
           width="60px"
           size="small"
           text-center
+          :value="quanity"
+          :min-value="1"
+          @input-change="handleQuantityChange"
         />
       </div>
 
@@ -51,6 +54,7 @@
 import { type PropType, computed } from 'vue'
 import type { CartItem } from '@sharedInterfaces/cart/CartInterface'
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
+import { useUserCartStore } from '@stores/user/useUserCartStore'
 
 const props = defineProps({
   cartItem: {
@@ -58,6 +62,9 @@ const props = defineProps({
     required: true
   }
 })
+
+// Variables
+const userCartStore = useUserCartStore()
 
 // Computed
 const pricePerUnit = computed(() => {
@@ -67,6 +74,19 @@ const pricePerUnit = computed(() => {
 const totalPrice = computed(() => {
   return props.cartItem.offer.price * props.cartItem.quantity
 })
+
+const quanity = computed(() => {
+  return props.cartItem.quantity
+})
+
+const offerId = computed(() => {
+  return props.cartItem.offer.id
+})
+
+// Methods
+const handleQuantityChange = (newQuantity: number) => {
+  userCartStore.updateCartItemQuantity(offerId.value, newQuantity)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -92,7 +112,7 @@ const totalPrice = computed(() => {
 
   &__content {
     display: flex;
-    gap: $global-spacing-40;
+    gap: $global-spacing-50;
   }
 
   &__content-section {
