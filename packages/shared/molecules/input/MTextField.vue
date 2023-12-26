@@ -119,7 +119,8 @@ const props = defineProps({
   width: { type: String, default: '100%' },
   preventInput: Boolean,
   minValue: Number,
-  maxValue: Number
+  maxValue: Number,
+  textCenter: Boolean
 })
 
 // Variables
@@ -150,7 +151,9 @@ const { generateClassNames } = useClassComposable()
 
 // Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.size, props.variant])
+  const textCenterClass = props.textCenter ? 'text-center' : ''
+
+  return generateClassNames(baseClass, [props.size, props.variant, textCenterClass])
 })
 
 const borderColor = computed(() => {
@@ -357,6 +360,12 @@ const handleWheelScroll = (event: WheelEvent) => {
 
     &--prevent-input {
       caret-color: transparent;
+    }
+  }
+
+  &--text-center {
+    #{$self}__input {
+      text-align: center;
     }
   }
 
