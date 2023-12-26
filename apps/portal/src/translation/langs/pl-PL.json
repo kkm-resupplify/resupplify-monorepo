@@ -31,7 +31,8 @@
     "create": "Utwórz",
     "refresh": "Odśwież",
     "rejected": "Odrzucony",
-    "addToCard": "Dodaj do koszyka",
+    "addToCart": "Dodaj do koszyka",
+    "removeCartItem": "Usuń z koszyka",
     "pricePerUnit": "Cena za jednostkę",
     "dateStart": "Data rozpoczęcia",
     "dateEnd": "Data zakończenia",
@@ -69,7 +70,8 @@
     "home": "Strona główna",
     "offers": "Oferty",
     "companies": "Firmy",
-    "resources": "Resources"
+    "resources": "Zasoby",
+    "cart": "Koszyk"
   },
 
   "auth": {
@@ -707,6 +709,7 @@
 
         "item": {
           "imageAlt": "Zdjęcie oferty",
+          "company": "Firma",
 
           "product": {
             "name": "Nazwa",
@@ -803,6 +806,34 @@
         "title": "Zarejestruj firmę",
         "description": "Możesz również chcieć zarejestrować swoją firmę. W takim przypadku możesz rozpocząć proces rejestracji, klikając poniższy przycisk - proces możesz anulować w dowolnym momencie.",
         "registerNow": "Zarejestruj teraz"
+      }
+    }
+  },
+
+  "cart": {
+    "main": {
+      "title": "Koszyk zakupowy",
+      "description": "Bezproblemowo zarządzaj wieloma ofertami różnych firm w swoim koszyku. Nasz system inteligentnie organizuje je według firm, umożliwiając Ci efektywne składanie oddzielnych zamówień bez żadnych trudności.",
+
+      "content": {
+        "title": "Oferty pogrupowane według firm",
+
+        "groups": {
+          "noItems": "Twój koszyk jest pusty.",
+
+          "list": {
+            "item": {
+              "imageAlt": "Zdjęcie oferty",
+              "quantity": "Ilość",
+              "totalPrice": "Cena łącznie"
+            }
+          },
+
+          "footer": {
+            "totalCost": "Koszt łącznie",
+            "placeOrder": "Złóż zamówienie"
+          }
+        }
       }
     }
   },

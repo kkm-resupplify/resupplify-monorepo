@@ -12,6 +12,7 @@ import { computed, type PropType } from 'vue'
 
 const props = defineProps({
   productTag: { type: Object as PropType<ProductTagInterface>, required: true },
+  fontSize: { type: String, default: '12px' },
   showRemove: Boolean
 })
 
@@ -20,7 +21,10 @@ defineEmits(['remove'])
 
 // Computed
 const colorStyle = computed(() => props.productTag.color)
+
 const backgroundColorStyle = computed(() => `${props.productTag.color}10`)
+
+const fontSizeStyle = computed(() => props.fontSize)
 </script>
 
 <style lang="scss" scoped>
@@ -33,7 +37,7 @@ const backgroundColorStyle = computed(() => `${props.productTag.color}10`)
   width: fit-content;
   padding: $global-spacing-10 $global-spacing-30;
 
-  font-size: $global-font-size-30;
+  font-size: v-bind(fontSizeStyle);
 
   background-color: v-bind(backgroundColorStyle);
   border: 1px solid v-bind(colorStyle);
