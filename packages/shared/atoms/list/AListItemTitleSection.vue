@@ -38,6 +38,7 @@ const flexBasis = computed(() => {
   display: flex;
   flex-basis: v-bind(flexBasis);
   flex-direction: column;
+  gap: $global-spacing-20;
   align-items: center;
 
   &__title {

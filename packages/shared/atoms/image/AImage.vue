@@ -106,6 +106,10 @@ const imageError = () => {
     border-radius: $global-border-radius-20;
   }
 
+  &--rounded-sm {
+    border-radius: $global-border-radius-10;
+  }
+
   &--circle {
     border-radius: 50%;
   }

@@ -89,12 +89,12 @@ const { t } = useI18n()
 const isOfferInCart = computed(() => userCartStore.isOfferInCart(props.offer))
 
 const buttonText = computed(() => {
-  return isOfferInCart.value ? t('global.removeFromCart') : t('global.addToCart')
+  return isOfferInCart.value ? t('global.removeCartItem') : t('global.addToCart')
 })
 
 // Methods
 const handleAddToCart = () => {
-  if (isOfferInCart.value) userCartStore.removeFromCart(props.offer.id)
+  if (isOfferInCart.value) userCartStore.removeCartItem(props.offer.id)
   else userCartStore.addToCart(props.offer)
 }
 </script>

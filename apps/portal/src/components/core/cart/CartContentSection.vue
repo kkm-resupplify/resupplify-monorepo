@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useUserCartStore } from '@stores/user/useUserCartStore'
-import CartCompanyOffersGroup from '@/components/core/cart/CartCompanyOffersGroup.vue'
+import CartCompanyOffersGroup from '@/components/core/cart/group/CartCompanyOffersGroup.vue'
 
 // Variables
 const userCartStore = useUserCartStore()

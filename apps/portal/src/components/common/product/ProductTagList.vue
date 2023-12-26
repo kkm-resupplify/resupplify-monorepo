@@ -5,6 +5,7 @@
       :key="productTag.id"
       :product-tag="productTag"
       :show-remove="showRemove"
+      :font-size="fontSize"
       @remove="$emit('remove', productTag.id)"
     />
   </div>
@@ -20,7 +21,8 @@ defineProps({
     type: Array as PropType<ProductTagInterface[]>,
     default: () => []
   },
-  showRemove: Boolean
+  showRemove: Boolean,
+  fontSize: String
 })
 
 // Emits

@@ -31,8 +31,8 @@
     "create": "Utwórz",
     "refresh": "Odśwież",
     "rejected": "Odrzucony",
-    "addToCard": "Dodaj do koszyka",
-    "removeFromCart": "Usuń z koszyka",
+    "addToCart": "Dodaj do koszyka",
+    "removeCartItem": "Usuń z koszyka",
     "pricePerUnit": "Cena za jednostkę",
     "dateStart": "Data rozpoczęcia",
     "dateEnd": "Data zakończenia",
@@ -819,7 +819,15 @@
         "title": "Oferty pogrupowane według firm",
 
         "groups": {
-          "noItems": "Twój koszyk jest pusty."
+          "noItems": "Twój koszyk jest pusty.",
+
+          "list": {
+            "item": {
+              "imageAlt": "Zdjęcie oferty",
+              "quantity": "Ilość",
+              "totalPrice": "Cena łącznie"
+            }
+          }
         }
       }
     }
