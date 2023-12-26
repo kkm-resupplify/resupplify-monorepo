@@ -10,6 +10,8 @@
 
       <div class="cart-company-offers-group-offer-list-item__header-descriptors">
         <a-title :title="cartItem.offer.product.name" />
+
+        <product-tag-list :product-tags="cartItem.offer.product.productTags" font-size="10px" />
       </div>
     </div>
 
@@ -20,6 +22,7 @@
 <script setup lang="ts">
 import { type PropType } from 'vue'
 import type { CartItem } from '@sharedInterfaces/cart/CartInterface'
+import ProductTagList from '@/components/common/product/ProductTagList.vue'
 
 defineProps({
   cartItem: {
@@ -35,13 +38,17 @@ defineProps({
     display: flex;
     gap: $global-spacing-30;
     align-items: center;
+    height: 100%;
   }
 
   &__header-descriptors {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-10;
+    gap: $global-spacing-20;
     align-self: flex-start;
+    justify-content: space-between;
+
+    height: 100%;
   }
 
   &__content {
