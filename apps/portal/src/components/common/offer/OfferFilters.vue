@@ -35,14 +35,6 @@
         />
 
         <m-select
-          name="status"
-          :label="$t('common.offer.filters.statusLabel')"
-          :placeholder="$t('common.offer.filters.statusPlaceholder')"
-          :options="statusFiltersOptions"
-          :validate="false"
-        />
-
-        <m-select
           name="endedAt"
           :label="$t('common.offer.filters.endDateLabel')"
           :placeholder="$t('common.offer.filters.endDatePlaceholder')"
@@ -81,7 +73,6 @@ import router from '@/routes'
 import type OForm from '@sharedOrganisms/form/OForm.vue'
 import { useI18n } from 'vue-i18n'
 import type { OfferFiltersParams } from '@sharedInterfaces/offer/OfferInterface'
-import OfferStatusEnum from '@sharedEnums/offer/OfferStatusEnum'
 import OfferPriceOrderEnum from '@sharedEnums/offer/OfferPriceOrderEnum'
 import OfferEndDateOrderEnum from '@sharedEnums/offer/OfferEndDateOrderEnum'
 
@@ -99,13 +90,6 @@ const form = ref<typeof OForm>()
 const { t } = useI18n()
 
 // Computed
-const statusFiltersOptions = computed(() =>
-  OfferStatusEnum.getAllFields().map((typeName) => ({
-    id: `${OfferStatusEnum[typeName as keyof OfferStatusEnum]}`,
-    text: t(`common.offer.filters.status.${typeName.toLowerCase()}`)
-  }))
-)
-
 const priceFiltersOptions = computed(() =>
   OfferPriceOrderEnum.getAllFields().map((typeName) => ({
     id: `${OfferPriceOrderEnum[typeName as keyof OfferPriceOrderEnum]}`,
