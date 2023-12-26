@@ -3,7 +3,7 @@ import type { OfferFiltersParams } from '@sharedInterfaces/offer/OfferInterface'
 
 class CompanyPreviewService extends BaseService {
   static COMPANY_PREVIEW_OFFERS = 'productOffer/company'
-  
+
   async getCompanyInformation(id: string | number) {
     return await this.get({ id })
   }
