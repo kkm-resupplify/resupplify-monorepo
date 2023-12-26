@@ -1,46 +1,49 @@
 <template>
   <a-panel-section class="company-preview-header-section">
-    <div class="company-preview-header-section__wrapper">
-      <a-image
-        :width="120"
-        :height="120"
-        :src="companyInformation?.logo"
-        :alt="$t('common.offer.list.item.imageAlt')"
-        variant="rounded"
-      />
-
-      <div class="company-preview-header-section__info">
-        <a-title
-          :title="companyInformation?.name"
-          size="x-large"
-          class="company-preview-header-section__info-title"
+    <template v-if="isLoading">implement-loader-here</template>
+    <template v-else>
+      <div class="company-preview-header-section__wrapper">
+        <a-image
+          :width="120"
+          :height="120"
+          :src="companyInformation?.logo"
+          :alt="$t('common.offer.list.item.imageAlt')"
+          variant="rounded"
         />
 
-        <a-title
-          :title="$t('company.preview.email')"
-          :subtitle="companyInformation?.email"
-          variant="horizontal"
-          append-colon
-          class="company-preview-header-section__info-title"
-        />
+        <div class="company-preview-header-section__info">
+          <a-title
+            :title="companyInformation?.name"
+            size="x-large"
+            class="company-preview-header-section__info-title"
+          />
 
-        <a-title
-          :title="$t('company.preview.phone')"
-          :subtitle="companyInformation?.phoneNumber"
-          variant="horizontal"
-          append-colon
-          class="company-preview-header-section__info-title"
-        />
+          <a-title
+            :title="$t('company.preview.email')"
+            :subtitle="companyInformation?.email"
+            variant="horizontal"
+            append-colon
+            class="company-preview-header-section__info-title"
+          />
 
-        <a-title
-          :title="$t('company.preview.address')"
-          :subtitle="companyInformation?.address"
-          variant="horizontal"
-          append-colon
-          class="company-preview-header-section__info-title"
-        />
+          <a-title
+            :title="$t('company.preview.phone')"
+            :subtitle="companyInformation?.phoneNumber"
+            variant="horizontal"
+            append-colon
+            class="company-preview-header-section__info-title"
+          />
+
+          <a-title
+            :title="$t('company.preview.address')"
+            :subtitle="companyInformation?.address"
+            variant="horizontal"
+            append-colon
+            class="company-preview-header-section__info-title"
+          />
+        </div>
       </div>
-    </div>
+    </template>
   </a-panel-section>
 </template>
 
@@ -86,6 +89,8 @@ const fetchCompanyInformation = async () => {
 
     companyInformation.value = information
   }
+
+  isLoading.value = false
 }
 
 // Hooks
