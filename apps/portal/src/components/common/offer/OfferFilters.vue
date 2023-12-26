@@ -157,13 +157,9 @@ const handleResetFilters = async () => {
 }
 
 const handleQuerySubmit = async (filters: OfferFiltersParams) => {
-  const {
-    query: { page }
-  } = route
   await setQueryParam(route, filters)
 
-  if (page) emits('filter', { page, ...filters })
-  else emits('filter', { page: '1', ...filters })
+  emits('filter', filters)
 }
 
 // Hooks

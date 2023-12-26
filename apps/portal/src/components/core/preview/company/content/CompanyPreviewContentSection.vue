@@ -12,17 +12,26 @@ import OfferFilters from '@/components/common/offer/OfferFilters.vue'
 import { ref } from 'vue'
 import router from '@/routes'
 import CompanyPreviewService from '@/services/preview/company/CompanyPreviewService'
+import { useRoute } from 'vue-router'
 
 // Variables
 const offers = ref<Offer[]>([])
 const slug = router.currentRoute.value.params.slug as string
+const route = useRoute()
 const isLoading = ref(false)
 
 // Methods
 const handleFetchOffers = async (filters: OfferFiltersParams) => {
   isLoading.value = true
 
-  const { data, success } = await CompanyPreviewService.getCompanyOffers(slug, filters)
+  const {
+    query: { page }
+  } = route
+
+  const { data, success } = await CompanyPreviewService.getCompanyOffers(slug, {
+    page: page as string,
+    ...filters
+  })
 
   if (success) {
     offers.value = data
