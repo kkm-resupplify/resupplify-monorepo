@@ -68,6 +68,7 @@ const handleFetchOffers = async () => {
   const {
     query: { page, name, categoryId, subcategoryId, status, price, dateEnd }
   } = route
+
   const { success, data, pagination } = await CompanyOffersService.getOffers({
     page: page as string,
     name: name as string,
