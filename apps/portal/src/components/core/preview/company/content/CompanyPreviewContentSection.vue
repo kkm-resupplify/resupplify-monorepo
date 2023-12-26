@@ -13,11 +13,13 @@ import { ref } from 'vue'
 import router from '@/routes'
 import CompanyPreviewService from '@/services/preview/company/CompanyPreviewService'
 import { useRoute } from 'vue-router'
+import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 
 // Variables
 const offers = ref<Offer[]>([])
 const slug = router.currentRoute.value.params.slug as string
 const route = useRoute()
+const paginationData = ref<Pagination>()
 const isLoading = ref(false)
 
 // Methods
@@ -28,7 +30,7 @@ const handleFetchOffers = async () => {
     query: { page, name, categoryId, subcategoryId, status, price, dateEnd }
   } = route
 
-  const { data, success } = await CompanyPreviewService.getCompanyOffers(slug, {
+  const { data, success, pagination } = await CompanyPreviewService.getCompanyOffers(slug, {
     page: page as string,
     name: name as string,
     categoryId: categoryId as string,
@@ -40,6 +42,7 @@ const handleFetchOffers = async () => {
 
   if (success) {
     offers.value = data
+    paginationData.value = pagination
   }
 
   isLoading.value = false
