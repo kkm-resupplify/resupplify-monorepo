@@ -1,13 +1,13 @@
 <template>
   <a-panel-section>
-    <offer-filters @filter="(filters) => handleFetchOffers(filters)" />
+    <offer-filters @filter="handleFetchOffers" />
 
     <div>Offer list</div>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import type { Offer, OfferFiltersParams } from '@sharedInterfaces/offer/OfferInterface'
+import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import OfferFilters from '@/components/common/offer/OfferFilters.vue'
 import { ref } from 'vue'
 import router from '@/routes'
@@ -21,16 +21,21 @@ const route = useRoute()
 const isLoading = ref(false)
 
 // Methods
-const handleFetchOffers = async (filters: OfferFiltersParams) => {
+const handleFetchOffers = async () => {
   isLoading.value = true
 
   const {
-    query: { page }
+    query: { page, name, categoryId, subcategoryId, status, price, dateEnd }
   } = route
 
   const { data, success } = await CompanyPreviewService.getCompanyOffers(slug, {
     page: page as string,
-    ...filters
+    name: name as string,
+    categoryId: categoryId as string,
+    subcategoryId: subcategoryId as string,
+    status: status as string,
+    price: price as string,
+    dateEnd: dateEnd as string
   })
 
   if (success) {
