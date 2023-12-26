@@ -6,6 +6,7 @@
         :alt="$t('cart.main.content.groups.list.item.imageAlt')"
         :width="60"
         :height="60"
+        variant="rounded-sm"
       />
 
       <div class="cart-company-offers-group-offer-list-item__header-descriptors">
@@ -16,7 +17,32 @@
     </div>
 
     <div class="cart-company-offers-group-offer-list-item__content">
-      <a-currency :value="pricePerUnit" :title="$t('global.pricePerUnit')" vertical />
+      <a-currency
+        title-size="x-normal"
+        :value="pricePerUnit"
+        :title="$t('global.pricePerUnit')"
+        vertical
+      />
+
+      <div class="cart-company-offers-group-offer-list-item__content-section">
+        <a-title size="x-normal" :title="$t('cart.main.content.groups.list.item.quantity')" />
+
+        <m-text-field
+          name="quantity"
+          :validate="false"
+          input-type="number"
+          width="60px"
+          size="small"
+          text-center
+        />
+      </div>
+
+      <a-currency
+        title-size="x-normal"
+        :title="$t('cart.main.content.groups.list.item.totalPrice')"
+        :value="totalPrice"
+        vertical
+      />
     </div>
   </a-list-item-wrapper>
 </template>
@@ -36,6 +62,10 @@ const props = defineProps({
 // Computed
 const pricePerUnit = computed(() => {
   return props.cartItem.offer.price
+})
+
+const totalPrice = computed(() => {
+  return props.cartItem.offer.price * props.cartItem.quantity
 })
 </script>
 
@@ -62,8 +92,13 @@ const pricePerUnit = computed(() => {
 
   &__content {
     display: flex;
+    gap: $global-spacing-40;
+  }
+
+  &__content-section {
+    display: flex;
     flex-direction: column;
-    gap: $global-spacing-10;
+    gap: $global-spacing-20;
   }
 }
 </style>
