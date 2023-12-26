@@ -99,6 +99,10 @@ const lineHeightClass = computed(() => props.lineHeight)
       @include size-vertical($global-title-normal-font-size);
     }
 
+    &#{$self}--x-normal {
+      @include size-vertical($global-font-size-40);
+    }
+
     &#{$self}--medium {
       @include size-vertical($global-title-medium-font-size);
     }
@@ -121,6 +125,10 @@ const lineHeightClass = computed(() => props.lineHeight)
 
     &#{$self}--normal {
       @include size-horizontal($global-title-normal-font-size);
+    }
+
+    &#{$self}--x-normal {
+      @include size-horizontal($global-font-size-40);
     }
 
     &#{$self}--medium {
