@@ -1,6 +1,7 @@
 <template>
   <a-panel-section class="company-preview-header-section">
     <template v-if="isLoading">implement-loader-here</template>
+
     <template v-else>
       <div class="company-preview-header-section__wrapper">
         <a-image
@@ -49,9 +50,8 @@
 
 <script setup lang="ts">
 import CompanyPreviewService from '@/services/preview/company/CompanyPreviewService'
-import { ref } from 'vue'
-import router from '@/routes'
-import { onBeforeMount } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
+import { useRoute } from 'vue-router'
 
 // Interfaces
 interface CompanyPreviewGeneralInformation {
@@ -63,15 +63,20 @@ interface CompanyPreviewGeneralInformation {
 }
 
 // Variables
-const companyPreviewGeneralInformation = ref<CompanyPreviewGeneralInformation>()
 const isLoading = ref(false)
-const slug = router.currentRoute.value.params.slug as string
+const companyPreviewGeneralInformation = ref<CompanyPreviewGeneralInformation>()
+const route = useRoute()
+
+// Computed
+const slug = computed(() => {
+  return route.params.slug as string
+})
 
 // Methods
 const handleFetchCompanyInformation = async () => {
   isLoading.value = true
 
-  const { data, success } = await CompanyPreviewService.getCompanyInformation(slug)
+  const { data, success } = await CompanyPreviewService.getCompanyInformation(slug.value)
 
   if (success) {
     const {
@@ -79,15 +84,13 @@ const handleFetchCompanyInformation = async () => {
       details: { email, phoneNumber, address, logo }
     } = data
 
-    const information = {
+    companyPreviewGeneralInformation.value = {
       name,
       email,
       phoneNumber,
       address,
       logo
     }
-
-    companyPreviewGeneralInformation.value = information
   }
 
   isLoading.value = false
