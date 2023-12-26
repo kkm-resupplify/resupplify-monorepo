@@ -65,6 +65,8 @@
         :text="$t(`company.management.offer.dashboard.list.${noResultsTranslationKey}`)"
       />
     </template>
+
+    <o-pagination :pagination="paginationData" @page-changed="handleFetchOffers" />
   </a-panel-section>
 </template>
 
