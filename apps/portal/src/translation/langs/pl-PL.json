@@ -235,7 +235,12 @@
         },
 
         "orders": {
-          "title": "Zamówienia"
+          "title": "Zamówienia",
+
+          "tiles": {
+            "sales": "Sprzedaże",
+            "purchases": "Kupna"
+          }
         },
 
         "warehouses": {
