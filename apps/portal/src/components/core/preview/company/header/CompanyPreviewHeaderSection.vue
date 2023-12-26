@@ -4,6 +4,7 @@
       <a-image
         :width="120"
         :height="120"
+        :src="companyInformation?.logo"
         :alt="$t('common.offer.list.item.imageAlt')"
         variant="rounded"
       />
@@ -55,6 +56,7 @@ interface CompanyPreviewHeaderInformation {
   email: string
   phoneNumber: string
   address: string
+  logo: string
 }
 
 // Variables
@@ -71,14 +73,15 @@ const fetchCompanyInformation = async () => {
   if (success) {
     const {
       name,
-      details: { email, phoneNumber, address }
+      details: { email, phoneNumber, address, logo }
     } = data
 
     const information = {
       name,
       email,
       phoneNumber,
-      address
+      address,
+      logo
     }
 
     companyInformation.value = information
