@@ -27,6 +27,7 @@
       <div class="cart-company-offers-group-offer-list-item__content-section">
         <a-title size="x-normal" :title="$t('cart.main.content.groups.list.item.quantity')" />
 
+        {{ cartItem.offer.productQuantity }}
         <m-text-field
           name="quantity"
           :validate="false"
@@ -36,6 +37,7 @@
           text-center
           :value="quanity"
           :min-value="1"
+          :max-value="cartItem.offer.productQuantity"
           @input-change="handleQuantityChange"
         />
       </div>
@@ -45,6 +47,15 @@
         :title="$t('cart.main.content.groups.list.item.totalPrice')"
         :value="totalPrice"
         vertical
+      />
+
+      <m-icon
+        class="cart-company-offers-group-offer-list-item__remove-icon"
+        color="danger"
+        icon="close"
+        size="x-large"
+        hoverable
+        @click="handleRemoveCartItem"
       />
     </div>
   </a-list-item-wrapper>
@@ -87,6 +98,10 @@ const offerId = computed(() => {
 const handleQuantityChange = (newQuantity: number) => {
   userCartStore.updateCartItemQuantity(offerId.value, newQuantity)
 }
+
+const handleRemoveCartItem = () => {
+  userCartStore.removeCartItem(offerId.value)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -119,6 +134,10 @@ const handleQuantityChange = (newQuantity: number) => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
+  }
+
+  &__remove-icon {
+    align-self: center;
   }
 }
 </style>
