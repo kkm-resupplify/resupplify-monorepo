@@ -9,6 +9,7 @@ import CompanyManagementWarehouseRoutes from './warehouses/CompanyManagementWare
 import CompanyManagementProductRoutes from './products/CompanyManagementProductRoutes'
 import CompanyManagementOffersRoutes from './offers/CompanyManagementOffersRoutes'
 import CompanyManagementPaymentsRoutes from './payments/CompanyManagementPaymentsRoutes'
+import CompanyManagementOrdersRoutes from './orders/CompanyManagementOrdersRoutes'
 
 class CompanyProfileRouteEnum extends BaseEnum {
   static readonly COMPANY_DASHBOARD: string = 'COMPANY_DASHBOARD'
@@ -24,6 +25,7 @@ const CompanyManagementRoutes: RouteRecordRaw[] = [
   ...CompanyManagementWarehouseRoutes,
   ...CompanyManagementOffersRoutes,
   ...CompanyManagementPaymentsRoutes,
+  ...CompanyManagementOrdersRoutes,
   {
     path: '/company/dashboard',
     name: CompanyProfileRouteEnum.COMPANY_DASHBOARD,
