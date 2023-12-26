@@ -27,7 +27,6 @@
       <div class="cart-company-offers-group-offer-list-item__content-section">
         <a-title size="x-normal" :title="$t('cart.main.content.groups.list.item.quantity')" />
 
-        {{ cartItem.offer.productQuantity }}
         <m-text-field
           name="quantity"
           :validate="false"
