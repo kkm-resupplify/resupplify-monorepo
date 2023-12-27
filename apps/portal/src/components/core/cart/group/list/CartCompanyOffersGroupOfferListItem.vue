@@ -2,7 +2,7 @@
   <a-list-item-wrapper class="cart-company-offers-group-offer-list-item">
     <div class="cart-company-offers-group-offer-list-item__header">
       <a-image
-        :src="cartItem.offer.product.logoSrc"
+        :src="cartItem.offer.product.image"
         :alt="$t('cart.main.content.groups.list.item.imageAlt')"
         :width="60"
         :height="60"
