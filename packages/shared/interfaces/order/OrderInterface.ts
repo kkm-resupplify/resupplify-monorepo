@@ -16,3 +16,11 @@ export interface OrderItem {
   offer: Offer
   quantity: number
 }
+
+export interface OrderFiltersParams {
+  page?: string
+  name?: string
+  categoryId?: string | number
+  subcategoryId?: string | number
+  status?: string | number
+}
