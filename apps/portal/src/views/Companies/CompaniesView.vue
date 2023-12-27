@@ -9,7 +9,7 @@
         </a-panel-section>
 
         <a-panel-section>
-          <companies-filters />
+          <companies-filters @filter="handleFetchCompanies" />
 
           <a-line />
 
@@ -23,6 +23,45 @@
 <script setup lang="ts">
 import CompaniesFilters from '@/components/core/companies/CompaniesFilters.vue'
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
+import CompaniesService from '@/services/companies/CompaniesService'
+import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
+import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
+import { onBeforeMount } from 'vue'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+
+// Variables
+const isLoading = ref(false)
+const route = useRoute()
+const paginationData = ref<Pagination>()
+const companies = ref<CompanyData[]>([])
+
+// Methods
+const handleFetchCompanies = async () => {
+  isLoading.value = true
+
+  const {
+    query: { page, name, categoryId }
+  } = route
+
+  const { success, data, pagination } = await CompaniesService.getCompanies({
+    page: page as string,
+    name: name as string,
+    categoryId: categoryId as string
+  })
+
+  if (success) {
+    companies.value = data
+    paginationData.value = pagination
+  }
+
+  isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(() => {
+  handleFetchCompanies()
+})
 </script>
 
 <style lang="scss" scoped>
