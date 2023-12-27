@@ -22,8 +22,7 @@ import CompanyPreviewService from '@/services/preview/company/CompanyPreviewServ
 import OfferList from '@/components/common/offer/OfferList.vue'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
-import { computed } from 'vue'
-import { ref } from 'vue'
+import { computed, ref, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 
 // Variables
@@ -75,4 +74,9 @@ const handleFetchOffers = async () => {
 
   isLoading.value = false
 }
+
+// Hooks
+onBeforeMount(() => {
+  handleFetchOffers()
+})
 </script>
