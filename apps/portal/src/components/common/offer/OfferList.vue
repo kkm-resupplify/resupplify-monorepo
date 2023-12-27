@@ -1,6 +1,11 @@
 <template>
   <a-list>
-    <offer-list-item v-for="offer in offers" :key="offer.id" :offer="offer" />
+    <offer-list-item
+      v-for="offer in offers"
+      :key="offer.id"
+      :offer="offer"
+      :show-company-name="showCompanyName"
+    />
   </a-list>
 </template>
 
@@ -13,6 +18,10 @@ defineProps({
   offers: {
     type: Array as PropType<Offer[]>,
     required: true
+  },
+  showCompanyName: {
+    type: Boolean,
+    default: true
   }
 })
 </script>
