@@ -11,7 +11,6 @@
           :alt="$t('common.offer.list.item.imageAlt')"
           variant="rounded"
         />
-
         <div class="companies-list-item__info">
           <a-title :title="company.name" size="x-large" class="companies-list-item__info-title" />
 
@@ -39,12 +38,19 @@
             class="companies-list-item__info-title"
           />
         </div>
+        <router-link
+          :to="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
+          class="companies-list-item__visit-profile"
+        >
+          <a-button :text="$t('global.visitProfile')" size="x-large" />
+        </router-link>
       </div>
     </template>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
+import { RouteNames } from '@/routes'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import type { PropType } from 'vue'
 import { ref } from 'vue'
@@ -77,6 +83,12 @@ defineProps({
 
   &__info-title {
     width: max-content;
+  }
+
+  &__visit-profile {
+    text-decoration: none;
+    margin-left: auto;
+    align-self: self-end;
   }
 }
 </style>
