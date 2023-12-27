@@ -1,5 +1,10 @@
 <template>
-  <o-form ref="form" class="companies-filters" :submit-callback="handleQuerySubmit">
+  <o-form
+    ref="form"
+    class="companies-filters"
+    :submit-callback="handleQuerySubmit"
+    :initial-values="initialFilterParams"
+  >
     <template #body>
       <div class="companies-filters__inputs">
         <m-text-field
@@ -37,6 +42,7 @@ import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 import type { CompaniesFiltersParams } from '@sharedInterfaces/companies/CompaniesInterface'
 import type OFormVue from '@sharedOrganisms/form/OForm.vue'
 import { ref } from 'vue'
+import { onBeforeMount } from 'vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -47,6 +53,7 @@ const emits = defineEmits(['filter'])
 const route = useRoute()
 const form = ref<typeof OFormVue>()
 const { setQueryParam } = useQueryFilter()
+const initialFilterParams = ref<CompaniesFiltersParams>()
 
 // Computed
 const companyCategoryList = computed(() => {
@@ -87,6 +94,18 @@ const handleQuerySubmit = async (filters: CompaniesFiltersParams) => {
 
   emits('filter', filters)
 }
+
+const setInitialFormValues = () => {
+  initialFilterParams.value = {
+    name: route.query.name ? route.query.name.toString() : undefined,
+    categoryId: route.query.categoryId ? +route.query.categoryId : undefined
+  }
+}
+
+// Hooks
+onBeforeMount(() => {
+  setInitialFormValues()
+})
 </script>
 
 <style scoped lang="scss">

@@ -1,4 +1,4 @@
 export interface CompaniesFiltersParams {
-  name: string
-  categoryId: number
+  name?: string
+  categoryId?: number
 }
