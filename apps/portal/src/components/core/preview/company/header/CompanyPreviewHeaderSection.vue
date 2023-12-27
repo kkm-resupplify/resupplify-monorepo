@@ -8,7 +8,7 @@
           :width="120"
           :height="120"
           :src="companyPreviewGeneralInformation?.logo"
-          :alt="$t('common.offer.list.item.imageAlt')"
+          :alt="companyPreviewGeneralInformation?.name"
           variant="rounded"
         />
 
