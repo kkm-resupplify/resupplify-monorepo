@@ -1,32 +1,36 @@
 <template>
-  <a-list-item-wrapper class="order-list-item">
-    <div class="order-list-item__section">
-      <a-list-item-title-section
-        v-for="(section, idx) in orderTitleMainSections"
-        :key="idx"
-        :title="section.title"
-        :value="section.value"
-        :basis="section.basis"
-      />
+  <a-expansion-panel>
+    <template #activator>
+      <a-list-item-wrapper class="order-list-item">
+        <div class="order-list-item__section">
+          <a-list-item-title-section
+            v-for="(section, idx) in orderTitleMainSections"
+            :key="idx"
+            :title="section.title"
+            :value="section.value"
+            :basis="section.basis"
+          />
 
-      <a-currency
-        :title="getTranslationValue('totalPrice')"
-        :value="orderValue"
-        vertical
-        title-size="x-normal"
-      />
-    </div>
+          <a-currency
+            :title="getTranslationValue('totalPrice')"
+            :value="orderValue"
+            vertical
+            title-size="x-normal"
+          />
+        </div>
 
-    <div class="order-list-item__section order-list-item__section--right">
-      <a-list-item-title-section
-        v-for="(section, idx) in orderTitleDatesSections"
-        :key="idx"
-        :title="section.title"
-        :value="section.value"
-        :basis="section.basis"
-      />
-    </div>
-  </a-list-item-wrapper>
+        <div class="order-list-item__section order-list-item__section--right">
+          <a-list-item-title-section
+            v-for="(section, idx) in orderTitleDatesSections"
+            :key="idx"
+            :title="section.title"
+            :value="section.value"
+            :basis="section.basis"
+          />
+        </div>
+      </a-list-item-wrapper>
+    </template>
+  </a-expansion-panel>
 </template>
 
 <script setup lang="ts">
