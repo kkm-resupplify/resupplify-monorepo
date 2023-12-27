@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, toRef, watch, watchEffect } from 'vue'
+import { computed, ref, toRef, watch, watchEffect, onBeforeMount } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 import { useField } from 'vee-validate'
 
@@ -62,7 +62,8 @@ const props = defineProps({
     type: String,
     default: 'danger'
   },
-  disabled: Boolean
+  disabled: Boolean,
+  previewSrc: String
 })
 
 // Emits
@@ -150,6 +151,11 @@ watch(
     inputValue.value = newValue ?? ''
   }
 )
+
+// Hooks
+onBeforeMount(() => {
+  preview.value = props.previewSrc ?? ''
+})
 
 // Expose
 defineExpose({ manualValidate })
