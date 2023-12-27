@@ -2,18 +2,18 @@ import BaseService from '../BaseService'
 
 class CompanyOrdersService extends BaseService {
   static ORDER_SUFFIX = 'order'
-  static SELLER_ORDERS_SUFFIX = 'companyOrders/seller'
-  static BUYER_ORDERS_SUFFIX = 'companyOrders/buyer'
+  static SOLD_ORDERS_SUFFIX = 'companyOrders/seller'
+  static BOUGHT_ORDERS_SUFFIX = 'companyOrders/buyer'
 
-  async getSellerOrders() {
+  async getSoldOrders() {
     return await this.get({
-      suffix: CompanyOrdersService.SELLER_ORDERS_SUFFIX
+      suffix: CompanyOrdersService.SOLD_ORDERS_SUFFIX
     })
   }
 
-  async getBuyerOrders() {
+  async getBoughtOrders() {
     return await this.get({
-      suffix: CompanyOrdersService.BUYER_ORDERS_SUFFIX
+      suffix: CompanyOrdersService.BOUGHT_ORDERS_SUFFIX
     })
   }
 }
