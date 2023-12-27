@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section>
+  <a-panel-section overflow>
     <div>order-filters</div>
 
     <a-line />
@@ -11,6 +11,8 @@
 
       <a-list-no-results v-else :text="$t(`common.order.list.${noResultsTranslationKey}`)" />
     </template>
+
+    <o-pagination :pagination="paginationData" @page-changed="handleFetchOrders" />
   </a-panel-section>
 </template>
 
@@ -48,7 +50,17 @@ const noResultsTranslationKey = computed(() => {
 const handleFetchOrders = async () => {
   isLoading.value = true
 
-  const { success, data, pagination } = await CompanyOrdersService.getBoughtOrders()
+  const {
+    query: { page, name, categoryId, subcategoryId, status }
+  } = route
+
+  const { success, data, pagination } = await CompanyOrdersService.getBoughtOrders({
+    page: page as string,
+    name: name as string,
+    categoryId: categoryId as string,
+    subcategoryId: subcategoryId as string,
+    status: status as string
+  })
 
   if (success) {
     orders.value = data
