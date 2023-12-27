@@ -23,7 +23,8 @@
         :src="preview"
         class="a-image-input__preview-group-image"
         :alt="$t('global.imagePreview')"
-        :width="300"
+        :width="120"
+        variant="rounded"
       />
     </div>
 
