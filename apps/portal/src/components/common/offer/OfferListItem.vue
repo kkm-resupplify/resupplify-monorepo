@@ -1,7 +1,7 @@
 <template>
   <a-list-item-wrapper class="offer-list-item">
     <a-image
-      :src="offer.product.logoSrc"
+      :src="offer.product.image"
       :width="120"
       :height="120"
       :alt="$t('common.offer.list.item.imageAlt')"
