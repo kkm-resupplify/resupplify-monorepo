@@ -15,21 +15,35 @@ class CreateProductDto {
   productSubcategoryId: number | null
   translations: ProductTranslation[]
   status: number | null
+  image: File | null
   productTagsId: number[]
 
   constructor(productEditorData: ProductEditorStoreState) {
     const { productEditorFirstStepData, productEditorTranslationStepData } = productEditorData
-    const { producer, code, productUnitId, productSubcategoryId, status, productTagIds } =
+    const { producer, code, productUnitId, productSubcategoryId, status, productTagIds, image } =
       productEditorFirstStepData
 
     this.producer = producer
     this.status = status
     this.productTagsId = productTagIds
     this.code = code
+    this.image = image
     this.productUnitId = productUnitId
     this.productSubcategoryId = productSubcategoryId
     this.translations = productEditorTranslationStepData
   }
+}
+
+interface CreateProductDto {
+  [key: string]: any
+  producer: string | null
+  code: string | null
+  productUnitId: number | null
+  productSubcategoryId: number | null
+  translations: ProductTranslation[]
+  status: number | null
+  image: File | null
+  productTagsId: number[]
 }
 
 class CompanyProductsService extends BaseService {
@@ -72,10 +86,27 @@ class CompanyProductsService extends BaseService {
     })
   }
 
-  async createProduct(productData: ProductEditorStoreState) {
+  async createProduct(productEditorData: ProductEditorStoreState) {
+    const productData = new CreateProductDto(productEditorData)
+    const formData = new FormData()
+
+    Object.keys(productData).forEach((key) => {
+      if (productData[key] instanceof File) {
+        formData.append(key, productData[key])
+      } else if (Array.isArray(productData[key])) {
+        productData[key].forEach((item: { [x: string]: any }, index: any) => {
+          for (const prop in item) {
+            formData.append(`${key}[${index}][${prop}]`, String(item[prop]))
+          }
+        })
+      } else {
+        formData.append(key, String(productData[key]))
+      }
+    })
+
     return this.post({
       suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX,
-      data: new CreateProductDto(productData),
+      data: formData,
       notificationTitle: 'company.management.products.editor.notification.productCreatedTitle',
       notificationText: 'company.management.products.editor.notification.productCreatedText'
     })
