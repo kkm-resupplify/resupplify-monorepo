@@ -668,7 +668,7 @@
         "id": "Order ID",
         "buyer": "Buyer",
         "seller": "Seller",
-        "totalPrice": "Total price",
+        "totalPrice": "Total cost",
         "datePlaced": "Date placed",
         "lastUpdate": "Last update",
 
