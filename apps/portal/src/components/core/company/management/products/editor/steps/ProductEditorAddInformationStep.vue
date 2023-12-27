@@ -56,6 +56,7 @@
                 :label="$t('company.register.form.details.companyLogoLabel')"
                 :placeholder="$t('company.register.form.details.companyLogoPlaceholder')"
                 rules="required"
+                :preview-src="productEditorStore.productEditorFirstStepData.imagePreview"
               />
             </div>
 

@@ -34,6 +34,18 @@ class CreateProductDto {
   }
 }
 
+interface CreateProductDto {
+  [key: string]: any
+  producer: string | null
+  code: string | null
+  productUnitId: number | null
+  productSubcategoryId: number | null
+  translations: ProductTranslation[]
+  status: number | null
+  image: File | null
+  productTagsId: number[]
+}
+
 class CompanyProductsService extends BaseService {
   static COMPANY_PRODUCTS_SUFFIX = 'product'
   static COMPANY_PRODUCT_STATS_SUFFIX = 'product/stats'
@@ -82,7 +94,7 @@ class CompanyProductsService extends BaseService {
       if (productData[key] instanceof File) {
         formData.append(key, productData[key])
       } else if (Array.isArray(productData[key])) {
-        productData[key].forEach((item, index) => {
+        productData[key].forEach((item: { [x: string]: any }, index: any) => {
           for (const prop in item) {
             formData.append(`${key}[${index}][${prop}]`, String(item[prop]))
           }

@@ -24,7 +24,8 @@ export const useProductEditorStore = defineStore({
       productCategoryId: null,
       productSubcategoryId: null,
       productTagIds: [],
-      image: null
+      image: null,
+      imagePreview: null
     },
     productEditorTranslationStepData: []
   }),
@@ -49,8 +50,8 @@ export const useProductEditorStore = defineStore({
       this.productEditorFirstStepData.productSubcategoryId =
         productEditorFirstStepData.productSubcategoryId
       this.productEditorFirstStepData.productTagIds = productEditorFirstStepData.productTagIds ?? []
-      console.log(productEditorFirstStepData.image)
-      this.productEditorFirstStepData.image = productEditorFirstStepData.image ?? null
+      this.productEditorFirstStepData.image = productEditorFirstStepData.image
+      this.productEditorFirstStepData.imagePreview = productEditorFirstStepData.imagePreview
     },
 
     saveProductTranslation(translationData: ProductTranslation) {
