@@ -1,5 +1,5 @@
 <template>
-  <o-form class="companies-filters">
+  <o-form ref="form" class="companies-filters">
     <template #body>
       <div class="companies-filters__inputs">
         <m-text-field
@@ -7,6 +7,8 @@
           :label="$t('companies.filters.nameLabel')"
           :placeholder="$t('companies.filters.namePlaceholder')"
           :validate="false"
+          append-icon-on="close"
+          @append-icon-click="handleClearSearch"
         />
 
         <m-select
@@ -30,7 +32,15 @@
 </template>
 
 <script setup lang="ts">
+import router from '@/routes'
+import type OFormVue from '@sharedOrganisms/form/OForm.vue'
+import { ref } from 'vue'
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+// Variables
+const route = useRoute()
+const form = ref<typeof OFormVue>()
 
 // Computed
 const companyCategoryList = computed(() => {
@@ -59,6 +69,12 @@ const companyCategoryList = computed(() => {
     { id: 22, text: 'Office and School Supplies' }
   ]
 })
+
+// Methods
+const handleClearSearch = async () => {
+  await router.replace({ query: { ...route.query, name: '' } })
+  form.value?.resetField('name', null)
+}
 </script>
 
 <style scoped lang="scss">
