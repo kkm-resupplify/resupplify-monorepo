@@ -39,10 +39,10 @@ const renderContent = computed(() => {
 
 <style lang="scss" scoped>
 .a-expansion-panel {
-  cursor: pointer;
   display: inline-block;
 
   &__activator {
+    cursor: pointer;
     user-select: none;
     display: flex;
   }
