@@ -55,7 +55,7 @@
                 name="image"
                 :label="$t('company.register.form.details.companyLogoLabel')"
                 :placeholder="$t('company.register.form.details.companyLogoPlaceholder')"
-                rules="required"
+                :rules="imageInputRules"
                 :preview-src="productEditorStore.productEditorFirstStepData.imagePreview"
               />
             </div>
@@ -182,6 +182,10 @@ const selectedProductTags = computed(() => {
   return productTags.value.filter((productTag) =>
     selectedProductTagIds.value.includes(productTag.id)
   )
+})
+
+const imageInputRules = computed(() => {
+  return productEditorStore.productEditorFirstStepData.imagePreview ? null : 'required'
 })
 
 // Methods
