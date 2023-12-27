@@ -2,7 +2,7 @@
   <img
     v-show="!isLoading && !isError"
     ref="imageRef"
-    :src="src"
+    :src="decodedSrc"
     :alt="alt"
     :class="generateClasses"
     :rel="rel"
@@ -67,6 +67,9 @@ const width = computed(() => {
   return `${props.width}`
 })
 
+const decodedSrc = computed(() => {
+  return decodeURIComponent(props.src)
+})
 // Methods
 const handleImageLoaded = () => {
   isLoading.value = false
