@@ -4,19 +4,19 @@
       <slot name="activator" />
     </div>
 
-    <div v-if="showContent" class="a-expansion-panel__content">
+    <div v-if="renderContent" class="a-expansion-panel__content">
       <slot name="content" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, useSlots } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Emits
 const emits = defineEmits(['toggle'])
-
+const slots = useSlots()
 // Variables
 const baseClass = 'a-expansion-panel'
 const { generateClassNames } = useClassComposable()
@@ -31,6 +31,10 @@ const toggleShowContent = () => {
   showContent.value = !showContent.value
   emits('toggle', showContent.value)
 }
+
+const renderContent = computed(() => {
+  return showContent.value && slots.content
+})
 </script>
 
 <style lang="scss" scoped>
