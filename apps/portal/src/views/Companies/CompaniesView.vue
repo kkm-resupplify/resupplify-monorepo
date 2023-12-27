@@ -1,7 +1,11 @@
 <template>
   <basic-view-layout>
     <template #body>
-      <div>companies-header</div>
+      <a-panel-section>
+        <a-title :title="$t('companies.header.title')" size="x-large" />
+
+        <a-title :title="$t('companies.header.description')" />
+      </a-panel-section>
 
       <div>companies-filters</div>
 
