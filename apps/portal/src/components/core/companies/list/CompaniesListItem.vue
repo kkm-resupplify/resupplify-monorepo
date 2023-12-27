@@ -86,9 +86,9 @@ defineProps({
   }
 
   &__visit-profile {
-    text-decoration: none;
-    margin-left: auto;
     align-self: self-end;
+    margin-left: auto;
+    text-decoration: none;
   }
 }
 </style>
