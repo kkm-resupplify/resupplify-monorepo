@@ -662,6 +662,29 @@
             "offerSameDate": "The selected stock item already has an active offer."
           }
         }
+      },
+
+      "order": {
+        "id": "Order ID",
+        "buyer": "Buyer",
+        "seller": "Seller",
+        "totalPrice": "Total price",
+        "datePlaced": "Date placed",
+        "lastUpdate": "Last update",
+
+        "status": {
+          "title": "Order status",
+          "0": "Placed",
+          "1": "Processing",
+          "2": "Shipped",
+          "3": "Intransit",
+          "4": "Completed",
+          "5": "Cancelled",
+          "6": "Refunded",
+          "7": "Rejected",
+          "8": "Suspended",
+          "9": "Inactive"
+        }
       }
     },
 

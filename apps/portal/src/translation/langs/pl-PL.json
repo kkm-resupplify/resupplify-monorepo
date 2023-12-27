@@ -661,6 +661,29 @@
             "offerSameDate": "Wybrana pozycja magazynowa ma już aktywną ofertę."
           }
         }
+      },
+
+      "order": {
+        "id": "ID zamówienia",
+        "buyer": "Kupujący",
+        "seller": "Sprzedawca",
+        "totalPrice": "Łączny koszt",
+        "datePlaced": "Data złożenia",
+        "lastUpdate": "Ostatnia aktualizacja",
+
+        "status": {
+          "title": "Status zamówienia",
+          "0": "Złożone",
+          "1": "Przetwarzanie",
+          "2": "Wysłane",
+          "3": "W drodze",
+          "4": "Zakończone",
+          "5": "Anulowane",
+          "6": "Zwrócone",
+          "7": "Odrzucone",
+          "8": "Zawieszone",
+          "9": "Nieaktywne"
+        }
       }
     },
 
