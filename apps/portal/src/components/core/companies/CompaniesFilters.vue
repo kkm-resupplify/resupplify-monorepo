@@ -1,5 +1,5 @@
 <template>
-  <o-form ref="form" class="companies-filters">
+  <o-form ref="form" class="companies-filters" :submit-callback="handleQuerySubmit">
     <template #body>
       <div class="companies-filters__inputs">
         <m-text-field
@@ -33,14 +33,20 @@
 
 <script setup lang="ts">
 import router from '@/routes'
+import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
+import type { CompaniesFiltersParams } from '@sharedInterfaces/companies/CompaniesInterface'
 import type OFormVue from '@sharedOrganisms/form/OForm.vue'
 import { ref } from 'vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
+// Emits
+const emits = defineEmits(['filter'])
+
 // Variables
 const route = useRoute()
 const form = ref<typeof OFormVue>()
+const { setQueryParam } = useQueryFilter()
 
 // Computed
 const companyCategoryList = computed(() => {
@@ -74,6 +80,12 @@ const companyCategoryList = computed(() => {
 const handleClearSearch = async () => {
   await router.replace({ query: { ...route.query, name: '' } })
   form.value?.resetField('name', null)
+}
+
+const handleQuerySubmit = async (filters: CompaniesFiltersParams) => {
+  await setQueryParam(route, filters)
+
+  emits('filter', filters)
 }
 </script>
 
