@@ -1,7 +1,7 @@
 <template>
   <nav class="navigation-bar">
-    <router-link :to="{ name: 'HOME' }">
-      <a-image rel="preload" src="/resupplify-logo.png" alt="logo" :width="100" />
+    <router-link :to="{ name: 'HOME' }" style="align-self: center">
+      <img rel="preload" src="/resupplify-logo.png" alt="logo" :width="100" />
     </router-link>
 
     <navigation-bar-main-section />
@@ -22,6 +22,7 @@ import NavigationBarAuthSection from './sections/NavigationBarAuthSection.vue'
   gap: 16px;
   align-items: flex-start;
 
+  min-height: 80px;
   margin: $global-spacing-20 $global-spacing-40;
   padding: $global-spacing-30 $global-spacing-40;
 

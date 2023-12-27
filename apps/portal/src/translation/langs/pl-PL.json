@@ -31,9 +31,13 @@
     "create": "Utwórz",
     "refresh": "Odśwież",
     "rejected": "Odrzucony",
+    "addToCart": "Dodaj do koszyka",
+    "removeCartItem": "Usuń z koszyka",
     "pricePerUnit": "Cena za jednostkę",
     "dateStart": "Data rozpoczęcia",
-    "dateEnd": "Data zakończenia"
+    "dateEnd": "Data zakończenia",
+    "ascending": "Rosnąco",
+    "descending": "Malejąco"
   },
 
   "language": {
@@ -64,8 +68,10 @@
 
   "pages": {
     "home": "Strona główna",
-    "browse": "Przeglądaj",
-    "resources": "Zasoby"
+    "offers": "Oferty",
+    "companies": "Firmy",
+    "resources": "Zasoby",
+    "cart": "Koszyk"
   },
 
   "auth": {
@@ -585,7 +591,7 @@
 
           "list": {
             "noOffers": "Twoja firma nie posiada jeszcze żadnych ofert.",
-            "noOffersMatchingFilter": "Brak ofert na podane parametry.",
+            "noOffersMatchingFilter": "Brak ofert dla podanych parametry.",
 
             "item": {
               "netPrice": "Cena netto",
@@ -651,6 +657,19 @@
           }
         }
       }
+    },
+
+    "preview": {
+      "email": "Email",
+      "phone": "Numer kontaktowy",
+      "address": "Adres"
+    }
+  },
+
+  "offers": {
+    "header": {
+      "title": "Przeglądaj oferty",
+      "description": "Przeglądaj oferty firm zarejestrowanych w naszej platformie. Każda produkt na Resupplify przechodzi szczegółową weryfikację, zapewniając wiarygodność ofert wystawianych przez firmy. Kupuj z pewnością, wiedząc, że nasze zaangażowanie w doskonałość służy Twojej firmie."
     }
   },
 
@@ -679,6 +698,55 @@
       "textUpdate": "Czy na pewno chcesz zaaktualizować {item}?",
       "titleCreate": "Potwierdzenie dodania",
       "textCreate": "Czy na pewno chcesz dodać {item}?"
+    }
+  },
+
+  "common": {
+    "offer": {
+      "list": {
+        "noOffers": "Nie znaleziono żadnych ofert.",
+        "noOffersMatchingFilter": "Brak ofert dla podanych parametrów.",
+
+        "item": {
+          "imageAlt": "Zdjęcie oferty",
+          "company": "Firma",
+
+          "product": {
+            "name": "Nazwa",
+            "category": "Kategoria",
+            "subcategory": "Podkategoria"
+          },
+
+          "price": "Cena",
+          "available": "Dostępne",
+          "ends": "Kończy się"
+        }
+      },
+
+      "filters": {
+        "nameLabel": "Nazwa produktu",
+        "namePlaceholder": "Podaj nazwę produktu",
+        "categoryLabel": "Kategoria produktu",
+        "categoryPlaceholder": "Wybierz kategorię produktu",
+        "subcategoryLabel": "Podkategoria produktu",
+        "subcategoryPlaceholder": "Wybierz kategorię produktu",
+        "statusLabel": "Status oferty",
+        "statusPlaceholder": "Wybierz status oferty",
+        "endDateLabel": "Data zakończenia oferty",
+        "endDatePlaceholder": "Sortuj według daty zakończenia",
+        "priceLabel": "Cena oferty",
+        "pricePlaceholder": "Sortuj według ceny",
+
+        "status": {
+          "deactivated": "Dezaktywowane",
+          "activated": "Aktywowane"
+        },
+
+        "price": {
+          "ascending": "Rosnąco",
+          "descending": "Malejąco"
+        }
+      }
     }
   },
 
@@ -738,6 +806,34 @@
         "title": "Zarejestruj firmę",
         "description": "Możesz również chcieć zarejestrować swoją firmę. W takim przypadku możesz rozpocząć proces rejestracji, klikając poniższy przycisk - proces możesz anulować w dowolnym momencie.",
         "registerNow": "Zarejestruj teraz"
+      }
+    }
+  },
+
+  "cart": {
+    "main": {
+      "title": "Koszyk zakupowy",
+      "description": "Bezproblemowo zarządzaj wieloma ofertami różnych firm w swoim koszyku. Nasz system inteligentnie organizuje je według firm, umożliwiając Ci efektywne składanie oddzielnych zamówień bez żadnych trudności.",
+
+      "content": {
+        "title": "Oferty pogrupowane według firm",
+
+        "groups": {
+          "noItems": "Twój koszyk jest pusty.",
+
+          "list": {
+            "item": {
+              "imageAlt": "Zdjęcie oferty",
+              "quantity": "Ilość",
+              "totalPrice": "Cena łącznie"
+            }
+          },
+
+          "footer": {
+            "totalCost": "Koszt łącznie",
+            "placeOrder": "Złóż zamówienie"
+          }
+        }
       }
     }
   },

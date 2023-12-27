@@ -31,9 +31,13 @@
     "create": "Create",
     "refresh": "Refresh",
     "rejected": "Rejected",
+    "addToCart": "Add to cart",
+    "removeCartItem": "Remove from cart",
     "pricePerUnit": "Price per unit",
     "dateStart": "Start date",
-    "dateEnd": "End date"
+    "dateEnd": "End date",
+    "ascending": "Ascending",
+    "descending": "Descending"
   },
 
   "language": {
@@ -64,8 +68,10 @@
 
   "pages": {
     "home": "Home",
-    "browse": "Browse",
-    "resources": "Resources"
+    "offers": "Offers",
+    "companies": "Companies",
+    "resources": "Resources",
+    "cart": "Cart"
   },
 
   "auth": {
@@ -505,6 +511,12 @@
             "itemName": "Product tag name",
             "colorValue": "Hex color value"
           }
+        },
+
+        "preview": {
+          "email": "Email",
+          "phone": "Phone number",
+          "address": "Address"
         }
       },
 
@@ -580,7 +592,7 @@
 
           "list": {
             "noOffers": "Your company does not have any ofers yet.",
-            "noOffersMatchingFilter": "No offers for given parameters.",
+            "noOffersMatchingFilter": "No offers found for given parameters.",
 
             "item": {
               "netPrice": "Net price",
@@ -646,6 +658,19 @@
           }
         }
       }
+    },
+
+    "preview": {
+      "email": "Email",
+      "phone": "Phone number",
+      "address": "Address"
+    }
+  },
+
+  "offers": {
+    "header": {
+      "title": "Browse offers",
+      "description": "Browse offers from companies registered on our platform. Each product on Resupplify undergoes thorough verification, ensuring the credibility of offers provided by businesses. Shop with confidence, knowing that our commitment to excellence serves your company"
     }
   },
 
@@ -674,6 +699,50 @@
       "textUpdate": "Are you sure you want to update {item}?",
       "titleCreate": "Creation confirmation",
       "textCreate": "Are you sure you want to create {item}?"
+    }
+  },
+
+  "common": {
+    "offer": {
+      "list": {
+        "noOffers": "Could not find any offers.",
+        "noOffersMatchingFilter": "No offers found for given parameters.",
+
+        "item": {
+          "imageAlt": "Offer image",
+          "company": "Company",
+
+          "product": {
+            "name": "Name",
+            "category": "Category",
+            "subcategory": "Subcategory"
+          },
+
+          "price": "Price",
+          "available": "Available",
+          "ends": "Ends"
+        }
+      },
+
+      "filters": {
+        "nameLabel": "Product name",
+        "namePlaceholder": "Enter product name",
+        "categoryLabel": "Product category",
+        "categoryPlaceholder": "Select product category",
+        "subcategoryLabel": "Product subcategory",
+        "subcategoryPlaceholder": "Select product subcategory",
+        "statusLabel": "Offer status",
+        "statusPlaceholder": "Select offer status",
+        "endDateLabel": "Offer end date",
+        "endDatePlaceholder": "Sort by end date",
+        "priceLabel": "Offer price",
+        "pricePlaceholder": "Sort by price",
+
+        "status": {
+          "deactivated": "Deactivated",
+          "activated": "Activated"
+        }
+      }
     }
   },
 
@@ -708,7 +777,6 @@
 
     "preferences": {
       "title": "Preferences",
-
       "notification": {
         "updateSuccess": "Preferences updated successfully"
       }
@@ -733,6 +801,34 @@
         "title": "Register a company",
         "description": "You might also want to register you company. In that case, you can begin the registration process by clicking the button below - you may cancel it at any time.",
         "registerNow": "Register now"
+      }
+    }
+  },
+
+  "cart": {
+    "main": {
+      "title": "Shopping cart",
+      "description": "Effortlessly manage multiple offers from various companies in your cart. Our system intelligently organizes these by company, allowing you to efficiently place separate orders for each without any difficulties.",
+
+      "content": {
+        "title": "Offers grouped by companies",
+
+        "groups": {
+          "noItems": "Your cart is empty.",
+
+          "list": {
+            "item": {
+              "imageAlt": "Offer image",
+              "quantity": "Quantity",
+              "totalPrice": "Total price"
+            }
+          },
+
+          "footer": {
+            "totalCost": "Total cost",
+            "placeOrder": "Place order"
+          }
+        }
       }
     }
   },

@@ -68,12 +68,6 @@
       </template>
     </o-form>
 
-    <a-button
-      :to="{ name: RouteNames.COMPANY_OFFERS_CREATOR }"
-      :text="$t('company.management.offer.creator.createOffer')"
-      size="x-large"
-    />
-
     <a-line />
 
     <template v-if="isLoading">implement-loader-here</template>
@@ -104,7 +98,8 @@ import StaticProductDescriptorsService from '@/services/product/StaticProductDes
 import CompanyProductsService from '@/services/product/CompanyProductsService'
 import OForm from '@sharedOrganisms/form/OForm.vue'
 import MassAssignProductStatus from '@/components/core/company/management/products/dashboard/dialog/MassAssignProductStatus.vue'
-import { RouteNames } from '@/routes/index'
+import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
+
 // Interfaces
 interface InitialQueryParams {
   page?: string
@@ -130,6 +125,7 @@ const router = useRouter()
 const initialFormValues = ref<InitialQueryParams>()
 const paginationData = ref<Pagination>()
 const form = ref<typeof OForm>()
+const { setQueryParam } = useQueryFilter()
 
 // Computed
 const statuses = computed(() => [
@@ -187,12 +183,8 @@ const setInitialFormValues = () => {
   selectedCategoryId.value = route.query.categoryId ? +route.query.categoryId : null
 }
 
-const setQueryParam = async (data: InitialQueryParams | undefined) => {
-  await router.replace({ query: { ...route.query, ...data } })
-}
-
 const handleQuerySubmit = async (data: InitialQueryParams) => {
-  await setQueryParam(data)
+  await setQueryParam(route, data)
 
   handleFetchProducts()
 }

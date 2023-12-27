@@ -1,13 +1,13 @@
 import type { RouteRecordRaw } from 'vue-router'
-import BrowseView from '@/views/Browse/BrowseView.vue'
+import OffersView from '@/views/Offers/OffersView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 
 class BrowseRouteEnum extends BaseEnum {
-  static readonly BROWSE: string = 'BROWSE'
+  static readonly OFFERS: string = 'OFFERS'
 }
 
 const routes: RouteRecordRaw[] = [
-  { path: '/browse', name: BrowseRouteEnum.BROWSE, component: BrowseView }
+  { path: '/offers', name: BrowseRouteEnum.OFFERS, component: OffersView }
 ]
 
 export default routes

@@ -1,5 +1,5 @@
 import CompanyMembersView from '@/views/Company/Management/CompanyMembersView.vue'
-import CompanyManagementMembersActivePanelVue from '@/components/core/company/management/members/active/CompanyManagementMembersActivePanel.vue'
+import CompanyManagementMembersActivePanel from '@/components/core/company/management/members/active/CompanyManagementMembersActivePanel.vue'
 import CompanyManagementMembersPermissionsPanel from '@/components/core/company/management/members/permissions/CompanyManagementMembersPermissionsPanel.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
@@ -19,7 +19,7 @@ const CompanyManagementMembersRoutes: RouteRecordRaw[] = [
   {
     path: 'members/active',
     name: CompanyProfileRouteEnum.COMPANY_MEMBERS_ACTIVE,
-    component: CompanyManagementMembersActivePanelVue
+    component: CompanyManagementMembersActivePanel
   },
   {
     path: 'members/permissions',

@@ -15,6 +15,10 @@
 
     <a-button text="Change locale" @click="changeLocale" />
 
+    <router-link :to="{ name: RouteNames.CART }">
+      <m-icon icon="shopping_cart" size="xx-large" hoverable />
+    </router-link>
+
     <navigation-bar-menu v-if="userStore.isAuthenticated" />
   </div>
 </template>
@@ -25,6 +29,7 @@ import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { useI18n } from 'vue-i18n'
 import NavigationBarMenu from '../items/NavigationBarMenu.vue'
+import { RouteNames } from '@/routes/index'
 
 // Variables
 const { t } = useI18n()
@@ -52,7 +57,7 @@ const changeLocale = () => {
 .navigation-bar-auth-section {
   display: flex;
   flex: 1 0 0;
-  gap: $global-spacing-90;
+  gap: $global-spacing-40;
   align-items: center;
   align-self: stretch;
   justify-content: flex-end;

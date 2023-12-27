@@ -1,5 +1,6 @@
 <template>
   <img
+    v-show="!isLoading && !isError"
     ref="imageRef"
     :src="decodedSrc"
     :alt="alt"
@@ -9,7 +10,9 @@
     @load="handleImageLoaded"
   />
 
-  <a-icon v-if="isLoading || isError" icon="no_photography" size="xx-large" />
+  <div v-if="isLoading || isError" class="a-image__placeholder">
+    <a-icon icon="no_photography" size="xx-large" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -83,11 +86,31 @@ const imageError = () => {
 
 <style scoped lang="scss">
 .a-image {
-  width: v-bind(width);
-  height: v-bind(height);
+  min-width: v-bind(width);
+  max-width: v-bind(width);
+  min-height: v-bind(height);
+  max-height: v-bind(height);
+
+  &__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: v-bind(width);
+    max-width: v-bind(width);
+    min-height: v-bind(height);
+    max-height: v-bind(height);
+
+    background-color: var(--disabled);
+    border-radius: $global-border-radius-20;
+  }
 
   &--rounded {
-    border-radius: $global-border-radius-30;
+    border-radius: $global-border-radius-20;
+  }
+
+  &--rounded-sm {
+    border-radius: $global-border-radius-10;
   }
 
   &--circle {
