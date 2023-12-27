@@ -1,6 +1,12 @@
 <template>
   <div :class="generateClasses">
-    <a-title v-if="title" :size="titleSize" :title="title" :append-colon="!vertical" />
+    <a-title
+      v-if="title"
+      :size="titleSize"
+      :title="title"
+      :append-colon="!vertical"
+      :line-height="lineHeight"
+    />
 
     <a-title :size="valueSize" :title="valueText" />
   </div>
@@ -27,7 +33,11 @@ const props = defineProps({
     type: String,
     default: 'medium'
   },
-  alignEnd: Boolean
+  alignEnd: Boolean,
+  lineHeight: {
+    type: String,
+    default: 'auto'
+  }
 })
 
 // Variables
