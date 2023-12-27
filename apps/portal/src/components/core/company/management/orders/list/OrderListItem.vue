@@ -30,6 +30,10 @@
         </div>
       </a-list-item-wrapper>
     </template>
+
+    <template #content>
+      <order-item-list :order-items="orderItems" />
+    </template>
   </a-expansion-panel>
 </template>
 
@@ -37,6 +41,7 @@
 import { type PropType, computed } from 'vue'
 import type { Order } from '@sharedInterfaces/order/OrderInterface'
 import { useI18n } from 'vue-i18n'
+import OrderItemList from '@/components/core/company/management/orders/list/OrderItemList.vue'
 
 const props = defineProps({
   order: {
@@ -57,8 +62,12 @@ const orderStatusText = computed(() => {
   return t(`company.management.order.status.${props.order.status}`)
 })
 
-const orderValue = computed(() => {
+const orderItems = computed(() => {
   return props.order.orderItems
+})
+
+const orderValue = computed(() => {
+  return orderItems.value
     .map((orderItem) => orderItem.offer.price * orderItem.quantity)
     .reduce((a, b) => a + b, 0)
 })
