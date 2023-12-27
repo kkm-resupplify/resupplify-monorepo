@@ -1,7 +1,7 @@
 <template>
   <a-list-item-wrapper class="offer-list-item">
     <a-image
-      :src="offer.product.logoSrc"
+      :src="offer.product.image"
       :width="120"
       :height="120"
       :alt="$t('common.offer.list.item.imageAlt')"
@@ -18,6 +18,7 @@
         />
 
         <a-title
+          v-if="showCompanyName"
           :title="$t('common.offer.list.item.company')"
           :subtitle="offer.company.name"
           variant="horizontal"
@@ -78,6 +79,10 @@ const props = defineProps({
   offer: {
     type: Object as PropType<Offer>,
     required: true
+  },
+  showCompanyName: {
+    type: Boolean,
+    default: true
   }
 })
 
