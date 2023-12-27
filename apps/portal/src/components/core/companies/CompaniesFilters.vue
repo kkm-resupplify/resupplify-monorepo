@@ -30,7 +30,7 @@
       <div class="companies-filters__buttons">
         <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
 
-        <a-button :text="$t('global.reset')" size="x-large" />
+        <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
       </div>
     </template>
   </o-form>
@@ -100,6 +100,20 @@ const setInitialFormValues = () => {
     name: route.query.name ? route.query.name.toString() : undefined,
     categoryId: route.query.categoryId ? +route.query.categoryId : undefined
   }
+}
+
+const handleResetFilters = async () => {
+  form.value?.handleReset()
+  initialFilterParams.value = {
+    name: undefined,
+    categoryId: undefined
+  }
+
+  await handleQuerySubmit({
+    page: '1',
+    name: undefined,
+    categoryId: undefined
+  })
 }
 
 // Hooks
