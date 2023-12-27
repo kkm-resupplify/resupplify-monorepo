@@ -677,6 +677,13 @@
     "header": {
       "title": "Przeglądaj firmy",
       "description": "Przeglądaj firmy zarejestrowane na naszej platformie. Każda z nich na Resupplify przechodzi wnikliwą weryfikację, aby mieć pewność, że jest legalnie zarejestrowana. Oferty poszczególnych firm możesz przeglądać wybierając je z poniższej listy."
+    },
+
+    "filters": {
+      "nameLabel": "Nazwa firmy",
+      "namePlaceholder": "Wpisz nazwę firmy",
+      "categoryLabel": "Kategoria firmy",
+      "categoryPlaceholder": "Wybierz kategorię firmy"
     }
   },
 
