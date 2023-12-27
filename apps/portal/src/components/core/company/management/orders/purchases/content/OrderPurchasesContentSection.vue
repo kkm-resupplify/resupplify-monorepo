@@ -7,7 +7,7 @@
     <template v-if="isLoading">implement-loader-here</template>
 
     <template v-else>
-      <order-list v-if="showList" :orders="orders" />
+      <order-list v-if="showList" :orders="orders" type="purchased" />
 
       <a-list-no-results v-else :text="$t(`common.order.list.${noResultsTranslationKey}`)" />
     </template>
@@ -51,7 +51,6 @@ const handleFetchOrders = async () => {
   const { success, data, pagination } = await CompanyOrdersService.getBoughtOrders()
 
   if (success) {
-    console.log(data)
     orders.value = data
     paginationData.value = pagination
   }

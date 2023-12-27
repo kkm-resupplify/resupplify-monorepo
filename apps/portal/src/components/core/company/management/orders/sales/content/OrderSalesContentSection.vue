@@ -7,7 +7,7 @@
     <template v-if="isLoading">implement-loader-here</template>
 
     <template v-else>
-      <order-list v-if="showList" :orders="orders" />
+      <order-list v-if="showList" :orders="orders" type="sold" />
 
       <a-list-no-results v-else :text="$t(`common.order.list.${noResultsTranslationKey}`)" />
     </template>
