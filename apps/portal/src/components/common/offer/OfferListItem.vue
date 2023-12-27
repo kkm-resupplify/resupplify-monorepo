@@ -18,6 +18,7 @@
         />
 
         <a-title
+          v-if="showCompanyName"
           :title="$t('common.offer.list.item.company')"
           :subtitle="offer.company.name"
           variant="horizontal"
@@ -78,6 +79,10 @@ const props = defineProps({
   offer: {
     type: Object as PropType<Offer>,
     required: true
+  },
+  showCompanyName: {
+    type: Boolean,
+    default: true
   }
 })
 
