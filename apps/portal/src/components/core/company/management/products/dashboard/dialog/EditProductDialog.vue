@@ -43,6 +43,8 @@ const productEditorFirstStepData = computed(() => {
     status: product.status,
     producer: product.producer,
     code: product.code,
+    image: null,
+    imagePreview: product.image,
     productUnitId: product.productUnit.id,
     productCategoryId: product.productCategory.id,
     productSubcategoryId: product.productSubcategory.id,

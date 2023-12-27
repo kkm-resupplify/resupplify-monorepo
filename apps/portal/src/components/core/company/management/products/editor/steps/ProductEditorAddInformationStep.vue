@@ -13,71 +13,85 @@
       >
         <template #body>
           <div class="product-editor-add-information-step__body">
-            <m-text-field
-              name="code"
-              input-type="text"
-              :label="$t('company.management.products.editor.productCodeLabel')"
-              :placeholder="$t('company.management.products.editor.productCodePlaceholder')"
-              rules="required"
-            />
+            <div class="product-editor-add-information-step__body-column">
+              <m-text-field
+                name="code"
+                input-type="text"
+                :label="$t('company.management.products.editor.productCodeLabel')"
+                :placeholder="$t('company.management.products.editor.productCodePlaceholder')"
+                rules="required"
+              />
 
-            <m-text-field
-              name="producer"
-              input-type="text"
-              :label="$t('company.management.products.editor.productProducerLabel')"
-              :placeholder="$t('company.management.products.editor.productProducerPlaceholder')"
-              rules="required"
-            />
+              <m-text-field
+                name="producer"
+                input-type="text"
+                :label="$t('company.management.products.editor.productProducerLabel')"
+                :placeholder="$t('company.management.products.editor.productProducerPlaceholder')"
+                rules="required"
+              />
 
-            <m-select
-              name="productCategoryId"
-              rules="required"
-              :label="$t('company.management.products.editor.productCategoryLabel')"
-              :placeholder="$t('company.management.products.editor.productCategoryPlaceholder')"
-              :options="staticProductDescriptorsStore.getProductCategories"
-              @input-change="handleProductCategoryChange"
-            />
+              <m-select
+                name="productCategoryId"
+                rules="required"
+                :label="$t('company.management.products.editor.productCategoryLabel')"
+                :placeholder="$t('company.management.products.editor.productCategoryPlaceholder')"
+                :options="staticProductDescriptorsStore.getProductCategories"
+                @input-change="handleProductCategoryChange"
+              />
 
-            <m-select
-              ref="subcategoryRef"
-              name="productSubcategoryId"
-              rules="required"
-              :label="$t('company.management.products.editor.productSubcategoryLabel')"
-              :placeholder="$t('company.management.products.editor.productSubcategoryPlaceholder')"
-              :options="productCategorySubcategories"
-              :disabled="disableProductSubcategorySelect"
-            />
+              <m-select
+                ref="subcategoryRef"
+                name="productSubcategoryId"
+                rules="required"
+                :label="$t('company.management.products.editor.productSubcategoryLabel')"
+                :placeholder="
+                  $t('company.management.products.editor.productSubcategoryPlaceholder')
+                "
+                :options="productCategorySubcategories"
+                :disabled="disableProductSubcategorySelect"
+              />
 
-            <m-select
-              name="productUnitId"
-              rules="required"
-              :label="$t('company.management.products.editor.productUnitLabel')"
-              :placeholder="$t('company.management.products.editor.productUnitPlaceholder')"
-              :options="productUnitSelectOptions"
-            />
+              <a-image-input
+                name="image"
+                :label="$t('company.register.form.details.companyLogoLabel')"
+                :placeholder="$t('company.register.form.details.companyLogoPlaceholder')"
+                :rules="imageInputRules"
+                :preview-src="productEditorStore.productEditorFirstStepData.imagePreview"
+              />
+            </div>
 
-            <m-select
-              name="status"
-              :label="$t('company.management.products.editor.productStatusLabel')"
-              :placeholder="$t('company.management.products.editor.productStatusPlaceholder')"
-              :options="productStatusSelectOptions"
-              rules="required"
-            />
+            <div class="product-editor-add-information-step__body-column">
+              <m-select
+                name="productUnitId"
+                rules="required"
+                :label="$t('company.management.products.editor.productUnitLabel')"
+                :placeholder="$t('company.management.products.editor.productUnitPlaceholder')"
+                :options="productUnitSelectOptions"
+              />
 
-            <m-select
-              name="productTag"
-              :label="$t('company.management.products.editor.productTagsLabel')"
-              :placeholder="$t('company.management.products.editor.productTagsPlaceholder')"
-              :options="producTagSelectOptions"
-              :validate="false"
-              @input-change="handleSelectProductTag"
-            />
+              <m-select
+                name="status"
+                :label="$t('company.management.products.editor.productStatusLabel')"
+                :placeholder="$t('company.management.products.editor.productStatusPlaceholder')"
+                :options="productStatusSelectOptions"
+                rules="required"
+              />
 
-            <product-tag-list
-              :product-tags="selectedProductTags"
-              show-remove
-              @remove="handleRemoveProductTag"
-            />
+              <m-select
+                name="productTag"
+                :label="$t('company.management.products.editor.productTagsLabel')"
+                :placeholder="$t('company.management.products.editor.productTagsPlaceholder')"
+                :options="producTagSelectOptions"
+                :validate="false"
+                @input-change="handleSelectProductTag"
+              />
+
+              <product-tag-list
+                :product-tags="selectedProductTags"
+                show-remove
+                @remove="handleRemoveProductTag"
+              />
+            </div>
           </div>
         </template>
 
@@ -170,6 +184,10 @@ const selectedProductTags = computed(() => {
   )
 })
 
+const imageInputRules = computed(() => {
+  return productEditorStore.productEditorFirstStepData.imagePreview ? null : 'required'
+})
+
 // Methods
 const handleNextStep = (values: ProductEditorFirstStepData) => {
   values.productTagIds = selectedProductTagIds.value
@@ -222,6 +240,11 @@ onBeforeMount(async () => {
 <style scoped lang="scss">
 .product-editor-add-information-step {
   &__body {
+    display: flex;
+    gap: $global-spacing-90;
+  }
+
+  &__body-column {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-50;

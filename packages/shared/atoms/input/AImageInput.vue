@@ -9,7 +9,10 @@
         type="file"
         accept="image/*"
         class="a-image-input__input"
-        @change="previewImage"
+        :rules="rules"
+        :disabled="disabled"
+        v-on="validationListeners"
+        @input="handleInputChange"
       />
     </div>
 
@@ -20,31 +23,81 @@
         :src="preview"
         class="a-image-input__preview-group-image"
         :alt="$t('global.imagePreview')"
-        :width="300"
+        :width="120"
+        variant="rounded"
       />
     </div>
+
+    <a-input-error-list :errors="errors" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, toRef, watch, watchEffect, onBeforeMount } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
+import { useField } from 'vee-validate'
 
 const props = defineProps({
   name: { type: String, required: true },
   label: String,
+  value: [File, String],
   placeholder: String,
   size: { type: String, default: 'medium' },
-  variant: { type: String, default: 'rounded' }
+  variant: { type: String, default: 'rounded' },
+  rules: {
+    type: [String, Object]
+  },
+  borderGradient: {
+    type: String,
+    default: 'info'
+  },
+  validate: {
+    type: Boolean,
+    default: true
+  },
+  validColor: {
+    type: String,
+    default: 'success'
+  },
+  invalidColor: {
+    type: String,
+    default: 'danger'
+  },
+  disabled: Boolean,
+  previewSrc: String
 })
 
-// Variable
+// Emits
+const emits = defineEmits(['input-change'])
+
+// Variables
 const baseClass = 'a-image-input'
 const preview = ref<any>(null)
-const image = ref<any>(null)
-
-// Composable
+const name = toRef(props, 'name')
 const { generateClassNames } = useClassComposable()
+const {
+  value: inputValue,
+  errors,
+  handleBlur,
+  errorMessage,
+  handleChange,
+  meta,
+  validate
+} = useField(name, props.rules, {
+  initialValue: props.value,
+  validateOnValueUpdate: false
+})
+
+// Methods
+const handleInputChange = () => {
+  emits('input-change', inputValue.value)
+}
+
+const manualValidate = () => {
+  if (meta.touched) {
+    validate()
+  }
+}
 
 // Computed
 const generateClasses = computed(() => {
@@ -52,25 +105,61 @@ const generateClasses = computed(() => {
 })
 
 const borderColor = computed(() => {
-  return 'var(--info-gradient)'
+  if (props.disabled) return ''
+
+  if (!props.validate) return `var(--${props.borderGradient}-gradient)`
+
+  const { valid, touched, dirty } = meta
+
+  if (!valid && touched) return `var(--${props.invalidColor}-gradient)`
+  if ((dirty || touched) && valid) return `var(--${props.validColor}-gradient)`
+
+  return `var(--${props.borderGradient}-gradient)`
 })
 
-const backgroundImage = computed(() => {
-  return `background-image: url('${preview.value}')`
-})
-
-// Methods
-const previewImage = (event: any) => {
-  let input = event.target
-  if (input.files) {
-    let reader = new FileReader()
-    reader.onload = (e) => {
-      preview.value = e.target?.result
+const validationListeners = computed(() => {
+  if (!errorMessage.value) {
+    return {
+      blur: handleBlur,
+      change: handleChange,
+      input: (e: any) => handleChange(e, false)
     }
-    image.value = input.files[0]
-    reader.readAsDataURL(input.files[0])
   }
-}
+
+  return {
+    blur: handleBlur,
+    change: handleChange,
+    input: handleChange
+  }
+})
+
+// Watchers
+watchEffect(() => {
+  if (inputValue.value) {
+    let reader = new FileReader()
+
+    reader.onload = (event: any) => {
+      preview.value = event.target.result
+    }
+
+    reader.readAsDataURL(inputValue.value as Blob)
+  }
+})
+
+watch(
+  () => props.value,
+  (newValue) => {
+    inputValue.value = newValue ?? ''
+  }
+)
+
+// Hooks
+onBeforeMount(() => {
+  preview.value = props.previewSrc ?? ''
+})
+
+// Expose
+defineExpose({ manualValidate })
 </script>
 
 <style lang="scss" scoped>
