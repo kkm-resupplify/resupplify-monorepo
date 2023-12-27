@@ -671,6 +671,10 @@
         "datePlaced": "Data złożenia",
         "lastUpdate": "Ostatnia aktualizacja",
 
+        "item": {
+          "viewDetails": "Zobacz szczegóły"
+        },
+
         "status": {
           "title": "Status zamówienia",
           "0": "Złożone",

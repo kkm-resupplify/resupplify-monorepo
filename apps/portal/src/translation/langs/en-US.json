@@ -672,6 +672,10 @@
         "datePlaced": "Date placed",
         "lastUpdate": "Last update",
 
+        "item": {
+          "viewDetails": "View details"
+        },
+
         "status": {
           "title": "Order status",
           "0": "Placed",
