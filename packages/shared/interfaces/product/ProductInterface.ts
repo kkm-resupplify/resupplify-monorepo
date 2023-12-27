@@ -5,7 +5,7 @@ export interface Product {
   name: string
   description: string
   producer: string
-  image?: string
+  image: string
   imageAlt?: string
   code: string
   status: number

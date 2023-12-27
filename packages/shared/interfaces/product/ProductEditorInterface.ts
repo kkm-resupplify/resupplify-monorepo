@@ -14,4 +14,5 @@ export interface ProductEditorFirstStepData {
   productSubcategoryId: number | null
   productTagIds: number[]
   image: File | null
+  imagePreview?: string | null
 }
