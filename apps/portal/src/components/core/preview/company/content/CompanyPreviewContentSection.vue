@@ -7,7 +7,7 @@
     <template v-if="isLoading">implement-loader-here</template>
 
     <template v-else>
-      <offer-list v-if="showList" :offers="offers" />
+      <offer-list v-if="showList" :offers="offers" :show-company-name="false" />
 
       <a-list-no-results v-else :text="$t(`common.offer.list.${noResultsTranslationKey}`)" />
     </template>
