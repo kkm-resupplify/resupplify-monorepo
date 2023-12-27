@@ -3,8 +3,9 @@ import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 
 export interface Order {
   id: number
-  company: CompanyData
-  offers: OrderItem[]
+  seller: CompanyData
+  buyer: CompanyData
+  orderItems: OrderItem[]
   status: number
   createdAt: string
   updatedAt: string
