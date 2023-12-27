@@ -674,6 +674,13 @@
     }
   },
 
+  "companies": {
+    "header": {
+      "title": "Browse companies",
+      "description": "Browse companies registered on our platform. Each company on Resupplify undergoes thorough verification, ensuring that every company exist in real world. You can browse offer of each company by selecting them from the list below."
+    }
+  },
+
   "product": {
     "promotion": {
       "bestsellers": "Bestsellers",
