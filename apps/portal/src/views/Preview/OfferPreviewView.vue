@@ -5,7 +5,7 @@
         <template v-if="isLoading"> implement-loader-here </template>
 
         <template v-else>
-          <offer-preview-header-section />
+          <offer-preview-header-section :offer="offer" />
 
           <offer-preview-content-section />
         </template>
