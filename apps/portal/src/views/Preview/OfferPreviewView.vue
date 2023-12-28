@@ -2,7 +2,7 @@
   <basic-view-layout>
     <template #body>
       <a-panel width="auto">
-        <template v-if="isLoading"> implement-loader-here </template>
+        <template v-if="isLoading || !offer"> implement-loader-here </template>
 
         <template v-else>
           <offer-preview-header-section :offer="offer" />
@@ -21,11 +21,10 @@
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import OfferPreviewHeaderSection from '@/components/core/preview/offer/header/OfferPreviewHeaderSection.vue'
 import OfferPreviewContentSection from '@/components/core/preview/offer/content/OfferPreviewContentSection.vue'
-import { ref, computed } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import OfferPreviewService from '@/services/preview/offer/OfferPreviewService'
-import { onBeforeMount } from 'vue'
 
 // Variables
 const offer = ref<Offer>()
