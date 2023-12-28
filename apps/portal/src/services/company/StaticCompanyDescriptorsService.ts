@@ -1,12 +1,12 @@
 import { useStaticCompanyDescriptorsStore } from '@sharedStores/company/useStaticCompanyDescriptorsStore'
 import BaseService from '../BaseService'
 
-class StatisCompanyDescriptorsService extends BaseService {
+class StaticCompanyDescriptorsService extends BaseService {
   static COMPANY_CATEGORIES = 'companyCategories'
 
   async getCategories() {
     const response = await this.get({
-      suffix: StatisCompanyDescriptorsService.COMPANY_CATEGORIES
+      suffix: StaticCompanyDescriptorsService.COMPANY_CATEGORIES
     })
 
     if (response.success) {
@@ -20,4 +20,4 @@ class StatisCompanyDescriptorsService extends BaseService {
   }
 }
 
-export default new StatisCompanyDescriptorsService('company')
+export default new StaticCompanyDescriptorsService('company')
