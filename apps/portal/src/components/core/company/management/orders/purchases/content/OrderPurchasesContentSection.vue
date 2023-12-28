@@ -1,6 +1,6 @@
 <template>
   <a-panel-section overflow>
-    <div>order-filters</div>
+    <order-filters />
 
     <a-line />
 
@@ -24,6 +24,7 @@ import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 import OrderList from '@/components/core/company/management/orders/list/OrderList.vue'
 import CompanyOrdersService from '@/services/company/CompanyOrdersService'
+import OrderFilters from '@/components/common/order/OrderFilters.vue'
 
 // Variables
 const isLoading = ref(false)
