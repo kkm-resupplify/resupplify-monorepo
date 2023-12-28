@@ -117,8 +117,9 @@ const handleAddToCart = () => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
-    margin-left: auto;
     align-items: flex-end;
+
+    margin-left: auto;
   }
 
   &__order-price {
