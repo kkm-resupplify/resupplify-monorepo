@@ -1,10 +1,8 @@
 <template>
   <a-panel-section class="offer-preview-content-section">
-    <a-title
-      :title="$t('company.management.offer.preview.productDetails')"
-      :subtitle="productDetails"
-      size="x-large"
-    />
+    <a-title :title="$t('company.management.offer.preview.productDetails')" size="x-large" />
+
+    <a-title :title="productDetails" size="large" />
 
     <a-line />
 
@@ -23,7 +21,7 @@
         <a-link
           :text="company.name"
           :to="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
-          size="x-large"
+          size="large"
         />
 
         <a-title
