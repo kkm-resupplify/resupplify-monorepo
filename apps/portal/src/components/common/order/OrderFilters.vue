@@ -1,5 +1,5 @@
 <template>
-  <o-form class="order-filters">
+  <o-form ref="form" class="order-filters">
     <template #body>
       <div class="order-filters__inputs">
         <m-text-field
@@ -7,6 +7,8 @@
           :label="$t('common.order.filters.nameLabel')"
           :placeholder="$t('common.order.filters.namePlaceholder')"
           :validate="false"
+          append-icon-on="close"
+          @append-icon-click="handleClearSearch"
         />
 
         <m-select
@@ -49,19 +51,24 @@
 </template>
 
 <script setup lang="ts">
+import router from '@/routes'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
 import OrderStatusEnum from '@sharedEnums/order/OrderStatusEnum'
 import type MSelectItem from '@sharedMolecules/select/items/MSelectItem.vue'
+import type OFormVue from '@sharedOrganisms/form/OForm.vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
 import { onBeforeMount } from 'vue'
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 
 // Variables
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelectItem>()
 const selectedCategoryId = ref<number | null>()
+const route = useRoute()
 const { t } = useI18n()
+const form = ref<typeof OFormVue>()
 
 // Computed
 const productCategorySubcategories = computed(() => {
@@ -83,6 +90,11 @@ const statusFiltersOptions = computed(() =>
 const handleProductCategoryChange = (id: number) => {
   subcategoryRef?.value?.clearSelect()
   selectedCategoryId.value = id
+}
+
+const handleClearSearch = async () => {
+  await router.replace({ query: { ...route.query, name: '' } })
+  form.value?.resetField('name', null)
 }
 
 // Hooks
