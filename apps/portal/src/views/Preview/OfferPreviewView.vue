@@ -2,9 +2,13 @@
   <basic-view-layout>
     <template #body>
       <a-panel width="auto">
-        <offer-preview-header-section />
+        <template v-if="isLoading"> implement-loader-here </template>
 
-        <offer-preview-content-section />
+        <template v-else>
+          <offer-preview-header-section />
+
+          <offer-preview-content-section />
+        </template>
       </a-panel>
     </template>
   </basic-view-layout>
@@ -14,4 +18,38 @@
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import OfferPreviewHeaderSection from '@/components/core/preview/offer/header/OfferPreviewHeaderSection.vue'
 import OfferPreviewContentSection from '@/components/core/preview/offer/content/OfferPreviewContentSection.vue'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
+import OfferPreviewService from '@/services/preview/offer/OfferPreviewService'
+import { onBeforeMount } from 'vue'
+
+// Variables
+const offer = ref<Offer>()
+const route = useRoute()
+const isLoading = ref(false)
+
+// Computed
+const id = computed(() => {
+  return route.params.id as string
+})
+
+// Methods
+const handleFetchOffer = async () => {
+  isLoading.value = true
+
+  const { data, success } = await OfferPreviewService.getOffer(id.value)
+
+  if (success) {
+    offer.value = data
+  }
+
+  isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(() => {
+  handleFetchOffer()
+})
 </script>
