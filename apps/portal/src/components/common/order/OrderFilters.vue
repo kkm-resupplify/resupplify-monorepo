@@ -1,5 +1,5 @@
 <template>
-  <o-form ref="form" class="order-filters">
+  <o-form ref="form" class="order-filters" :submit-callback="handleQuerySubmit">
     <template #body>
       <div class="order-filters__inputs">
         <m-text-field
@@ -53,20 +53,25 @@
 <script setup lang="ts">
 import router from '@/routes'
 import StaticProductDescriptorsService from '@/services/product/StaticProductDescriptorsService'
+import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 import OrderStatusEnum from '@sharedEnums/order/OrderStatusEnum'
+import type { OrderFiltersParams } from '@sharedInterfaces/order/OrderInterface'
 import type MSelectItem from '@sharedMolecules/select/items/MSelectItem.vue'
 import type OFormVue from '@sharedOrganisms/form/OForm.vue'
 import { useStaticProductDescriptorsStore } from '@sharedStores/product/useStaticProductDescriptorsStore'
-import { onBeforeMount } from 'vue'
-import { ref, computed } from 'vue'
+import { onBeforeMount, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
+
+// Emits
+const emits = defineEmits(['filter'])
 
 // Variables
 const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelectItem>()
 const selectedCategoryId = ref<number | null>()
 const route = useRoute()
+const { setQueryParam } = useQueryFilter()
 const { t } = useI18n()
 const form = ref<typeof OFormVue>()
 
@@ -95,6 +100,12 @@ const handleProductCategoryChange = (id: number) => {
 const handleClearSearch = async () => {
   await router.replace({ query: { ...route.query, name: '' } })
   form.value?.resetField('name', null)
+}
+
+const handleQuerySubmit = async (filters: OrderFiltersParams) => {
+  await setQueryParam(route, filters)
+
+  emits('filter')
 }
 
 // Hooks
