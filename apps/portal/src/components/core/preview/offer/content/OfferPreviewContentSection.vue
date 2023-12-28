@@ -14,36 +14,35 @@
       <a-image
         :width="120"
         :height="120"
-        :src="company?.details.logo"
+        :src="company.details.logo"
         :alt="$t('common.offer.list.item.imageAlt')"
         variant="rounded"
       />
 
       <div class="offer-preview-content-section__company-information">
-        <router-link
-          :to="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company?.slug } }"
-          class="offer-preview-content-section__company-link"
-        >
-          <a-title :title="company?.name" size="x-large" />
-        </router-link>
+        <a-link
+          :text="company.name"
+          :to="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
+          size="x-large"
+        />
 
         <a-title
           :title="$t('company.preview.email')"
-          :subtitle="company?.details.email"
+          :subtitle="company.details.email"
           variant="horizontal"
           append-colon
         />
 
         <a-title
           :title="$t('company.preview.phone')"
-          :subtitle="company?.details.phoneNumber"
+          :subtitle="company.details.phoneNumber"
           variant="horizontal"
           append-colon
         />
 
         <a-title
           :title="$t('company.preview.address')"
-          :subtitle="company?.details.address"
+          :subtitle="company.details.address"
           variant="horizontal"
           append-colon
         />
@@ -59,7 +58,10 @@ import type { PropType } from 'vue'
 
 defineProps({
   productDetails: String,
-  company: Object as PropType<CompanyData>
+  company: {
+    type: Object as PropType<CompanyData>,
+    required: true
+  }
 })
 </script>
 

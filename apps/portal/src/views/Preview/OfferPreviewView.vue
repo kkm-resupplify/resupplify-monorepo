@@ -8,8 +8,8 @@
           <offer-preview-header-section :offer="offer" />
 
           <offer-preview-content-section
-            :product-details="offer?.product.description"
-            :company="offer?.company"
+            :product-details="offer.product.description"
+            :company="offer.company"
           />
         </template>
       </a-panel>
@@ -21,9 +21,8 @@
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
 import OfferPreviewHeaderSection from '@/components/core/preview/offer/header/OfferPreviewHeaderSection.vue'
 import OfferPreviewContentSection from '@/components/core/preview/offer/content/OfferPreviewContentSection.vue'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { computed } from 'vue'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import OfferPreviewService from '@/services/preview/offer/OfferPreviewService'
 import { onBeforeMount } from 'vue'
