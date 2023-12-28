@@ -11,6 +11,7 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const props = defineProps({
   overflow: Boolean
 })
+
 // Variables
 const baseClass = 'a-panel-section'
 const { generateClassNames } = useClassComposable()

@@ -21,8 +21,8 @@ const { t } = useI18n()
 // Computed
 const linkList = computed(() => [
   { link: '/', text: t('pages.home') },
-  { link: '/browse', text: t('pages.browse') },
-  { link: '/resources', text: t('pages.resources') }
+  { link: '/offers', text: t('pages.offers') },
+  { link: '/companies', text: t('pages.companies') }
 ])
 </script>
 

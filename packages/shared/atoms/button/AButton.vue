@@ -88,6 +88,7 @@ const isDisabled = computed(() => props.disabled || props.isLoading)
 
 <style lang="scss" scoped>
 @mixin button-padding($padding-x, $padding-y: 0) {
+  max-height: $padding-y + 40px;
   padding: $padding-y $padding-x;
 }
 

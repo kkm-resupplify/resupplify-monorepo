@@ -1,8 +1,8 @@
 <template>
   <div class="m-navigation-tabs-item">
-    <a-icon v-if="tab.icon" :icon="tab.icon" size="xx-large" />
+    <a-icon v-if="tab.icon" :icon="tab.icon" :size="iconSize" />
 
-    <a-link :text="tab.title" :link="tab.to" size="large" />
+    <a-link :text="tab.title" :link="tab.to" :size="textSize" />
   </div>
 </template>
 
@@ -14,6 +14,14 @@ defineProps({
   tab: {
     type: Object as PropType<MNavigationTabsItemData>,
     required: true
+  },
+  textSize: {
+    type: String,
+    default: 'large'
+  },
+  iconSize: {
+    type: String,
+    default: 'large'
   }
 })
 </script>

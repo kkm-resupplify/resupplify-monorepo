@@ -50,7 +50,9 @@
             :item-name="product.name"
             @confirmed="handleDeleteProduct"
           >
-            <template #activator>{{ $t('global.delete') }}</template>
+            <template #activator>
+              {{ $t('global.delete') }}
+            </template>
           </o-confirm-dialog>
         </div>
       </template>

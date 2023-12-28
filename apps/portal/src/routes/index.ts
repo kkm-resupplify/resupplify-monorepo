@@ -1,20 +1,26 @@
 import AuthRoutes from './auth/AuthRoutes'
 import UserRoutes from './user/UserRoutes'
 import ResourcesRoutes from './resources/ResourcesRoutes'
-import BrowseRoutes from './browse/BrowseRoutes'
+import OffersRoutes from './offers/OffersRoutes'
+import CompaniesRoutes from './companies/CompaniesRoutes'
+import CartRoutes from './cart/CartRoutes'
 import CompanyRoutes from './company/CompanyRoutes'
 import HomeRoutes from './home/HomeRoutes'
 import Settings from './settings/SettingsRoutes'
 import TestRoutes from './test/TestRoutes'
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+import PreviewRoutes from './preview/PreviewRoutes'
 
 const routes = [
   ...HomeRoutes,
   ...AuthRoutes,
   ...Settings,
   ...ResourcesRoutes,
-  ...BrowseRoutes,
+  ...OffersRoutes,
+  ...PreviewRoutes,
+  ...CompaniesRoutes,
+  ...CartRoutes,
   ...UserRoutes,
   ...CompanyRoutes,
   ...TestRoutes

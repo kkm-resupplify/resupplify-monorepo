@@ -1,9 +1,11 @@
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
+import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 
 export interface Offer {
   id: number
   status: number
   price: number
+  company: CompanyData
   productQuantity: number
   warehouseQuantity: number
   product: Product
@@ -19,6 +21,8 @@ export interface OfferFiltersParams {
   categoryId?: string | number
   subcategoryId?: string | number
   status?: string | number
+  dateEnd?: string
+  price?: string | number
 }
 
 export interface CreateOffer {

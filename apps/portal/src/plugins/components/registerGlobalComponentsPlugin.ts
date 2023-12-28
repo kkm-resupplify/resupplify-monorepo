@@ -56,6 +56,7 @@ import MStepper from '@sharedMolecules/stepper/MStepper.vue'
 import MStepperStepContent from '@sharedMolecules/stepper/items/MStepperStepContent.vue'
 import MSelect from '@sharedMolecules/select/MSelect.vue'
 import MIcon from '@sharedMolecules/icon/MIcon.vue'
+import MSimpleTabs from '@sharedMolecules/tab/MSimpleTabs.vue'
 import MNavigationTabs from '@sharedMolecules/tab/MNavigationTabs.vue'
 import MNavigationTabsItem from '@sharedMolecules/tab/MNavigationTabsItem.vue'
 import MTile from '@sharedMolecules/tile/MTile.vue'
@@ -72,6 +73,7 @@ const molecules = [
   MStepperStepContent,
   MSelect,
   MIcon,
+  MSimpleTabs,
   MNavigationTabs,
   MNavigationTabsItem,
   MTile,
