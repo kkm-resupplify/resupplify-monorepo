@@ -17,7 +17,7 @@
         <template v-else>
           <companies-list v-if="showList" :companies="companies" />
 
-          <a-list-no-results v-else :text="$t(`common.company.list.${noResultsTranslationKey}`)" />
+          <a-list-no-results v-else :text="$t(`companies.list.${noResultsTranslationKey}`)" />
         </template>
 
         <!-- <o-pagination :pagination="paginationData" @page-changed="handleFetchCompanies" /> -->
@@ -55,6 +55,8 @@ const filtersUsed = computed(() => {
 })
 
 const noResultsTranslationKey = computed(() => {
-  return companies.value.length === 0 && filtersUsed.value ? 'noOffersMatchingFilter' : 'noOffers'
+  return companies.value.length === 0 && filtersUsed.value
+    ? 'noCompaniesMatchingFilter'
+    : 'noCompanies'
 })
 </script>
