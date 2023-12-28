@@ -662,6 +662,36 @@
             "offerSameDate": "The selected stock item already has an active offer."
           }
         }
+      },
+
+      "order": {
+        "id": "Order ID",
+        "buyer": "Buyer",
+        "seller": "Seller",
+        "totalPrice": "Total cost",
+        "datePlaced": "Date placed",
+        "lastUpdate": "Last update",
+        "noOrdersSold": "Your company has not sold any offers yet.",
+        "noOrdersBought": "Your company has not placed any orders yet.",
+        "noOrdersMatchingFilter": "No orders match the provided filters.",
+
+        "item": {
+          "viewDetails": "View details"
+        },
+
+        "status": {
+          "title": "Order status",
+          "0": "Placed",
+          "1": "Processing",
+          "2": "Shipped",
+          "3": "Intransit",
+          "4": "Completed",
+          "5": "Cancelled",
+          "6": "Refunded",
+          "7": "Rejected",
+          "8": "Suspended",
+          "9": "Inactive"
+        }
       }
     },
 
@@ -676,6 +706,13 @@
     "header": {
       "title": "Browse offers",
       "description": "Browse offers from companies registered on our platform. Each product on Resupplify undergoes thorough verification, ensuring the credibility of offers provided by businesses. Shop with confidence, knowing that our commitment to excellence serves your company"
+    }
+  },
+
+  "companies": {
+    "header": {
+      "title": "Browse companies",
+      "description": "Browse companies registered on our platform. Each of them on Resuplify undergoes thorough verification to ensure it's legitimacy. You can browse the offers of individual companies by selecting them from the list below."
     }
   },
 

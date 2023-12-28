@@ -661,6 +661,36 @@
             "offerSameDate": "Wybrana pozycja magazynowa ma już aktywną ofertę."
           }
         }
+      },
+
+      "order": {
+        "id": "ID zamówienia",
+        "buyer": "Kupujący",
+        "seller": "Sprzedawca",
+        "totalPrice": "Łączny koszt",
+        "datePlaced": "Data złożenia",
+        "lastUpdate": "Ostatnia aktualizacja",
+        "noOrdersSold": "Twoja firma nie sprzedała jeszcze żadnych ofert.",
+        "noOrdersBought": "Twoja firma nie złożyła jeszcze żadnych zamówień.",
+        "noOrdersMatchingFilter": "Brak zamówień dla podanych filtrów.",
+
+        "item": {
+          "viewDetails": "Zobacz szczegóły"
+        },
+
+        "status": {
+          "title": "Status zamówienia",
+          "0": "Złożone",
+          "1": "Przetwarzanie",
+          "2": "Wysłane",
+          "3": "W drodze",
+          "4": "Zakończone",
+          "5": "Anulowane",
+          "6": "Zwrócone",
+          "7": "Odrzucone",
+          "8": "Zawieszone",
+          "9": "Nieaktywne"
+        }
       }
     },
 
@@ -675,6 +705,13 @@
     "header": {
       "title": "Przeglądaj oferty",
       "description": "Przeglądaj oferty firm zarejestrowanych w naszej platformie. Każda produkt na Resupplify przechodzi szczegółową weryfikację, zapewniając wiarygodność ofert wystawianych przez firmy. Kupuj z pewnością, wiedząc, że nasze zaangażowanie w doskonałość służy Twojej firmie."
+    }
+  },
+
+  "companies": {
+    "header": {
+      "title": "Przeglądaj firmy",
+      "description": "Przeglądaj firmy zarejestrowane na naszej platformie. Każda z nich na Resupplify przechodzi wnikliwą weryfikację, aby mieć pewność, że jest legalnie zarejestrowana. Oferty poszczególnych firm możesz przeglądać wybierając je z poniższej listy."
     }
   },
 
