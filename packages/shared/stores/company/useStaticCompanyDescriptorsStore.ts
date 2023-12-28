@@ -16,7 +16,7 @@ export const useStaticCompanyDescriptorsStore = defineStore({
     getCompanyCategories: (state) =>
       state.companyCategories.map((item) => ({
         id: item.id,
-        text: item.name
+        text: item.name.toLowerCase().replace(/_([a-z])/g, (_, match) => match.toUpperCase())
       }))
   },
 

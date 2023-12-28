@@ -21,7 +21,7 @@
           name="categoryId"
           :label="$t('companies.filters.categoryLabel')"
           :placeholder="$t('companies.filters.categoryPlaceholder')"
-          :options="staticCompanyDescriptionStore.getCompanyCategories"
+          :options="companyCategories"
           :validate="false"
           width="20%"
         />
@@ -48,6 +48,8 @@ import { onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import StaticCompanyDescriptorsService from '@/services/company/StaticCompanyDescriptorsService'
 import { useStaticCompanyDescriptorsStore } from '@sharedStores/company/useStaticCompanyDescriptorsStore'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 // Emits
 const emits = defineEmits(['filter'])
@@ -58,6 +60,15 @@ const form = ref<typeof OFormVue>()
 const { setQueryParam } = useQueryFilter()
 const initialFilterParams = ref<CompaniesFiltersParams>()
 const staticCompanyDescriptionStore = useStaticCompanyDescriptorsStore()
+const { t } = useI18n()
+
+// Computed
+const companyCategories = computed(() => {
+  return staticCompanyDescriptionStore.getCompanyCategories.map((item) => ({
+    id: item.id,
+    text: t(`company.categories.${item.text}`)
+  }))
+})
 
 // Methods
 const handleClearSearch = async () => {
