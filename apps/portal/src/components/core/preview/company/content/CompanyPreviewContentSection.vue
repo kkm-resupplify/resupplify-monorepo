@@ -1,6 +1,6 @@
 <template>
   <a-panel-section>
-    <div>Offer filters</div>
+    <offer-filters @filter="handleFetchOffers" />
 
     <a-line />
 
@@ -20,6 +20,7 @@
 import router from '@/routes'
 import CompanyPreviewService from '@/services/preview/company/CompanyPreviewService'
 import OfferList from '@/components/common/offer/OfferList.vue'
+import OfferFilters from '@/components/common/offer/OfferFilters.vue'
 import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import { computed, ref, onBeforeMount } from 'vue'

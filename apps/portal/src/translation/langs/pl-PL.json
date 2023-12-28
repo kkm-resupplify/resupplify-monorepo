@@ -38,7 +38,8 @@
     "dateEnd": "Data zakończenia",
     "ascending": "Rosnąco",
     "descending": "Malejąco",
-    "viewDetails": "Pokaż szczegóły"
+    "viewDetails": "Pokaż szczegóły",
+    "visitProfile": "Odwiedź profil"
   },
 
   "language": {
@@ -669,6 +670,31 @@
       "email": "Email",
       "phone": "Numer kontaktowy",
       "address": "Adres"
+    },
+
+    "categories": {
+      "beverages": "Napoje",
+      "snacks": "Przekąski",
+      "personalCare": "Higiena osobista",
+      "householdEssentials": "Artykuły gospodarstwa domowego",
+      "frozenFoods": "Zamrożone jedzenie",
+      "dairyProducts": "Nabiał",
+      "bakeryAndConfectionery": "Piekarnia i cukiernia",
+      "cannedGoods": "Konserwy",
+      "healthAndWellness": "Zdrowie i dobra kondycja",
+      "babyCare": "Opieka nad dzieckiem",
+      "petCare": "Opieki nad zwierzętami",
+      "cleaningSupplies": "Środki czystości",
+      "toiletries": "Produkty toaletowe",
+      "paperProducts": "Papierowe produkty",
+      "cosmetics": "Papierowe produkty",
+      "spicesAndCondiments": "Przyprawy i dodatki",
+      "breakfastFoods": "Produkty śniadaniowe",
+      "instantNoodlesAndPasta": "Makarony błyskawiczne i makarony",
+      "cookingOils": "Oleje kuchenne",
+      "saucesAndMarinades": "Sosy i marynaty",
+      "nutritionalSupplements": "Suplementy diety",
+      "officeAndSchoolSupplies": "Artykuły biurowe i szkolne"
     }
   },
 
@@ -683,6 +709,18 @@
     "header": {
       "title": "Przeglądaj firmy",
       "description": "Przeglądaj firmy zarejestrowane na naszej platformie. Każda z nich na Resupplify przechodzi wnikliwą weryfikację, aby mieć pewność, że jest legalnie zarejestrowana. Oferty poszczególnych firm możesz przeglądać wybierając je z poniższej listy."
+    },
+
+    "list": {
+      "noCompaniesMatchingFilter": "Nie znaleziono firm dla podanych parametrów",
+      "noCompanies": "Nie udało się znaleźć żadnych firm"
+    },
+
+    "filters": {
+      "nameLabel": "Nazwa firmy",
+      "namePlaceholder": "Wpisz nazwę firmy",
+      "categoryLabel": "Kategoria firmy",
+      "categoryPlaceholder": "Wybierz kategorię firmy"
     }
   },
 

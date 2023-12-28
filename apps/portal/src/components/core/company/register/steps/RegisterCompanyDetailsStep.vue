@@ -16,7 +16,7 @@
             />
 
             <m-select
-              :options="companyCategoryList"
+              :options="companyCategories"
               name="companyCategoryId"
               rules="required"
               :label="$t('company.register.form.details.companyCategoryLabel')"
@@ -54,12 +54,26 @@
 import { computed } from 'vue'
 import type { RegisterCompanyDetailsStep } from '@sharedInterfaces/company/RegisterCompanyInterface'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
+import StaticCompanyDescriptorsService from '@/services/company/StaticCompanyDescriptorsService'
+import { useStaticCompanyDescriptorsStore } from '@sharedStores/company/useStaticCompanyDescriptorsStore'
+import { useI18n } from 'vue-i18n'
+import { onBeforeMount } from 'vue'
 
 // Emits
 const emits = defineEmits(['next-step', 'previous-step'])
 
 // Variables
 const registerCompanyStore = useRegisterCompanyStore()
+const staticCompanyDescriptionStore = useStaticCompanyDescriptorsStore()
+const { t } = useI18n()
+
+// Computed
+const companyCategories = computed(() => {
+  return staticCompanyDescriptionStore.getCompanyCategories.map((item) => ({
+    id: item.id,
+    text: t(`company.categories.${item.text}`)
+  }))
+})
 
 // Methods
 const handleNextStep = async (values: RegisterCompanyDetailsStep) => {
@@ -71,31 +85,9 @@ const handlePreviousStep = () => {
   emits('previous-step')
 }
 
-const companyCategoryList = computed(() => {
-  return [
-    { id: 1, text: 'Beverages' },
-    { id: 2, text: 'Snacks' },
-    { id: 3, text: 'Personal Care' },
-    { id: 4, text: 'Household Essentials' },
-    { id: 5, text: 'Frozen Foods' },
-    { id: 6, text: 'Dairy Products' },
-    { id: 7, text: 'Bakery and Confectionery' },
-    { id: 8, text: 'Canned Goods' },
-    { id: 9, text: 'Health and Wellness' },
-    { id: 10, text: 'Baby Care' },
-    { id: 11, text: 'Pet Care' },
-    { id: 12, text: 'Cleaning Supplies' },
-    { id: 13, text: 'Toiletries' },
-    { id: 14, text: 'Paper Products' },
-    { id: 15, text: 'Cosmetics' },
-    { id: 16, text: 'Spices and Condiments' },
-    { id: 17, text: 'Breakfast Foods' },
-    { id: 18, text: 'Instant Noodles and Pasta' },
-    { id: 19, text: 'Cooking Oils' },
-    { id: 20, text: 'Sauces and Marinades' },
-    { id: 21, text: 'Nutritional Supplements' },
-    { id: 22, text: 'Office and School Supplies' }
-  ]
+// Hooks
+onBeforeMount(async () => {
+  await StaticCompanyDescriptorsService.getCategories()
 })
 </script>
 
