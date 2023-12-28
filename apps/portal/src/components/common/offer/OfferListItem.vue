@@ -64,7 +64,7 @@
         />
 
         <a-button
-          :text="$t('global.visitProfile')"
+          :text="$t('global.seeDetails')"
           size="x-large"
           :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
         />
