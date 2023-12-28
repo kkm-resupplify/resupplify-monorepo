@@ -671,6 +671,9 @@
         "totalPrice": "Total cost",
         "datePlaced": "Date placed",
         "lastUpdate": "Last update",
+        "noOrdersSold": "Your company has not sold any offers yet.",
+        "noOrdersBought": "Your company has not placed any orders yet.",
+        "noOrdersMatchingFilter": "No orders match the provided filters.",
 
         "item": {
           "viewDetails": "View details"

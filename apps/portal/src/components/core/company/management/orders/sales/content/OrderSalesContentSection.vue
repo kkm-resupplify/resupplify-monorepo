@@ -9,7 +9,7 @@
     <template v-else>
       <order-list v-if="showList" :orders="orders" type="sold" />
 
-      <a-list-no-results v-else :text="$t(`common.order.list.${noResultsTranslationKey}`)" />
+      <a-list-no-results v-else :text="$t(`company.management.order.${noResultsTranslationKey}`)" />
     </template>
 
     <o-pagination :pagination="paginationData" @page-changed="handleFetchOrders" />
@@ -43,7 +43,9 @@ const filtersUsed = computed(() => {
 })
 
 const noResultsTranslationKey = computed(() => {
-  return orders.value.length === 0 && filtersUsed.value ? 'noOffersMatchingFilter' : 'noOffers'
+  return orders.value.length === 0 && filtersUsed.value
+    ? 'company.management.order.noOrdersMatchingFilter'
+    : 'noOrdersSold'
 })
 
 // Methods

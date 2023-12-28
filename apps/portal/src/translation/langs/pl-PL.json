@@ -670,6 +670,9 @@
         "totalPrice": "Łączny koszt",
         "datePlaced": "Data złożenia",
         "lastUpdate": "Ostatnia aktualizacja",
+        "noOrdersSold": "Twoja firma nie sprzedała jeszcze żadnych ofert.",
+        "noOrdersBought": "Twoja firma nie złożyła jeszcze żadnych zamówień.",
+        "noOrdersMatchingFilter": "Brak zamówień dla podanych filtrów.",
 
         "item": {
           "viewDetails": "Zobacz szczegóły"
