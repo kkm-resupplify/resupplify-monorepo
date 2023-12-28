@@ -816,7 +816,7 @@
         "categoryLabel": "Kategoria produktu",
         "categoryPlaceholder": "Wybierz kategorię produktu",
         "subcategoryLabel": "Podkategoria produktu",
-        "subcategoryPlaceholder": "Wybierz kategorię produktu",
+        "subcategoryPlaceholder": "Wybierz podkategorię produktu",
         "statusLabel": "Status oferty",
         "statusPlaceholder": "Wybierz status oferty",
         "endDateLabel": "Data zakończenia oferty",
@@ -833,6 +833,19 @@
           "ascending": "Rosnąco",
           "descending": "Malejąco"
         }
+      }
+    },
+
+    "order": {
+      "filters": {
+        "nameLabel": "Nazwa produktu",
+        "namePlaceholder": "Podaj nazwę produktu",
+        "categoryLabel": "Kategoria produktu",
+        "categoryPlaceholder": "Wybierz kategorię produktu",
+        "subcategoryLabel": "Podkategoria produktu",
+        "subcategoryPlaceholder": "Wybierz podkategorię produktu",
+        "statusLabel": "Status zamówienia",
+        "statusPlaceholder": "Wybierz status zamówienia"
       }
     }
   },
