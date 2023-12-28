@@ -67,8 +67,8 @@ defineProps({
   &__company {
     display: flex;
     gap: $global-spacing-50;
-    white-space: nowrap;
     margin-top: $global-spacing-50;
+    white-space: nowrap;
   }
 
   &__company-information {

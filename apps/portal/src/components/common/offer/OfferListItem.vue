@@ -63,6 +63,15 @@
           append-colon
         />
 
+        <router-link
+          :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
+          :style="{
+            textDecoration: 'none'
+          }"
+        >
+          <a-button :text="$t('global.visitProfile')" size="x-large" />
+        </router-link>
+
         <a-button :text="buttonText" size="x-large" @click="handleAddToCart" />
       </div>
     </div>
@@ -75,6 +84,7 @@ import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
 import { type PropType, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { RouteNames } from '@/routes'
 const props = defineProps({
   offer: {
     type: Object as PropType<Offer>,
