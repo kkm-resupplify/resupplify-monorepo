@@ -1,5 +1,10 @@
 <template>
-  <o-form ref="form" class="order-filters" :submit-callback="handleQuerySubmit">
+  <o-form
+    ref="form"
+    class="order-filters"
+    :submit-callback="handleQuerySubmit"
+    :initial-values="initialFilterParams"
+  >
     <template #body>
       <div class="order-filters__inputs">
         <m-text-field
@@ -31,7 +36,7 @@
         />
 
         <m-select
-          name="endedAt"
+          name="status"
           :label="$t('common.order.filters.statusLabel')"
           :placeholder="$t('common.order.filters.statusPlaceholder')"
           :options="statusFiltersOptions"
@@ -71,6 +76,7 @@ const staticProductDescriptorsStore = useStaticProductDescriptorsStore()
 const subcategoryRef = ref<typeof MSelectItem>()
 const selectedCategoryId = ref<number | null>()
 const route = useRoute()
+const initialFilterParams = ref<OrderFiltersParams>()
 const { setQueryParam } = useQueryFilter()
 const { t } = useI18n()
 const form = ref<typeof OFormVue>()
@@ -102,6 +108,15 @@ const handleClearSearch = async () => {
   form.value?.resetField('name', null)
 }
 
+const setInitialFormValues = () => {
+  initialFilterParams.value = {
+    name: route.query.name ? route.query.name.toString() : undefined,
+    categoryId: route.query.categoryId ? +route.query.categoryId : undefined,
+    subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined,
+    status: route.query.status ? route.query.status.toString() : undefined
+  }
+}
+
 const handleQuerySubmit = async (filters: OrderFiltersParams) => {
   await setQueryParam(route, filters)
 
@@ -112,6 +127,8 @@ const handleQuerySubmit = async (filters: OrderFiltersParams) => {
 onBeforeMount(async () => {
   await StaticProductDescriptorsService.getCategories()
   await StaticProductDescriptorsService.getSubcategories()
+
+  setInitialFormValues()
 })
 </script>
 
