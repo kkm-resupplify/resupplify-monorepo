@@ -3,7 +3,7 @@
     <div class="order-item-list-item__header">
       <a-image
         :src="orderItem.offer.product.image"
-        :alt="$t('cart.main.content.groups.list.item.imageAlt')"
+        :alt="orderItem.offer.product.name"
         :width="60"
         :height="60"
         variant="rounded-sm"
@@ -22,7 +22,19 @@
         :value="pricePerUnit"
         :title="$t('global.pricePerUnit')"
         vertical
-        line-height="1"
+      />
+
+      <a-list-item-title-section
+        :title="$t('cart.main.content.groups.list.item.quantity')"
+        :value="quantity"
+        :basis="15"
+      />
+
+      <a-currency
+        title-size="x-normal"
+        :value="totalCost"
+        :title="$t('cart.main.content.groups.list.item.totalPrice')"
+        vertical
       />
     </div>
   </div>
@@ -43,6 +55,14 @@ const props = defineProps({
 // Computed
 const pricePerUnit = computed(() => {
   return props.orderItem.offer.price
+})
+
+const quantity = computed(() => {
+  return props.orderItem.quantity
+})
+
+const totalCost = computed(() => {
+  return quantity.value * pricePerUnit.value
 })
 </script>
 
@@ -71,7 +91,9 @@ const pricePerUnit = computed(() => {
 
   &__content {
     display: flex;
+    flex: 1;
     gap: $global-spacing-50;
+    justify-content: flex-end;
   }
 
   &__content-section {
