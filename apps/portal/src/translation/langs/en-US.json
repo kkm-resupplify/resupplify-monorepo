@@ -665,6 +665,31 @@
       "email": "Email",
       "phone": "Phone number",
       "address": "Address"
+    },
+
+    "categories": {
+      "beverages": "Beverages",
+      "snacks": "Snacks",
+      "personalCare": "Personal care",
+      "householdEssentials": "Household essentials",
+      "frozenFoods": "Frozen foods",
+      "dairyProducts": "Dairy products",
+      "bakeryAndConfectionery": "Bakery and confectionery",
+      "cannedGoods": "Canned goods",
+      "healthAndWellness": "Health and wellness",
+      "babyCare": "Baby care",
+      "petCare": "Pet care",
+      "cleaningSupplies": "Cleaning supplies",
+      "toiletries": "Toiletries",
+      "paperProducts": "Paper products",
+      "cosmetics": "Cosmetics",
+      "spicesAndCondiments": "Spices and condiments",
+      "breakfastFoods": "Breakfast foods",
+      "instantNoodlesAndPasta": "Instant noodles and pasta",
+      "cookingOils": "Cooking oils",
+      "saucesAndMarinades": "Sauces and marinades",
+      "nutritionalSupplements": "Nutritional supplements",
+      "officeAndSchoolSupplies": "Office and school supplies"
     }
   },
 
@@ -684,6 +709,13 @@
     "list": {
       "noCompaniesMatchingFilter": "No companies found for given parameters",
       "noCompanies": "Could not find any companies"
+    },
+
+    "filters": {
+      "nameLabel": "Company name",
+      "namePlaceholder": "Enter company name",
+      "categoryLabel": "Company category",
+      "categoryPlaceholder": "Select company category"
     }
   },
 
