@@ -1,27 +1,29 @@
 <template>
   <basic-view-layout>
     <template #body>
-      <a-panel-section>
-        <a-title :title="$t('companies.header.title')" size="x-large" />
+      <a-panel width="auto">
+        <a-panel-section>
+          <a-title :title="$t('companies.header.title')" size="x-large" />
 
-        <a-title :title="$t('companies.header.description')" />
-      </a-panel-section>
+          <a-title :title="$t('companies.header.description')" />
+        </a-panel-section>
 
-      <a-panel-section>
-        <div>companies-filters</div>
+        <a-panel-section>
+          <div>companies-filters</div>
 
-        <a-line />
+          <a-line />
 
-        <template v-if="isLoading">implement-loader-here</template>
+          <template v-if="isLoading">implement-loader-here</template>
 
-        <template v-else>
-          <companies-list v-if="showList" :companies="companies" />
+          <template v-else>
+            <companies-list v-if="showList" :companies="companies" />
 
-          <a-list-no-results v-else :text="$t(`companies.list.${noResultsTranslationKey}`)" />
-        </template>
+            <a-list-no-results v-else :text="$t(`companies.list.${noResultsTranslationKey}`)" />
+          </template>
 
-        <!-- <o-pagination :pagination="paginationData" @page-changed="handleFetchCompanies" /> -->
-      </a-panel-section>
+          <!-- <o-pagination :pagination="paginationData" @page-changed="handleFetchCompanies" /> -->
+        </a-panel-section>
+      </a-panel>
     </template>
   </basic-view-layout>
 </template>
