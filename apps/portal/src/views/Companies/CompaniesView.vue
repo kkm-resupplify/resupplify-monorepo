@@ -1,7 +1,7 @@
 <template>
   <basic-view-layout>
     <template #body>
-      <a-panel>
+      <a-panel width="auto">
         <a-panel-section>
           <a-title :title="$t('companies.header.title')" size="x-large" />
 
