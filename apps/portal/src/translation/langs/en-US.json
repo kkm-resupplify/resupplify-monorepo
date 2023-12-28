@@ -656,6 +656,11 @@
           "alert": {
             "offerSameDate": "The selected stock item already has an active offer."
           }
+        },
+
+        "preview": {
+          "productDetails": "Product details",
+          "sellerInformation": "Seller information"
         }
       }
     },

@@ -655,6 +655,11 @@
           "alert": {
             "offerSameDate": "Wybrana pozycja magazynowa ma już aktywną ofertę."
           }
+        },
+
+        "preview": {
+          "productDetails": "Szczegóły produktu",
+          "sellerInformation": "Informacje o sprzedawcy"
         }
       }
     },
