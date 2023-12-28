@@ -16,8 +16,9 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Emits
 const emits = defineEmits(['toggle'])
-const slots = useSlots()
+
 // Variables
+const slots = useSlots()
 const baseClass = 'a-expansion-panel'
 const { generateClassNames } = useClassComposable()
 const showContent = ref<boolean>(false)
@@ -27,14 +28,15 @@ const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
 
+const renderContent = computed(() => {
+  return showContent.value && slots.content
+})
+
+// Methods
 const toggleShowContent = () => {
   showContent.value = !showContent.value
   emits('toggle', showContent.value)
 }
-
-const renderContent = computed(() => {
-  return showContent.value && slots.content
-})
 </script>
 
 <style lang="scss" scoped>
