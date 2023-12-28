@@ -63,14 +63,11 @@
           append-colon
         />
 
-        <router-link
+        <a-button
+          :text="$t('global.visitProfile')"
+          size="x-large"
           :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
-          :style="{
-            textDecoration: 'none'
-          }"
-        >
-          <a-button :text="$t('global.visitProfile')" size="x-large" />
-        </router-link>
+        />
 
         <a-button :text="buttonText" size="x-large" @click="handleAddToCart" />
       </div>
