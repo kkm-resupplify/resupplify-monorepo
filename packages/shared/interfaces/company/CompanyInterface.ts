@@ -20,3 +20,8 @@ export interface CompanyDetailsData {
   tin: string
   externalWebsite: string
 }
+
+export interface CompanyCategory {
+  id: number | string
+  name: string
+}

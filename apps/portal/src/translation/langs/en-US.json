@@ -664,6 +664,31 @@
       "email": "Email",
       "phone": "Phone number",
       "address": "Address"
+    },
+
+    "categories": {
+      "beverages": "Beverages",
+      "snacks": "Snacks",
+      "personalCare": "Personal care",
+      "householdEssentials": "Household essentials",
+      "frozenFoods": "Frozen foods",
+      "dairyProducts": "Dairy products",
+      "bakeryAndConfectionery": "Bakery and confectionery",
+      "cannedGoods": "Canned goods",
+      "healthAndWellness": "Health and wellness",
+      "babyCare": "Baby care",
+      "petCare": "Pet care",
+      "cleaningSupplies": "Cleaning supplies",
+      "toiletries": "Toiletries",
+      "paperProducts": "Paper products",
+      "cosmetics": "Cosmetics",
+      "spicesAndCondiments": "Spices and condiments",
+      "breakfastFoods": "Breakfast foods",
+      "instantNoodlesAndPasta": "Instant noodles and pasta",
+      "cookingOils": "Cooking oils",
+      "saucesAndMarinades": "Sauces and marinades",
+      "nutritionalSupplements": "Nutritional supplements",
+      "officeAndSchoolSupplies": "Office and school supplies"
     }
   },
 
@@ -678,6 +703,13 @@
     "header": {
       "title": "Browse companies",
       "description": "Browse companies registered on our platform. Each of them on Resuplify undergoes thorough verification to ensure it's legitimacy. You can browse the offers of individual companies by selecting them from the list below."
+    },
+
+    "filters": {
+      "nameLabel": "Company name",
+      "namePlaceholder": "Enter company name",
+      "categoryLabel": "Company category",
+      "categoryPlaceholder": "Select company category"
     }
   },
 
