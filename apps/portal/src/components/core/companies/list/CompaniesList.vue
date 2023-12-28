@@ -1,5 +1,5 @@
 <template>
-  <a-list>
+  <a-list class="companies-list">
     <companies-list-item v-for="company in companies" :key="company.id" :company="company" />
   </a-list>
 </template>
@@ -13,3 +13,9 @@ defineProps({
   companies: Array as PropType<CompanyData[]>
 })
 </script>
+
+<style lang="scss" scoped>
+.companies-list {
+  padding-right: 0;
+}
+</style>
