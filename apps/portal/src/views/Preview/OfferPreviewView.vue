@@ -8,7 +8,7 @@
           <offer-preview-header-section :offer="offer" />
 
           <offer-preview-content-section
-            :details="offer?.product.description"
+            :product-details="offer?.product.description"
             :company="offer?.company"
           />
         </template>
