@@ -63,13 +63,13 @@
           append-colon
         />
 
+        <a-button :text="buttonText" size="x-large" @click="handleAddToCart" />
+
         <a-button
           :text="$t('global.seeDetails')"
           size="x-large"
           :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
         />
-
-        <a-button :text="buttonText" size="x-large" @click="handleAddToCart" />
       </div>
     </div>
   </a-list-item-wrapper>
