@@ -10,9 +10,6 @@ import CompaniesListItem from './CompaniesListItem.vue'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 
 defineProps({
-  companies: {
-    type: Array as PropType<CompanyData[]>,
-    required: true
-  }
+  companies: Array as PropType<CompanyData[]>
 })
 </script>
