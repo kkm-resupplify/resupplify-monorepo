@@ -38,7 +38,9 @@
     "dateEnd": "End date",
     "ascending": "Ascending",
     "descending": "Descending",
-    "visitProfile": "Visit profile"
+    "viewDetails": "View details",
+    "visitProfile": "Visit profile",
+    "seeDetails": "See details"
   },
 
   "language": {
@@ -657,6 +659,11 @@
           "alert": {
             "offerSameDate": "The selected stock item already has an active offer."
           }
+        },
+
+        "preview": {
+          "productDetails": "Product details",
+          "sellerInformation": "Seller information"
         }
       }
     },

@@ -98,6 +98,8 @@ const generateClasses = computed(() => {
 }
 
 .a-link {
+  width: fit-content;
+
   // Size
   &--normal {
     @include size($button-font-size-nm);

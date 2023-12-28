@@ -38,7 +38,9 @@
     "dateEnd": "Data zakończenia",
     "ascending": "Rosnąco",
     "descending": "Malejąco",
-    "visitProfile": "Odwiedź profil"
+    "viewDetails": "Pokaż szczegóły",
+    "visitProfile": "Odwiedź profil",
+    "seeDetails": "Zobacz szczegóły"
   },
 
   "language": {
@@ -656,6 +658,11 @@
           "alert": {
             "offerSameDate": "Wybrana pozycja magazynowa ma już aktywną ofertę."
           }
+        },
+
+        "preview": {
+          "productDetails": "Szczegóły produktu",
+          "sellerInformation": "Informacje o sprzedawcy"
         }
       }
     },

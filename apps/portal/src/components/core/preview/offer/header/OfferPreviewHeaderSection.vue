@@ -1,27 +1,21 @@
 <template>
-  <a-list-item-wrapper class="offer-list-item">
-    <a-image
-      :src="offer.product.image"
-      :width="120"
-      :height="120"
-      :alt="$t('common.offer.list.item.imageAlt')"
-      variant="rounded"
-      class="offer-list-item__image"
-    />
+  <a-panel-section class="offer-preview-header-section">
+    <a-title :title="offer.product.name" size="xx-large" />
 
-    <div class="offer-list-item__information">
-      <div class="offer-list-item__product-information">
+    <a-title :title="offer.product.code" />
+
+    <div class="offer-preview-header-section__information">
+      <a-image
+        :src="offer.product.image"
+        :width="120"
+        :height="120"
+        :alt="$t('common.offer.list.item.imageAlt')"
+        variant="rounded"
+      />
+      <div class="offer-preview-header-section__product-information">
         <a-title
           :title="$t('common.offer.list.item.product.name')"
           :subtitle="offer.product.name"
-          variant="horizontal"
-          append-colon
-        />
-
-        <a-title
-          v-if="showCompanyName"
-          :title="$t('common.offer.list.item.company')"
-          :subtitle="offer.company.name"
           variant="horizontal"
           append-colon
         />
@@ -43,8 +37,8 @@
         <product-tag-list :product-tags="offer.product.productTags" />
       </div>
 
-      <div class="offer-list-item__order-information">
-        <div class="offer-list-item__order-price">
+      <div class="offer-preview-header-section__order-information">
+        <div class="offer-preview-header-section__order-price">
           <a-title :title="$t('common.offer.list.item.price')" variant="horizontal" append-colon />
 
           <a-currency :value="offer.price" size="small" />
@@ -64,64 +58,44 @@
           append-colon
         />
 
-        <a-button :text="buttonText" size="x-large" @click="handleAddToCart" />
-
-        <a-button
-          :text="$t('global.seeDetails')"
-          size="x-large"
-          :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
-        />
+        <a-button :text="$t('global.addToCart')" size="x-large" @click="handleAddToCart" />
       </div>
     </div>
-  </a-list-item-wrapper>
+  </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import { useUserCartStore } from '@stores/user/useUserCartStore'
+import { useUserCartStore } from '@/stores/user/useUserCartStore'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
-import ProductTagList from '@/components/common/product/ProductTagList.vue'
-import { type PropType, computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { RouteNames } from '@/routes'
+import { computed, type PropType } from 'vue'
+
 const props = defineProps({
-  offer: {
-    type: Object as PropType<Offer>,
-    required: true
-  },
-  showCompanyName: {
-    type: Boolean,
-    default: true
-  }
+  offer: { type: Object as PropType<Offer>, required: true }
 })
 
 // Variables
 const userCartStore = useUserCartStore()
-const { t } = useI18n()
 
 // Computed
-const isOfferInCart = computed(() => userCartStore.isOfferInCart(props.offer))
-
-const buttonText = computed(() => {
-  return isOfferInCart.value ? t('global.removeCartItem') : t('global.addToCart')
-})
+const isOfferInCart = computed(() => props.offer && userCartStore.isOfferInCart(props.offer))
 
 // Methods
 const handleAddToCart = () => {
+  if (!props.offer) return
   if (isOfferInCart.value) userCartStore.removeCartItem(props.offer.id)
   else userCartStore.addToCart(props.offer)
 }
 </script>
 
 <style scoped lang="scss">
-.offer-list-item {
-  &__image {
-    align-self: flex-start;
-  }
-
+.offer-preview-header-section {
   &__information {
     display: flex;
-    justify-content: space-between;
+    gap: $global-spacing-50;
+
     width: 100%;
+    margin-top: $global-spacing-70;
+
     white-space: nowrap;
   }
 
@@ -135,6 +109,9 @@ const handleAddToCart = () => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
+    align-items: flex-end;
+
+    margin-left: auto;
   }
 
   &__order-price {
