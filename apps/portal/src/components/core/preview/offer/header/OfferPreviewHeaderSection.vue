@@ -1,6 +1,9 @@
 <template>
   <a-panel-section class="offer-preview-header-section">
-    <a-title :title="offer?.product.name" :subtitle="offer?.product.code" size="xx-large" />
+    <a-title :title="offer?.product.name" size="xx-large" />
+
+    <a-title :title="offer?.product.code" />
+
     <div class="offer-preview-header-section__information">
       <a-image
         :src="offer?.product.image"
@@ -115,6 +118,7 @@ const handleAddToCart = () => {
     flex-direction: column;
     gap: $global-spacing-20;
     margin-left: auto;
+    align-items: flex-end;
   }
 
   &__order-price {
