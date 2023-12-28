@@ -62,19 +62,34 @@
           append-colon
         />
 
-        <a-button :text="$t('global.addToCart')" size="x-large" />
+        <a-button :text="$t('global.addToCart')" size="x-large" @click="handleAddToCart" />
       </div>
     </div>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
+import { useUserCartStore } from '@/stores/user/useUserCartStore'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
+import { computed } from 'vue'
 import { type PropType } from 'vue'
 
-defineProps({
+const props = defineProps({
   offer: Object as PropType<Offer>
 })
+
+// Variables
+const userCartStore = useUserCartStore()
+
+// Computed
+const isOfferInCart = computed(() => props.offer && userCartStore.isOfferInCart(props.offer))
+
+// Methods
+const handleAddToCart = () => {
+  if (!props.offer) return
+  if (isOfferInCart.value) userCartStore.removeCartItem(props.offer.id)
+  else userCartStore.addToCart(props.offer)
+}
 </script>
 
 <style scoped lang="scss">
