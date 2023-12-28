@@ -13,6 +13,7 @@
           :placeholder="$t('companies.filters.namePlaceholder')"
           :validate="false"
           append-icon-on="close"
+          width="30%"
           @append-icon-click="handleClearSearch"
         />
 
@@ -22,6 +23,7 @@
           :placeholder="$t('companies.filters.categoryPlaceholder')"
           :options="companyCategoryList"
           :validate="false"
+          width="20%"
         />
       </div>
     </template>
