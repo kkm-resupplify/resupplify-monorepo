@@ -6,6 +6,7 @@
       :height="120"
       :alt="$t('common.offer.list.item.imageAlt')"
       variant="rounded"
+      class="offer-list-item__image"
     />
 
     <div class="offer-list-item__information">
@@ -113,6 +114,10 @@ const handleAddToCart = () => {
 
 <style scoped lang="scss">
 .offer-list-item {
+  &__image {
+    align-self: flex-start;
+  }
+
   &__information {
     display: flex;
     justify-content: space-between;
