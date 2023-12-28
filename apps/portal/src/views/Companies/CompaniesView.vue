@@ -51,10 +51,10 @@ const showList = computed(() => {
 
 const filtersUsed = computed(() => {
   const {
-    query: { page, name, categoryId, subcategoryId, status, price, dateEnd }
+    query: { page, name, categoryId }
   } = route
 
-  return !!(page !== '1' || (name ?? categoryId ?? subcategoryId ?? status ?? price ?? dateEnd))
+  return !!(page !== '1' || (name ?? categoryId))
 })
 
 const noResultsTranslationKey = computed(() => {
