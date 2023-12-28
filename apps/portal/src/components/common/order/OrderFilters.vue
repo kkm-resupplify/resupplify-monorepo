@@ -49,7 +49,7 @@
       <div class="order-filters__buttons">
         <a-button button-type="submit" :text="$t('global.search')" size="x-large" />
 
-        <a-button :text="$t('global.reset')" size="x-large" />
+        <a-button :text="$t('global.reset')" size="x-large" @click="handleResetFilters" />
       </div>
     </template>
   </o-form>
@@ -115,6 +115,24 @@ const setInitialFormValues = () => {
     subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined,
     status: route.query.status ? route.query.status.toString() : undefined
   }
+}
+
+const handleResetFilters = async () => {
+  form.value?.handleReset()
+  initialFilterParams.value = {
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined,
+    status: undefined
+  }
+
+  await handleQuerySubmit({
+    page: '1',
+    name: undefined,
+    categoryId: undefined,
+    subcategoryId: undefined,
+    status: undefined
+  })
 }
 
 const handleQuerySubmit = async (filters: OrderFiltersParams) => {
