@@ -18,6 +18,7 @@
         :alt="$t('common.offer.list.item.imageAlt')"
         variant="rounded"
       />
+
       <div class="offer-preview-content-section__company-information">
         <router-link
           :to="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company?.slug } }"

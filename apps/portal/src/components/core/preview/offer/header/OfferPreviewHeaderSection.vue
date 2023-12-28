@@ -1,12 +1,12 @@
 <template>
   <a-panel-section class="offer-preview-header-section">
-    <a-title :title="offer?.product.name" size="xx-large" />
+    <a-title :title="offer.product.name" size="xx-large" />
 
-    <a-title :title="offer?.product.code" />
+    <a-title :title="offer.product.code" />
 
     <div class="offer-preview-header-section__information">
       <a-image
-        :src="offer?.product.image"
+        :src="offer.product.image"
         :width="120"
         :height="120"
         :alt="$t('common.offer.list.item.imageAlt')"
@@ -15,52 +15,45 @@
       <div class="offer-preview-header-section__product-information">
         <a-title
           :title="$t('common.offer.list.item.product.name')"
-          :subtitle="offer?.product.name"
-          variant="horizontal"
-          append-colon
-        />
-
-        <a-title
-          :title="$t('common.offer.list.item.company')"
-          :subtitle="offer?.company.name"
+          :subtitle="offer.product.name"
           variant="horizontal"
           append-colon
         />
 
         <a-title
           :title="$t('common.offer.list.item.product.category')"
-          :subtitle="offer?.product.productCategory.name"
+          :subtitle="offer.product.productCategory.name"
           variant="horizontal"
           append-colon
         />
 
         <a-title
           :title="$t('common.offer.list.item.product.subcategory')"
-          :subtitle="offer?.product.productSubcategory.name"
+          :subtitle="offer.product.productSubcategory.name"
           variant="horizontal"
           append-colon
         />
 
-        <product-tag-list :product-tags="offer?.product.productTags" />
+        <product-tag-list :product-tags="offer.product.productTags" />
       </div>
 
       <div class="offer-preview-header-section__order-information">
         <div class="offer-preview-header-section__order-price">
           <a-title :title="$t('common.offer.list.item.price')" variant="horizontal" append-colon />
 
-          <a-currency :value="offer?.price" size="small" />
+          <a-currency :value="offer.price" size="small" />
         </div>
 
         <a-title
           :title="$t('common.offer.list.item.available')"
-          :subtitle="offer?.productQuantity"
+          :subtitle="offer.productQuantity"
           variant="horizontal"
           append-colon
         />
 
         <a-title
           :title="$t('common.offer.list.item.ends')"
-          :subtitle="offer?.endsAt"
+          :subtitle="offer.endsAt"
           variant="horizontal"
           append-colon
         />
@@ -74,11 +67,10 @@
 <script setup lang="ts">
 import { useUserCartStore } from '@/stores/user/useUserCartStore'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
-import { computed } from 'vue'
-import { type PropType } from 'vue'
+import { computed, type PropType } from 'vue'
 
 const props = defineProps({
-  offer: Object as PropType<Offer>
+  offer: { type: Object as PropType<Offer>, required: true }
 })
 
 // Variables
