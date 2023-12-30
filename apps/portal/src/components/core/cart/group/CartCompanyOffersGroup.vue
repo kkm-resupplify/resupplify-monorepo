@@ -27,7 +27,7 @@ import { ref, computed, type PropType } from 'vue'
 import type { CartCompanyGroup } from '@sharedInterfaces/cart/CartInterface'
 import CartCompanyOffersGroupOfferList from '@/components/core/cart/group/list/CartCompanyOffersGroupOfferList.vue'
 import OrderService from '@/services/order/OrderService'
-import type { OrderItemShort } from '@sharedInterfaces/order/OrderInterface'
+import { useUserCartStore } from '@stores/user/useUserCartStore'
 
 const props = defineProps({
   groupData: {
@@ -38,6 +38,7 @@ const props = defineProps({
 
 // Variables
 const isLoading = ref(false)
+const userCartStore = useUserCartStore()
 
 // Computed
 const totalCost = computed(() => {
@@ -57,10 +58,10 @@ const groupOrderItems = computed(() => {
 const handlePlaceOrder = async () => {
   isLoading.value = true
 
-  const { success, data } = await OrderService.placeOrder(groupOrderItems.value)
+  const { success } = await OrderService.placeOrder(groupOrderItems.value)
 
   if (success) {
-    console.log(data)
+    userCartStore.removeCompanyGroup(props.groupData.companyName)
   }
 
   isLoading.value = false
