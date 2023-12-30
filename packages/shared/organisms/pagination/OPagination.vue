@@ -77,7 +77,7 @@ const totalPages = computed(() => {
 // Methods
 const initializePagination = async () => {
   if (!route.query.page) {
-    router.push({ query: { ...route.query, page: '1' } })
+    router.replace({ query: { ...route.query, page: '1' } })
   }
 }
 
