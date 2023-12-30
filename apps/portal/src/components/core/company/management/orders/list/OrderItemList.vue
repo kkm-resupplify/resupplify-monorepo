@@ -12,11 +12,7 @@
     <a-line />
 
     <div class="order-item-list__footer">
-      <a-button
-        v-if="seller"
-        :text="$t('company.management.order.item.setStatus')"
-        size="x-large"
-      />
+      <set-order-status-dialog v-if="seller" />
 
       <a-currency
         :title="$t('company.management.order.totalPrice')"
@@ -35,6 +31,7 @@
 import { type PropType, computed } from 'vue'
 import type { OrderItem } from '@sharedInterfaces/order/OrderInterface'
 import OrderItemListItem from '@/components/core/company/management/orders/list/OrderItemListItem.vue'
+import SetOrderStatusDialog from '../dialog/SetOrderStatusDialog.vue'
 
 const props = defineProps({
   orderItems: {
