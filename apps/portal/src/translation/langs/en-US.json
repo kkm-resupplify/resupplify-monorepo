@@ -682,8 +682,8 @@
         "noOrdersSold": "Your company has not sold any offers yet.",
         "noOrdersBought": "Your company has not placed any orders yet.",
         "noOrdersMatchingFilter": "No orders match the provided filters.",
-        "placeSuccessTitle": "Order placed successfully",
-        "placeSuccessText": "Your order has been successfully placed. You can now track its status in the 'Purchases' section of your orders dashboard",
+        "placeOrderSuccessTitle": "Order placed successfully",
+        "placeOrderSuccessText": "Your order has been successfully placed. You can now track its status in the 'Purchases' section of your orders dashboard",
 
         "item": {
           "viewDetails": "View details"
