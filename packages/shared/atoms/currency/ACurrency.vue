@@ -65,6 +65,7 @@ const valueText = computed(() => {
   align-items: flex-end;
 
   &--vertical {
+    flex-basis: 20%;
     flex-direction: column;
     align-items: center;
   }
