@@ -24,3 +24,8 @@ export interface OrderFiltersParams {
   subcategoryId?: string | number
   status?: string | number
 }
+
+export interface OrderItemShort {
+  offerId: number
+  orderQuantity: number
+}
