@@ -16,7 +16,7 @@
 
           <template v-if="isLoading">implement-loader-here</template>
 
-          <a-currency v-else :value="balance" size="large" />
+          <a-currency v-else :value="balance" value-size="large" />
         </div>
       </div>
 
