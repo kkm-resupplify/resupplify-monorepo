@@ -1,15 +1,20 @@
 <template>
-  <a-panel-section overflow>
-    <div>order-filters</div>
+  <a-panel-section overflow class="order-sales-content-section">
+    <order-filters />
 
     <a-line />
 
     <template v-if="isLoading">implement-loader-here</template>
 
     <template v-else>
-      <order-list v-if="showList" :orders="orders" type="sold" />
+      <div class="order-sales-content-section__list">
+        <order-list v-if="showList" :orders="orders" type="sold" />
 
-      <a-list-no-results v-else :text="$t(`company.management.order.${noResultsTranslationKey}`)" />
+        <a-list-no-results
+          v-else
+          :text="$t(`company.management.order.${noResultsTranslationKey}`)"
+        />
+      </div>
     </template>
 
     <o-pagination :pagination="paginationData" @page-changed="handleFetchOrders" />
@@ -24,6 +29,7 @@ import type { Pagination } from '@sharedInterfaces/config/PaginationInterface'
 import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 import OrderList from '@/components/core/company/management/orders/list/OrderList.vue'
 import CompanyOrdersService from '@/services/company/CompanyOrdersService'
+import OrderFilters from '@/components/common/order/OrderFilters.vue'
 
 // Variables
 const isLoading = ref(false)
@@ -77,3 +83,13 @@ onBeforeMount(() => {
   handleFetchOrders()
 })
 </script>
+
+<style lang="scss">
+.order-sales-content-section {
+  height: 100%;
+
+  &__list {
+    height: 100%;
+  }
+}
+</style>

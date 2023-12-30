@@ -830,6 +830,19 @@
           "activated": "Activated"
         }
       }
+    },
+
+    "order": {
+      "filters": {
+        "nameLabel": "Product name",
+        "namePlaceholder": "Enter product name",
+        "categoryLabel": "Product category",
+        "categoryPlaceholder": "Select product category",
+        "subcategoryLabel": "Product subcategory",
+        "subcategoryPlaceholder": "Select product subcategory",
+        "statusLabel": "Order status",
+        "statusPlaceholder": "Select order status"
+      }
     }
   },
 
