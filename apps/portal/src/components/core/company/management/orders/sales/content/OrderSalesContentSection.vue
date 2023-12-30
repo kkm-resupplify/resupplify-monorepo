@@ -17,7 +17,7 @@
       </div>
     </template>
 
-    <o-pagination :pagination="paginationData" @page-changed="hadleFetchOrders" />
+    <o-pagination :pagination="paginationData" @page-changed="handleFetchOrders" />
   </a-panel-section>
 </template>
 
