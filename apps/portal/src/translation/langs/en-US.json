@@ -695,7 +695,7 @@
           "dialog": {
             "activator": "Set status",
             "title": "Set order status",
-            "content": "Select a status from the list",
+            "content": "Select status from the list",
             "selectStatusLabel": "Status",
             "selectStatusPlaceholder": "Select status"
           }
