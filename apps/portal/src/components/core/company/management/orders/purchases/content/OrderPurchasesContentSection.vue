@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section overflow class="order-purchases-content-section">
+  <a-panel-section class="order-purchases-content-section" overflow>
     <order-filters @filter="handleFetchOrders" />
 
     <a-line />
@@ -7,14 +7,9 @@
     <template v-if="isLoading">implement-loader-here</template>
 
     <template v-else>
-      <div class="order-purchases-content-section__list">
-        <order-list v-if="showList" :orders="orders" type="purchased" />
+      <order-list v-if="showList" :orders="orders" type="purchased" />
 
-        <a-list-no-results
-          v-else
-          :text="$t(`company.management.order.${noResultsTranslationKey}`)"
-        />
-      </div>
+      <a-list-no-results v-else :text="$t(`company.management.order.${noResultsTranslationKey}`)" />
     </template>
 
     <o-pagination :pagination="paginationData" @page-changed="handleFetchOrders" />
@@ -87,9 +82,5 @@ onBeforeMount(() => {
 <style scoped lang="scss">
 .order-purchases-content-section {
   height: 100%;
-
-  &__list {
-    height: 100%;
-  }
 }
 </style>

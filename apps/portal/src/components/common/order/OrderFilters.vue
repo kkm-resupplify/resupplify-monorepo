@@ -152,6 +152,8 @@ onBeforeMount(async () => {
 
 <style scoped lang="scss">
 .order-filters {
+  flex: 0;
+
   &__inputs {
     display: flex;
     gap: $global-spacing-30;
@@ -160,6 +162,10 @@ onBeforeMount(async () => {
   &__buttons {
     display: flex;
     gap: $global-spacing-30;
+  }
+
+  :deep(.o-form__body) {
+    flex: 0;
   }
 }
 </style>
