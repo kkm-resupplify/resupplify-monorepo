@@ -5,8 +5,9 @@ class OrderService extends BaseService {
   async placeOrder(cartItems: OrderItemShort[]) {
     return await this.post({
       data: { order: cartItems },
-      notificationTitle: 'Order placed successfully',
-      notificationText: 'Your order has been placed and it awaits action from the buyer company.'
+      notificationTitle: 'company.management.order.placeOrderSuccessTitle',
+      notificationText: 'company.management.order.placeOrderSuccessText',
+      notificationDuration: 5000
     })
   }
 }
