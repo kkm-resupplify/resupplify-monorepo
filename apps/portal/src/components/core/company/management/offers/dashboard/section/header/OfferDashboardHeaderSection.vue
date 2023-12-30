@@ -1,6 +1,10 @@
 <template>
   <a-panel-section>
-    <a-title :title="$t('company.management.offer.dashboard.companyOffers')" size="x-large" />
+    <a-title
+      :title="$t('company.management.offer.dashboard.companyOffers')"
+      :subtitle="$t('company.management.offer.dashboard.companyOffersDescription')"
+      size="x-large"
+    />
 
     <m-alert
       v-if="isCompanyNotVerified"

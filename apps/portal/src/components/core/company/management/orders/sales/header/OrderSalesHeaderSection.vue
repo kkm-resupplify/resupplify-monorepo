@@ -1,5 +1,9 @@
 <template>
-  <a-panel-section>OrderSalesHeaderSection</a-panel-section>
+  <a-panel-section>
+    <a-title
+      :title="$t('company.management.order.salesTitle')"
+      :subtitle="$t('company.management.order.salesDescription')"
+      size="x-large"
+    />
+  </a-panel-section>
 </template>
-
-<script setup lang="ts"></script>
