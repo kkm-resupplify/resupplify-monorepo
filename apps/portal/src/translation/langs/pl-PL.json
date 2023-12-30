@@ -328,7 +328,7 @@
         "needingAttention": {
           "title": "Magazyny wymagające uwagi",
           "buttonText": "Sprawdź szczegóły",
-          "noResults": "Wszystkie magazyny firmy są w dobrym stanie"
+          "noResults": "Wszystkie magazyny firmy są w dobrym stanie."
         },
 
         "preview": {
@@ -591,6 +591,7 @@
       "offer": {
         "dashboard": {
           "companyOffers": "Oferty firmy",
+          "companyOffersDescription": "Przeglądaj i zarządzaj ofertami Twojej firmy.",
           "companyOffersNotVisible": "Oferty nie są widoczne dla innych, ponieważ Twoja firma nie została jeszcze zweryfikowana.",
           "searchBarPlaceholder": "Szukaj ofert",
           "productCategoryPlaceholder": "Kategoria produktu",
@@ -683,6 +684,10 @@
         "noOrdersMatchingFilter": "Brak zamówień dla podanych filtrów.",
         "placeOrderSuccessTitle": "Zamówienie złożone pomyślnie",
         "placeOrderSuccessText": "Twoje zamówienie zostało pomyślnie złożone. Możesz teraz śledzić jego status w sekcji 'Zakupy' na swoim panelu zamówień.",
+        "salesTitle": "Sprzedaże",
+        "salesDescription": "Przeglądaj zamówienia złożone przez inne firmy na Twoje oferty.",
+        "purchasesTitle": "Kupna",
+        "purchasesDescription": "Przeglądaj zamówienia złożone przez Twoją firmę na oferty od innych firm.",
 
         "item": {
           "viewDetails": "Zobacz szczegóły"

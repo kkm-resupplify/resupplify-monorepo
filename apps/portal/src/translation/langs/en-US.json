@@ -592,6 +592,7 @@
       "offer": {
         "dashboard": {
           "companyOffers": "Company offers",
+          "companyOffersDescription": "Browse and manage your company's offers.",
           "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet.",
           "searchBarPlaceholder": "Search offers",
           "productCategoryPlaceholder": "Product category",
@@ -684,6 +685,10 @@
         "noOrdersMatchingFilter": "No orders match the provided filters.",
         "placeOrderSuccessTitle": "Order placed successfully",
         "placeOrderSuccessText": "Your order has been successfully placed. You can now track its status in the 'Purchases' section of your orders dashboard",
+        "salesTitle": "Sales",
+        "salesDescription": "Browse the orders placed by other companies for your offers.",
+        "purchasesTitle": "Purchases",
+        "purchasesDescription": "Browse the orders placed by your company for offers from other companies.",
 
         "item": {
           "viewDetails": "View details"
