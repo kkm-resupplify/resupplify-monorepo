@@ -148,6 +148,8 @@ const setInitialFormValues = () => {
 
 const handleQuerySubmit = async (filters: OfferFiltersParams) => {
   await setQueryParam(route, filters)
+
+  await handleFetchOffers()
 }
 
 const handleResetFilters = async () => {
