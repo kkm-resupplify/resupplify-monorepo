@@ -40,7 +40,8 @@
     "descending": "Descending",
     "viewDetails": "View details",
     "visitProfile": "Visit profile",
-    "seeDetails": "See details"
+    "seeDetails": "See details",
+    "set": "Set"
   },
 
   "language": {
@@ -691,7 +692,13 @@
         "purchasesDescription": "Browse the orders placed by your company for offers from other companies.",
 
         "item": {
-          "setStatus": "Set status"
+          "dialog": {
+            "activator": "Set status",
+            "title": "Set order status",
+            "content": "Select a status from the list",
+            "selectStatusLabel": "Status",
+            "selectStatusPlaceholder": "Select status"
+          }
         },
 
         "status": {
