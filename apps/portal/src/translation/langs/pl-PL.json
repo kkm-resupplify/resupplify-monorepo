@@ -681,6 +681,8 @@
         "noOrdersSold": "Twoja firma nie sprzedała jeszcze żadnych ofert.",
         "noOrdersBought": "Twoja firma nie złożyła jeszcze żadnych zamówień.",
         "noOrdersMatchingFilter": "Brak zamówień dla podanych filtrów.",
+        "placeSuccessTitle": "Zamówienie złożone pomyślnie",
+        "placeSuccessText": "Twoje zamówienie zostało pomyślnie złożone. Możesz teraz śledzić jego status w sekcji 'Zakupy' na swoim panelu zamówień.",
 
         "item": {
           "viewDetails": "Zobacz szczegóły"
