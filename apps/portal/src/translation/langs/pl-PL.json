@@ -690,7 +690,7 @@
         "purchasesDescription": "Przeglądaj zamówienia złożone przez Twoją firmę na oferty od innych firm.",
 
         "item": {
-          "viewDetails": "Zobacz szczegóły"
+          "setStatus": "Ustaw status"
         },
 
         "status": {

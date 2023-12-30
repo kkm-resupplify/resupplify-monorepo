@@ -12,7 +12,11 @@
     <a-line />
 
     <div class="order-item-list__footer">
-      <a-button :text="$t('company.management.order.item.viewDetails')" size="x-large" />
+      <a-button
+        v-if="seller"
+        :text="$t('company.management.order.item.setStatus')"
+        size="x-large"
+      />
 
       <a-currency
         :title="$t('company.management.order.totalPrice')"
@@ -35,7 +39,16 @@ const props = defineProps({
   orderItems: {
     type: Array as PropType<OrderItem[]>,
     required: true
+  },
+  type: {
+    type: String,
+    required: true
   }
+})
+
+// Computed
+const seller = computed(() => {
+  return props.type === 'sold'
 })
 
 // Methods
@@ -45,7 +58,6 @@ const totalCost = computed(() => {
   }, 0)
 })
 
-// Methods
 const borderStyle = (idx: number) => {
   return {
     borderBottom: idx === props.orderItems.length - 1 ? 'none' : '1px solid var(--secondary-2)'

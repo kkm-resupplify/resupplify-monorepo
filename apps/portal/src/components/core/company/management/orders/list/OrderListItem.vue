@@ -32,7 +32,7 @@
     </template>
 
     <template #content>
-      <order-item-list :order-items="orderItems" />
+      <order-item-list :order-items="orderItems" :type="type" />
     </template>
   </a-expansion-panel>
 </template>

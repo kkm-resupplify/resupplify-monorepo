@@ -691,7 +691,7 @@
         "purchasesDescription": "Browse the orders placed by your company for offers from other companies.",
 
         "item": {
-          "viewDetails": "View details"
+          "setStatus": "Set status"
         },
 
         "status": {
