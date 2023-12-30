@@ -329,6 +329,7 @@ defineExpose({
   }
 
   &__label {
+    width: fit-content;
     color: var(--font-primary);
     text-transform: uppercase;
     letter-spacing: 0.1em;
