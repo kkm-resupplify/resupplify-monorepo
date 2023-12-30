@@ -696,7 +696,8 @@
             "title": "Ustaw status zamówienia",
             "content": "Wybierz status z listy",
             "selectStatusLabel": "Status",
-            "selectStatusPlaceholder": "Wybierz status"
+            "selectStatusPlaceholder": "Wybierz status",
+            "changeStatusOfOrderSuccessText": "Status zmieniony pomyślnie"
           }
         },
 

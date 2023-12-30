@@ -34,6 +34,7 @@ import OrderStatusEnum from '@sharedEnums/order/OrderStatusEnum'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+// Variables
 const { t } = useI18n()
 
 // Computed
