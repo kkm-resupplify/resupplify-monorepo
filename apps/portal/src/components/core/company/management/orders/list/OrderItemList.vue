@@ -25,6 +25,7 @@
         vertical
         line-height="1"
         align-end
+        class="order-item-list__footer-price"
       />
     </div>
   </div>
@@ -80,8 +81,11 @@ const borderStyle = (idx: number) => {
   &__footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding-right: $global-spacing-40;
+  }
+
+  &__footer-price {
+    margin-left: auto;
   }
 }
 </style>
