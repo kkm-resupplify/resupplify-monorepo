@@ -11,6 +11,7 @@
             name="status"
             :label="$t('company.management.order.item.dialog.selectStatusLabel')"
             :placeholder="$t('company.management.order.item.dialog.selectStatusPlaceholder')"
+            :options="orderStatusOptions"
             :validate="false"
           />
         </template>
@@ -28,7 +29,21 @@
   </m-dialog>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import OrderStatusEnum from '@sharedEnums/order/OrderStatusEnum'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+// Computed
+const orderStatusOptions = computed(() =>
+  OrderStatusEnum.getAllFields().map((typeName) => ({
+    id: `${OrderStatusEnum[typeName as keyof OrderStatusEnum]}`,
+    text: t(`company.management.order.status.${OrderStatusEnum[typeName as keyof OrderStatusEnum]}`)
+  }))
+)
+</script>
 
 <style scoped lang="scss">
 .set-order-status-dialog {
@@ -36,7 +51,7 @@
     display: flex;
     flex-direction: column;
     gap: $global-spacing-50;
-    min-height: 180px;
+    min-height: 165px;
   }
 
   &__submit {
