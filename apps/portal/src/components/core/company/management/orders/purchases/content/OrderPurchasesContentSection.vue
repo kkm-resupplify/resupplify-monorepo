@@ -1,6 +1,6 @@
 <template>
   <a-panel-section overflow class="order-purchases-content-section">
-    <order-filters />
+    <order-filters @filter="handleFetchOrders" />
 
     <a-line />
 

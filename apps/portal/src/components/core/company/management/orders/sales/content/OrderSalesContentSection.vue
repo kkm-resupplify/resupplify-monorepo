@@ -1,6 +1,6 @@
 <template>
   <a-panel-section overflow class="order-sales-content-section">
-    <order-filters />
+    <order-filters @filter="handleFetchOrders" />
 
     <a-line />
 
@@ -17,7 +17,7 @@
       </div>
     </template>
 
-    <o-pagination :pagination="paginationData" @page-changed="handleFetchOrders" />
+    <o-pagination :pagination="paginationData" @page-changed="hadleFetchOrders" />
   </a-panel-section>
 </template>
 
