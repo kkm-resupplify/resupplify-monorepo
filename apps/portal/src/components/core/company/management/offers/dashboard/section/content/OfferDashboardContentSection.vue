@@ -66,7 +66,11 @@
       />
     </template>
 
-    <o-pagination v-if="paginationData" :pagination="paginationData" />
+    <o-pagination
+      v-if="paginationData"
+      :pagination="paginationData"
+      @page-changed="handleFetchOffers"
+    />
   </a-panel-section>
 </template>
 
