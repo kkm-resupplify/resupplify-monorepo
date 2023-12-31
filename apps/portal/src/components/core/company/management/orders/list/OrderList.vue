@@ -1,6 +1,12 @@
 <template>
   <a-list>
-    <order-list-item v-for="order in orders" :key="order.id" :order="order" :type="type" />
+    <order-list-item
+      v-for="order in orders"
+      :key="order.id"
+      :order="order"
+      :type="type"
+      @fetch-orders="handleFetchOrders"
+    />
   </a-list>
 </template>
 
@@ -8,6 +14,9 @@
 import { type PropType } from 'vue'
 import type { Order } from '@sharedInterfaces/order/OrderInterface'
 import OrderListItem from '@/components/core/company/management/orders/list/OrderListItem.vue'
+
+// Emits
+const emits = defineEmits(['fetch-orders'])
 
 defineProps({
   orders: {
@@ -19,4 +28,9 @@ defineProps({
     required: true
   }
 })
+
+// Methods
+const handleFetchOrders = () => {
+  emits('fetch-orders')
+}
 </script>

@@ -40,7 +40,8 @@
     "descending": "Malejąco",
     "viewDetails": "Pokaż szczegóły",
     "visitProfile": "Odwiedź profil",
-    "seeDetails": "Zobacz szczegóły"
+    "seeDetails": "Zobacz szczegóły",
+    "set": "Ustaw"
   },
 
   "language": {
@@ -690,7 +691,14 @@
         "purchasesDescription": "Przeglądaj zamówienia złożone przez Twoją firmę na oferty od innych firm.",
 
         "item": {
-          "viewDetails": "Zobacz szczegóły"
+          "dialog": {
+            "activator": "Ustaw status",
+            "title": "Ustaw status zamówienia",
+            "content": "Wybierz status z listy",
+            "selectStatusLabel": "Status",
+            "selectStatusPlaceholder": "Wybierz status",
+            "changeStatusOfOrderSuccessText": "Status zmieniony pomyślnie"
+          }
         },
 
         "status": {

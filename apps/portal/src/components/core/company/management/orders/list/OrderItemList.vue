@@ -12,7 +12,7 @@
     <a-line />
 
     <div class="order-item-list__footer">
-      <a-button :text="$t('company.management.order.item.viewDetails')" size="x-large" />
+      <set-order-status-dialog v-if="seller" :order="order" @fetch-orders="handleFetchOrders" />
 
       <a-currency
         :title="$t('company.management.order.totalPrice')"
@@ -21,6 +21,7 @@
         vertical
         line-height="1"
         align-end
+        class="order-item-list__footer-price"
       />
     </div>
   </div>
@@ -28,14 +29,31 @@
 
 <script setup lang="ts">
 import { type PropType, computed } from 'vue'
-import type { OrderItem } from '@sharedInterfaces/order/OrderInterface'
+import type { Order, OrderItem } from '@sharedInterfaces/order/OrderInterface'
 import OrderItemListItem from '@/components/core/company/management/orders/list/OrderItemListItem.vue'
+import SetOrderStatusDialog from '../dialog/SetOrderStatusDialog.vue'
+
+// Emits
+const emits = defineEmits(['fetch-orders'])
 
 const props = defineProps({
   orderItems: {
     type: Array as PropType<OrderItem[]>,
     required: true
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  order: {
+    type: Object as PropType<Order>,
+    required: true
   }
+})
+
+// Computed
+const seller = computed(() => {
+  return props.type === 'sold'
 })
 
 // Methods
@@ -45,7 +63,10 @@ const totalCost = computed(() => {
   }, 0)
 })
 
-// Methods
+const handleFetchOrders = () => {
+  emits('fetch-orders')
+}
+
 const borderStyle = (idx: number) => {
   return {
     borderBottom: idx === props.orderItems.length - 1 ? 'none' : '1px solid var(--secondary-2)'
@@ -68,8 +89,11 @@ const borderStyle = (idx: number) => {
   &__footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding-right: $global-spacing-40;
+  }
+
+  &__footer-price {
+    margin-left: auto;
   }
 }
 </style>
