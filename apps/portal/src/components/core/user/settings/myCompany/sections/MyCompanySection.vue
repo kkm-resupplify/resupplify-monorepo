@@ -9,10 +9,16 @@
     </div>
 
     <div v-if="userStore.getCompany" class="my-company-section__content">
-      <company-data-block :company="userStore.getCompany" />
-    </div>
+      <template v-if="editDetails">
+        <register-company />
+      </template>
 
-    <a-button />
+      <template v-else>
+        <company-data-block :company="userStore.getCompany" />
+
+        <edit-my-company-dialog :company="userStore.getCompany" />
+      </template>
+    </div>
   </div>
 </template>
 
@@ -20,9 +26,12 @@
 import { useUserStore } from '@/stores/user/useUserStore'
 import CompanyDataBlock from '@/components/core/company/data/CompanyDataBlock.vue'
 import RegisterCompany from '@/components/core/company/register/RegisterCompany.vue'
+import { ref } from 'vue'
+import EditMyCompanyDialog from '../dialog/EditMyCompanyDialog.vue'
 
 // Variables
 const userStore = useUserStore()
+const editDetails = ref(false)
 </script>
 
 <style lang="scss" scoped>
@@ -30,5 +39,10 @@ const userStore = useUserStore()
   display: flex;
   flex-direction: column;
   gap: $global-spacing-50;
+
+  &__button {
+    width: 100%;
+    margin-top: $global-spacing-50;
+  }
 }
 </style>

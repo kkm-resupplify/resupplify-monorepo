@@ -15,13 +15,14 @@ export const useRegisterCompanyStore = defineStore({
   id: 'registerCompany',
 
   state: (): RegisterCompanyState => ({
-    generalStepData: { name: '', countryId: null, shortDescription: '', description: '' },
+    generalStepData: { id: null, name: '', countryId: null, shortDescription: '', description: '' },
     detailsStepData: { address: '', companyCategoryId: null, tin: '', logo: 'xdd' },
     contactInfoStepData: { phoneNumber: '', email: '', contactPerson: '', externalWebsite: '' }
   }),
 
   getters: {
-    registerCompanyFormData: (state: RegisterCompanyState) => state
+    registerCompanyFormData: (state: RegisterCompanyState) => state,
+    isEditing: (state) => state.generalStepData.id !== null
   },
 
   actions: {

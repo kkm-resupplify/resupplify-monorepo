@@ -900,6 +900,7 @@
     "myCompany": {
       "title": "My company",
       "subtitle": "Settings and information related to the company you are a member of.",
+      "editDetails": "Edit details",
 
       "joinCompany": {
         "title": "Join a company",
