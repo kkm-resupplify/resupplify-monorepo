@@ -43,6 +43,7 @@ const flexBasis = computed(() => {
 
   &__title {
     font-size: $global-font-size-40;
+    font-weight: $global-font-weight-70;
   }
 
   &__value {
