@@ -15,11 +15,13 @@
 
     <a-button text="Change locale" @click="changeLocale" />
 
-    <router-link :to="{ name: RouteNames.CART }">
-      <m-icon icon="shopping_cart" size="xx-large" hoverable />
-    </router-link>
+    <template v-if="userStore.isAuthenticated">
+      <router-link :to="{ name: RouteNames.CART }">
+        <m-icon icon="shopping_cart" size="xx-large" hoverable />
+      </router-link>
 
-    <navigation-bar-menu v-if="userStore.isAuthenticated" />
+      <navigation-bar-menu />
+    </template>
   </div>
 </template>
 

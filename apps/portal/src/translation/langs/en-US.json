@@ -40,7 +40,8 @@
     "descending": "Descending",
     "viewDetails": "View details",
     "visitProfile": "Visit profile",
-    "seeDetails": "See details"
+    "seeDetails": "See details",
+    "set": "Set"
   },
 
   "language": {
@@ -242,7 +243,12 @@
         },
 
         "orders": {
-          "title": "Orders"
+          "title": "Orders",
+
+          "tiles": {
+            "sales": "Sales",
+            "purchases": "Purchases"
+          }
         },
 
         "warehouses": {
@@ -587,6 +593,7 @@
       "offer": {
         "dashboard": {
           "companyOffers": "Company offers",
+          "companyOffersDescription": "Browse and manage your company's offers.",
           "companyOffersNotVisible": "Offers are not visible to others because your company is not verified yet.",
           "searchBarPlaceholder": "Search offers",
           "productCategoryPlaceholder": "Product category",
@@ -664,6 +671,49 @@
         "preview": {
           "productDetails": "Product details",
           "sellerInformation": "Seller information"
+        }
+      },
+
+      "order": {
+        "id": "Order ID",
+        "buyer": "Buyer",
+        "seller": "Seller",
+        "totalPrice": "Total cost",
+        "datePlaced": "Date placed",
+        "lastUpdate": "Last update",
+        "noOrdersSold": "Your company has not sold any offers yet.",
+        "noOrdersBought": "Your company has not placed any orders yet.",
+        "noOrdersMatchingFilter": "No orders match the provided filters.",
+        "placeOrderSuccessTitle": "Order placed successfully",
+        "placeOrderSuccessText": "Your order has been successfully placed. You can now track its status in the 'Purchases' section of your orders dashboard",
+        "salesTitle": "Sales",
+        "salesDescription": "Browse the orders placed by other companies for your offers.",
+        "purchasesTitle": "Purchases",
+        "purchasesDescription": "Browse the orders placed by your company for offers from other companies.",
+
+        "item": {
+          "dialog": {
+            "activator": "Set status",
+            "title": "Set order status",
+            "content": "Select status from the list",
+            "selectStatusLabel": "Status",
+            "selectStatusPlaceholder": "Select status",
+            "changeStatusOfOrderSuccessText": "Status changed succesfully"
+          }
+        },
+
+        "status": {
+          "title": "Order status",
+          "0": "Placed",
+          "1": "Processing",
+          "2": "Shipped",
+          "3": "Intransit",
+          "4": "Completed",
+          "5": "Cancelled",
+          "6": "Refunded",
+          "7": "Rejected",
+          "8": "Suspended",
+          "9": "Inactive"
         }
       }
     },
@@ -794,6 +844,19 @@
           "deactivated": "Deactivated",
           "activated": "Activated"
         }
+      }
+    },
+
+    "order": {
+      "filters": {
+        "nameLabel": "Product name",
+        "namePlaceholder": "Enter product name",
+        "categoryLabel": "Product category",
+        "categoryPlaceholder": "Select product category",
+        "subcategoryLabel": "Product subcategory",
+        "subcategoryPlaceholder": "Select product subcategory",
+        "statusLabel": "Order status",
+        "statusPlaceholder": "Select order status"
       }
     }
   },

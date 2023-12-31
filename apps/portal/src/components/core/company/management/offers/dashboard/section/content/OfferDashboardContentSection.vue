@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section class="offer-dashboard-content-section">
+  <a-panel-section class="offer-dashboard-content-section" overflow>
     <o-form
       ref="form"
       class="product-content-section__filter-form"
@@ -65,6 +65,8 @@
         :text="$t(`company.management.offer.dashboard.list.${noResultsTranslationKey}`)"
       />
     </template>
+
+    <o-pagination v-if="paginationData" :pagination="paginationData" />
   </a-panel-section>
 </template>
 
@@ -148,6 +150,8 @@ const setInitialFormValues = () => {
 
 const handleQuerySubmit = async (filters: OfferFiltersParams) => {
   await setQueryParam(route, filters)
+
+  await handleFetchOffers()
 }
 
 const handleResetFilters = async () => {

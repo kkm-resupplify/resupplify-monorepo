@@ -4,28 +4,28 @@ import OfferCreatorPanel from '@/components/core/company/management/offers/creat
 import BaseEnum from '@sharedEnums/BaseEnum'
 import type { RouteRecordRaw } from 'vue-router'
 
-class CompanyProfileRouteEnum extends BaseEnum {
+class CompanyManagementOffersRouteEnum extends BaseEnum {
   static readonly COMPANY_OFFERS_TILES: string = 'COMPANY_OFFERS_TILES'
   static readonly COMPANY_OFFERS_DASHBOARD: string = 'COMPANY_OFFERS_DASHBOARD'
   static readonly COMPANY_OFFERS_CREATOR: string = 'COMPANY_OFFERS_CREATOR'
 }
 
-const CompanyManagementMembersRoutes: RouteRecordRaw[] = [
+const CompanyManagementOffersRoutes: RouteRecordRaw[] = [
   {
     path: 'offers',
-    name: CompanyProfileRouteEnum.COMPANY_OFFERS_TILES,
+    name: CompanyManagementOffersRouteEnum.COMPANY_OFFERS_TILES,
     component: CompanyOffersView
   },
   {
     path: 'offers/dashboard',
-    name: CompanyProfileRouteEnum.COMPANY_OFFERS_DASHBOARD,
+    name: CompanyManagementOffersRouteEnum.COMPANY_OFFERS_DASHBOARD,
     component: OfferDashboardPanel
   },
   {
     path: 'offers/creator',
-    name: CompanyProfileRouteEnum.COMPANY_OFFERS_CREATOR,
+    name: CompanyManagementOffersRouteEnum.COMPANY_OFFERS_CREATOR,
     component: OfferCreatorPanel
   }
 ]
 
-export default CompanyManagementMembersRoutes
+export default CompanyManagementOffersRoutes
