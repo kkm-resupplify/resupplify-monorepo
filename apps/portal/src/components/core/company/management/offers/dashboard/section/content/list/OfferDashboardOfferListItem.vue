@@ -20,37 +20,16 @@
           style="flex-basis: 30%"
         />
 
-        <a-dropdown @click.stop>
+        <o-confirm-dialog
+          :type="activationType"
+          :title="activationTypeTitle"
+          :content="activationTypeContent"
+          @click.stop
+        >
           <template #activator>
-            <div class="offer-dashboard-offer-list-item__dropdown-activator">
-              <a-icon icon="more_vert" size="xx-large" hoverable />
-            </div>
+            <a-button :text="$t(`global.${activationType}`)" size="x-large" />
           </template>
-
-          <template #content>
-            <div class="offer-dashboard-offer-list-item__dropdown-content">
-              <o-confirm-dialog
-                :type="activationType"
-                :title="activationTypeTitle"
-                :content="activationTypeContent"
-              >
-                <template #activator>
-                  <span v-text="$t(`global.${activationType}`)" />
-                </template>
-              </o-confirm-dialog>
-
-              <o-confirm-dialog
-                type="delete"
-                :title="$t('company.management.offer.dashboard.dialog.titleDeletion')"
-                :content="$t('company.management.offer.dashboard.dialog.contentDeletion')"
-              >
-                <template #activator>
-                  <span v-text="$t(`global.delete`)" />
-                </template>
-              </o-confirm-dialog>
-            </div>
-          </template>
-        </a-dropdown>
+        </o-confirm-dialog>
       </a-list-item-wrapper>
     </template>
 
