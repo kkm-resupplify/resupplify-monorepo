@@ -44,9 +44,7 @@ const filtersUsed = computed(() => {
 })
 
 const noResultsTranslationKey = computed(() => {
-  return orders.value.length === 0 && filtersUsed.value
-    ? 'company.management.order.noOrdersMatchingFilter'
-    : 'noOrdersSold'
+  return orders.value.length === 0 && filtersUsed.value ? 'noOrdersMatchingFilter' : 'noOrdersSold'
 })
 
 // Methods
