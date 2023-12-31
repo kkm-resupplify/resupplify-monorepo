@@ -2,7 +2,10 @@
   <div class="user-settings-preferences-tab">
     <a-title :title="$t('settings.preferences.title')" size="xx-large" />
 
-    <o-form :submit-callback="handleSetPreferences" :initial-values="{ theme: userTheme }">
+    <o-form
+      :submit-callback="handleSetPreferences"
+      :initial-values="{ theme: userThemeStore.getUserTheme() }"
+    >
       <template #body>
         <div class="user-settings-preferences-tab__content">
           <m-select
@@ -37,13 +40,12 @@
 <script setup lang="ts">
 import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
 import UserThemeEnum from '@sharedEnums/user/UserThemeEnum'
-import { computed, ref, onBeforeMount } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 // Variables
 const { t } = useI18n()
 const userThemeStore = useUserThemeStore()
-const userTheme = ref<string>()
 
 // Computed
 const userThemeOptions = computed(() =>
@@ -57,11 +59,6 @@ const userThemeOptions = computed(() =>
 const handleSetPreferences = (formData: Record<string, any>) => {
   userThemeStore.setUserTheme(formData.theme)
 }
-
-// Hooks
-onBeforeMount(() => {
-  userTheme.value = userThemeStore.getUserTheme()
-})
 </script>
 
 <style scoped lang="scss">
