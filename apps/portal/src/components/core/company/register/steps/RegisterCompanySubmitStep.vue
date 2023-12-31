@@ -32,7 +32,17 @@ const registerCompanyStore = useRegisterCompanyStore()
 
 // Methods
 const handleSubmit = async () => {
-  await RegisterCompanyService.register(registerCompanyStore.registerCompanyFormData)
+  if (registerCompanyStore.isEditing) {
+    const { success } = await RegisterCompanyService.edit(
+      registerCompanyStore.registerCompanyFormData
+    )
+
+    if (success) {
+      registerCompanyStore.setEditedStatus(success)
+    }
+  } else {
+    await RegisterCompanyService.register(registerCompanyStore.registerCompanyFormData)
+  }
 }
 
 const handlePreviousStep = (values: RegisterCompanyContactInfoStep) => {

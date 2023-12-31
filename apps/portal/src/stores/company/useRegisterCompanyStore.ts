@@ -6,6 +6,7 @@ import type {
 } from '@sharedInterfaces/company/RegisterCompanyInterface'
 
 interface RegisterCompanyState {
+  editSuccess: Boolean
   generalStepData: RegisterCompanyGeneralStep
   detailsStepData: RegisterCompanyDetailsStep
   contactInfoStepData: RegisterCompanyContactInfoStep
@@ -15,6 +16,7 @@ export const useRegisterCompanyStore = defineStore({
   id: 'registerCompany',
 
   state: (): RegisterCompanyState => ({
+    editSuccess: false,
     generalStepData: { id: null, name: '', countryId: null, shortDescription: '', description: '' },
     detailsStepData: { address: '', companyCategoryId: null, tin: '', logo: 'xdd' },
     contactInfoStepData: { phoneNumber: '', email: '', contactPerson: '', externalWebsite: '' }
@@ -36,6 +38,10 @@ export const useRegisterCompanyStore = defineStore({
 
     setContactInfoStepData(contactInfoStepData: RegisterCompanyContactInfoStep) {
       this.contactInfoStepData = contactInfoStepData
+    },
+
+    setEditedStatus(editSuccess: boolean) {
+      this.editSuccess = editSuccess
     }
   }
 })
