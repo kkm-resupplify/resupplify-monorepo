@@ -11,6 +11,10 @@ export const useUserThemeStore = defineStore({
     theme: 'light'
   }),
 
+  getters: {
+    getUserTheme: (state) => state.theme
+  },
+
   actions: {
     initializeTheme() {
       document.documentElement.dataset.theme = this.theme
@@ -19,10 +23,6 @@ export const useUserThemeStore = defineStore({
     setUserTheme(theme: string) {
       this.theme = theme
       document.documentElement.dataset.theme = theme
-    },
-
-    getUserTheme() {
-      return this.theme
     },
 
     toggleUserTheme() {
