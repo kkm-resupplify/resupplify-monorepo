@@ -2,20 +2,20 @@
   <div class="user-settings-preferences-tab">
     <a-title :title="$t('settings.preferences.title')" size="xx-large" />
 
-    <o-form>
+    <o-form :submit-callback="handleSetPreferences" :initial-values="{ theme: userTheme }">
       <template #body>
         <div class="user-settings-preferences-tab__content">
           <m-select
             name="language"
             :label="$t('settings.preferences.setLanguageLabel')"
             :placeholder="$t('settings.preferences.setLanguagePlaceholder')"
-            rules="required"
           />
 
           <m-select
-            name="language"
+            name="theme"
             :label="$t('settings.preferences.setThemeLabel')"
             :placeholder="$t('settings.preferences.setThemePlaceholder')"
+            :options="userThemeOptions"
             rules="required"
           />
         </div>
@@ -32,6 +32,36 @@
     </o-form>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
+import UserThemeEnum from '@sharedEnums/user/UserThemeEnum'
+import { computed, ref, onBeforeMount } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+// Variables
+const { t } = useI18n()
+const userThemeStore = useUserThemeStore()
+const userTheme = ref<string>()
+
+// Computed
+const userThemeOptions = computed(() =>
+  UserThemeEnum.getAllFields().map((typeName) => ({
+    id: `${UserThemeEnum[typeName as keyof UserThemeEnum]}`,
+    text: t(`global.${typeName.toLowerCase()}`)
+  }))
+)
+
+// Methods
+const handleSetPreferences = (formData: Record<string, any>) => {
+  userThemeStore.setUserTheme(formData.theme)
+}
+
+// Hooks
+onBeforeMount(() => {
+  userTheme.value = userThemeStore.getUserTheme()
+})
+</script>
 
 <style scoped lang="scss">
 .user-settings-preferences-tab {

@@ -21,6 +21,10 @@ export const useUserThemeStore = defineStore({
       document.documentElement.dataset.theme = theme
     },
 
+    getUserTheme() {
+      return this.theme
+    },
+
     toggleUserTheme() {
       if (this.theme === 'light') {
         this.setUserTheme('dark')

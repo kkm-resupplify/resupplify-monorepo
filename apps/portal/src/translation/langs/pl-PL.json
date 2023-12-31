@@ -41,7 +41,9 @@
     "viewDetails": "Pokaż szczegóły",
     "visitProfile": "Odwiedź profil",
     "seeDetails": "Zobacz szczegóły",
-    "set": "Ustaw"
+    "set": "Ustaw",
+    "dark": "Ciemny",
+    "light": "Jasny"
   },
 
   "language": {
