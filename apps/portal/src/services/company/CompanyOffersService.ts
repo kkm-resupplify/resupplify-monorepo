@@ -30,6 +30,20 @@ class CompanyOfferService extends BaseService {
       notificationTitle: 'company.management.offer.creator.notification.createOfferSuccessTitle'
     })
   }
+
+  async deactivateOffer(id: number) {
+    return await this.put({
+      id: id,
+      notificationTitle: 'company.management.offer.creator.notification.offerWithdrawalSuccessTitle'
+    })
+  }
+
+  async activateOffer(id: number) {
+    return await this.put({
+      id: id,
+      notificationTitle: 'company.management.offer.creator.notification.offerActivationSuccessTitle'
+    })
+  }
 }
 
 export default new CompanyOfferService('company/productOffer')
