@@ -52,6 +52,26 @@ class RegisterCompanyService extends BaseService {
 
     return response
   }
+
+  async edit({ generalStepData, detailsStepData, contactInfoStepData }: RegisterCompanyData) {
+    const response = await this.put({
+      data: new RegisterCompanyFormDataDTO({
+        generalStepData,
+        detailsStepData,
+        contactInfoStepData
+      }),
+      notificationTitle: 'company.register.notification.editCompanySuccessTitle',
+      notificationText: 'company.register.notification.editCompanySuccessText',
+      notificationDuration: 7000
+    })
+
+    const { data } = response
+    const userStore = useUserStore()
+
+    userStore.setUserCompany(data)
+
+    return response
+  }
 }
 
 export default new RegisterCompanyService('/company')

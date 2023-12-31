@@ -185,7 +185,9 @@
 
       "notification": {
         "registerCompanySuccessTitle": "Company registration submitted successfully",
-        "registerCompanySuccessText": "Your company is awaiting verification."
+        "registerCompanySuccessText": "Your company is awaiting verification.",
+        "editCompanySuccessTitle": "Company information edit submitted successfully",
+        "editCompanySuccessText": "Your company is awaiting verification."
       }
     },
 

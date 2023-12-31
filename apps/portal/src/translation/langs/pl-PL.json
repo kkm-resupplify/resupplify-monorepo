@@ -185,7 +185,9 @@
 
       "notification": {
         "registerCompanySuccessTitle": "Wniosek o rejestrację firmy został wysłany pomyślnie",
-        "registerCompanySuccessText": "Twoja firma oczekuje na weryfikację."
+        "registerCompanySuccessText": "Twoja firma oczekuje na weryfikację.",
+        "editCompanySuccessTitle": "Nowe dane firmy został wysłany pomyślnie",
+        "editCompanySuccessText": "Twoja firma oczekuje na weryfikację."
       }
     },
 
