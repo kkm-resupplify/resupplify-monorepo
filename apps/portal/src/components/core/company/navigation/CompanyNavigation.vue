@@ -1,7 +1,13 @@
 <template>
   <div class="company-navigation">
     <router-link class="company-navigation__header" :to="{ name: RouteNames.COMPANY_DASHBOARD }">
-      <div class="company-navigation__avatar">PH</div>
+      <a-image
+        :alt="userStore.getCompany?.name"
+        :src="userStore.getCompany?.details?.logo"
+        width="60px"
+        variant="rounded"
+        class="company-navigation__avatar"
+      />
 
       <a-title
         class="company-navigation__company-name"
@@ -98,17 +104,11 @@ const tabs = computed(() => [
     display: flex;
     align-items: center;
     justify-content: center;
-
-    min-width: 60px;
-    min-height: 60px;
-
-    background-color: var(--info);
-    border-radius: $global-border-radius-10;
   }
 
   &__company-name {
-    overflow: clip;
-    text-overflow: ellipsis;
+    align-self: flex-start;
+    word-break: break-all;
   }
 
   &__menu {
