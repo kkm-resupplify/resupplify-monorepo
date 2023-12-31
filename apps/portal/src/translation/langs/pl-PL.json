@@ -659,7 +659,9 @@
           },
 
           "notification": {
-            "createOfferSuccessTitle": "Oferta utworzona pomyślnie"
+            "createOfferSuccessTitle": "Oferta utworzona pomyślnie",
+            "offerWithdrawalSuccessTitle": "Oferta wycofana pomyślnie",
+            "offerActivationSuccessTitle": "Oferta aktywowana pomyślnie"
           },
 
           "alert": {
