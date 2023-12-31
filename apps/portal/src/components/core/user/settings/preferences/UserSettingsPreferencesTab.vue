@@ -9,6 +9,7 @@
             name="language"
             :label="$t('settings.preferences.setLanguageLabel')"
             :placeholder="$t('settings.preferences.setLanguagePlaceholder')"
+            rules="required"
           />
 
           <m-select
