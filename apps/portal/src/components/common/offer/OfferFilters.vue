@@ -35,7 +35,7 @@
         />
 
         <m-select
-          name="endedAt"
+          name="sortEndsAt"
           :label="$t('common.offer.filters.endDateLabel')"
           :placeholder="$t('common.offer.filters.endDatePlaceholder')"
           :options="endDateFiltersOptions"
@@ -43,7 +43,7 @@
         />
 
         <m-select
-          name="price"
+          name="sortPrice"
           :label="$t('common.offer.filters.priceLabel')"
           :placeholder="$t('common.offer.filters.pricePlaceholder')"
           :options="priceFiltersOptions"
@@ -129,8 +129,8 @@ const setInitialFormValues = () => {
     categoryId: route.query.categoryId ? +route.query.categoryId : undefined,
     subcategoryId: route.query.subcategoryId ? +route.query.subcategoryId : undefined,
     status: route.query.status ? +route.query.status : undefined,
-    dateEnd: route.query.dateEnd ? route.query.dateEnd.toString() : undefined,
-    price: route.query.price ? route.query.price.toString() : undefined
+    sortEndsAt: route.query.sortEndsAt ? route.query.sortEndsAt.toString() : undefined,
+    sortPrice: route.query.sortPrice ? route.query.sortPrice.toString() : undefined
   }
 }
 
@@ -141,8 +141,8 @@ const handleResetFilters = async () => {
     categoryId: undefined,
     subcategoryId: undefined,
     status: undefined,
-    dateEnd: undefined,
-    price: undefined
+    sortEndsAt: undefined,
+    sortPrice: undefined
   }
 
   await handleQuerySubmit({
@@ -151,8 +151,8 @@ const handleResetFilters = async () => {
     categoryId: undefined,
     subcategoryId: undefined,
     status: undefined,
-    dateEnd: undefined,
-    price: undefined
+    sortEndsAt: undefined,
+    sortPrice: undefined
   })
 }
 
