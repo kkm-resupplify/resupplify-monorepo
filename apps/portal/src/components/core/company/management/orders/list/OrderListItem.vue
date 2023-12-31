@@ -35,7 +35,7 @@
       <order-item-list
         :order-items="orderItems"
         :type="type"
-        :order-id="order.id"
+        :order="order"
         @fetch-orders="handleFetchOrders"
       />
     </template>

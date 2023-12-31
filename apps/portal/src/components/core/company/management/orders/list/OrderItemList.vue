@@ -12,11 +12,7 @@
     <a-line />
 
     <div class="order-item-list__footer">
-      <set-order-status-dialog
-        v-if="seller"
-        :order-id="orderId"
-        @fetch-orders="handleFetchOrders"
-      />
+      <set-order-status-dialog v-if="seller" :order="order" @fetch-orders="handleFetchOrders" />
 
       <a-currency
         :title="$t('company.management.order.totalPrice')"
@@ -33,7 +29,7 @@
 
 <script setup lang="ts">
 import { type PropType, computed } from 'vue'
-import type { OrderItem } from '@sharedInterfaces/order/OrderInterface'
+import type { Order, OrderItem } from '@sharedInterfaces/order/OrderInterface'
 import OrderItemListItem from '@/components/core/company/management/orders/list/OrderItemListItem.vue'
 import SetOrderStatusDialog from '../dialog/SetOrderStatusDialog.vue'
 
@@ -49,8 +45,8 @@ const props = defineProps({
     type: String,
     required: true
   },
-  orderId: {
-    type: Number,
+  order: {
+    type: Object as PropType<Order>,
     required: true
   }
 })
