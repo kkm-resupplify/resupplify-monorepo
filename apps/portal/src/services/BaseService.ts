@@ -62,7 +62,6 @@ export default class BaseService {
   mapParamNames(params: any) {
     return Object.entries(params || {}).reduce((result, [key, value]) => {
       if (key === 'page' || key.startsWith('sort')) {
-        console.log(key, value)
         result[key] = value
       } else result[`filter[${key}]`] = value
 
