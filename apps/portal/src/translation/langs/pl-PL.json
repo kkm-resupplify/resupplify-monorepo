@@ -600,7 +600,7 @@
 
           "list": {
             "noOffers": "Twoja firma nie posiada jeszcze żadnych ofert.",
-            "noOffersMatchingFilter": "Brak ofert dla podanych parametry.",
+            "noOffersMatchingFilter": "Brak ofert dla podanych parametrów.",
 
             "item": {
               "netPrice": "Cena netto",
