@@ -1,5 +1,9 @@
 <template>
-  <m-dialog ref="dialogRef" :title="$t('company.management.order.item.dialog.title')">
+  <m-dialog
+    ref="dialogRef"
+    :title="$t('company.management.order.item.dialog.title')"
+    class="set-order-status-dialog"
+  >
     <template #activator>
       <a-button size="x-large" :text="$t('company.management.order.item.dialog.activator')" />
     </template>
@@ -87,11 +91,14 @@ const handleSubmitChangeStatus = async (formData: Record<string, any>) => {
 
 <style scoped lang="scss">
 .set-order-status-dialog {
+  &__content {
+    min-width: 300px;
+  }
+
   &__form-body {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-50;
-    min-height: 165px;
   }
 
   &__submit {
