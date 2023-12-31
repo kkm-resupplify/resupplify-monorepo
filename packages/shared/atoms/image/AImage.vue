@@ -1,17 +1,19 @@
 <template>
-  <img
-    v-show="!isLoading && !isError"
-    ref="imageRef"
-    :src="decodedSrc"
-    :alt="alt"
-    :class="generateClasses"
-    :rel="rel"
-    @error="imageError"
-    @load="handleImageLoaded"
-  />
+  <div class="a-image">
+    <img
+      v-show="!isLoading && !isError"
+      ref="imageRef"
+      :src="decodedSrc"
+      :alt="alt"
+      :class="generateClasses"
+      :rel="rel"
+      @error="imageError"
+      @load="handleImageLoaded"
+    />
 
-  <div v-if="isLoading || isError" class="a-image__placeholder">
-    <a-icon icon="no_photography" size="xx-large" />
+    <div v-if="isLoading || isError" class="a-image__placeholder">
+      <a-icon icon="no_photography" size="xx-large" />
+    </div>
   </div>
 </template>
 
