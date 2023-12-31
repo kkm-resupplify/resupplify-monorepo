@@ -5,7 +5,10 @@
     </template>
 
     <div class="set-order-status-dialog__content">
-      <o-form class="set-order-status-dialog__form-body">
+      <o-form
+        :submit-callback="handleSubmitChangeStatus"
+        class="set-order-status-dialog__form-body"
+      >
         <template #body>
           <m-select
             name="status"
@@ -31,11 +34,24 @@
 
 <script setup lang="ts">
 import OrderStatusEnum from '@sharedEnums/order/OrderStatusEnum'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import OrderService from '@/services/order/OrderService'
+import type MDialogVue from '@sharedMolecules/dialog/MDialog.vue'
+
+const props = defineProps({
+  orderId: {
+    type: Number,
+    required: true
+  }
+})
+
+// Emits
+const emits = defineEmits(['fetch-orders'])
 
 // Variables
 const { t } = useI18n()
+const dialogRef = ref<null | InstanceType<typeof MDialogVue>>(null)
 
 // Computed
 const orderStatusOptions = computed(() =>
@@ -44,6 +60,23 @@ const orderStatusOptions = computed(() =>
     text: t(`company.management.order.status.${OrderStatusEnum[typeName as keyof OrderStatusEnum]}`)
   }))
 )
+
+// Methods
+const closeDialog = () => {
+  dialogRef.value?.closeDialog()
+}
+
+const handleSubmitChangeStatus = async (formData: Record<string, any>) => {
+  const status = +formData.status
+
+  const { success } = await OrderService.changeOrderStatus(props.orderId, status)
+
+  if (success) {
+    closeDialog()
+
+    emits('fetch-orders')
+  }
+}
 </script>
 
 <style scoped lang="scss">

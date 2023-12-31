@@ -11,10 +11,10 @@ class OrderService extends BaseService {
     })
   }
 
-  async changeOrderStatus(orderId: string | number, status: string | number) {
+  async changeOrderStatus(orderId: number, status: number) {
     return await this.put({
       data: { orderId, status },
-      notificationText: 'company.management.order.item.dialog.changeStatusOfOrderSuccessText',
+      notificationTitle: 'company.management.order.item.dialog.changeStatusOfOrderSuccessText',
       notificationDuration: 5000
     })
   }

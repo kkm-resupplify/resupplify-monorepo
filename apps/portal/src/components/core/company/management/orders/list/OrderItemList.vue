@@ -12,7 +12,11 @@
     <a-line />
 
     <div class="order-item-list__footer">
-      <set-order-status-dialog v-if="seller" />
+      <set-order-status-dialog
+        v-if="seller"
+        :order-id="orderId"
+        @fetch-orders="handleFetchOrders"
+      />
 
       <a-currency
         :title="$t('company.management.order.totalPrice')"
@@ -33,6 +37,9 @@ import type { OrderItem } from '@sharedInterfaces/order/OrderInterface'
 import OrderItemListItem from '@/components/core/company/management/orders/list/OrderItemListItem.vue'
 import SetOrderStatusDialog from '../dialog/SetOrderStatusDialog.vue'
 
+// Emits
+const emits = defineEmits(['fetch-orders'])
+
 const props = defineProps({
   orderItems: {
     type: Array as PropType<OrderItem[]>,
@@ -40,6 +47,10 @@ const props = defineProps({
   },
   type: {
     type: String,
+    required: true
+  },
+  orderId: {
+    type: Number,
     required: true
   }
 })
@@ -55,6 +66,10 @@ const totalCost = computed(() => {
     return acc + orderItem.quantity * orderItem.offer.price
   }, 0)
 })
+
+const handleFetchOrders = () => {
+  emits('fetch-orders')
+}
 
 const borderStyle = (idx: number) => {
   return {

@@ -32,7 +32,12 @@
     </template>
 
     <template #content>
-      <order-item-list :order-items="orderItems" :type="type" />
+      <order-item-list
+        :order-items="orderItems"
+        :type="type"
+        :order-id="order.id"
+        @fetch-orders="handleFetchOrders"
+      />
     </template>
   </a-expansion-panel>
 </template>
@@ -53,6 +58,9 @@ const props = defineProps({
     required: true
   }
 })
+
+// Emits
+const emits = defineEmits(['fetch-orders'])
 
 // Variables
 const { t } = useI18n()
@@ -106,6 +114,10 @@ const orderTitleDatesSections = computed(() => [
 // Methods
 const getTranslationValue = (key: string) => {
   return t(`company.management.order.${key}`)
+}
+
+const handleFetchOrders = () => {
+  emits('fetch-orders')
 }
 </script>
 

@@ -697,7 +697,8 @@
             "title": "Set order status",
             "content": "Select status from the list",
             "selectStatusLabel": "Status",
-            "selectStatusPlaceholder": "Select status"
+            "selectStatusPlaceholder": "Select status",
+            "changeStatusOfOrderSuccessText": "Status changed succesfully"
           }
         },
 
