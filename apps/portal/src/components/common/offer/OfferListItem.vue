@@ -6,7 +6,7 @@
       :height="120"
       :alt="offer.product.name"
       variant="rounded"
-      class="offer-list-item__image"
+      style="align-self: flex-start"
     />
 
     <div class="offer-list-item__information">
@@ -114,10 +114,6 @@ const handleAddToCart = () => {
 
 <style scoped lang="scss">
 .offer-list-item {
-  &__image {
-    align-self: flex-start;
-  }
-
   &__information {
     display: flex;
     justify-content: space-between;

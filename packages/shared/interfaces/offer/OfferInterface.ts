@@ -21,8 +21,8 @@ export interface OfferFiltersParams {
   categoryId?: string | number
   subcategoryId?: string | number
   status?: string | number
-  dateEnd?: string
-  price?: string | number
+  sortEndsAt?: string
+  sortPrice?: string | number
 }
 
 export interface CreateOffer {
