@@ -4,7 +4,7 @@
 
     <o-form
       :submit-callback="handleSetPreferences"
-      :initial-values="{ theme: userThemeStore.getUserTheme() }"
+      :initial-values="{ language: userStore.getLanguage, theme: userThemeStore.getUserTheme }"
     >
       <template #body>
         <div class="user-settings-preferences-tab__content">
@@ -12,6 +12,7 @@
             name="language"
             :label="$t('settings.preferences.setLanguageLabel')"
             :placeholder="$t('settings.preferences.setLanguagePlaceholder')"
+            :options="userLanguageOptions"
             rules="required"
           />
 
@@ -38,7 +39,10 @@
 </template>
 
 <script setup lang="ts">
+import UserPreferencesService from '@/services/user/UserPreferencesService'
+import { useUserStore } from '@/stores/user/useUserStore'
 import { useUserThemeStore } from '@/stores/user/useUserThemeStore'
+import UserLanguageEnum from '@sharedEnums/user/UserLanguageEnum'
 import UserThemeEnum from '@sharedEnums/user/UserThemeEnum'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -46,6 +50,7 @@ import { useI18n } from 'vue-i18n'
 // Variables
 const { t } = useI18n()
 const userThemeStore = useUserThemeStore()
+const userStore = useUserStore()
 
 // Computed
 const userThemeOptions = computed(() =>
@@ -55,9 +60,24 @@ const userThemeOptions = computed(() =>
   }))
 )
 
+const userLanguageOptions = computed(() =>
+  UserLanguageEnum.getAllFields().map((typeName) => ({
+    id: `${UserLanguageEnum[typeName as keyof UserLanguageEnum]}`,
+    text: t(`language.${UserLanguageEnum[typeName as keyof UserLanguageEnum]}`)
+  }))
+)
+
 // Methods
-const handleSetPreferences = (formData: Record<string, any>) => {
-  userThemeStore.setUserTheme(formData.theme)
+const handleSetPreferences = async (formData: Record<string, any>) => {
+  // Drut ale do stora musze zapisać stringa a do api wysłać id
+  const languageId = formData.language === 'pl-PL' ? 1 : 2
+
+  const { success } = await UserPreferencesService.changeUserLanguage(languageId)
+
+  if (success) {
+    userStore.setLanguage(formData.language)
+    userThemeStore.setUserTheme(formData.theme)
+  }
 }
 </script>
 
