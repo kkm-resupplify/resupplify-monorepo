@@ -899,6 +899,7 @@
 
     "myCompany": {
       "title": "My company",
+      "subtitle": "Settings and information related to the company you are a member of.",
 
       "joinCompany": {
         "title": "Join a company",

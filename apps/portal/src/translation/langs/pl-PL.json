@@ -904,6 +904,7 @@
 
     "myCompany": {
       "title": "Moja firma",
+      "subtitle":"Ustawienia i informacje związane z firmą, której jesteś członkiem.",
 
       "joinCompany": {
         "title": "Dołącz do firmy",
