@@ -892,6 +892,12 @@
 
     "preferences": {
       "title": "Preferences",
+      "setLanguageLabel": "Language",
+      "setLanguagePlaceholder": "Select preferred language",
+      "setThemeLabel": "Theme",
+      "setThemePlaceholder": "Select application theme",
+      "saveChanges": "Save changes",
+
       "notification": {
         "updateSuccess": "Preferences updated successfully"
       }
