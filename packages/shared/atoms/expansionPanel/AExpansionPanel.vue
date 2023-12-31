@@ -4,20 +4,21 @@
       <slot name="activator" />
     </div>
 
-    <div v-if="showContent" class="a-expansion-panel__content">
+    <div v-if="renderContent" class="a-expansion-panel__content">
       <slot name="content" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, useSlots } from 'vue'
 import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 
 // Emits
 const emits = defineEmits(['toggle'])
 
 // Variables
+const slots = useSlots()
 const baseClass = 'a-expansion-panel'
 const { generateClassNames } = useClassComposable()
 const showContent = ref<boolean>(false)
@@ -27,6 +28,11 @@ const generateClasses = computed(() => {
   return generateClassNames(baseClass, [])
 })
 
+const renderContent = computed(() => {
+  return showContent.value && slots.content
+})
+
+// Methods
 const toggleShowContent = () => {
   showContent.value = !showContent.value
   emits('toggle', showContent.value)
@@ -35,10 +41,10 @@ const toggleShowContent = () => {
 
 <style lang="scss" scoped>
 .a-expansion-panel {
-  cursor: pointer;
   display: inline-block;
 
   &__activator {
+    cursor: pointer;
     user-select: none;
     display: flex;
   }

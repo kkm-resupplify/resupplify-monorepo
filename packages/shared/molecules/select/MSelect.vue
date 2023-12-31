@@ -2,7 +2,12 @@
   <div ref="selectRef" :class="generateClasses">
     <label v-if="label" class="m-select__label" :for="name" v-text="label" />
 
-    <div class="m-select__input-group" @click="handleInputClick">
+    <div
+      id="inputGroup"
+      ref="inputGroupRef"
+      class="m-select__input-group"
+      @click="handleInputClick"
+    >
       <a-icon
         class="m-select__input-prepend"
         :icon="prependIcon"
@@ -112,6 +117,7 @@ const emits = defineEmits(['input-change', 'input-clear'])
 const baseClass = 'm-select'
 const optionsFilter = ref<any>('')
 const selectRef = ref<HTMLElement | null>(null)
+const inputGroupRef = ref<HTMLElement | null>(null)
 const inputRef = ref<HTMLElement | null>(null)
 const optionsFilterRef = ref<HTMLElement | null>(null)
 const showOptions = ref(false)
@@ -120,6 +126,9 @@ const width = toRef(props, 'width')
 const { generateClassNames } = useClassComposable()
 const appendIconState = ref(false)
 const prependIconState = ref(false)
+const contentWidthStyle = ref('0px')
+
+let resizeObserver: ResizeObserver | null = null
 
 // Computed
 const generateClasses = computed(() => {
@@ -261,11 +270,25 @@ const handlePrependIconClick = (event: Event) => {
 onMounted(() => {
   handleOutsideValueChange()
   document.addEventListener('click', clickOutsideEvent)
+  resizeObserver = new ResizeObserver((entries) => {
+    for (let entry of entries) {
+      contentWidthStyle.value = `${entry.contentRect.width}px`
+    }
+  })
+
+  if (inputGroupRef.value) {
+    resizeObserver.observe(inputGroupRef.value)
+  }
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', clickOutsideEvent)
+
+  if (resizeObserver && inputGroupRef.value) {
+    resizeObserver.unobserve(inputGroupRef.value)
+  }
 })
+
 // Exposes
 defineExpose({
   clearSelect
@@ -329,6 +352,7 @@ defineExpose({
   }
 
   &__label {
+    width: fit-content;
     color: var(--font-primary);
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -383,7 +407,7 @@ defineExpose({
   &__content {
     @include boxshadow-primary-2;
 
-    position: absolute;
+    position: fixed;
     z-index: 10;
     transform: translateY(calc(v-bind(inputHeight)));
 
@@ -393,8 +417,9 @@ defineExpose({
     gap: $global-spacing-20;
 
     box-sizing: border-box;
-    width: calc(100% - $global-spacing-20);
+    min-width: v-bind(contentWidthStyle);
     max-height: calc(5 * 30px);
+    margin-top: 5px;
     padding: $global-spacing-30;
 
     background: var(--secondary-3);

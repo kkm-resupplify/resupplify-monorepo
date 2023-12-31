@@ -3,7 +3,7 @@
     <div class="cart-company-offers-group-offer-list-item__header">
       <a-image
         :src="cartItem.offer.product.image"
-        :alt="$t('cart.main.content.groups.list.item.imageAlt')"
+        :alt="cartItem.offer.product.name"
         :width="60"
         :height="60"
         variant="rounded-sm"

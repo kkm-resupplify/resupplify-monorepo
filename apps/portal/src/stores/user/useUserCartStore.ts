@@ -40,6 +40,10 @@ export const useUserCartStore = defineStore({
 
   actions: {
     addToCart(offer: Offer) {
+      if (this.isOfferInCart(offer)) {
+        return
+      }
+
       this.cartItems.push({ offer, quantity: 1 })
     },
 
@@ -61,6 +65,12 @@ export const useUserCartStore = defineStore({
       if (index !== -1) {
         this.cartItems[index].quantity = quantity
       }
+    },
+
+    removeCompanyGroup(companyName: string) {
+      this.cartItems = this.cartItems.filter(
+        (item: CartItem) => item.offer.company.name !== companyName
+      )
     }
   },
 

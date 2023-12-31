@@ -40,7 +40,8 @@
     "descending": "Malejąco",
     "viewDetails": "Pokaż szczegóły",
     "visitProfile": "Odwiedź profil",
-    "seeDetails": "Zobacz szczegóły"
+    "seeDetails": "Zobacz szczegóły",
+    "set": "Ustaw"
   },
 
   "language": {
@@ -238,7 +239,12 @@
         },
 
         "orders": {
-          "title": "Zamówienia"
+          "title": "Zamówienia",
+
+          "tiles": {
+            "sales": "Sprzedaże",
+            "purchases": "Kupna"
+          }
         },
 
         "warehouses": {
@@ -323,7 +329,7 @@
         "needingAttention": {
           "title": "Magazyny wymagające uwagi",
           "buttonText": "Sprawdź szczegóły",
-          "noResults": "Wszystkie magazyny firmy są w dobrym stanie"
+          "noResults": "Wszystkie magazyny firmy są w dobrym stanie."
         },
 
         "preview": {
@@ -586,6 +592,7 @@
       "offer": {
         "dashboard": {
           "companyOffers": "Oferty firmy",
+          "companyOffersDescription": "Przeglądaj i zarządzaj ofertami Twojej firmy.",
           "companyOffersNotVisible": "Oferty nie są widoczne dla innych, ponieważ Twoja firma nie została jeszcze zweryfikowana.",
           "searchBarPlaceholder": "Szukaj ofert",
           "productCategoryPlaceholder": "Kategoria produktu",
@@ -594,7 +601,7 @@
 
           "list": {
             "noOffers": "Twoja firma nie posiada jeszcze żadnych ofert.",
-            "noOffersMatchingFilter": "Brak ofert dla podanych parametry.",
+            "noOffersMatchingFilter": "Brak ofert dla podanych parametrów.",
 
             "item": {
               "netPrice": "Cena netto",
@@ -663,6 +670,49 @@
         "preview": {
           "productDetails": "Szczegóły produktu",
           "sellerInformation": "Informacje o sprzedawcy"
+        }
+      },
+
+      "order": {
+        "id": "ID zamówienia",
+        "buyer": "Kupujący",
+        "seller": "Sprzedawca",
+        "totalPrice": "Łączny koszt",
+        "datePlaced": "Data złożenia",
+        "lastUpdate": "Ostatnia aktualizacja",
+        "noOrdersSold": "Twoja firma nie sprzedała jeszcze żadnych ofert.",
+        "noOrdersBought": "Twoja firma nie złożyła jeszcze żadnych zamówień.",
+        "noOrdersMatchingFilter": "Brak zamówień dla podanych filtrów.",
+        "placeOrderSuccessTitle": "Zamówienie złożone pomyślnie",
+        "placeOrderSuccessText": "Twoje zamówienie zostało pomyślnie złożone. Możesz teraz śledzić jego status w sekcji 'Zakupy' na swoim panelu zamówień.",
+        "salesTitle": "Sprzedaże",
+        "salesDescription": "Przeglądaj zamówienia złożone przez inne firmy na Twoje oferty.",
+        "purchasesTitle": "Kupna",
+        "purchasesDescription": "Przeglądaj zamówienia złożone przez Twoją firmę na oferty od innych firm.",
+
+        "item": {
+          "dialog": {
+            "activator": "Ustaw status",
+            "title": "Ustaw status zamówienia",
+            "content": "Wybierz status z listy",
+            "selectStatusLabel": "Status",
+            "selectStatusPlaceholder": "Wybierz status",
+            "changeStatusOfOrderSuccessText": "Status zmieniony pomyślnie"
+          }
+        },
+
+        "status": {
+          "title": "Status zamówienia",
+          "0": "Złożone",
+          "1": "Przetwarzanie",
+          "2": "Wysłane",
+          "3": "W drodze",
+          "4": "Zakończone",
+          "5": "Anulowane",
+          "6": "Zwrócone",
+          "7": "Odrzucone",
+          "8": "Zawieszone",
+          "9": "Nieaktywne"
         }
       }
     },
@@ -781,7 +831,7 @@
         "categoryLabel": "Kategoria produktu",
         "categoryPlaceholder": "Wybierz kategorię produktu",
         "subcategoryLabel": "Podkategoria produktu",
-        "subcategoryPlaceholder": "Wybierz kategorię produktu",
+        "subcategoryPlaceholder": "Wybierz podkategorię produktu",
         "statusLabel": "Status oferty",
         "statusPlaceholder": "Wybierz status oferty",
         "endDateLabel": "Data zakończenia oferty",
@@ -798,6 +848,19 @@
           "ascending": "Rosnąco",
           "descending": "Malejąco"
         }
+      }
+    },
+
+    "order": {
+      "filters": {
+        "nameLabel": "Nazwa produktu",
+        "namePlaceholder": "Podaj nazwę produktu",
+        "categoryLabel": "Kategoria produktu",
+        "categoryPlaceholder": "Wybierz kategorię produktu",
+        "subcategoryLabel": "Podkategoria produktu",
+        "subcategoryPlaceholder": "Wybierz podkategorię produktu",
+        "statusLabel": "Status zamówienia",
+        "statusPlaceholder": "Wybierz status zamówienia"
       }
     }
   },

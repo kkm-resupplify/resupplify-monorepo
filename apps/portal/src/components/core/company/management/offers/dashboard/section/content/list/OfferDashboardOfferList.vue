@@ -1,7 +1,7 @@
 <template>
-  <div class="offer-dashboard-offer-list">
+  <a-list class="offer-dashboard-offer-list">
     <offer-dashboard-offer-list-item v-for="offer in offers" :key="offer.id" :offer="offer" />
-  </div>
+  </a-list>
 </template>
 
 <script setup lang="ts">

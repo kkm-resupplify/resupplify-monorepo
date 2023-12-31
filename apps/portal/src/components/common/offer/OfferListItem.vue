@@ -4,7 +4,7 @@
       :src="offer.product.image"
       :width="120"
       :height="120"
-      :alt="$t('common.offer.list.item.imageAlt')"
+      :alt="offer.product.name"
       variant="rounded"
       class="offer-list-item__image"
     />
