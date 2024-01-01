@@ -665,7 +665,6 @@
           "notification": {
             "createOfferSuccessTitle": "Offer created successfully",
             "offerWithdrawalSuccessTitle": "Offer withdrawed successfully",
-            "offerActivationSuccessTitle": "Offer activated successfully"
           },
 
           "alert": {
