@@ -25,6 +25,7 @@
           :title="t('company.management.offer.dashboard.dialog.titleWithdrawal')"
           :content="t('company.management.offer.dashboard.dialog.contentWithdrawal')"
           @click.stop
+          @confirmed="handleWithdrawOffer"
         >
           <template #activator>
             <a-button :text="$t(`global.withdraw`)" size="x-large" />
@@ -77,6 +78,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
 import { useOfferStatus } from '@/composable/offer/useOfferStatus'
+import CompanyOffersService from '@/services/company/CompanyOffersService'
 
 const props = defineProps({
   offer: {
@@ -84,6 +86,9 @@ const props = defineProps({
     required: true
   }
 })
+
+// Emits
+const emits = defineEmits(['offer-changed'])
 
 // DTO
 class ExpansionPanelSectionDto {
@@ -112,6 +117,13 @@ const activatorSections = computed(() => {
     new ExpansionPanelSectionDto('quantity', props.offer.productQuantity)
   ]
 })
+
+// Methods
+const handleWithdrawOffer = async () => {
+  await CompanyOffersService.deactivateOffer(props.offer.id)
+
+  emits('offer-changed')
+}
 </script>
 
 <style scoped lang="scss">

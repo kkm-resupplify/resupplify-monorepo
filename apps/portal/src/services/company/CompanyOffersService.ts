@@ -34,7 +34,7 @@ class CompanyOfferService extends BaseService {
   }
 
   async deactivateOffer(id: number) {
-    return await this.put({
+    return await this.get({
       suffix: `${CompanyOfferService.DEACTIVATE_OFFER_SUFFIX}/${id}`,
       notificationTitle: 'company.management.offer.creator.notification.offerWithdrawalSuccessTitle'
     })
