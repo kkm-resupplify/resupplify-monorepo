@@ -782,7 +782,21 @@
     },
 
     "unit": {
-      "pricePerUnit": "za {unit}"
+      "pricePerUnit": "za {unit}",
+      "kilogram": "Kilogram",
+      "litre": "Litr",
+      "gram": "Gram",
+      "milliliter": "Mililitr",
+      "piece": "Sztuka",
+      "can": "Puszka",
+      "bottle": "Butelka",
+      "carton": "Karton",
+      "dozen": "Tuzin",
+      "pound": "Funt",
+      "ounce": "Uncja",
+      "meter": "Metr",
+      "sheet": "Arkusz",
+      "piecesPerPack": "Sztuk w opakowaniu"
     }
   },
 
