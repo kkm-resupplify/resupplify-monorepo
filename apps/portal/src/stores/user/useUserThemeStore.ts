@@ -11,6 +11,10 @@ export const useUserThemeStore = defineStore({
     theme: 'light'
   }),
 
+  getters: {
+    getUserTheme: (state) => state.theme
+  },
+
   actions: {
     initializeTheme() {
       document.documentElement.dataset.theme = this.theme

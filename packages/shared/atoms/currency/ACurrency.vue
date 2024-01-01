@@ -6,6 +6,7 @@
       :title="title"
       :append-colon="!vertical"
       :line-height="lineHeight"
+      :title-font-weight="titleFontWeight"
     />
 
     <a-title :size="valueSize" :title="valueText" />
@@ -37,6 +38,10 @@ const props = defineProps({
   lineHeight: {
     type: String,
     default: 'auto'
+  },
+  titleFontWeight: {
+    type: String,
+    default: '700'
   }
 })
 

@@ -27,7 +27,7 @@
       <div class="offer-preview-content-section__company-information">
         <a-link
           :text="company.name"
-          :to="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
+          :link="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
           size="large"
         />
 
