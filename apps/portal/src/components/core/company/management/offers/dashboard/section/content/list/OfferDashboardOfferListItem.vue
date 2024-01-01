@@ -21,13 +21,13 @@
         />
 
         <o-confirm-dialog
-          :type="activationType"
-          :title="activationTypeTitle"
-          :content="activationTypeContent"
+          type="withdraw"
+          :title="t('company.management.offer.dashboard.dialog.titleWithdrawal')"
+          :content="t('company.management.offer.dashboard.dialog.contentWithdrawal')"
           @click.stop
         >
           <template #activator>
-            <a-button :text="$t(`global.${activationType}`)" size="x-large" />
+            <a-button :text="$t(`global.withdraw`)" size="x-large" />
           </template>
         </o-confirm-dialog>
       </a-list-item-wrapper>
@@ -112,20 +112,6 @@ const activatorSections = computed(() => {
     new ExpansionPanelSectionDto('quantity', props.offer.productQuantity)
   ]
 })
-
-const activationType = computed(() => (props.offer.status === 1 ? 'withdraw' : 'activate'))
-
-const activationTypeTitle = computed(() =>
-  props.offer.status === 1
-    ? t('company.management.offer.dashboard.dialog.titleWithdrawal')
-    : t('company.management.offer.dashboard.dialog.titleActivation')
-)
-
-const activationTypeContent = computed(() =>
-  props.offer.status === 1
-    ? t('company.management.offer.dashboard.dialog.contentWithdrawal')
-    : t('company.management.offer.dashboard.dialog.contentActivation')
-)
 </script>
 
 <style scoped lang="scss">
