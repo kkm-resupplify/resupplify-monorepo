@@ -990,10 +990,13 @@
     "cz": "Czechy",
     "dk": "Dania",
     "ee": "Estonia",
+    "fo": "Wyspy Owcze",
     "fi": "Finlandia",
     "fr": "Francja",
+    "ge": "Gruzja",
     "de": "Niemcy",
     "gr": "Grecja",
+    "gi": "Gibraltar",
     "hu": "Węgry",
     "is": "Islandia",
     "ie": "Irlandia",
@@ -1022,6 +1025,7 @@
     "ch": "Szwajcaria",
     "ua": "Ukraina",
     "gb": "Wielka Brytania",
-    "va": "Watykan"
+    "va": "Watykan",
+    "xk": "Kosowo"
   }
 }

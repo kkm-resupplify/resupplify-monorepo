@@ -43,12 +43,10 @@ import router from '@/routes'
 import { useQueryFilter } from '@sharedComposables/query/useQueryFilter'
 import type { CompaniesFiltersParams } from '@sharedInterfaces/companies/CompaniesInterface'
 import type OFormVue from '@sharedOrganisms/form/OForm.vue'
-import { ref } from 'vue'
-import { onBeforeMount } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import StaticCompanyDescriptorsService from '@/services/company/StaticCompanyDescriptorsService'
 import { useStaticCompanyDescriptorsStore } from '@sharedStores/company/useStaticCompanyDescriptorsStore'
-import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 // Emits
