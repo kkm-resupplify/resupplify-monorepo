@@ -796,12 +796,10 @@
       "can": "Can",
       "bottle": "Bottle",
       "carton": "Carton",
-      "dozen": "Dozen",
-      "pound": "Pound",
-      "ounce": "Ounce",
       "meter": "Meter",
-      "sheet": "Sheet",
-      "piecesPerPack": "Pieces per pack"
+      "metersquare": "Square meter",
+      "metercube": "Cubic meter",
+      "sheet": "Sheet"
     }
   },
 

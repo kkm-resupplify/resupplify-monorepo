@@ -673,7 +673,7 @@
         "preview": {
           "productDetails": "Szczegóły produktu",
           "sellerInformation": "Informacje o sprzedawcy",
-          "productUnit":"Jednostka produktu"
+          "productUnit": "Jednostka produktu"
         }
       },
 
@@ -795,12 +795,10 @@
       "can": "Puszka",
       "bottle": "Butelka",
       "carton": "Karton",
-      "dozen": "Tuzin",
-      "pound": "Funt",
-      "ounce": "Uncja",
       "meter": "Metr",
-      "sheet": "Arkusz",
-      "piecesPerPack": "Sztuk w opakowaniu"
+      "metersquare": "Metr kwadratowy",
+      "metercubed": "Metr sześcienny",
+      "sheet": "Arkusz"
     }
   },
 
