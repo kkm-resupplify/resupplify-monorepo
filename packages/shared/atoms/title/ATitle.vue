@@ -32,6 +32,10 @@ const props = defineProps({
   lineHeight: {
     type: String,
     default: 'auto'
+  },
+  titleFontWeight: {
+    type: String,
+    default: '500'
   }
 })
 
@@ -53,13 +57,15 @@ const flexBasisValue = computed(() => {
 })
 
 const lineHeightClass = computed(() => props.lineHeight)
+
+const titleFontWeihtClass = computed(() => props.titleFontWeight)
 </script>
 
 <style scoped lang="scss">
 @mixin size-vertical($fontSize) {
   .a-title__title {
     font-size: $fontSize;
-    font-weight: $global-font-weight-50;
+    font-weight: v-bind(titleFontWeihtClass);
   }
 
   .a-title__subtitle {
@@ -71,7 +77,7 @@ const lineHeightClass = computed(() => props.lineHeight)
 @mixin size-horizontal($fontSize) {
   .a-title__title {
     font-size: $fontSize;
-    font-weight: $global-font-weight-50;
+    font-weight: v-bind(titleFontWeihtClass);
   }
 
   .a-title__subtitle {

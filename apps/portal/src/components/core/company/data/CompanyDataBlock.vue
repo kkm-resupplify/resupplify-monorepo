@@ -3,6 +3,12 @@
     <div class="company-data-block__section">
       <a-title :title="$t('company.data.generalInformation')" size="x-large" />
 
+      <m-alert
+        v-if="isCompanyNotVerified"
+        variant="warning"
+        :text="$t('company.data.notVerifiedAlert')"
+      />
+
       <div class="company-data-block__section-items">
         <a-image
           :src="company.details.logo"
@@ -61,6 +67,7 @@
 </template>
 
 <script setup lang="ts">
+import { useUserStore } from '@/stores/user/useUserStore'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import type { PropType } from 'vue'
 import { computed } from 'vue'
@@ -74,6 +81,7 @@ const props = defineProps({
 })
 // Variables
 const { t } = useI18n()
+const userStore = useUserStore()
 
 // Computed
 const companyGeneralData = computed(() => {
@@ -101,6 +109,10 @@ const companyContactData = computed(() => {
     { title: t('company.data.phoneNumber'), value: props.company.details.phoneNumber }
   ]
 })
+
+const isCompanyNotVerified = computed(() => {
+  return userStore.getCompany?.status === 0
+})
 </script>
 
 <style lang="scss" scoped>
@@ -108,5 +120,11 @@ const companyContactData = computed(() => {
   display: flex;
   flex-direction: column;
   gap: $global-spacing-60;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-20;
+  }
 }
 </style>

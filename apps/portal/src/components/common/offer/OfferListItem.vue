@@ -72,12 +72,18 @@
         <div class="offer-list-item__order-information-buttons">
           <a-button :text="buttonText" size="x-large" @click="handleAddToCart" />
 
-          <a-button
-            :text="$t('global.seeDetails')"
-            size="x-large"
-            :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
-          />
-        </div>
+        <a-button
+          v-if="isNotCurrentUserCompanyOffer"
+          :text="buttonText"
+          size="x-large"
+          @click="handleAddToCart"
+        />
+
+        <a-button
+          :text="$t('global.seeDetails')"
+          size="x-large"
+          :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
+        />
       </div>
     </div>
   </a-list-item-wrapper>
@@ -90,6 +96,7 @@ import ProductTagList from '@/components/common/product/ProductTagList.vue'
 import { type PropType, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RouteNames } from '@/routes'
+import { useUserStore } from '@/stores/user/useUserStore'
 const props = defineProps({
   offer: {
     type: Object as PropType<Offer>,
@@ -104,12 +111,17 @@ const props = defineProps({
 // Variables
 const userCartStore = useUserCartStore()
 const { t } = useI18n()
+const userStore = useUserStore()
 
 // Computed
 const isOfferInCart = computed(() => userCartStore.isOfferInCart(props.offer))
 
 const buttonText = computed(() => {
   return isOfferInCart.value ? t('global.removeCartItem') : t('global.addToCart')
+})
+
+const isNotCurrentUserCompanyOffer = computed(() => {
+  return userStore.getCompany?.name !== props.offer.company.name
 })
 
 // Methods
