@@ -670,7 +670,8 @@
 
         "preview": {
           "productDetails": "Product details",
-          "sellerInformation": "Seller information"
+          "sellerInformation": "Seller information",
+          "productUnit": "Product unit"
         }
       },
 

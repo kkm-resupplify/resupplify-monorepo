@@ -7,10 +7,7 @@
         <template v-else>
           <offer-preview-header-section :offer="offer" />
 
-          <offer-preview-content-section
-            :product-details="offer.product.description"
-            :company="offer.company"
-          />
+          <offer-preview-content-section :product="offer.product" :company="offer.company" />
         </template>
       </a-panel>
     </template>

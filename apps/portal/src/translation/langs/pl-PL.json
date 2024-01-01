@@ -669,7 +669,8 @@
 
         "preview": {
           "productDetails": "Szczegóły produktu",
-          "sellerInformation": "Informacje o sprzedawcy"
+          "sellerInformation": "Informacje o sprzedawcy",
+          "productUnit":"Jednostka produktu"
         }
       },
 
