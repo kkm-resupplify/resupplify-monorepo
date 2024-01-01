@@ -8,7 +8,7 @@
 
     <m-alert
       v-if="isCompanyNotVerified"
-      variant="danger"
+      variant="warning"
       :text="$t('company.management.offer.dashboard.companyOffersNotVisible')"
     />
   </a-panel-section>
