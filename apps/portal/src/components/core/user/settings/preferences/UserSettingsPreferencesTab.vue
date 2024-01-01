@@ -92,6 +92,7 @@ const handleSetPreferences = async (formData: Record<string, any>) => {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-50;
+    min-width: 300px;
   }
 
   &__button {
