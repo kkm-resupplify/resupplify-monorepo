@@ -58,7 +58,11 @@
     <template v-if="isLoading">implement-loader-here</template>
 
     <template v-else>
-      <offer-dashboard-offer-list v-if="showList" :offers="offers" />
+      <offer-dashboard-offer-list
+        v-if="showList"
+        :offers="offers"
+        @offer-changed="handleFetchOffers"
+      />
 
       <a-list-no-results
         v-else

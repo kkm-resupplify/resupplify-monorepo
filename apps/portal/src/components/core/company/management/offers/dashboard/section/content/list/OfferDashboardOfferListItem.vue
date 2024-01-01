@@ -21,37 +21,15 @@
           title-size="x-normal"
         />
 
-        <a-dropdown @click.stop>
-          <template #activator>
-            <div class="offer-dashboard-offer-list-item__dropdown-activator">
-              <a-icon icon="more_vert" size="xx-large" hoverable />
-            </div>
-          </template>
-
-          <template #content>
-            <div class="offer-dashboard-offer-list-item__dropdown-content">
-              <o-confirm-dialog
-                :type="activationType"
-                :title="activationTypeTitle"
-                :content="activationTypeContent"
-              >
-                <template #activator>
-                  <span v-text="$t(`global.${activationType}`)" />
-                </template>
-              </o-confirm-dialog>
-
-              <o-confirm-dialog
-                type="delete"
-                :title="$t('company.management.offer.dashboard.dialog.titleDeletion')"
-                :content="$t('company.management.offer.dashboard.dialog.contentDeletion')"
-              >
-                <template #activator>
-                  <span v-text="$t(`global.delete`)" />
-                </template>
-              </o-confirm-dialog>
-            </div>
-          </template>
-        </a-dropdown>
+        <o-confirm-dialog
+          type="withdraw"
+          :title="t('company.management.offer.dashboard.dialog.titleWithdrawal')"
+          :content="t('company.management.offer.dashboard.dialog.contentWithdrawal')"
+          :activator-name="t('global.withdraw')"
+          activator-size="x-large"
+          @click.stop
+          @confirmed="handleWithdrawOffer"
+        />
       </a-list-item-wrapper>
     </template>
 
@@ -99,6 +77,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
 import { useOfferStatus } from '@/composable/offer/useOfferStatus'
+import CompanyOffersService from '@/services/company/CompanyOffersService'
 import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 
 const props = defineProps({
@@ -107,6 +86,9 @@ const props = defineProps({
     required: true
   }
 })
+
+// Emits
+const emits = defineEmits(['offer-changed'])
 
 // DTO
 class ExpansionPanelSectionDto {
@@ -139,19 +121,12 @@ const activatorSections = computed(() => {
   ]
 })
 
-const activationType = computed(() => (props.offer.status === 0 ? 'withdraw' : 'activate'))
+// Methods
+const handleWithdrawOffer = async () => {
+  await CompanyOffersService.deactivateOffer(props.offer.id)
 
-const activationTypeTitle = computed(() =>
-  props.offer.status === 0
-    ? t('company.management.offer.dashboard.dialog.titleWithdrawal')
-    : t('company.management.offer.dashboard.dialog.titleActivation')
-)
-
-const activationTypeContent = computed(() =>
-  props.offer.status === 0
-    ? t('company.management.offer.dashboard.dialog.contentWithdrawal')
-    : t('company.management.offer.dashboard.dialog.contentActivation')
-)
+  emits('offer-changed')
+}
 </script>
 
 <style scoped lang="scss">

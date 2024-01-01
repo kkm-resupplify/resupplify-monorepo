@@ -31,10 +31,7 @@ import { useI18n } from 'vue-i18n'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 
 const props = defineProps({
-  itemName: {
-    type: String,
-    required: true
-  },
+  itemName: String,
   type: {
     type: String,
     validator(value: string) {
@@ -66,9 +63,22 @@ const translationKeySuffix = computed(
   () => props.type.charAt(0).toUpperCase() + props.type.slice(1)
 )
 
-const activatorVariant = computed(() =>
-  props.type === 'delete' || props.type === 'withdraw' ? 'gradient-danger' : 'gradient-primary'
-)
+const activatorVariant = computed(() => {
+  switch (props.type) {
+    case 'create':
+      return 'gradient-primary'
+    case 'update':
+      return 'gradient-primary'
+    case 'activate':
+      return 'gradient-primary'
+    case 'delete':
+      return 'gradient-danger'
+    case 'withdraw':
+      return 'gradient-warning'
+    default:
+      return 'gradient-primary'
+  }
+})
 
 const titleText = computed(() => {
   return props.title ?? t(`confirm.dialog.title${translationKeySuffix.value}`)

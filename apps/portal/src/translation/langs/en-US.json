@@ -663,7 +663,8 @@
           },
 
           "notification": {
-            "createOfferSuccessTitle": "Offer created successfully"
+            "createOfferSuccessTitle": "Offer created successfully",
+            "offerWithdrawalSuccessTitle": "Offer withdrawed successfully"
           },
 
           "alert": {
