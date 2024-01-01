@@ -41,7 +41,9 @@
     "viewDetails": "Pokaż szczegóły",
     "visitProfile": "Odwiedź profil",
     "seeDetails": "Zobacz szczegóły",
-    "set": "Ustaw"
+    "set": "Ustaw",
+    "dark": "Ciemny",
+    "light": "Jasny"
   },
 
   "language": {
@@ -897,9 +899,14 @@
 
     "preferences": {
       "title": "Preferencje",
+      "setLanguageLabel": "Język",
+      "setLanguagePlaceholder": "Wybierz preferowany język",
+      "setThemeLabel": "Motyw",
+      "setThemePlaceholder": "Wybierz motyw aplikacji",
+      "saveChanges": "Zapisz zmiany",
 
       "notification": {
-        "updateSuccess": "Preferencje użytkownika zostały zaktualizowany pomyślnie"
+        "updateSuccess": "Preferencje użytkownika zostały zaktualizowane pomyślnie"
       }
     },
 

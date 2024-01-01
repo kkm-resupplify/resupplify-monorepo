@@ -41,7 +41,9 @@
     "viewDetails": "View details",
     "visitProfile": "Visit profile",
     "seeDetails": "See details",
-    "set": "Set"
+    "set": "Set",
+    "dark": "Dark",
+    "light": "Light"
   },
 
   "language": {
@@ -893,6 +895,12 @@
 
     "preferences": {
       "title": "Preferences",
+      "setLanguageLabel": "Language",
+      "setLanguagePlaceholder": "Select preferred language",
+      "setThemeLabel": "Theme",
+      "setThemePlaceholder": "Select application theme",
+      "saveChanges": "Save changes",
+
       "notification": {
         "updateSuccess": "Preferences updated successfully"
       }
