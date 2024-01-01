@@ -672,7 +672,8 @@
 
         "preview": {
           "productDetails": "Szczegóły produktu",
-          "sellerInformation": "Informacje o sprzedawcy"
+          "sellerInformation": "Informacje o sprzedawcy",
+          "productUnit": "Jednostka produktu"
         }
       },
 
@@ -785,7 +786,19 @@
     },
 
     "unit": {
-      "pricePerUnit": "za {unit}"
+      "pricePerUnit": "za {unit}",
+      "kilogram": "Kilogram",
+      "litre": "Litr",
+      "gram": "Gram",
+      "milliliter": "Mililitr",
+      "piece": "Sztuka",
+      "can": "Puszka",
+      "bottle": "Butelka",
+      "carton": "Karton",
+      "meter": "Metr",
+      "meterSquare": "Metr kwadratowy",
+      "meterCubed": "Metr sześcienny",
+      "sheet": "Arkusz"
     }
   },
 

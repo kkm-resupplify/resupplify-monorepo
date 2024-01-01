@@ -2,7 +2,14 @@
   <a-panel-section class="offer-preview-content-section">
     <a-title :title="$t('company.management.offer.preview.productDetails')" size="x-large" />
 
-    <a-title :title="productDetails" size="large" />
+    <a-title :title="product.description" size="large" />
+
+    <a-title
+      :title="$t('company.management.offer.preview.productDetails')"
+      :subtitle="translateUnit(product.productUnit.code)"
+      append-colon
+      size="large"
+    />
 
     <a-line />
 
@@ -51,11 +58,20 @@
 
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
+import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
+import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
 
+// Composables
+const { translateUnit } = useUnitTranslation()
+
 defineProps({
-  productDetails: String,
+  product: {
+    type: Object as PropType<Product>,
+    required: true
+  },
+
   company: {
     type: Object as PropType<CompanyData>,
     required: true

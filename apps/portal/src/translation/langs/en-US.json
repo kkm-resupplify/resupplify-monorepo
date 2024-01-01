@@ -673,7 +673,8 @@
 
         "preview": {
           "productDetails": "Product details",
-          "sellerInformation": "Seller information"
+          "sellerInformation": "Seller information",
+          "productUnit": "Product unit"
         }
       },
 
@@ -786,7 +787,19 @@
     },
 
     "unit": {
-      "pricePerUnit": "per {unit}"
+      "pricePerUnit": "per {unit}",
+      "kilogram": "Kilogram",
+      "litre": "Litre",
+      "gram": "Gram",
+      "milliliter": "Milliliter",
+      "piece": "Piece",
+      "can": "Can",
+      "bottle": "Bottle",
+      "carton": "Carton",
+      "meter": "Meter",
+      "meterSquare": "Square meter",
+      "meterCube": "Cubic meter",
+      "sheet": "Sheet"
     }
   },
 
