@@ -59,7 +59,7 @@ const lineHeightClass = computed(() => props.lineHeight)
 @mixin size-vertical($fontSize) {
   .a-title__title {
     font-size: $fontSize;
-    font-weight: $global-font-weight-70;
+    font-weight: $global-font-weight-50;
   }
 
   .a-title__subtitle {
@@ -71,7 +71,7 @@ const lineHeightClass = computed(() => props.lineHeight)
 @mixin size-horizontal($fontSize) {
   .a-title__title {
     font-size: $fontSize;
-    font-weight: $global-font-weight-70;
+    font-weight: $global-font-weight-50;
   }
 
   .a-title__subtitle {
