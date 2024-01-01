@@ -796,8 +796,8 @@
       "bottle": "Butelka",
       "carton": "Karton",
       "meter": "Metr",
-      "metersquare": "Metr kwadratowy",
-      "metercubed": "Metr sześcienny",
+      "meterSquare": "Metr kwadratowy",
+      "meterCubed": "Metr sześcienny",
       "sheet": "Arkusz"
     }
   },

@@ -797,8 +797,8 @@
       "bottle": "Bottle",
       "carton": "Carton",
       "meter": "Meter",
-      "metersquare": "Square meter",
-      "metercube": "Cubic meter",
+      "meterSquare": "Square meter",
+      "meterCube": "Cubic meter",
       "sheet": "Sheet"
     }
   },
