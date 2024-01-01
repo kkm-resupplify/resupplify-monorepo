@@ -50,6 +50,7 @@ import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import { type PropType, computed } from 'vue'
 import ProductVerificationService from '@/services/product/ProductVerificationService'
 import { useI18n } from 'vue-i18n'
+import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 
 const props = defineProps({
   product: {
@@ -64,11 +65,14 @@ const emits = defineEmits(['update-list'])
 // Variables
 const { t } = useI18n()
 
+// Composables
+const { translateUnit } = useUnitTranslation()
+
 // Computed
 const productDetailsContent = computed(() => {
   return [
     { title: t('product.data.description'), value: props.product.description },
-    { title: t('product.data.unit'), value: props.product.productUnit.code }
+    { title: t('product.data.unit'), value: translateUnit(props.product.productUnit.code) }
   ]
 })
 

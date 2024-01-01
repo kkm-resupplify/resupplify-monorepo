@@ -98,6 +98,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import ProductTagList from '@/components/common/product/ProductTagList.vue'
 import { useOfferStatus } from '@/composable/offer/useOfferStatus'
+import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 
 const props = defineProps({
   offer: {
@@ -123,12 +124,15 @@ class ExpansionPanelSectionDto {
 
 // Variables
 const { t } = useI18n()
+
+// Composables
 const { offerStatus } = useOfferStatus()
+const { translateUnit } = useUnitTranslation()
 
 // Computed
 const activatorSections = computed(() => {
   return [
-    new ExpansionPanelSectionDto('unit', props.offer.product.productUnit.code),
+    new ExpansionPanelSectionDto('unit', translateUnit(props.offer.product.productUnit.code)),
     new ExpansionPanelSectionDto('supply', props.offer.warehouseQuantity),
     new ExpansionPanelSectionDto('quantity', props.offer.productQuantity)
   ]
