@@ -25,13 +25,11 @@
           type="withdraw"
           :title="t('company.management.offer.dashboard.dialog.titleWithdrawal')"
           :content="t('company.management.offer.dashboard.dialog.contentWithdrawal')"
+          :activator-name="t('global.withdraw')"
+          activator-size="x-large"
           @click.stop
           @confirmed="handleWithdrawOffer"
-        >
-          <template #activator>
-            <a-button :text="$t(`global.withdraw`)" size="x-large" />
-          </template>
-        </o-confirm-dialog>
+        />
       </a-list-item-wrapper>
     </template>
 
