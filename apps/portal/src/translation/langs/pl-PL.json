@@ -833,7 +833,8 @@
           "product": {
             "name": "Nazwa",
             "category": "Kategoria",
-            "subcategory": "Podkategoria"
+            "subcategory": "Podkategoria",
+            "unit": "Jednostka"
           },
 
           "price": "Cena",

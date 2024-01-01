@@ -834,7 +834,8 @@
           "product": {
             "name": "Name",
             "category": "Category",
-            "subcategory": "Subcategory"
+            "subcategory": "Subcategory",
+            "unit": "Unit"
           },
 
           "price": "Price",
