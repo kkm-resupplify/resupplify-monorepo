@@ -4,7 +4,7 @@
 
     <o-form
       :submit-callback="handleSetPreferences"
-      :initial-values="{ language: userStore.getLanguage, theme: userThemeStore.getUserTheme }"
+      :initial-values="{ language: userStore.getLanguageId, theme: userThemeStore.getUserTheme }"
     >
       <template #body>
         <div class="user-settings-preferences-tab__content">
