@@ -14,6 +14,7 @@
             :placeholder="$t('settings.preferences.setLanguagePlaceholder')"
             :options="userLanguageOptions"
             rules="required"
+            :validate="false"
           />
 
           <m-select
@@ -22,6 +23,7 @@
             :placeholder="$t('settings.preferences.setThemePlaceholder')"
             :options="userThemeOptions"
             rules="required"
+            :validate="false"
           />
         </div>
       </template>
@@ -61,21 +63,19 @@ const userThemeOptions = computed(() =>
 )
 
 const userLanguageOptions = computed(() =>
-  UserLanguageEnum.getAllFields().map((typeName) => ({
-    id: `${UserLanguageEnum[typeName as keyof UserLanguageEnum]}`,
-    text: t(`language.${UserLanguageEnum[typeName as keyof UserLanguageEnum]}`)
+  UserLanguageEnum.getAllValues().map((language) => ({
+    id: language.id,
+    text: t(`language.${language.key}`)
   }))
 )
 
 // Methods
 const handleSetPreferences = async (formData: Record<string, any>) => {
-  // Drut ale do stora musze zapisać stringa a do api wysłać id
-  const languageId = formData.language === 'pl-PL' ? 1 : 2
-
+  const languageId = UserLanguageEnum.getLanguageById(+formData.language).id
   const { success } = await UserPreferencesService.changeUserLanguage(languageId)
 
   if (success) {
-    userStore.setLanguage(formData.language)
+    userStore.setLanguage(languageId)
     userThemeStore.setUserTheme(formData.theme)
   }
 }
