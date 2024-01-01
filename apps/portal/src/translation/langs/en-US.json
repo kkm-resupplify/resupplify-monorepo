@@ -41,7 +41,9 @@
     "viewDetails": "View details",
     "visitProfile": "Visit profile",
     "seeDetails": "See details",
-    "set": "Set"
+    "set": "Set",
+    "dark": "Dark",
+    "light": "Light"
   },
 
   "language": {
@@ -220,7 +222,8 @@
       "contactPerson": "Contact Person",
       "email": "Email",
       "externalWebsite": "Company Website",
-      "phoneNumber": "Phone Number"
+      "phoneNumber": "Phone Number",
+      "notVerifiedAlert": "Your company hasn't been verified yet and your offers won't be visible to others."
     },
 
     "management": {
@@ -672,7 +675,8 @@
 
         "preview": {
           "productDetails": "Product details",
-          "sellerInformation": "Seller information"
+          "sellerInformation": "Seller information",
+          "productUnit": "Product unit"
         }
       },
 
@@ -785,7 +789,19 @@
     },
 
     "unit": {
-      "pricePerUnit": "per {unit}"
+      "pricePerUnit": "per {unit}",
+      "kilogram": "Kilogram",
+      "litre": "Litre",
+      "gram": "Gram",
+      "milliliter": "Milliliter",
+      "piece": "Piece",
+      "can": "Can",
+      "bottle": "Bottle",
+      "carton": "Carton",
+      "meter": "Meter",
+      "meterSquare": "Square meter",
+      "meterCube": "Cubic meter",
+      "sheet": "Sheet"
     }
   },
 
@@ -815,6 +831,7 @@
         "item": {
           "imageAlt": "Offer image",
           "company": "Company",
+          "yoursCompanyOffer": "This is your company's offer",
 
           "product": {
             "name": "Name",
@@ -894,6 +911,12 @@
 
     "preferences": {
       "title": "Preferences",
+      "setLanguageLabel": "Language",
+      "setLanguagePlaceholder": "Select preferred language",
+      "setThemeLabel": "Theme",
+      "setThemePlaceholder": "Select application theme",
+      "saveChanges": "Save changes",
+
       "notification": {
         "updateSuccess": "Preferences updated successfully"
       }

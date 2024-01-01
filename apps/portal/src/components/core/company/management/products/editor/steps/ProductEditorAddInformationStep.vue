@@ -123,6 +123,7 @@ import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
 import CompanyProductDescriptorsService from '@/services/product/CompanyProductDescriptorsService'
 import ProductStatusEnum from '@sharedEnums/product/ProductStatusEnum'
 import { useI18n } from 'vue-i18n'
+import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 
 // Emits
 const emits = defineEmits(['next-step', 'previous-step'])
@@ -136,6 +137,9 @@ const productTags = ref<ProductTag[]>([])
 const selectedProductTagIds = ref<number[]>([])
 const isLoading = ref(false)
 const { t } = useI18n()
+
+// Composables
+const { translateUnit } = useUnitTranslation()
 
 // Computed
 const productCategorySubcategories = computed(() => {
@@ -156,7 +160,7 @@ const disableProductSubcategorySelect = computed(() => {
 const productUnitSelectOptions = computed(() => {
   return staticProductDescriptorsStore.getProductUnits.map((unit) => ({
     id: unit.id,
-    text: unit.code
+    text: translateUnit(unit.code)
   }))
 })
 

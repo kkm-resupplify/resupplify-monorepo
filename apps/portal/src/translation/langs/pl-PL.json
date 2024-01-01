@@ -41,7 +41,9 @@
     "viewDetails": "Pokaż szczegóły",
     "visitProfile": "Odwiedź profil",
     "seeDetails": "Zobacz szczegóły",
-    "set": "Ustaw"
+    "set": "Ustaw",
+    "dark": "Ciemny",
+    "light": "Jasny"
   },
 
   "language": {
@@ -220,7 +222,8 @@
       "contactPerson": "Osoba kontaktowa",
       "email": "Email",
       "externalWebsite": "Strona internetowa firmy",
-      "phoneNumber": "Numer telefonu"
+      "phoneNumber": "Numer telefonu",
+      "notVerifiedAlert": "Twoje firma jest jeszcze niezweryfikowana i Twoje oferty nie będą widoczne dla innych."
     },
 
     "management": {
@@ -671,7 +674,8 @@
 
         "preview": {
           "productDetails": "Szczegóły produktu",
-          "sellerInformation": "Informacje o sprzedawcy"
+          "sellerInformation": "Informacje o sprzedawcy",
+          "productUnit": "Jednostka produktu"
         }
       },
 
@@ -784,7 +788,19 @@
     },
 
     "unit": {
-      "pricePerUnit": "za {unit}"
+      "pricePerUnit": "za {unit}",
+      "kilogram": "Kilogram",
+      "litre": "Litr",
+      "gram": "Gram",
+      "milliliter": "Mililitr",
+      "piece": "Sztuka",
+      "can": "Puszka",
+      "bottle": "Butelka",
+      "carton": "Karton",
+      "meter": "Metr",
+      "meterSquare": "Metr kwadratowy",
+      "meterCubed": "Metr sześcienny",
+      "sheet": "Arkusz"
     }
   },
 
@@ -814,6 +830,7 @@
         "item": {
           "imageAlt": "Zdjęcie oferty",
           "company": "Firma",
+          "yoursCompanyOffer": "To jest oferta twojej firmy",
 
           "product": {
             "name": "Nazwa",
@@ -898,9 +915,14 @@
 
     "preferences": {
       "title": "Preferencje",
+      "setLanguageLabel": "Język",
+      "setLanguagePlaceholder": "Wybierz preferowany język",
+      "setThemeLabel": "Motyw",
+      "setThemePlaceholder": "Wybierz motyw aplikacji",
+      "saveChanges": "Zapisz zmiany",
 
       "notification": {
-        "updateSuccess": "Preferencje użytkownika zostały zaktualizowany pomyślnie"
+        "updateSuccess": "Preferencje użytkownika zostały zaktualizowane pomyślnie"
       }
     },
 

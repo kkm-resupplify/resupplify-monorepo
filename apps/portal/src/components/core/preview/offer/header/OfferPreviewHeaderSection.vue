@@ -58,7 +58,14 @@
           append-colon
         />
 
-        <a-button :text="$t('global.addToCart')" size="x-large" @click="handleAddToCart" />
+        <a-button
+          v-if="isNotCurrentUserCompanyOffer"
+          :text="buttonText"
+          size="x-large"
+          @click="handleAddToCart"
+        />
+
+        <a-title v-else :title="$t('common.offer.list.item.yoursCompanyOffer')" size="large" />
       </div>
     </div>
   </a-panel-section>
@@ -66,8 +73,11 @@
 
 <script setup lang="ts">
 import { useUserCartStore } from '@/stores/user/useUserCartStore'
+import { useUserStore } from '@/stores/user/useUserStore'
 import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 import { computed, type PropType } from 'vue'
+import { useI18n } from 'vue-i18n'
+import ProductTagList from '@/components/common/product/ProductTagList.vue'
 
 const props = defineProps({
   offer: { type: Object as PropType<Offer>, required: true }
@@ -75,9 +85,19 @@ const props = defineProps({
 
 // Variables
 const userCartStore = useUserCartStore()
+const { t } = useI18n()
+const userStore = useUserStore()
 
 // Computed
 const isOfferInCart = computed(() => props.offer && userCartStore.isOfferInCart(props.offer))
+
+const isNotCurrentUserCompanyOffer = computed(() => {
+  return userStore.getCompany?.name !== props.offer.company.name
+})
+
+const buttonText = computed(() => {
+  return isOfferInCart.value ? t('global.removeCartItem') : t('global.addToCart')
+})
 
 // Methods
 const handleAddToCart = () => {
