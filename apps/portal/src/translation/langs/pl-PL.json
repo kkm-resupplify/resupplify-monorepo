@@ -812,6 +812,7 @@
         "item": {
           "imageAlt": "Zdjęcie oferty",
           "company": "Firma",
+          "yoursCompanyOffer": "To jest oferta twojej firmy",
 
           "product": {
             "name": "Nazwa",
