@@ -815,6 +815,7 @@
         "item": {
           "imageAlt": "Offer image",
           "company": "Company",
+          "yoursCompanyOffer": "This is your company's offer",
 
           "product": {
             "name": "Name",

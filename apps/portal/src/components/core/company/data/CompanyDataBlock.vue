@@ -4,6 +4,15 @@
       <a-title :title="$t('company.data.generalInformation')" size="x-large" />
 
       <div class="company-data-block__section-items">
+        <a-image
+          :src="company.details.logo"
+          :alt="company.name"
+          class="my-company-section__company-avatar"
+          width="120px"
+          height="120px"
+          style="border: 2px solid var(--secondary-2); border-radius: 4px"
+        />
+
         <a-title
           v-for="(item, idx) in companyGeneralData"
           :key="idx"
