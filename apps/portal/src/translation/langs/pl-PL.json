@@ -663,8 +663,7 @@
 
           "notification": {
             "createOfferSuccessTitle": "Oferta utworzona pomyślnie",
-            "offerWithdrawalSuccessTitle": "Oferta wycofana pomyślnie",
-            "offerActivationSuccessTitle": "Oferta aktywowana pomyślnie"
+            "offerWithdrawalSuccessTitle": "Oferta wycofana pomyślnie"
           },
 
           "alert": {
