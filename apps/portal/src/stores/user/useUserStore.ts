@@ -3,6 +3,7 @@ import { i18n } from '@/translation/index'
 import { setLocale } from '@vee-validate/i18n'
 import type { UserDetails, UserData } from '@sharedInterfaces/user/UserStoreDataInterface'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
+import UserLanguageEnum from '@sharedEnums/user/UserLanguageEnum'
 
 export interface UserStoreData {
   email: string
@@ -10,7 +11,7 @@ export interface UserStoreData {
   details: UserDetails | null
   type: number
   createdAt: string
-  language: 'en-US' | 'pl-PL'
+  languageId: number
   company: null | CompanyData
 }
 
@@ -23,7 +24,7 @@ export const useUserStore = defineStore({
     type: 1,
     details: null,
     createdAt: '',
-    language: 'en-US',
+    languageId: 1,
     company: null
   }),
 
@@ -31,7 +32,9 @@ export const useUserStore = defineStore({
     getUserData: (state) => state,
     getEmail: (state) => state.email,
     getToken: (state) => state.token,
-    getLanguage: (state) => state.language,
+    getLanguageId: (state) => state.languageId,
+    getLanguage: (state) =>
+      UserLanguageEnum.getAllValues().find((value) => value.id === state.languageId),
     getUserDetails: (state) => state.details,
     isAuthenticated: (state) => !!state.token,
     hasUserDetails: (state) => !!state.details,
@@ -61,15 +64,17 @@ export const useUserStore = defineStore({
       this.$reset()
     },
 
-    setLanguage(language: 'en-US' | 'pl-PL') {
-      this.language = language
+    setLanguage(languageId: number) {
+      this.languageId = languageId
 
       this.initializeLocale()
     },
 
     initializeLocale() {
-      i18n.global.locale.value = this.language
-      setLocale(this.language)
+      const languageKey = this.getLanguage.key
+
+      i18n.global.locale.value = languageKey
+      setLocale(languageKey)
     }
   },
 

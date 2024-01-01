@@ -30,10 +30,11 @@
               :placeholder="$t('company.register.form.details.companyTinPlaceholder')"
             />
 
-            <m-file-input
-              name="logo"
+            <a-image-input
+              name="image"
               :label="$t('company.register.form.details.companyLogoLabel')"
               :placeholder="$t('company.register.form.details.companyLogoPlaceholder')"
+              :preview-src="registerCompanyStore.detailsStepData.imagePreview"
             />
           </div>
         </template>

@@ -13,12 +13,18 @@ export default class BaseEnum {
         return key
       }
     }
+
     return undefined
   }
 
   static getAllFields(): string[] {
-    return Object.getOwnPropertyNames(this).filter(
-      (key) => !['length', 'name', 'prototype'].includes(key)
-    )
+    return Object.getOwnPropertyNames(this).filter((key) => {
+      const value = (this as any)[key]
+      return typeof value !== 'function' && !['length', 'name', 'prototype'].includes(key)
+    })
+  }
+
+  static getAllValues() {
+    return Object.values(this).filter((value) => typeof value !== 'function' && value !== undefined)
   }
 }

@@ -1,6 +1,11 @@
 <template>
   <a-list class="offer-dashboard-offer-list">
-    <offer-dashboard-offer-list-item v-for="offer in offers" :key="offer.id" :offer="offer" />
+    <offer-dashboard-offer-list-item
+      v-for="offer in offers"
+      :key="offer.id"
+      :offer="offer"
+      @offer-changed="handleOfferChange"
+    />
   </a-list>
 </template>
 
@@ -15,4 +20,12 @@ defineProps({
     required: true
   }
 })
+
+// Emits
+const emits = defineEmits(['offer-changed'])
+
+// Methods
+const handleOfferChange = () => {
+  emits('offer-changed')
+}
 </script>

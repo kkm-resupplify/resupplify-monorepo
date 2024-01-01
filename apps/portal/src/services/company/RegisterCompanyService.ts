@@ -9,7 +9,7 @@ class RegisterCompanyFormDataDTO {
   description: string
   address: string
   tin: string
-  logo: null | string
+  logo: File | null
   phoneNumber: string
   email: string
   contactPerson: string
@@ -24,7 +24,7 @@ class RegisterCompanyFormDataDTO {
     this.address = detailsStepData.address
     this.companyCategoryId = detailsStepData.companyCategoryId
     this.tin = detailsStepData.tin
-    this.logo = detailsStepData.logo
+    this.logo = detailsStepData.image
     this.phoneNumber = contactInfoStepData.phoneNumber
     this.email = contactInfoStepData.email
     this.contactPerson = contactInfoStepData.contactPerson
@@ -34,12 +34,16 @@ class RegisterCompanyFormDataDTO {
 
 class RegisterCompanyService extends BaseService {
   async register({ generalStepData, detailsStepData, contactInfoStepData }: RegisterCompanyData) {
-    const response = await this.post({
-      data: new RegisterCompanyFormDataDTO({
+    const formData = convertToFormData(
+      new RegisterCompanyFormDataDTO({
         generalStepData,
         detailsStepData,
         contactInfoStepData
-      }),
+      })
+    )
+
+    const response = await this.post({
+      data: formData,
       notificationTitle: 'company.register.notification.registerCompanySuccessTitle',
       notificationText: 'company.register.notification.registerCompanySuccessText',
       notificationDuration: 7000
@@ -75,3 +79,23 @@ class RegisterCompanyService extends BaseService {
 }
 
 export default new RegisterCompanyService('/company')
+
+const convertToFormData = (storeData: any) => {
+  const formData = new FormData()
+
+  Object.keys(storeData).forEach((key) => {
+    if (storeData[key] instanceof File) {
+      formData.append(key, storeData[key])
+    } else if (Array.isArray(storeData[key])) {
+      storeData[key].forEach((item: { [x: string]: any }, index: any) => {
+        for (const prop in item) {
+          formData.append(`${key}[${index}][${prop}]`, String(item[prop]))
+        }
+      })
+    } else {
+      formData.append(key, String(storeData[key]))
+    }
+  })
+
+  return formData
+}
