@@ -11,43 +11,49 @@
 
     <div class="offer-list-item__information">
       <div class="offer-list-item__product-information">
-        <a-title
-          :title="$t('common.offer.list.item.product.name')"
-          :subtitle="offer.product.name"
-          variant="horizontal"
-          append-colon
-        />
+        <a-title :title="offer.product.name" variant="horizontal" size="large" />
 
         <a-title
           v-if="showCompanyName"
           :title="$t('common.offer.list.item.company')"
           :subtitle="offer.company.name"
           variant="horizontal"
+          class="offer-list-item__product-information-title"
           append-colon
         />
+        <div class="offer-list-item__product-information-categories">
+          <a-title
+            :title="$t('common.offer.list.item.product.category')"
+            :subtitle="offer.product.productCategory.name"
+            variant="horizontal"
+            class="offer-list-item__product-information-title"
+            append-colon
+          />
 
-        <a-title
-          :title="$t('common.offer.list.item.product.category')"
-          :subtitle="offer.product.productCategory.name"
-          variant="horizontal"
-          append-colon
-        />
+          <span class="offer-list-item__product-information-separator">|</span>
 
-        <a-title
-          :title="$t('common.offer.list.item.product.subcategory')"
-          :subtitle="offer.product.productSubcategory.name"
-          variant="horizontal"
-          append-colon
-        />
+          <a-title
+            :title="$t('common.offer.list.item.product.subcategory')"
+            :subtitle="offer.product.productSubcategory.name"
+            variant="horizontal"
+            class="offer-list-item__product-information-title"
+            append-colon
+          />
+        </div>
 
         <product-tag-list :product-tags="offer.product.productTags" />
       </div>
 
       <div class="offer-list-item__order-information">
         <div class="offer-list-item__order-price">
-          <a-title :title="$t('common.offer.list.item.price')" variant="horizontal" append-colon />
+          <a-title
+            :title="$t('common.offer.list.item.price')"
+            variant="horizontal"
+            append-colon
+            size="large"
+          />
 
-          <a-currency :value="offer.price" size="small" />
+          <a-currency :value="offer.price" value-size="large" />
         </div>
 
         <a-title
@@ -63,14 +69,15 @@
           variant="horizontal"
           append-colon
         />
+        <div class="offer-list-item__order-information-buttons">
+          <a-button :text="buttonText" size="x-large" @click="handleAddToCart" />
 
-        <a-button :text="buttonText" size="x-large" @click="handleAddToCart" />
-
-        <a-button
-          :text="$t('global.seeDetails')"
-          size="x-large"
-          :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
-        />
+          <a-button
+            :text="$t('global.seeDetails')"
+            size="x-large"
+            :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
+          />
+        </div>
       </div>
     </div>
   </a-list-item-wrapper>
@@ -124,13 +131,34 @@ const handleAddToCart = () => {
   &__product-information {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-20;
+    gap: $global-spacing-50;
+    margin-left: $global-spacing-50;
+  }
+
+  &__product-information-title {
+    width: max-content;
+  }
+
+  &__product-information-categories {
+    display: flex;
+    gap: $global-spacing-40;
+  }
+
+  &__product-information-separator {
+    color: var(--secondary-2);
   }
 
   &__order-information {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
+    align-items: flex-end;
+  }
+
+  &__order-information-buttons {
+    display: flex;
+    gap: $global-spacing-50;
+    margin-top: $global-spacing-50;
   }
 
   &__order-price {
