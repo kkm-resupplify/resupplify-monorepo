@@ -18,6 +18,7 @@
           :value="offer.price"
           vertical
           style="flex-basis: 30%"
+          title-size="x-normal"
         />
 
         <a-dropdown @click.stop>
