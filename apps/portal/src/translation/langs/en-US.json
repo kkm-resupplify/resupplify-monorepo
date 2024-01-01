@@ -222,7 +222,8 @@
       "contactPerson": "Contact Person",
       "email": "Email",
       "externalWebsite": "Company Website",
-      "phoneNumber": "Phone Number"
+      "phoneNumber": "Phone Number",
+      "notVerifiedAlert": "Your company hasn't been verified yet and your offers won't be visible to others."
     },
 
     "management": {
