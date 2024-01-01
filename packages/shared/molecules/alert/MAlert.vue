@@ -73,6 +73,7 @@ const variantColor = computed(() => {
   width: 300px;
   width: calc(100% + var(--border-width) * 2);
   height: calc(100% + var(--border-width) * 2);
+  margin: 0 $global-spacing-10;
   padding: $global-spacing-10;
 
   background: v-bind(variantColor);
