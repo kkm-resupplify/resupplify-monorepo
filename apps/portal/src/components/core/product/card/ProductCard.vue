@@ -42,6 +42,7 @@ import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 import type { FeaturedProduct } from '@sharedInterfaces/product/ProductInterface'
 import ProductCardStats from '@/components/core/product/card/sections/ProductCardStats.vue'
 import ProductCardRibbon from '@/components/core/product/card/sections/ProductCardRibbon.vue'
+import { useUserStore } from '@/stores/user/useUserStore'
 
 const props = defineProps({
   data: {
@@ -53,9 +54,10 @@ const props = defineProps({
 // Variables
 const { t } = useI18n()
 const { translateUnit } = useUnitTranslation()
+const userStore = useUserStore()
 
 // Computed
-const showRibbon = computed(() => true)
+const showRibbon = computed(() => userStore.isAuthenticated)
 
 const unitText = computed(() => {
   return t('product.unit.pricePerUnit', {
