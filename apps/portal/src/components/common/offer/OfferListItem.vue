@@ -6,7 +6,7 @@
       :height="150"
       :alt="offer.product.name"
       variant="rounded"
-      style="align-self: flex-start; border: 2px solid var(--secondary-2); border-radius: 4px"
+      style="align-self: flex-start; border: 2px solid var(--secondary-2); border-radius: 10px"
     />
 
     <div class="offer-list-item__information">
