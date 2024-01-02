@@ -5,26 +5,37 @@
       :subtitle="$t('company.promotion.companiesThatChoseUs')"
     />
 
-    <company-card-list :companies="companies" />
+    <company-card-list :companies="featuredCompanies" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onBeforeMount } from 'vue'
+import HomepageService from '@/services/homepage/HomepageService'
+import type { FeaturedCompany } from '@sharedInterfaces/company/CompanyInterface'
 import CompanyCardList from '@/components/core/company/card/CompanyCardList.vue'
 
-// Mock data
-const companies = [
-  {
-    companyName: 'KKM Marketify',
-    shortDescription:
-      'Company specializes in this and that. We offer products of the highest quality in this industry.',
-    companyStats: {
-      productsListed: 1339,
-      uniqueClients: 237,
-      ordersFullfilled: 27932
-    }
+// Variables
+const isLoading = ref(false)
+const featuredCompanies = ref<FeaturedCompany[]>([])
+
+// Methods
+const handleFetchFeaturedCompanies = async () => {
+  isLoading.value = true
+
+  const { success, data } = await HomepageService.getFeaturedCompanies()
+
+  if (success) {
+    featuredCompanies.value = data
   }
-]
+
+  isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(() => {
+  handleFetchFeaturedCompanies()
+})
 </script>
 
 <style scoped lang="scss">

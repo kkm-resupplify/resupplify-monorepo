@@ -45,14 +45,6 @@
             :placeholder="$t('company.management.offer.creator.enterEndDatePlaceholder')"
             rules="required"
           />
-
-          <m-select
-            name="status"
-            :placeholder="$t('company.management.offer.dashboard.offerStatusPlaceholder')"
-            :options="statuses"
-            width="50%"
-            rules="required"
-          />
         </div>
       </template>
 
@@ -74,7 +66,6 @@ import CompanyOffersService from '@/services/company/CompanyOffersService'
 import { ref, onBeforeMount, computed } from 'vue'
 import type { StockItem } from '@sharedInterfaces/stock/StockItemInterface'
 import type { CreateOffer } from '@sharedInterfaces/offer/OfferInterface'
-import { useI18n } from 'vue-i18n'
 
 // Emits
 const emits = defineEmits(['stock-item-change'])
@@ -82,17 +73,11 @@ const emits = defineEmits(['stock-item-change'])
 // Variables
 const isLoading = ref(false)
 const stockItems = ref<StockItem[]>([])
-const { t } = useI18n()
 
 // Computed
 const selectProductOptions = computed(() => {
   return mapStockItemsToOptions(stockItems.value)
 })
-
-const statuses = computed(() => [
-  { id: 1, text: t('global.active') },
-  { id: 0, text: t('global.inactive') }
-])
 
 // Methods
 const handleFetchStockItems = async () => {
@@ -121,7 +106,7 @@ const handleStockItemChange = (v: number) => {
 const handleCreateOffer = async (offerData: CreateOffer) => {
   isLoading.value = true
 
-  const { success, data } = await CompanyOffersService.createOffer(offerData)
+  const { success, data } = await CompanyOffersService.createOffer({ ...offerData, status: 1 })
 
   if (success) {
     let stockItem = getSelectedStockItem(offerData.stockItemId)

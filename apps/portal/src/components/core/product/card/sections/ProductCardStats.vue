@@ -1,10 +1,8 @@
 <template>
   <div class="product-card-stats">
-    <product-card-stat-item icon="beenhere" :value="stats.available" />
+    <product-card-stat-item icon="category" :value="stats.available" />
 
-    <product-card-stat-item icon="bookmark_added" :value="stats.timesBought" />
-
-    <product-card-stat-item icon="star_half" :value="stats.rating" />
+    <product-card-stat-item icon="shopping_cart" :value="stats.soldQuantity" />
   </div>
 </template>
 
@@ -26,6 +24,6 @@ defineProps({
   display: flex;
   gap: $global-spacing-40;
   padding: $global-spacing-20;
-  background: rgb(118 161 241 / 40%);
+  background: rgb(255 255 255 / 30%);
 }
 </style>

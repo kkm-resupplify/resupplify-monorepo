@@ -8,14 +8,16 @@
     :required="required"
     :disabled="disabled"
     :validate="validate"
-    :rules="validationRules"
+    rules="required"
     :value="value"
   />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onBeforeMount } from 'vue'
 import { i18n } from '@/translation/index'
+import { useStaticCompanyDescriptorsStore } from '@sharedStores/company/useStaticCompanyDescriptorsStore'
+import StaticCompanyDescriptorsService from '@/services/company/StaticCompanyDescriptorsService'
 
 defineProps({
   name: { type: String, required: true },
@@ -29,26 +31,32 @@ defineProps({
   validate: { type: Boolean, default: true }
 })
 
-// Computed
-const countries = computed(() => {
-  const countryCodes = Object.keys(i18n.global.messages.value['en-US']['country']).map((key: any) =>
-    key.toLowerCase()
-  )
+// Variables
+const staticCompanyDescriptionStore = useStaticCompanyDescriptorsStore()
 
-  const data = countryCodes.map((code: any, index: number) => {
+// Computed
+const countries = computed(() =>
+  staticCompanyDescriptionStore.getCountries.map((country) => {
+    const { id, code } = country
+
     return {
       //@ts-ignore
-      text: (i18n.global.messages.value[i18n.global.locale.value ?? 'en-US'].country as any)[code],
-      id: index,
+      text: (i18n.global.messages.value[i18n.global.locale.value ?? 'en-US'].country as any)[
+        code.toLowerCase()
+      ],
+      id,
       iconPrepend: { name: `_${code}`, size: 'small' }
     }
   })
+)
 
-  return data
-})
+// Methods
+const handleFetchCountries = async () => {
+  await StaticCompanyDescriptorsService.getCountries()
+}
 
-const validationRules = computed(() => {
-  const countryIds = countries.value.map(({ id }: { id: string | number }) => id).join(',')
-  return `required|one_of:${countryIds}`
+// Hooks
+onBeforeMount(() => {
+  handleFetchCountries()
 })
 </script>

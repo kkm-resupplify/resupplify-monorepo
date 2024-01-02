@@ -6,7 +6,7 @@
 
     <a-line />
 
-    <template v-if="isLoading">implement-loader-here</template>
+    <m-skeleton v-if="isLoading" :repetitions="10" />
 
     <product-all-product-list v-else :products="products" />
   </a-panel-section>

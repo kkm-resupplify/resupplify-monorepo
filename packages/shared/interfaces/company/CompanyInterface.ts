@@ -25,3 +25,9 @@ export interface CompanyCategory {
   id: number | string
   name: string
 }
+
+export interface FeaturedCompany extends CompanyData {
+  productsSold: number
+  productsTotal: number
+  uniqueClients: number
+}

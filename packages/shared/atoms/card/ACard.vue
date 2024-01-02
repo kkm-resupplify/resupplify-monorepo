@@ -1,7 +1,7 @@
 <template>
   <div class="a-card">
     <div :class="headerClasses">
-      <a-image :src="props.headerImage" :width="300"/>
+      <a-image :src="headerImage" :width="300" :alt="headerImageAlt" />
     </div>
 
     <div class="a-card__overlay a-card__overlay--right">
@@ -41,8 +41,9 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const props = defineProps({
   headerImage: {
     type: String,
-    default: 'https://www.qualia.com/images/branding/qualia_logo_medium.png'
+    required: true
   },
+  headerImageAlt: String,
 
   backgroundVariant: {
     type: String,
@@ -91,7 +92,7 @@ $body-max-height: 150px;
   width: 300px;
   height: 210px;
 
-  border-radius: $global-border-radius-20;
+  border-radius: $global-border-radius-10;
   box-shadow: 0 8px 18px 0 rgb(0 0 0 / 10%);
 
   &:hover {
@@ -112,10 +113,14 @@ $body-max-height: 150px;
   }
 
   &__header {
+    overflow: clip;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 95%;
+
+    height: 100%;
+
+    border-radius: $global-border-radius-20;
 
     &--bg-primary {
       background: var(--primary-gradient);
@@ -140,7 +145,7 @@ $body-max-height: 150px;
 
     color: var(--font-primary);
 
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &--extended {
       max-height: $body-max-height;
@@ -179,7 +184,7 @@ $body-max-height: 150px;
       background: var(--primary-gradient);
       border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
 
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
 
     &--middle {
@@ -190,7 +195,7 @@ $body-max-height: 150px;
       opacity: 0;
       backdrop-filter: blur(4px);
 
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
   }
 }

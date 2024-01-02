@@ -1,6 +1,6 @@
 <template>
   <div class="product-card-stat-item">
-    <a-icon :icon="icon" size="large" variant="outlined" />
+    <a-icon :icon="icon" size="x-large" variant="outlined" />
 
     <span class="product-card-stat-item__value" v-text="numberFormatter(value)" />
   </div>
@@ -38,6 +38,11 @@ const numberFormatter = useShortNumberFormatComposable()
   &__value {
     display: flex;
     font-size: $global-font-size-40;
+    color: $themes-light-text-primary;
+  }
+
+  :deep(.a-icon) {
+    color: $themes-light-text-primary;
   }
 }
 </style>

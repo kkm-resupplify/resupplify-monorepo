@@ -1,10 +1,12 @@
 <template>
-  <template v-if="isLoading"> implement-loader-here </template>
-
-  <a-panel v-else class="warehouse-dashboard-panel">
+  <a-panel class="warehouse-dashboard-panel">
     <warehouse-header-section :warehouses="warehouses" />
 
-    <warehouse-content-section :warehouses="warehouses" @search="handleFetchWarehouses" />
+    <warehouse-content-section
+      :warehouses="warehouses"
+      :is-loading="isLoading"
+      @search="handleFetchWarehouses"
+    />
   </a-panel>
 </template>
 

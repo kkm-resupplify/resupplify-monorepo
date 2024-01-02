@@ -664,7 +664,8 @@
           },
 
           "notification": {
-            "createOfferSuccessTitle": "Offer created successfully"
+            "createOfferSuccessTitle": "Offer created successfully",
+            "offerWithdrawalSuccessTitle": "Offer withdrawed successfully"
           },
 
           "alert": {
@@ -997,10 +998,13 @@
     "cz": "Czech Republic",
     "dk": "Denmark",
     "ee": "Estonia",
+    "fo": "Faroe Islands",
     "fi": "Finland",
     "fr": "France",
     "de": "Germany",
     "gr": "Greece",
+    "ge": "Georgia",
+    "gi": "Gibraltar",
     "hu": "Hungary",
     "is": "Iceland",
     "ie": "Ireland",
@@ -1029,6 +1033,7 @@
     "ch": "Switzerland",
     "ua": "Ukraine",
     "gb": "United Kingdom",
-    "va": "Vatican City State"
+    "va": "Vatican City State",
+    "xk": "Kosovo"
   }
 }
