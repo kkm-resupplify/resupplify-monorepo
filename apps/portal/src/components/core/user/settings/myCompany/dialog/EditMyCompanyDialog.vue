@@ -52,7 +52,8 @@ const editCompanyDetailsStep = computed(() => {
     address: props.company.details.address,
     companyCategoryId: props.company.details.companyCategoryId,
     tin: props.company.details.tin,
-    logo: props.company.details.logo
+    logo: props.company.details.logo,
+    image: null
   }
 })
 
