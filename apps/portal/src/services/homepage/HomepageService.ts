@@ -1,7 +1,7 @@
 import BaseService from '../BaseService'
 
 class HomepageService extends BaseService {
-  static COMPANIES_SUFFIX = '/randomCompanies'
+  static COMPANIES_SUFFIX = 'randomCompanies'
 
   async getFeaturedProducts() {
     return await this.get({})
