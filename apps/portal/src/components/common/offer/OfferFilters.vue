@@ -173,6 +173,11 @@ onBeforeMount(async () => {
 
 <style scoped lang="scss">
 .offer-filters {
+  position: sticky;
+  top: 0;
+  padding: $global-spacing-30 0;
+  background: var(--secondary-1);
+
   &__inputs {
     display: flex;
     gap: $global-spacing-30;
