@@ -91,7 +91,6 @@ $body-max-height: 150px;
   width: 300px;
   height: 210px;
 
-  border-radius: $global-border-radius-20;
   box-shadow: 0 8px 18px 0 rgb(0 0 0 / 10%);
 
   &:hover {
@@ -112,10 +111,14 @@ $body-max-height: 150px;
   }
 
   &__header {
+    overflow: clip;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 95%;
+
+    height: 100%;
+
+    border-radius: $global-border-radius-20;
 
     &--bg-primary {
       background: var(--primary-gradient);
@@ -149,6 +152,7 @@ $body-max-height: 150px;
 
   &__main {
     background-color: var(--secondary-1);
+    border-radius: $global-border-radius-10;
   }
 
   &__main-title {

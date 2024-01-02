@@ -1,5 +1,5 @@
 <template>
-  <a-card class="company-card">
+  <a-card class="company-card" :header-image="data.details.logo">
     <template #title>{{ data.name }}</template>
 
     <template #content>
