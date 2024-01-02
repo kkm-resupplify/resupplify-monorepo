@@ -3,8 +3,8 @@
     <template #title>{{ data.name }}</template>
 
     <template #content>
-      <div class="company-card-content">
-        <span class="company-card-content__description">{{ data.shortDescription }}</span>
+      <div class="company-card__content">
+        <span class="company-card__content-description">{{ data.shortDescription }}</span>
 
         <company-card-stats :company-stats="companyStats" />
       </div>
@@ -33,19 +33,21 @@ const companyStats = computed(() => ({
 </script>
 
 <style scoped lang="scss">
-.company-card-content {
-  display: flex;
-  flex: 1 0 0;
-  gap: $global-spacing-30;
-  align-items: flex-start;
-  align-self: stretch;
+.company-card {
+  &__content {
+    display: flex;
+    flex: 1 0 0;
+    gap: $global-spacing-30;
+    align-items: flex-start;
+    align-self: stretch;
 
-  max-height: 84px;
-  padding: 0 $global-spacing-20 $global-spacing-20 $global-spacing-20;
+    max-height: 84px;
+    padding: 0 $global-spacing-20 $global-spacing-20 $global-spacing-20;
 
-  border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
+    border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
+  }
 
-  &__description {
+  &__content-description {
     overflow: hidden;
     display: flex;
     flex: 1 0 0;
