@@ -13,7 +13,7 @@
 
           <a-line />
 
-          <template v-if="isLoading">implement-loader-here</template>
+          <a-loader v-if="isLoading" />
 
           <template v-else>
             <offer-list v-if="showList" :offers="offers" />

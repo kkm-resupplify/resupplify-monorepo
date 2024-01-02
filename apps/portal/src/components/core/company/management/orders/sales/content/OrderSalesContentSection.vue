@@ -4,7 +4,7 @@
 
     <a-line />
 
-    <template v-if="isLoading">implement-loader-here</template>
+    <a-loader v-if="isLoading" />
 
     <template v-else>
       <order-list v-if="showList" :orders="orders" type="sold" @fetch-orders="handleFetchOrders" />

@@ -1,5 +1,5 @@
 <template>
-  <template v-if="isLoading"> implement-loader-here </template>
+  <a-loader v-if="isLoading" />
 
   <a-panel v-else class="warehouse-dashboard-panel">
     <warehouse-header-section :warehouses="warehouses" />

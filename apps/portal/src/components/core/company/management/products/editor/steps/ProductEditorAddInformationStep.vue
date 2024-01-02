@@ -1,9 +1,7 @@
 <template>
   <m-stepper-step-content>
     <template #body>
-      <div v-if="isLoading" class="product-editor-add-information-step__body">
-        implement-loader-here
-      </div>
+      <a-loader v-if="isLoading" />
 
       <o-form
         v-else

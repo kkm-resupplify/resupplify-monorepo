@@ -25,7 +25,7 @@
 
     <a-line />
 
-    <template v-if="isLoading">implement-loader-here</template>
+    <a-loader v-if="isLoading" />
 
     <product-verify-product-list
       v-else

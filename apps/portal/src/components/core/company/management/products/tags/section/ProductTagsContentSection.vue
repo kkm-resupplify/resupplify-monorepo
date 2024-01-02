@@ -8,7 +8,7 @@
 
     <a-line />
 
-    <div v-if="isLoading">implement-loader-here</div>
+    <a-loader v-if="isLoading" />
 
     <product-tag-list
       v-else-if="productTags.length"

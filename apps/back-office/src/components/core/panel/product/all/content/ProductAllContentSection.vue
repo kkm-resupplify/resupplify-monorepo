@@ -6,7 +6,7 @@
 
     <a-line />
 
-    <template v-if="isLoading">implement-loader-here</template>
+    <a-loader v-if="isLoading" />
 
     <product-all-product-list v-else :products="products" />
   </a-panel-section>

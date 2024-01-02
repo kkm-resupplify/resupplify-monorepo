@@ -14,7 +14,7 @@
             append-colon
           />
 
-          <template v-if="isLoading">implement-loader-here</template>
+          <a-loader v-if="isLoading" />
 
           <a-currency v-else :value="balance" value-size="large" />
         </div>
