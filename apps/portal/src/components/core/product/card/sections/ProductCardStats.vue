@@ -24,6 +24,6 @@ defineProps({
   display: flex;
   gap: $global-spacing-40;
   padding: $global-spacing-20;
-  background: rgb(118 161 241 / 40%);
+  background: rgb(255 255 255 / 30%);
 }
 </style>
