@@ -4,13 +4,6 @@
 
     <a-title :title="product.description" size="large" />
 
-    <a-title
-      :title="$t('company.management.offer.preview.productDetails')"
-      :subtitle="translateUnit(product.productUnit.code)"
-      append-colon
-      size="large"
-    />
-
     <a-line />
 
     <a-title :title="$t('company.management.offer.preview.sellerInformation')" size="x-large" />
@@ -36,6 +29,7 @@
           :subtitle="company.details.email"
           variant="horizontal"
           append-colon
+          class="offer-preview-content-section__title"
         />
 
         <a-title
@@ -43,6 +37,7 @@
           :subtitle="company.details.phoneNumber"
           variant="horizontal"
           append-colon
+          class="offer-preview-content-section__title"
         />
 
         <a-title
@@ -50,6 +45,7 @@
           :subtitle="company.details.address"
           variant="horizontal"
           append-colon
+          class="offer-preview-content-section__title"
         />
       </div>
     </div>
@@ -58,13 +54,9 @@
 
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
-import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
-
-// Composables
-const { translateUnit } = useUnitTranslation()
 
 defineProps({
   product: {
@@ -81,6 +73,10 @@ defineProps({
 
 <style scoped lang="scss">
 .offer-preview-content-section {
+  &__title {
+    width: max-content;
+  }
+
   &__company {
     display: flex;
     gap: $global-spacing-50;
