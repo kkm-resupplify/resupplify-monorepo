@@ -4,7 +4,7 @@
 
     <a-line />
 
-    <a-loader v-if="isLoading" />
+    <a-skeleton v-if="isLoading" />
 
     <template v-else>
       <order-list v-if="showList" :orders="orders" type="sold" @fetch-orders="handleFetchOrders" />

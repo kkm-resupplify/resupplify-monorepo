@@ -8,7 +8,7 @@
 
     <a-line />
 
-    <a-loader v-if="isLoading" />
+    <a-skeleton v-if="isLoading" />
 
     <product-tag-list
       v-else-if="productTags.length"

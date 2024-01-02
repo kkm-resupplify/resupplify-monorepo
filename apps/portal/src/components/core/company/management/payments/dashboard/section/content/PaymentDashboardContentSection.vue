@@ -33,7 +33,7 @@
 
     <a-line />
 
-    <a-loader v-if="isLoading" />
+    <a-skeleton v-if="isLoading" />
 
     <template v-else>
       <payment-dashboard-payment-list v-if="showList" :payments="payments" />

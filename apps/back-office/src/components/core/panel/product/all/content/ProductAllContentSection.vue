@@ -6,7 +6,7 @@
 
     <a-line />
 
-    <a-loader v-if="isLoading" />
+    <a-skeleton v-if="isLoading" />
 
     <product-all-product-list v-else :products="products" />
   </a-panel-section>

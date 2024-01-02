@@ -6,7 +6,7 @@
 
     <a-line />
 
-    <a-loader v-if="isLoading" />
+    <a-skeleton v-if="isLoading" />
 
     <company-all-company-list v-else :companies="companies" />
   </a-panel-section>

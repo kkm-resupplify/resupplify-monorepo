@@ -2,7 +2,7 @@
   <basic-view-layout>
     <template #body>
       <a-panel width="auto">
-        <a-loader v-if="isLoading || !offer" />
+        <a-skeleton v-if="isLoading || !offer" />
 
         <template v-else>
           <offer-preview-header-section :offer="offer" />

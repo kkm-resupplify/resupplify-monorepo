@@ -4,7 +4,7 @@
       <div class="payment-manage-balance-panel__header">
         <a-title :title="$t('company.management.balance.manage.title')" size="x-large" />
 
-        <a-loader v-if="isLoading" />
+        <a-skeleton v-if="isLoading" />
 
         <a-currency
           v-else

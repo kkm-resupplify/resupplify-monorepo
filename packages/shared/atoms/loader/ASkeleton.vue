@@ -1,5 +1,5 @@
 <template>
-  <div :class="generateClasses">a-loader</div>
+  <div :class="generateClasses">a-skeleton</div>
 </template>
 
 <script setup lang="ts">
@@ -9,7 +9,7 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const props = defineProps({})
 
 // Variables
-const baseClass = 'a-loader'
+const baseClass = 'a-skeleton'
 const { generateClassNames } = useClassComposable()
 
 // Computed
@@ -19,7 +19,7 @@ const generateClasses = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.a-loader {
+.a-skeleton {
   display: flex;
 }
 </style>

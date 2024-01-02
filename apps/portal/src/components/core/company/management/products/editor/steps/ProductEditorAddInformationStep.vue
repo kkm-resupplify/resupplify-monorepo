@@ -1,7 +1,7 @@
 <template>
   <m-stepper-step-content>
     <template #body>
-      <a-loader v-if="isLoading" />
+      <a-skeleton v-if="isLoading" />
 
       <o-form
         v-else

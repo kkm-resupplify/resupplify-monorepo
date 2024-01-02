@@ -55,7 +55,7 @@
 
     <a-line />
 
-    <a-loader v-if="isLoading" />
+    <a-skeleton v-if="isLoading" />
 
     <template v-else>
       <offer-dashboard-offer-list

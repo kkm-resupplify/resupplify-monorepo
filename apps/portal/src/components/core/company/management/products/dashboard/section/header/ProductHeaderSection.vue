@@ -4,7 +4,7 @@
       <a-title :title="$t('company.management.products.dashboard.title')" size="x-large" />
 
       <div class="product-header-section__main">
-        <a-loader v-if="isLoading" />
+        <a-skeleton v-if="isLoading" />
 
         <a-list-item-wrapper v-else>
           <a-list-item-title-section

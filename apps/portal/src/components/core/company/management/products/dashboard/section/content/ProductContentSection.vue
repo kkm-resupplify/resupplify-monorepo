@@ -70,7 +70,7 @@
 
     <a-line />
 
-    <a-loader v-if="isLoading" />
+    <a-skeleton v-if="isLoading" />
 
     <template v-else>
       <product-list v-if="showList" :products="products" @product-changed="handleFetchProducts" />

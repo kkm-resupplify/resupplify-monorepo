@@ -1,6 +1,6 @@
 <template>
   <a-panel-section class="companies-list-item">
-    <a-loader v-if="isLoading" />
+    <a-skeleton v-if="isLoading" />
 
     <template v-else>
       <div class="companies-list-item__wrapper">

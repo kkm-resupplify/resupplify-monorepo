@@ -13,7 +13,7 @@
 
           <a-line />
 
-          <a-loader v-if="isLoading" />
+          <a-skeleton v-if="isLoading" />
 
           <template v-else>
             <companies-list v-if="showList" :companies="companies" />
