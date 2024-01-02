@@ -74,9 +74,10 @@
                 :title="$t('common.offer.list.item.price')"
                 variant="horizontal"
                 append-colon
+                size="large"
               />
 
-              <a-currency :value="offer.price" size="small" />
+              <a-currency :value="offer.price" value-size="large" />
             </div>
 
             <a-title
@@ -85,6 +86,7 @@
               variant="horizontal"
               append-colon
               class="offer-preview-header-section__title"
+              size="large"
             />
 
             <a-title
@@ -93,6 +95,7 @@
               variant="horizontal"
               append-colon
               class="offer-preview-header-section__title"
+              size="large"
             />
 
             <a-button
