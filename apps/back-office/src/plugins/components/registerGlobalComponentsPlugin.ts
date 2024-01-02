@@ -21,6 +21,7 @@ import AListNoResults from '@sharedAtoms/list/AListNoResults.vue'
 import APanel from '@sharedAtoms/panel/APanel.vue'
 import APanelSection from '@sharedAtoms/panel/APanelSection.vue'
 import ACurrency from '@sharedAtoms/currency/ACurrency.vue'
+import ASkeleton from '@sharedAtoms/skeleton/ASkeleton.vue'
 
 const atoms = [
   AButton,
@@ -44,7 +45,8 @@ const atoms = [
   AListNoResults,
   APanel,
   APanelSection,
-  ACurrency
+  ACurrency,
+  ASkeleton
 ]
 
 // Molecules
@@ -63,6 +65,7 @@ import MTile from '@sharedMolecules/tile/MTile.vue'
 import MTileList from '@sharedMolecules/tile/MTileList.vue'
 import MDialog from '@sharedMolecules/dialog/MDialog.vue'
 import MAlert from '@sharedMolecules/alert/MAlert.vue'
+import MSkeleton from '@sharedMolecules/skeleton/MSkeleton.vue'
 
 const molecules = [
   MCardList,
@@ -79,7 +82,8 @@ const molecules = [
   MTile,
   MTileList,
   MDialog,
-  MAlert
+  MAlert,
+  MSkeleton
 ]
 
 // Organisms

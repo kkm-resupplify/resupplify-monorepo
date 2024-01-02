@@ -5,7 +5,16 @@
       size="large"
     />
 
-    <warehouse-list :warehouses="warehouses" @search="$emit('search')" />
+    <m-skeleton
+      v-if="isLoading"
+      :rows="1"
+      :repetitions="7"
+      skeleton-height="180px"
+      skeleton-width="200px"
+      class="warehouse-content-section__skeleton"
+    />
+
+    <warehouse-list v-else :warehouses="warehouses" @search="$emit('search')" />
   </a-panel-section>
 </template>
 
@@ -17,7 +26,8 @@ import type { Warehouse } from '@sharedInterfaces/warehouse/WarehouseInterface'
 defineProps({
   warehouses: {
     type: Array as PropType<Warehouse[]>
-  }
+  },
+  isLoading: Boolean
 })
 
 // Emits
@@ -27,5 +37,11 @@ defineEmits(['search'])
 <style scoped lang="scss">
 .warehouse-content-section {
   overflow-y: auto;
+
+  &__skeleton {
+    :deep(.m-skeleton__row) {
+      flex-direction: row;
+    }
+  }
 }
 </style>

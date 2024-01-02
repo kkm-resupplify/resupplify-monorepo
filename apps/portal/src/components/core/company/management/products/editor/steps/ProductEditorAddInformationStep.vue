@@ -1,9 +1,15 @@
 <template>
   <m-stepper-step-content>
     <template #body>
-      <div v-if="isLoading" class="product-editor-add-information-step__body">
-        implement-loader-here
-      </div>
+      <m-skeleton
+        v-if="isLoading"
+        :repetitions="5"
+        variant="cart"
+        :rows="2"
+        min-width="900px"
+        skeleton-height="37px"
+        skeleton-width="200px"
+      />
 
       <o-form
         v-else

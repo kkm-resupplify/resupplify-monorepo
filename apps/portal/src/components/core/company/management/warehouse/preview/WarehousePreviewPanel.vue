@@ -1,8 +1,9 @@
 <template>
-  <template v-if="isLoading"> implement-loader-here </template>
+  <a-panel class="warehouse-preview-panel">
+    <a-skeleton v-if="isLoading" height="220px" />
 
-  <a-panel v-else class="warehouse-preview-panel">
     <warehouse-preview-header-section
+      v-else
       :products="warehouseProducts"
       :warehouse="warehouse"
       @fetch-warehouse="handleFetchWarehouse"
