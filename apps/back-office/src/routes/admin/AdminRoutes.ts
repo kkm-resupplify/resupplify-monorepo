@@ -4,7 +4,6 @@ import BasicViewLayoutVue from '@/layouts/view/BasicViewLayout.vue'
 import AdminDashboardRoutes from '@/routes/admin/dashboard/AdminDashboardRoutes'
 import AdminProductRoutes from '@/routes/admin/product/AdminProductRoutes'
 import AdminCompanyRoutes from '@/routes/admin/company/AdminCompanyRoutes'
-import AdminLocaleRoutes from '@/routes/admin/locale/AdminLocaleRoutes'
 import { MustBeAuthenticatedNavigationGuard } from '@/routes/navigationGuards'
 
 class AdminRouteEnum extends BaseEnum {
@@ -17,12 +16,7 @@ const AdminRoutes: RouteRecordRaw[] = [
     path: '/admin',
     name: AdminRouteEnum.HOME,
     component: BasicViewLayoutVue,
-    children: [
-      ...AdminDashboardRoutes,
-      ...AdminCompanyRoutes,
-      ...AdminProductRoutes,
-      ...AdminLocaleRoutes
-    ],
+    children: [...AdminDashboardRoutes, ...AdminCompanyRoutes, ...AdminProductRoutes],
     redirect: {
       name: AdminRouteEnum.ADMIN_DASHBOARD
     },

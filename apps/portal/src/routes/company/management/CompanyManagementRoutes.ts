@@ -1,8 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router'
-import CompanyDashboardView from '@/views/Company/Management/CompanyDashboardView.vue'
 import CompanyDealsView from '@/views/Company/Management/CompanyDealsView.vue'
 import CompanyOffersView from '@/views/Company/Management/CompanyOffersView.vue'
-import CompanySettingsView from '@/views/Company/Management/CompanySettingsView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import CompanyManagementMembersRoutes from './members/CompanyManagementMembersRoutes'
 import CompanyManagementWarehouseRoutes from './warehouses/CompanyManagementWarehouseRoutes'

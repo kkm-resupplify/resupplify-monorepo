@@ -23,11 +23,6 @@ const { t } = useI18n()
 // Computed
 const tabs = computed(() => [
   {
-    to: { name: RouteNames.ADMIN_DASHBOARD },
-    title: t('navigation.menu.dashboard'),
-    icon: 'dashboard'
-  },
-  {
     to: { name: RouteNames.ADMIN_COMPANY_TILES },
     title: t('navigation.menu.companies'),
     icon: 'apartment'
@@ -36,11 +31,6 @@ const tabs = computed(() => [
     to: { name: RouteNames.ADMIN_PRODUCT_TILES },
     title: t('navigation.menu.products'),
     icon: 'inventory_2'
-  },
-  {
-    to: { name: RouteNames.ADMIN_LOCALE_TILES },
-    title: t('navigation.menu.locales'),
-    icon: 'language'
   }
 ])
 </script>
