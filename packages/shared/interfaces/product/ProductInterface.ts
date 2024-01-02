@@ -1,4 +1,5 @@
 import type { ProductTag } from '@sharedInterfaces/product/ProductTagInterface'
+import type { Offer } from '@sharedInterfaces/offer/OfferInterface'
 
 export interface Product {
   id: number
@@ -49,4 +50,9 @@ export interface ProductTranslation {
   languageId: number
   name: string
   description: string
+}
+
+export interface FeaturedProduct extends Product {
+  soldQuantity: number
+  productOffer: Offer
 }
