@@ -13,7 +13,7 @@
 
           <a-line />
 
-          <a-skeleton v-if="isLoading" />
+          <m-skeleton v-if="isLoading" :repetitions="10" skeleton-height="149px" />
 
           <template v-else>
             <offer-list v-if="showList" :offers="offers" />

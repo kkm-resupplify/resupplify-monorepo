@@ -11,7 +11,7 @@
       <o-form :submit-callback="handleSubmitAddProduct">
         <template #body>
           <div class="add-warehouse-product-dialog__form-body">
-            <template v-if="isLoading">m-select options loader </template>
+            <a-skeleton v-if="isLoading" height="60px" />
 
             <m-select
               v-else

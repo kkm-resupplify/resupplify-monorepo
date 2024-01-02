@@ -1,6 +1,6 @@
 <template>
   <a-panel-section class="company-preview-header-section">
-    <a-skeleton v-if="isLoading" />
+    <a-skeleton v-if="isLoading" height="150px" />
 
     <template v-else>
       <div class="company-preview-header-section__wrapper">

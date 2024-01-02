@@ -8,7 +8,7 @@
 
     <a-line />
 
-    <a-skeleton v-if="isLoading" />
+    <m-skeleton v-if="isLoading" :repetitions="10" skeleton-height="78px" />
 
     <product-tag-list
       v-else-if="productTags.length"
