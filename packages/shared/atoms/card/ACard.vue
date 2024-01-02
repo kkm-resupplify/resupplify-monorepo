@@ -1,7 +1,7 @@
 <template>
   <div class="a-card">
     <div :class="headerClasses">
-      <a-image :src="props.headerImage" :width="300"/>
+      <a-image :src="props.headerImage" :width="300" />
     </div>
 
     <div class="a-card__overlay a-card__overlay--right">
