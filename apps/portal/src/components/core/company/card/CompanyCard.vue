@@ -1,28 +1,35 @@
 <template>
   <a-card class="company-card">
-    <template #title>{{ data.companyName }}</template>
+    <template #title>{{ data.name }}</template>
 
     <template #content>
       <div class="company-card-content">
         <span class="company-card-content__description">{{ data.shortDescription }}</span>
 
-        <company-card-stats :company-stats="data.companyStats" />
+        <company-card-stats :company-stats="companyStats" />
       </div>
     </template>
   </a-card>
 </template>
 
 <script setup lang="ts">
-// Components
+import { type PropType, computed } from 'vue'
+import type { FeaturedCompany } from '@sharedInterfaces/company/CompanyInterface'
 import CompanyCardStats from '@/components/core/company/card/sections/CompanyCardStats.vue'
 
-// Props
-defineProps({
+const props = defineProps({
   data: {
-    type: Object,
+    type: Object as PropType<FeaturedCompany>,
     required: true
   }
 })
+
+// Computed
+const companyStats = computed(() => ({
+  productsSold: props.data.productsSold,
+  productsTotal: props.data.productsTotal,
+  uniqueClients: props.data.uniqueClients
+}))
 </script>
 
 <style scoped lang="scss">
