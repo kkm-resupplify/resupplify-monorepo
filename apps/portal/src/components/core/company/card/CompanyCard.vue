@@ -26,9 +26,9 @@ const props = defineProps({
 
 // Computed
 const companyStats = computed(() => ({
-  productsSold: props.data.productsSold,
-  productsTotal: props.data.productsTotal,
-  uniqueClients: props.data.uniqueClients
+  productsSold: props.data.productsSold ?? 0,
+  productsTotal: props.data.productsTotal ?? 0,
+  uniqueClients: props.data.uniqueClients ?? 0
 }))
 </script>
 
