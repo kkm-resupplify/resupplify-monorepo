@@ -22,6 +22,7 @@
             class="offer-list-item__product-information-title"
             append-colon
           />
+
           <div class="offer-list-item__product-information-categories">
             <a-title
               :title="$t('common.offer.list.item.product.category')"
@@ -49,6 +50,7 @@
             class="offer-list-item__product-information-title"
             append-colon
           />
+
           <product-tag-list
             class="offer-list-item__product-information-tags"
             :product-tags="offer.product.productTags"
