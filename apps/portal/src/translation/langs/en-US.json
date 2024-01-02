@@ -43,7 +43,8 @@
     "seeDetails": "See details",
     "set": "Set",
     "dark": "Dark",
-    "light": "Light"
+    "light": "Light",
+    "close": "Close"
   },
 
   "language": {
@@ -763,6 +764,12 @@
     "header": {
       "title": "Browse offers",
       "description": "Browse offers from companies registered on our platform. Each product on Resupplify undergoes thorough verification, ensuring the credibility of offers provided by businesses. Shop with confidence, knowing that our commitment to excellence serves your company"
+    },
+
+    "preview": {
+      "dialog": {
+        "content": "This offer belongs to your company. You cannot add it to your cart."
+      }
     }
   },
 

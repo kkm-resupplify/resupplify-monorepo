@@ -11,13 +11,9 @@
     </template>
 
     <div class="offer-owner-info-dialog__content">
-      <a-title
-        title="This offer belongs to your company. You cannot add it to your cart.
-"
-        size="large"
-      />
+      <a-title :title="$t('offers.preview.dialog.content')" size="large" />
 
-      <a-button text="Close" size="x-large" @click="closeDialog" />
+      <a-button :text="$t('global.close')" size="x-large" @click="closeDialog" />
     </div>
   </m-dialog>
 </template>
