@@ -1,70 +1,113 @@
 <template>
   <a-panel-section class="offer-preview-content-section">
-    <a-title :title="$t('company.management.offer.preview.productDetails')" size="x-large" />
+    <a-title :title="$t('company.management.offer.preview.productDescription')" size="x-large" />
 
     <a-title :title="product.description" size="large" />
-
-    <a-title
-      :title="$t('company.management.offer.preview.productDetails')"
-      :subtitle="translateUnit(product.productUnit.code)"
-      append-colon
-      size="large"
-    />
 
     <a-line />
 
     <a-title :title="$t('company.management.offer.preview.sellerInformation')" size="x-large" />
 
     <div class="offer-preview-content-section__company">
-      <a-image
-        :width="120"
-        :height="120"
-        :src="company.details.logo"
-        :alt="$t('common.offer.list.item.imageAlt')"
-        variant="rounded"
+      <div class="offer-preview-content-section__company-data">
+        <div class="offer-preview-content-section__company-data-left-section">
+          <a-image
+            :width="120"
+            :height="120"
+            :src="company.details.logo"
+            :alt="$t('common.offer.list.item.imageAlt')"
+            variant="rounded"
+          />
+
+          <div class="offer-preview-content-section__company-data-left-section-data">
+            <a-link
+              :text="company.name"
+              :link="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
+              size="x-large"
+              class="offer-preview-content-section__company-data-link"
+            ></a-link>
+
+            <a-title
+              :title="$t('company.preview.email')"
+              :subtitle="company.details.email"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-content-section__title"
+              size="large"
+            />
+
+            <a-title
+              :title="$t('company.preview.phone')"
+              :subtitle="company.details.phoneNumber"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-content-section__title"
+              size="large"
+            />
+
+            <a-title
+              :title="$t('company.preview.address')"
+              :subtitle="company.details.address"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-content-section__title"
+              size="large"
+            />
+          </div>
+        </div>
+
+        <div class="offer-preview-content-section__company-data-right-section">
+          <a-title
+            :title="$t('company.preview.contactPerson')"
+            :subtitle="company.details.contactPerson"
+            variant="horizontal"
+            append-colon
+            class="offer-preview-content-section__title"
+            size="large"
+          />
+
+          <a-title
+            :title="$t('company.preview.tin')"
+            :subtitle="company.details.tin"
+            variant="horizontal"
+            append-colon
+            class="offer-preview-content-section__title"
+            size="large"
+          />
+
+          <a-title
+            :title="$t('company.preview.externalWebsite')"
+            :subtitle="company.details.externalWebsite"
+            variant="horizontal"
+            append-colon
+            class="offer-preview-content-section__title"
+            size="large"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-preview-content-section__company-description">
+      <a-title
+        :title="$t('company.preview.shortDescription')"
+        :subtitle="company.shortDescription"
+        size="large"
       />
 
-      <div class="offer-preview-content-section__company-information">
-        <a-link
-          :text="company.name"
-          :link="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
-          size="large"
-        />
-
-        <a-title
-          :title="$t('company.preview.email')"
-          :subtitle="company.details.email"
-          variant="horizontal"
-          append-colon
-        />
-
-        <a-title
-          :title="$t('company.preview.phone')"
-          :subtitle="company.details.phoneNumber"
-          variant="horizontal"
-          append-colon
-        />
-
-        <a-title
-          :title="$t('company.preview.address')"
-          :subtitle="company.details.address"
-          variant="horizontal"
-          append-colon
-        />
-      </div>
+      <a-title
+        :title="$t('company.preview.longDescription')"
+        :subtitle="company.description"
+        size="large"
+      />
     </div>
   </a-panel-section>
 </template>
 
 <script setup lang="ts">
 import { RouteNames } from '@/routes'
-import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 import type { CompanyData } from '@sharedInterfaces/company/CompanyInterface'
 import type { Product } from '@sharedInterfaces/product/ProductInterface'
 import type { PropType } from 'vue'
-
-// Composables
-const { translateUnit } = useUnitTranslation()
 
 defineProps({
   product: {
@@ -81,6 +124,10 @@ defineProps({
 
 <style scoped lang="scss">
 .offer-preview-content-section {
+  &__title {
+    width: max-content;
+  }
+
   &__company {
     display: flex;
     gap: $global-spacing-50;
@@ -88,7 +135,20 @@ defineProps({
     white-space: nowrap;
   }
 
-  &__company-information {
+  &__company-data {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__company-data-left-section {
+    display: flex;
+    gap: $global-spacing-50;
+  }
+
+  &__company-data-left-section-data,
+  &__company-data-right-section {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
@@ -96,6 +156,17 @@ defineProps({
 
   &__company-link {
     text-decoration: none;
+  }
+
+  &__company-description {
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-50;
+    margin-top: $global-spacing-100;
+  }
+
+  &__company-data-link {
+    line-height: 1;
   }
 }
 </style>

@@ -43,7 +43,8 @@
     "seeDetails": "See details",
     "set": "Set",
     "dark": "Dark",
-    "light": "Light"
+    "light": "Light",
+    "close": "Close"
   },
 
   "language": {
@@ -673,7 +674,7 @@
         },
 
         "preview": {
-          "productDetails": "Product details",
+          "productDescription": "Product description",
           "sellerInformation": "Seller information",
           "productUnit": "Product unit"
         }
@@ -726,7 +727,12 @@
     "preview": {
       "email": "Email",
       "phone": "Phone number",
-      "address": "Address"
+      "address": "Address",
+      "contactPerson":"Contact Person",
+      "tin": "Tax Identification Number",
+      "externalWebsite":"Company Website",
+      "longDescription": "Long description",
+      "shortDescription": "Short description"
     },
 
     "categories": {
@@ -759,6 +765,12 @@
     "header": {
       "title": "Browse offers",
       "description": "Browse offers from companies registered on our platform. Each product on Resupplify undergoes thorough verification, ensuring the credibility of offers provided by businesses. Shop with confidence, knowing that our commitment to excellence serves your company"
+    },
+
+    "preview": {
+      "dialog": {
+        "content": "This offer belongs to your company. You cannot add it to your cart."
+      }
     }
   },
 
@@ -835,7 +847,8 @@
           "product": {
             "name": "Name",
             "category": "Category",
-            "subcategory": "Subcategory"
+            "subcategory": "Subcategory",
+            "unit": "Unit"
           },
 
           "price": "Price",
