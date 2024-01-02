@@ -58,14 +58,18 @@ class RegisterCompanyService extends BaseService {
   }
 
   async edit({ generalStepData, detailsStepData, contactInfoStepData }: RegisterCompanyData) {
-    const response = await this.put({
-      data: new RegisterCompanyFormDataDTO({
+    const formData = convertToFormData(
+      new RegisterCompanyFormDataDTO({
         generalStepData,
         detailsStepData,
         contactInfoStepData
-      }),
-      notificationTitle: 'company.register.notification.editCompanySuccessTitle',
-      notificationText: 'company.register.notification.editCompanySuccessText',
+      })
+    )
+
+    const response = await this.put({
+      data: formData,
+      notificationTitle: 'company.register.notification.registerCompanySuccessTitle',
+      notificationText: 'company.register.notification.registerCompanySuccessText',
       notificationDuration: 7000
     })
 
