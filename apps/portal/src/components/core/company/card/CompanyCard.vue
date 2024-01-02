@@ -1,6 +1,6 @@
 <template>
   <router-link :to="companyRoute">
-    <a-card class="company-card" :header-image="data.details.logo">
+    <a-card class="company-card" :header-image="data.details.logo" :header-image-alt="data.name">
       <template #title>{{ data.name }}</template>
 
       <template #content>

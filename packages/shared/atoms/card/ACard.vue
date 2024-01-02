@@ -1,7 +1,7 @@
 <template>
   <div class="a-card">
     <div :class="headerClasses">
-      <a-image :src="props.headerImage" :width="300" />
+      <a-image :src="headerImage" :width="300" :alt="headerImageAlt" />
     </div>
 
     <div class="a-card__overlay a-card__overlay--right">
@@ -41,8 +41,9 @@ import { useClassComposable } from '@sharedComposables/class/useClassComposable'
 const props = defineProps({
   headerImage: {
     type: String,
-    default: 'https://www.qualia.com/images/branding/qualia_logo_medium.png'
+    required: true
   },
+  headerImageAlt: String,
 
   backgroundVariant: {
     type: String,
