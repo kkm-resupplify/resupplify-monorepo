@@ -140,7 +140,7 @@ $body-max-height: 150px;
 
     color: var(--font-primary);
 
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &--extended {
       max-height: $body-max-height;
@@ -179,7 +179,7 @@ $body-max-height: 150px;
       background: var(--primary-gradient);
       border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
 
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
 
     &--middle {
@@ -190,7 +190,7 @@ $body-max-height: 150px;
       opacity: 0;
       backdrop-filter: blur(4px);
 
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
   }
 }
