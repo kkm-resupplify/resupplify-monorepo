@@ -150,6 +150,7 @@ onBeforeMount(async () => {
 
   &__info {
     display: flex;
+    flex: 1;
     flex-direction: column;
   }
 
