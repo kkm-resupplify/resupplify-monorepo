@@ -1,10 +1,8 @@
 <template>
   <div class="product-card-stats">
-    <product-card-stat-item icon="beenhere" :value="stats.available" />
+    <product-card-stat-item icon="category" :value="stats.available" />
 
-    <product-card-stat-item icon="bookmark_added" :value="stats.timesBought" />
-
-    <product-card-stat-item icon="star_half" :value="stats.rating" />
+    <product-card-stat-item icon="shopping_cart" :value="stats.soldQuantity" />
   </div>
 </template>
 
