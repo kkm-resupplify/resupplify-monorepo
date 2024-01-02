@@ -1,21 +1,24 @@
 <template>
-  <a-card class="company-card" :header-image="data.details.logo">
-    <template #title>{{ data.name }}</template>
+  <router-link :to="companyRoute">
+    <a-card class="company-card" :header-image="data.details.logo">
+      <template #title>{{ data.name }}</template>
 
-    <template #content>
-      <div class="company-card__content">
-        <span class="company-card__content-description">{{ data.shortDescription }}</span>
+      <template #content>
+        <div class="company-card__content">
+          <span class="company-card__content-description">{{ data.shortDescription }}</span>
 
-        <company-card-stats :company-stats="companyStats" />
-      </div>
-    </template>
-  </a-card>
+          <company-card-stats :company-stats="companyStats" />
+        </div>
+      </template>
+    </a-card>
+  </router-link>
 </template>
 
 <script setup lang="ts">
 import { type PropType, computed } from 'vue'
 import type { FeaturedCompany } from '@sharedInterfaces/company/CompanyInterface'
 import CompanyCardStats from '@/components/core/company/card/sections/CompanyCardStats.vue'
+import { RouteNames } from '@/routes/index'
 
 const props = defineProps({
   data: {
@@ -30,10 +33,19 @@ const companyStats = computed(() => ({
   productsTotal: props.data.productsTotal ?? 0,
   uniqueClients: props.data.uniqueClients ?? 0
 }))
+
+const companyRoute = computed(() => ({
+  name: RouteNames.COMPANY_PREVIEW,
+  params: { slug: props.data.slug }
+}))
 </script>
 
 <style scoped lang="scss">
 .company-card {
+  :hover {
+    cursor: pointer;
+  }
+
   &__content {
     display: flex;
     flex: 1 0 0;
