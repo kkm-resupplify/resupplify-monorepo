@@ -25,7 +25,7 @@
 
     <a-line />
 
-    <template v-if="isLoading">implement-loader-here</template>
+    <m-skeleton v-if="isLoading" :repetitions="10" />
 
     <product-verify-product-list
       v-else

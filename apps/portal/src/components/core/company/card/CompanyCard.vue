@@ -1,44 +1,65 @@
 <template>
-  <a-card class="company-card">
-    <template #title>{{ data.companyName }}</template>
+  <router-link :to="companyRoute">
+    <a-card class="company-card" :header-image="data.details.logo" :header-image-alt="data.name">
+      <template #title>{{ data.name }}</template>
 
-    <template #content>
-      <div class="company-card-content">
-        <span class="company-card-content__description">{{ data.shortDescription }}</span>
+      <template #content>
+        <div class="company-card__content">
+          <span class="company-card__content-description">{{ data.shortDescription }}</span>
 
-        <company-card-stats :company-stats="data.companyStats" />
-      </div>
-    </template>
-  </a-card>
+          <company-card-stats :company-stats="companyStats" />
+        </div>
+      </template>
+    </a-card>
+  </router-link>
 </template>
 
 <script setup lang="ts">
-// Components
+import { type PropType, computed } from 'vue'
+import type { FeaturedCompany } from '@sharedInterfaces/company/CompanyInterface'
 import CompanyCardStats from '@/components/core/company/card/sections/CompanyCardStats.vue'
+import { RouteNames } from '@/routes/index'
 
-// Props
-defineProps({
+const props = defineProps({
   data: {
-    type: Object,
+    type: Object as PropType<FeaturedCompany>,
     required: true
   }
 })
+
+// Computed
+const companyStats = computed(() => ({
+  productsSold: props.data.productsSold ?? 0,
+  productsTotal: props.data.productsTotal ?? 0,
+  uniqueClients: props.data.uniqueClients ?? 0
+}))
+
+const companyRoute = computed(() => ({
+  name: RouteNames.COMPANY_PREVIEW,
+  params: { slug: props.data.slug }
+}))
 </script>
 
 <style scoped lang="scss">
-.company-card-content {
-  display: flex;
-  flex: 1 0 0;
-  gap: $global-spacing-30;
-  align-items: flex-start;
-  align-self: stretch;
+.company-card {
+  :hover {
+    cursor: pointer;
+  }
 
-  max-height: 84px;
-  padding: 0 $global-spacing-20 $global-spacing-20 $global-spacing-20;
+  &__content {
+    display: flex;
+    flex: 1 0 0;
+    gap: $global-spacing-30;
+    align-items: flex-start;
+    align-self: stretch;
 
-  border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
+    max-height: 84px;
+    padding: 0 $global-spacing-20 $global-spacing-20 $global-spacing-20;
 
-  &__description {
+    border-radius: 0 0 $global-border-radius-10 $global-border-radius-10;
+  }
+
+  &__content-description {
     overflow: hidden;
     display: flex;
     flex: 1 0 0;
