@@ -154,7 +154,7 @@ $body-max-height: 150px;
 
   &__main {
     background-color: var(--secondary-1);
-    border-radius: $global-border-radius-10;
+    border-radius: $global-border-radius-10 0;
   }
 
   &__main-title {
