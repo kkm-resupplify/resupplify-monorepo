@@ -35,6 +35,11 @@ const userStore = useUserStore()
 // Computed
 const tabs = computed(() => [
   {
+    to: { name: RouteNames.COMPANY_DASHBOARD },
+    title: t('company.management.navigation.dashboard.title'),
+    icon: 'dashboard'
+  },
+  {
     to: { name: RouteNames.COMPANY_OFFERS_TILES },
     title: t('company.management.navigation.offers.title'),
     icon: 'sell'
