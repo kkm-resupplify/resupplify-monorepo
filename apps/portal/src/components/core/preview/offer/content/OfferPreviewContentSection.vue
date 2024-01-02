@@ -1,6 +1,6 @@
 <template>
   <a-panel-section class="offer-preview-content-section">
-    <a-title :title="$t('company.management.offer.preview.productDetails')" size="x-large" />
+    <a-title :title="$t('company.management.offer.preview.productDescription')" size="x-large" />
 
     <a-title :title="product.description" size="large" />
 

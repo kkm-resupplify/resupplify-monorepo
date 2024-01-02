@@ -672,7 +672,7 @@
         },
 
         "preview": {
-          "productDetails": "Product details",
+          "productDescription": "Product description",
           "sellerInformation": "Seller information",
           "productUnit": "Product unit"
         }
