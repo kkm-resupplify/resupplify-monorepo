@@ -9,48 +9,51 @@
     <a-title :title="$t('company.management.offer.preview.sellerInformation')" size="x-large" />
 
     <div class="offer-preview-content-section__company">
-      <a-image
-        :width="120"
-        :height="120"
-        :src="company.details.logo"
-        :alt="$t('common.offer.list.item.imageAlt')"
-        variant="rounded"
-      />
-
       <div class="offer-preview-content-section__company-data">
         <div class="offer-preview-content-section__company-data-left-section">
-          <a-link
-            :text="company.name"
-            :link="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
-            size="x-large"
+          <a-image
+            :width="120"
+            :height="120"
+            :src="company.details.logo"
+            :alt="$t('common.offer.list.item.imageAlt')"
+            variant="rounded"
           />
 
-          <a-title
-            :title="$t('company.preview.email')"
-            :subtitle="company.details.email"
-            variant="horizontal"
-            append-colon
-            class="offer-preview-content-section__title"
-            size="large"
-          />
+          <div class="offer-preview-content-section__company-data-left-section-data">
+            <a-link
+              :text="company.name"
+              :link="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
+              size="x-large"
+              class="offer-preview-content-section__company-data-link"
+            ></a-link>
 
-          <a-title
-            :title="$t('company.preview.phone')"
-            :subtitle="company.details.phoneNumber"
-            variant="horizontal"
-            append-colon
-            class="offer-preview-content-section__title"
-            size="large"
-          />
+            <a-title
+              :title="$t('company.preview.email')"
+              :subtitle="company.details.email"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-content-section__title"
+              size="large"
+            />
 
-          <a-title
-            :title="$t('company.preview.address')"
-            :subtitle="company.details.address"
-            variant="horizontal"
-            append-colon
-            class="offer-preview-content-section__title"
-            size="large"
-          />
+            <a-title
+              :title="$t('company.preview.phone')"
+              :subtitle="company.details.phoneNumber"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-content-section__title"
+              size="large"
+            />
+
+            <a-title
+              :title="$t('company.preview.address')"
+              :subtitle="company.details.address"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-content-section__title"
+              size="large"
+            />
+          </div>
         </div>
 
         <div class="offer-preview-content-section__company-data-right-section">
@@ -139,7 +142,12 @@ defineProps({
     width: 100%;
   }
 
-  &__company-data-left-section,
+  &__company-data-left-section {
+    display: flex;
+    gap: $global-spacing-50;
+  }
+
+  &__company-data-left-section-data,
   &__company-data-right-section {
     display: flex;
     flex-direction: column;
@@ -155,6 +163,10 @@ defineProps({
     flex-direction: column;
     gap: $global-spacing-50;
     margin-top: $global-spacing-100;
+  }
+
+  &__company-data-link {
+    line-height: 1;
   }
 }
 </style>
