@@ -20,11 +20,6 @@ const tiles = computed(() => [
     title: t('company.management.navigation.members.tiles.activeMembers'),
     icon: 'groups',
     to: { name: RouteNames.COMPANY_MEMBERS_ACTIVE }
-  },
-  {
-    title: t('company.management.navigation.members.tiles.permissions'),
-    icon: 'tune',
-    to: { name: RouteNames.COMPANY_MEMBERS_PERMISSIONS }
   }
 ])
 </script>

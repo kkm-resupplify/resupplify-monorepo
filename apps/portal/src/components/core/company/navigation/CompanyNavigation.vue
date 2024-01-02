@@ -35,11 +35,6 @@ const userStore = useUserStore()
 // Computed
 const tabs = computed(() => [
   {
-    to: { name: RouteNames.COMPANY_DASHBOARD },
-    title: t('company.management.navigation.dashboard.title'),
-    icon: 'dashboard'
-  },
-  {
     to: { name: RouteNames.COMPANY_OFFERS_TILES },
     title: t('company.management.navigation.offers.title'),
     icon: 'sell'
@@ -63,11 +58,6 @@ const tabs = computed(() => [
     to: { name: RouteNames.COMPANY_MEMBERS_TILES },
     title: t('company.management.navigation.members.title'),
     icon: 'groups'
-  },
-  {
-    to: { name: RouteNames.COMPANY_SETTINGS },
-    title: t('company.management.navigation.settings.title'),
-    icon: 'settings'
   },
   {
     to: { name: RouteNames.COMPANY_PAYMENTS_TILES },

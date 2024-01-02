@@ -27,11 +27,6 @@ const CompanyManagementRoutes: RouteRecordRaw[] = [
   ...CompanyManagementPaymentsRoutes,
   ...CompanyManagementOrdersRoutes,
   {
-    path: '/company/dashboard',
-    name: CompanyProfileRouteEnum.COMPANY_DASHBOARD,
-    component: CompanyDashboardView
-  },
-  {
     path: '/company/offers',
     name: CompanyProfileRouteEnum.COMPANY_OFFERS,
     component: CompanyOffersView
@@ -40,11 +35,6 @@ const CompanyManagementRoutes: RouteRecordRaw[] = [
     path: '/company/deals',
     name: CompanyProfileRouteEnum.COMPANY_DEALS,
     component: CompanyDealsView
-  },
-  {
-    path: '/company/settings',
-    name: CompanyProfileRouteEnum.COMPANY_SETTINGS,
-    component: CompanySettingsView
   }
 ]
 

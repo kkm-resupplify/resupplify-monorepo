@@ -20,11 +20,6 @@ const CompanyManagementMembersRoutes: RouteRecordRaw[] = [
     path: 'members/active',
     name: CompanyProfileRouteEnum.COMPANY_MEMBERS_ACTIVE,
     component: CompanyManagementMembersActivePanel
-  },
-  {
-    path: 'members/permissions',
-    name: CompanyProfileRouteEnum.COMPANY_MEMBERS_PERMISSIONS,
-    component: CompanyManagementMembersPermissionsPanel
   }
 ]
 
