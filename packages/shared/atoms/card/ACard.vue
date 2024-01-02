@@ -91,6 +91,7 @@ $body-max-height: 150px;
   width: 300px;
   height: 210px;
 
+  border-radius: 0 $global-border-radius-10;
   box-shadow: 0 8px 18px 0 rgb(0 0 0 / 10%);
 
   &:hover {
