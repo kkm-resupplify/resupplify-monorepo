@@ -671,7 +671,7 @@
         },
 
         "preview": {
-          "productDetails": "Szczegóły produktu",
+          "productDescription": "Opis produktu",
           "sellerInformation": "Informacje o sprzedawcy",
           "productUnit": "Jednostka produktu"
         }
@@ -724,7 +724,12 @@
     "preview": {
       "email": "Email",
       "phone": "Numer kontaktowy",
-      "address": "Adres"
+      "address": "Adres",
+      "contactPerson": "Osoba kontaktowa",
+      "tin": "Numer identyfikacji podatkowej",
+      "externalWebsite": "Strona internetowa firmy",
+      "longDescription": "Długi opis",
+      "shortDescription": "Krótki opis"
     },
 
     "categories": {

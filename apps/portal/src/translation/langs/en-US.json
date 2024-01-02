@@ -725,7 +725,12 @@
     "preview": {
       "email": "Email",
       "phone": "Phone number",
-      "address": "Address"
+      "address": "Address",
+      "contactPerson":"Contact Person",
+      "tin": "Tax Identification Number",
+      "externalWebsite":"Company Website",
+      "longDescription": "Long description",
+      "shortDescription": "Short description"
     },
 
     "categories": {
