@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section class="offer-preview-header-section">
+  <a-panel-section>
     <div class="offer-preview-header-section">
       <a-image
         :src="offer.product.image"
@@ -10,7 +10,7 @@
         style="align-self: flex-start; border: 2px solid var(--secondary-2); border-radius: 4px"
       />
 
-      <div class="offer-preview-header-section__product-information">
+      <div class="offer-preview-header-section__content-wrapper">
         <div class="offer-preview-header-section__product-information-name">
           <div class="offer-preview-header-section__product-information-title">
             <a-title :title="offer.product.name" size="xx-large" />
@@ -24,77 +24,85 @@
           />
         </div>
 
-        <a-title
-          :title="$t('common.offer.list.item.product.name')"
-          :subtitle="offer.product.name"
-          variant="horizontal"
-          append-colon
-          class="offer-preview-header-section__title"
-        />
+        <div class="offer-preview-header-section__information">
+          <div class="offer-preview-header-section__product-information">
+            <a-title
+              :title="$t('common.offer.list.item.product.name')"
+              :subtitle="offer.product.name"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-header-section__title"
+            />
 
-        <div class="offer-preview-header-section__product-information-categories">
-          <a-title
-            :title="$t('common.offer.list.item.product.category')"
-            :subtitle="offer.product.productCategory.name"
-            variant="horizontal"
-            append-colon
-            class="offer-preview-header-section__title"
-          />
+            <div class="offer-preview-header-section__product-information-categories">
+              <a-title
+                :title="$t('common.offer.list.item.product.category')"
+                :subtitle="offer.product.productCategory.name"
+                variant="horizontal"
+                append-colon
+                class="offer-preview-header-section__title"
+              />
 
-          <span class="offer-preview-header-section__product-information-separator">|</span>
+              <span class="offer-preview-header-section__product-information-separator">|</span>
 
-          <a-title
-            :title="$t('common.offer.list.item.product.subcategory')"
-            :subtitle="offer.product.productSubcategory.name"
-            variant="horizontal"
-            append-colon
-            class="offer-preview-header-section__title"
-          />
+              <a-title
+                :title="$t('common.offer.list.item.product.subcategory')"
+                :subtitle="offer.product.productSubcategory.name"
+                variant="horizontal"
+                append-colon
+                class="offer-preview-header-section__title"
+              />
+            </div>
+
+            <a-title
+              :title="$t('company.management.offer.preview.productUnit')"
+              :subtitle="translateUnit(offer.product.productUnit.code)"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-header-section__title"
+            />
+
+            <product-tag-list
+              :product-tags="offer.product.productTags"
+              class="offer-preview-header-section__product-information-tags"
+            />
+          </div>
+
+          <div class="offer-preview-header-section__product-order-information">
+            <div class="offer-preview-header-section__product-order-price">
+              <a-title
+                :title="$t('common.offer.list.item.price')"
+                variant="horizontal"
+                append-colon
+              />
+
+              <a-currency :value="offer.price" size="small" />
+            </div>
+
+            <a-title
+              :title="$t('common.offer.list.item.available')"
+              :subtitle="offer.productQuantity"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-header-section__title"
+            />
+
+            <a-title
+              :title="$t('common.offer.list.item.ends')"
+              :subtitle="offer.endsAt"
+              variant="horizontal"
+              append-colon
+              class="offer-preview-header-section__title"
+            />
+
+            <a-button
+              v-if="isNotCurrentUserCompanyOffer"
+              :text="buttonText"
+              size="x-large"
+              @click="handleAddToCart"
+            />
+          </div>
         </div>
-
-        <a-title
-          :title="$t('company.management.offer.preview.productUnit')"
-          :subtitle="translateUnit(offer.product.productUnit.code)"
-          variant="horizontal"
-          append-colon
-          class="offer-preview-header-section__title"
-        />
-
-        <product-tag-list
-          :product-tags="offer.product.productTags"
-          class="offer-preview-header-section__product-information-tags"
-        />
-      </div>
-
-      <div class="offer-preview-header-section__order-information">
-        <div class="offer-preview-header-section__order-price">
-          <a-title :title="$t('common.offer.list.item.price')" variant="horizontal" append-colon />
-
-          <a-currency :value="offer.price" size="small" />
-        </div>
-
-        <a-title
-          :title="$t('common.offer.list.item.available')"
-          :subtitle="offer.productQuantity"
-          variant="horizontal"
-          append-colon
-          class="offer-preview-header-section__title"
-        />
-
-        <a-title
-          :title="$t('common.offer.list.item.ends')"
-          :subtitle="offer.endsAt"
-          variant="horizontal"
-          append-colon
-          class="offer-preview-header-section__title"
-        />
-
-        <a-button
-          v-if="isNotCurrentUserCompanyOffer"
-          :text="buttonText"
-          size="x-large"
-          @click="handleAddToCart"
-        />
       </div>
     </div>
   </a-panel-section>
@@ -156,11 +164,21 @@ const handleAddToCart = () => {
     width: max-content;
   }
 
+  &__information {
+    display: flex;
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   &__product-information {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
-    margin-left: $global-spacing-50;
+    width: 100%;
   }
 
   &__product-information-name {
@@ -196,17 +214,16 @@ const handleAddToCart = () => {
     margin-top: $global-spacing-20;
   }
 
-  &__order-information {
+  &__product-order-information {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
     align-items: flex-end;
-    align-self: flex-end;
 
-    margin-left: auto;
+    width: max-content;
   }
 
-  &__order-price {
+  &__product-order-price {
     display: flex;
     gap: $global-spacing-20;
   }
