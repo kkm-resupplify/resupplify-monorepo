@@ -1,7 +1,13 @@
 <template>
-  <a-card class="product-card" background-variant="secondary" keep-extended>
+  <a-card
+    class="product-card"
+    background-variant="secondary"
+    keep-extended
+    :header-image="data.image"
+    :header-image-alt="data.name"
+  >
     <template #title>
-      <span class="product-card__title" v-text="data.productName" />
+      <span class="product-card__title" v-text="data.name" />
     </template>
 
     <template #overlay-right>
@@ -9,17 +15,15 @@
     </template>
 
     <template #overlay-top>
-      <product-card-stats :stats="data.stats" />
+      <product-card-stats :stats="productStats" />
     </template>
 
     <template #content>
       <div class="product-card__content">
-        <div class="product-card__content-company" v-text="data.company" />
+        <div class="product-card__content-company" v-text="data.name" />
 
-        <div class="product-card__content-price">
-          <span class="product-card__content-price product-card__content-price--value">
-            {{ data.price.total }} {{ data.price.currencyCode }}
-          </span>
+        <div v-if="data.productOffer" class="product-card__content-price">
+          <a-currency :value="offerPrice" line-height="1" />
 
           <span
             class="product-card__content-price product-card__content-price--unit"
@@ -32,31 +36,43 @@
 </template>
 
 <script setup lang="ts">
-// Vue
-import { ref } from 'vue'
-
-// i18n
+import { type PropType, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-
-// Components
+import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
+import type { FeaturedProduct } from '@sharedInterfaces/product/ProductInterface'
 import ProductCardStats from '@/components/core/product/card/sections/ProductCardStats.vue'
 import ProductCardRibbon from '@/components/core/product/card/sections/ProductCardRibbon.vue'
+import { useUserStore } from '@/stores/user/useUserStore'
 
 const props = defineProps({
   data: {
-    type: Object,
+    type: Object as PropType<FeaturedProduct>,
     required: true
   }
 })
 
-// Inits
+// Variables
 const { t } = useI18n()
+const { translateUnit } = useUnitTranslation()
+const userStore = useUserStore()
 
-const unitText = ref(t('product.unit.pricePerUnit', { unit: props.data.unit.name }))
+// Computed
+const showRibbon = computed(() => userStore.isAuthenticated)
 
-// TODO: isUserLoggedIn
-const isUserLoggedIn = true
-const showRibbon = ref(isUserLoggedIn)
+const unitText = computed(() => {
+  return t('product.unit.pricePerUnit', {
+    unit: translateUnit(props.data.productUnit.code).toLowerCase()
+  })
+})
+
+const offerPrice = computed(() => {
+  return props.data.productOffer.price
+})
+
+const productStats = computed(() => ({
+  available: props.data.productOffer?.productQuantity ?? 0,
+  soldQuantity: props.data.soldQuantity ?? 0
+}))
 </script>
 
 <style scoped lang="scss">

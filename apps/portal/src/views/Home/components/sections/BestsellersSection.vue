@@ -5,36 +5,37 @@
       :subtitle="$t('product.promotion.topSellingProducts')"
     />
 
-    <product-card-list :products="products" />
+    <product-card-list :products="featuredProducts" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onBeforeMount } from 'vue'
+import HomepageService from '@/services/homepage/HomepageService'
+import type { FeaturedProduct } from '@sharedInterfaces/product/ProductInterface'
 import ProductCardList from '@/components/core/product/card/ProductCardList.vue'
 
-// Mock data
-const products = [
-  {
-    productName: 'El Produkto',
-    shortDescription:
-      'Item description is something like that. Very important item for many applications.',
-    price: {
-      total: 50.49,
-      currencyCode: 'PLN'
-    },
-    stats: {
-      available: 5212,
-      timesBought: 41209,
-      rating: 9.9
-    },
-    unit: {
-      name: 'kg',
-      code: 'WEIGHT_KG'
-    },
-    link: '',
-    company: 'KKM Marketify'
+// Variables
+const isLoading = ref(false)
+const featuredProducts = ref<FeaturedProduct[]>([])
+
+// Methods
+const handleFetchFeaturedProducts = async () => {
+  isLoading.value = true
+
+  const { success, data } = await HomepageService.getFeaturedProducts()
+
+  if (success) {
+    featuredProducts.value = data
   }
-]
+
+  isLoading.value = false
+}
+
+// Hooks
+onBeforeMount(async () => {
+  await handleFetchFeaturedProducts()
+})
 </script>
 
 <style scoped lang="scss">

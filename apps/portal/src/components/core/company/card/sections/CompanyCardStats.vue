@@ -1,20 +1,26 @@
 <template>
   <div class="company-card-stats">
-    <company-card-stat-item icon="category" :value="companyStats.productsListed" />
+    <company-card-stat-item icon="category" :value="companyStats.productsSold" />
 
-    <company-card-stat-item icon="groups" :value="companyStats.uniqueClients" />
+    <company-card-stat-item icon="groups" :value="companyStats.productsTotal" />
 
-    <company-card-stat-item icon="local_shipping" :value="companyStats.ordersFullfilled" />
+    <company-card-stat-item icon="local_shipping" :value="companyStats.uniqueClients" />
   </div>
 </template>
 
 <script setup lang="ts">
-// Components
+import { type PropType } from 'vue'
 import CompanyCardStatItem from '@/components/core/company/card/sections/items/CompanyCardStatItem.vue'
+
+interface CompanyStats {
+  productsSold: number
+  productsTotal: number
+  uniqueClients: number
+}
 
 // Props
 defineProps({
-  companyStats: { type: Object, required: true }
+  companyStats: { type: Object as PropType<CompanyStats>, required: true }
 })
 </script>
 
