@@ -41,7 +41,7 @@ const heightStyle = computed(() => {
 .a-skeleton {
   box-sizing: flex;
   width: v-bind(widthStyle);
-  height: v-bind(heightStyle);
+  min-height: v-bind(heightStyle);
 
   background: rgb(184 184 184 / 30%);
   background: linear-gradient(

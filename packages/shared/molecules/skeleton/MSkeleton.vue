@@ -1,6 +1,6 @@
 <template>
   <div :class="generateClasses">
-    <a-skeleton v-for="idx in repetitions" :key="idx" />
+    <a-skeleton v-for="idx in repetitions" :key="idx" :height="skeletonHeight" />
   </div>
 </template>
 
@@ -12,6 +12,14 @@ const props = defineProps({
   repetitions: {
     type: Number,
     default: 1
+  },
+  variant: {
+    type: String,
+    default: 'list'
+  },
+  skeletonHeight: {
+    type: String,
+    default: '80px'
   }
 })
 
@@ -21,17 +29,21 @@ const { generateClassNames } = useClassComposable()
 
 // Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [])
+  return generateClassNames(baseClass, [props.variant])
 })
 </script>
 
 <style lang="scss" scoped>
 .m-list-skeleton {
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: $global-spacing-40;
-
   height: 100%;
+
+  &--list {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: $global-spacing-40;
+
+    padding-right: $global-spacing-30;
+  }
 }
 </style>
