@@ -39,9 +39,15 @@ const heightStyle = computed(() => {
 
 <style lang="scss" scoped>
 .a-skeleton {
-  box-sizing: flex;
-  width: v-bind(widthStyle);
+  display: flex;
+  flex: 1;
+  align-self: center;
+
+  box-sizing: border-box;
+  min-width: v-bind(widthStyle);
+  max-width: v-bind(widthStyle);
   min-height: v-bind(heightStyle);
+  max-height: v-bind(heightStyle);
 
   background: rgb(184 184 184 / 30%);
   background: linear-gradient(

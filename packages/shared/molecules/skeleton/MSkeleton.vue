@@ -1,6 +1,13 @@
 <template>
   <div :class="generateClasses">
-    <a-skeleton v-for="idx in repetitions" :key="idx" :height="skeletonHeight" />
+    <div v-for="row in rows" :key="row" class="m-skeleton__row">
+      <a-skeleton
+        v-for="idx in repetitions"
+        :key="idx"
+        :height="skeletonHeight"
+        :width="skeletonWidth"
+      />
+    </div>
   </div>
 </template>
 
@@ -19,30 +26,55 @@ const props = defineProps({
   },
   skeletonHeight: {
     type: String,
-    default: '80px'
+    default: '78px'
+  },
+  skeletonWidth: String,
+  rows: {
+    type: Number,
+    default: 1
+  },
+  minWidth: {
+    type: String,
+    default: '100%'
   }
 })
 
 // Variables
-const baseClass = 'm-list-skeleton'
+const baseClass = 'm-skeleton'
 const { generateClassNames } = useClassComposable()
 
 // Computed
 const generateClasses = computed(() => {
   return generateClassNames(baseClass, [props.variant])
 })
+
+const minWidthStyle = computed(() => {
+  return props.minWidth
+})
 </script>
 
 <style lang="scss" scoped>
-.m-list-skeleton {
+.m-skeleton {
+  display: flex;
+  gap: $global-spacing-30;
+  min-width: v-bind(minWidthStyle);
   height: 100%;
 
   &--list {
-    overflow-y: auto;
+    overflow-y: clip;
     display: flex;
+    flex-direction: column;
+  }
+
+  &__row {
+    overflow-y: clip;
+    display: flex;
+    flex: 1;
     flex-direction: column;
     gap: $global-spacing-40;
 
+    width: 100%;
+    height: 100%;
     padding-right: $global-spacing-30;
   }
 }
