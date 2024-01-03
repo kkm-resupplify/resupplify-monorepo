@@ -15,8 +15,7 @@ class HttpErrorHandler {
   async handleErrorCode401(error: ApiError) {
     this.displayPopupNotification(error)
 
-    const userStore = useUserStore()
-    userStore.$reset()
+    this.clearUserStore()
 
     await router.push({ name: RouteNames.LOGIN })
   }
@@ -26,10 +25,12 @@ class HttpErrorHandler {
   }
 
   handleErrorCode404(error: ApiError): void {
+    this.rerouteToHome()
     this.displayPopupNotification(error)
   }
 
   handleErrorCode422(error: ApiError): void {
+    this.rerouteToHome()
     this.displayPopupNotification(error)
   }
 
@@ -55,6 +56,20 @@ class HttpErrorHandler {
     }
 
     generalNotificationStore.sendFailNotification(notification)
+  }
+
+  clearNotificationStore() {
+    const generalNotificationStore = useGeneralNotificationStore()
+    generalNotificationStore.clearNotifications()
+  }
+
+  clearUserStore() {
+    const userStore = useUserStore()
+    userStore.$reset()
+  }
+
+  rerouteToHome() {
+    router.push({ name: RouteNames.HOME })
   }
 }
 
