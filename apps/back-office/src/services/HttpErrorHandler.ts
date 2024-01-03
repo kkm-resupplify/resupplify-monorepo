@@ -18,33 +18,33 @@ class HttpErrorHandler {
     await this.rerouteToLogin()
   }
 
-  handleErrorCode403(error: ApiError) {
+  async handleErrorCode403(error: ApiError) {
     this.handleCommonErrorCases(error)
   }
 
-  handleErrorCode404(error: ApiError) {
-    this.rerouteToHome()
+  async handleErrorCode404(error: ApiError) {
+    await this.rerouteToHome()
     this.handleCommonErrorCases(error)
   }
 
-  handleErrorCode422(error: ApiError) {
-    this.rerouteToHome()
+  async handleErrorCode422(error: ApiError) {
+    await this.rerouteToHome()
     this.displayPopupNotification(error)
   }
 
-  handleErrorCode429(error: ApiError) {
+  async handleErrorCode429(error: ApiError) {
     this.handleCommonErrorCases(error)
   }
 
-  handleErrorCode500(error: ApiError) {
+  async handleErrorCode500(error: ApiError) {
     this.handleCommonErrorCases(error)
   }
 
-  handleErrorCode503(error: ApiError) {
+  async handleErrorCode503(error: ApiError) {
     this.handleCommonErrorCases(error)
   }
 
-  handleCommonErrorCases(error: ApiError) {
+  async handleCommonErrorCases(error: ApiError) {
     this.displayPopupNotification(error)
     this.clearNotificationStore()
   }
@@ -80,8 +80,8 @@ class HttpErrorHandler {
     await router.push({ name: RouteNames.LOGIN })
   }
 
-  rerouteToHome() {
-    router.push({ name: RouteNames.HOME })
+  async rerouteToHome() {
+    await router.push({ name: RouteNames.HOME })
   }
 }
 
