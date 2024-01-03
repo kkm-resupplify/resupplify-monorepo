@@ -86,7 +86,7 @@
 
         <div class="offer-list-item__order-information-buttons">
           <a-button
-            v-if="isNotCurrentUserCompanyOffer"
+            v-if="hideAddToCart"
             :text="buttonText"
             size="x-large"
             @click="handleAddToCart"
@@ -139,7 +139,7 @@ const buttonText = computed(() => {
   return isOfferInCart.value ? t('global.removeCartItem') : t('global.addToCart')
 })
 
-const isNotCurrentUserCompanyOffer = computed(() => {
+const hideAddToCart = computed(() => {
   return userStore.getCompany?.name !== props.offer.company.name
 })
 
