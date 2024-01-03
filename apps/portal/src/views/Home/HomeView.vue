@@ -1,24 +1,23 @@
 <template>
   <basic-view-layout class="home-view">
     <template #hero>
-      <hero-section />
+      <a-panel>
+        <hero-section />
+      </a-panel>
     </template>
 
     <template #body>
-      <div class="home-view__sections">
+      <a-panel width="auto" class="home-view__body">
         <partners-section />
 
         <bestsellers-section />
-      </div>
+      </a-panel>
     </template>
   </basic-view-layout>
 </template>
 
 <script setup lang="ts">
-// Layouts
 import BasicViewLayout from '@/layouts/view/BasicViewLayout.vue'
-
-// Components
 import PartnersSection from './components/sections/PartnersSection.vue'
 import BestsellersSection from './components/sections/BestsellersSection.vue'
 import HeroSection from './components/sections/HeroSection.vue'
@@ -26,10 +25,13 @@ import HeroSection from './components/sections/HeroSection.vue'
 
 <style lang="scss" scoped>
 .home-view {
-  &__sections {
-    display: flex;
-    flex-direction: column;
-    gap: $global-spacing-30;
+  &__body {
+    gap: $global-spacing-40 !important;
+
+    :deep(.a-panel-section) {
+      padding: $global-spacing-40;
+      background-color: var(--primary);
+    }
   }
 }
 </style>
