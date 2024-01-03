@@ -63,6 +63,8 @@ class HttpErrorHandler {
 
   clearNotificationStore() {
     const generalNotificationStore = useGeneralNotificationStore()
+    // Display current error notification and clear the rest
+    generalNotificationStore.displayNextNotification()
     generalNotificationStore.clearNotifications()
   }
 
