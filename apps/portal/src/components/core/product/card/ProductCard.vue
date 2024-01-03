@@ -116,8 +116,9 @@ const offerLink = computed(() => {
     }
 
     &--unit {
+      align-self: flex-end;
       margin-left: $global-spacing-10;
-      line-height: 16px;
+      line-height: 1;
     }
   }
 }
