@@ -23,9 +23,8 @@ import NavigationBarAuthSection from './sections/NavigationBarAuthSection.vue'
   align-items: flex-start;
 
   min-height: 80px;
-  margin: $global-spacing-20 $global-spacing-40;
-  padding: $global-spacing-30 $global-spacing-40;
+  margin: 0 $global-spacing-50;
 
-  border-radius: 4px;
+  border-bottom: 2px solid var(--secondary-2);
 }
 </style>
