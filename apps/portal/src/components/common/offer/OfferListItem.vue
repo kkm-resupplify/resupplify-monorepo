@@ -11,7 +11,7 @@
 
     <div class="offer-list-item__information">
       <div class="offer-list-item__product-information">
-        <a-title :title="offer.product.name" variant="horizontal" size="large" />
+        <a-title :title="offer.product.name" variant="horizontal" size="large" line-height="1" />
 
         <div class="offer-list-item__product-information-specs">
           <a-title
@@ -155,7 +155,10 @@ const handleAddToCart = () => {
   &__information {
     display: flex;
     justify-content: space-between;
+
     width: 100%;
+    height: 100%;
+
     white-space: nowrap;
   }
 
