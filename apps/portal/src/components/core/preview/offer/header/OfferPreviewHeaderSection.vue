@@ -7,7 +7,7 @@
         :height="165"
         :alt="$t('common.offer.list.item.imageAlt')"
         variant="rounded"
-        style="align-self: flex-start; border: 2px solid var(--secondary-2); border-radius: 4px"
+        style="align-self: flex-start; border: 2px solid var(--secondary-2); border-radius: 10px"
       />
 
       <div class="offer-preview-header-section__content-wrapper">

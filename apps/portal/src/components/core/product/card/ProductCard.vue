@@ -5,6 +5,7 @@
     keep-extended
     :header-image="data.image"
     :header-image-alt="data.name"
+    @click="() => $router.push(offerLink)"
   >
     <template #title>
       <span class="product-card__title" v-text="data.name" />
@@ -36,6 +37,7 @@ import { type PropType, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 import type { FeaturedProduct } from '@sharedInterfaces/product/ProductInterface'
+import { RouteNames } from '@/routes'
 import ProductCardStats from '@/components/core/product/card/sections/ProductCardStats.vue'
 
 const props = defineProps({
@@ -64,10 +66,18 @@ const productStats = computed(() => ({
   available: props.data.productOffer?.productQuantity ?? 0,
   soldQuantity: props.data.soldQuantity ?? 0
 }))
+
+const offerLink = computed(() => {
+  return { name: RouteNames.OFFER_PREVIEW, params: { id: props.data.productOffer.id } }
+})
 </script>
 
 <style scoped lang="scss">
 .product-card {
+  :hover {
+    cursor: pointer;
+  }
+
   & * {
     color: #ffffffde !important;
   }

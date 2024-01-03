@@ -112,6 +112,7 @@ import { useI18n } from 'vue-i18n'
 import { RouteNames } from '@/routes'
 import { useUserStore } from '@/stores/user/useUserStore'
 import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
+
 const props = defineProps({
   offer: {
     type: Object as PropType<Offer>,
