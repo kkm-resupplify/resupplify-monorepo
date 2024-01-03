@@ -1,8 +1,8 @@
 import { useGeneralNotificationStore } from '@sharedStores/notification/useGeneralNotificationStore'
 import { useUserStore } from '@/stores/user/useUserStore'
 import router, { RouteNames } from '@/routes/index'
-
 import { i18n } from '@/translation/index'
+
 const { t } = i18n.global
 
 interface ApiError {
@@ -14,39 +14,42 @@ interface ApiError {
 class HttpErrorHandler {
   async handleErrorCode401(error: ApiError) {
     this.displayPopupNotification(error)
-
-    this.clearUserStore()
-
-    await router.push({ name: RouteNames.LOGIN })
+    this.clearStores()
+    await this.rerouteToLogin()
   }
 
-  handleErrorCode403(error: ApiError): void {
-    this.displayPopupNotification(error)
+  handleErrorCode403(error: ApiError) {
+    this.handleCommonErrorCases(error)
   }
 
-  handleErrorCode404(error: ApiError): void {
+  handleErrorCode404(error: ApiError) {
+    this.rerouteToHome()
+    this.handleCommonErrorCases(error)
+  }
+
+  handleErrorCode422(error: ApiError) {
     this.rerouteToHome()
     this.displayPopupNotification(error)
   }
 
-  handleErrorCode422(error: ApiError): void {
-    this.rerouteToHome()
-    this.displayPopupNotification(error)
+  handleErrorCode429(error: ApiError) {
+    this.handleCommonErrorCases(error)
   }
 
-  handleErrorCode429(error: ApiError): void {
-    this.displayPopupNotification(error)
+  handleErrorCode500(error: ApiError) {
+    this.handleCommonErrorCases(error)
   }
 
-  handleErrorCode500(error: ApiError): void {
-    this.displayPopupNotification(error)
+  handleErrorCode503(error: ApiError) {
+    this.handleCommonErrorCases(error)
   }
 
-  handleErrorCode503(error: ApiError): void {
+  handleCommonErrorCases(error: ApiError) {
     this.displayPopupNotification(error)
+    this.clearNotificationStore()
   }
 
-  displayPopupNotification(error: ApiError): void {
+  displayPopupNotification(error: ApiError) {
     const generalNotificationStore = useGeneralNotificationStore()
 
     const notification = {
@@ -66,6 +69,15 @@ class HttpErrorHandler {
   clearUserStore() {
     const userStore = useUserStore()
     userStore.$reset()
+  }
+
+  clearStores() {
+    this.clearNotificationStore()
+    this.clearUserStore()
+  }
+
+  async rerouteToLogin() {
+    await router.push({ name: RouteNames.LOGIN })
   }
 
   rerouteToHome() {
