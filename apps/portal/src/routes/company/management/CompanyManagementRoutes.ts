@@ -1,8 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router'
-import CompanyDashboardView from '@/views/Company/Management/CompanyDashboardView.vue'
 import CompanyDealsView from '@/views/Company/Management/CompanyDealsView.vue'
 import CompanyOffersView from '@/views/Company/Management/CompanyOffersView.vue'
-import CompanySettingsView from '@/views/Company/Management/CompanySettingsView.vue'
 import BaseEnum from '@sharedEnums/BaseEnum'
 import CompanyManagementMembersRoutes from './members/CompanyManagementMembersRoutes'
 import CompanyManagementWarehouseRoutes from './warehouses/CompanyManagementWarehouseRoutes'
@@ -10,12 +8,12 @@ import CompanyManagementProductRoutes from './products/CompanyManagementProductR
 import CompanyManagementOffersRoutes from './offers/CompanyManagementOffersRoutes'
 import CompanyManagementPaymentsRoutes from './payments/CompanyManagementPaymentsRoutes'
 import CompanyManagementOrdersRoutes from './orders/CompanyManagementOrdersRoutes'
+import CompanyDashboardViewVue from '@/views/Company/Management/CompanyDashboardView.vue'
 
 class CompanyProfileRouteEnum extends BaseEnum {
   static readonly COMPANY_DASHBOARD: string = 'COMPANY_DASHBOARD'
   static readonly COMPANY_OFFERS: string = 'COMPANY_OFFERS'
   static readonly COMPANY_DEALS: string = 'COMPANY_DEALS'
-  static readonly COMPANY_SETTINGS: string = 'COMPANY_SETTINGS'
   static readonly COMPANY_PAYMENTS: string = 'COMPANY_PAYMENTS'
 }
 
@@ -29,7 +27,7 @@ const CompanyManagementRoutes: RouteRecordRaw[] = [
   {
     path: '/company/dashboard',
     name: CompanyProfileRouteEnum.COMPANY_DASHBOARD,
-    component: CompanyDashboardView
+    component: CompanyDashboardViewVue
   },
   {
     path: '/company/offers',
@@ -40,11 +38,6 @@ const CompanyManagementRoutes: RouteRecordRaw[] = [
     path: '/company/deals',
     name: CompanyProfileRouteEnum.COMPANY_DEALS,
     component: CompanyDealsView
-  },
-  {
-    path: '/company/settings',
-    name: CompanyProfileRouteEnum.COMPANY_SETTINGS,
-    component: CompanySettingsView
   }
 ]
 

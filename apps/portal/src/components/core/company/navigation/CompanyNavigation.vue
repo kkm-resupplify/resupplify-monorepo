@@ -65,11 +65,6 @@ const tabs = computed(() => [
     icon: 'groups'
   },
   {
-    to: { name: RouteNames.COMPANY_SETTINGS },
-    title: t('company.management.navigation.settings.title'),
-    icon: 'settings'
-  },
-  {
     to: { name: RouteNames.COMPANY_PAYMENTS_TILES },
     title: t('company.management.navigation.payments.title'),
     icon: 'account_balance'
