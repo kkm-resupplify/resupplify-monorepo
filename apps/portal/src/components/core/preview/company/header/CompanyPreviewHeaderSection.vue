@@ -72,6 +72,12 @@
               />
             </div>
           </div>
+
+          <div class="company-preview-header-section__info-row">
+            <div class="company-preview-header-section__company-description">
+              <a-title :title="companyPreviewGeneralInformation?.description" />
+            </div>
+          </div>
         </div>
       </div>
     </template>
@@ -93,6 +99,7 @@ interface CompanyPreviewGeneralInformation {
   externalWebsite: string
   tin: string
   contactPerson: string
+  description: string
 }
 
 // Variables
@@ -114,11 +121,14 @@ const handleFetchCompanyInformation = async () => {
   if (success) {
     const {
       name,
+      description,
+
       details: { email, phoneNumber, address, logo, externalWebsite, contactPerson, tin }
     } = data
 
     companyPreviewGeneralInformation.value = {
       name,
+      description,
       email,
       phoneNumber,
       address,
@@ -162,6 +172,10 @@ onBeforeMount(async () => {
     display: flex;
     flex: 1;
     justify-content: space-between;
+  }
+
+  &__company-description {
+    margin-top: $global-spacing-30;
   }
 }
 </style>
