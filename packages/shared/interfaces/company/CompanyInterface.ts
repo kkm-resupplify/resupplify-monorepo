@@ -27,7 +27,7 @@ export interface CompanyCategory {
 }
 
 export interface FeaturedCompany extends CompanyData {
+  offersTotal: number
+  uniqueClientsCount: number
   productsSold: number
-  productsTotal: number
-  uniqueClients: number
 }

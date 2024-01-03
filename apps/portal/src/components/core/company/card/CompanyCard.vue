@@ -32,8 +32,8 @@ const props = defineProps({
 // Computed
 const companyStats = computed(() => ({
   productsSold: props.data.productsSold ?? 0,
-  productsTotal: props.data.productsTotal ?? 0,
-  uniqueClients: props.data.uniqueClients ?? 0
+  offersTotal: props.data.offersTotal ?? 0,
+  uniqueClientsCount: props.data.uniqueClientsCount ?? 0
 }))
 
 const companyRoute = computed(() => ({
