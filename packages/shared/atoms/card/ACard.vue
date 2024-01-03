@@ -153,7 +153,7 @@ $body-max-height: 150px;
   }
 
   &__main {
-    background-color: var(--secondary-1);
+    background: var(--primary-gradient);
   }
 
   &__main-title {
