@@ -9,7 +9,7 @@
       :title-font-weight="titleFontWeight"
     />
 
-    <a-title :size="valueSize" :title="valueText" />
+    <a-title :size="valueSize" :title="valueText" :line-height="lineHeight" />
   </div>
 </template>
 
