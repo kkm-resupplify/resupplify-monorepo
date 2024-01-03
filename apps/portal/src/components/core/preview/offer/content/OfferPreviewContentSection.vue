@@ -25,7 +25,7 @@
               :link="{ name: RouteNames.COMPANY_PREVIEW, params: { slug: company.slug } }"
               size="x-large"
               class="offer-preview-content-section__company-data-link"
-            ></a-link>
+            />
 
             <a-title
               :title="$t('company.preview.email')"
