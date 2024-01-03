@@ -20,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import type { RegisterCompanyContactInfoStep } from '@sharedInterfaces/company/RegisterCompanyInterface'
 import { useRegisterCompanyStore } from '@/stores/company/useRegisterCompanyStore'
 import RegisterCompanyService from '@/services/company/RegisterCompanyService'
 
@@ -45,7 +44,7 @@ const handleSubmit = async () => {
   }
 }
 
-const handlePreviousStep = (values: RegisterCompanyContactInfoStep) => {
+const handlePreviousStep = () => {
   emits('previous-step')
 }
 </script>
