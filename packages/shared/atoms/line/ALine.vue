@@ -58,6 +58,10 @@ $height-of-line: 8px;
     background: var(--secondary-4);
   }
 
+  &--white {
+    background: $themes-light-background-primary-default;
+  }
+
   &--triangle {
     clip-path: polygon(0 0, 100% 0, 99% 100%, 0 100%);
   }
