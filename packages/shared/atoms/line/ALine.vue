@@ -35,6 +35,7 @@ const lineHeight = computed(() => {
 $height-of-line: 8px;
 
 .a-line {
+  width: 100%;
   min-height: v-bind(lineHeight);
   max-height: v-bind(lineHeight);
 
