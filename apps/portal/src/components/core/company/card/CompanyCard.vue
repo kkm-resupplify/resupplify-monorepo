@@ -1,17 +1,22 @@
 <template>
-  <router-link :to="companyRoute">
-    <a-card class="company-card" :header-image="data.details.logo" :header-image-alt="data.name">
-      <template #title>{{ data.name }}</template>
+  <a-card
+    class="company-card"
+    :header-image="data.details.logo"
+    :header-image-alt="data.name"
+    @click="() => $router.push(companyRoute)"
+  >
+    <template #title>
+      <span v-text="data.name" />
+    </template>
 
-      <template #content>
-        <div class="company-card__content">
-          <span class="company-card__content-description">{{ data.shortDescription }}</span>
+    <template #content>
+      <div class="company-card__content">
+        <span class="company-card__content-description" v-text="data.shortDescription" />
 
-          <company-card-stats :company-stats="companyStats" />
-        </div>
-      </template>
-    </a-card>
-  </router-link>
+        <company-card-stats :company-stats="companyStats" />
+      </div>
+    </template>
+  </a-card>
 </template>
 
 <script setup lang="ts">
@@ -30,8 +35,8 @@ const props = defineProps({
 // Computed
 const companyStats = computed(() => ({
   productsSold: props.data.productsSold ?? 0,
-  productsTotal: props.data.productsTotal ?? 0,
-  uniqueClients: props.data.uniqueClients ?? 0
+  offersTotal: props.data.offersTotal ?? 0,
+  uniqueClientsCount: props.data.uniqueClientsCount ?? 0
 }))
 
 const companyRoute = computed(() => ({
@@ -44,6 +49,10 @@ const companyRoute = computed(() => ({
 .company-card {
   :hover {
     cursor: pointer;
+  }
+
+  & * {
+    color: #ffffffde !important;
   }
 
   &__content {

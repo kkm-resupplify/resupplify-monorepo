@@ -35,6 +35,7 @@ const lineHeight = computed(() => {
 $height-of-line: 8px;
 
 .a-line {
+  width: 100%;
   min-height: v-bind(lineHeight);
   max-height: v-bind(lineHeight);
 
@@ -56,6 +57,10 @@ $height-of-line: 8px;
 
   &--secondary-4 {
     background: var(--secondary-4);
+  }
+
+  &--white {
+    background: $themes-light-background-primary-default;
   }
 
   &--triangle {

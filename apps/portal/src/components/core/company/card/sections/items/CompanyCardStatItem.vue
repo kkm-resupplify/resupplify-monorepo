@@ -32,6 +32,10 @@ const numberFormatter = useShortNumberFormatComposable()
 
   padding: $global-spacing-10;
 
-  color: var(--font-primary);
+  color: #ffffffde !important;
+
+  & * {
+    color: #ffffffde !important;
+  }
 }
 </style>

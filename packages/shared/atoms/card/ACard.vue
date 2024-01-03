@@ -143,8 +143,6 @@ $body-max-height: 150px;
     width: 100%;
     max-height: v-bind(previewHeight);
 
-    color: var(--font-primary);
-
     transition: all 0.2s ease-in-out;
 
     &--extended {
@@ -153,7 +151,7 @@ $body-max-height: 150px;
   }
 
   &__main {
-    background-color: var(--secondary-1);
+    background: var(--primary-gradient);
   }
 
   &__main-title {

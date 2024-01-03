@@ -1,12 +1,12 @@
 <template>
-  <div class="partners-section">
+  <a-panel-section>
     <a-header
       :title="$t('company.promotion.ourPartners')"
       :subtitle="$t('company.promotion.companiesThatChoseUs')"
     />
 
     <company-card-list :companies="featuredCompanies" />
-  </div>
+  </a-panel-section>
 </template>
 
 <script setup lang="ts">
@@ -37,17 +37,3 @@ onBeforeMount(() => {
   handleFetchFeaturedCompanies()
 })
 </script>
-
-<style scoped lang="scss">
-.partners-section {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  gap: $global-spacing-30;
-  align-self: stretch;
-
-  padding: $global-spacing-30 $global-spacing-40;
-
-  border-radius: $global-border-radius-20;
-}
-</style>

@@ -7,6 +7,7 @@
       :alt="alt"
       :class="generateClasses"
       :rel="rel"
+      class="a-image__image"
       @error="imageError"
       @load="handleImageLoaded"
     />
@@ -42,7 +43,8 @@ const props = defineProps({
   height: {
     type: [String, Number],
     default: 'auto'
-  }
+  },
+  mask: Boolean
 })
 
 // Variables
@@ -54,7 +56,9 @@ const imageRef = ref<HTMLImageElement | null>()
 
 // Computed
 const generateClasses = computed(() => {
-  return generateClassNames(baseClass, [props.variant])
+  const maskClass = props.mask ? 'mask' : ''
+
+  return generateClassNames(baseClass, [props.variant, maskClass])
 })
 
 const height = computed(() => {
@@ -88,6 +92,8 @@ const imageError = () => {
 
 <style scoped lang="scss">
 .a-image {
+  $self: &;
+
   min-width: v-bind(width);
   max-width: v-bind(width);
   min-height: v-bind(height);
@@ -121,6 +127,10 @@ const imageError = () => {
 
   &--hidden {
     display: none;
+  }
+
+  &--mask {
+    filter: invert(1) grayscale(1) brightness(100);
   }
 }
 </style>

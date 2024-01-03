@@ -1,7 +1,10 @@
 <template>
   <div :class="generateClasses">
-    <span class="a-header__title">{{ title }}</span>
-    <span class="a-header__subtitle">{{ subtitle }}</span>
+    <span class="a-header__title" v-text="title" />
+
+    <span class="a-header__subtitle" v-text="subtitle" />
+
+    <a-line />
   </div>
 </template>
 
@@ -36,6 +39,8 @@ const generateClasses = computed(() => {
   flex-direction: column;
   gap: $global-spacing-20;
   align-items: flex-start;
+
+  width: 100%;
 
   color: var(--font-primary);
 

@@ -1,12 +1,12 @@
 <template>
-  <div class="bestsellers-section">
+  <a-panel-section>
     <a-header
       :title="$t('product.promotion.bestsellers')"
       :subtitle="$t('product.promotion.topSellingProducts')"
     />
 
     <product-card-list :products="featuredProducts" />
-  </div>
+  </a-panel-section>
 </template>
 
 <script setup lang="ts">

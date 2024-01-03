@@ -1,19 +1,19 @@
 <template>
   <div class="product-card-stat-item">
-    <a-icon :icon="icon" size="x-large" variant="outlined" />
+    <a-icon :icon="icon" size="x-large" />
 
-    <span class="product-card-stat-item__value" v-text="numberFormatter(value)" />
+    <a-title
+      class="product-card-stat-item__value"
+      :title="numberFormatter(value)"
+      size="x-normal"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-// Composables
 import { useShortNumberFormatComposable } from '@sharedComposables/numeric/useShortNumberFormatComposable'
-
-// Components
 import AIcon from '@sharedAtoms/icon/AIcon.vue'
 
-// Props
 defineProps({
   icon: {
     type: String,
@@ -26,7 +26,7 @@ defineProps({
   }
 })
 
-// Inits
+// Variables
 const numberFormatter = useShortNumberFormatComposable()
 </script>
 
@@ -38,7 +38,10 @@ const numberFormatter = useShortNumberFormatComposable()
   &__value {
     display: flex;
     font-size: $global-font-size-40;
-    color: $themes-light-text-primary;
+
+    :deep(.a-title__title) {
+      color: $themes-light-text-primary;
+    }
   }
 
   :deep(.a-icon) {

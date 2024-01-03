@@ -23,7 +23,11 @@ const routes = [
   ...CartRoutes,
   ...UserRoutes,
   ...CompanyRoutes,
-  ...TestRoutes
+  ...TestRoutes,
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/'
+  }
 ]
 
 const router = createRouter({

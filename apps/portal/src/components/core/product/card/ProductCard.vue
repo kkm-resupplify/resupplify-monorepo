@@ -5,13 +5,10 @@
     keep-extended
     :header-image="data.image"
     :header-image-alt="data.name"
+    @click="() => $router.push(offerLink)"
   >
     <template #title>
       <span class="product-card__title" v-text="data.name" />
-    </template>
-
-    <template #overlay-right>
-      <product-card-ribbon :show-ribbon="showRibbon" />
     </template>
 
     <template #overlay-top>
@@ -40,9 +37,8 @@ import { type PropType, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 import type { FeaturedProduct } from '@sharedInterfaces/product/ProductInterface'
+import { RouteNames } from '@/routes'
 import ProductCardStats from '@/components/core/product/card/sections/ProductCardStats.vue'
-import ProductCardRibbon from '@/components/core/product/card/sections/ProductCardRibbon.vue'
-import { useUserStore } from '@/stores/user/useUserStore'
 
 const props = defineProps({
   data: {
@@ -54,11 +50,8 @@ const props = defineProps({
 // Variables
 const { t } = useI18n()
 const { translateUnit } = useUnitTranslation()
-const userStore = useUserStore()
 
 // Computed
-const showRibbon = computed(() => userStore.isAuthenticated)
-
 const unitText = computed(() => {
   return t('product.unit.pricePerUnit', {
     unit: translateUnit(props.data.productUnit.code).toLowerCase()
@@ -73,13 +66,26 @@ const productStats = computed(() => ({
   available: props.data.productOffer?.productQuantity ?? 0,
   soldQuantity: props.data.soldQuantity ?? 0
 }))
+
+const offerLink = computed(() => {
+  return { name: RouteNames.OFFER_PREVIEW, params: { id: props.data.productOffer.id } }
+})
 </script>
 
 <style scoped lang="scss">
 .product-card {
+  :hover {
+    cursor: pointer;
+  }
+
+  & * {
+    color: #ffffffde !important;
+  }
+
   &__title {
     font-size: $global-title-medium-font-size;
     font-weight: $global-title-medium-font-weight;
+    color: #ffffffde;
   }
 
   &__content {
@@ -91,6 +97,8 @@ const productStats = computed(() => ({
     max-height: 90px;
     padding: 0 $global-spacing-20 $global-spacing-20 $global-spacing-20;
 
+    color: #ffffffde !important;
+
     border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
   }
 
@@ -101,16 +109,15 @@ const productStats = computed(() => ({
   &__content-price {
     display: flex;
 
-    &--value {
-      font-size: $global-title-x-large-font-size;
-      font-weight: $global-title-x-large-font-weight;
+    :deep(.a-currency) {
+      & * {
+        color: #ffffffde !important;
+      }
     }
 
     &--unit {
-      align-self: flex-end;
       margin-left: $global-spacing-10;
-      font-size: $global-text-sm-font-size;
-      line-height: 1;
+      line-height: 16px;
     }
   }
 }
