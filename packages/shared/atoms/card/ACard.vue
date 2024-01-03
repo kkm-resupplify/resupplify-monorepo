@@ -143,8 +143,6 @@ $body-max-height: 150px;
     width: 100%;
     max-height: v-bind(previewHeight);
 
-    color: var(--font-primary);
-
     transition: all 0.2s ease-in-out;
 
     &--extended {

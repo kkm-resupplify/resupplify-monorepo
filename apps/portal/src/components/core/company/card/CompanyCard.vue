@@ -48,6 +48,10 @@ const companyRoute = computed(() => ({
     cursor: pointer;
   }
 
+  & * {
+    color: #ffffffde !important;
+  }
+
   &__content {
     display: flex;
     flex: 1 0 0;

@@ -68,9 +68,14 @@ const productStats = computed(() => ({
 
 <style scoped lang="scss">
 .product-card {
+  & * {
+    color: #ffffffde !important;
+  }
+
   &__title {
     font-size: $global-title-medium-font-size;
     font-weight: $global-title-medium-font-weight;
+    color: #ffffffde;
   }
 
   &__content {
@@ -82,6 +87,8 @@ const productStats = computed(() => ({
     max-height: 90px;
     padding: 0 $global-spacing-20 $global-spacing-20 $global-spacing-20;
 
+    color: #ffffffde !important;
+
     border-radius: 0 0 $global-border-radius-20 $global-border-radius-20;
   }
 
@@ -91,6 +98,12 @@ const productStats = computed(() => ({
 
   &__content-price {
     display: flex;
+
+    :deep(.a-currency) {
+      & * {
+        color: #ffffffde !important;
+      }
+    }
 
     &--unit {
       margin-left: $global-spacing-10;
