@@ -1,6 +1,13 @@
 <template>
-  <div class="hero-section">
-    <div class="hero-section__image" />
+  <a-panel-section class="hero-section">
+    <a-image
+      class="hero-section__image"
+      src="/resupplify-logo.png"
+      alt="logo"
+      height="200px"
+      variant="rounded"
+      mask
+    />
 
     <div class="hero-section__carousel">
       <carousel
@@ -14,22 +21,25 @@
           <div class="hero-section__slide-item">
             <span class="hero-section__slide-text" v-text="headerText" />
 
-            <a-line variant="triangle" />
+            <a-line color="white" />
           </div>
         </slide>
       </carousel>
     </div>
-  </div>
+  </a-panel-section>
 </template>
 
 <script setup lang="ts">
-import { reactive, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
 // Variables
 const { t } = useI18n()
+const imageUrl = ref(
+  'https://media.discordapp.net/attachments/902260825203560518/1191912923266814093/grzegorzfloyd_Design_an_image_that_represents_the_dynamic_and_f_42f0b931-7113-4033-8071-c8cf3df86593.png?ex=65a72a69&is=6594b569&hm=cd56904837866642ee3bb979ea6ab2fd78b8fe51595dd53cab528bb275c3387d&=&format=webp&quality=lossless&width=676&height=676'
+)
 
 // Computed
 const headerTextList = computed(() => [
@@ -37,35 +47,18 @@ const headerTextList = computed(() => [
   t('slogans.diversifyAndGrowClientele'),
   t('slogans.increaseYourMarketShare')
 ])
-
-const imageUrl = computed(() => `url(${imageUrlList[0]})`)
-
-const imageUrlList = reactive(['src/assets/images/hero_1.jpg'])
 </script>
 
 <style scoped lang="scss">
 .hero-section {
   display: flex;
   flex: 1;
+  flex-direction: row !important;
   align-items: center;
   justify-content: center;
 
-  height: 27vh;
-  margin: 0 $global-spacing-40;
-  padding: $global-spacing-30 $global-spacing-40;
-
   background: var(--primary-gradient);
   border-radius: $global-border-radius-20;
-
-  &__image {
-    width: 30%;
-    height: 100%;
-
-    background-image: v-bind(imageUrl);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
 
   &__carousel {
     max-width: 1000px;
