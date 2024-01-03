@@ -19,29 +19,65 @@
             class="company-preview-header-section__info-title"
           />
 
-          <a-title
-            :title="$t('company.preview.email')"
-            :subtitle="companyPreviewGeneralInformation?.email"
-            variant="horizontal"
-            append-colon
-            class="company-preview-header-section__info-title"
-          />
+          <div class="company-preview-header-section__info-row">
+            <div class="company-preview-header-section__info-column">
+              <a-title
+                :title="$t('company.preview.email')"
+                :subtitle="companyPreviewGeneralInformation?.email"
+                variant="horizontal"
+                append-colon
+                class="company-preview-header-section__info-title"
+              />
 
-          <a-title
-            :title="$t('company.preview.phone')"
-            :subtitle="companyPreviewGeneralInformation?.phoneNumber"
-            variant="horizontal"
-            append-colon
-            class="company-preview-header-section__info-title"
-          />
+              <a-title
+                :title="$t('company.preview.phone')"
+                :subtitle="companyPreviewGeneralInformation?.phoneNumber"
+                variant="horizontal"
+                append-colon
+                class="company-preview-header-section__info-title"
+              />
 
-          <a-title
-            :title="$t('company.preview.address')"
-            :subtitle="companyPreviewGeneralInformation?.address"
-            variant="horizontal"
-            append-colon
-            class="company-preview-header-section__info-title"
-          />
+              <a-title
+                :title="$t('company.preview.address')"
+                :subtitle="companyPreviewGeneralInformation?.address"
+                variant="horizontal"
+                append-colon
+                class="company-preview-header-section__info-title"
+              />
+            </div>
+
+            <div class="company-preview-header-section__info-column">
+              <a-title
+                :title="$t('company.preview.contactPerson')"
+                :subtitle="companyPreviewGeneralInformation?.contactPerson"
+                variant="horizontal"
+                append-colon
+                class="company-preview-header-section__info-title"
+              />
+
+              <a-title
+                :title="$t('company.preview.tin')"
+                :subtitle="companyPreviewGeneralInformation?.tin"
+                variant="horizontal"
+                append-colon
+                class="company-preview-header-section__info-title"
+              />
+
+              <a-title
+                :title="$t('company.preview.externalWebsite')"
+                :subtitle="companyPreviewGeneralInformation?.externalWebsite"
+                variant="horizontal"
+                append-colon
+                class="company-preview-header-section__info-title"
+              />
+            </div>
+          </div>
+
+          <div class="company-preview-header-section__info-row">
+            <div class="company-preview-header-section__company-description">
+              <a-title :title="companyPreviewGeneralInformation?.description" />
+            </div>
+          </div>
         </div>
       </div>
     </template>
@@ -60,6 +96,10 @@ interface CompanyPreviewGeneralInformation {
   phoneNumber: string
   address: string
   logo: string
+  externalWebsite: string
+  tin: string
+  contactPerson: string
+  description: string
 }
 
 // Variables
@@ -81,15 +121,21 @@ const handleFetchCompanyInformation = async () => {
   if (success) {
     const {
       name,
-      details: { email, phoneNumber, address, logo }
+      description,
+
+      details: { email, phoneNumber, address, logo, externalWebsite, contactPerson, tin }
     } = data
 
     companyPreviewGeneralInformation.value = {
       name,
+      description,
       email,
       phoneNumber,
       address,
-      logo
+      logo,
+      externalWebsite,
+      contactPerson,
+      tin
     }
   }
 
@@ -114,11 +160,22 @@ onBeforeMount(async () => {
 
   &__info {
     display: flex;
+    flex: 1;
     flex-direction: column;
   }
 
   &__info-title {
     width: max-content;
+  }
+
+  &__info-row {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  &__company-description {
+    margin-top: $global-spacing-30;
   }
 }
 </style>

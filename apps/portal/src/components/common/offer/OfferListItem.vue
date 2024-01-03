@@ -2,52 +2,72 @@
   <a-list-item-wrapper class="offer-list-item">
     <a-image
       :src="offer.product.image"
-      :width="120"
-      :height="120"
+      :width="150"
+      :height="150"
       :alt="offer.product.name"
       variant="rounded"
-      style="align-self: flex-start"
+      style="align-self: flex-start; border: 2px solid var(--secondary-2); border-radius: 10px"
     />
 
     <div class="offer-list-item__information">
       <div class="offer-list-item__product-information">
-        <a-title
-          :title="$t('common.offer.list.item.product.name')"
-          :subtitle="offer.product.name"
-          variant="horizontal"
-          append-colon
-        />
+        <a-title :title="offer.product.name" variant="horizontal" size="large" />
 
-        <a-title
-          v-if="showCompanyName"
-          :title="$t('common.offer.list.item.company')"
-          :subtitle="offer.company.name"
-          variant="horizontal"
-          append-colon
-        />
+        <div class="offer-list-item__product-information-specs">
+          <a-title
+            v-if="showCompanyName"
+            :title="$t('common.offer.list.item.company')"
+            :subtitle="offer.company.name"
+            variant="horizontal"
+            class="offer-list-item__product-information-title"
+            append-colon
+          />
 
-        <a-title
-          :title="$t('common.offer.list.item.product.category')"
-          :subtitle="offer.product.productCategory.name"
-          variant="horizontal"
-          append-colon
-        />
+          <div class="offer-list-item__product-information-categories">
+            <a-title
+              :title="$t('common.offer.list.item.product.category')"
+              :subtitle="offer.product.productCategory.name"
+              variant="horizontal"
+              class="offer-list-item__product-information-title"
+              append-colon
+            />
 
-        <a-title
-          :title="$t('common.offer.list.item.product.subcategory')"
-          :subtitle="offer.product.productSubcategory.name"
-          variant="horizontal"
-          append-colon
-        />
+            <span class="offer-list-item__product-information-separator">|</span>
 
-        <product-tag-list :product-tags="offer.product.productTags" />
+            <a-title
+              :title="$t('common.offer.list.item.product.subcategory')"
+              :subtitle="offer.product.productSubcategory.name"
+              variant="horizontal"
+              class="offer-list-item__product-information-title"
+              append-colon
+            />
+          </div>
+
+          <a-title
+            :title="$t('common.offer.list.item.product.unit')"
+            :subtitle="translateUnit(offer.product.productUnit.code)"
+            variant="horizontal"
+            class="offer-list-item__product-information-title"
+            append-colon
+          />
+
+          <product-tag-list
+            class="offer-list-item__product-information-tags"
+            :product-tags="offer.product.productTags"
+          />
+        </div>
       </div>
 
       <div class="offer-list-item__order-information">
         <div class="offer-list-item__order-price">
-          <a-title :title="$t('common.offer.list.item.price')" variant="horizontal" append-colon />
+          <a-title
+            :title="$t('common.offer.list.item.price')"
+            variant="horizontal"
+            append-colon
+            size="large"
+          />
 
-          <a-currency :value="offer.price" size="small" />
+          <a-currency :value="offer.price" value-size="large" />
         </div>
 
         <a-title
@@ -64,18 +84,20 @@
           append-colon
         />
 
-        <a-button
-          v-if="isNotCurrentUserCompanyOffer"
-          :text="buttonText"
-          size="x-large"
-          @click="handleAddToCart"
-        />
+        <div class="offer-list-item__order-information-buttons">
+          <a-button
+            v-if="isNotCurrentUserCompanyOffer"
+            :text="buttonText"
+            size="x-large"
+            @click="handleAddToCart"
+          />
 
-        <a-button
-          :text="$t('global.seeDetails')"
-          size="x-large"
-          :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
-        />
+          <a-button
+            :text="$t('global.seeDetails')"
+            size="x-large"
+            :to="{ name: RouteNames.OFFER_PREVIEW, params: { id: offer.id } }"
+          />
+        </div>
       </div>
     </div>
   </a-list-item-wrapper>
@@ -89,6 +111,7 @@ import { type PropType, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RouteNames } from '@/routes'
 import { useUserStore } from '@/stores/user/useUserStore'
+import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 const props = defineProps({
   offer: {
     type: Object as PropType<Offer>,
@@ -104,6 +127,9 @@ const props = defineProps({
 const userCartStore = useUserCartStore()
 const { t } = useI18n()
 const userStore = useUserStore()
+
+// Composables
+const { translateUnit } = useUnitTranslation()
 
 // Computed
 const isOfferInCart = computed(() => userCartStore.isOfferInCart(props.offer))
@@ -135,13 +161,46 @@ const handleAddToCart = () => {
   &__product-information {
     display: flex;
     flex-direction: column;
-    gap: $global-spacing-20;
+    gap: $global-spacing-40;
+    margin-left: $global-spacing-50;
+  }
+
+  &__product-information-specs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__product-information-tags {
+    display: flex;
+    gap: $global-spacing-30;
+    margin-top: $global-spacing-20;
+  }
+
+  &__product-information-title {
+    width: max-content;
+  }
+
+  &__product-information-categories {
+    display: flex;
+    gap: $global-spacing-40;
+  }
+
+  &__product-information-separator {
+    color: var(--secondary-2);
   }
 
   &__order-information {
     display: flex;
     flex-direction: column;
     gap: $global-spacing-20;
+    align-items: flex-end;
+  }
+
+  &__order-information-buttons {
+    display: flex;
+    gap: $global-spacing-50;
+    margin-top: $global-spacing-50;
   }
 
   &__order-price {

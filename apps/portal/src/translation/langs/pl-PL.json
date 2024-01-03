@@ -43,7 +43,8 @@
     "seeDetails": "Zobacz szczegóły",
     "set": "Ustaw",
     "dark": "Ciemny",
-    "light": "Jasny"
+    "light": "Jasny",
+    "close": "Zamknij"
   },
 
   "language": {
@@ -672,7 +673,7 @@
         },
 
         "preview": {
-          "productDetails": "Szczegóły produktu",
+          "productDescription": "Opis produktu",
           "sellerInformation": "Informacje o sprzedawcy",
           "productUnit": "Jednostka produktu"
         }
@@ -725,7 +726,12 @@
     "preview": {
       "email": "Email",
       "phone": "Numer kontaktowy",
-      "address": "Adres"
+      "address": "Adres",
+      "contactPerson": "Osoba kontaktowa",
+      "tin": "Numer identyfikacji podatkowej",
+      "externalWebsite": "Strona internetowa firmy",
+      "longDescription": "Opis",
+      "shortDescription": "Krótki opis"
     },
 
     "categories": {
@@ -758,6 +764,12 @@
     "header": {
       "title": "Przeglądaj oferty",
       "description": "Przeglądaj oferty firm zarejestrowanych w naszej platformie. Każda produkt na Resupplify przechodzi szczegółową weryfikację, zapewniając wiarygodność ofert wystawianych przez firmy. Kupuj z pewnością, wiedząc, że nasze zaangażowanie w doskonałość służy Twojej firmie."
+    },
+
+    "preview": {
+      "dialog": {
+        "content": "Ta oferta należy do Twojej firmy. Nie możesz dodać go do koszyka."
+      }
     }
   },
 
@@ -834,7 +846,8 @@
           "product": {
             "name": "Nazwa",
             "category": "Kategoria",
-            "subcategory": "Podkategoria"
+            "subcategory": "Podkategoria",
+            "unit": "Jednostka"
           },
 
           "price": "Cena",
