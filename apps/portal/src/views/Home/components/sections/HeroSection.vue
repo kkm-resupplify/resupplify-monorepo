@@ -30,16 +30,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
 // Variables
 const { t } = useI18n()
-const imageUrl = ref(
-  'https://media.discordapp.net/attachments/902260825203560518/1191912923266814093/grzegorzfloyd_Design_an_image_that_represents_the_dynamic_and_f_42f0b931-7113-4033-8071-c8cf3df86593.png?ex=65a72a69&is=6594b569&hm=cd56904837866642ee3bb979ea6ab2fd78b8fe51595dd53cab528bb275c3387d&=&format=webp&quality=lossless&width=676&height=676'
-)
 
 // Computed
 const headerTextList = computed(() => [
