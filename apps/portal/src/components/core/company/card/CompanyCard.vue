@@ -1,11 +1,13 @@
 <template>
   <router-link :to="companyRoute">
     <a-card class="company-card" :header-image="data.details.logo" :header-image-alt="data.name">
-      <template #title>{{ data.name }}</template>
+      <template #title>
+        <span v-text="data.name" />
+      </template>
 
       <template #content>
         <div class="company-card__content">
-          <span class="company-card__content-description">{{ data.shortDescription }}</span>
+          <span class="company-card__content-description" v-text="data.shortDescription" />
 
           <company-card-stats :company-stats="companyStats" />
         </div>

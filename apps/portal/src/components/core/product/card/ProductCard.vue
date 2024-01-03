@@ -10,10 +10,6 @@
       <span class="product-card__title" v-text="data.name" />
     </template>
 
-    <template #overlay-right>
-      <product-card-ribbon :show-ribbon="showRibbon" />
-    </template>
-
     <template #overlay-top>
       <product-card-stats :stats="productStats" />
     </template>
@@ -41,8 +37,6 @@ import { useI18n } from 'vue-i18n'
 import { useUnitTranslation } from '@sharedComposables/unit/useUnitTranslation'
 import type { FeaturedProduct } from '@sharedInterfaces/product/ProductInterface'
 import ProductCardStats from '@/components/core/product/card/sections/ProductCardStats.vue'
-import ProductCardRibbon from '@/components/core/product/card/sections/ProductCardRibbon.vue'
-import { useUserStore } from '@/stores/user/useUserStore'
 
 const props = defineProps({
   data: {
@@ -54,11 +48,8 @@ const props = defineProps({
 // Variables
 const { t } = useI18n()
 const { translateUnit } = useUnitTranslation()
-const userStore = useUserStore()
 
 // Computed
-const showRibbon = computed(() => userStore.isAuthenticated)
-
 const unitText = computed(() => {
   return t('product.unit.pricePerUnit', {
     unit: translateUnit(props.data.productUnit.code).toLowerCase()
@@ -101,16 +92,9 @@ const productStats = computed(() => ({
   &__content-price {
     display: flex;
 
-    &--value {
-      font-size: $global-title-x-large-font-size;
-      font-weight: $global-title-x-large-font-weight;
-    }
-
     &--unit {
-      align-self: flex-end;
       margin-left: $global-spacing-10;
-      font-size: $global-text-sm-font-size;
-      line-height: 1;
+      line-height: 16px;
     }
   }
 }
