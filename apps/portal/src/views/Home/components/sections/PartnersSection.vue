@@ -5,7 +5,7 @@
       :subtitle="$t('company.promotion.companiesThatChoseUs')"
     />
 
-    <company-card-list :companies="featuredCompanies" />
+    <company-card-list :companies="featuredCompanies.slice(0, 6)" />
   </a-panel-section>
 </template>
 

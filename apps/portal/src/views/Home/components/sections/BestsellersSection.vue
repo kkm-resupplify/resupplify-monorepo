@@ -5,7 +5,7 @@
       :subtitle="$t('product.promotion.topSellingProducts')"
     />
 
-    <product-card-list :products="featuredProducts" />
+    <product-card-list :products="featuredProducts.slice(0, 6)" />
   </a-panel-section>
 </template>
 
