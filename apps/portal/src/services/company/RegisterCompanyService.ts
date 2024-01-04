@@ -67,9 +67,13 @@ const convertToFormData = (storeData: any) => {
     if (storeData[key] instanceof File) {
       formData.append(key, storeData[key])
     } else if (Array.isArray(storeData[key])) {
-      storeData[key].forEach((item: { [x: string]: any }, index: any) => {
-        for (const prop in item) {
-          formData.append(`${key}[${index}][${prop}]`, String(item[prop]))
+      storeData[key].forEach((item: any, index: any) => {
+        if (typeof item === 'object' && item !== null) {
+          for (const prop in item) {
+            formData.append(`${key}[${index}][${prop}]`, String(item[prop]))
+          }
+        } else {
+          formData.append(`${key}[${index}]`, String(item))
         }
       })
     } else {

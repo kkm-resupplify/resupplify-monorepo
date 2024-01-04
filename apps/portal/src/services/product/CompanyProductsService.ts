@@ -31,6 +31,8 @@ class CreateProductDto {
     this.productUnitId = productUnitId
     this.productSubcategoryId = productSubcategoryId
     this.translations = productEditorTranslationStepData
+
+    console.log(this)
   }
 }
 
@@ -87,26 +89,9 @@ class CompanyProductsService extends BaseService {
   }
 
   async createProduct(productEditorData: ProductEditorStoreState) {
-    const productData = new CreateProductDto(productEditorData)
-    const formData = new FormData()
-
-    Object.keys(productData).forEach((key) => {
-      if (productData[key] instanceof File) {
-        formData.append(key, productData[key])
-      } else if (Array.isArray(productData[key])) {
-        productData[key].forEach((item: { [x: string]: any }, index: any) => {
-          for (const prop in item) {
-            formData.append(`${key}[${index}][${prop}]`, String(item[prop]))
-          }
-        })
-      } else {
-        formData.append(key, String(productData[key]))
-      }
-    })
-
     return this.post({
       suffix: CompanyProductsService.COMPANY_PRODUCTS_SUFFIX,
-      data: formData,
+      data: convertToFormData(new CreateProductDto(productEditorData)),
       notificationTitle: 'company.management.products.editor.notification.productCreatedTitle',
       notificationText: 'company.management.products.editor.notification.productCreatedText'
     })
@@ -115,10 +100,34 @@ class CompanyProductsService extends BaseService {
   async editProduct(productData: ProductEditorStoreState) {
     return this.put({
       suffix: `${CompanyProductsService.COMPANY_PRODUCTS_SUFFIX}/${productData.productEditorFirstStepData.id}`,
-      data: new CreateProductDto(productData),
+      data: convertToFormData(new CreateProductDto(productData)),
       notificationTitle: 'company.management.products.editor.notification.productEditedTitle'
     })
   }
+}
+
+const convertToFormData = (storeData: any) => {
+  const formData = new FormData()
+
+  Object.keys(storeData).forEach((key) => {
+    if (storeData[key] instanceof File) {
+      formData.append(key, storeData[key])
+    } else if (Array.isArray(storeData[key])) {
+      storeData[key].forEach((item: any, index: any) => {
+        if (typeof item === 'object' && item !== null) {
+          for (const prop in item) {
+            formData.append(`${key}[${index}][${prop}]`, String(item[prop]))
+          }
+        } else {
+          formData.append(`${key}[${index}]`, String(item))
+        }
+      })
+    } else {
+      formData.append(key, String(storeData[key]))
+    }
+  })
+
+  return formData
 }
 
 export default new CompanyProductsService('company')
