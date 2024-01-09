@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section>
+  <a-panel-section v-if="featuredProducts.length">
     <a-header
       :title="$t('product.promotion.bestsellers')"
       :subtitle="$t('product.promotion.topSellingProducts')"

@@ -1,5 +1,5 @@
 <template>
-  <a-panel-section>
+  <a-panel-section v-if="featuredCompanies.length">
     <a-header
       :title="$t('company.promotion.ourPartners')"
       :subtitle="$t('company.promotion.companiesThatChoseUs')"
