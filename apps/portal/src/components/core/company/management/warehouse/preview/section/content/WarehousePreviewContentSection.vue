@@ -15,7 +15,7 @@
         v-if="showList"
         :warehouse-products="warehouseProducts"
         :pagination="paginationData"
-        @product-changed="$emit('product-changed')"
+        @product-changed="handleProductChanged"
       />
 
       <a-list-no-results
@@ -41,7 +41,7 @@ const props = defineProps({
 })
 
 // Emits
-defineEmits(['product-changed'])
+const emits = defineEmits(['product-changed'])
 
 // Variables
 const isLoading = ref(false)
@@ -82,6 +82,11 @@ const handleFetchWarehouseProducts = async () => {
   }
 
   isLoading.value = false
+}
+
+const handleProductChanged = () => {
+  handleFetchWarehouseProducts()
+  emits('product-changed')
 }
 
 // Hooks
