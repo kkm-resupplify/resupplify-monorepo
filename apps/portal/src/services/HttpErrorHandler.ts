@@ -28,7 +28,6 @@ class HttpErrorHandler {
   }
 
   async handleErrorCode422(error: ApiError) {
-    await this.rerouteToHome()
     this.displayPopupNotification(error)
   }
 
