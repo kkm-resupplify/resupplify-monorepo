@@ -1,5 +1,5 @@
 <template>
-  <a-panel class="payment-manage-balance-panel">
+  <a-panel>
     <a-panel-section>
       <div class="payment-manage-balance-panel__header">
         <a-title :title="$t('company.management.balance.manage.title')" size="x-large" />
@@ -29,7 +29,7 @@
             <m-text-field
               name="amount"
               input-type="number"
-              rules="required"
+              rules="required|min_value:0"
               :label="$t('company.management.balance.manage.amountLabel')"
               :placeholder="$t('company.management.balance.manage.amountPlaceholder')"
               :options="operationTypes"
@@ -126,11 +126,6 @@ onBeforeMount(async () => {
 
 <style scoped lang="scss">
 .payment-manage-balance-panel {
-  display: flex;
-  flex-direction: column;
-  gap: $global-spacing-100;
-  padding: $global-spacing-100;
-
   &__header {
     display: flex;
     flex-direction: column;
@@ -144,7 +139,6 @@ onBeforeMount(async () => {
 
   &__form {
     max-width: 400px;
-    max-height: 190px;
   }
 
   &__form-content {
