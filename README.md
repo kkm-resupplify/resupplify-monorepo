@@ -17,7 +17,7 @@ This monorepo built with Turborepo includes the following packages/apps:
 
 - `portal`: main application for the users and companies
 - `back-office`: administration panel for veryfing companies and their products
-- `shared`: components, enum, interfaces and composables used throughout the monorepo
+- `shared`: components, enum, interfaces and composables etc. used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
